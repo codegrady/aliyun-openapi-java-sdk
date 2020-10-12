@@ -15,37 +15,46 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetCasterChannelRequest extends RpcAcsRequest<SetCasterChannelResponse> {
-	
-	public SetCasterChannelRequest() {
-		super("live", "2016-11-01", "SetCasterChannel", "live");
-	}
+	   
 
-	private String resourceId;
+	private Integer seekOffset;
 
 	private Integer playStatus;
+
+	private String resourceId;
 
 	private String casterId;
 
 	private Long ownerId;
 
-	private Integer seekOffset;
+	private Integer reloadFlag;
 
 	private String channelId;
-
-	public String getResourceId() {
-		return this.resourceId;
+	public SetCasterChannelRequest() {
+		super("live", "2016-11-01", "SetCasterChannel", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setResourceId(String resourceId) {
-		this.resourceId = resourceId;
-		if(resourceId != null){
-			putQueryParameter("ResourceId", resourceId);
+	public Integer getSeekOffset() {
+		return this.seekOffset;
+	}
+
+	public void setSeekOffset(Integer seekOffset) {
+		this.seekOffset = seekOffset;
+		if(seekOffset != null){
+			putQueryParameter("SeekOffset", seekOffset.toString());
 		}
 	}
 
@@ -57,6 +66,17 @@ public class SetCasterChannelRequest extends RpcAcsRequest<SetCasterChannelRespo
 		this.playStatus = playStatus;
 		if(playStatus != null){
 			putQueryParameter("PlayStatus", playStatus.toString());
+		}
+	}
+
+	public String getResourceId() {
+		return this.resourceId;
+	}
+
+	public void setResourceId(String resourceId) {
+		this.resourceId = resourceId;
+		if(resourceId != null){
+			putQueryParameter("ResourceId", resourceId);
 		}
 	}
 
@@ -82,14 +102,14 @@ public class SetCasterChannelRequest extends RpcAcsRequest<SetCasterChannelRespo
 		}
 	}
 
-	public Integer getSeekOffset() {
-		return this.seekOffset;
+	public Integer getReloadFlag() {
+		return this.reloadFlag;
 	}
 
-	public void setSeekOffset(Integer seekOffset) {
-		this.seekOffset = seekOffset;
-		if(seekOffset != null){
-			putQueryParameter("SeekOffset", seekOffset.toString());
+	public void setReloadFlag(Integer reloadFlag) {
+		this.reloadFlag = reloadFlag;
+		if(reloadFlag != null){
+			putQueryParameter("ReloadFlag", reloadFlag.toString());
 		}
 	}
 

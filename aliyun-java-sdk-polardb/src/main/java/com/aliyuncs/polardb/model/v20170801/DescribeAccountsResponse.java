@@ -27,7 +27,7 @@ public class DescribeAccountsResponse extends AcsResponse {
 
 	private String requestId;
 
-	private List<DBInstanceAccount> accounts;
+	private List<DBAccount> accounts;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -37,17 +37,15 @@ public class DescribeAccountsResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public List<DBInstanceAccount> getAccounts() {
+	public List<DBAccount> getAccounts() {
 		return this.accounts;
 	}
 
-	public void setAccounts(List<DBInstanceAccount> accounts) {
+	public void setAccounts(List<DBAccount> accounts) {
 		this.accounts = accounts;
 	}
 
-	public static class DBInstanceAccount {
-
-		private String dBClusterId;
+	public static class DBAccount {
 
 		private String accountName;
 
@@ -57,13 +55,13 @@ public class DescribeAccountsResponse extends AcsResponse {
 
 		private String accountType;
 
-		public String getDBClusterId() {
-			return this.dBClusterId;
-		}
+		private String accountLockState;
 
-		public void setDBClusterId(String dBClusterId) {
-			this.dBClusterId = dBClusterId;
-		}
+		private String privilegeExceeded;
+
+		private String accountPasswordValidTime;
+
+		private List<DatabasePrivilege> databasePrivileges;
 
 		public String getAccountName() {
 			return this.accountName;
@@ -96,10 +94,70 @@ public class DescribeAccountsResponse extends AcsResponse {
 		public void setAccountType(String accountType) {
 			this.accountType = accountType;
 		}
+
+		public String getAccountLockState() {
+			return this.accountLockState;
+		}
+
+		public void setAccountLockState(String accountLockState) {
+			this.accountLockState = accountLockState;
+		}
+
+		public String getPrivilegeExceeded() {
+			return this.privilegeExceeded;
+		}
+
+		public void setPrivilegeExceeded(String privilegeExceeded) {
+			this.privilegeExceeded = privilegeExceeded;
+		}
+
+		public String getAccountPasswordValidTime() {
+			return this.accountPasswordValidTime;
+		}
+
+		public void setAccountPasswordValidTime(String accountPasswordValidTime) {
+			this.accountPasswordValidTime = accountPasswordValidTime;
+		}
+
+		public List<DatabasePrivilege> getDatabasePrivileges() {
+			return this.databasePrivileges;
+		}
+
+		public void setDatabasePrivileges(List<DatabasePrivilege> databasePrivileges) {
+			this.databasePrivileges = databasePrivileges;
+		}
+
+		public static class DatabasePrivilege {
+
+			private String dBName;
+
+			private String accountPrivilege;
+
+			public String getDBName() {
+				return this.dBName;
+			}
+
+			public void setDBName(String dBName) {
+				this.dBName = dBName;
+			}
+
+			public String getAccountPrivilege() {
+				return this.accountPrivilege;
+			}
+
+			public void setAccountPrivilege(String accountPrivilege) {
+				this.accountPrivilege = accountPrivilege;
+			}
+		}
 	}
 
 	@Override
 	public DescribeAccountsResponse getInstance(UnmarshallerContext context) {
 		return	DescribeAccountsResponseUnmarshaller.unmarshall(this, context);
+	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
 	}
 }

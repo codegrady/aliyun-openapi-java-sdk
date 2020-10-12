@@ -15,16 +15,15 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetQueueInputStatisticInfoRequest extends RpcAcsRequest<GetQueueInputStatisticInfoResponse> {
-	
-	public GetQueueInputStatisticInfoRequest() {
-		super("Emr", "2016-04-08", "GetQueueInputStatisticInfo");
-	}
+	   
 
 	private String fromDatetime;
 
@@ -33,6 +32,14 @@ public class GetQueueInputStatisticInfoRequest extends RpcAcsRequest<GetQueueInp
 	private String clusterId;
 
 	private String toDatetime;
+	public GetQueueInputStatisticInfoRequest() {
+		super("Emr", "2016-04-08", "GetQueueInputStatisticInfo");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFromDatetime() {
 		return this.fromDatetime;

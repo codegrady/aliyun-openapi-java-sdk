@@ -1,43 +1,47 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package com.aliyuncs.auth;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
 
 import com.aliyuncs.http.FormatType;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.utils.ParameterHelper;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class RoaSignatureComposer implements ISignatureComposer {
 
-    private static ISignatureComposer composer = null;
     protected final static String QUERY_SEPARATOR = "&";
     protected final static String HEADER_SEPARATOR = "\n";
+    private static ISignatureComposer composer = null;
+
+    public static String replaceOccupiedParameters(String url, Map<String, String> paths) {
+        String result = url;
+        for (Map.Entry<String, String> entry : paths.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            String target = "[" + key + "]";
+            result = result.replace(target, value);
+        }
+
+        return result;
+    }
+
+    public static ISignatureComposer getComposer() {
+        if (null == composer) {
+            composer = new RoaSignatureComposer();
+        }
+        return composer;
+    }
 
     @Override
-    public Map<String, String> refreshSignParameters(Map<String, String> parameters,
-                                                     Signer signer, String accessKeyId, FormatType format) {
+    public Map<String, String> refreshSignParameters(Map<String, String> parameters, Signer signer, String accessKeyId,
+            FormatType format) {
         Map<String, String> immutableMap = new HashMap<String, String>(parameters);
-        immutableMap.put("Date", ParameterHelper.getRFC2616Date(null));
-        if (null == format) { format = FormatType.RAW; }
+        immutableMap.put("Date", ParameterHelper.getRFC2616Date(new Date()));
+        if (null == format) {
+            format = FormatType.JSON;
+        }
         immutableMap.put("Accept", FormatType.mapFormatToAccept(format));
         immutableMap.put("x-acs-signature-method", signer.getSignerName());
         immutableMap.put("x-acs-signature-version", signer.getSignerVersion());
@@ -53,7 +57,9 @@ public class RoaSignatureComposer implements ISignatureComposer {
         if (-1 != queIndex) {
             uriParts[0] = uri.substring(0, queIndex);
             uriParts[1] = uri.substring(queIndex + 1);
-        } else { uriParts[0] = uri; }
+        } else {
+            uriParts[0] = uri;
+        }
         return uriParts;
     }
 
@@ -103,22 +109,9 @@ public class RoaSignatureComposer implements ISignatureComposer {
         return headerBuilder.toString();
     }
 
-    public static String replaceOccupiedParameters(String url, Map<String, String> paths) {
-        String result = url;
-        for (Map.Entry<String, String> entry : paths.entrySet()) {
-            String key = entry.getKey();
-            String value = entry.getValue();
-            String target = "[" + key + "]";
-            result = result.replace(target, value);
-        }
-
-        return result;
-    }
-
     @Override
-    public String composeStringToSign(MethodType method, String uriPattern, Signer signer,
-                                      Map<String, String> queries, Map<String, String> headers,
-                                      Map<String, String> paths) {
+    public String composeStringToSign(MethodType method, String uriPattern, Signer signer, Map<String, String> queries,
+            Map<String, String> headers, Map<String, String> paths) {
         StringBuilder sb = new StringBuilder();
         sb.append(method).append(HEADER_SEPARATOR);
         if (headers.get("Accept") != null) {
@@ -141,12 +134,5 @@ public class RoaSignatureComposer implements ISignatureComposer {
         sb.append(buildCanonicalHeaders(headers, "x-acs-"));
         sb.append(buildQueryString(uri, queries));
         return sb.toString();
-    }
-
-    public static ISignatureComposer getComposer() {
-        if (null == composer) {
-            composer = new RoaSignatureComposer();
-        }
-        return composer;
     }
 }

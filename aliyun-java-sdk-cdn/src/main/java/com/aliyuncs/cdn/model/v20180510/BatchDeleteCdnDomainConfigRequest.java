@@ -15,26 +15,33 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class BatchDeleteCdnDomainConfigRequest extends RpcAcsRequest<BatchDeleteCdnDomainConfigResponse> {
-	
-	public BatchDeleteCdnDomainConfigRequest() {
-		super("Cdn", "2018-05-10", "BatchDeleteCdnDomainConfig");
-	}
+	   
 
 	private String functionNames;
-
-	private String securityToken;
 
 	private String domainNames;
 
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String securityToken;
+	public BatchDeleteCdnDomainConfigRequest() {
+		super("Cdn", "2018-05-10", "BatchDeleteCdnDomainConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFunctionNames() {
 		return this.functionNames;
@@ -44,17 +51,6 @@ public class BatchDeleteCdnDomainConfigRequest extends RpcAcsRequest<BatchDelete
 		this.functionNames = functionNames;
 		if(functionNames != null){
 			putQueryParameter("FunctionNames", functionNames);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 
@@ -88,6 +84,17 @@ public class BatchDeleteCdnDomainConfigRequest extends RpcAcsRequest<BatchDelete
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

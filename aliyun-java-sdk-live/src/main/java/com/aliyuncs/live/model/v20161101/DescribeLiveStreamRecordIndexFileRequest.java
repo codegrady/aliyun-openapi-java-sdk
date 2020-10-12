@@ -15,38 +15,34 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeLiveStreamRecordIndexFileRequest extends RpcAcsRequest<DescribeLiveStreamRecordIndexFileResponse> {
-	
-	public DescribeLiveStreamRecordIndexFileRequest() {
-		super("live", "2016-11-01", "DescribeLiveStreamRecordIndexFile", "live");
-	}
-
-	private String recordId;
+	   
 
 	private String appName;
 
 	private String securityToken;
 
+	private String streamName;
+
 	private String domainName;
 
 	private Long ownerId;
 
-	private String streamName;
-
-	public String getRecordId() {
-		return this.recordId;
-	}
-
-	public void setRecordId(String recordId) {
-		this.recordId = recordId;
-		if(recordId != null){
-			putQueryParameter("RecordId", recordId);
-		}
+	private String recordId;
+	public DescribeLiveStreamRecordIndexFileRequest() {
+		super("live", "2016-11-01", "DescribeLiveStreamRecordIndexFile", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getAppName() {
@@ -68,6 +64,17 @@ public class DescribeLiveStreamRecordIndexFileRequest extends RpcAcsRequest<Desc
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getStreamName() {
+		return this.streamName;
+	}
+
+	public void setStreamName(String streamName) {
+		this.streamName = streamName;
+		if(streamName != null){
+			putQueryParameter("StreamName", streamName);
 		}
 	}
 
@@ -93,14 +100,14 @@ public class DescribeLiveStreamRecordIndexFileRequest extends RpcAcsRequest<Desc
 		}
 	}
 
-	public String getStreamName() {
-		return this.streamName;
+	public String getRecordId() {
+		return this.recordId;
 	}
 
-	public void setStreamName(String streamName) {
-		this.streamName = streamName;
-		if(streamName != null){
-			putQueryParameter("StreamName", streamName);
+	public void setRecordId(String recordId) {
+		this.recordId = recordId;
+		if(recordId != null){
+			putQueryParameter("RecordId", recordId);
 		}
 	}
 

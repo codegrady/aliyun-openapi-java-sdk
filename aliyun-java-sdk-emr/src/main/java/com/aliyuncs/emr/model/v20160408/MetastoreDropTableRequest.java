@@ -15,6 +15,7 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
@@ -23,14 +24,22 @@ import com.aliyuncs.RpcAcsRequest;
 public class MetastoreDropTableRequest extends RpcAcsRequest<MetastoreDropTableResponse> {
 	
 	public MetastoreDropTableRequest() {
-		super("Emr", "2016-04-08", "MetastoreDropTable");
+		super("Emr", "2016-04-08", "MetastoreDropTable", "emr");
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private Long resourceOwnerId;
 
 	private String dbName;
 
+	private String tableId;
+
 	private String tableName;
+
+	private String databaseId;
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -54,6 +63,17 @@ public class MetastoreDropTableRequest extends RpcAcsRequest<MetastoreDropTableR
 		}
 	}
 
+	public String getTableId() {
+		return this.tableId;
+	}
+
+	public void setTableId(String tableId) {
+		this.tableId = tableId;
+		if(tableId != null){
+			putQueryParameter("TableId", tableId);
+		}
+	}
+
 	public String getTableName() {
 		return this.tableName;
 	}
@@ -62,6 +82,17 @@ public class MetastoreDropTableRequest extends RpcAcsRequest<MetastoreDropTableR
 		this.tableName = tableName;
 		if(tableName != null){
 			putQueryParameter("TableName", tableName);
+		}
+	}
+
+	public String getDatabaseId() {
+		return this.databaseId;
+	}
+
+	public void setDatabaseId(String databaseId) {
+		this.databaseId = databaseId;
+		if(databaseId != null){
+			putQueryParameter("DatabaseId", databaseId);
 		}
 	}
 

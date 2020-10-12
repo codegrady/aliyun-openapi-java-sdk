@@ -93,6 +93,8 @@ public class ListVolumesResponse extends AcsResponse {
 
 		private String remoteDirectory;
 
+		private List<VolumeInfo1> additionalVolumes;
+
 		public String getRegionId() {
 			return this.regionId;
 		}
@@ -155,6 +157,107 @@ public class ListVolumesResponse extends AcsResponse {
 
 		public void setRemoteDirectory(String remoteDirectory) {
 			this.remoteDirectory = remoteDirectory;
+		}
+
+		public List<VolumeInfo1> getAdditionalVolumes() {
+			return this.additionalVolumes;
+		}
+
+		public void setAdditionalVolumes(List<VolumeInfo1> additionalVolumes) {
+			this.additionalVolumes = additionalVolumes;
+		}
+
+		public static class VolumeInfo1 {
+
+			private String volumeType;
+
+			private String volumeId;
+
+			private String volumeProtocol;
+
+			private String volumeMountpoint;
+
+			private String remoteDirectory;
+
+			private String localDirectory;
+
+			private String role;
+
+			private String location;
+
+			private String jobQueue;
+
+			public String getVolumeType() {
+				return this.volumeType;
+			}
+
+			public void setVolumeType(String volumeType) {
+				this.volumeType = volumeType;
+			}
+
+			public String getVolumeId() {
+				return this.volumeId;
+			}
+
+			public void setVolumeId(String volumeId) {
+				this.volumeId = volumeId;
+			}
+
+			public String getVolumeProtocol() {
+				return this.volumeProtocol;
+			}
+
+			public void setVolumeProtocol(String volumeProtocol) {
+				this.volumeProtocol = volumeProtocol;
+			}
+
+			public String getVolumeMountpoint() {
+				return this.volumeMountpoint;
+			}
+
+			public void setVolumeMountpoint(String volumeMountpoint) {
+				this.volumeMountpoint = volumeMountpoint;
+			}
+
+			public String getRemoteDirectory() {
+				return this.remoteDirectory;
+			}
+
+			public void setRemoteDirectory(String remoteDirectory) {
+				this.remoteDirectory = remoteDirectory;
+			}
+
+			public String getLocalDirectory() {
+				return this.localDirectory;
+			}
+
+			public void setLocalDirectory(String localDirectory) {
+				this.localDirectory = localDirectory;
+			}
+
+			public String getRole() {
+				return this.role;
+			}
+
+			public void setRole(String role) {
+				this.role = role;
+			}
+
+			public String getLocation() {
+				return this.location;
+			}
+
+			public void setLocation(String location) {
+				this.location = location;
+			}
+
+			public String getJobQueue() {
+				return this.jobQueue;
+			}
+
+			public void setJobQueue(String jobQueue) {
+				this.jobQueue = jobQueue;
+			}
 		}
 	}
 

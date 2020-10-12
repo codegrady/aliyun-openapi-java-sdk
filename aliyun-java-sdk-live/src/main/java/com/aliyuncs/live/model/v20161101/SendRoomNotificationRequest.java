@@ -15,16 +15,15 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SendRoomNotificationRequest extends RpcAcsRequest<SendRoomNotificationResponse> {
-	
-	public SendRoomNotificationRequest() {
-		super("live", "2016-11-01", "SendRoomNotification", "live");
-	}
+	   
 
 	private String data;
 
@@ -37,6 +36,14 @@ public class SendRoomNotificationRequest extends RpcAcsRequest<SendRoomNotificat
 	private String roomId;
 
 	private String appId;
+	public SendRoomNotificationRequest() {
+		super("live", "2016-11-01", "SendRoomNotification", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getData() {
 		return this.data;

@@ -47,7 +47,7 @@ public class DescribeAccountsResponse extends AcsResponse {
 
 	public static class Account {
 
-		private Integer instanceId;
+		private String instanceId;
 
 		private String accountName;
 
@@ -61,11 +61,11 @@ public class DescribeAccountsResponse extends AcsResponse {
 
 		private List<DatabasePrivilege> databasePrivileges;
 
-		public Integer getInstanceId() {
+		public String getInstanceId() {
 			return this.instanceId;
 		}
 
-		public void setInstanceId(Integer instanceId) {
+		public void setInstanceId(String instanceId) {
 			this.instanceId = instanceId;
 		}
 

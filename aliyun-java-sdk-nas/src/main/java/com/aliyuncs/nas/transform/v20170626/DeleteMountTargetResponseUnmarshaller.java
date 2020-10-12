@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.transform.v20170626;
 
 import com.aliyuncs.nas.model.v20170626.DeleteMountTargetResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteMountTargetResponseUnmarshaller {
 
-	public static DeleteMountTargetResponse unmarshall(DeleteMountTargetResponse deleteMountTargetResponse, UnmarshallerContext context) {
+	public static DeleteMountTargetResponse unmarshall(DeleteMountTargetResponse deleteMountTargetResponse, UnmarshallerContext _ctx) {
 		
-		deleteMountTargetResponse.setRequestId(context.stringValue("DeleteMountTargetResponse.RequestId"));
+		deleteMountTargetResponse.setRequestId(_ctx.stringValue("DeleteMountTargetResponse.RequestId"));
 	 
 	 	return deleteMountTargetResponse;
 	}

@@ -15,24 +15,21 @@
 package com.aliyuncs.r_kvstore.model.v20150101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.r_kvstore.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyInstanceMinorVersionRequest extends RpcAcsRequest<ModifyInstanceMinorVersionResponse> {
-	
-	public ModifyInstanceMinorVersionRequest() {
-		super("R-kvstore", "2015-01-01", "ModifyInstanceMinorVersion", "redisa");
-	}
-
-	private String executeMode;
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
-
 	private String securityToken;
+
+	private String effectiveTime;
 
 	private String resourceOwnerAccount;
 
@@ -42,15 +39,14 @@ public class ModifyInstanceMinorVersionRequest extends RpcAcsRequest<ModifyInsta
 
 	private Long ownerId;
 
-	public String getExecuteMode() {
-		return this.executeMode;
-	}
-
-	public void setExecuteMode(String executeMode) {
-		this.executeMode = executeMode;
-		if(executeMode != null){
-			putQueryParameter("ExecuteMode", executeMode);
-		}
+	private String instanceId;
+	public ModifyInstanceMinorVersionRequest() {
+		super("R-kvstore", "2015-01-01", "ModifyInstanceMinorVersion", "redisa");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -64,17 +60,6 @@ public class ModifyInstanceMinorVersionRequest extends RpcAcsRequest<ModifyInsta
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -83,6 +68,17 @@ public class ModifyInstanceMinorVersionRequest extends RpcAcsRequest<ModifyInsta
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getEffectiveTime() {
+		return this.effectiveTime;
+	}
+
+	public void setEffectiveTime(String effectiveTime) {
+		this.effectiveTime = effectiveTime;
+		if(effectiveTime != null){
+			putQueryParameter("EffectiveTime", effectiveTime);
 		}
 	}
 
@@ -127,6 +123,17 @@ public class ModifyInstanceMinorVersionRequest extends RpcAcsRequest<ModifyInsta
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

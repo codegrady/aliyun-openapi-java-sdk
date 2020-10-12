@@ -15,30 +15,37 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeSecurityGroupAttributeRequest extends RpcAcsRequest<DescribeSecurityGroupAttributeResponse> {
-	
-	public DescribeSecurityGroupAttributeRequest() {
-		super("Ecs", "2014-05-26", "DescribeSecurityGroupAttribute", "ecs");
-	}
+	   
 
 	private String nicType;
 
 	private Long resourceOwnerId;
 
+	private String securityGroupId;
+
+	private String direction;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String securityGroupId;
-
 	private Long ownerId;
-
-	private String direction;
+	public DescribeSecurityGroupAttributeRequest() {
+		super("Ecs", "2014-05-26", "DescribeSecurityGroupAttribute", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getNicType() {
 		return this.nicType;
@@ -59,6 +66,28 @@ public class DescribeSecurityGroupAttributeRequest extends RpcAcsRequest<Describ
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getSecurityGroupId() {
+		return this.securityGroupId;
+	}
+
+	public void setSecurityGroupId(String securityGroupId) {
+		this.securityGroupId = securityGroupId;
+		if(securityGroupId != null){
+			putQueryParameter("SecurityGroupId", securityGroupId);
+		}
+	}
+
+	public String getDirection() {
+		return this.direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+		if(direction != null){
+			putQueryParameter("Direction", direction);
 		}
 	}
 
@@ -84,17 +113,6 @@ public class DescribeSecurityGroupAttributeRequest extends RpcAcsRequest<Describ
 		}
 	}
 
-	public String getSecurityGroupId() {
-		return this.securityGroupId;
-	}
-
-	public void setSecurityGroupId(String securityGroupId) {
-		this.securityGroupId = securityGroupId;
-		if(securityGroupId != null){
-			putQueryParameter("SecurityGroupId", securityGroupId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -103,17 +121,6 @@ public class DescribeSecurityGroupAttributeRequest extends RpcAcsRequest<Describ
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getDirection() {
-		return this.direction;
-	}
-
-	public void setDirection(String direction) {
-		this.direction = direction;
-		if(direction != null){
-			putQueryParameter("Direction", direction);
 		}
 	}
 

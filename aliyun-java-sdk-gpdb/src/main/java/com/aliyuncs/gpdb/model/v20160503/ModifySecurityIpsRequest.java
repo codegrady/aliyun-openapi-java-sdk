@@ -15,34 +15,30 @@
 package com.aliyuncs.gpdb.model.v20160503;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.gpdb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsResponse> {
-	
-	public ModifySecurityIpsRequest() {
-		super("gpdb", "2016-05-03", "ModifySecurityIps", "gpdb");
-	}
-
-	private String securityIPList;
+	   
 
 	private String dBInstanceIPArrayName;
 
-	private String dBInstanceIPArrayAttribute;
-
 	private String dBInstanceId;
 
-	public String getSecurityIPList() {
-		return this.securityIPList;
-	}
+	private String securityIPList;
 
-	public void setSecurityIPList(String securityIPList) {
-		this.securityIPList = securityIPList;
-		if(securityIPList != null){
-			putQueryParameter("SecurityIPList", securityIPList);
-		}
+	private String dBInstanceIPArrayAttribute;
+	public ModifySecurityIpsRequest() {
+		super("gpdb", "2016-05-03", "ModifySecurityIps", "gpdb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDBInstanceIPArrayName() {
@@ -56,17 +52,6 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		}
 	}
 
-	public String getDBInstanceIPArrayAttribute() {
-		return this.dBInstanceIPArrayAttribute;
-	}
-
-	public void setDBInstanceIPArrayAttribute(String dBInstanceIPArrayAttribute) {
-		this.dBInstanceIPArrayAttribute = dBInstanceIPArrayAttribute;
-		if(dBInstanceIPArrayAttribute != null){
-			putQueryParameter("DBInstanceIPArrayAttribute", dBInstanceIPArrayAttribute);
-		}
-	}
-
 	public String getDBInstanceId() {
 		return this.dBInstanceId;
 	}
@@ -75,6 +60,28 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		this.dBInstanceId = dBInstanceId;
 		if(dBInstanceId != null){
 			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getSecurityIPList() {
+		return this.securityIPList;
+	}
+
+	public void setSecurityIPList(String securityIPList) {
+		this.securityIPList = securityIPList;
+		if(securityIPList != null){
+			putQueryParameter("SecurityIPList", securityIPList);
+		}
+	}
+
+	public String getDBInstanceIPArrayAttribute() {
+		return this.dBInstanceIPArrayAttribute;
+	}
+
+	public void setDBInstanceIPArrayAttribute(String dBInstanceIPArrayAttribute) {
+		this.dBInstanceIPArrayAttribute = dBInstanceIPArrayAttribute;
+		if(dBInstanceIPArrayAttribute != null){
+			putQueryParameter("DBInstanceIPArrayAttribute", dBInstanceIPArrayAttribute);
 		}
 	}
 

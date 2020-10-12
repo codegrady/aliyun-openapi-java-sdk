@@ -16,22 +16,17 @@ package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateResourceQueueRequest extends RpcAcsRequest<CreateResourceQueueResponse> {
-	
-	public CreateResourceQueueRequest() {
-		super("Emr", "2016-04-08", "CreateResourceQueue");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private Long parentQueueId;
-
-	private String name;
 
 	private String qualifiedName;
 
@@ -41,7 +36,19 @@ public class CreateResourceQueueRequest extends RpcAcsRequest<CreateResourceQueu
 
 	private Boolean leaf;
 
+	private Long parentQueueId;
+
+	private String name;
+
 	private List<Config> configs;
+	public CreateResourceQueueRequest() {
+		super("Emr", "2016-04-08", "CreateResourceQueue");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -51,28 +58,6 @@ public class CreateResourceQueueRequest extends RpcAcsRequest<CreateResourceQueu
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public Long getParentQueueId() {
-		return this.parentQueueId;
-	}
-
-	public void setParentQueueId(Long parentQueueId) {
-		this.parentQueueId = parentQueueId;
-		if(parentQueueId != null){
-			putQueryParameter("ParentQueueId", parentQueueId.toString());
-		}
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		if(name != null){
-			putQueryParameter("Name", name);
 		}
 	}
 
@@ -120,6 +105,28 @@ public class CreateResourceQueueRequest extends RpcAcsRequest<CreateResourceQueu
 		}
 	}
 
+	public Long getParentQueueId() {
+		return this.parentQueueId;
+	}
+
+	public void setParentQueueId(Long parentQueueId) {
+		this.parentQueueId = parentQueueId;
+		if(parentQueueId != null){
+			putQueryParameter("ParentQueueId", parentQueueId.toString());
+		}
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("Name", name);
+		}
+	}
+
 	public List<Config> getConfigs() {
 		return this.configs;
 	}
@@ -129,9 +136,9 @@ public class CreateResourceQueueRequest extends RpcAcsRequest<CreateResourceQueu
 		if (configs != null) {
 			for (int depth1 = 0; depth1 < configs.size(); depth1++) {
 				putQueryParameter("Config." + (depth1 + 1) + ".ConfigKey" , configs.get(depth1).getConfigKey());
+				putQueryParameter("Config." + (depth1 + 1) + ".Note" , configs.get(depth1).getNote());
 				putQueryParameter("Config." + (depth1 + 1) + ".ConfigValue" , configs.get(depth1).getConfigValue());
 				putQueryParameter("Config." + (depth1 + 1) + ".Category" , configs.get(depth1).getCategory());
-				putQueryParameter("Config." + (depth1 + 1) + ".Note" , configs.get(depth1).getNote());
 			}
 		}	
 	}
@@ -140,11 +147,11 @@ public class CreateResourceQueueRequest extends RpcAcsRequest<CreateResourceQueu
 
 		private String configKey;
 
+		private String note;
+
 		private String configValue;
 
 		private String category;
-
-		private String note;
 
 		public String getConfigKey() {
 			return this.configKey;
@@ -152,6 +159,14 @@ public class CreateResourceQueueRequest extends RpcAcsRequest<CreateResourceQueu
 
 		public void setConfigKey(String configKey) {
 			this.configKey = configKey;
+		}
+
+		public String getNote() {
+			return this.note;
+		}
+
+		public void setNote(String note) {
+			this.note = note;
 		}
 
 		public String getConfigValue() {
@@ -168,14 +183,6 @@ public class CreateResourceQueueRequest extends RpcAcsRequest<CreateResourceQueu
 
 		public void setCategory(String category) {
 			this.category = category;
-		}
-
-		public String getNote() {
-			return this.note;
-		}
-
-		public void setNote(String note) {
-			this.note = note;
 		}
 	}
 

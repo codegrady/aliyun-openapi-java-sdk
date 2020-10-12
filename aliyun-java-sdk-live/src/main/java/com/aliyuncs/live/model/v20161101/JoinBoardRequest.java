@@ -15,16 +15,15 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class JoinBoardRequest extends RpcAcsRequest<JoinBoardResponse> {
-	
-	public JoinBoardRequest() {
-		super("live", "2016-11-01", "JoinBoard", "live");
-	}
+	   
 
 	private String boardId;
 
@@ -33,6 +32,14 @@ public class JoinBoardRequest extends RpcAcsRequest<JoinBoardResponse> {
 	private Long ownerId;
 
 	private String appId;
+	public JoinBoardRequest() {
+		super("live", "2016-11-01", "JoinBoard", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getBoardId() {
 		return this.boardId;

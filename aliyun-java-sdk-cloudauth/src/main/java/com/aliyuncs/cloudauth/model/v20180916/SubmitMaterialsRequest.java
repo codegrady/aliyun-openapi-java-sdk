@@ -16,28 +16,31 @@ package com.aliyuncs.cloudauth.model.v20180916;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
-import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cloudauth.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SubmitMaterialsRequest extends RpcAcsRequest<SubmitMaterialsResponse> {
-	
-	public SubmitMaterialsRequest() {
-		super("Cloudauth", "2018-09-16", "SubmitMaterials", "cloudauth");
-		setProtocol(ProtocolType.HTTPS);
-		setMethod(MethodType.POST);
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String verifyToken;
 
 	private String sourceIp;
 
 	private List<Material> materials;
-
-	private String verifyToken;
+	public SubmitMaterialsRequest() {
+		super("Cloudauth", "2018-09-16", "SubmitMaterials", "cloudauth");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -47,6 +50,17 @@ public class SubmitMaterialsRequest extends RpcAcsRequest<SubmitMaterialsRespons
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getVerifyToken() {
+		return this.verifyToken;
+	}
+
+	public void setVerifyToken(String verifyToken) {
+		this.verifyToken = verifyToken;
+		if(verifyToken != null){
+			putBodyParameter("VerifyToken", verifyToken);
 		}
 	}
 
@@ -73,17 +87,6 @@ public class SubmitMaterialsRequest extends RpcAcsRequest<SubmitMaterialsRespons
 				putBodyParameter("Material." + (depth1 + 1) + ".Value" , materials.get(depth1).getValue());
 			}
 		}	
-	}
-
-	public String getVerifyToken() {
-		return this.verifyToken;
-	}
-
-	public void setVerifyToken(String verifyToken) {
-		this.verifyToken = verifyToken;
-		if(verifyToken != null){
-			putBodyParameter("VerifyToken", verifyToken);
-		}
 	}
 
 	public static class Material {

@@ -35,10 +35,6 @@ public class QueryTradeMarkApplicationsResponse extends AcsResponse {
 
 	private Integer totalPageNum;
 
-	private Boolean prePage;
-
-	private Boolean nextPage;
-
 	private List<TmProduces> data;
 
 	public String getRequestId() {
@@ -81,22 +77,6 @@ public class QueryTradeMarkApplicationsResponse extends AcsResponse {
 		this.totalPageNum = totalPageNum;
 	}
 
-	public Boolean getPrePage() {
-		return this.prePage;
-	}
-
-	public void setPrePage(Boolean prePage) {
-		this.prePage = prePage;
-	}
-
-	public Boolean getNextPage() {
-		return this.nextPage;
-	}
-
-	public void setNextPage(Boolean nextPage) {
-		this.nextPage = nextPage;
-	}
-
 	public List<TmProduces> getData() {
 		return this.data;
 	}
@@ -107,7 +87,7 @@ public class QueryTradeMarkApplicationsResponse extends AcsResponse {
 
 	public static class TmProduces {
 
-		private Long bizId;
+		private String bizId;
 
 		private String orderId;
 
@@ -131,25 +111,33 @@ public class QueryTradeMarkApplicationsResponse extends AcsResponse {
 
 		private Long materialId;
 
-		private Long loaId;
-
 		private String loaUrl;
-
-		private String receiptUrl;
 
 		private String note;
 
 		private Long updateTime;
 
+		private Integer supplementStatus;
+
+		private Long supplementId;
+
+		private Float totalPrice;
+
+		private Float servicePrice;
+
 		private List<ThirdClassifications> thirdClassification;
+
+		private List<String> flags;
 
 		private FirstClassification firstClassification;
 
-		public Long getBizId() {
+		private RenewResponse renewResponse;
+
+		public String getBizId() {
 			return this.bizId;
 		}
 
-		public void setBizId(Long bizId) {
+		public void setBizId(String bizId) {
 			this.bizId = bizId;
 		}
 
@@ -241,28 +229,12 @@ public class QueryTradeMarkApplicationsResponse extends AcsResponse {
 			this.materialId = materialId;
 		}
 
-		public Long getLoaId() {
-			return this.loaId;
-		}
-
-		public void setLoaId(Long loaId) {
-			this.loaId = loaId;
-		}
-
 		public String getLoaUrl() {
 			return this.loaUrl;
 		}
 
 		public void setLoaUrl(String loaUrl) {
 			this.loaUrl = loaUrl;
-		}
-
-		public String getReceiptUrl() {
-			return this.receiptUrl;
-		}
-
-		public void setReceiptUrl(String receiptUrl) {
-			this.receiptUrl = receiptUrl;
 		}
 
 		public String getNote() {
@@ -281,12 +253,52 @@ public class QueryTradeMarkApplicationsResponse extends AcsResponse {
 			this.updateTime = updateTime;
 		}
 
+		public Integer getSupplementStatus() {
+			return this.supplementStatus;
+		}
+
+		public void setSupplementStatus(Integer supplementStatus) {
+			this.supplementStatus = supplementStatus;
+		}
+
+		public Long getSupplementId() {
+			return this.supplementId;
+		}
+
+		public void setSupplementId(Long supplementId) {
+			this.supplementId = supplementId;
+		}
+
+		public Float getTotalPrice() {
+			return this.totalPrice;
+		}
+
+		public void setTotalPrice(Float totalPrice) {
+			this.totalPrice = totalPrice;
+		}
+
+		public Float getServicePrice() {
+			return this.servicePrice;
+		}
+
+		public void setServicePrice(Float servicePrice) {
+			this.servicePrice = servicePrice;
+		}
+
 		public List<ThirdClassifications> getThirdClassification() {
 			return this.thirdClassification;
 		}
 
 		public void setThirdClassification(List<ThirdClassifications> thirdClassification) {
 			this.thirdClassification = thirdClassification;
+		}
+
+		public List<String> getFlags() {
+			return this.flags;
+		}
+
+		public void setFlags(List<String> flags) {
+			this.flags = flags;
 		}
 
 		public FirstClassification getFirstClassification() {
@@ -297,13 +309,19 @@ public class QueryTradeMarkApplicationsResponse extends AcsResponse {
 			this.firstClassification = firstClassification;
 		}
 
+		public RenewResponse getRenewResponse() {
+			return this.renewResponse;
+		}
+
+		public void setRenewResponse(RenewResponse renewResponse) {
+			this.renewResponse = renewResponse;
+		}
+
 		public static class ThirdClassifications {
 
 			private String classificationCode;
 
 			private String classificationName;
-
-			private String parentCode;
 
 			public String getClassificationCode() {
 				return this.classificationCode;
@@ -319,14 +337,6 @@ public class QueryTradeMarkApplicationsResponse extends AcsResponse {
 
 			public void setClassificationName(String classificationName) {
 				this.classificationName = classificationName;
-			}
-
-			public String getParentCode() {
-				return this.parentCode;
-			}
-
-			public void setParentCode(String parentCode) {
-				this.parentCode = parentCode;
 			}
 		}
 
@@ -350,6 +360,69 @@ public class QueryTradeMarkApplicationsResponse extends AcsResponse {
 
 			public void setClassificationName(String classificationName) {
 				this.classificationName = classificationName;
+			}
+		}
+
+		public static class RenewResponse {
+
+			private String name;
+
+			private String engName;
+
+			private String address;
+
+			private String engAddress;
+
+			private Long registerTime;
+
+			private Long submitSbjtime;
+
+			public String getName() {
+				return this.name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
+			}
+
+			public String getEngName() {
+				return this.engName;
+			}
+
+			public void setEngName(String engName) {
+				this.engName = engName;
+			}
+
+			public String getAddress() {
+				return this.address;
+			}
+
+			public void setAddress(String address) {
+				this.address = address;
+			}
+
+			public String getEngAddress() {
+				return this.engAddress;
+			}
+
+			public void setEngAddress(String engAddress) {
+				this.engAddress = engAddress;
+			}
+
+			public Long getRegisterTime() {
+				return this.registerTime;
+			}
+
+			public void setRegisterTime(Long registerTime) {
+				this.registerTime = registerTime;
+			}
+
+			public Long getSubmitSbjtime() {
+				return this.submitSbjtime;
+			}
+
+			public void setSubmitSbjtime(Long submitSbjtime) {
+				this.submitSbjtime = submitSbjtime;
 			}
 		}
 	}

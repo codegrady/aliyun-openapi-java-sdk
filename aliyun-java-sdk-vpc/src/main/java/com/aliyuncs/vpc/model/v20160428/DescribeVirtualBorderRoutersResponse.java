@@ -117,6 +117,26 @@ public class DescribeVirtualBorderRoutersResponse extends AcsResponse {
 
 		private String description;
 
+		private String pConnVbrExpireTime;
+
+		private String eccId;
+
+		private String type;
+
+		private Long minTxInterval;
+
+		private Long minRxInterval;
+
+		private Long detectMultiplier;
+
+		private String localIpv6GatewayIp;
+
+		private String peerIpv6GatewayIp;
+
+		private String peeringIpv6SubnetMask;
+
+		private Boolean enableIpv6;
+
 		private List<AssociatedPhysicalConnection> associatedPhysicalConnections;
 
 		private List<AssociatedCen> associatedCens;
@@ -281,6 +301,86 @@ public class DescribeVirtualBorderRoutersResponse extends AcsResponse {
 			this.description = description;
 		}
 
+		public String getPConnVbrExpireTime() {
+			return this.pConnVbrExpireTime;
+		}
+
+		public void setPConnVbrExpireTime(String pConnVbrExpireTime) {
+			this.pConnVbrExpireTime = pConnVbrExpireTime;
+		}
+
+		public String getEccId() {
+			return this.eccId;
+		}
+
+		public void setEccId(String eccId) {
+			this.eccId = eccId;
+		}
+
+		public String getType() {
+			return this.type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		public Long getMinTxInterval() {
+			return this.minTxInterval;
+		}
+
+		public void setMinTxInterval(Long minTxInterval) {
+			this.minTxInterval = minTxInterval;
+		}
+
+		public Long getMinRxInterval() {
+			return this.minRxInterval;
+		}
+
+		public void setMinRxInterval(Long minRxInterval) {
+			this.minRxInterval = minRxInterval;
+		}
+
+		public Long getDetectMultiplier() {
+			return this.detectMultiplier;
+		}
+
+		public void setDetectMultiplier(Long detectMultiplier) {
+			this.detectMultiplier = detectMultiplier;
+		}
+
+		public String getLocalIpv6GatewayIp() {
+			return this.localIpv6GatewayIp;
+		}
+
+		public void setLocalIpv6GatewayIp(String localIpv6GatewayIp) {
+			this.localIpv6GatewayIp = localIpv6GatewayIp;
+		}
+
+		public String getPeerIpv6GatewayIp() {
+			return this.peerIpv6GatewayIp;
+		}
+
+		public void setPeerIpv6GatewayIp(String peerIpv6GatewayIp) {
+			this.peerIpv6GatewayIp = peerIpv6GatewayIp;
+		}
+
+		public String getPeeringIpv6SubnetMask() {
+			return this.peeringIpv6SubnetMask;
+		}
+
+		public void setPeeringIpv6SubnetMask(String peeringIpv6SubnetMask) {
+			this.peeringIpv6SubnetMask = peeringIpv6SubnetMask;
+		}
+
+		public Boolean getEnableIpv6() {
+			return this.enableIpv6;
+		}
+
+		public void setEnableIpv6(Boolean enableIpv6) {
+			this.enableIpv6 = enableIpv6;
+		}
+
 		public List<AssociatedPhysicalConnection> getAssociatedPhysicalConnections() {
 			return this.associatedPhysicalConnections;
 		}
@@ -318,6 +418,16 @@ public class DescribeVirtualBorderRoutersResponse extends AcsResponse {
 			private String physicalConnectionOwnerUid;
 
 			private String vlanId;
+
+			private String localIpv6GatewayIp;
+
+			private String peerIpv6GatewayIp;
+
+			private String peeringIpv6SubnetMask;
+
+			private String status;
+
+			private Boolean enableIpv6;
 
 			public String getCircuitCode() {
 				return this.circuitCode;
@@ -397,6 +507,46 @@ public class DescribeVirtualBorderRoutersResponse extends AcsResponse {
 
 			public void setVlanId(String vlanId) {
 				this.vlanId = vlanId;
+			}
+
+			public String getLocalIpv6GatewayIp() {
+				return this.localIpv6GatewayIp;
+			}
+
+			public void setLocalIpv6GatewayIp(String localIpv6GatewayIp) {
+				this.localIpv6GatewayIp = localIpv6GatewayIp;
+			}
+
+			public String getPeerIpv6GatewayIp() {
+				return this.peerIpv6GatewayIp;
+			}
+
+			public void setPeerIpv6GatewayIp(String peerIpv6GatewayIp) {
+				this.peerIpv6GatewayIp = peerIpv6GatewayIp;
+			}
+
+			public String getPeeringIpv6SubnetMask() {
+				return this.peeringIpv6SubnetMask;
+			}
+
+			public void setPeeringIpv6SubnetMask(String peeringIpv6SubnetMask) {
+				this.peeringIpv6SubnetMask = peeringIpv6SubnetMask;
+			}
+
+			public String getStatus() {
+				return this.status;
+			}
+
+			public void setStatus(String status) {
+				this.status = status;
+			}
+
+			public Boolean getEnableIpv6() {
+				return this.enableIpv6;
+			}
+
+			public void setEnableIpv6(Boolean enableIpv6) {
+				this.enableIpv6 = enableIpv6;
 			}
 		}
 

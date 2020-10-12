@@ -15,20 +15,17 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeMasterSlaveServerGroupAttributeRequest extends RpcAcsRequest<DescribeMasterSlaveServerGroupAttributeResponse> {
-	
-	public DescribeMasterSlaveServerGroupAttributeRequest() {
-		super("Slb", "2014-05-15", "DescribeMasterSlaveServerGroupAttribute", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String masterSlaveServerGroupId;
 
 	private String resourceOwnerAccount;
 
@@ -36,7 +33,15 @@ public class DescribeMasterSlaveServerGroupAttributeRequest extends RpcAcsReques
 
 	private Long ownerId;
 
-	private String tags;
+	private String masterSlaveServerGroupId;
+	public DescribeMasterSlaveServerGroupAttributeRequest() {
+		super("Slb", "2014-05-15", "DescribeMasterSlaveServerGroupAttribute", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,17 +51,6 @@ public class DescribeMasterSlaveServerGroupAttributeRequest extends RpcAcsReques
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getMasterSlaveServerGroupId() {
-		return this.masterSlaveServerGroupId;
-	}
-
-	public void setMasterSlaveServerGroupId(String masterSlaveServerGroupId) {
-		this.masterSlaveServerGroupId = masterSlaveServerGroupId;
-		if(masterSlaveServerGroupId != null){
-			putQueryParameter("MasterSlaveServerGroupId", masterSlaveServerGroupId);
 		}
 	}
 
@@ -93,14 +87,14 @@ public class DescribeMasterSlaveServerGroupAttributeRequest extends RpcAcsReques
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getMasterSlaveServerGroupId() {
+		return this.masterSlaveServerGroupId;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setMasterSlaveServerGroupId(String masterSlaveServerGroupId) {
+		this.masterSlaveServerGroupId = masterSlaveServerGroupId;
+		if(masterSlaveServerGroupId != null){
+			putQueryParameter("MasterSlaveServerGroupId", masterSlaveServerGroupId);
 		}
 	}
 

@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.transform.v20170626;
 
 import java.util.ArrayList;
@@ -23,18 +24,19 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeRegionsResponseUnmarshaller {
 
-	public static DescribeRegionsResponse unmarshall(DescribeRegionsResponse describeRegionsResponse, UnmarshallerContext context) {
+	public static DescribeRegionsResponse unmarshall(DescribeRegionsResponse describeRegionsResponse, UnmarshallerContext _ctx) {
 		
-		describeRegionsResponse.setRequestId(context.stringValue("DescribeRegionsResponse.RequestId"));
-		describeRegionsResponse.setTotalCount(context.integerValue("DescribeRegionsResponse.TotalCount"));
-		describeRegionsResponse.setPageSize(context.integerValue("DescribeRegionsResponse.PageSize"));
-		describeRegionsResponse.setPageNumber(context.integerValue("DescribeRegionsResponse.PageNumber"));
+		describeRegionsResponse.setRequestId(_ctx.stringValue("DescribeRegionsResponse.RequestId"));
+		describeRegionsResponse.setTotalCount(_ctx.integerValue("DescribeRegionsResponse.TotalCount"));
+		describeRegionsResponse.setPageSize(_ctx.integerValue("DescribeRegionsResponse.PageSize"));
+		describeRegionsResponse.setPageNumber(_ctx.integerValue("DescribeRegionsResponse.PageNumber"));
 
 		List<Region> regions = new ArrayList<Region>();
-		for (int i = 0; i < context.lengthValue("DescribeRegionsResponse.Regions.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeRegionsResponse.Regions.Length"); i++) {
 			Region region = new Region();
-			region.setRegionId(context.stringValue("DescribeRegionsResponse.Regions["+ i +"].RegionId"));
-			region.setLocalName(context.stringValue("DescribeRegionsResponse.Regions["+ i +"].LocalName"));
+			region.setRegionId(_ctx.stringValue("DescribeRegionsResponse.Regions["+ i +"].RegionId"));
+			region.setLocalName(_ctx.stringValue("DescribeRegionsResponse.Regions["+ i +"].LocalName"));
+			region.setRegionEndpoint(_ctx.stringValue("DescribeRegionsResponse.Regions["+ i +"].RegionEndpoint"));
 
 			regions.add(region);
 		}

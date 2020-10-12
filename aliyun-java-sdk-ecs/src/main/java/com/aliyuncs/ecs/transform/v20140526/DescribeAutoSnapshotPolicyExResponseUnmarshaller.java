@@ -19,32 +19,45 @@ import java.util.List;
 
 import com.aliyuncs.ecs.model.v20140526.DescribeAutoSnapshotPolicyExResponse;
 import com.aliyuncs.ecs.model.v20140526.DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicy;
-import java.util.Map;
+import com.aliyuncs.ecs.model.v20140526.DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicy.Tag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeAutoSnapshotPolicyExResponseUnmarshaller {
 
-	public static DescribeAutoSnapshotPolicyExResponse unmarshall(DescribeAutoSnapshotPolicyExResponse describeAutoSnapshotPolicyExResponse, UnmarshallerContext context) {
+	public static DescribeAutoSnapshotPolicyExResponse unmarshall(DescribeAutoSnapshotPolicyExResponse describeAutoSnapshotPolicyExResponse, UnmarshallerContext _ctx) {
 		
-		describeAutoSnapshotPolicyExResponse.setRequestId(context.stringValue("DescribeAutoSnapshotPolicyExResponse.RequestId"));
-		describeAutoSnapshotPolicyExResponse.setTotalCount(context.integerValue("DescribeAutoSnapshotPolicyExResponse.TotalCount"));
-		describeAutoSnapshotPolicyExResponse.setPageNumber(context.integerValue("DescribeAutoSnapshotPolicyExResponse.PageNumber"));
-		describeAutoSnapshotPolicyExResponse.setPageSize(context.integerValue("DescribeAutoSnapshotPolicyExResponse.PageSize"));
+		describeAutoSnapshotPolicyExResponse.setRequestId(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.RequestId"));
+		describeAutoSnapshotPolicyExResponse.setTotalCount(_ctx.integerValue("DescribeAutoSnapshotPolicyExResponse.TotalCount"));
+		describeAutoSnapshotPolicyExResponse.setPageNumber(_ctx.integerValue("DescribeAutoSnapshotPolicyExResponse.PageNumber"));
+		describeAutoSnapshotPolicyExResponse.setPageSize(_ctx.integerValue("DescribeAutoSnapshotPolicyExResponse.PageSize"));
 
 		List<AutoSnapshotPolicy> autoSnapshotPolicies = new ArrayList<AutoSnapshotPolicy>();
-		for (int i = 0; i < context.lengthValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies.Length"); i++) {
 			AutoSnapshotPolicy autoSnapshotPolicy = new AutoSnapshotPolicy();
-			autoSnapshotPolicy.setAutoSnapshotPolicyId(context.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].AutoSnapshotPolicyId"));
-			autoSnapshotPolicy.setRegionId(context.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].RegionId"));
-			autoSnapshotPolicy.setAutoSnapshotPolicyName(context.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].AutoSnapshotPolicyName"));
-			autoSnapshotPolicy.setTimePoints(context.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].TimePoints"));
-			autoSnapshotPolicy.setRepeatWeekdays(context.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].RepeatWeekdays"));
-			autoSnapshotPolicy.setRetentionDays(context.integerValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].RetentionDays"));
-			autoSnapshotPolicy.setDiskNums(context.integerValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].DiskNums"));
-			autoSnapshotPolicy.setVolumeNums(context.integerValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].VolumeNums"));
-			autoSnapshotPolicy.setCreationTime(context.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].CreationTime"));
-			autoSnapshotPolicy.setStatus(context.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].Status"));
+			autoSnapshotPolicy.setAutoSnapshotPolicyId(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].AutoSnapshotPolicyId"));
+			autoSnapshotPolicy.setRegionId(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].RegionId"));
+			autoSnapshotPolicy.setAutoSnapshotPolicyName(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].AutoSnapshotPolicyName"));
+			autoSnapshotPolicy.setTimePoints(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].TimePoints"));
+			autoSnapshotPolicy.setRepeatWeekdays(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].RepeatWeekdays"));
+			autoSnapshotPolicy.setRetentionDays(_ctx.integerValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].RetentionDays"));
+			autoSnapshotPolicy.setDiskNums(_ctx.integerValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].DiskNums"));
+			autoSnapshotPolicy.setVolumeNums(_ctx.integerValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].VolumeNums"));
+			autoSnapshotPolicy.setCreationTime(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].CreationTime"));
+			autoSnapshotPolicy.setStatus(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].Status"));
+			autoSnapshotPolicy.setEnableCrossRegionCopy(_ctx.booleanValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].EnableCrossRegionCopy"));
+			autoSnapshotPolicy.setTargetCopyRegions(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].TargetCopyRegions"));
+			autoSnapshotPolicy.setCopiedSnapshotsRetentionDays(_ctx.integerValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].CopiedSnapshotsRetentionDays"));
+
+			List<Tag> tags = new ArrayList<Tag>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].Tags.Length"); j++) {
+				Tag tag = new Tag();
+				tag.setTagKey(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].Tags["+ j +"].TagKey"));
+				tag.setTagValue(_ctx.stringValue("DescribeAutoSnapshotPolicyExResponse.AutoSnapshotPolicies["+ i +"].Tags["+ j +"].TagValue"));
+
+				tags.add(tag);
+			}
+			autoSnapshotPolicy.setTags(tags);
 
 			autoSnapshotPolicies.add(autoSnapshotPolicy);
 		}

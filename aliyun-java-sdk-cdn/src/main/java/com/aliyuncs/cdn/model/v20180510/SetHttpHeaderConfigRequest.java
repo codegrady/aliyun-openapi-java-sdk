@@ -15,28 +15,35 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetHttpHeaderConfigRequest extends RpcAcsRequest<SetHttpHeaderConfigResponse> {
-	
-	public SetHttpHeaderConfigRequest() {
-		super("Cdn", "2018-05-10", "SetHttpHeaderConfig");
-	}
+	   
 
 	private String headerValue;
 
 	private String securityToken;
 
-	private Long configId;
-
 	private String domainName;
 
-	private String headerKey;
-
 	private Long ownerId;
+
+	private Long configId;
+
+	private String headerKey;
+	public SetHttpHeaderConfigRequest() {
+		super("Cdn", "2018-05-10", "SetHttpHeaderConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getHeaderValue() {
 		return this.headerValue;
@@ -60,17 +67,6 @@ public class SetHttpHeaderConfigRequest extends RpcAcsRequest<SetHttpHeaderConfi
 		}
 	}
 
-	public Long getConfigId() {
-		return this.configId;
-	}
-
-	public void setConfigId(Long configId) {
-		this.configId = configId;
-		if(configId != null){
-			putQueryParameter("ConfigId", configId.toString());
-		}
-	}
-
 	public String getDomainName() {
 		return this.domainName;
 	}
@@ -82,17 +78,6 @@ public class SetHttpHeaderConfigRequest extends RpcAcsRequest<SetHttpHeaderConfi
 		}
 	}
 
-	public String getHeaderKey() {
-		return this.headerKey;
-	}
-
-	public void setHeaderKey(String headerKey) {
-		this.headerKey = headerKey;
-		if(headerKey != null){
-			putQueryParameter("HeaderKey", headerKey);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -101,6 +86,28 @@ public class SetHttpHeaderConfigRequest extends RpcAcsRequest<SetHttpHeaderConfi
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Long getConfigId() {
+		return this.configId;
+	}
+
+	public void setConfigId(Long configId) {
+		this.configId = configId;
+		if(configId != null){
+			putQueryParameter("ConfigId", configId.toString());
+		}
+	}
+
+	public String getHeaderKey() {
+		return this.headerKey;
+	}
+
+	public void setHeaderKey(String headerKey) {
+		this.headerKey = headerKey;
+		if(headerKey != null){
+			putQueryParameter("HeaderKey", headerKey);
 		}
 	}
 

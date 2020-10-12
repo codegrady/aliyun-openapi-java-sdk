@@ -15,18 +15,27 @@
 package com.aliyuncs.drds.model.v20171016;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.drds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDrdsInstancesRequest extends RpcAcsRequest<DescribeDrdsInstancesResponse> {
-	
-	public DescribeDrdsInstancesRequest() {
-		super("Drds", "2017-10-16", "DescribeDrdsInstances", "Drds");
-	}
+	   
 
 	private String type;
+
+	private String tags;
+	public DescribeDrdsInstancesRequest() {
+		super("Drds", "2017-10-16", "DescribeDrdsInstances", "Drds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getType() {
 		return this.type;
@@ -36,6 +45,17 @@ public class DescribeDrdsInstancesRequest extends RpcAcsRequest<DescribeDrdsInst
 		this.type = type;
 		if(type != null){
 			putQueryParameter("Type", type);
+		}
+	}
+
+	public String getTags() {
+		return this.tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
+		if(tags != null){
+			putQueryParameter("Tags", tags);
 		}
 	}
 

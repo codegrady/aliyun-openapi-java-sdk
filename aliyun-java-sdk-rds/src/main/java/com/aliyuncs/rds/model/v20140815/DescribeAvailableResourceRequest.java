@@ -15,20 +15,43 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvailableResourceResponse> {
-	
-	public DescribeAvailableResourceRequest() {
-		super("Rds", "2014-08-15", "DescribeAvailableResource", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String dBInstanceId;
+	private String engineVersion;
+
+	private String engine;
+
+	private String dBInstanceStorageType;
+
+	private String instanceChargeType;
+
+	private Integer dispenseMode;
+
+	private String dBInstanceClass;
+
+	private String zoneId;
+
+	private String category;
+
+	private String orderType;
+	public DescribeAvailableResourceRequest() {
+		super("Rds", "2014-08-15", "DescribeAvailableResource", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -41,14 +64,102 @@ public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvai
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
+	public String getEngineVersion() {
+		return this.engineVersion;
 	}
 
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
+	public void setEngineVersion(String engineVersion) {
+		this.engineVersion = engineVersion;
+		if(engineVersion != null){
+			putQueryParameter("EngineVersion", engineVersion);
+		}
+	}
+
+	public String getEngine() {
+		return this.engine;
+	}
+
+	public void setEngine(String engine) {
+		this.engine = engine;
+		if(engine != null){
+			putQueryParameter("Engine", engine);
+		}
+	}
+
+	public String getDBInstanceStorageType() {
+		return this.dBInstanceStorageType;
+	}
+
+	public void setDBInstanceStorageType(String dBInstanceStorageType) {
+		this.dBInstanceStorageType = dBInstanceStorageType;
+		if(dBInstanceStorageType != null){
+			putQueryParameter("DBInstanceStorageType", dBInstanceStorageType);
+		}
+	}
+
+	public String getInstanceChargeType() {
+		return this.instanceChargeType;
+	}
+
+	public void setInstanceChargeType(String instanceChargeType) {
+		this.instanceChargeType = instanceChargeType;
+		if(instanceChargeType != null){
+			putQueryParameter("InstanceChargeType", instanceChargeType);
+		}
+	}
+
+	public Integer getDispenseMode() {
+		return this.dispenseMode;
+	}
+
+	public void setDispenseMode(Integer dispenseMode) {
+		this.dispenseMode = dispenseMode;
+		if(dispenseMode != null){
+			putQueryParameter("DispenseMode", dispenseMode.toString());
+		}
+	}
+
+	public String getDBInstanceClass() {
+		return this.dBInstanceClass;
+	}
+
+	public void setDBInstanceClass(String dBInstanceClass) {
+		this.dBInstanceClass = dBInstanceClass;
+		if(dBInstanceClass != null){
+			putQueryParameter("DBInstanceClass", dBInstanceClass);
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public String getCategory() {
+		return this.category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+		if(category != null){
+			putQueryParameter("Category", category);
+		}
+	}
+
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 

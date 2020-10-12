@@ -15,16 +15,15 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RebalanceInstancesRequest extends RpcAcsRequest<RebalanceInstancesResponse> {
-	
-	public RebalanceInstancesRequest() {
-		super("Ess", "2014-08-28", "RebalanceInstances", "ess");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -35,6 +34,14 @@ public class RebalanceInstancesRequest extends RpcAcsRequest<RebalanceInstancesR
 	private String ownerAccount;
 
 	private Long ownerId;
+	public RebalanceInstancesRequest() {
+		super("Ess", "2014-08-28", "RebalanceInstances", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;

@@ -15,24 +15,31 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDBInstanceIPArrayListRequest extends RpcAcsRequest<DescribeDBInstanceIPArrayListResponse> {
-	
-	public DescribeDBInstanceIPArrayListRequest() {
-		super("Rds", "2014-08-15", "DescribeDBInstanceIPArrayList", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String whitelistNetworkType;
-
 	private String ownerAccount;
 
+	private String whitelistNetworkType;
+
 	private String dBInstanceId;
+	public DescribeDBInstanceIPArrayListRequest() {
+		super("Rds", "2014-08-15", "DescribeDBInstanceIPArrayList", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -45,17 +52,6 @@ public class DescribeDBInstanceIPArrayListRequest extends RpcAcsRequest<Describe
 		}
 	}
 
-	public String getWhitelistNetworkType() {
-		return this.whitelistNetworkType;
-	}
-
-	public void setWhitelistNetworkType(String whitelistNetworkType) {
-		this.whitelistNetworkType = whitelistNetworkType;
-		if(whitelistNetworkType != null){
-			putQueryParameter("WhitelistNetworkType", whitelistNetworkType);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -64,6 +60,17 @@ public class DescribeDBInstanceIPArrayListRequest extends RpcAcsRequest<Describe
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public String getWhitelistNetworkType() {
+		return this.whitelistNetworkType;
+	}
+
+	public void setWhitelistNetworkType(String whitelistNetworkType) {
+		this.whitelistNetworkType = whitelistNetworkType;
+		if(whitelistNetworkType != null){
+			putQueryParameter("WhitelistNetworkType", whitelistNetworkType);
 		}
 	}
 

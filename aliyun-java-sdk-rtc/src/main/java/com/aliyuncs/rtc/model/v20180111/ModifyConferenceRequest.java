@@ -15,16 +15,15 @@
 package com.aliyuncs.rtc.model.v20180111;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rtc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyConferenceRequest extends RpcAcsRequest<ModifyConferenceResponse> {
-	
-	public ModifyConferenceRequest() {
-		super("rtc", "2018-01-11", "ModifyConference");
-	}
+	   
 
 	private String startTime;
 
@@ -39,6 +38,14 @@ public class ModifyConferenceRequest extends RpcAcsRequest<ModifyConferenceRespo
 	private String appId;
 
 	private Integer remindNotice;
+	public ModifyConferenceRequest() {
+		super("rtc", "2018-01-11", "ModifyConference", "rtc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getStartTime() {
 		return this.startTime;

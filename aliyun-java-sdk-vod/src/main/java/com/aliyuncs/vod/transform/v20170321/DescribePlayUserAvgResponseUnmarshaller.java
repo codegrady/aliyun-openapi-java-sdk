@@ -19,22 +19,21 @@ import java.util.List;
 
 import com.aliyuncs.vod.model.v20170321.DescribePlayUserAvgResponse;
 import com.aliyuncs.vod.model.v20170321.DescribePlayUserAvgResponse.UserPlayStatisAvg;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribePlayUserAvgResponseUnmarshaller {
 
-	public static DescribePlayUserAvgResponse unmarshall(DescribePlayUserAvgResponse describePlayUserAvgResponse, UnmarshallerContext context) {
+	public static DescribePlayUserAvgResponse unmarshall(DescribePlayUserAvgResponse describePlayUserAvgResponse, UnmarshallerContext _ctx) {
 		
-		describePlayUserAvgResponse.setRequestId(context.stringValue("DescribePlayUserAvgResponse.RequestId"));
+		describePlayUserAvgResponse.setRequestId(_ctx.stringValue("DescribePlayUserAvgResponse.RequestId"));
 
 		List<UserPlayStatisAvg> userPlayStatisAvgs = new ArrayList<UserPlayStatisAvg>();
-		for (int i = 0; i < context.lengthValue("DescribePlayUserAvgResponse.UserPlayStatisAvgs.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribePlayUserAvgResponse.UserPlayStatisAvgs.Length"); i++) {
 			UserPlayStatisAvg userPlayStatisAvg = new UserPlayStatisAvg();
-			userPlayStatisAvg.setDate(context.stringValue("DescribePlayUserAvgResponse.UserPlayStatisAvgs["+ i +"].Date"));
-			userPlayStatisAvg.setAvgPlayDuration(context.stringValue("DescribePlayUserAvgResponse.UserPlayStatisAvgs["+ i +"].AvgPlayDuration"));
-			userPlayStatisAvg.setAvgPlayCount(context.stringValue("DescribePlayUserAvgResponse.UserPlayStatisAvgs["+ i +"].AvgPlayCount"));
+			userPlayStatisAvg.setDate(_ctx.stringValue("DescribePlayUserAvgResponse.UserPlayStatisAvgs["+ i +"].Date"));
+			userPlayStatisAvg.setAvgPlayDuration(_ctx.stringValue("DescribePlayUserAvgResponse.UserPlayStatisAvgs["+ i +"].AvgPlayDuration"));
+			userPlayStatisAvg.setAvgPlayCount(_ctx.stringValue("DescribePlayUserAvgResponse.UserPlayStatisAvgs["+ i +"].AvgPlayCount"));
 
 			userPlayStatisAvgs.add(userPlayStatisAvg);
 		}

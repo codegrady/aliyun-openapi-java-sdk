@@ -18,27 +18,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.imm.model.v20170906.ListFaceGroupsResponse;
-import com.aliyuncs.imm.model.v20170906.ListFaceGroupsResponse.GroupsItem;
-import java.util.Map;
+import com.aliyuncs.imm.model.v20170906.ListFaceGroupsResponse.FaceGroupsItem;
+import com.aliyuncs.imm.model.v20170906.ListFaceGroupsResponse.FaceGroupsItem.GroupCoverFace;
+import com.aliyuncs.imm.model.v20170906.ListFaceGroupsResponse.FaceGroupsItem.GroupCoverFace.FaceBoundary;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class ListFaceGroupsResponseUnmarshaller {
 
-	public static ListFaceGroupsResponse unmarshall(ListFaceGroupsResponse listFaceGroupsResponse, UnmarshallerContext context) {
+	public static ListFaceGroupsResponse unmarshall(ListFaceGroupsResponse listFaceGroupsResponse, UnmarshallerContext _ctx) {
 		
-		listFaceGroupsResponse.setRequestId(context.stringValue("ListFaceGroupsResponse.RequestId"));
-		listFaceGroupsResponse.setNextMarker(context.integerValue("ListFaceGroupsResponse.NextMarker"));
+		listFaceGroupsResponse.setRequestId(_ctx.stringValue("ListFaceGroupsResponse.RequestId"));
+		listFaceGroupsResponse.setNextMarker(_ctx.stringValue("ListFaceGroupsResponse.NextMarker"));
 
-		List<GroupsItem> groups = new ArrayList<GroupsItem>();
-		for (int i = 0; i < context.lengthValue("ListFaceGroupsResponse.Groups.Length"); i++) {
-			GroupsItem groupsItem = new GroupsItem();
-			groupsItem.setGroupId(context.integerValue("ListFaceGroupsResponse.Groups["+ i +"].GroupId"));
-			groupsItem.setFaceNum(context.integerValue("ListFaceGroupsResponse.Groups["+ i +"].FaceNum"));
+		List<FaceGroupsItem> faceGroups = new ArrayList<FaceGroupsItem>();
+		for (int i = 0; i < _ctx.lengthValue("ListFaceGroupsResponse.FaceGroups.Length"); i++) {
+			FaceGroupsItem faceGroupsItem = new FaceGroupsItem();
+			faceGroupsItem.setGroupId(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].GroupId"));
+			faceGroupsItem.setGroupName(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].GroupName"));
+			faceGroupsItem.setFaceCount(_ctx.integerValue("ListFaceGroupsResponse.FaceGroups["+ i +"].FaceCount"));
+			faceGroupsItem.setCreateTime(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].CreateTime"));
+			faceGroupsItem.setModifyTime(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].ModifyTime"));
+			faceGroupsItem.setRemarksA(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].RemarksA"));
+			faceGroupsItem.setRemarksB(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].RemarksB"));
+			faceGroupsItem.setRemarksC(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].RemarksC"));
+			faceGroupsItem.setRemarksD(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].RemarksD"));
+			faceGroupsItem.setRemarksArrayA(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].RemarksArrayA"));
+			faceGroupsItem.setRemarksArrayB(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].RemarksArrayB"));
+			faceGroupsItem.setExternalId(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].ExternalId"));
+			faceGroupsItem.setImageCount(_ctx.integerValue("ListFaceGroupsResponse.FaceGroups["+ i +"].ImageCount"));
+			faceGroupsItem.setGender(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].Gender"));
+			faceGroupsItem.setMaxAge(_ctx.floatValue("ListFaceGroupsResponse.FaceGroups["+ i +"].MaxAge"));
+			faceGroupsItem.setAverageAge(_ctx.floatValue("ListFaceGroupsResponse.FaceGroups["+ i +"].AverageAge"));
+			faceGroupsItem.setMinAge(_ctx.floatValue("ListFaceGroupsResponse.FaceGroups["+ i +"].MinAge"));
 
-			groups.add(groupsItem);
+			GroupCoverFace groupCoverFace = new GroupCoverFace();
+			groupCoverFace.setFaceId(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].GroupCoverFace.FaceId"));
+			groupCoverFace.setImageUri(_ctx.stringValue("ListFaceGroupsResponse.FaceGroups["+ i +"].GroupCoverFace.ImageUri"));
+
+			FaceBoundary faceBoundary = new FaceBoundary();
+			faceBoundary.setLeft(_ctx.integerValue("ListFaceGroupsResponse.FaceGroups["+ i +"].GroupCoverFace.FaceBoundary.Left"));
+			faceBoundary.setTop(_ctx.integerValue("ListFaceGroupsResponse.FaceGroups["+ i +"].GroupCoverFace.FaceBoundary.Top"));
+			faceBoundary.setWidth(_ctx.integerValue("ListFaceGroupsResponse.FaceGroups["+ i +"].GroupCoverFace.FaceBoundary.Width"));
+			faceBoundary.setHeight(_ctx.integerValue("ListFaceGroupsResponse.FaceGroups["+ i +"].GroupCoverFace.FaceBoundary.Height"));
+			groupCoverFace.setFaceBoundary(faceBoundary);
+			faceGroupsItem.setGroupCoverFace(groupCoverFace);
+
+			faceGroups.add(faceGroupsItem);
 		}
-		listFaceGroupsResponse.setGroups(groups);
+		listFaceGroupsResponse.setFaceGroups(faceGroups);
 	 
 	 	return listFaceGroupsResponse;
 	}

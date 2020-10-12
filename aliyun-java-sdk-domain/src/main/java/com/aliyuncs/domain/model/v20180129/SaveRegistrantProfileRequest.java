@@ -15,40 +15,23 @@
 package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SaveRegistrantProfileRequest extends RpcAcsRequest<SaveRegistrantProfileResponse> {
-	
-	public SaveRegistrantProfileRequest() {
-		super("Domain", "2018-01-29", "SaveRegistrantProfile");
-	}
+	   
 
 	private String country;
-
-	private String address;
-
-	private String telArea;
 
 	private String city;
 
 	private Long registrantProfileId;
 
-	private String zhAddress;
-
-	private String registrantType;
-
-	private String telephone;
-
-	private Boolean defaultRegistrantProfile;
-
 	private String zhCity;
-
-	private String zhProvince;
-
-	private String registrantOrganization;
 
 	private String telExt;
 
@@ -58,15 +41,41 @@ public class SaveRegistrantProfileRequest extends RpcAcsRequest<SaveRegistrantPr
 
 	private String postalCode;
 
-	private String userClientIp;
-
 	private String lang;
 
 	private String email;
 
-	private String registrantName;
-
 	private String zhRegistrantOrganization;
+
+	private String address;
+
+	private String telArea;
+
+	private String zhAddress;
+
+	private String registrantType;
+
+	private String registrantProfileType;
+
+	private String telephone;
+
+	private Boolean defaultRegistrantProfile;
+
+	private String zhProvince;
+
+	private String registrantOrganization;
+
+	private String userClientIp;
+
+	private String registrantName;
+	public SaveRegistrantProfileRequest() {
+		super("Domain", "2018-01-29", "SaveRegistrantProfile", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getCountry() {
 		return this.country;
@@ -76,28 +85,6 @@ public class SaveRegistrantProfileRequest extends RpcAcsRequest<SaveRegistrantPr
 		this.country = country;
 		if(country != null){
 			putQueryParameter("Country", country);
-		}
-	}
-
-	public String getAddress() {
-		return this.address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-		if(address != null){
-			putQueryParameter("Address", address);
-		}
-	}
-
-	public String getTelArea() {
-		return this.telArea;
-	}
-
-	public void setTelArea(String telArea) {
-		this.telArea = telArea;
-		if(telArea != null){
-			putQueryParameter("TelArea", telArea);
 		}
 	}
 
@@ -123,50 +110,6 @@ public class SaveRegistrantProfileRequest extends RpcAcsRequest<SaveRegistrantPr
 		}
 	}
 
-	public String getZhAddress() {
-		return this.zhAddress;
-	}
-
-	public void setZhAddress(String zhAddress) {
-		this.zhAddress = zhAddress;
-		if(zhAddress != null){
-			putQueryParameter("ZhAddress", zhAddress);
-		}
-	}
-
-	public String getRegistrantType() {
-		return this.registrantType;
-	}
-
-	public void setRegistrantType(String registrantType) {
-		this.registrantType = registrantType;
-		if(registrantType != null){
-			putQueryParameter("RegistrantType", registrantType);
-		}
-	}
-
-	public String getTelephone() {
-		return this.telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-		if(telephone != null){
-			putQueryParameter("Telephone", telephone);
-		}
-	}
-
-	public Boolean getDefaultRegistrantProfile() {
-		return this.defaultRegistrantProfile;
-	}
-
-	public void setDefaultRegistrantProfile(Boolean defaultRegistrantProfile) {
-		this.defaultRegistrantProfile = defaultRegistrantProfile;
-		if(defaultRegistrantProfile != null){
-			putQueryParameter("DefaultRegistrantProfile", defaultRegistrantProfile.toString());
-		}
-	}
-
 	public String getZhCity() {
 		return this.zhCity;
 	}
@@ -175,28 +118,6 @@ public class SaveRegistrantProfileRequest extends RpcAcsRequest<SaveRegistrantPr
 		this.zhCity = zhCity;
 		if(zhCity != null){
 			putQueryParameter("ZhCity", zhCity);
-		}
-	}
-
-	public String getZhProvince() {
-		return this.zhProvince;
-	}
-
-	public void setZhProvince(String zhProvince) {
-		this.zhProvince = zhProvince;
-		if(zhProvince != null){
-			putQueryParameter("ZhProvince", zhProvince);
-		}
-	}
-
-	public String getRegistrantOrganization() {
-		return this.registrantOrganization;
-	}
-
-	public void setRegistrantOrganization(String registrantOrganization) {
-		this.registrantOrganization = registrantOrganization;
-		if(registrantOrganization != null){
-			putQueryParameter("RegistrantOrganization", registrantOrganization);
 		}
 	}
 
@@ -244,17 +165,6 @@ public class SaveRegistrantProfileRequest extends RpcAcsRequest<SaveRegistrantPr
 		}
 	}
 
-	public String getUserClientIp() {
-		return this.userClientIp;
-	}
-
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		if(userClientIp != null){
-			putQueryParameter("UserClientIp", userClientIp);
-		}
-	}
-
 	public String getLang() {
 		return this.lang;
 	}
@@ -277,17 +187,6 @@ public class SaveRegistrantProfileRequest extends RpcAcsRequest<SaveRegistrantPr
 		}
 	}
 
-	public String getRegistrantName() {
-		return this.registrantName;
-	}
-
-	public void setRegistrantName(String registrantName) {
-		this.registrantName = registrantName;
-		if(registrantName != null){
-			putQueryParameter("RegistrantName", registrantName);
-		}
-	}
-
 	public String getZhRegistrantOrganization() {
 		return this.zhRegistrantOrganization;
 	}
@@ -296,6 +195,127 @@ public class SaveRegistrantProfileRequest extends RpcAcsRequest<SaveRegistrantPr
 		this.zhRegistrantOrganization = zhRegistrantOrganization;
 		if(zhRegistrantOrganization != null){
 			putQueryParameter("ZhRegistrantOrganization", zhRegistrantOrganization);
+		}
+	}
+
+	public String getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+		if(address != null){
+			putQueryParameter("Address", address);
+		}
+	}
+
+	public String getTelArea() {
+		return this.telArea;
+	}
+
+	public void setTelArea(String telArea) {
+		this.telArea = telArea;
+		if(telArea != null){
+			putQueryParameter("TelArea", telArea);
+		}
+	}
+
+	public String getZhAddress() {
+		return this.zhAddress;
+	}
+
+	public void setZhAddress(String zhAddress) {
+		this.zhAddress = zhAddress;
+		if(zhAddress != null){
+			putQueryParameter("ZhAddress", zhAddress);
+		}
+	}
+
+	public String getRegistrantType() {
+		return this.registrantType;
+	}
+
+	public void setRegistrantType(String registrantType) {
+		this.registrantType = registrantType;
+		if(registrantType != null){
+			putQueryParameter("RegistrantType", registrantType);
+		}
+	}
+
+	public String getRegistrantProfileType() {
+		return this.registrantProfileType;
+	}
+
+	public void setRegistrantProfileType(String registrantProfileType) {
+		this.registrantProfileType = registrantProfileType;
+		if(registrantProfileType != null){
+			putQueryParameter("RegistrantProfileType", registrantProfileType);
+		}
+	}
+
+	public String getTelephone() {
+		return this.telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+		if(telephone != null){
+			putQueryParameter("Telephone", telephone);
+		}
+	}
+
+	public Boolean getDefaultRegistrantProfile() {
+		return this.defaultRegistrantProfile;
+	}
+
+	public void setDefaultRegistrantProfile(Boolean defaultRegistrantProfile) {
+		this.defaultRegistrantProfile = defaultRegistrantProfile;
+		if(defaultRegistrantProfile != null){
+			putQueryParameter("DefaultRegistrantProfile", defaultRegistrantProfile.toString());
+		}
+	}
+
+	public String getZhProvince() {
+		return this.zhProvince;
+	}
+
+	public void setZhProvince(String zhProvince) {
+		this.zhProvince = zhProvince;
+		if(zhProvince != null){
+			putQueryParameter("ZhProvince", zhProvince);
+		}
+	}
+
+	public String getRegistrantOrganization() {
+		return this.registrantOrganization;
+	}
+
+	public void setRegistrantOrganization(String registrantOrganization) {
+		this.registrantOrganization = registrantOrganization;
+		if(registrantOrganization != null){
+			putQueryParameter("RegistrantOrganization", registrantOrganization);
+		}
+	}
+
+	public String getUserClientIp() {
+		return this.userClientIp;
+	}
+
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
+		}
+	}
+
+	public String getRegistrantName() {
+		return this.registrantName;
+	}
+
+	public void setRegistrantName(String registrantName) {
+		this.registrantName = registrantName;
+		if(registrantName != null){
+			putQueryParameter("RegistrantName", registrantName);
 		}
 	}
 

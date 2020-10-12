@@ -15,36 +15,40 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddLiveStreamTranscodeRequest extends RpcAcsRequest<AddLiveStreamTranscodeResponse> {
-	
-	public AddLiveStreamTranscodeRequest() {
-		super("live", "2016-11-01", "AddLiveStreamTranscode", "live");
-	}
-
-	private String app;
+	   
 
 	private String template;
 
-	private String securityToken;
+	private String lazy;
 
-	private String domain;
+	private String mix;
+
+	private String app;
+
+	private String watermark;
 
 	private Long ownerId;
 
-	public String getApp() {
-		return this.app;
-	}
+	private String domain;
 
-	public void setApp(String app) {
-		this.app = app;
-		if(app != null){
-			putQueryParameter("App", app);
-		}
+	private String waterPattern;
+
+	private String onlyAudio;
+	public AddLiveStreamTranscodeRequest() {
+		super("live", "2016-11-01", "AddLiveStreamTranscode", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getTemplate() {
@@ -58,14 +62,58 @@ public class AddLiveStreamTranscodeRequest extends RpcAcsRequest<AddLiveStreamTr
 		}
 	}
 
-	public String getSecurityToken() {
-		return this.securityToken;
+	public String getLazy() {
+		return this.lazy;
 	}
 
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
+	public void setLazy(String lazy) {
+		this.lazy = lazy;
+		if(lazy != null){
+			putQueryParameter("Lazy", lazy);
+		}
+	}
+
+	public String getMix() {
+		return this.mix;
+	}
+
+	public void setMix(String mix) {
+		this.mix = mix;
+		if(mix != null){
+			putQueryParameter("Mix", mix);
+		}
+	}
+
+	public String getApp() {
+		return this.app;
+	}
+
+	public void setApp(String app) {
+		this.app = app;
+		if(app != null){
+			putQueryParameter("App", app);
+		}
+	}
+
+	public String getWatermark() {
+		return this.watermark;
+	}
+
+	public void setWatermark(String watermark) {
+		this.watermark = watermark;
+		if(watermark != null){
+			putQueryParameter("Watermark", watermark);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 
@@ -80,14 +128,25 @@ public class AddLiveStreamTranscodeRequest extends RpcAcsRequest<AddLiveStreamTr
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
+	public String getWaterPattern() {
+		return this.waterPattern;
 	}
 
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
+	public void setWaterPattern(String waterPattern) {
+		this.waterPattern = waterPattern;
+		if(waterPattern != null){
+			putQueryParameter("WaterPattern", waterPattern);
+		}
+	}
+
+	public String getOnlyAudio() {
+		return this.onlyAudio;
+	}
+
+	public void setOnlyAudio(String onlyAudio) {
+		this.onlyAudio = onlyAudio;
+		if(onlyAudio != null){
+			putQueryParameter("OnlyAudio", onlyAudio);
 		}
 	}
 

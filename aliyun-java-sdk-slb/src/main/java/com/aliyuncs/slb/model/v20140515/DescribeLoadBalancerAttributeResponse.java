@@ -81,13 +81,47 @@ public class DescribeLoadBalancerAttributeResponse extends AcsResponse {
 
 	private String renewalCycUnit;
 
+	private String hasReservedInfo;
+
+	private String reservedInfoOrderType;
+
+	private String reservedInfoInternetChargeType;
+
+	private String reservedInfoBandwidth;
+
+	private String reservedInfoActiveTime;
+
+	private String deleteProtection;
+
+	private String associatedCenId;
+
+	private String associatedCenStatus;
+
+	private String cloudInstanceType;
+
+	private String cloudInstanceId;
+
+	private String tunnelType;
+
+	private Long cloudInstanceUid;
+
+	private Boolean supportPrivateLink;
+
+	private String businessStatus;
+
+	private String modificationProtectionStatus;
+
+	private String modificationProtectionReason;
+
 	private List<ListenerPortAndProtocal> listenerPortsAndProtocal;
 
 	private List<ListenerPortAndProtocol> listenerPortsAndProtocol;
 
 	private List<BackendServer> backendServers;
 
-	private List<String> listenerPorts;
+	private List<Integer> listenerPorts;
+
+	private List<String> labels;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -313,6 +347,134 @@ public class DescribeLoadBalancerAttributeResponse extends AcsResponse {
 		this.renewalCycUnit = renewalCycUnit;
 	}
 
+	public String getHasReservedInfo() {
+		return this.hasReservedInfo;
+	}
+
+	public void setHasReservedInfo(String hasReservedInfo) {
+		this.hasReservedInfo = hasReservedInfo;
+	}
+
+	public String getReservedInfoOrderType() {
+		return this.reservedInfoOrderType;
+	}
+
+	public void setReservedInfoOrderType(String reservedInfoOrderType) {
+		this.reservedInfoOrderType = reservedInfoOrderType;
+	}
+
+	public String getReservedInfoInternetChargeType() {
+		return this.reservedInfoInternetChargeType;
+	}
+
+	public void setReservedInfoInternetChargeType(String reservedInfoInternetChargeType) {
+		this.reservedInfoInternetChargeType = reservedInfoInternetChargeType;
+	}
+
+	public String getReservedInfoBandwidth() {
+		return this.reservedInfoBandwidth;
+	}
+
+	public void setReservedInfoBandwidth(String reservedInfoBandwidth) {
+		this.reservedInfoBandwidth = reservedInfoBandwidth;
+	}
+
+	public String getReservedInfoActiveTime() {
+		return this.reservedInfoActiveTime;
+	}
+
+	public void setReservedInfoActiveTime(String reservedInfoActiveTime) {
+		this.reservedInfoActiveTime = reservedInfoActiveTime;
+	}
+
+	public String getDeleteProtection() {
+		return this.deleteProtection;
+	}
+
+	public void setDeleteProtection(String deleteProtection) {
+		this.deleteProtection = deleteProtection;
+	}
+
+	public String getAssociatedCenId() {
+		return this.associatedCenId;
+	}
+
+	public void setAssociatedCenId(String associatedCenId) {
+		this.associatedCenId = associatedCenId;
+	}
+
+	public String getAssociatedCenStatus() {
+		return this.associatedCenStatus;
+	}
+
+	public void setAssociatedCenStatus(String associatedCenStatus) {
+		this.associatedCenStatus = associatedCenStatus;
+	}
+
+	public String getCloudInstanceType() {
+		return this.cloudInstanceType;
+	}
+
+	public void setCloudInstanceType(String cloudInstanceType) {
+		this.cloudInstanceType = cloudInstanceType;
+	}
+
+	public String getCloudInstanceId() {
+		return this.cloudInstanceId;
+	}
+
+	public void setCloudInstanceId(String cloudInstanceId) {
+		this.cloudInstanceId = cloudInstanceId;
+	}
+
+	public String getTunnelType() {
+		return this.tunnelType;
+	}
+
+	public void setTunnelType(String tunnelType) {
+		this.tunnelType = tunnelType;
+	}
+
+	public Long getCloudInstanceUid() {
+		return this.cloudInstanceUid;
+	}
+
+	public void setCloudInstanceUid(Long cloudInstanceUid) {
+		this.cloudInstanceUid = cloudInstanceUid;
+	}
+
+	public Boolean getSupportPrivateLink() {
+		return this.supportPrivateLink;
+	}
+
+	public void setSupportPrivateLink(Boolean supportPrivateLink) {
+		this.supportPrivateLink = supportPrivateLink;
+	}
+
+	public String getBusinessStatus() {
+		return this.businessStatus;
+	}
+
+	public void setBusinessStatus(String businessStatus) {
+		this.businessStatus = businessStatus;
+	}
+
+	public String getModificationProtectionStatus() {
+		return this.modificationProtectionStatus;
+	}
+
+	public void setModificationProtectionStatus(String modificationProtectionStatus) {
+		this.modificationProtectionStatus = modificationProtectionStatus;
+	}
+
+	public String getModificationProtectionReason() {
+		return this.modificationProtectionReason;
+	}
+
+	public void setModificationProtectionReason(String modificationProtectionReason) {
+		this.modificationProtectionReason = modificationProtectionReason;
+	}
+
 	public List<ListenerPortAndProtocal> getListenerPortsAndProtocal() {
 		return this.listenerPortsAndProtocal;
 	}
@@ -337,12 +499,20 @@ public class DescribeLoadBalancerAttributeResponse extends AcsResponse {
 		this.backendServers = backendServers;
 	}
 
-	public List<String> getListenerPorts() {
+	public List<Integer> getListenerPorts() {
 		return this.listenerPorts;
 	}
 
-	public void setListenerPorts(List<String> listenerPorts) {
+	public void setListenerPorts(List<Integer> listenerPorts) {
 		this.listenerPorts = listenerPorts;
+	}
+
+	public List<String> getLabels() {
+		return this.labels;
+	}
+
+	public void setLabels(List<String> labels) {
+		this.labels = labels;
 	}
 
 	public static class ListenerPortAndProtocal {
@@ -378,6 +548,8 @@ public class DescribeLoadBalancerAttributeResponse extends AcsResponse {
 
 		private Integer forwardPort;
 
+		private String description;
+
 		public Integer getListenerPort() {
 			return this.listenerPort;
 		}
@@ -409,6 +581,14 @@ public class DescribeLoadBalancerAttributeResponse extends AcsResponse {
 		public void setForwardPort(Integer forwardPort) {
 			this.forwardPort = forwardPort;
 		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
 	}
 
 	public static class BackendServer {
@@ -421,9 +601,9 @@ public class DescribeLoadBalancerAttributeResponse extends AcsResponse {
 
 		private String serverIp;
 
-		private String eniHost;
-
 		private String vpcId;
+
+		private String description;
 
 		public String getServerId() {
 			return this.serverId;
@@ -457,20 +637,20 @@ public class DescribeLoadBalancerAttributeResponse extends AcsResponse {
 			this.serverIp = serverIp;
 		}
 
-		public String getEniHost() {
-			return this.eniHost;
-		}
-
-		public void setEniHost(String eniHost) {
-			this.eniHost = eniHost;
-		}
-
 		public String getVpcId() {
 			return this.vpcId;
 		}
 
 		public void setVpcId(String vpcId) {
 			this.vpcId = vpcId;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
 		}
 	}
 

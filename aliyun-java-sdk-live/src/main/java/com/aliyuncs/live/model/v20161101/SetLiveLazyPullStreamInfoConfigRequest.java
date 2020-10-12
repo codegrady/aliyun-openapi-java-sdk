@@ -15,18 +15,21 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetLiveLazyPullStreamInfoConfigRequest extends RpcAcsRequest<SetLiveLazyPullStreamInfoConfigResponse> {
-	
-	public SetLiveLazyPullStreamInfoConfigRequest() {
-		super("live", "2016-11-01", "SetLiveLazyPullStreamInfoConfig", "live");
-	}
+	   
+
+	private String pullArgs;
 
 	private String appName;
+
+	private String liveapiRequestFrom;
 
 	private String pullAuthKey;
 
@@ -41,6 +44,25 @@ public class SetLiveLazyPullStreamInfoConfigRequest extends RpcAcsRequest<SetLiv
 	private String pullAppName;
 
 	private String pullProtocol;
+	public SetLiveLazyPullStreamInfoConfigRequest() {
+		super("live", "2016-11-01", "SetLiveLazyPullStreamInfoConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getPullArgs() {
+		return this.pullArgs;
+	}
+
+	public void setPullArgs(String pullArgs) {
+		this.pullArgs = pullArgs;
+		if(pullArgs != null){
+			putQueryParameter("PullArgs", pullArgs);
+		}
+	}
 
 	public String getAppName() {
 		return this.appName;
@@ -50,6 +72,17 @@ public class SetLiveLazyPullStreamInfoConfigRequest extends RpcAcsRequest<SetLiv
 		this.appName = appName;
 		if(appName != null){
 			putQueryParameter("AppName", appName);
+		}
+	}
+
+	public String getLiveapiRequestFrom() {
+		return this.liveapiRequestFrom;
+	}
+
+	public void setLiveapiRequestFrom(String liveapiRequestFrom) {
+		this.liveapiRequestFrom = liveapiRequestFrom;
+		if(liveapiRequestFrom != null){
+			putQueryParameter("LiveapiRequestFrom", liveapiRequestFrom);
 		}
 	}
 

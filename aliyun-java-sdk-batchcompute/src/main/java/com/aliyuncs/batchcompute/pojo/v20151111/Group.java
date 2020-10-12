@@ -1,13 +1,14 @@
 package com.aliyuncs.batchcompute.pojo.v20151111;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by guangchun.luo on 15/12/7.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true) @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Group {
 
     @JsonProperty("DesiredVMCount")
@@ -23,6 +24,11 @@ public class Group {
     @JsonProperty("ResourceType")
     private String resourceType;
 
+    @JsonProperty("ImageId")
+    private String imageId;
+
+    @JsonProperty("HostnamePrefix")
+    private String hostnamePrefix;
 
     @JsonProperty("Disks")
     private Disks disks;
@@ -32,6 +38,26 @@ public class Group {
 
     @JsonProperty("SpotPriceLimit")
     private float spotPriceLimit;
+
+
+    @JsonIgnore
+    public String getImageId() {
+        return imageId;
+    }
+    @JsonIgnore
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
+    @JsonIgnore
+    public String getHostnamePrefix() {
+        return hostnamePrefix;
+    }
+
+    @JsonIgnore
+    public void setHostnamePrefix(String hostnamePrefix) {
+        this.hostnamePrefix = hostnamePrefix;
+    }
+
 
     @JsonIgnore
     public String getSpotStrategy() {

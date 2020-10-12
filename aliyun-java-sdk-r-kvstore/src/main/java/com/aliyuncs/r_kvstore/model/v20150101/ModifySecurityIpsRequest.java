@@ -15,18 +15,23 @@
 package com.aliyuncs.r_kvstore.model.v20150101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.r_kvstore.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsResponse> {
-	
-	public ModifySecurityIpsRequest() {
-		super("R-kvstore", "2015-01-01", "ModifySecurityIps", "redisa");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String securityIps;
+
+	private String securityIpGroupName;
+
+	private String securityToken;
 
 	private String modifyMode;
 
@@ -34,17 +39,19 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 
 	private String ownerAccount;
 
-	private String securityIps;
-
 	private Long ownerId;
-
-	private String securityIpGroupName;
 
 	private String instanceId;
 
-	private String securityToken;
-
 	private String securityIpGroupAttribute;
+	public ModifySecurityIpsRequest() {
+		super("R-kvstore", "2015-01-01", "ModifySecurityIps", "redisa");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -54,6 +61,39 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getSecurityIps() {
+		return this.securityIps;
+	}
+
+	public void setSecurityIps(String securityIps) {
+		this.securityIps = securityIps;
+		if(securityIps != null){
+			putQueryParameter("SecurityIps", securityIps);
+		}
+	}
+
+	public String getSecurityIpGroupName() {
+		return this.securityIpGroupName;
+	}
+
+	public void setSecurityIpGroupName(String securityIpGroupName) {
+		this.securityIpGroupName = securityIpGroupName;
+		if(securityIpGroupName != null){
+			putQueryParameter("SecurityIpGroupName", securityIpGroupName);
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 
@@ -90,17 +130,6 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		}
 	}
 
-	public String getSecurityIps() {
-		return this.securityIps;
-	}
-
-	public void setSecurityIps(String securityIps) {
-		this.securityIps = securityIps;
-		if(securityIps != null){
-			putQueryParameter("SecurityIps", securityIps);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -112,17 +141,6 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		}
 	}
 
-	public String getSecurityIpGroupName() {
-		return this.securityIpGroupName;
-	}
-
-	public void setSecurityIpGroupName(String securityIpGroupName) {
-		this.securityIpGroupName = securityIpGroupName;
-		if(securityIpGroupName != null){
-			putQueryParameter("SecurityIpGroupName", securityIpGroupName);
-		}
-	}
-
 	public String getInstanceId() {
 		return this.instanceId;
 	}
@@ -131,17 +149,6 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

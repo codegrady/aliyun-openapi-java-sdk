@@ -20,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class FailoverDBClusterResponseUnmarshaller {
 
-	public static FailoverDBClusterResponse unmarshall(FailoverDBClusterResponse failoverDBClusterResponse, UnmarshallerContext context) {
+	public static FailoverDBClusterResponse unmarshall(FailoverDBClusterResponse failoverDBClusterResponse, UnmarshallerContext _ctx) {
 		
-		failoverDBClusterResponse.setRequestId(context.stringValue("FailoverDBClusterResponse.RequestId"));
+		failoverDBClusterResponse.setRequestId(_ctx.stringValue("FailoverDBClusterResponse.RequestId"));
 	 
 	 	return failoverDBClusterResponse;
 	}

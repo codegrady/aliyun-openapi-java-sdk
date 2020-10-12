@@ -15,16 +15,15 @@
 package com.aliyuncs.cbn.model.v20170912;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cbn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyCenBandwidthPackageSpecRequest extends RpcAcsRequest<ModifyCenBandwidthPackageSpecResponse> {
-	
-	public ModifyCenBandwidthPackageSpecRequest() {
-		super("Cbn", "2017-09-12", "ModifyCenBandwidthPackageSpec", "cbn");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -32,11 +31,19 @@ public class ModifyCenBandwidthPackageSpecRequest extends RpcAcsRequest<ModifyCe
 
 	private Integer bandwidth;
 
-	private String cenBandwidthPackageId;
-
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String cenBandwidthPackageId;
+	public ModifyCenBandwidthPackageSpecRequest() {
+		super("Cbn", "2017-09-12", "ModifyCenBandwidthPackageSpec", "Cbn");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -71,17 +78,6 @@ public class ModifyCenBandwidthPackageSpecRequest extends RpcAcsRequest<ModifyCe
 		}
 	}
 
-	public String getCenBandwidthPackageId() {
-		return this.cenBandwidthPackageId;
-	}
-
-	public void setCenBandwidthPackageId(String cenBandwidthPackageId) {
-		this.cenBandwidthPackageId = cenBandwidthPackageId;
-		if(cenBandwidthPackageId != null){
-			putQueryParameter("CenBandwidthPackageId", cenBandwidthPackageId);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -101,6 +97,17 @@ public class ModifyCenBandwidthPackageSpecRequest extends RpcAcsRequest<ModifyCe
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getCenBandwidthPackageId() {
+		return this.cenBandwidthPackageId;
+	}
+
+	public void setCenBandwidthPackageId(String cenBandwidthPackageId) {
+		this.cenBandwidthPackageId = cenBandwidthPackageId;
+		if(cenBandwidthPackageId != null){
+			putQueryParameter("CenBandwidthPackageId", cenBandwidthPackageId);
 		}
 	}
 

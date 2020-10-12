@@ -21,25 +21,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class GetMaterialsResponseUnmarshaller {
 
-	public static GetMaterialsResponse unmarshall(GetMaterialsResponse getMaterialsResponse, UnmarshallerContext context) {
+	public static GetMaterialsResponse unmarshall(GetMaterialsResponse getMaterialsResponse, UnmarshallerContext _ctx) {
 		
-		getMaterialsResponse.setRequestId(context.stringValue("GetMaterialsResponse.RequestId"));
-		getMaterialsResponse.setSuccess(context.booleanValue("GetMaterialsResponse.Success"));
-		getMaterialsResponse.setCode(context.stringValue("GetMaterialsResponse.Code"));
-		getMaterialsResponse.setMessage(context.stringValue("GetMaterialsResponse.Message"));
+		getMaterialsResponse.setRequestId(_ctx.stringValue("GetMaterialsResponse.RequestId"));
+		getMaterialsResponse.setSuccess(_ctx.booleanValue("GetMaterialsResponse.Success"));
+		getMaterialsResponse.setCode(_ctx.stringValue("GetMaterialsResponse.Code"));
+		getMaterialsResponse.setMessage(_ctx.stringValue("GetMaterialsResponse.Message"));
 
 		Data data = new Data();
-		data.setName(context.stringValue("GetMaterialsResponse.Data.Name"));
-		data.setIdentificationNumber(context.stringValue("GetMaterialsResponse.Data.IdentificationNumber"));
-		data.setIdCardType(context.stringValue("GetMaterialsResponse.Data.IdCardType"));
-		data.setIdCardStartDate(context.stringValue("GetMaterialsResponse.Data.IdCardStartDate"));
-		data.setIdCardExpiry(context.stringValue("GetMaterialsResponse.Data.IdCardExpiry"));
-		data.setAddress(context.stringValue("GetMaterialsResponse.Data.Address"));
-		data.setSex(context.stringValue("GetMaterialsResponse.Data.Sex"));
-		data.setIdCardFrontPic(context.stringValue("GetMaterialsResponse.Data.IdCardFrontPic"));
-		data.setIdCardBackPic(context.stringValue("GetMaterialsResponse.Data.IdCardBackPic"));
-		data.setFacePic(context.stringValue("GetMaterialsResponse.Data.FacePic"));
-		data.setEthnicGroup(context.stringValue("GetMaterialsResponse.Data.EthnicGroup"));
+		data.setName(_ctx.stringValue("GetMaterialsResponse.Data.Name"));
+		data.setIdentificationNumber(_ctx.stringValue("GetMaterialsResponse.Data.IdentificationNumber"));
+		data.setIdCardType(_ctx.stringValue("GetMaterialsResponse.Data.IdCardType"));
+		data.setIdCardStartDate(_ctx.stringValue("GetMaterialsResponse.Data.IdCardStartDate"));
+		data.setIdCardExpiry(_ctx.stringValue("GetMaterialsResponse.Data.IdCardExpiry"));
+		data.setAddress(_ctx.stringValue("GetMaterialsResponse.Data.Address"));
+		data.setSex(_ctx.stringValue("GetMaterialsResponse.Data.Sex"));
+		data.setIdCardFrontPic(_ctx.stringValue("GetMaterialsResponse.Data.IdCardFrontPic"));
+		data.setIdCardBackPic(_ctx.stringValue("GetMaterialsResponse.Data.IdCardBackPic"));
+		data.setFacePic(_ctx.stringValue("GetMaterialsResponse.Data.FacePic"));
+		data.setEthnicGroup(_ctx.stringValue("GetMaterialsResponse.Data.EthnicGroup"));
+		data.setAuthority(_ctx.stringValue("GetMaterialsResponse.Data.Authority"));
 		getMaterialsResponse.setData(data);
 	 
 	 	return getMaterialsResponse;

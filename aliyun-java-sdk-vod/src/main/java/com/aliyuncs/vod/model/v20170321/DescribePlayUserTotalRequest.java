@@ -15,32 +15,28 @@
 package com.aliyuncs.vod.model.v20170321;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vod.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribePlayUserTotalRequest extends RpcAcsRequest<DescribePlayUserTotalResponse> {
-	
-	public DescribePlayUserTotalRequest() {
-		super("vod", "2017-03-21", "DescribePlayUserTotal", "vod");
-	}
-
-	private String endTime;
+	   
 
 	private String startTime;
 
+	private String endTime;
+
 	private Long ownerId;
-
-	public String getEndTime() {
-		return this.endTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-		if(endTime != null){
-			putQueryParameter("EndTime", endTime);
-		}
+	public DescribePlayUserTotalRequest() {
+		super("vod", "2017-03-21", "DescribePlayUserTotal", "vod");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getStartTime() {
@@ -51,6 +47,17 @@ public class DescribePlayUserTotalRequest extends RpcAcsRequest<DescribePlayUser
 		this.startTime = startTime;
 		if(startTime != null){
 			putQueryParameter("StartTime", startTime);
+		}
+	}
+
+	public String getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime);
 		}
 	}
 

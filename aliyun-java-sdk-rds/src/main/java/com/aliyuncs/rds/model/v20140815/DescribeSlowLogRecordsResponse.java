@@ -27,6 +27,8 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String dBInstanceId;
+
 	private String engine;
 
 	private Integer totalRecordCount;
@@ -43,6 +45,14 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
 	}
 
 	public String getEngine() {
@@ -93,7 +103,7 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 
 		private String sQLText;
 
-		private String queryTimes;
+		private Long queryTimes;
 
 		private Long lockTimes;
 
@@ -102,6 +112,8 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 		private Long returnRowCounts;
 
 		private String executionStartTime;
+
+		private Long queryTimeMS;
 
 		public String getHostAddress() {
 			return this.hostAddress;
@@ -127,11 +139,11 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 			this.sQLText = sQLText;
 		}
 
-		public String getQueryTimes() {
+		public Long getQueryTimes() {
 			return this.queryTimes;
 		}
 
-		public void setQueryTimes(String queryTimes) {
+		public void setQueryTimes(Long queryTimes) {
 			this.queryTimes = queryTimes;
 		}
 
@@ -165,6 +177,14 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 
 		public void setExecutionStartTime(String executionStartTime) {
 			this.executionStartTime = executionStartTime;
+		}
+
+		public Long getQueryTimeMS() {
+			return this.queryTimeMS;
+		}
+
+		public void setQueryTimeMS(Long queryTimeMS) {
+			this.queryTimeMS = queryTimeMS;
 		}
 	}
 

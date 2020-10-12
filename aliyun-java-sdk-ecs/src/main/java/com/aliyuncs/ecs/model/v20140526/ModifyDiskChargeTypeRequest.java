@@ -15,34 +15,41 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDiskChargeTypeRequest extends RpcAcsRequest<ModifyDiskChargeTypeResponse> {
-	
-	public ModifyDiskChargeTypeRequest() {
-		super("Ecs", "2014-05-26", "ModifyDiskChargeType", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
+	private String clientToken;
+
 	private String diskChargeType;
 
-	private String instanceId;
+	private String diskIds;
 
 	private Boolean autoPay;
 
 	private String resourceOwnerAccount;
 
-	private String clientToken;
-
 	private String ownerAccount;
 
-	private String diskIds;
-
 	private Long ownerId;
+
+	private String instanceId;
+	public ModifyDiskChargeTypeRequest() {
+		super("Ecs", "2014-05-26", "ModifyDiskChargeType", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -52,6 +59,17 @@ public class ModifyDiskChargeTypeRequest extends RpcAcsRequest<ModifyDiskChargeT
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -66,14 +84,14 @@ public class ModifyDiskChargeTypeRequest extends RpcAcsRequest<ModifyDiskChargeT
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
+	public String getDiskIds() {
+		return this.diskIds;
 	}
 
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
+	public void setDiskIds(String diskIds) {
+		this.diskIds = diskIds;
+		if(diskIds != null){
+			putQueryParameter("DiskIds", diskIds);
 		}
 	}
 
@@ -99,17 +117,6 @@ public class ModifyDiskChargeTypeRequest extends RpcAcsRequest<ModifyDiskChargeT
 		}
 	}
 
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -121,17 +128,6 @@ public class ModifyDiskChargeTypeRequest extends RpcAcsRequest<ModifyDiskChargeT
 		}
 	}
 
-	public String getDiskIds() {
-		return this.diskIds;
-	}
-
-	public void setDiskIds(String diskIds) {
-		this.diskIds = diskIds;
-		if(diskIds != null){
-			putQueryParameter("DiskIds", diskIds);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -140,6 +136,17 @@ public class ModifyDiskChargeTypeRequest extends RpcAcsRequest<ModifyDiskChargeT
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

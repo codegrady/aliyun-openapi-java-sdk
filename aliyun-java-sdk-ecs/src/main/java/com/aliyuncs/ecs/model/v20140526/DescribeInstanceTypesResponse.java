@@ -71,6 +71,10 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 
 		private Integer eniQuantity;
 
+		private Integer eniPrivateIpAddressQuantity;
+
+		private Integer eniIpv6AddressQuantity;
+
 		private Integer instanceBandwidthRx;
 
 		private Integer instanceBandwidthTx;
@@ -80,6 +84,18 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 		private Long instancePpsTx;
 
 		private String instanceFamilyLevel;
+
+		private Integer totalEniQueueQuantity;
+
+		private Boolean eniTrunkSupported;
+
+		private Integer eniTotalQuantity;
+
+		private Integer maximumQueueNumberPerEni;
+
+		private Integer primaryEniQueueNumber;
+
+		private Integer secondaryEniQueueNumber;
 
 		public String getInstanceTypeId() {
 			return this.instanceTypeId;
@@ -177,6 +193,22 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 			this.eniQuantity = eniQuantity;
 		}
 
+		public Integer getEniPrivateIpAddressQuantity() {
+			return this.eniPrivateIpAddressQuantity;
+		}
+
+		public void setEniPrivateIpAddressQuantity(Integer eniPrivateIpAddressQuantity) {
+			this.eniPrivateIpAddressQuantity = eniPrivateIpAddressQuantity;
+		}
+
+		public Integer getEniIpv6AddressQuantity() {
+			return this.eniIpv6AddressQuantity;
+		}
+
+		public void setEniIpv6AddressQuantity(Integer eniIpv6AddressQuantity) {
+			this.eniIpv6AddressQuantity = eniIpv6AddressQuantity;
+		}
+
 		public Integer getInstanceBandwidthRx() {
 			return this.instanceBandwidthRx;
 		}
@@ -215,6 +247,54 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 
 		public void setInstanceFamilyLevel(String instanceFamilyLevel) {
 			this.instanceFamilyLevel = instanceFamilyLevel;
+		}
+
+		public Integer getTotalEniQueueQuantity() {
+			return this.totalEniQueueQuantity;
+		}
+
+		public void setTotalEniQueueQuantity(Integer totalEniQueueQuantity) {
+			this.totalEniQueueQuantity = totalEniQueueQuantity;
+		}
+
+		public Boolean getEniTrunkSupported() {
+			return this.eniTrunkSupported;
+		}
+
+		public void setEniTrunkSupported(Boolean eniTrunkSupported) {
+			this.eniTrunkSupported = eniTrunkSupported;
+		}
+
+		public Integer getEniTotalQuantity() {
+			return this.eniTotalQuantity;
+		}
+
+		public void setEniTotalQuantity(Integer eniTotalQuantity) {
+			this.eniTotalQuantity = eniTotalQuantity;
+		}
+
+		public Integer getMaximumQueueNumberPerEni() {
+			return this.maximumQueueNumberPerEni;
+		}
+
+		public void setMaximumQueueNumberPerEni(Integer maximumQueueNumberPerEni) {
+			this.maximumQueueNumberPerEni = maximumQueueNumberPerEni;
+		}
+
+		public Integer getPrimaryEniQueueNumber() {
+			return this.primaryEniQueueNumber;
+		}
+
+		public void setPrimaryEniQueueNumber(Integer primaryEniQueueNumber) {
+			this.primaryEniQueueNumber = primaryEniQueueNumber;
+		}
+
+		public Integer getSecondaryEniQueueNumber() {
+			return this.secondaryEniQueueNumber;
+		}
+
+		public void setSecondaryEniQueueNumber(Integer secondaryEniQueueNumber) {
+			this.secondaryEniQueueNumber = secondaryEniQueueNumber;
 		}
 	}
 

@@ -15,28 +15,35 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteForwardEntryRequest extends RpcAcsRequest<DeleteForwardEntryResponse> {
-	
-	public DeleteForwardEntryRequest() {
-		super("Ecs", "2014-05-26", "DeleteForwardEntry", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
+	private String forwardTableId;
 
 	private String forwardEntryId;
 
+	private String resourceOwnerAccount;
+
 	private String ownerAccount;
 
-	private String forwardTableId;
-
 	private Long ownerId;
+	public DeleteForwardEntryRequest() {
+		super("Ecs", "2014-05-26", "DeleteForwardEntry", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -49,14 +56,14 @@ public class DeleteForwardEntryRequest extends RpcAcsRequest<DeleteForwardEntryR
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
+	public String getForwardTableId() {
+		return this.forwardTableId;
 	}
 
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public void setForwardTableId(String forwardTableId) {
+		this.forwardTableId = forwardTableId;
+		if(forwardTableId != null){
+			putQueryParameter("ForwardTableId", forwardTableId);
 		}
 	}
 
@@ -71,6 +78,17 @@ public class DeleteForwardEntryRequest extends RpcAcsRequest<DeleteForwardEntryR
 		}
 	}
 
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -79,17 +97,6 @@ public class DeleteForwardEntryRequest extends RpcAcsRequest<DeleteForwardEntryR
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getForwardTableId() {
-		return this.forwardTableId;
-	}
-
-	public void setForwardTableId(String forwardTableId) {
-		this.forwardTableId = forwardTableId;
-		if(forwardTableId != null){
-			putQueryParameter("ForwardTableId", forwardTableId);
 		}
 	}
 

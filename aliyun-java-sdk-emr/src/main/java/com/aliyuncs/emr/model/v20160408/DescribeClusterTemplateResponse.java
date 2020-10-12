@@ -51,6 +51,8 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 
 		private String templateName;
 
+		private String emrVer;
+
 		private Boolean logEnable;
 
 		private String logPath;
@@ -75,9 +77,55 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 
 		private Boolean easEnable;
 
+		private Long gmtCreate;
+
+		private Long gmtModified;
+
+		private String zoneId;
+
+		private String clusterType;
+
+		private String securityGroupId;
+
+		private String securityGroupName;
+
+		private String configurations;
+
+		private Boolean allowNotebook;
+
+		private String createSource;
+
+		private Boolean useLocalMetaDb;
+
+		private Boolean sshEnable;
+
+		private Boolean isOpenPublicIp;
+
+		private String depositType;
+
+		private String machineType;
+
+		private Boolean useCustomHiveMetaDb;
+
+		private Boolean initCustomHiveMetaDb;
+
+		private String keyPairName;
+
+		private String masterPwd;
+
+		private String metaStoreType;
+
+		private String metaStoreConf;
+
 		private List<BootstrapAction> bootstrapActionList;
 
 		private List<HostGroup> hostGroupList;
+
+		private List<Config> configList;
+
+		private List<Tag> tags;
+
+		private List<String> softwareInfoList;
 
 		public String getId() {
 			return this.id;
@@ -93,6 +141,14 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 
 		public void setTemplateName(String templateName) {
 			this.templateName = templateName;
+		}
+
+		public String getEmrVer() {
+			return this.emrVer;
+		}
+
+		public void setEmrVer(String emrVer) {
+			this.emrVer = emrVer;
 		}
 
 		public Boolean getLogEnable() {
@@ -191,6 +247,166 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 			this.easEnable = easEnable;
 		}
 
+		public Long getGmtCreate() {
+			return this.gmtCreate;
+		}
+
+		public void setGmtCreate(Long gmtCreate) {
+			this.gmtCreate = gmtCreate;
+		}
+
+		public Long getGmtModified() {
+			return this.gmtModified;
+		}
+
+		public void setGmtModified(Long gmtModified) {
+			this.gmtModified = gmtModified;
+		}
+
+		public String getZoneId() {
+			return this.zoneId;
+		}
+
+		public void setZoneId(String zoneId) {
+			this.zoneId = zoneId;
+		}
+
+		public String getClusterType() {
+			return this.clusterType;
+		}
+
+		public void setClusterType(String clusterType) {
+			this.clusterType = clusterType;
+		}
+
+		public String getSecurityGroupId() {
+			return this.securityGroupId;
+		}
+
+		public void setSecurityGroupId(String securityGroupId) {
+			this.securityGroupId = securityGroupId;
+		}
+
+		public String getSecurityGroupName() {
+			return this.securityGroupName;
+		}
+
+		public void setSecurityGroupName(String securityGroupName) {
+			this.securityGroupName = securityGroupName;
+		}
+
+		public String getConfigurations() {
+			return this.configurations;
+		}
+
+		public void setConfigurations(String configurations) {
+			this.configurations = configurations;
+		}
+
+		public Boolean getAllowNotebook() {
+			return this.allowNotebook;
+		}
+
+		public void setAllowNotebook(Boolean allowNotebook) {
+			this.allowNotebook = allowNotebook;
+		}
+
+		public String getCreateSource() {
+			return this.createSource;
+		}
+
+		public void setCreateSource(String createSource) {
+			this.createSource = createSource;
+		}
+
+		public Boolean getUseLocalMetaDb() {
+			return this.useLocalMetaDb;
+		}
+
+		public void setUseLocalMetaDb(Boolean useLocalMetaDb) {
+			this.useLocalMetaDb = useLocalMetaDb;
+		}
+
+		public Boolean getSshEnable() {
+			return this.sshEnable;
+		}
+
+		public void setSshEnable(Boolean sshEnable) {
+			this.sshEnable = sshEnable;
+		}
+
+		public Boolean getIsOpenPublicIp() {
+			return this.isOpenPublicIp;
+		}
+
+		public void setIsOpenPublicIp(Boolean isOpenPublicIp) {
+			this.isOpenPublicIp = isOpenPublicIp;
+		}
+
+		public String getDepositType() {
+			return this.depositType;
+		}
+
+		public void setDepositType(String depositType) {
+			this.depositType = depositType;
+		}
+
+		public String getMachineType() {
+			return this.machineType;
+		}
+
+		public void setMachineType(String machineType) {
+			this.machineType = machineType;
+		}
+
+		public Boolean getUseCustomHiveMetaDb() {
+			return this.useCustomHiveMetaDb;
+		}
+
+		public void setUseCustomHiveMetaDb(Boolean useCustomHiveMetaDb) {
+			this.useCustomHiveMetaDb = useCustomHiveMetaDb;
+		}
+
+		public Boolean getInitCustomHiveMetaDb() {
+			return this.initCustomHiveMetaDb;
+		}
+
+		public void setInitCustomHiveMetaDb(Boolean initCustomHiveMetaDb) {
+			this.initCustomHiveMetaDb = initCustomHiveMetaDb;
+		}
+
+		public String getKeyPairName() {
+			return this.keyPairName;
+		}
+
+		public void setKeyPairName(String keyPairName) {
+			this.keyPairName = keyPairName;
+		}
+
+		public String getMasterPwd() {
+			return this.masterPwd;
+		}
+
+		public void setMasterPwd(String masterPwd) {
+			this.masterPwd = masterPwd;
+		}
+
+		public String getMetaStoreType() {
+			return this.metaStoreType;
+		}
+
+		public void setMetaStoreType(String metaStoreType) {
+			this.metaStoreType = metaStoreType;
+		}
+
+		public String getMetaStoreConf() {
+			return this.metaStoreConf;
+		}
+
+		public void setMetaStoreConf(String metaStoreConf) {
+			this.metaStoreConf = metaStoreConf;
+		}
+
 		public List<BootstrapAction> getBootstrapActionList() {
 			return this.bootstrapActionList;
 		}
@@ -205,6 +421,30 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 
 		public void setHostGroupList(List<HostGroup> hostGroupList) {
 			this.hostGroupList = hostGroupList;
+		}
+
+		public List<Config> getConfigList() {
+			return this.configList;
+		}
+
+		public void setConfigList(List<Config> configList) {
+			this.configList = configList;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public List<String> getSoftwareInfoList() {
+			return this.softwareInfoList;
+		}
+
+		public void setSoftwareInfoList(List<String> softwareInfoList) {
+			this.softwareInfoList = softwareInfoList;
 		}
 
 		public static class BootstrapAction {
@@ -261,6 +501,12 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 			private Integer diskCapacity;
 
 			private Integer diskCount;
+
+			private String sysDiskType;
+
+			private Integer sysDiskCapacity;
+
+			private String multiInstanceTypes;
 
 			public String getHostGroupId() {
 				return this.hostGroupId;
@@ -340,6 +586,116 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 
 			public void setDiskCount(Integer diskCount) {
 				this.diskCount = diskCount;
+			}
+
+			public String getSysDiskType() {
+				return this.sysDiskType;
+			}
+
+			public void setSysDiskType(String sysDiskType) {
+				this.sysDiskType = sysDiskType;
+			}
+
+			public Integer getSysDiskCapacity() {
+				return this.sysDiskCapacity;
+			}
+
+			public void setSysDiskCapacity(Integer sysDiskCapacity) {
+				this.sysDiskCapacity = sysDiskCapacity;
+			}
+
+			public String getMultiInstanceTypes() {
+				return this.multiInstanceTypes;
+			}
+
+			public void setMultiInstanceTypes(String multiInstanceTypes) {
+				this.multiInstanceTypes = multiInstanceTypes;
+			}
+		}
+
+		public static class Config {
+
+			private String serviceName;
+
+			private String fileName;
+
+			private String configKey;
+
+			private String configValue;
+
+			private String encrypt;
+
+			private String replace;
+
+			public String getServiceName() {
+				return this.serviceName;
+			}
+
+			public void setServiceName(String serviceName) {
+				this.serviceName = serviceName;
+			}
+
+			public String getFileName() {
+				return this.fileName;
+			}
+
+			public void setFileName(String fileName) {
+				this.fileName = fileName;
+			}
+
+			public String getConfigKey() {
+				return this.configKey;
+			}
+
+			public void setConfigKey(String configKey) {
+				this.configKey = configKey;
+			}
+
+			public String getConfigValue() {
+				return this.configValue;
+			}
+
+			public void setConfigValue(String configValue) {
+				this.configValue = configValue;
+			}
+
+			public String getEncrypt() {
+				return this.encrypt;
+			}
+
+			public void setEncrypt(String encrypt) {
+				this.encrypt = encrypt;
+			}
+
+			public String getReplace() {
+				return this.replace;
+			}
+
+			public void setReplace(String replace) {
+				this.replace = replace;
+			}
+		}
+
+		public static class Tag {
+
+			private String tagKey;
+
+			private String tagValue;
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
+			}
+
+			public String getTagValue() {
+				return this.tagValue;
+			}
+
+			public void setTagValue(String tagValue) {
+				this.tagValue = tagValue;
 			}
 		}
 	}

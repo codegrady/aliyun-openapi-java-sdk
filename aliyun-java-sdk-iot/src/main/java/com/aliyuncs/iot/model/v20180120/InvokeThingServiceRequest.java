@@ -15,35 +15,55 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class InvokeThingServiceRequest extends RpcAcsRequest<InvokeThingServiceResponse> {
-	
-	public InvokeThingServiceRequest() {
-		super("Iot", "2018-01-20", "InvokeThingService");
-	}
-
-	private String args;
-
-	private String identifier;
+	   
 
 	private String iotId;
 
-	private String deviceName;
+	private String iotInstanceId;
+
+	private String identifier;
 
 	private String productKey;
 
-	public String getArgs() {
-		return this.args;
+	private String args;
+
+	private String deviceName;
+	public InvokeThingServiceRequest() {
+		super("Iot", "2018-01-20", "InvokeThingService", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setArgs(String args) {
-		this.args = args;
-		if(args != null){
-			putQueryParameter("Args", args);
+	public String getIotId() {
+		return this.iotId;
+	}
+
+	public void setIotId(String iotId) {
+		this.iotId = iotId;
+		if(iotId != null){
+			putQueryParameter("IotId", iotId);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -58,14 +78,25 @@ public class InvokeThingServiceRequest extends RpcAcsRequest<InvokeThingServiceR
 		}
 	}
 
-	public String getIotId() {
-		return this.iotId;
+	public String getProductKey() {
+		return this.productKey;
 	}
 
-	public void setIotId(String iotId) {
-		this.iotId = iotId;
-		if(iotId != null){
-			putQueryParameter("IotId", iotId);
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getArgs() {
+		return this.args;
+	}
+
+	public void setArgs(String args) {
+		this.args = args;
+		if(args != null){
+			putQueryParameter("Args", args);
 		}
 	}
 
@@ -77,17 +108,6 @@ public class InvokeThingServiceRequest extends RpcAcsRequest<InvokeThingServiceR
 		this.deviceName = deviceName;
 		if(deviceName != null){
 			putQueryParameter("DeviceName", deviceName);
-		}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
 		}
 	}
 

@@ -11,36 +11,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ros.model.v20150901;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ros.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeResourceDetailRequest extends RoaAcsRequest<DescribeResourceDetailResponse> {
-	
-	public DescribeResourceDetailRequest() {
-		super("ROS", "2015-09-01", "DescribeResourceDetail");
-		setUriPattern("/stacks/[StackName]/[StackId]/resources/[ResourceName]");
-		setMethod(MethodType.GET);
-	}
-
-	private String stackName;
+	   
 
 	private String stackId;
 
+	private String stackName;
+
 	private String resourceName;
-
-	public String getStackName() {
-		return this.stackName;
-	}
-
-	public void setStackName(String stackName) {
-		this.stackName = stackName;
-		putPathParameter("StackName", stackName);
+	public DescribeResourceDetailRequest() {
+		super("ROS", "2015-09-01", "DescribeResourceDetail", "ros");
+		setUriPattern("/stacks/[StackName]/[StackId]/resources/[ResourceName]");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getStackId() {
@@ -49,7 +46,20 @@ public class DescribeResourceDetailRequest extends RoaAcsRequest<DescribeResourc
 
 	public void setStackId(String stackId) {
 		this.stackId = stackId;
-		putPathParameter("StackId", stackId);
+		if(stackId != null){
+			putPathParameter("StackId", stackId);
+		}
+	}
+
+	public String getStackName() {
+		return this.stackName;
+	}
+
+	public void setStackName(String stackName) {
+		this.stackName = stackName;
+		if(stackName != null){
+			putPathParameter("StackName", stackName);
+		}
 	}
 
 	public String getResourceName() {
@@ -58,7 +68,9 @@ public class DescribeResourceDetailRequest extends RoaAcsRequest<DescribeResourc
 
 	public void setResourceName(String resourceName) {
 		this.resourceName = resourceName;
-		putPathParameter("ResourceName", resourceName);
+		if(resourceName != null){
+			putPathParameter("ResourceName", resourceName);
+		}
 	}
 
 	@Override

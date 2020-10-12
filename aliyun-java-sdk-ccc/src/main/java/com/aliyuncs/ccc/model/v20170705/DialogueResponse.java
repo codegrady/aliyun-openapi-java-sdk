@@ -92,6 +92,8 @@ public class DialogueResponse extends AcsResponse {
 
 		private String actionParams;
 
+		private Boolean interruptible;
+
 		public String getContent() {
 			return this.content;
 		}
@@ -114,6 +116,14 @@ public class DialogueResponse extends AcsResponse {
 
 		public void setActionParams(String actionParams) {
 			this.actionParams = actionParams;
+		}
+
+		public Boolean getInterruptible() {
+			return this.interruptible;
+		}
+
+		public void setInterruptible(Boolean interruptible) {
+			this.interruptible = interruptible;
 		}
 	}
 

@@ -15,18 +15,19 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyEipAddressAttributeRequest extends RpcAcsRequest<ModifyEipAddressAttributeResponse> {
-	
-	public ModifyEipAddressAttributeRequest() {
-		super("Ecs", "2014-05-26", "ModifyEipAddressAttribute", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String allocationId;
 
 	private String resourceOwnerAccount;
 
@@ -34,9 +35,15 @@ public class ModifyEipAddressAttributeRequest extends RpcAcsRequest<ModifyEipAdd
 
 	private String ownerAccount;
 
-	private String allocationId;
-
 	private Long ownerId;
+	public ModifyEipAddressAttributeRequest() {
+		super("Ecs", "2014-05-26", "ModifyEipAddressAttribute", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,6 +53,17 @@ public class ModifyEipAddressAttributeRequest extends RpcAcsRequest<ModifyEipAdd
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getAllocationId() {
+		return this.allocationId;
+	}
+
+	public void setAllocationId(String allocationId) {
+		this.allocationId = allocationId;
+		if(allocationId != null){
+			putQueryParameter("AllocationId", allocationId);
 		}
 	}
 
@@ -79,17 +97,6 @@ public class ModifyEipAddressAttributeRequest extends RpcAcsRequest<ModifyEipAdd
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getAllocationId() {
-		return this.allocationId;
-	}
-
-	public void setAllocationId(String allocationId) {
-		this.allocationId = allocationId;
-		if(allocationId != null){
-			putQueryParameter("AllocationId", allocationId);
 		}
 	}
 

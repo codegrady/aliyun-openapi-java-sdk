@@ -85,6 +85,8 @@ public class DescribeVSwitchesResponse extends AcsResponse {
 
 		private String cidrBlock;
 
+		private String ipv6CidrBlock;
+
 		private String zoneId;
 
 		private Long availableIpAddressCount;
@@ -96,6 +98,18 @@ public class DescribeVSwitchesResponse extends AcsResponse {
 		private String creationTime;
 
 		private Boolean isDefault;
+
+		private String resourceGroupId;
+
+		private String networkAclId;
+
+		private Long ownerId;
+
+		private String shareType;
+
+		private List<Tag> tags;
+
+		private RouteTable routeTable;
 
 		public String getVSwitchId() {
 			return this.vSwitchId;
@@ -127,6 +141,14 @@ public class DescribeVSwitchesResponse extends AcsResponse {
 
 		public void setCidrBlock(String cidrBlock) {
 			this.cidrBlock = cidrBlock;
+		}
+
+		public String getIpv6CidrBlock() {
+			return this.ipv6CidrBlock;
+		}
+
+		public void setIpv6CidrBlock(String ipv6CidrBlock) {
+			this.ipv6CidrBlock = ipv6CidrBlock;
 		}
 
 		public String getZoneId() {
@@ -175,6 +197,100 @@ public class DescribeVSwitchesResponse extends AcsResponse {
 
 		public void setIsDefault(Boolean isDefault) {
 			this.isDefault = isDefault;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public String getNetworkAclId() {
+			return this.networkAclId;
+		}
+
+		public void setNetworkAclId(String networkAclId) {
+			this.networkAclId = networkAclId;
+		}
+
+		public Long getOwnerId() {
+			return this.ownerId;
+		}
+
+		public void setOwnerId(Long ownerId) {
+			this.ownerId = ownerId;
+		}
+
+		public String getShareType() {
+			return this.shareType;
+		}
+
+		public void setShareType(String shareType) {
+			this.shareType = shareType;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public RouteTable getRouteTable() {
+			return this.routeTable;
+		}
+
+		public void setRouteTable(RouteTable routeTable) {
+			this.routeTable = routeTable;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
+		}
+
+		public static class RouteTable {
+
+			private String routeTableId;
+
+			private String routeTableType;
+
+			public String getRouteTableId() {
+				return this.routeTableId;
+			}
+
+			public void setRouteTableId(String routeTableId) {
+				this.routeTableId = routeTableId;
+			}
+
+			public String getRouteTableType() {
+				return this.routeTableType;
+			}
+
+			public void setRouteTableType(String routeTableType) {
+				this.routeTableType = routeTableType;
+			}
 		}
 	}
 

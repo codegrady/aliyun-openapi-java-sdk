@@ -15,26 +15,33 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class BatchSetLiveDomainConfigsRequest extends RpcAcsRequest<BatchSetLiveDomainConfigsResponse> {
-	
-	public BatchSetLiveDomainConfigsRequest() {
-		super("live", "2016-11-01", "BatchSetLiveDomainConfigs", "live");
-	}
+	   
 
 	private String functions;
-
-	private String securityToken;
 
 	private String domainNames;
 
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String securityToken;
+	public BatchSetLiveDomainConfigsRequest() {
+		super("live", "2016-11-01", "BatchSetLiveDomainConfigs", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFunctions() {
 		return this.functions;
@@ -44,17 +51,6 @@ public class BatchSetLiveDomainConfigsRequest extends RpcAcsRequest<BatchSetLive
 		this.functions = functions;
 		if(functions != null){
 			putQueryParameter("Functions", functions);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 
@@ -88,6 +84,17 @@ public class BatchSetLiveDomainConfigsRequest extends RpcAcsRequest<BatchSetLive
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

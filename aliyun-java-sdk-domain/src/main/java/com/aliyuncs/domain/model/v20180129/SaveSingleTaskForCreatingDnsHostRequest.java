@@ -16,34 +16,32 @@ package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SaveSingleTaskForCreatingDnsHostRequest extends RpcAcsRequest<SaveSingleTaskForCreatingDnsHostResponse> {
-	
-	public SaveSingleTaskForCreatingDnsHostRequest() {
-		super("Domain", "2018-01-29", "SaveSingleTaskForCreatingDnsHost");
-	}
-
-	private String instanceId;
+	   
 
 	private List<String> ips;
 
+	private String instanceId;
+
 	private String dnsName;
 
+	private String userClientIp;
+
 	private String lang;
-
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
-		}
+	public SaveSingleTaskForCreatingDnsHostRequest() {
+		super("Domain", "2018-01-29", "SaveSingleTaskForCreatingDnsHost", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public List<String> getIps() {
@@ -59,6 +57,17 @@ public class SaveSingleTaskForCreatingDnsHostRequest extends RpcAcsRequest<SaveS
 		}	
 	}
 
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
 	public String getDnsName() {
 		return this.dnsName;
 	}
@@ -67,6 +76,17 @@ public class SaveSingleTaskForCreatingDnsHostRequest extends RpcAcsRequest<SaveS
 		this.dnsName = dnsName;
 		if(dnsName != null){
 			putQueryParameter("DnsName", dnsName);
+		}
+	}
+
+	public String getUserClientIp() {
+		return this.userClientIp;
+	}
+
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
 		}
 	}
 

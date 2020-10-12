@@ -19,21 +19,20 @@ import java.util.List;
 
 import com.aliyuncs.dds.model.v20151201.DescribeKernelReleaseNotesResponse;
 import com.aliyuncs.dds.model.v20151201.DescribeKernelReleaseNotesResponse.ReleaseNote;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeKernelReleaseNotesResponseUnmarshaller {
 
-	public static DescribeKernelReleaseNotesResponse unmarshall(DescribeKernelReleaseNotesResponse describeKernelReleaseNotesResponse, UnmarshallerContext context) {
+	public static DescribeKernelReleaseNotesResponse unmarshall(DescribeKernelReleaseNotesResponse describeKernelReleaseNotesResponse, UnmarshallerContext _ctx) {
 		
-		describeKernelReleaseNotesResponse.setRequestId(context.stringValue("DescribeKernelReleaseNotesResponse.RequestId"));
+		describeKernelReleaseNotesResponse.setRequestId(_ctx.stringValue("DescribeKernelReleaseNotesResponse.RequestId"));
 
 		List<ReleaseNote> releaseNotes = new ArrayList<ReleaseNote>();
-		for (int i = 0; i < context.lengthValue("DescribeKernelReleaseNotesResponse.ReleaseNotes.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeKernelReleaseNotesResponse.ReleaseNotes.Length"); i++) {
 			ReleaseNote releaseNote = new ReleaseNote();
-			releaseNote.setKernelVersion(context.stringValue("DescribeKernelReleaseNotesResponse.ReleaseNotes["+ i +"].KernelVersion"));
-			releaseNote.setReleaseNote(context.stringValue("DescribeKernelReleaseNotesResponse.ReleaseNotes["+ i +"].ReleaseNote"));
+			releaseNote.setKernelVersion(_ctx.stringValue("DescribeKernelReleaseNotesResponse.ReleaseNotes["+ i +"].KernelVersion"));
+			releaseNote.setReleaseNote(_ctx.stringValue("DescribeKernelReleaseNotesResponse.ReleaseNotes["+ i +"].ReleaseNote"));
 
 			releaseNotes.add(releaseNote);
 		}

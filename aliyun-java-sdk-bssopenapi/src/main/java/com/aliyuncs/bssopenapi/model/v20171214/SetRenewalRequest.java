@@ -15,32 +15,39 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetRenewalRequest extends RpcAcsRequest<SetRenewalResponse> {
-	
-	public SetRenewalRequest() {
-		super("BssOpenApi", "2017-12-14", "SetRenewal");
-	}
+	   
 
 	private String productCode;
 
-	private String instanceIDs;
-
 	private String subscriptionType;
-
-	private String renewalStatus;
-
-	private String renewalPeriodUnit;
 
 	private Integer renewalPeriod;
 
 	private Long ownerId;
 
 	private String productType;
+
+	private String instanceIDs;
+
+	private String renewalStatus;
+
+	private String renewalPeriodUnit;
+	public SetRenewalRequest() {
+		super("BssOpenApi", "2017-12-14", "SetRenewal");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProductCode() {
 		return this.productCode;
@@ -53,17 +60,6 @@ public class SetRenewalRequest extends RpcAcsRequest<SetRenewalResponse> {
 		}
 	}
 
-	public String getInstanceIDs() {
-		return this.instanceIDs;
-	}
-
-	public void setInstanceIDs(String instanceIDs) {
-		this.instanceIDs = instanceIDs;
-		if(instanceIDs != null){
-			putQueryParameter("InstanceIDs", instanceIDs);
-		}
-	}
-
 	public String getSubscriptionType() {
 		return this.subscriptionType;
 	}
@@ -72,28 +68,6 @@ public class SetRenewalRequest extends RpcAcsRequest<SetRenewalResponse> {
 		this.subscriptionType = subscriptionType;
 		if(subscriptionType != null){
 			putQueryParameter("SubscriptionType", subscriptionType);
-		}
-	}
-
-	public String getRenewalStatus() {
-		return this.renewalStatus;
-	}
-
-	public void setRenewalStatus(String renewalStatus) {
-		this.renewalStatus = renewalStatus;
-		if(renewalStatus != null){
-			putQueryParameter("RenewalStatus", renewalStatus);
-		}
-	}
-
-	public String getRenewalPeriodUnit() {
-		return this.renewalPeriodUnit;
-	}
-
-	public void setRenewalPeriodUnit(String renewalPeriodUnit) {
-		this.renewalPeriodUnit = renewalPeriodUnit;
-		if(renewalPeriodUnit != null){
-			putQueryParameter("RenewalPeriodUnit", renewalPeriodUnit);
 		}
 	}
 
@@ -127,6 +101,39 @@ public class SetRenewalRequest extends RpcAcsRequest<SetRenewalResponse> {
 		this.productType = productType;
 		if(productType != null){
 			putQueryParameter("ProductType", productType);
+		}
+	}
+
+	public String getInstanceIDs() {
+		return this.instanceIDs;
+	}
+
+	public void setInstanceIDs(String instanceIDs) {
+		this.instanceIDs = instanceIDs;
+		if(instanceIDs != null){
+			putQueryParameter("InstanceIDs", instanceIDs);
+		}
+	}
+
+	public String getRenewalStatus() {
+		return this.renewalStatus;
+	}
+
+	public void setRenewalStatus(String renewalStatus) {
+		this.renewalStatus = renewalStatus;
+		if(renewalStatus != null){
+			putQueryParameter("RenewalStatus", renewalStatus);
+		}
+	}
+
+	public String getRenewalPeriodUnit() {
+		return this.renewalPeriodUnit;
+	}
+
+	public void setRenewalPeriodUnit(String renewalPeriodUnit) {
+		this.renewalPeriodUnit = renewalPeriodUnit;
+		if(renewalPeriodUnit != null){
+			putQueryParameter("RenewalPeriodUnit", renewalPeriodUnit);
 		}
 	}
 

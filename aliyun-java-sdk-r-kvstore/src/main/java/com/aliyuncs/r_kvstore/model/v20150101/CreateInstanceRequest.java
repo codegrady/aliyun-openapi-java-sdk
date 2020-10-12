@@ -15,20 +15,17 @@
 package com.aliyuncs.r_kvstore.model.v20150101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.r_kvstore.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse> {
-	
-	public CreateInstanceRequest() {
-		super("R-kvstore", "2015-01-01", "CreateInstance", "redisa");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String nodeType;
 
 	private String couponNo;
 
@@ -36,31 +33,21 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 	private String engineVersion;
 
-	private String instanceClass;
-
-	private Long capacity;
+	private String resourceGroupId;
 
 	private String password;
 
 	private String securityToken;
 
-	private String instanceType;
-
 	private String businessInfo;
 
+	private String autoRenewPeriod;
+
 	private String period;
-
-	private String resourceOwnerAccount;
-
-	private String srcDBInstanceId;
-
-	private String ownerAccount;
 
 	private String backupId;
 
 	private Long ownerId;
-
-	private String token;
 
 	private String vSwitchId;
 
@@ -68,13 +55,49 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 	private String instanceName;
 
-	private String vpcId;
+	private String autoRenew;
 
 	private String zoneId;
+
+	private String nodeType;
+
+	private String autoUseCoupon;
+
+	private String instanceClass;
+
+	private Long capacity;
+
+	private String instanceType;
+
+	private String dedicatedHostGroupId;
+
+	private String restoreTime;
+
+	private String resourceOwnerAccount;
+
+	private String srcDBInstanceId;
+
+	private String ownerAccount;
+
+	private Boolean globalInstance;
+
+	private String token;
+
+	private String globalInstanceId;
+
+	private String vpcId;
 
 	private String chargeType;
 
 	private String config;
+	public CreateInstanceRequest() {
+		super("R-kvstore", "2015-01-01", "CreateInstance", "redisa");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -84,17 +107,6 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getNodeType() {
-		return this.nodeType;
-	}
-
-	public void setNodeType(String nodeType) {
-		this.nodeType = nodeType;
-		if(nodeType != null){
-			putQueryParameter("NodeType", nodeType);
 		}
 	}
 
@@ -131,25 +143,14 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
-	public String getInstanceClass() {
-		return this.instanceClass;
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
 	}
 
-	public void setInstanceClass(String instanceClass) {
-		this.instanceClass = instanceClass;
-		if(instanceClass != null){
-			putQueryParameter("InstanceClass", instanceClass);
-		}
-	}
-
-	public Long getCapacity() {
-		return this.capacity;
-	}
-
-	public void setCapacity(Long capacity) {
-		this.capacity = capacity;
-		if(capacity != null){
-			putQueryParameter("Capacity", capacity.toString());
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -175,17 +176,6 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
-	public String getInstanceType() {
-		return this.instanceType;
-	}
-
-	public void setInstanceType(String instanceType) {
-		this.instanceType = instanceType;
-		if(instanceType != null){
-			putQueryParameter("InstanceType", instanceType);
-		}
-	}
-
 	public String getBusinessInfo() {
 		return this.businessInfo;
 	}
@@ -197,6 +187,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
+	public String getAutoRenewPeriod() {
+		return this.autoRenewPeriod;
+	}
+
+	public void setAutoRenewPeriod(String autoRenewPeriod) {
+		this.autoRenewPeriod = autoRenewPeriod;
+		if(autoRenewPeriod != null){
+			putQueryParameter("AutoRenewPeriod", autoRenewPeriod);
+		}
+	}
+
 	public String getPeriod() {
 		return this.period;
 	}
@@ -205,39 +206,6 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.period = period;
 		if(period != null){
 			putQueryParameter("Period", period);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getSrcDBInstanceId() {
-		return this.srcDBInstanceId;
-	}
-
-	public void setSrcDBInstanceId(String srcDBInstanceId) {
-		this.srcDBInstanceId = srcDBInstanceId;
-		if(srcDBInstanceId != null){
-			putQueryParameter("SrcDBInstanceId", srcDBInstanceId);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -260,17 +228,6 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getToken() {
-		return this.token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-		if(token != null){
-			putQueryParameter("Token", token);
 		}
 	}
 
@@ -307,14 +264,14 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
-	public String getVpcId() {
-		return this.vpcId;
+	public String getAutoRenew() {
+		return this.autoRenew;
 	}
 
-	public void setVpcId(String vpcId) {
-		this.vpcId = vpcId;
-		if(vpcId != null){
-			putQueryParameter("VpcId", vpcId);
+	public void setAutoRenew(String autoRenew) {
+		this.autoRenew = autoRenew;
+		if(autoRenew != null){
+			putQueryParameter("AutoRenew", autoRenew);
 		}
 	}
 
@@ -326,6 +283,160 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.zoneId = zoneId;
 		if(zoneId != null){
 			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public String getNodeType() {
+		return this.nodeType;
+	}
+
+	public void setNodeType(String nodeType) {
+		this.nodeType = nodeType;
+		if(nodeType != null){
+			putQueryParameter("NodeType", nodeType);
+		}
+	}
+
+	public String getAutoUseCoupon() {
+		return this.autoUseCoupon;
+	}
+
+	public void setAutoUseCoupon(String autoUseCoupon) {
+		this.autoUseCoupon = autoUseCoupon;
+		if(autoUseCoupon != null){
+			putQueryParameter("AutoUseCoupon", autoUseCoupon);
+		}
+	}
+
+	public String getInstanceClass() {
+		return this.instanceClass;
+	}
+
+	public void setInstanceClass(String instanceClass) {
+		this.instanceClass = instanceClass;
+		if(instanceClass != null){
+			putQueryParameter("InstanceClass", instanceClass);
+		}
+	}
+
+	public Long getCapacity() {
+		return this.capacity;
+	}
+
+	public void setCapacity(Long capacity) {
+		this.capacity = capacity;
+		if(capacity != null){
+			putQueryParameter("Capacity", capacity.toString());
+		}
+	}
+
+	public String getInstanceType() {
+		return this.instanceType;
+	}
+
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+		if(instanceType != null){
+			putQueryParameter("InstanceType", instanceType);
+		}
+	}
+
+	public String getDedicatedHostGroupId() {
+		return this.dedicatedHostGroupId;
+	}
+
+	public void setDedicatedHostGroupId(String dedicatedHostGroupId) {
+		this.dedicatedHostGroupId = dedicatedHostGroupId;
+		if(dedicatedHostGroupId != null){
+			putQueryParameter("DedicatedHostGroupId", dedicatedHostGroupId);
+		}
+	}
+
+	public String getRestoreTime() {
+		return this.restoreTime;
+	}
+
+	public void setRestoreTime(String restoreTime) {
+		this.restoreTime = restoreTime;
+		if(restoreTime != null){
+			putQueryParameter("RestoreTime", restoreTime);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getSrcDBInstanceId() {
+		return this.srcDBInstanceId;
+	}
+
+	public void setSrcDBInstanceId(String srcDBInstanceId) {
+		this.srcDBInstanceId = srcDBInstanceId;
+		if(srcDBInstanceId != null){
+			putQueryParameter("SrcDBInstanceId", srcDBInstanceId);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Boolean getGlobalInstance() {
+		return this.globalInstance;
+	}
+
+	public void setGlobalInstance(Boolean globalInstance) {
+		this.globalInstance = globalInstance;
+		if(globalInstance != null){
+			putQueryParameter("GlobalInstance", globalInstance.toString());
+		}
+	}
+
+	public String getToken() {
+		return this.token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+		if(token != null){
+			putQueryParameter("Token", token);
+		}
+	}
+
+	public String getGlobalInstanceId() {
+		return this.globalInstanceId;
+	}
+
+	public void setGlobalInstanceId(String globalInstanceId) {
+		this.globalInstanceId = globalInstanceId;
+		if(globalInstanceId != null){
+			putQueryParameter("GlobalInstanceId", globalInstanceId);
+		}
+	}
+
+	public String getVpcId() {
+		return this.vpcId;
+	}
+
+	public void setVpcId(String vpcId) {
+		this.vpcId = vpcId;
+		if(vpcId != null){
+			putQueryParameter("VpcId", vpcId);
 		}
 	}
 

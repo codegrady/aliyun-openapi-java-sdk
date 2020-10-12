@@ -15,20 +15,27 @@
 package com.aliyuncs.trademark.model.v20180724;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.trademark.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CheckLoaFillRequest extends RpcAcsRequest<CheckLoaFillResponse> {
-	
-	public CheckLoaFillRequest() {
-		super("Trademark", "2018-07-24", "CheckLoaFill", "trademark");
-	}
+	   
 
 	private String ossKey;
 
 	private String type;
+	public CheckLoaFillRequest() {
+		super("Trademark", "2018-07-24", "CheckLoaFill");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getOssKey() {
 		return this.ossKey;

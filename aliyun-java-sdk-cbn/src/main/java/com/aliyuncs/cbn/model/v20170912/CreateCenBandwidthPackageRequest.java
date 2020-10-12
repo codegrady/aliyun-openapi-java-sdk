@@ -15,20 +15,27 @@
 package com.aliyuncs.cbn.model.v20170912;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cbn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateCenBandwidthPackageRequest extends RpcAcsRequest<CreateCenBandwidthPackageResponse> {
-	
-	public CreateCenBandwidthPackageRequest() {
-		super("Cbn", "2017-09-12", "CreateCenBandwidthPackage", "cbn");
-	}
-
-	private String geographicRegionBId;
+	   
 
 	private Long resourceOwnerId;
+
+	private String clientToken;
+
+	private String description;
+
+	private Integer autoRenewDuration;
+
+	private String bandwidthPackageChargeType;
+
+	private String geographicRegionBId;
 
 	private Integer period;
 
@@ -38,31 +45,24 @@ public class CreateCenBandwidthPackageRequest extends RpcAcsRequest<CreateCenBan
 
 	private String resourceOwnerAccount;
 
-	private String clientToken;
-
 	private Integer bandwidth;
 
 	private String ownerAccount;
 
-	private String description;
-
 	private Long ownerId;
 
-	private String bandwidthPackageChargeType;
+	private Boolean autoRenew;
 
 	private String name;
 
 	private String pricingCycle;
-
-	public String getGeographicRegionBId() {
-		return this.geographicRegionBId;
-	}
-
-	public void setGeographicRegionBId(String geographicRegionBId) {
-		this.geographicRegionBId = geographicRegionBId;
-		if(geographicRegionBId != null){
-			putQueryParameter("GeographicRegionBId", geographicRegionBId);
-		}
+	public CreateCenBandwidthPackageRequest() {
+		super("Cbn", "2017-09-12", "CreateCenBandwidthPackage", "Cbn");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -73,6 +73,61 @@ public class CreateCenBandwidthPackageRequest extends RpcAcsRequest<CreateCenBan
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
+	public Integer getAutoRenewDuration() {
+		return this.autoRenewDuration;
+	}
+
+	public void setAutoRenewDuration(Integer autoRenewDuration) {
+		this.autoRenewDuration = autoRenewDuration;
+		if(autoRenewDuration != null){
+			putQueryParameter("AutoRenewDuration", autoRenewDuration.toString());
+		}
+	}
+
+	public String getBandwidthPackageChargeType() {
+		return this.bandwidthPackageChargeType;
+	}
+
+	public void setBandwidthPackageChargeType(String bandwidthPackageChargeType) {
+		this.bandwidthPackageChargeType = bandwidthPackageChargeType;
+		if(bandwidthPackageChargeType != null){
+			putQueryParameter("BandwidthPackageChargeType", bandwidthPackageChargeType);
+		}
+	}
+
+	public String getGeographicRegionBId() {
+		return this.geographicRegionBId;
+	}
+
+	public void setGeographicRegionBId(String geographicRegionBId) {
+		this.geographicRegionBId = geographicRegionBId;
+		if(geographicRegionBId != null){
+			putQueryParameter("GeographicRegionBId", geographicRegionBId);
 		}
 	}
 
@@ -120,17 +175,6 @@ public class CreateCenBandwidthPackageRequest extends RpcAcsRequest<CreateCenBan
 		}
 	}
 
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
 	public Integer getBandwidth() {
 		return this.bandwidth;
 	}
@@ -153,17 +197,6 @@ public class CreateCenBandwidthPackageRequest extends RpcAcsRequest<CreateCenBan
 		}
 	}
 
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -175,14 +208,14 @@ public class CreateCenBandwidthPackageRequest extends RpcAcsRequest<CreateCenBan
 		}
 	}
 
-	public String getBandwidthPackageChargeType() {
-		return this.bandwidthPackageChargeType;
+	public Boolean getAutoRenew() {
+		return this.autoRenew;
 	}
 
-	public void setBandwidthPackageChargeType(String bandwidthPackageChargeType) {
-		this.bandwidthPackageChargeType = bandwidthPackageChargeType;
-		if(bandwidthPackageChargeType != null){
-			putQueryParameter("BandwidthPackageChargeType", bandwidthPackageChargeType);
+	public void setAutoRenew(Boolean autoRenew) {
+		this.autoRenew = autoRenew;
+		if(autoRenew != null){
+			putQueryParameter("AutoRenew", autoRenew.toString());
 		}
 	}
 

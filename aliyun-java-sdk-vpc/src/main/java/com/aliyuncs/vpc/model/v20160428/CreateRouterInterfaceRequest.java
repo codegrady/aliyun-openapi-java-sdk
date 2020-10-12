@@ -15,16 +15,15 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateRouterInterfaceRequest extends RpcAcsRequest<CreateRouterInterfaceResponse> {
-	
-	public CreateRouterInterfaceRequest() {
-		super("Vpc", "2016-04-28", "CreateRouterInterface", "vpc");
-	}
+	   
 
 	private String accessPointId;
 
@@ -73,6 +72,14 @@ public class CreateRouterInterfaceRequest extends RpcAcsRequest<CreateRouterInte
 	private String name;
 
 	private String pricingCycle;
+	public CreateRouterInterfaceRequest() {
+		super("Vpc", "2016-04-28", "CreateRouterInterface", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getAccessPointId() {
 		return this.accessPointId;

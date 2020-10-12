@@ -15,30 +15,26 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstanceAttributeResponse> {
-	
-	public ModifyInstanceAttributeRequest() {
-		super("Ecs", "2014-05-26", "ModifyInstanceAttribute", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private Boolean recyclable;
 
-	private String ownerAccount;
+	private Integer networkInterfaceQueueNumber;
 
 	private String description;
 
-	private String creditSpecification;
-
-	private Long ownerId;
+	private Boolean deletionProtection;
 
 	private String userData;
 
@@ -46,9 +42,27 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 
 	private String hostName;
 
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private String creditSpecification;
+
+	private Long ownerId;
+
+	private List<String> securityGroupIdss;
+
 	private String instanceId;
 
 	private String instanceName;
+	public ModifyInstanceAttributeRequest() {
+		super("Ecs", "2014-05-26", "ModifyInstanceAttribute", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -58,17 +72,6 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -83,14 +86,14 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 		}
 	}
 
-	public String getOwnerAccount() {
-		return this.ownerAccount;
+	public Integer getNetworkInterfaceQueueNumber() {
+		return this.networkInterfaceQueueNumber;
 	}
 
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
+	public void setNetworkInterfaceQueueNumber(Integer networkInterfaceQueueNumber) {
+		this.networkInterfaceQueueNumber = networkInterfaceQueueNumber;
+		if(networkInterfaceQueueNumber != null){
+			putQueryParameter("NetworkInterfaceQueueNumber", networkInterfaceQueueNumber.toString());
 		}
 	}
 
@@ -105,25 +108,14 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 		}
 	}
 
-	public String getCreditSpecification() {
-		return this.creditSpecification;
+	public Boolean getDeletionProtection() {
+		return this.deletionProtection;
 	}
 
-	public void setCreditSpecification(String creditSpecification) {
-		this.creditSpecification = creditSpecification;
-		if(creditSpecification != null){
-			putQueryParameter("CreditSpecification", creditSpecification);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
+	public void setDeletionProtection(Boolean deletionProtection) {
+		this.deletionProtection = deletionProtection;
+		if(deletionProtection != null){
+			putQueryParameter("DeletionProtection", deletionProtection.toString());
 		}
 	}
 
@@ -158,6 +150,63 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 		if(hostName != null){
 			putQueryParameter("HostName", hostName);
 		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public String getCreditSpecification() {
+		return this.creditSpecification;
+	}
+
+	public void setCreditSpecification(String creditSpecification) {
+		this.creditSpecification = creditSpecification;
+		if(creditSpecification != null){
+			putQueryParameter("CreditSpecification", creditSpecification);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public List<String> getSecurityGroupIdss() {
+		return this.securityGroupIdss;
+	}
+
+	public void setSecurityGroupIdss(List<String> securityGroupIdss) {
+		this.securityGroupIdss = securityGroupIdss;	
+		if (securityGroupIdss != null) {
+			for (int i = 0; i < securityGroupIdss.size(); i++) {
+				putQueryParameter("SecurityGroupIds." + (i + 1) , securityGroupIdss.get(i));
+			}
+		}	
 	}
 
 	public String getInstanceId() {

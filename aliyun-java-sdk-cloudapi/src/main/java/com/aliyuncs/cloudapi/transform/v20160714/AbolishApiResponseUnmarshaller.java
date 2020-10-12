@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.AbolishApiResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class AbolishApiResponseUnmarshaller {
 
-	public static AbolishApiResponse unmarshall(AbolishApiResponse abolishApiResponse, UnmarshallerContext context) {
+	public static AbolishApiResponse unmarshall(AbolishApiResponse abolishApiResponse, UnmarshallerContext _ctx) {
 		
-		abolishApiResponse.setRequestId(context.stringValue("AbolishApiResponse.RequestId"));
+		abolishApiResponse.setRequestId(_ctx.stringValue("AbolishApiResponse.RequestId"));
 	 
 	 	return abolishApiResponse;
 	}

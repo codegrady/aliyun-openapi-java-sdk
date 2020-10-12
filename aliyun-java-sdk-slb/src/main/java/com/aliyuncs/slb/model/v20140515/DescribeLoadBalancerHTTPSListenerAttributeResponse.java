@@ -31,6 +31,8 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 
 	private Integer backendServerPort;
 
+	private String backendProtocol;
+
 	private Integer bandwidth;
 
 	private String status;
@@ -51,6 +53,8 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 
 	private String healthCheck;
 
+	private String healthCheckType;
+
 	private String healthCheckDomain;
 
 	private String healthCheckURI;
@@ -70,6 +74,10 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 	private String serverCertificateId;
 
 	private String cACertificateId;
+
+	private String healthCheckMethod;
+
+	private String healthCheckHttpVersion;
 
 	private Integer maxConnection;
 
@@ -101,9 +109,33 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 
 	private String description;
 
+	private String xForwardedFor_SLBPORT;
+
+	private String xForwardedFor_ClientSrcPort;
+
+	private String xForwardedFor_ClientCertSubjectDN;
+
+	private String xForwardedFor_ClientCertIssuerDN;
+
+	private String xForwardedFor_ClientCertFingerprint;
+
+	private String xForwardedFor_ClientCertClientVerify;
+
+	private String xForwardedFor_ClientCertSubjectDNAlias;
+
+	private String xForwardedFor_ClientCertIssuerDNAlias;
+
+	private String xForwardedFor_ClientCertFingerprintAlias;
+
+	private String xForwardedFor_ClientCertClientVerifyAlias;
+
 	private List<Rule> rules;
 
 	private List<DomainExtension> domainExtensions;
+
+	private List<ServerCertificate2> serverCertificates;
+
+	private List<String> aclIds;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -127,6 +159,14 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 
 	public void setBackendServerPort(Integer backendServerPort) {
 		this.backendServerPort = backendServerPort;
+	}
+
+	public String getBackendProtocol() {
+		return this.backendProtocol;
+	}
+
+	public void setBackendProtocol(String backendProtocol) {
+		this.backendProtocol = backendProtocol;
 	}
 
 	public Integer getBandwidth() {
@@ -209,6 +249,14 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 		this.healthCheck = healthCheck;
 	}
 
+	public String getHealthCheckType() {
+		return this.healthCheckType;
+	}
+
+	public void setHealthCheckType(String healthCheckType) {
+		this.healthCheckType = healthCheckType;
+	}
+
 	public String getHealthCheckDomain() {
 		return this.healthCheckDomain;
 	}
@@ -287,6 +335,22 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 
 	public void setCACertificateId(String cACertificateId) {
 		this.cACertificateId = cACertificateId;
+	}
+
+	public String getHealthCheckMethod() {
+		return this.healthCheckMethod;
+	}
+
+	public void setHealthCheckMethod(String healthCheckMethod) {
+		this.healthCheckMethod = healthCheckMethod;
+	}
+
+	public String getHealthCheckHttpVersion() {
+		return this.healthCheckHttpVersion;
+	}
+
+	public void setHealthCheckHttpVersion(String healthCheckHttpVersion) {
+		this.healthCheckHttpVersion = healthCheckHttpVersion;
 	}
 
 	public Integer getMaxConnection() {
@@ -409,6 +473,86 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 		this.description = description;
 	}
 
+	public String getXForwardedFor_SLBPORT() {
+		return this.xForwardedFor_SLBPORT;
+	}
+
+	public void setXForwardedFor_SLBPORT(String xForwardedFor_SLBPORT) {
+		this.xForwardedFor_SLBPORT = xForwardedFor_SLBPORT;
+	}
+
+	public String getXForwardedFor_ClientSrcPort() {
+		return this.xForwardedFor_ClientSrcPort;
+	}
+
+	public void setXForwardedFor_ClientSrcPort(String xForwardedFor_ClientSrcPort) {
+		this.xForwardedFor_ClientSrcPort = xForwardedFor_ClientSrcPort;
+	}
+
+	public String getXForwardedFor_ClientCertSubjectDN() {
+		return this.xForwardedFor_ClientCertSubjectDN;
+	}
+
+	public void setXForwardedFor_ClientCertSubjectDN(String xForwardedFor_ClientCertSubjectDN) {
+		this.xForwardedFor_ClientCertSubjectDN = xForwardedFor_ClientCertSubjectDN;
+	}
+
+	public String getXForwardedFor_ClientCertIssuerDN() {
+		return this.xForwardedFor_ClientCertIssuerDN;
+	}
+
+	public void setXForwardedFor_ClientCertIssuerDN(String xForwardedFor_ClientCertIssuerDN) {
+		this.xForwardedFor_ClientCertIssuerDN = xForwardedFor_ClientCertIssuerDN;
+	}
+
+	public String getXForwardedFor_ClientCertFingerprint() {
+		return this.xForwardedFor_ClientCertFingerprint;
+	}
+
+	public void setXForwardedFor_ClientCertFingerprint(String xForwardedFor_ClientCertFingerprint) {
+		this.xForwardedFor_ClientCertFingerprint = xForwardedFor_ClientCertFingerprint;
+	}
+
+	public String getXForwardedFor_ClientCertClientVerify() {
+		return this.xForwardedFor_ClientCertClientVerify;
+	}
+
+	public void setXForwardedFor_ClientCertClientVerify(String xForwardedFor_ClientCertClientVerify) {
+		this.xForwardedFor_ClientCertClientVerify = xForwardedFor_ClientCertClientVerify;
+	}
+
+	public String getXForwardedFor_ClientCertSubjectDNAlias() {
+		return this.xForwardedFor_ClientCertSubjectDNAlias;
+	}
+
+	public void setXForwardedFor_ClientCertSubjectDNAlias(String xForwardedFor_ClientCertSubjectDNAlias) {
+		this.xForwardedFor_ClientCertSubjectDNAlias = xForwardedFor_ClientCertSubjectDNAlias;
+	}
+
+	public String getXForwardedFor_ClientCertIssuerDNAlias() {
+		return this.xForwardedFor_ClientCertIssuerDNAlias;
+	}
+
+	public void setXForwardedFor_ClientCertIssuerDNAlias(String xForwardedFor_ClientCertIssuerDNAlias) {
+		this.xForwardedFor_ClientCertIssuerDNAlias = xForwardedFor_ClientCertIssuerDNAlias;
+	}
+
+	public String getXForwardedFor_ClientCertFingerprintAlias() {
+		return this.xForwardedFor_ClientCertFingerprintAlias;
+	}
+
+	public void setXForwardedFor_ClientCertFingerprintAlias(String xForwardedFor_ClientCertFingerprintAlias) {
+		this.xForwardedFor_ClientCertFingerprintAlias = xForwardedFor_ClientCertFingerprintAlias;
+	}
+
+	public String getXForwardedFor_ClientCertClientVerifyAlias() {
+		return this.xForwardedFor_ClientCertClientVerifyAlias;
+	}
+
+	public void setXForwardedFor_ClientCertClientVerifyAlias(String xForwardedFor_ClientCertClientVerifyAlias) {
+		this.xForwardedFor_ClientCertClientVerifyAlias = xForwardedFor_ClientCertClientVerifyAlias;
+	}
+
 	public List<Rule> getRules() {
 		return this.rules;
 	}
@@ -423,6 +567,22 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 
 	public void setDomainExtensions(List<DomainExtension> domainExtensions) {
 		this.domainExtensions = domainExtensions;
+	}
+
+	public List<ServerCertificate2> getServerCertificates() {
+		return this.serverCertificates;
+	}
+
+	public void setServerCertificates(List<ServerCertificate2> serverCertificates) {
+		this.serverCertificates = serverCertificates;
+	}
+
+	public List<String> getAclIds() {
+		return this.aclIds;
+	}
+
+	public void setAclIds(List<String> aclIds) {
+		this.aclIds = aclIds;
 	}
 
 	public static class Rule {
@@ -486,6 +646,10 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 
 		private String serverCertificateId;
 
+		private List<Certificate> certificates;
+
+		private List<ServerCertificate> serverCertificates1;
+
 		public String getDomainExtensionId() {
 			return this.domainExtensionId;
 		}
@@ -508,6 +672,131 @@ public class DescribeLoadBalancerHTTPSListenerAttributeResponse extends AcsRespo
 
 		public void setServerCertificateId(String serverCertificateId) {
 			this.serverCertificateId = serverCertificateId;
+		}
+
+		public List<Certificate> getCertificates() {
+			return this.certificates;
+		}
+
+		public void setCertificates(List<Certificate> certificates) {
+			this.certificates = certificates;
+		}
+
+		public List<ServerCertificate> getServerCertificates1() {
+			return this.serverCertificates1;
+		}
+
+		public void setServerCertificates1(List<ServerCertificate> serverCertificates1) {
+			this.serverCertificates1 = serverCertificates1;
+		}
+
+		public static class Certificate {
+
+			private String certificateId;
+
+			private String encryptionAlgorithm;
+
+			public String getCertificateId() {
+				return this.certificateId;
+			}
+
+			public void setCertificateId(String certificateId) {
+				this.certificateId = certificateId;
+			}
+
+			public String getEncryptionAlgorithm() {
+				return this.encryptionAlgorithm;
+			}
+
+			public void setEncryptionAlgorithm(String encryptionAlgorithm) {
+				this.encryptionAlgorithm = encryptionAlgorithm;
+			}
+		}
+
+		public static class ServerCertificate {
+
+			private String certificateId;
+
+			private String encryptionAlgorithm;
+
+			private String standardType;
+
+			private String bindingType;
+
+			public String getCertificateId() {
+				return this.certificateId;
+			}
+
+			public void setCertificateId(String certificateId) {
+				this.certificateId = certificateId;
+			}
+
+			public String getEncryptionAlgorithm() {
+				return this.encryptionAlgorithm;
+			}
+
+			public void setEncryptionAlgorithm(String encryptionAlgorithm) {
+				this.encryptionAlgorithm = encryptionAlgorithm;
+			}
+
+			public String getStandardType() {
+				return this.standardType;
+			}
+
+			public void setStandardType(String standardType) {
+				this.standardType = standardType;
+			}
+
+			public String getBindingType() {
+				return this.bindingType;
+			}
+
+			public void setBindingType(String bindingType) {
+				this.bindingType = bindingType;
+			}
+		}
+	}
+
+	public static class ServerCertificate2 {
+
+		private String certificateId;
+
+		private String encryptionAlgorithm;
+
+		private String standardType;
+
+		private String bindingType;
+
+		public String getCertificateId() {
+			return this.certificateId;
+		}
+
+		public void setCertificateId(String certificateId) {
+			this.certificateId = certificateId;
+		}
+
+		public String getEncryptionAlgorithm() {
+			return this.encryptionAlgorithm;
+		}
+
+		public void setEncryptionAlgorithm(String encryptionAlgorithm) {
+			this.encryptionAlgorithm = encryptionAlgorithm;
+		}
+
+		public String getStandardType() {
+			return this.standardType;
+		}
+
+		public void setStandardType(String standardType) {
+			this.standardType = standardType;
+		}
+
+		public String getBindingType() {
+			return this.bindingType;
+		}
+
+		public void setBindingType(String bindingType) {
+			this.bindingType = bindingType;
 		}
 	}
 

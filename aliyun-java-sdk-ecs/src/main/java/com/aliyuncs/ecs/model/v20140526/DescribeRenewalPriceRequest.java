@@ -15,18 +15,19 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPriceResponse> {
-	
-	public DescribeRenewalPriceRequest() {
-		super("Ecs", "2014-05-26", "DescribeRenewalPrice", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String priceUnit;
 
 	private String resourceId;
 
@@ -36,11 +37,17 @@ public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPr
 
 	private String ownerAccount;
 
-	private String priceUnit;
-
 	private Long ownerId;
 
 	private String resourceType;
+	public DescribeRenewalPriceRequest() {
+		super("Ecs", "2014-05-26", "DescribeRenewalPrice", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -50,6 +57,17 @@ public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPr
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getPriceUnit() {
+		return this.priceUnit;
+	}
+
+	public void setPriceUnit(String priceUnit) {
+		this.priceUnit = priceUnit;
+		if(priceUnit != null){
+			putQueryParameter("PriceUnit", priceUnit);
 		}
 	}
 
@@ -94,17 +112,6 @@ public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPr
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getPriceUnit() {
-		return this.priceUnit;
-	}
-
-	public void setPriceUnit(String priceUnit) {
-		this.priceUnit = priceUnit;
-		if(priceUnit != null){
-			putQueryParameter("PriceUnit", priceUnit);
 		}
 	}
 

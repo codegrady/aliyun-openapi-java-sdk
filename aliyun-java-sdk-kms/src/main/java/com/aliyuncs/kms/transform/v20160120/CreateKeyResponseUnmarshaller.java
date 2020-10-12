@@ -21,21 +21,28 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateKeyResponseUnmarshaller {
 
-	public static CreateKeyResponse unmarshall(CreateKeyResponse createKeyResponse, UnmarshallerContext context) {
+	public static CreateKeyResponse unmarshall(CreateKeyResponse createKeyResponse, UnmarshallerContext _ctx) {
 		
-		createKeyResponse.setRequestId(context.stringValue("CreateKeyResponse.RequestId"));
+		createKeyResponse.setRequestId(_ctx.stringValue("CreateKeyResponse.RequestId"));
 
 		KeyMetadata keyMetadata = new KeyMetadata();
-		keyMetadata.setCreationDate(context.stringValue("CreateKeyResponse.KeyMetadata.CreationDate"));
-		keyMetadata.setDescription(context.stringValue("CreateKeyResponse.KeyMetadata.Description"));
-		keyMetadata.setKeyId(context.stringValue("CreateKeyResponse.KeyMetadata.KeyId"));
-		keyMetadata.setKeyState(context.stringValue("CreateKeyResponse.KeyMetadata.KeyState"));
-		keyMetadata.setKeyUsage(context.stringValue("CreateKeyResponse.KeyMetadata.KeyUsage"));
-		keyMetadata.setDeleteDate(context.stringValue("CreateKeyResponse.KeyMetadata.DeleteDate"));
-		keyMetadata.setCreator(context.stringValue("CreateKeyResponse.KeyMetadata.Creator"));
-		keyMetadata.setArn(context.stringValue("CreateKeyResponse.KeyMetadata.Arn"));
-		keyMetadata.setOrigin(context.stringValue("CreateKeyResponse.KeyMetadata.Origin"));
-		keyMetadata.setMaterialExpireTime(context.stringValue("CreateKeyResponse.KeyMetadata.MaterialExpireTime"));
+		keyMetadata.setCreationDate(_ctx.stringValue("CreateKeyResponse.KeyMetadata.CreationDate"));
+		keyMetadata.setDescription(_ctx.stringValue("CreateKeyResponse.KeyMetadata.Description"));
+		keyMetadata.setKeyId(_ctx.stringValue("CreateKeyResponse.KeyMetadata.KeyId"));
+		keyMetadata.setKeyState(_ctx.stringValue("CreateKeyResponse.KeyMetadata.KeyState"));
+		keyMetadata.setKeyUsage(_ctx.stringValue("CreateKeyResponse.KeyMetadata.KeyUsage"));
+		keyMetadata.setDeleteDate(_ctx.stringValue("CreateKeyResponse.KeyMetadata.DeleteDate"));
+		keyMetadata.setCreator(_ctx.stringValue("CreateKeyResponse.KeyMetadata.Creator"));
+		keyMetadata.setArn(_ctx.stringValue("CreateKeyResponse.KeyMetadata.Arn"));
+		keyMetadata.setOrigin(_ctx.stringValue("CreateKeyResponse.KeyMetadata.Origin"));
+		keyMetadata.setMaterialExpireTime(_ctx.stringValue("CreateKeyResponse.KeyMetadata.MaterialExpireTime"));
+		keyMetadata.setProtectionLevel(_ctx.stringValue("CreateKeyResponse.KeyMetadata.ProtectionLevel"));
+		keyMetadata.setPrimaryKeyVersion(_ctx.stringValue("CreateKeyResponse.KeyMetadata.PrimaryKeyVersion"));
+		keyMetadata.setLastRotationDate(_ctx.stringValue("CreateKeyResponse.KeyMetadata.LastRotationDate"));
+		keyMetadata.setAutomaticRotation(_ctx.stringValue("CreateKeyResponse.KeyMetadata.AutomaticRotation"));
+		keyMetadata.setRotationInterval(_ctx.stringValue("CreateKeyResponse.KeyMetadata.RotationInterval"));
+		keyMetadata.setNextRotationDate(_ctx.stringValue("CreateKeyResponse.KeyMetadata.NextRotationDate"));
+		keyMetadata.setKeySpec(_ctx.stringValue("CreateKeyResponse.KeyMetadata.KeySpec"));
 		createKeyResponse.setKeyMetadata(keyMetadata);
 	 
 	 	return createKeyResponse;

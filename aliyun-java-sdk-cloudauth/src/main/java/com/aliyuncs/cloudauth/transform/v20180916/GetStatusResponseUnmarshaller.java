@@ -21,18 +21,19 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class GetStatusResponseUnmarshaller {
 
-	public static GetStatusResponse unmarshall(GetStatusResponse getStatusResponse, UnmarshallerContext context) {
+	public static GetStatusResponse unmarshall(GetStatusResponse getStatusResponse, UnmarshallerContext _ctx) {
 		
-		getStatusResponse.setRequestId(context.stringValue("GetStatusResponse.RequestId"));
-		getStatusResponse.setSuccess(context.booleanValue("GetStatusResponse.Success"));
-		getStatusResponse.setCode(context.stringValue("GetStatusResponse.Code"));
-		getStatusResponse.setMessage(context.stringValue("GetStatusResponse.Message"));
+		getStatusResponse.setRequestId(_ctx.stringValue("GetStatusResponse.RequestId"));
+		getStatusResponse.setSuccess(_ctx.booleanValue("GetStatusResponse.Success"));
+		getStatusResponse.setCode(_ctx.stringValue("GetStatusResponse.Code"));
+		getStatusResponse.setMessage(_ctx.stringValue("GetStatusResponse.Message"));
 
 		Data data = new Data();
-		data.setStatusCode(context.integerValue("GetStatusResponse.Data.StatusCode"));
-		data.setTrustedScore(context.floatValue("GetStatusResponse.Data.TrustedScore"));
-		data.setSimilarityScore(context.floatValue("GetStatusResponse.Data.SimilarityScore"));
-		data.setAuditConclusions(context.stringValue("GetStatusResponse.Data.AuditConclusions"));
+		data.setStatusCode(_ctx.integerValue("GetStatusResponse.Data.StatusCode"));
+		data.setTrustedScore(_ctx.floatValue("GetStatusResponse.Data.TrustedScore"));
+		data.setSimilarityScore(_ctx.floatValue("GetStatusResponse.Data.SimilarityScore"));
+		data.setAuditConclusions(_ctx.stringValue("GetStatusResponse.Data.AuditConclusions"));
+		data.setAuthorityComparisonScore(_ctx.floatValue("GetStatusResponse.Data.AuthorityComparisonScore"));
 		getStatusResponse.setData(data);
 	 
 	 	return getStatusResponse;

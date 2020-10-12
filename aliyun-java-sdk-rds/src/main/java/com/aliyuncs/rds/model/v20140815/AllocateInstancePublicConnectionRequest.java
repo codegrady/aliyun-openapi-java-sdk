@@ -15,30 +15,37 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AllocateInstancePublicConnectionRequest extends RpcAcsRequest<AllocateInstancePublicConnectionResponse> {
-	
-	public AllocateInstancePublicConnectionRequest() {
-		super("Rds", "2014-08-15", "AllocateInstancePublicConnection", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String connectionStringPrefix;
 
-	private String resourceOwnerAccount;
+	private String dBInstanceId;
 
-	private String port;
+	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String dBInstanceId;
-
 	private Long ownerId;
+
+	private String port;
+	public AllocateInstancePublicConnectionRequest() {
+		super("Rds", "2014-08-15", "AllocateInstancePublicConnection", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -62,6 +69,17 @@ public class AllocateInstancePublicConnectionRequest extends RpcAcsRequest<Alloc
 		}
 	}
 
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
 	public String getResourceOwnerAccount() {
 		return this.resourceOwnerAccount;
 	}
@@ -70,17 +88,6 @@ public class AllocateInstancePublicConnectionRequest extends RpcAcsRequest<Alloc
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getPort() {
-		return this.port;
-	}
-
-	public void setPort(String port) {
-		this.port = port;
-		if(port != null){
-			putQueryParameter("Port", port);
 		}
 	}
 
@@ -95,17 +102,6 @@ public class AllocateInstancePublicConnectionRequest extends RpcAcsRequest<Alloc
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,6 +110,17 @@ public class AllocateInstancePublicConnectionRequest extends RpcAcsRequest<Alloc
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getPort() {
+		return this.port;
+	}
+
+	public void setPort(String port) {
+		this.port = port;
+		if(port != null){
+			putQueryParameter("Port", port);
 		}
 	}
 

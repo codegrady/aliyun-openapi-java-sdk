@@ -15,32 +15,21 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<SetLoadBalancerTCPListenerAttributeResponse> {
-	
-	public SetLoadBalancerTCPListenerAttributeRequest() {
-		super("Slb", "2014-05-15", "SetLoadBalancerTCPListenerAttribute", "slb");
-	}
-
-	private Integer healthCheckConnectTimeout;
+	   
 
 	private Long resourceOwnerId;
 
 	private String healthCheckURI;
 
-	private String description;
-
-	private Integer unhealthyThreshold;
-
-	private Integer healthyThreshold;
-
 	private String aclStatus;
-
-	private String scheduler;
 
 	private String aclType;
 
@@ -48,15 +37,33 @@ public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<Se
 
 	private Integer establishedTimeout;
 
-	private Integer maxConnection;
-
 	private Integer persistenceTimeout;
-
-	private String vpcIds;
 
 	private String vServerGroupId;
 
 	private String aclId;
+
+	private String healthCheckDomain;
+
+	private String synProxy;
+
+	private Long ownerId;
+
+	private String loadBalancerId;
+
+	private String masterSlaveServerGroupId;
+
+	private Integer healthCheckInterval;
+
+	private Integer healthCheckConnectTimeout;
+
+	private String description;
+
+	private Integer unhealthyThreshold;
+
+	private Integer healthyThreshold;
+
+	private String scheduler;
 
 	private Integer listenerPort;
 
@@ -66,37 +73,20 @@ public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<Se
 
 	private Integer bandwidth;
 
-	private String healthCheckDomain;
-
 	private String ownerAccount;
-
-	private String synProxy;
-
-	private Long ownerId;
-
-	private String tags;
-
-	private String loadBalancerId;
-
-	private String masterSlaveServerGroupId;
-
-	private Integer healthCheckInterval;
 
 	private Integer healthCheckConnectPort;
 
 	private String healthCheckHttpCode;
 
 	private String vServerGroup;
-
-	public Integer getHealthCheckConnectTimeout() {
-		return this.healthCheckConnectTimeout;
-	}
-
-	public void setHealthCheckConnectTimeout(Integer healthCheckConnectTimeout) {
-		this.healthCheckConnectTimeout = healthCheckConnectTimeout;
-		if(healthCheckConnectTimeout != null){
-			putQueryParameter("HealthCheckConnectTimeout", healthCheckConnectTimeout.toString());
-		}
+	public SetLoadBalancerTCPListenerAttributeRequest() {
+		super("Slb", "2014-05-15", "SetLoadBalancerTCPListenerAttribute", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -121,39 +111,6 @@ public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<Se
 		}
 	}
 
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
-		}
-	}
-
-	public Integer getUnhealthyThreshold() {
-		return this.unhealthyThreshold;
-	}
-
-	public void setUnhealthyThreshold(Integer unhealthyThreshold) {
-		this.unhealthyThreshold = unhealthyThreshold;
-		if(unhealthyThreshold != null){
-			putQueryParameter("UnhealthyThreshold", unhealthyThreshold.toString());
-		}
-	}
-
-	public Integer getHealthyThreshold() {
-		return this.healthyThreshold;
-	}
-
-	public void setHealthyThreshold(Integer healthyThreshold) {
-		this.healthyThreshold = healthyThreshold;
-		if(healthyThreshold != null){
-			putQueryParameter("HealthyThreshold", healthyThreshold.toString());
-		}
-	}
-
 	public String getAclStatus() {
 		return this.aclStatus;
 	}
@@ -162,17 +119,6 @@ public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<Se
 		this.aclStatus = aclStatus;
 		if(aclStatus != null){
 			putQueryParameter("AclStatus", aclStatus);
-		}
-	}
-
-	public String getScheduler() {
-		return this.scheduler;
-	}
-
-	public void setScheduler(String scheduler) {
-		this.scheduler = scheduler;
-		if(scheduler != null){
-			putQueryParameter("Scheduler", scheduler);
 		}
 	}
 
@@ -209,17 +155,6 @@ public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<Se
 		}
 	}
 
-	public Integer getMaxConnection() {
-		return this.maxConnection;
-	}
-
-	public void setMaxConnection(Integer maxConnection) {
-		this.maxConnection = maxConnection;
-		if(maxConnection != null){
-			putQueryParameter("MaxConnection", maxConnection.toString());
-		}
-	}
-
 	public Integer getPersistenceTimeout() {
 		return this.persistenceTimeout;
 	}
@@ -228,17 +163,6 @@ public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<Se
 		this.persistenceTimeout = persistenceTimeout;
 		if(persistenceTimeout != null){
 			putQueryParameter("PersistenceTimeout", persistenceTimeout.toString());
-		}
-	}
-
-	public String getVpcIds() {
-		return this.vpcIds;
-	}
-
-	public void setVpcIds(String vpcIds) {
-		this.vpcIds = vpcIds;
-		if(vpcIds != null){
-			putQueryParameter("VpcIds", vpcIds);
 		}
 	}
 
@@ -261,6 +185,127 @@ public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<Se
 		this.aclId = aclId;
 		if(aclId != null){
 			putQueryParameter("AclId", aclId);
+		}
+	}
+
+	public String getHealthCheckDomain() {
+		return this.healthCheckDomain;
+	}
+
+	public void setHealthCheckDomain(String healthCheckDomain) {
+		this.healthCheckDomain = healthCheckDomain;
+		if(healthCheckDomain != null){
+			putQueryParameter("HealthCheckDomain", healthCheckDomain);
+		}
+	}
+
+	public String getSynProxy() {
+		return this.synProxy;
+	}
+
+	public void setSynProxy(String synProxy) {
+		this.synProxy = synProxy;
+		if(synProxy != null){
+			putQueryParameter("SynProxy", synProxy);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
+	}
+
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
+		}
+	}
+
+	public String getMasterSlaveServerGroupId() {
+		return this.masterSlaveServerGroupId;
+	}
+
+	public void setMasterSlaveServerGroupId(String masterSlaveServerGroupId) {
+		this.masterSlaveServerGroupId = masterSlaveServerGroupId;
+		if(masterSlaveServerGroupId != null){
+			putQueryParameter("MasterSlaveServerGroupId", masterSlaveServerGroupId);
+		}
+	}
+
+	public Integer getHealthCheckInterval() {
+		return this.healthCheckInterval;
+	}
+
+	public void setHealthCheckInterval(Integer healthCheckInterval) {
+		this.healthCheckInterval = healthCheckInterval;
+		if(healthCheckInterval != null){
+			putQueryParameter("HealthCheckInterval", healthCheckInterval.toString());
+		}
+	}
+
+	public Integer getHealthCheckConnectTimeout() {
+		return this.healthCheckConnectTimeout;
+	}
+
+	public void setHealthCheckConnectTimeout(Integer healthCheckConnectTimeout) {
+		this.healthCheckConnectTimeout = healthCheckConnectTimeout;
+		if(healthCheckConnectTimeout != null){
+			putQueryParameter("HealthCheckConnectTimeout", healthCheckConnectTimeout.toString());
+		}
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
+	public Integer getUnhealthyThreshold() {
+		return this.unhealthyThreshold;
+	}
+
+	public void setUnhealthyThreshold(Integer unhealthyThreshold) {
+		this.unhealthyThreshold = unhealthyThreshold;
+		if(unhealthyThreshold != null){
+			putQueryParameter("UnhealthyThreshold", unhealthyThreshold.toString());
+		}
+	}
+
+	public Integer getHealthyThreshold() {
+		return this.healthyThreshold;
+	}
+
+	public void setHealthyThreshold(Integer healthyThreshold) {
+		this.healthyThreshold = healthyThreshold;
+		if(healthyThreshold != null){
+			putQueryParameter("HealthyThreshold", healthyThreshold.toString());
+		}
+	}
+
+	public String getScheduler() {
+		return this.scheduler;
+	}
+
+	public void setScheduler(String scheduler) {
+		this.scheduler = scheduler;
+		if(scheduler != null){
+			putQueryParameter("Scheduler", scheduler);
 		}
 	}
 
@@ -308,17 +353,6 @@ public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<Se
 		}
 	}
 
-	public String getHealthCheckDomain() {
-		return this.healthCheckDomain;
-	}
-
-	public void setHealthCheckDomain(String healthCheckDomain) {
-		this.healthCheckDomain = healthCheckDomain;
-		if(healthCheckDomain != null){
-			putQueryParameter("HealthCheckDomain", healthCheckDomain);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -327,72 +361,6 @@ public class SetLoadBalancerTCPListenerAttributeRequest extends RpcAcsRequest<Se
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getSynProxy() {
-		return this.synProxy;
-	}
-
-	public void setSynProxy(String synProxy) {
-		this.synProxy = synProxy;
-		if(synProxy != null){
-			putQueryParameter("SynProxy", synProxy);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
-		}
-	}
-
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
-	}
-
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
-		}
-	}
-
-	public String getMasterSlaveServerGroupId() {
-		return this.masterSlaveServerGroupId;
-	}
-
-	public void setMasterSlaveServerGroupId(String masterSlaveServerGroupId) {
-		this.masterSlaveServerGroupId = masterSlaveServerGroupId;
-		if(masterSlaveServerGroupId != null){
-			putQueryParameter("MasterSlaveServerGroupId", masterSlaveServerGroupId);
-		}
-	}
-
-	public Integer getHealthCheckInterval() {
-		return this.healthCheckInterval;
-	}
-
-	public void setHealthCheckInterval(Integer healthCheckInterval) {
-		this.healthCheckInterval = healthCheckInterval;
-		if(healthCheckInterval != null){
-			putQueryParameter("HealthCheckInterval", healthCheckInterval.toString());
 		}
 	}
 

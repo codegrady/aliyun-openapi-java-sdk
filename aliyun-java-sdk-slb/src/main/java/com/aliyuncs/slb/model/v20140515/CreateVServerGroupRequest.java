@@ -15,20 +15,19 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateVServerGroupRequest extends RpcAcsRequest<CreateVServerGroupResponse> {
-	
-	public CreateVServerGroupRequest() {
-		super("Slb", "2014-05-15", "CreateVServerGroup", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String loadBalancerId;
+	private String backendServers;
 
 	private String resourceOwnerAccount;
 
@@ -36,11 +35,17 @@ public class CreateVServerGroupRequest extends RpcAcsRequest<CreateVServerGroupR
 
 	private Long ownerId;
 
-	private String backendServers;
-
-	private String tags;
-
 	private String vServerGroupName;
+
+	private String loadBalancerId;
+	public CreateVServerGroupRequest() {
+		super("Slb", "2014-05-15", "CreateVServerGroup", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -53,14 +58,14 @@ public class CreateVServerGroupRequest extends RpcAcsRequest<CreateVServerGroupR
 		}
 	}
 
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
+	public String getBackendServers() {
+		return this.backendServers;
 	}
 
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
+	public void setBackendServers(String backendServers) {
+		this.backendServers = backendServers;
+		if(backendServers != null){
+			putQueryParameter("BackendServers", backendServers);
 		}
 	}
 
@@ -97,28 +102,6 @@ public class CreateVServerGroupRequest extends RpcAcsRequest<CreateVServerGroupR
 		}
 	}
 
-	public String getBackendServers() {
-		return this.backendServers;
-	}
-
-	public void setBackendServers(String backendServers) {
-		this.backendServers = backendServers;
-		if(backendServers != null){
-			putQueryParameter("BackendServers", backendServers);
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
-		}
-	}
-
 	public String getVServerGroupName() {
 		return this.vServerGroupName;
 	}
@@ -127,6 +110,17 @@ public class CreateVServerGroupRequest extends RpcAcsRequest<CreateVServerGroupR
 		this.vServerGroupName = vServerGroupName;
 		if(vServerGroupName != null){
 			putQueryParameter("VServerGroupName", vServerGroupName);
+		}
+	}
+
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
+	}
+
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 

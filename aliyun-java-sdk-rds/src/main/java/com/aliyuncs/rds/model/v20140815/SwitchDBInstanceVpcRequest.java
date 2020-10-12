@@ -15,26 +15,55 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SwitchDBInstanceVpcRequest extends RpcAcsRequest<SwitchDBInstanceVpcResponse> {
-	
-	public SwitchDBInstanceVpcRequest() {
-		super("Rds", "2014-08-15", "SwitchDBInstanceVpc", "rds");
-	}
+	   
+
+	private Long resourceOwnerId;
+
+	private String dBInstanceId;
 
 	private String vSwitchId;
 
 	private String privateIpAddress;
 
-	private Long resourceOwnerId;
-
 	private String vPCId;
+	public SwitchDBInstanceVpcRequest() {
+		super("Rds", "2014-08-15", "SwitchDBInstanceVpc", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String dBInstanceId;
+	public Long getResourceOwnerId() {
+		return this.resourceOwnerId;
+	}
+
+	public void setResourceOwnerId(Long resourceOwnerId) {
+		this.resourceOwnerId = resourceOwnerId;
+		if(resourceOwnerId != null){
+			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
 
 	public String getVSwitchId() {
 		return this.vSwitchId;
@@ -58,17 +87,6 @@ public class SwitchDBInstanceVpcRequest extends RpcAcsRequest<SwitchDBInstanceVp
 		}
 	}
 
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
 	public String getVPCId() {
 		return this.vPCId;
 	}
@@ -77,17 +95,6 @@ public class SwitchDBInstanceVpcRequest extends RpcAcsRequest<SwitchDBInstanceVp
 		this.vPCId = vPCId;
 		if(vPCId != null){
 			putQueryParameter("VPCId", vPCId);
-		}
-	}
-
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

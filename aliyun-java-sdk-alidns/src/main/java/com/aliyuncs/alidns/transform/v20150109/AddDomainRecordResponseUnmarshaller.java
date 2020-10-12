@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.transform.v20150109;
 
 import com.aliyuncs.alidns.model.v20150109.AddDomainRecordResponse;
@@ -19,10 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class AddDomainRecordResponseUnmarshaller {
 
-	public static AddDomainRecordResponse unmarshall(AddDomainRecordResponse addDomainRecordResponse, UnmarshallerContext context) {
+	public static AddDomainRecordResponse unmarshall(AddDomainRecordResponse addDomainRecordResponse, UnmarshallerContext _ctx) {
 		
-		addDomainRecordResponse.setRequestId(context.stringValue("AddDomainRecordResponse.RequestId"));
-		addDomainRecordResponse.setRecordId(context.stringValue("AddDomainRecordResponse.RecordId"));
+		addDomainRecordResponse.setRequestId(_ctx.stringValue("AddDomainRecordResponse.RequestId"));
+		addDomainRecordResponse.setRecordId(_ctx.stringValue("AddDomainRecordResponse.RecordId"));
 	 
 	 	return addDomainRecordResponse;
 	}

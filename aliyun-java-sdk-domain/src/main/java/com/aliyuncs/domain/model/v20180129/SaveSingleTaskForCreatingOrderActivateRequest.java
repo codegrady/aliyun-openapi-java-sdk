@@ -15,16 +15,15 @@
 package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SaveSingleTaskForCreatingOrderActivateRequest extends RpcAcsRequest<SaveSingleTaskForCreatingOrderActivateResponse> {
-	
-	public SaveSingleTaskForCreatingOrderActivateRequest() {
-		super("Domain", "2018-01-29", "SaveSingleTaskForCreatingOrderActivate");
-	}
+	   
 
 	private String country;
 
@@ -39,6 +38,8 @@ public class SaveSingleTaskForCreatingOrderActivateRequest extends RpcAcsRequest
 	private String dns1;
 
 	private Long registrantProfileId;
+
+	private String couponNo;
 
 	private Boolean aliyunDns;
 
@@ -70,15 +71,31 @@ public class SaveSingleTaskForCreatingOrderActivateRequest extends RpcAcsRequest
 
 	private String telephone;
 
+	private Boolean trademarkDomainActivation;
+
+	private Boolean useCoupon;
+
 	private String zhProvince;
 
 	private String registrantOrganization;
+
+	private String promotionNo;
 
 	private Boolean enableDomainProxy;
 
 	private String userClientIp;
 
 	private String registrantName;
+
+	private Boolean usePromotion;
+	public SaveSingleTaskForCreatingOrderActivateRequest() {
+		super("Domain", "2018-01-29", "SaveSingleTaskForCreatingOrderActivate", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getCountry() {
 		return this.country;
@@ -154,6 +171,17 @@ public class SaveSingleTaskForCreatingOrderActivateRequest extends RpcAcsRequest
 		this.registrantProfileId = registrantProfileId;
 		if(registrantProfileId != null){
 			putQueryParameter("RegistrantProfileId", registrantProfileId.toString());
+		}
+	}
+
+	public String getCouponNo() {
+		return this.couponNo;
+	}
+
+	public void setCouponNo(String couponNo) {
+		this.couponNo = couponNo;
+		if(couponNo != null){
+			putQueryParameter("CouponNo", couponNo);
 		}
 	}
 
@@ -322,6 +350,28 @@ public class SaveSingleTaskForCreatingOrderActivateRequest extends RpcAcsRequest
 		}
 	}
 
+	public Boolean getTrademarkDomainActivation() {
+		return this.trademarkDomainActivation;
+	}
+
+	public void setTrademarkDomainActivation(Boolean trademarkDomainActivation) {
+		this.trademarkDomainActivation = trademarkDomainActivation;
+		if(trademarkDomainActivation != null){
+			putQueryParameter("TrademarkDomainActivation", trademarkDomainActivation.toString());
+		}
+	}
+
+	public Boolean getUseCoupon() {
+		return this.useCoupon;
+	}
+
+	public void setUseCoupon(Boolean useCoupon) {
+		this.useCoupon = useCoupon;
+		if(useCoupon != null){
+			putQueryParameter("UseCoupon", useCoupon.toString());
+		}
+	}
+
 	public String getZhProvince() {
 		return this.zhProvince;
 	}
@@ -341,6 +391,17 @@ public class SaveSingleTaskForCreatingOrderActivateRequest extends RpcAcsRequest
 		this.registrantOrganization = registrantOrganization;
 		if(registrantOrganization != null){
 			putQueryParameter("RegistrantOrganization", registrantOrganization);
+		}
+	}
+
+	public String getPromotionNo() {
+		return this.promotionNo;
+	}
+
+	public void setPromotionNo(String promotionNo) {
+		this.promotionNo = promotionNo;
+		if(promotionNo != null){
+			putQueryParameter("PromotionNo", promotionNo);
 		}
 	}
 
@@ -374,6 +435,17 @@ public class SaveSingleTaskForCreatingOrderActivateRequest extends RpcAcsRequest
 		this.registrantName = registrantName;
 		if(registrantName != null){
 			putQueryParameter("RegistrantName", registrantName);
+		}
+	}
+
+	public Boolean getUsePromotion() {
+		return this.usePromotion;
+	}
+
+	public void setUsePromotion(Boolean usePromotion) {
+		this.usePromotion = usePromotion;
+		if(usePromotion != null){
+			putQueryParameter("UsePromotion", usePromotion.toString());
 		}
 	}
 

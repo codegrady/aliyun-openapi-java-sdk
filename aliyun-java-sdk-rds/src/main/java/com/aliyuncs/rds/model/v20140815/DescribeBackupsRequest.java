@@ -15,34 +15,41 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeBackupsRequest extends RpcAcsRequest<DescribeBackupsResponse> {
-	
-	public DescribeBackupsRequest() {
-		super("Rds", "2014-08-15", "DescribeBackups", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String backupId;
-
-	private String endTime;
 
 	private String startTime;
 
 	private Integer pageNumber;
 
-	private String backupStatus;
-
 	private Integer pageSize;
 
 	private String dBInstanceId;
 
+	private String backupId;
+
+	private String endTime;
+
+	private String backupStatus;
+
 	private String backupMode;
+	public DescribeBackupsRequest() {
+		super("Rds", "2014-08-15", "DescribeBackups", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -52,28 +59,6 @@ public class DescribeBackupsRequest extends RpcAcsRequest<DescribeBackupsRespons
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getBackupId() {
-		return this.backupId;
-	}
-
-	public void setBackupId(String backupId) {
-		this.backupId = backupId;
-		if(backupId != null){
-			putQueryParameter("BackupId", backupId);
-		}
-	}
-
-	public String getEndTime() {
-		return this.endTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-		if(endTime != null){
-			putQueryParameter("EndTime", endTime);
 		}
 	}
 
@@ -99,17 +84,6 @@ public class DescribeBackupsRequest extends RpcAcsRequest<DescribeBackupsRespons
 		}
 	}
 
-	public String getBackupStatus() {
-		return this.backupStatus;
-	}
-
-	public void setBackupStatus(String backupStatus) {
-		this.backupStatus = backupStatus;
-		if(backupStatus != null){
-			putQueryParameter("BackupStatus", backupStatus);
-		}
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -129,6 +103,39 @@ public class DescribeBackupsRequest extends RpcAcsRequest<DescribeBackupsRespons
 		this.dBInstanceId = dBInstanceId;
 		if(dBInstanceId != null){
 			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getBackupId() {
+		return this.backupId;
+	}
+
+	public void setBackupId(String backupId) {
+		this.backupId = backupId;
+		if(backupId != null){
+			putQueryParameter("BackupId", backupId);
+		}
+	}
+
+	public String getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime);
+		}
+	}
+
+	public String getBackupStatus() {
+		return this.backupStatus;
+	}
+
+	public void setBackupStatus(String backupStatus) {
+		this.backupStatus = backupStatus;
+		if(backupStatus != null){
+			putQueryParameter("BackupStatus", backupStatus);
 		}
 	}
 

@@ -15,26 +15,33 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class BatchDeleteLiveDomainConfigsRequest extends RpcAcsRequest<BatchDeleteLiveDomainConfigsResponse> {
-	
-	public BatchDeleteLiveDomainConfigsRequest() {
-		super("live", "2016-11-01", "BatchDeleteLiveDomainConfigs", "live");
-	}
+	   
 
 	private String functionNames;
-
-	private String securityToken;
 
 	private String domainNames;
 
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String securityToken;
+	public BatchDeleteLiveDomainConfigsRequest() {
+		super("live", "2016-11-01", "BatchDeleteLiveDomainConfigs", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFunctionNames() {
 		return this.functionNames;
@@ -44,17 +51,6 @@ public class BatchDeleteLiveDomainConfigsRequest extends RpcAcsRequest<BatchDele
 		this.functionNames = functionNames;
 		if(functionNames != null){
 			putQueryParameter("FunctionNames", functionNames);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 
@@ -88,6 +84,17 @@ public class BatchDeleteLiveDomainConfigsRequest extends RpcAcsRequest<BatchDele
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

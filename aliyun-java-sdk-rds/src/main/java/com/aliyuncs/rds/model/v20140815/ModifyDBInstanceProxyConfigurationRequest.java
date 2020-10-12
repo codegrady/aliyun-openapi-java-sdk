@@ -15,28 +15,35 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDBInstanceProxyConfigurationRequest extends RpcAcsRequest<ModifyDBInstanceProxyConfigurationResponse> {
-	
-	public ModifyDBInstanceProxyConfigurationRequest() {
-		super("Rds", "2014-08-15", "ModifyDBInstanceProxyConfiguration", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String resourceOwnerAccount;
 
-	private String proxyConfigurationKey;
-
 	private String proxyConfigurationValue;
 
-	private String dBInstanceId;
-
 	private Long ownerId;
+
+	private String proxyConfigurationKey;
+
+	private String dBInstanceId;
+	public ModifyDBInstanceProxyConfigurationRequest() {
+		super("Rds", "2014-08-15", "ModifyDBInstanceProxyConfiguration", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -60,17 +67,6 @@ public class ModifyDBInstanceProxyConfigurationRequest extends RpcAcsRequest<Mod
 		}
 	}
 
-	public String getProxyConfigurationKey() {
-		return this.proxyConfigurationKey;
-	}
-
-	public void setProxyConfigurationKey(String proxyConfigurationKey) {
-		this.proxyConfigurationKey = proxyConfigurationKey;
-		if(proxyConfigurationKey != null){
-			putQueryParameter("ProxyConfigurationKey", proxyConfigurationKey);
-		}
-	}
-
 	public String getProxyConfigurationValue() {
 		return this.proxyConfigurationValue;
 	}
@@ -82,17 +78,6 @@ public class ModifyDBInstanceProxyConfigurationRequest extends RpcAcsRequest<Mod
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -101,6 +86,28 @@ public class ModifyDBInstanceProxyConfigurationRequest extends RpcAcsRequest<Mod
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getProxyConfigurationKey() {
+		return this.proxyConfigurationKey;
+	}
+
+	public void setProxyConfigurationKey(String proxyConfigurationKey) {
+		this.proxyConfigurationKey = proxyConfigurationKey;
+		if(proxyConfigurationKey != null){
+			putQueryParameter("ProxyConfigurationKey", proxyConfigurationKey);
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

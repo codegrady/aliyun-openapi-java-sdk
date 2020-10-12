@@ -26,30 +26,30 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeRegionsResponseUnmarshaller {
 
-	public static DescribeRegionsResponse unmarshall(DescribeRegionsResponse describeRegionsResponse, UnmarshallerContext context) {
+	public static DescribeRegionsResponse unmarshall(DescribeRegionsResponse describeRegionsResponse, UnmarshallerContext _ctx) {
 		
-		describeRegionsResponse.setRequestId(context.stringValue("DescribeRegionsResponse.RequestId"));
-		describeRegionsResponse.setSuccess(context.booleanValue("DescribeRegionsResponse.Success"));
+		describeRegionsResponse.setRequestId(_ctx.stringValue("DescribeRegionsResponse.RequestId"));
+		describeRegionsResponse.setSuccess(_ctx.booleanValue("DescribeRegionsResponse.Success"));
 
 		List<DrdsRegion> drdsRegions = new ArrayList<DrdsRegion>();
-		for (int i = 0; i < context.lengthValue("DescribeRegionsResponse.DrdsRegions.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeRegionsResponse.DrdsRegions.Length"); i++) {
 			DrdsRegion drdsRegion = new DrdsRegion();
-			drdsRegion.setRegionId(context.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].RegionId"));
-			drdsRegion.setRegionName(context.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].RegionName"));
-			drdsRegion.setZoneId(context.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].ZoneId"));
-			drdsRegion.setZoneName(context.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].ZoneName"));
+			drdsRegion.setRegionId(_ctx.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].RegionId"));
+			drdsRegion.setRegionName(_ctx.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].RegionName"));
+			drdsRegion.setZoneId(_ctx.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].ZoneId"));
+			drdsRegion.setZoneName(_ctx.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].ZoneName"));
 
 			List<InstanceSeries> instanceSeriesList = new ArrayList<InstanceSeries>();
-			for (int j = 0; j < context.lengthValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList.Length"); j++) {
+			for (int j = 0; j < _ctx.lengthValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList.Length"); j++) {
 				InstanceSeries instanceSeries = new InstanceSeries();
-				instanceSeries.setSeriesId(context.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SeriesId"));
-				instanceSeries.setSeriesName(context.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SeriesName"));
+				instanceSeries.setSeriesId(_ctx.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SeriesId"));
+				instanceSeries.setSeriesName(_ctx.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SeriesName"));
 
 				List<Spec> specList = new ArrayList<Spec>();
-				for (int k = 0; k < context.lengthValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SpecList.Length"); k++) {
+				for (int k = 0; k < _ctx.lengthValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SpecList.Length"); k++) {
 					Spec spec = new Spec();
-					spec.setSpecId(context.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SpecList["+ k +"].SpecId"));
-					spec.setSpecName(context.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SpecList["+ k +"].SpecName"));
+					spec.setSpecId(_ctx.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SpecList["+ k +"].SpecId"));
+					spec.setSpecName(_ctx.stringValue("DescribeRegionsResponse.DrdsRegions["+ i +"].InstanceSeriesList["+ j +"].SpecList["+ k +"].SpecName"));
 
 					specList.add(spec);
 				}

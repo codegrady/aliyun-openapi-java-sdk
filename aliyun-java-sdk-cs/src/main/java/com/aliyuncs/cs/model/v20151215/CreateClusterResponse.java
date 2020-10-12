@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.model.v20151215;
 
 import com.aliyuncs.AcsResponse;
@@ -22,6 +23,36 @@ import com.aliyuncs.transform.UnmarshallerContext;
  * @version 
  */
 public class CreateClusterResponse extends AcsResponse {
+
+	private String cluster_id;
+
+	private String task_id;
+
+	private String request_id;
+
+	public String getCluster_id() {
+		return this.cluster_id;
+	}
+
+	public void setCluster_id(String cluster_id) {
+		this.cluster_id = cluster_id;
+	}
+
+	public String getTask_id() {
+		return this.task_id;
+	}
+
+	public void setTask_id(String task_id) {
+		this.task_id = task_id;
+	}
+
+	public String getRequest_id() {
+		return this.request_id;
+	}
+
+	public void setRequest_id(String request_id) {
+		this.request_id = request_id;
+	}
 
 	@Override
 	public CreateClusterResponse getInstance(UnmarshallerContext context) {

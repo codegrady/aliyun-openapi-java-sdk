@@ -176,6 +176,8 @@ public class ChatResponse extends AcsResponse {
 
 			private String answerSource;
 
+			private String metaData;
+
 			public String getContent() {
 				return this.content;
 			}
@@ -190,6 +192,14 @@ public class ChatResponse extends AcsResponse {
 
 			public void setAnswerSource(String answerSource) {
 				this.answerSource = answerSource;
+			}
+
+			public String getMetaData() {
+				return this.metaData;
+			}
+
+			public void setMetaData(String metaData) {
+				this.metaData = metaData;
 			}
 		}
 

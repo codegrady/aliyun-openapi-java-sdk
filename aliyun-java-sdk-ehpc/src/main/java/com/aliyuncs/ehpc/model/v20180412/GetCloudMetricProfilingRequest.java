@@ -15,30 +15,26 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetCloudMetricProfilingRequest extends RpcAcsRequest<GetCloudMetricProfilingResponse> {
-	
-	public GetCloudMetricProfilingRequest() {
-		super("EHPC", "2018-04-12", "GetCloudMetricProfiling", "ehs");
-	}
-
-	private String profilingId;
+	   
 
 	private String clusterId;
 
-	public String getProfilingId() {
-		return this.profilingId;
-	}
-
-	public void setProfilingId(String profilingId) {
-		this.profilingId = profilingId;
-		if(profilingId != null){
-			putQueryParameter("ProfilingId", profilingId);
-		}
+	private String profilingId;
+	public GetCloudMetricProfilingRequest() {
+		super("EHPC", "2018-04-12", "GetCloudMetricProfiling");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getClusterId() {
@@ -49,6 +45,17 @@ public class GetCloudMetricProfilingRequest extends RpcAcsRequest<GetCloudMetric
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getProfilingId() {
+		return this.profilingId;
+	}
+
+	public void setProfilingId(String profilingId) {
+		this.profilingId = profilingId;
+		if(profilingId != null){
+			putQueryParameter("ProfilingId", profilingId);
 		}
 	}
 

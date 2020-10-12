@@ -44,9 +44,17 @@ public class DescribeVpnConnectionResponse extends AcsResponse {
 
 	private String status;
 
+	private Boolean enableDpd;
+
+	private Boolean enableNatTraversal;
+
 	private IkeConfig ikeConfig;
 
 	private IpsecConfig ipsecConfig;
+
+	private VcoHealthCheck vcoHealthCheck;
+
+	private VpnBgpConfig vpnBgpConfig;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -128,6 +136,22 @@ public class DescribeVpnConnectionResponse extends AcsResponse {
 		this.status = status;
 	}
 
+	public Boolean getEnableDpd() {
+		return this.enableDpd;
+	}
+
+	public void setEnableDpd(Boolean enableDpd) {
+		this.enableDpd = enableDpd;
+	}
+
+	public Boolean getEnableNatTraversal() {
+		return this.enableNatTraversal;
+	}
+
+	public void setEnableNatTraversal(Boolean enableNatTraversal) {
+		this.enableNatTraversal = enableNatTraversal;
+	}
+
 	public IkeConfig getIkeConfig() {
 		return this.ikeConfig;
 	}
@@ -142,6 +166,22 @@ public class DescribeVpnConnectionResponse extends AcsResponse {
 
 	public void setIpsecConfig(IpsecConfig ipsecConfig) {
 		this.ipsecConfig = ipsecConfig;
+	}
+
+	public VcoHealthCheck getVcoHealthCheck() {
+		return this.vcoHealthCheck;
+	}
+
+	public void setVcoHealthCheck(VcoHealthCheck vcoHealthCheck) {
+		this.vcoHealthCheck = vcoHealthCheck;
+	}
+
+	public VpnBgpConfig getVpnBgpConfig() {
+		return this.vpnBgpConfig;
+	}
+
+	public void setVpnBgpConfig(VpnBgpConfig vpnBgpConfig) {
+		this.vpnBgpConfig = vpnBgpConfig;
 	}
 
 	public static class IkeConfig {
@@ -277,6 +317,142 @@ public class DescribeVpnConnectionResponse extends AcsResponse {
 
 		public void setIpsecLifetime(Long ipsecLifetime) {
 			this.ipsecLifetime = ipsecLifetime;
+		}
+	}
+
+	public static class VcoHealthCheck {
+
+		private String enable;
+
+		private String sip;
+
+		private String dip;
+
+		private Integer interval;
+
+		private Integer retry;
+
+		private String status;
+
+		public String getEnable() {
+			return this.enable;
+		}
+
+		public void setEnable(String enable) {
+			this.enable = enable;
+		}
+
+		public String getSip() {
+			return this.sip;
+		}
+
+		public void setSip(String sip) {
+			this.sip = sip;
+		}
+
+		public String getDip() {
+			return this.dip;
+		}
+
+		public void setDip(String dip) {
+			this.dip = dip;
+		}
+
+		public Integer getInterval() {
+			return this.interval;
+		}
+
+		public void setInterval(Integer interval) {
+			this.interval = interval;
+		}
+
+		public Integer getRetry() {
+			return this.retry;
+		}
+
+		public void setRetry(Integer retry) {
+			this.retry = retry;
+		}
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+	}
+
+	public static class VpnBgpConfig {
+
+		private String enableBgp;
+
+		private String tunnelCidr;
+
+		private String localBgpIp;
+
+		private String peerBgpIp;
+
+		private String localAsn;
+
+		private String peerAsn;
+
+		private String status;
+
+		public String getEnableBgp() {
+			return this.enableBgp;
+		}
+
+		public void setEnableBgp(String enableBgp) {
+			this.enableBgp = enableBgp;
+		}
+
+		public String getTunnelCidr() {
+			return this.tunnelCidr;
+		}
+
+		public void setTunnelCidr(String tunnelCidr) {
+			this.tunnelCidr = tunnelCidr;
+		}
+
+		public String getLocalBgpIp() {
+			return this.localBgpIp;
+		}
+
+		public void setLocalBgpIp(String localBgpIp) {
+			this.localBgpIp = localBgpIp;
+		}
+
+		public String getPeerBgpIp() {
+			return this.peerBgpIp;
+		}
+
+		public void setPeerBgpIp(String peerBgpIp) {
+			this.peerBgpIp = peerBgpIp;
+		}
+
+		public String getLocalAsn() {
+			return this.localAsn;
+		}
+
+		public void setLocalAsn(String localAsn) {
+			this.localAsn = localAsn;
+		}
+
+		public String getPeerAsn() {
+			return this.peerAsn;
+		}
+
+		public void setPeerAsn(String peerAsn) {
+			this.peerAsn = peerAsn;
+		}
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
 		}
 	}
 

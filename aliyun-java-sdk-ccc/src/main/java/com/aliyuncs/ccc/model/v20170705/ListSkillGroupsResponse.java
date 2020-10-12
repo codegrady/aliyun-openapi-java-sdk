@@ -99,6 +99,8 @@ public class ListSkillGroupsResponse extends AcsResponse {
 
 		private String skillGroupDescription;
 
+		private String routingStrategy;
+
 		private Integer userCount;
 
 		private List<PhoneNumber> outboundPhoneNumbers;
@@ -149,6 +151,14 @@ public class ListSkillGroupsResponse extends AcsResponse {
 
 		public void setSkillGroupDescription(String skillGroupDescription) {
 			this.skillGroupDescription = skillGroupDescription;
+		}
+
+		public String getRoutingStrategy() {
+			return this.routingStrategy;
+		}
+
+		public void setRoutingStrategy(String routingStrategy) {
+			this.routingStrategy = routingStrategy;
 		}
 
 		public Integer getUserCount() {

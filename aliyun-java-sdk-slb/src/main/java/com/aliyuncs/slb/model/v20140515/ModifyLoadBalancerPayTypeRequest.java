@@ -15,18 +15,19 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyLoadBalancerPayTypeRequest extends RpcAcsRequest<ModifyLoadBalancerPayTypeResponse> {
-	
-	public ModifyLoadBalancerPayTypeRequest() {
-		super("Slb", "2014-05-15", "ModifyLoadBalancerPayType", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private Integer duration;
 
 	private Boolean autoPay;
 
@@ -36,15 +37,19 @@ public class ModifyLoadBalancerPayTypeRequest extends RpcAcsRequest<ModifyLoadBa
 
 	private Long ownerId;
 
-	private String tags;
-
-	private Integer duration;
-
 	private String loadBalancerId;
 
 	private String payType;
 
 	private String pricingCycle;
+	public ModifyLoadBalancerPayTypeRequest() {
+		super("Slb", "2014-05-15", "ModifyLoadBalancerPayType", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -54,6 +59,17 @@ public class ModifyLoadBalancerPayTypeRequest extends RpcAcsRequest<ModifyLoadBa
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Integer getDuration() {
+		return this.duration;
+	}
+
+	public void setDuration(Integer duration) {
+		this.duration = duration;
+		if(duration != null){
+			putQueryParameter("Duration", duration.toString());
 		}
 	}
 
@@ -98,28 +114,6 @@ public class ModifyLoadBalancerPayTypeRequest extends RpcAcsRequest<ModifyLoadBa
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
-		}
-	}
-
-	public Integer getDuration() {
-		return this.duration;
-	}
-
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-		if(duration != null){
-			putQueryParameter("Duration", duration.toString());
 		}
 	}
 

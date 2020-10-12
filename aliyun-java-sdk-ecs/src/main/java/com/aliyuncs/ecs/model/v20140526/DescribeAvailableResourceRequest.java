@@ -15,16 +15,15 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvailableResourceResponse> {
-	
-	public DescribeAvailableResourceRequest() {
-		super("Ecs", "2014-05-26", "DescribeAvailableResource", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -37,6 +36,8 @@ public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvai
 	private Integer cores;
 
 	private String systemDiskCategory;
+
+	private String scope;
 
 	private String instanceType;
 
@@ -52,6 +53,8 @@ public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvai
 
 	private Long ownerId;
 
+	private Integer spotDuration;
+
 	private String resourceType;
 
 	private String spotStrategy;
@@ -59,6 +62,14 @@ public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvai
 	private String destinationResource;
 
 	private String zoneId;
+	public DescribeAvailableResourceRequest() {
+		super("Ecs", "2014-05-26", "DescribeAvailableResource", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -123,6 +134,17 @@ public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvai
 		this.systemDiskCategory = systemDiskCategory;
 		if(systemDiskCategory != null){
 			putQueryParameter("SystemDiskCategory", systemDiskCategory);
+		}
+	}
+
+	public String getScope() {
+		return this.scope;
+	}
+
+	public void setScope(String scope) {
+		this.scope = scope;
+		if(scope != null){
+			putQueryParameter("Scope", scope);
 		}
 	}
 
@@ -200,6 +222,17 @@ public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvai
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Integer getSpotDuration() {
+		return this.spotDuration;
+	}
+
+	public void setSpotDuration(Integer spotDuration) {
+		this.spotDuration = spotDuration;
+		if(spotDuration != null){
+			putQueryParameter("SpotDuration", spotDuration.toString());
 		}
 	}
 

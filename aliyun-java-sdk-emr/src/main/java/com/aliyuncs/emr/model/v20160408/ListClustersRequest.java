@@ -16,32 +16,51 @@ package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListClustersRequest extends RpcAcsRequest<ListClustersResponse> {
-	
-	public ListClustersRequest() {
-		super("Emr", "2016-04-08", "ListClusters");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private List<String> statusLists;
 
+	private Boolean isDesc;
+
+	private String depositType;
+
+	private Integer pageNumber;
+
+	private String machineType;
+
+	private String resourceGroupId;
+
 	private Integer pageSize;
 
-	private List<String> clusterTypeLists;
-
-	private Boolean isDesc;
+	private List<Tag> tags;
 
 	private String createType;
 
+	private List<String> expiredTagLists;
+
 	private Boolean defaultStatus;
 
-	private Integer pageNumber;
+	private String name;
+
+	private List<String> clusterTypeLists;
+	public ListClustersRequest() {
+		super("Emr", "2016-04-08", "ListClusters");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -67,6 +86,61 @@ public class ListClustersRequest extends RpcAcsRequest<ListClustersResponse> {
 		}	
 	}
 
+	public Boolean getIsDesc() {
+		return this.isDesc;
+	}
+
+	public void setIsDesc(Boolean isDesc) {
+		this.isDesc = isDesc;
+		if(isDesc != null){
+			putQueryParameter("IsDesc", isDesc.toString());
+		}
+	}
+
+	public String getDepositType() {
+		return this.depositType;
+	}
+
+	public void setDepositType(String depositType) {
+		this.depositType = depositType;
+		if(depositType != null){
+			putQueryParameter("DepositType", depositType);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getMachineType() {
+		return this.machineType;
+	}
+
+	public void setMachineType(String machineType) {
+		this.machineType = machineType;
+		if(machineType != null){
+			putQueryParameter("MachineType", machineType);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -75,6 +149,66 @@ public class ListClustersRequest extends RpcAcsRequest<ListClustersResponse> {
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public String getCreateType() {
+		return this.createType;
+	}
+
+	public void setCreateType(String createType) {
+		this.createType = createType;
+		if(createType != null){
+			putQueryParameter("CreateType", createType);
+		}
+	}
+
+	public List<String> getExpiredTagLists() {
+		return this.expiredTagLists;
+	}
+
+	public void setExpiredTagLists(List<String> expiredTagLists) {
+		this.expiredTagLists = expiredTagLists;	
+		if (expiredTagLists != null) {
+			for (int i = 0; i < expiredTagLists.size(); i++) {
+				putQueryParameter("ExpiredTagList." + (i + 1) , expiredTagLists.get(i));
+			}
+		}	
+	}
+
+	public Boolean getDefaultStatus() {
+		return this.defaultStatus;
+	}
+
+	public void setDefaultStatus(Boolean defaultStatus) {
+		this.defaultStatus = defaultStatus;
+		if(defaultStatus != null){
+			putQueryParameter("DefaultStatus", defaultStatus.toString());
+		}
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("Name", name);
 		}
 	}
 
@@ -91,47 +225,26 @@ public class ListClustersRequest extends RpcAcsRequest<ListClustersResponse> {
 		}	
 	}
 
-	public Boolean getIsDesc() {
-		return this.isDesc;
-	}
+	public static class Tag {
 
-	public void setIsDesc(Boolean isDesc) {
-		this.isDesc = isDesc;
-		if(isDesc != null){
-			putQueryParameter("IsDesc", isDesc.toString());
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
 		}
-	}
 
-	public String getCreateType() {
-		return this.createType;
-	}
-
-	public void setCreateType(String createType) {
-		this.createType = createType;
-		if(createType != null){
-			putQueryParameter("CreateType", createType);
+		public void setValue(String value) {
+			this.value = value;
 		}
-	}
 
-	public Boolean getDefaultStatus() {
-		return this.defaultStatus;
-	}
-
-	public void setDefaultStatus(Boolean defaultStatus) {
-		this.defaultStatus = defaultStatus;
-		if(defaultStatus != null){
-			putQueryParameter("DefaultStatus", defaultStatus.toString());
+		public String getKey() {
+			return this.key;
 		}
-	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

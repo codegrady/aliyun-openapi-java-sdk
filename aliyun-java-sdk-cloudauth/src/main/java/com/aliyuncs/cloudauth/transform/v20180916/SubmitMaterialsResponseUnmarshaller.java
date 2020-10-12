@@ -22,19 +22,21 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SubmitMaterialsResponseUnmarshaller {
 
-	public static SubmitMaterialsResponse unmarshall(SubmitMaterialsResponse submitMaterialsResponse, UnmarshallerContext context) {
+	public static SubmitMaterialsResponse unmarshall(SubmitMaterialsResponse submitMaterialsResponse, UnmarshallerContext _ctx) {
 		
-		submitMaterialsResponse.setRequestId(context.stringValue("SubmitMaterialsResponse.RequestId"));
-		submitMaterialsResponse.setSuccess(context.booleanValue("SubmitMaterialsResponse.Success"));
-		submitMaterialsResponse.setCode(context.stringValue("SubmitMaterialsResponse.Code"));
-		submitMaterialsResponse.setMessage(context.stringValue("SubmitMaterialsResponse.Message"));
+		submitMaterialsResponse.setRequestId(_ctx.stringValue("SubmitMaterialsResponse.RequestId"));
+		submitMaterialsResponse.setSuccess(_ctx.booleanValue("SubmitMaterialsResponse.Success"));
+		submitMaterialsResponse.setCode(_ctx.stringValue("SubmitMaterialsResponse.Code"));
+		submitMaterialsResponse.setMessage(_ctx.stringValue("SubmitMaterialsResponse.Message"));
 
 		Data data = new Data();
 
 		VerifyStatus verifyStatus = new VerifyStatus();
-		verifyStatus.setStatusCode(context.integerValue("SubmitMaterialsResponse.Data.VerifyStatus.StatusCode"));
-		verifyStatus.setTrustedScore(context.floatValue("SubmitMaterialsResponse.Data.VerifyStatus.TrustedScore"));
-		verifyStatus.setSimilarityScore(context.floatValue("SubmitMaterialsResponse.Data.VerifyStatus.SimilarityScore"));
+		verifyStatus.setStatusCode(_ctx.integerValue("SubmitMaterialsResponse.Data.VerifyStatus.StatusCode"));
+		verifyStatus.setTrustedScore(_ctx.floatValue("SubmitMaterialsResponse.Data.VerifyStatus.TrustedScore"));
+		verifyStatus.setSimilarityScore(_ctx.floatValue("SubmitMaterialsResponse.Data.VerifyStatus.SimilarityScore"));
+		verifyStatus.setAuditConclusions(_ctx.stringValue("SubmitMaterialsResponse.Data.VerifyStatus.AuditConclusions"));
+		verifyStatus.setAuthorityComparisonScore(_ctx.floatValue("SubmitMaterialsResponse.Data.VerifyStatus.AuthorityComparisonScore"));
 		data.setVerifyStatus(verifyStatus);
 		submitMaterialsResponse.setData(data);
 	 

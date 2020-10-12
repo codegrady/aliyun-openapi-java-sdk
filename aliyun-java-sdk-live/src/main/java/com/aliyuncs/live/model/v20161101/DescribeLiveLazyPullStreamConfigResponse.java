@@ -61,6 +61,8 @@ public class DescribeLiveLazyPullStreamConfigResponse extends AcsResponse {
 
 		private String pullAuthKey;
 
+		private String pullArgs;
+
 		public String getDomainName() {
 			return this.domainName;
 		}
@@ -115,6 +117,14 @@ public class DescribeLiveLazyPullStreamConfigResponse extends AcsResponse {
 
 		public void setPullAuthKey(String pullAuthKey) {
 			this.pullAuthKey = pullAuthKey;
+		}
+
+		public String getPullArgs() {
+			return this.pullArgs;
+		}
+
+		public void setPullArgs(String pullArgs) {
+			this.pullArgs = pullArgs;
 		}
 	}
 

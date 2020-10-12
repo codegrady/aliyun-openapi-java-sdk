@@ -15,18 +15,40 @@
 package com.aliyuncs.market.model.v20151101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.market.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeInstanceRequest extends RpcAcsRequest<DescribeInstanceResponse> {
-	
-	public DescribeInstanceRequest() {
-		super("Market", "2015-11-01", "DescribeInstance", "yunmarket");
-	}
+	   
+
+	private Long ownerId;
 
 	private String instanceId;
+
+	private String orderType;
+	public DescribeInstanceRequest() {
+		super("Market", "2015-11-01", "DescribeInstance");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
 
 	public String getInstanceId() {
 		return this.instanceId;
@@ -36,6 +58,17 @@ public class DescribeInstanceRequest extends RpcAcsRequest<DescribeInstanceRespo
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 

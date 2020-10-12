@@ -15,32 +15,28 @@
 package com.aliyuncs.rtc.model.v20180111;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rtc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyAppRequest extends RpcAcsRequest<ModifyAppResponse> {
-	
-	public ModifyAppRequest() {
-		super("rtc", "2018-01-11", "ModifyApp");
-	}
-
-	private Long ownerId;
+	   
 
 	private String appName;
 
+	private Long ownerId;
+
 	private String appId;
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
+	public ModifyAppRequest() {
+		super("rtc", "2018-01-11", "ModifyApp", "rtc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getAppName() {
@@ -51,6 +47,17 @@ public class ModifyAppRequest extends RpcAcsRequest<ModifyAppResponse> {
 		this.appName = appName;
 		if(appName != null){
 			putQueryParameter("AppName", appName);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 

@@ -15,45 +15,30 @@
 package com.aliyuncs.vod.model.v20170321;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vod.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribePlayTopVideosRequest extends RpcAcsRequest<DescribePlayTopVideosResponse> {
-	
-	public DescribePlayTopVideosRequest() {
-		super("vod", "2017-03-21", "DescribePlayTopVideos", "vod");
-	}
-
-	private String bizDate;
-
-	private Long pageNo;
+	   
 
 	private Long pageSize;
 
 	private Long ownerId;
 
-	public String getBizDate() {
-		return this.bizDate;
-	}
+	private String bizDate;
 
-	public void setBizDate(String bizDate) {
-		this.bizDate = bizDate;
-		if(bizDate != null){
-			putQueryParameter("BizDate", bizDate);
-		}
-	}
-
-	public Long getPageNo() {
-		return this.pageNo;
-	}
-
-	public void setPageNo(Long pageNo) {
-		this.pageNo = pageNo;
-		if(pageNo != null){
-			putQueryParameter("PageNo", pageNo.toString());
-		}
+	private Long pageNo;
+	public DescribePlayTopVideosRequest() {
+		super("vod", "2017-03-21", "DescribePlayTopVideos", "vod");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getPageSize() {
@@ -75,6 +60,28 @@ public class DescribePlayTopVideosRequest extends RpcAcsRequest<DescribePlayTopV
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getBizDate() {
+		return this.bizDate;
+	}
+
+	public void setBizDate(String bizDate) {
+		this.bizDate = bizDate;
+		if(bizDate != null){
+			putQueryParameter("BizDate", bizDate);
+		}
+	}
+
+	public Long getPageNo() {
+		return this.pageNo;
+	}
+
+	public void setPageNo(Long pageNo) {
+		this.pageNo = pageNo;
+		if(pageNo != null){
+			putQueryParameter("PageNo", pageNo.toString());
 		}
 	}
 

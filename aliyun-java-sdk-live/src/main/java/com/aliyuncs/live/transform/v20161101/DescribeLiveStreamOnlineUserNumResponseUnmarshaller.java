@@ -19,23 +19,22 @@ import java.util.List;
 
 import com.aliyuncs.live.model.v20161101.DescribeLiveStreamOnlineUserNumResponse;
 import com.aliyuncs.live.model.v20161101.DescribeLiveStreamOnlineUserNumResponse.LiveStreamOnlineUserNumInfo;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeLiveStreamOnlineUserNumResponseUnmarshaller {
 
-	public static DescribeLiveStreamOnlineUserNumResponse unmarshall(DescribeLiveStreamOnlineUserNumResponse describeLiveStreamOnlineUserNumResponse, UnmarshallerContext context) {
+	public static DescribeLiveStreamOnlineUserNumResponse unmarshall(DescribeLiveStreamOnlineUserNumResponse describeLiveStreamOnlineUserNumResponse, UnmarshallerContext _ctx) {
 		
-		describeLiveStreamOnlineUserNumResponse.setRequestId(context.stringValue("DescribeLiveStreamOnlineUserNumResponse.RequestId"));
-		describeLiveStreamOnlineUserNumResponse.setTotalUserNumber(context.longValue("DescribeLiveStreamOnlineUserNumResponse.TotalUserNumber"));
+		describeLiveStreamOnlineUserNumResponse.setRequestId(_ctx.stringValue("DescribeLiveStreamOnlineUserNumResponse.RequestId"));
+		describeLiveStreamOnlineUserNumResponse.setTotalUserNumber(_ctx.longValue("DescribeLiveStreamOnlineUserNumResponse.TotalUserNumber"));
 
 		List<LiveStreamOnlineUserNumInfo> onlineUserInfo = new ArrayList<LiveStreamOnlineUserNumInfo>();
-		for (int i = 0; i < context.lengthValue("DescribeLiveStreamOnlineUserNumResponse.OnlineUserInfo.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeLiveStreamOnlineUserNumResponse.OnlineUserInfo.Length"); i++) {
 			LiveStreamOnlineUserNumInfo liveStreamOnlineUserNumInfo = new LiveStreamOnlineUserNumInfo();
-			liveStreamOnlineUserNumInfo.setStreamUrl(context.stringValue("DescribeLiveStreamOnlineUserNumResponse.OnlineUserInfo["+ i +"].StreamUrl"));
-			liveStreamOnlineUserNumInfo.setUserNumber(context.longValue("DescribeLiveStreamOnlineUserNumResponse.OnlineUserInfo["+ i +"].UserNumber"));
-			liveStreamOnlineUserNumInfo.setTime(context.stringValue("DescribeLiveStreamOnlineUserNumResponse.OnlineUserInfo["+ i +"].Time"));
+			liveStreamOnlineUserNumInfo.setStreamUrl(_ctx.stringValue("DescribeLiveStreamOnlineUserNumResponse.OnlineUserInfo["+ i +"].StreamUrl"));
+			liveStreamOnlineUserNumInfo.setUserNumber(_ctx.longValue("DescribeLiveStreamOnlineUserNumResponse.OnlineUserInfo["+ i +"].UserNumber"));
+			liveStreamOnlineUserNumInfo.setTime(_ctx.stringValue("DescribeLiveStreamOnlineUserNumResponse.OnlineUserInfo["+ i +"].Time"));
 
 			onlineUserInfo.add(liveStreamOnlineUserNumInfo);
 		}

@@ -15,16 +15,15 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRuleAttributeRequest extends RpcAcsRequest<DescribeRuleAttributeResponse> {
-	
-	public DescribeRuleAttributeRequest() {
-		super("Slb", "2014-05-15", "DescribeRuleAttribute", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -35,8 +34,14 @@ public class DescribeRuleAttributeRequest extends RpcAcsRequest<DescribeRuleAttr
 	private Long ownerId;
 
 	private String ruleId;
-
-	private String tags;
+	public DescribeRuleAttributeRequest() {
+		super("Slb", "2014-05-15", "DescribeRuleAttribute", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -90,17 +95,6 @@ public class DescribeRuleAttributeRequest extends RpcAcsRequest<DescribeRuleAttr
 		this.ruleId = ruleId;
 		if(ruleId != null){
 			putQueryParameter("RuleId", ruleId);
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
 		}
 	}
 

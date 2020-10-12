@@ -15,36 +15,49 @@
 package com.aliyuncs.vod.model.v20170321;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vod.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SubmitSnapshotJobRequest extends RpcAcsRequest<SubmitSnapshotJobResponse> {
-	
-	public SubmitSnapshotJobRequest() {
-		super("vod", "2017-03-21", "SubmitSnapshotJob", "vod");
-	}
+	   
 
 	private Long resourceOwnerId;
 
+	private String userData;
+
 	private Long specifiedOffsetTime;
 
-	private String resourceOwnerAccount;
+	private String spriteSnapshotConfig;
 
-	private String width;
+	private String snapshotTemplateId;
+
+	private String height;
+
+	private String resourceOwnerAccount;
 
 	private Long count;
 
 	private String videoId;
 
-	private Long interval;
-
 	private Long ownerId;
 
-	private String spriteSnapshotConfig;
+	private String width;
 
-	private String height;
+	private String fileUrl;
+
+	private Long interval;
+	public SubmitSnapshotJobRequest() {
+		super("vod", "2017-03-21", "SubmitSnapshotJob", "vod");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -54,6 +67,17 @@ public class SubmitSnapshotJobRequest extends RpcAcsRequest<SubmitSnapshotJobRes
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getUserData() {
+		return this.userData;
+	}
+
+	public void setUserData(String userData) {
+		this.userData = userData;
+		if(userData != null){
+			putQueryParameter("UserData", userData);
 		}
 	}
 
@@ -68,6 +92,39 @@ public class SubmitSnapshotJobRequest extends RpcAcsRequest<SubmitSnapshotJobRes
 		}
 	}
 
+	public String getSpriteSnapshotConfig() {
+		return this.spriteSnapshotConfig;
+	}
+
+	public void setSpriteSnapshotConfig(String spriteSnapshotConfig) {
+		this.spriteSnapshotConfig = spriteSnapshotConfig;
+		if(spriteSnapshotConfig != null){
+			putQueryParameter("SpriteSnapshotConfig", spriteSnapshotConfig);
+		}
+	}
+
+	public String getSnapshotTemplateId() {
+		return this.snapshotTemplateId;
+	}
+
+	public void setSnapshotTemplateId(String snapshotTemplateId) {
+		this.snapshotTemplateId = snapshotTemplateId;
+		if(snapshotTemplateId != null){
+			putQueryParameter("SnapshotTemplateId", snapshotTemplateId);
+		}
+	}
+
+	public String getHeight() {
+		return this.height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
+		if(height != null){
+			putQueryParameter("Height", height);
+		}
+	}
+
 	public String getResourceOwnerAccount() {
 		return this.resourceOwnerAccount;
 	}
@@ -76,17 +133,6 @@ public class SubmitSnapshotJobRequest extends RpcAcsRequest<SubmitSnapshotJobRes
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getWidth() {
-		return this.width;
-	}
-
-	public void setWidth(String width) {
-		this.width = width;
-		if(width != null){
-			putQueryParameter("Width", width);
 		}
 	}
 
@@ -112,17 +158,6 @@ public class SubmitSnapshotJobRequest extends RpcAcsRequest<SubmitSnapshotJobRes
 		}
 	}
 
-	public Long getInterval() {
-		return this.interval;
-	}
-
-	public void setInterval(Long interval) {
-		this.interval = interval;
-		if(interval != null){
-			putQueryParameter("Interval", interval.toString());
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -134,25 +169,36 @@ public class SubmitSnapshotJobRequest extends RpcAcsRequest<SubmitSnapshotJobRes
 		}
 	}
 
-	public String getSpriteSnapshotConfig() {
-		return this.spriteSnapshotConfig;
+	public String getWidth() {
+		return this.width;
 	}
 
-	public void setSpriteSnapshotConfig(String spriteSnapshotConfig) {
-		this.spriteSnapshotConfig = spriteSnapshotConfig;
-		if(spriteSnapshotConfig != null){
-			putQueryParameter("SpriteSnapshotConfig", spriteSnapshotConfig);
+	public void setWidth(String width) {
+		this.width = width;
+		if(width != null){
+			putQueryParameter("Width", width);
 		}
 	}
 
-	public String getHeight() {
-		return this.height;
+	public String getFileUrl() {
+		return this.fileUrl;
 	}
 
-	public void setHeight(String height) {
-		this.height = height;
-		if(height != null){
-			putQueryParameter("Height", height);
+	public void setFileUrl(String fileUrl) {
+		this.fileUrl = fileUrl;
+		if(fileUrl != null){
+			putQueryParameter("FileUrl", fileUrl);
+		}
+	}
+
+	public Long getInterval() {
+		return this.interval;
+	}
+
+	public void setInterval(Long interval) {
+		this.interval = interval;
+		if(interval != null){
+			putQueryParameter("Interval", interval.toString());
 		}
 	}
 

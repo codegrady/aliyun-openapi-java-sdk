@@ -15,26 +15,33 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeCharacterSetNameRequest extends RpcAcsRequest<DescribeCharacterSetNameResponse> {
-	
-	public DescribeCharacterSetNameRequest() {
-		super("Rds", "2014-08-15", "DescribeCharacterSetName", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String resourceOwnerAccount;
 
-	private String engine;
-
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String engine;
+	public DescribeCharacterSetNameRequest() {
+		super("Rds", "2014-08-15", "DescribeCharacterSetName", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -58,17 +65,6 @@ public class DescribeCharacterSetNameRequest extends RpcAcsRequest<DescribeChara
 		}
 	}
 
-	public String getEngine() {
-		return this.engine;
-	}
-
-	public void setEngine(String engine) {
-		this.engine = engine;
-		if(engine != null){
-			putQueryParameter("Engine", engine);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -88,6 +84,17 @@ public class DescribeCharacterSetNameRequest extends RpcAcsRequest<DescribeChara
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getEngine() {
+		return this.engine;
+	}
+
+	public void setEngine(String engine) {
+		this.engine = engine;
+		if(engine != null){
+			putQueryParameter("Engine", engine);
 		}
 	}
 

@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.SetDomainResponse;
@@ -19,15 +20,16 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SetDomainResponseUnmarshaller {
 
-	public static SetDomainResponse unmarshall(SetDomainResponse setDomainResponse, UnmarshallerContext context) {
+	public static SetDomainResponse unmarshall(SetDomainResponse setDomainResponse, UnmarshallerContext _ctx) {
 		
-		setDomainResponse.setRequestId(context.stringValue("SetDomainResponse.RequestId"));
-		setDomainResponse.setGroupId(context.stringValue("SetDomainResponse.GroupId"));
-		setDomainResponse.setDomainName(context.stringValue("SetDomainResponse.DomainName"));
-		setDomainResponse.setSubDomain(context.stringValue("SetDomainResponse.SubDomain"));
-		setDomainResponse.setDomainBindingStatus(context.stringValue("SetDomainResponse.DomainBindingStatus"));
-		setDomainResponse.setDomainLegalStatus(context.stringValue("SetDomainResponse.DomainLegalStatus"));
-		setDomainResponse.setDomainRemark(context.stringValue("SetDomainResponse.DomainRemark"));
+		setDomainResponse.setRequestId(_ctx.stringValue("SetDomainResponse.RequestId"));
+		setDomainResponse.setGroupId(_ctx.stringValue("SetDomainResponse.GroupId"));
+		setDomainResponse.setDomainName(_ctx.stringValue("SetDomainResponse.DomainName"));
+		setDomainResponse.setSubDomain(_ctx.stringValue("SetDomainResponse.SubDomain"));
+		setDomainResponse.setDomainBindingStatus(_ctx.stringValue("SetDomainResponse.DomainBindingStatus"));
+		setDomainResponse.setDomainLegalStatus(_ctx.stringValue("SetDomainResponse.DomainLegalStatus"));
+		setDomainResponse.setDomainWebSocketStatus(_ctx.stringValue("SetDomainResponse.DomainWebSocketStatus"));
+		setDomainResponse.setDomainRemark(_ctx.stringValue("SetDomainResponse.DomainRemark"));
 	 
 	 	return setDomainResponse;
 	}

@@ -15,20 +15,27 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetJobTemplateDownloadParamsRequest extends RpcAcsRequest<GetJobTemplateDownloadParamsResponse> {
-	
-	public GetJobTemplateDownloadParamsRequest() {
-		super("CCC", "2017-07-05", "GetJobTemplateDownloadParams", "ccc");
-	}
+	   
 
 	private String instanceId;
 
 	private String scenarioId;
+	public GetJobTemplateDownloadParamsRequest() {
+		super("CCC", "2017-07-05", "GetJobTemplateDownloadParams", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getInstanceId() {
 		return this.instanceId;

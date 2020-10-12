@@ -15,28 +15,35 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
-	
-	public RenewInstanceRequest() {
-		super("BssOpenApi", "2017-12-14", "RenewInstance");
-	}
+	   
 
 	private String productCode;
 
-	private String instanceId;
-
 	private String clientToken;
-
-	private Integer renewPeriod;
 
 	private Long ownerId;
 
 	private String productType;
+
+	private String instanceId;
+
+	private Integer renewPeriod;
+	public RenewInstanceRequest() {
+		super("BssOpenApi", "2017-12-14", "RenewInstance");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProductCode() {
 		return this.productCode;
@@ -49,17 +56,6 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
 	public String getClientToken() {
 		return this.clientToken;
 	}
@@ -68,17 +64,6 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
-	public Integer getRenewPeriod() {
-		return this.renewPeriod;
-	}
-
-	public void setRenewPeriod(Integer renewPeriod) {
-		this.renewPeriod = renewPeriod;
-		if(renewPeriod != null){
-			putQueryParameter("RenewPeriod", renewPeriod.toString());
 		}
 	}
 
@@ -101,6 +86,28 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		this.productType = productType;
 		if(productType != null){
 			putQueryParameter("ProductType", productType);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public Integer getRenewPeriod() {
+		return this.renewPeriod;
+	}
+
+	public void setRenewPeriod(Integer renewPeriod) {
+		this.renewPeriod = renewPeriod;
+		if(renewPeriod != null){
+			putQueryParameter("RenewPeriod", renewPeriod.toString());
 		}
 	}
 

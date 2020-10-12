@@ -15,22 +15,21 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QuerySettlementBillRequest extends RpcAcsRequest<QuerySettlementBillResponse> {
-	
-	public QuerySettlementBillRequest() {
-		super("BssOpenApi", "2017-12-14", "QuerySettlementBill");
-	}
+	   
 
 	private String productCode;
 
-	private String subscriptionType;
+	private Boolean isHideZeroCharge;
 
-	private Integer pageSize;
+	private String subscriptionType;
 
 	private String endTime;
 
@@ -46,6 +45,16 @@ public class QuerySettlementBillRequest extends RpcAcsRequest<QuerySettlementBil
 
 	private String productType;
 
+	private Integer pageSize;
+	public QuerySettlementBillRequest() {
+		super("BssOpenApi", "2017-12-14", "QuerySettlementBill");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
 	public String getProductCode() {
 		return this.productCode;
 	}
@@ -57,6 +66,17 @@ public class QuerySettlementBillRequest extends RpcAcsRequest<QuerySettlementBil
 		}
 	}
 
+	public Boolean getIsHideZeroCharge() {
+		return this.isHideZeroCharge;
+	}
+
+	public void setIsHideZeroCharge(Boolean isHideZeroCharge) {
+		this.isHideZeroCharge = isHideZeroCharge;
+		if(isHideZeroCharge != null){
+			putQueryParameter("IsHideZeroCharge", isHideZeroCharge.toString());
+		}
+	}
+
 	public String getSubscriptionType() {
 		return this.subscriptionType;
 	}
@@ -65,17 +85,6 @@ public class QuerySettlementBillRequest extends RpcAcsRequest<QuerySettlementBil
 		this.subscriptionType = subscriptionType;
 		if(subscriptionType != null){
 			putQueryParameter("SubscriptionType", subscriptionType);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -153,6 +162,17 @@ public class QuerySettlementBillRequest extends RpcAcsRequest<QuerySettlementBil
 		this.productType = productType;
 		if(productType != null){
 			putQueryParameter("ProductType", productType);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

@@ -15,58 +15,63 @@
 package com.aliyuncs.trademark.model.v20180724;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.trademark.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateMaterialRequest extends RpcAcsRequest<UpdateMaterialResponse> {
-	
-	public UpdateMaterialRequest() {
-		super("Trademark", "2018-07-24", "UpdateMaterial", "trademark");
-	}
+	   
 
 	private String contactEmail;
-
-	private String contactAddress;
 
 	private String eAddress;
 
 	private String legalNoticeOssKey;
 
-	private String address;
-
-	private String town;
-
 	private String contactNumber;
 
 	private String city;
-
-	private String idCardOssKey;
-
-	private String expirationDate;
 
 	private String contactName;
 
 	private String passportOssKey;
 
+	private String province;
+
+	private Long id;
+
+	private String loaOssKey;
+
+	private String contactAddress;
+
+	private String address;
+
+	private String town;
+
+	private String idCardOssKey;
+
 	private String contactZipcode;
 
 	private String eName;
-
-	private String province;
 
 	private String businessLicenceOssKey;
 
 	private String name;
 
-	private Long id;
-
 	private String cardNumber;
 
 	private Long loaId;
-
-	private String loaOssKey;
+	public UpdateMaterialRequest() {
+		super("Trademark", "2018-07-24", "UpdateMaterial");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getContactEmail() {
 		return this.contactEmail;
@@ -76,17 +81,6 @@ public class UpdateMaterialRequest extends RpcAcsRequest<UpdateMaterialResponse>
 		this.contactEmail = contactEmail;
 		if(contactEmail != null){
 			putQueryParameter("ContactEmail", contactEmail);
-		}
-	}
-
-	public String getContactAddress() {
-		return this.contactAddress;
-	}
-
-	public void setContactAddress(String contactAddress) {
-		this.contactAddress = contactAddress;
-		if(contactAddress != null){
-			putQueryParameter("ContactAddress", contactAddress);
 		}
 	}
 
@@ -112,28 +106,6 @@ public class UpdateMaterialRequest extends RpcAcsRequest<UpdateMaterialResponse>
 		}
 	}
 
-	public String getAddress() {
-		return this.address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-		if(address != null){
-			putQueryParameter("Address", address);
-		}
-	}
-
-	public String getTown() {
-		return this.town;
-	}
-
-	public void setTown(String town) {
-		this.town = town;
-		if(town != null){
-			putQueryParameter("Town", town);
-		}
-	}
-
 	public String getContactNumber() {
 		return this.contactNumber;
 	}
@@ -153,28 +125,6 @@ public class UpdateMaterialRequest extends RpcAcsRequest<UpdateMaterialResponse>
 		this.city = city;
 		if(city != null){
 			putQueryParameter("City", city);
-		}
-	}
-
-	public String getIdCardOssKey() {
-		return this.idCardOssKey;
-	}
-
-	public void setIdCardOssKey(String idCardOssKey) {
-		this.idCardOssKey = idCardOssKey;
-		if(idCardOssKey != null){
-			putQueryParameter("IdCardOssKey", idCardOssKey);
-		}
-	}
-
-	public String getExpirationDate() {
-		return this.expirationDate;
-	}
-
-	public void setExpirationDate(String expirationDate) {
-		this.expirationDate = expirationDate;
-		if(expirationDate != null){
-			putQueryParameter("ExpirationDate", expirationDate);
 		}
 	}
 
@@ -200,6 +150,83 @@ public class UpdateMaterialRequest extends RpcAcsRequest<UpdateMaterialResponse>
 		}
 	}
 
+	public String getProvince() {
+		return this.province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+		if(province != null){
+			putQueryParameter("Province", province);
+		}
+	}
+
+	public Long getId() {
+		return this.id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+		if(id != null){
+			putQueryParameter("Id", id.toString());
+		}
+	}
+
+	public String getLoaOssKey() {
+		return this.loaOssKey;
+	}
+
+	public void setLoaOssKey(String loaOssKey) {
+		this.loaOssKey = loaOssKey;
+		if(loaOssKey != null){
+			putQueryParameter("LoaOssKey", loaOssKey);
+		}
+	}
+
+	public String getContactAddress() {
+		return this.contactAddress;
+	}
+
+	public void setContactAddress(String contactAddress) {
+		this.contactAddress = contactAddress;
+		if(contactAddress != null){
+			putQueryParameter("ContactAddress", contactAddress);
+		}
+	}
+
+	public String getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+		if(address != null){
+			putQueryParameter("Address", address);
+		}
+	}
+
+	public String getTown() {
+		return this.town;
+	}
+
+	public void setTown(String town) {
+		this.town = town;
+		if(town != null){
+			putQueryParameter("Town", town);
+		}
+	}
+
+	public String getIdCardOssKey() {
+		return this.idCardOssKey;
+	}
+
+	public void setIdCardOssKey(String idCardOssKey) {
+		this.idCardOssKey = idCardOssKey;
+		if(idCardOssKey != null){
+			putQueryParameter("IdCardOssKey", idCardOssKey);
+		}
+	}
+
 	public String getContactZipcode() {
 		return this.contactZipcode;
 	}
@@ -219,17 +246,6 @@ public class UpdateMaterialRequest extends RpcAcsRequest<UpdateMaterialResponse>
 		this.eName = eName;
 		if(eName != null){
 			putQueryParameter("EName", eName);
-		}
-	}
-
-	public String getProvince() {
-		return this.province;
-	}
-
-	public void setProvince(String province) {
-		this.province = province;
-		if(province != null){
-			putQueryParameter("Province", province);
 		}
 	}
 
@@ -255,17 +271,6 @@ public class UpdateMaterialRequest extends RpcAcsRequest<UpdateMaterialResponse>
 		}
 	}
 
-	public Long getId() {
-		return this.id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-		if(id != null){
-			putQueryParameter("Id", id.toString());
-		}
-	}
-
 	public String getCardNumber() {
 		return this.cardNumber;
 	}
@@ -285,17 +290,6 @@ public class UpdateMaterialRequest extends RpcAcsRequest<UpdateMaterialResponse>
 		this.loaId = loaId;
 		if(loaId != null){
 			putQueryParameter("LoaId", loaId.toString());
-		}
-	}
-
-	public String getLoaOssKey() {
-		return this.loaOssKey;
-	}
-
-	public void setLoaOssKey(String loaOssKey) {
-		this.loaOssKey = loaOssKey;
-		if(loaOssKey != null){
-			putQueryParameter("LoaOssKey", loaOssKey);
 		}
 	}
 

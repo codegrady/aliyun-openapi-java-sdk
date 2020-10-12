@@ -15,46 +15,49 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPriceResponse> {
-	
-	public DescribeRenewalPriceRequest() {
-		super("Rds", "2014-08-15", "DescribeRenewalPrice", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String clientToken;
+
+	private String dBInstanceId;
+
+	private String businessInfo;
 
 	private Integer quantity;
 
 	private String resourceOwnerAccount;
 
-	private String clientToken;
-
 	private String ownerAccount;
-
-	private String commodityCode;
 
 	private Long ownerId;
 
-	private String usedTime;
+	private Integer usedTime;
 
 	private String dBInstanceClass;
-
-	private String promotionCode;
-
-	private String dBInstanceId;
 
 	private String timeType;
 
 	private String payType;
 
-	private String businessInfo;
-
 	private String orderType;
+	public DescribeRenewalPriceRequest() {
+		super("Rds", "2014-08-15", "DescribeRenewalPrice", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -64,6 +67,39 @@ public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPr
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getBusinessInfo() {
+		return this.businessInfo;
+	}
+
+	public void setBusinessInfo(String businessInfo) {
+		this.businessInfo = businessInfo;
+		if(businessInfo != null){
+			putQueryParameter("BusinessInfo", businessInfo);
 		}
 	}
 
@@ -89,17 +125,6 @@ public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPr
 		}
 	}
 
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -108,17 +133,6 @@ public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPr
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getCommodityCode() {
-		return this.commodityCode;
-	}
-
-	public void setCommodityCode(String commodityCode) {
-		this.commodityCode = commodityCode;
-		if(commodityCode != null){
-			putQueryParameter("CommodityCode", commodityCode);
 		}
 	}
 
@@ -133,14 +147,14 @@ public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPr
 		}
 	}
 
-	public String getUsedTime() {
+	public Integer getUsedTime() {
 		return this.usedTime;
 	}
 
-	public void setUsedTime(String usedTime) {
+	public void setUsedTime(Integer usedTime) {
 		this.usedTime = usedTime;
 		if(usedTime != null){
-			putQueryParameter("UsedTime", usedTime);
+			putQueryParameter("UsedTime", usedTime.toString());
 		}
 	}
 
@@ -152,28 +166,6 @@ public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPr
 		this.dBInstanceClass = dBInstanceClass;
 		if(dBInstanceClass != null){
 			putQueryParameter("DBInstanceClass", dBInstanceClass);
-		}
-	}
-
-	public String getPromotionCode() {
-		return this.promotionCode;
-	}
-
-	public void setPromotionCode(String promotionCode) {
-		this.promotionCode = promotionCode;
-		if(promotionCode != null){
-			putQueryParameter("PromotionCode", promotionCode);
-		}
-	}
-
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 
@@ -196,17 +188,6 @@ public class DescribeRenewalPriceRequest extends RpcAcsRequest<DescribeRenewalPr
 		this.payType = payType;
 		if(payType != null){
 			putQueryParameter("PayType", payType);
-		}
-	}
-
-	public String getBusinessInfo() {
-		return this.businessInfo;
-	}
-
-	public void setBusinessInfo(String businessInfo) {
-		this.businessInfo = businessInfo;
-		if(businessInfo != null){
-			putQueryParameter("BusinessInfo", businessInfo);
 		}
 	}
 

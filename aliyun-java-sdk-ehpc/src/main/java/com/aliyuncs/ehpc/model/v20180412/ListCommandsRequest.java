@@ -15,18 +15,15 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListCommandsRequest extends RpcAcsRequest<ListCommandsResponse> {
-	
-	public ListCommandsRequest() {
-		super("EHPC", "2018-04-12", "ListCommands", "ehs");
-	}
-
-	private Integer pageSize;
+	   
 
 	private String clusterId;
 
@@ -34,15 +31,14 @@ public class ListCommandsRequest extends RpcAcsRequest<ListCommandsResponse> {
 
 	private Integer pageNumber;
 
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
+	private Integer pageSize;
+	public ListCommandsRequest() {
+		super("EHPC", "2018-04-12", "ListCommands");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getClusterId() {
@@ -75,6 +71,17 @@ public class ListCommandsRequest extends RpcAcsRequest<ListCommandsResponse> {
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

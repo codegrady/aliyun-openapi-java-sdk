@@ -15,22 +15,23 @@
 package com.aliyuncs.dds.model.v20151201;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateRecommendationTaskRequest extends RpcAcsRequest<CreateRecommendationTaskResponse> {
-	
-	public CreateRecommendationTaskRequest() {
-		super("Dds", "2015-12-01", "CreateRecommendationTask", "dds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
+	private String startTime;
 
 	private String securityToken;
+
+	private String nodeId;
 
 	private String resourceOwnerAccount;
 
@@ -38,11 +39,17 @@ public class CreateRecommendationTaskRequest extends RpcAcsRequest<CreateRecomme
 
 	private String endTime;
 
-	private String startTime;
-
 	private Long ownerId;
 
-	private String nodeId;
+	private String instanceId;
+	public CreateRecommendationTaskRequest() {
+		super("Dds", "2015-12-01", "CreateRecommendationTask", "Dds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -55,14 +62,14 @@ public class CreateRecommendationTaskRequest extends RpcAcsRequest<CreateRecomme
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
+	public String getStartTime() {
+		return this.startTime;
 	}
 
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
 		}
 	}
 
@@ -74,6 +81,17 @@ public class CreateRecommendationTaskRequest extends RpcAcsRequest<CreateRecomme
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getNodeId() {
+		return this.nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
+		if(nodeId != null){
+			putQueryParameter("NodeId", nodeId);
 		}
 	}
 
@@ -110,17 +128,6 @@ public class CreateRecommendationTaskRequest extends RpcAcsRequest<CreateRecomme
 		}
 	}
 
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -132,14 +139,14 @@ public class CreateRecommendationTaskRequest extends RpcAcsRequest<CreateRecomme
 		}
 	}
 
-	public String getNodeId() {
-		return this.nodeId;
+	public String getInstanceId() {
+		return this.instanceId;
 	}
 
-	public void setNodeId(String nodeId) {
-		this.nodeId = nodeId;
-		if(nodeId != null){
-			putQueryParameter("NodeId", nodeId);
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

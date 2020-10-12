@@ -15,36 +15,45 @@
 package com.aliyuncs.vod.model.v20170321;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vod.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SearchMediaRequest extends RpcAcsRequest<SearchMediaResponse> {
-	
-	public SearchMediaRequest() {
-		super("vod", "2017-03-21", "SearchMedia", "vod");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
+	private String sessionId;
 
-	private Integer pageNo;
+	private String scrollToken;
 
 	private String searchType;
 
-	private String match;
-
 	private Integer pageSize;
 
-	private String sortBy;
+	private String resourceOwnerAccount;
+
+	private String match;
 
 	private Long ownerId;
 
-	private String fields;
+	private Integer pageNo;
 
-	private String scrollToken;
+	private String sortBy;
+
+	private String fields;
+	public SearchMediaRequest() {
+		super("vod", "2017-03-21", "SearchMedia", "vod");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -57,25 +66,25 @@ public class SearchMediaRequest extends RpcAcsRequest<SearchMediaResponse> {
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
+	public String getSessionId() {
+		return this.sessionId;
 	}
 
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
+		if(sessionId != null){
+			putQueryParameter("SessionId", sessionId);
 		}
 	}
 
-	public Integer getPageNo() {
-		return this.pageNo;
+	public String getScrollToken() {
+		return this.scrollToken;
 	}
 
-	public void setPageNo(Integer pageNo) {
-		this.pageNo = pageNo;
-		if(pageNo != null){
-			putQueryParameter("PageNo", pageNo.toString());
+	public void setScrollToken(String scrollToken) {
+		this.scrollToken = scrollToken;
+		if(scrollToken != null){
+			putQueryParameter("ScrollToken", scrollToken);
 		}
 	}
 
@@ -90,17 +99,6 @@ public class SearchMediaRequest extends RpcAcsRequest<SearchMediaResponse> {
 		}
 	}
 
-	public String getMatch() {
-		return this.match;
-	}
-
-	public void setMatch(String match) {
-		this.match = match;
-		if(match != null){
-			putQueryParameter("Match", match);
-		}
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -112,14 +110,25 @@ public class SearchMediaRequest extends RpcAcsRequest<SearchMediaResponse> {
 		}
 	}
 
-	public String getSortBy() {
-		return this.sortBy;
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
 	}
 
-	public void setSortBy(String sortBy) {
-		this.sortBy = sortBy;
-		if(sortBy != null){
-			putQueryParameter("SortBy", sortBy);
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getMatch() {
+		return this.match;
+	}
+
+	public void setMatch(String match) {
+		this.match = match;
+		if(match != null){
+			putQueryParameter("Match", match);
 		}
 	}
 
@@ -134,6 +143,28 @@ public class SearchMediaRequest extends RpcAcsRequest<SearchMediaResponse> {
 		}
 	}
 
+	public Integer getPageNo() {
+		return this.pageNo;
+	}
+
+	public void setPageNo(Integer pageNo) {
+		this.pageNo = pageNo;
+		if(pageNo != null){
+			putQueryParameter("PageNo", pageNo.toString());
+		}
+	}
+
+	public String getSortBy() {
+		return this.sortBy;
+	}
+
+	public void setSortBy(String sortBy) {
+		this.sortBy = sortBy;
+		if(sortBy != null){
+			putQueryParameter("SortBy", sortBy);
+		}
+	}
+
 	public String getFields() {
 		return this.fields;
 	}
@@ -142,17 +173,6 @@ public class SearchMediaRequest extends RpcAcsRequest<SearchMediaResponse> {
 		this.fields = fields;
 		if(fields != null){
 			putQueryParameter("Fields", fields);
-		}
-	}
-
-	public String getScrollToken() {
-		return this.scrollToken;
-	}
-
-	public void setScrollToken(String scrollToken) {
-		this.scrollToken = scrollToken;
-		if(scrollToken != null){
-			putQueryParameter("ScrollToken", scrollToken);
 		}
 	}
 

@@ -11,24 +11,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.model.v20151215;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteClusterRequest extends RoaAcsRequest<DeleteClusterResponse> {
-	
+	   
+
+	private String clusterId;
 	public DeleteClusterRequest() {
 		super("CS", "2015-12-15", "DeleteCluster");
 		setUriPattern("/clusters/[ClusterId]");
 		setMethod(MethodType.DELETE);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
-
-	private String clusterId;
 
 	public String getClusterId() {
 		return this.clusterId;

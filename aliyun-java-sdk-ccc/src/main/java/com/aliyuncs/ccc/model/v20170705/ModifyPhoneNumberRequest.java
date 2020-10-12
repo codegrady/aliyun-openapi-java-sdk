@@ -15,24 +15,34 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyPhoneNumberRequest extends RpcAcsRequest<ModifyPhoneNumberResponse> {
-	
-	public ModifyPhoneNumberRequest() {
-		super("CCC", "2017-07-05", "ModifyPhoneNumber", "ccc");
-	}
+	   
 
 	private String contactFlowId;
+
+	private String usage;
 
 	private String instanceId;
 
 	private String phoneNumberId;
 
-	private String usage;
+	private List<String> skillGroupIds;
+	public ModifyPhoneNumberRequest() {
+		super("CCC", "2017-07-05", "ModifyPhoneNumber", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getContactFlowId() {
 		return this.contactFlowId;
@@ -42,6 +52,17 @@ public class ModifyPhoneNumberRequest extends RpcAcsRequest<ModifyPhoneNumberRes
 		this.contactFlowId = contactFlowId;
 		if(contactFlowId != null){
 			putQueryParameter("ContactFlowId", contactFlowId);
+		}
+	}
+
+	public String getUsage() {
+		return this.usage;
+	}
+
+	public void setUsage(String usage) {
+		this.usage = usage;
+		if(usage != null){
+			putQueryParameter("Usage", usage);
 		}
 	}
 
@@ -67,15 +88,17 @@ public class ModifyPhoneNumberRequest extends RpcAcsRequest<ModifyPhoneNumberRes
 		}
 	}
 
-	public String getUsage() {
-		return this.usage;
+	public List<String> getSkillGroupIds() {
+		return this.skillGroupIds;
 	}
 
-	public void setUsage(String usage) {
-		this.usage = usage;
-		if(usage != null){
-			putQueryParameter("Usage", usage);
-		}
+	public void setSkillGroupIds(List<String> skillGroupIds) {
+		this.skillGroupIds = skillGroupIds;	
+		if (skillGroupIds != null) {
+			for (int i = 0; i < skillGroupIds.size(); i++) {
+				putQueryParameter("SkillGroupId." + (i + 1) , skillGroupIds.get(i));
+			}
+		}	
 	}
 
 	@Override

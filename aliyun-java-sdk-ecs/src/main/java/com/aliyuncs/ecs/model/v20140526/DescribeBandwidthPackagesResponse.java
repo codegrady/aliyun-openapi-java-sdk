@@ -99,6 +99,8 @@ public class DescribeBandwidthPackagesResponse extends AcsResponse {
 
 		private String ipCount;
 
+		private String iSP;
+
 		private String creationTime;
 
 		private String status;
@@ -191,6 +193,14 @@ public class DescribeBandwidthPackagesResponse extends AcsResponse {
 
 		public void setIpCount(String ipCount) {
 			this.ipCount = ipCount;
+		}
+
+		public String getISP() {
+			return this.iSP;
+		}
+
+		public void setISP(String iSP) {
+			this.iSP = iSP;
 		}
 
 		public String getCreationTime() {

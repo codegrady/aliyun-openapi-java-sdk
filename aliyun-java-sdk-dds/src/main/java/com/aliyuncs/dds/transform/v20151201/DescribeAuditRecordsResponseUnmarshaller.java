@@ -19,30 +19,30 @@ import java.util.List;
 
 import com.aliyuncs.dds.model.v20151201.DescribeAuditRecordsResponse;
 import com.aliyuncs.dds.model.v20151201.DescribeAuditRecordsResponse.SQLRecord;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeAuditRecordsResponseUnmarshaller {
 
-	public static DescribeAuditRecordsResponse unmarshall(DescribeAuditRecordsResponse describeAuditRecordsResponse, UnmarshallerContext context) {
+	public static DescribeAuditRecordsResponse unmarshall(DescribeAuditRecordsResponse describeAuditRecordsResponse, UnmarshallerContext _ctx) {
 		
-		describeAuditRecordsResponse.setRequestId(context.stringValue("DescribeAuditRecordsResponse.RequestId"));
-		describeAuditRecordsResponse.setTotalRecordCount(context.integerValue("DescribeAuditRecordsResponse.TotalRecordCount"));
-		describeAuditRecordsResponse.setPageNumber(context.integerValue("DescribeAuditRecordsResponse.PageNumber"));
-		describeAuditRecordsResponse.setPageRecordCount(context.integerValue("DescribeAuditRecordsResponse.PageRecordCount"));
+		describeAuditRecordsResponse.setRequestId(_ctx.stringValue("DescribeAuditRecordsResponse.RequestId"));
+		describeAuditRecordsResponse.setTotalRecordCount(_ctx.integerValue("DescribeAuditRecordsResponse.TotalRecordCount"));
+		describeAuditRecordsResponse.setPageNumber(_ctx.integerValue("DescribeAuditRecordsResponse.PageNumber"));
+		describeAuditRecordsResponse.setPageRecordCount(_ctx.integerValue("DescribeAuditRecordsResponse.PageRecordCount"));
 
 		List<SQLRecord> items = new ArrayList<SQLRecord>();
-		for (int i = 0; i < context.lengthValue("DescribeAuditRecordsResponse.Items.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeAuditRecordsResponse.Items.Length"); i++) {
 			SQLRecord sQLRecord = new SQLRecord();
-			sQLRecord.setDBName(context.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].DBName"));
-			sQLRecord.setAccountName(context.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].AccountName"));
-			sQLRecord.setHostAddress(context.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].HostAddress"));
-			sQLRecord.setSyntax(context.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].Syntax"));
-			sQLRecord.setTotalExecutionTimes(context.longValue("DescribeAuditRecordsResponse.Items["+ i +"].TotalExecutionTimes"));
-			sQLRecord.setReturnRowCounts(context.longValue("DescribeAuditRecordsResponse.Items["+ i +"].ReturnRowCounts"));
-			sQLRecord.setExecuteTime(context.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].ExecuteTime"));
-			sQLRecord.setThreadID(context.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].ThreadID"));
+			sQLRecord.setDBName(_ctx.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].DBName"));
+			sQLRecord.setAccountName(_ctx.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].AccountName"));
+			sQLRecord.setHostAddress(_ctx.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].HostAddress"));
+			sQLRecord.setSyntax(_ctx.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].Syntax"));
+			sQLRecord.setTotalExecutionTimes(_ctx.longValue("DescribeAuditRecordsResponse.Items["+ i +"].TotalExecutionTimes"));
+			sQLRecord.setReturnRowCounts(_ctx.longValue("DescribeAuditRecordsResponse.Items["+ i +"].ReturnRowCounts"));
+			sQLRecord.setExecuteTime(_ctx.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].ExecuteTime"));
+			sQLRecord.setThreadID(_ctx.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].ThreadID"));
+			sQLRecord.setTableName(_ctx.stringValue("DescribeAuditRecordsResponse.Items["+ i +"].TableName"));
 
 			items.add(sQLRecord);
 		}

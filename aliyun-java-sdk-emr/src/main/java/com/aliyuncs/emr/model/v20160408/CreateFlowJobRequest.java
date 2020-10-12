@@ -15,53 +15,75 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateFlowJobRequest extends RpcAcsRequest<CreateFlowJobResponse> {
-	
-	public CreateFlowJobRequest() {
-		super("Emr", "2016-04-08", "CreateFlowJob");
-	}
+	   
 
-	private Long resourceOwnerId;
+	private String retryPolicy;
 
 	private String runConf;
-
-	private String envConf;
 
 	private String description;
 
 	private String type;
 
-	private String params;
-
 	private String paramConf;
+
+	private List<ResourceList> resourceLists;
 
 	private String failAct;
 
 	private String mode;
 
+	private String monitorConf;
+
+	private Integer maxRetry;
+
+	private String alertConf;
+
+	private String projectId;
+
+	private String envConf;
+
+	private Long maxRunningTimeSec;
+
+	private String clusterId;
+
+	private String params;
+
+	private String customVariables;
+
 	private Long retryInterval;
 
 	private String name;
 
-	private Integer maxRetry;
-
-	private String projectId;
+	private Boolean adhoc;
 
 	private String parentCategory;
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
+	public CreateFlowJobRequest() {
+		super("Emr", "2016-04-08", "CreateFlowJob");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+	public String getRetryPolicy() {
+		return this.retryPolicy;
+	}
+
+	public void setRetryPolicy(String retryPolicy) {
+		this.retryPolicy = retryPolicy;
+		if(retryPolicy != null){
+			putQueryParameter("RetryPolicy", retryPolicy);
 		}
 	}
 
@@ -73,17 +95,6 @@ public class CreateFlowJobRequest extends RpcAcsRequest<CreateFlowJobResponse> {
 		this.runConf = runConf;
 		if(runConf != null){
 			putQueryParameter("RunConf", runConf);
-		}
-	}
-
-	public String getEnvConf() {
-		return this.envConf;
-	}
-
-	public void setEnvConf(String envConf) {
-		this.envConf = envConf;
-		if(envConf != null){
-			putQueryParameter("EnvConf", envConf);
 		}
 	}
 
@@ -109,17 +120,6 @@ public class CreateFlowJobRequest extends RpcAcsRequest<CreateFlowJobResponse> {
 		}
 	}
 
-	public String getParams() {
-		return this.params;
-	}
-
-	public void setParams(String params) {
-		this.params = params;
-		if(params != null){
-			putQueryParameter("Params", params);
-		}
-	}
-
 	public String getParamConf() {
 		return this.paramConf;
 	}
@@ -129,6 +129,20 @@ public class CreateFlowJobRequest extends RpcAcsRequest<CreateFlowJobResponse> {
 		if(paramConf != null){
 			putQueryParameter("ParamConf", paramConf);
 		}
+	}
+
+	public List<ResourceList> getResourceLists() {
+		return this.resourceLists;
+	}
+
+	public void setResourceLists(List<ResourceList> resourceLists) {
+		this.resourceLists = resourceLists;	
+		if (resourceLists != null) {
+			for (int depth1 = 0; depth1 < resourceLists.size(); depth1++) {
+				putQueryParameter("ResourceList." + (depth1 + 1) + ".Path" , resourceLists.get(depth1).getPath());
+				putQueryParameter("ResourceList." + (depth1 + 1) + ".Alias" , resourceLists.get(depth1).getAlias());
+			}
+		}	
 	}
 
 	public String getFailAct() {
@@ -150,6 +164,105 @@ public class CreateFlowJobRequest extends RpcAcsRequest<CreateFlowJobResponse> {
 		this.mode = mode;
 		if(mode != null){
 			putQueryParameter("Mode", mode);
+		}
+	}
+
+	public String getMonitorConf() {
+		return this.monitorConf;
+	}
+
+	public void setMonitorConf(String monitorConf) {
+		this.monitorConf = monitorConf;
+		if(monitorConf != null){
+			putQueryParameter("MonitorConf", monitorConf);
+		}
+	}
+
+	public Integer getMaxRetry() {
+		return this.maxRetry;
+	}
+
+	public void setMaxRetry(Integer maxRetry) {
+		this.maxRetry = maxRetry;
+		if(maxRetry != null){
+			putQueryParameter("MaxRetry", maxRetry.toString());
+		}
+	}
+
+	public String getAlertConf() {
+		return this.alertConf;
+	}
+
+	public void setAlertConf(String alertConf) {
+		this.alertConf = alertConf;
+		if(alertConf != null){
+			putQueryParameter("AlertConf", alertConf);
+		}
+	}
+
+	public String getProjectId() {
+		return this.projectId;
+	}
+
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+		if(projectId != null){
+			putQueryParameter("ProjectId", projectId);
+		}
+	}
+
+	public String getEnvConf() {
+		return this.envConf;
+	}
+
+	public void setEnvConf(String envConf) {
+		this.envConf = envConf;
+		if(envConf != null){
+			putQueryParameter("EnvConf", envConf);
+		}
+	}
+
+	public Long getMaxRunningTimeSec() {
+		return this.maxRunningTimeSec;
+	}
+
+	public void setMaxRunningTimeSec(Long maxRunningTimeSec) {
+		this.maxRunningTimeSec = maxRunningTimeSec;
+		if(maxRunningTimeSec != null){
+			putQueryParameter("MaxRunningTimeSec", maxRunningTimeSec.toString());
+		}
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getParams() {
+		return this.params;
+	}
+
+	public void setParams(String params) {
+		this.params = params;
+		if(params != null){
+			putQueryParameter("Params", params);
+		}
+	}
+
+	public String getCustomVariables() {
+		return this.customVariables;
+	}
+
+	public void setCustomVariables(String customVariables) {
+		this.customVariables = customVariables;
+		if(customVariables != null){
+			putQueryParameter("CustomVariables", customVariables);
 		}
 	}
 
@@ -175,25 +288,14 @@ public class CreateFlowJobRequest extends RpcAcsRequest<CreateFlowJobResponse> {
 		}
 	}
 
-	public Integer getMaxRetry() {
-		return this.maxRetry;
+	public Boolean getAdhoc() {
+		return this.adhoc;
 	}
 
-	public void setMaxRetry(Integer maxRetry) {
-		this.maxRetry = maxRetry;
-		if(maxRetry != null){
-			putQueryParameter("MaxRetry", maxRetry.toString());
-		}
-	}
-
-	public String getProjectId() {
-		return this.projectId;
-	}
-
-	public void setProjectId(String projectId) {
-		this.projectId = projectId;
-		if(projectId != null){
-			putQueryParameter("ProjectId", projectId);
+	public void setAdhoc(Boolean adhoc) {
+		this.adhoc = adhoc;
+		if(adhoc != null){
+			putQueryParameter("Adhoc", adhoc.toString());
 		}
 	}
 
@@ -205,6 +307,29 @@ public class CreateFlowJobRequest extends RpcAcsRequest<CreateFlowJobResponse> {
 		this.parentCategory = parentCategory;
 		if(parentCategory != null){
 			putQueryParameter("ParentCategory", parentCategory);
+		}
+	}
+
+	public static class ResourceList {
+
+		private String path;
+
+		private String alias;
+
+		public String getPath() {
+			return this.path;
+		}
+
+		public void setPath(String path) {
+			this.path = path;
+		}
+
+		public String getAlias() {
+			return this.alias;
+		}
+
+		public void setAlias(String alias) {
+			this.alias = alias;
 		}
 	}
 

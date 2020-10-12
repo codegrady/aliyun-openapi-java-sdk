@@ -15,26 +15,57 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RRpcRequest extends RpcAcsRequest<RRpcResponse> {
-	
-	public RRpcRequest() {
-		super("Iot", "2018-01-20", "RRpc");
-	}
+	   
+
+	private Integer timeout;
+
+	private String iotInstanceId;
 
 	private String requestBase64Byte;
+
+	private String productKey;
 
 	private String topic;
 
 	private String deviceName;
+	public RRpcRequest() {
+		super("Iot", "2018-01-20", "RRpc", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String productKey;
+	public Integer getTimeout() {
+		return this.timeout;
+	}
 
-	private Integer timeout;
+	public void setTimeout(Integer timeout) {
+		this.timeout = timeout;
+		if(timeout != null){
+			putQueryParameter("Timeout", timeout.toString());
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
 
 	public String getRequestBase64Byte() {
 		return this.requestBase64Byte;
@@ -44,6 +75,17 @@ public class RRpcRequest extends RpcAcsRequest<RRpcResponse> {
 		this.requestBase64Byte = requestBase64Byte;
 		if(requestBase64Byte != null){
 			putQueryParameter("RequestBase64Byte", requestBase64Byte);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
 		}
 	}
 
@@ -66,28 +108,6 @@ public class RRpcRequest extends RpcAcsRequest<RRpcResponse> {
 		this.deviceName = deviceName;
 		if(deviceName != null){
 			putQueryParameter("DeviceName", deviceName);
-		}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
-	}
-
-	public Integer getTimeout() {
-		return this.timeout;
-	}
-
-	public void setTimeout(Integer timeout) {
-		this.timeout = timeout;
-		if(timeout != null){
-			putQueryParameter("Timeout", timeout.toString());
 		}
 	}
 

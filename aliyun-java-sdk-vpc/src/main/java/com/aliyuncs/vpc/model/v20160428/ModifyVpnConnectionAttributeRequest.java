@@ -15,20 +15,31 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpnConnectionAttributeResponse> {
-	
-	public ModifyVpnConnectionAttributeRequest() {
-		super("Vpc", "2016-04-28", "ModifyVpnConnectionAttribute", "vpc");
-	}
+	   
 
 	private String ikeConfig;
 
 	private Long resourceOwnerId;
+
+	private Boolean autoConfigRoute;
+
+	private String clientToken;
+
+	private String ipsecConfig;
+
+	private String bgpConfig;
+
+	private String healthCheckConfig;
+
+	private String localSubnet;
 
 	private String remoteSubnet;
 
@@ -36,19 +47,25 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 
 	private String resourceOwnerAccount;
 
-	private String clientToken;
-
 	private String ownerAccount;
-
-	private String ipsecConfig;
 
 	private Long ownerId;
 
-	private String localSubnet;
+	private Boolean enableDpd;
 
 	private String vpnConnectionId;
 
 	private String name;
+
+	private Boolean enableNatTraversal;
+	public ModifyVpnConnectionAttributeRequest() {
+		super("Vpc", "2016-04-28", "ModifyVpnConnectionAttribute", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getIkeConfig() {
 		return this.ikeConfig;
@@ -69,6 +86,72 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getAutoConfigRoute() {
+		return this.autoConfigRoute;
+	}
+
+	public void setAutoConfigRoute(Boolean autoConfigRoute) {
+		this.autoConfigRoute = autoConfigRoute;
+		if(autoConfigRoute != null){
+			putQueryParameter("AutoConfigRoute", autoConfigRoute.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getIpsecConfig() {
+		return this.ipsecConfig;
+	}
+
+	public void setIpsecConfig(String ipsecConfig) {
+		this.ipsecConfig = ipsecConfig;
+		if(ipsecConfig != null){
+			putQueryParameter("IpsecConfig", ipsecConfig);
+		}
+	}
+
+	public String getBgpConfig() {
+		return this.bgpConfig;
+	}
+
+	public void setBgpConfig(String bgpConfig) {
+		this.bgpConfig = bgpConfig;
+		if(bgpConfig != null){
+			putQueryParameter("BgpConfig", bgpConfig);
+		}
+	}
+
+	public String getHealthCheckConfig() {
+		return this.healthCheckConfig;
+	}
+
+	public void setHealthCheckConfig(String healthCheckConfig) {
+		this.healthCheckConfig = healthCheckConfig;
+		if(healthCheckConfig != null){
+			putQueryParameter("HealthCheckConfig", healthCheckConfig);
+		}
+	}
+
+	public String getLocalSubnet() {
+		return this.localSubnet;
+	}
+
+	public void setLocalSubnet(String localSubnet) {
+		this.localSubnet = localSubnet;
+		if(localSubnet != null){
+			putQueryParameter("LocalSubnet", localSubnet);
 		}
 	}
 
@@ -105,17 +188,6 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 		}
 	}
 
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -124,17 +196,6 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getIpsecConfig() {
-		return this.ipsecConfig;
-	}
-
-	public void setIpsecConfig(String ipsecConfig) {
-		this.ipsecConfig = ipsecConfig;
-		if(ipsecConfig != null){
-			putQueryParameter("IpsecConfig", ipsecConfig);
 		}
 	}
 
@@ -149,14 +210,14 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 		}
 	}
 
-	public String getLocalSubnet() {
-		return this.localSubnet;
+	public Boolean getEnableDpd() {
+		return this.enableDpd;
 	}
 
-	public void setLocalSubnet(String localSubnet) {
-		this.localSubnet = localSubnet;
-		if(localSubnet != null){
-			putQueryParameter("LocalSubnet", localSubnet);
+	public void setEnableDpd(Boolean enableDpd) {
+		this.enableDpd = enableDpd;
+		if(enableDpd != null){
+			putQueryParameter("EnableDpd", enableDpd.toString());
 		}
 	}
 
@@ -179,6 +240,17 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
+		}
+	}
+
+	public Boolean getEnableNatTraversal() {
+		return this.enableNatTraversal;
+	}
+
+	public void setEnableNatTraversal(Boolean enableNatTraversal) {
+		this.enableNatTraversal = enableNatTraversal;
+		if(enableNatTraversal != null){
+			putQueryParameter("EnableNatTraversal", enableNatTraversal.toString());
 		}
 	}
 

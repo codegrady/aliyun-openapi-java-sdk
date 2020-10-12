@@ -121,7 +121,17 @@ public class DescribeRouteTableListResponse extends AcsResponse {
 
 		private String description;
 
+		private String resourceGroupId;
+
 		private String creationTime;
+
+		private String status;
+
+		private Long ownerId;
+
+		private List<Tag> tags;
+
+		private List<String> vSwitchIds;
 
 		public String getVpcId() {
 			return this.vpcId;
@@ -179,12 +189,75 @@ public class DescribeRouteTableListResponse extends AcsResponse {
 			this.description = description;
 		}
 
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
 		public String getCreationTime() {
 			return this.creationTime;
 		}
 
 		public void setCreationTime(String creationTime) {
 			this.creationTime = creationTime;
+		}
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public Long getOwnerId() {
+			return this.ownerId;
+		}
+
+		public void setOwnerId(Long ownerId) {
+			this.ownerId = ownerId;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public List<String> getVSwitchIds() {
+			return this.vSwitchIds;
+		}
+
+		public void setVSwitchIds(List<String> vSwitchIds) {
+			this.vSwitchIds = vSwitchIds;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

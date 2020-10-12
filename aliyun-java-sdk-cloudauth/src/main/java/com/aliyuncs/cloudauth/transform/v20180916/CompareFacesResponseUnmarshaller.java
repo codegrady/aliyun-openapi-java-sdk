@@ -21,16 +21,16 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CompareFacesResponseUnmarshaller {
 
-	public static CompareFacesResponse unmarshall(CompareFacesResponse compareFacesResponse, UnmarshallerContext context) {
+	public static CompareFacesResponse unmarshall(CompareFacesResponse compareFacesResponse, UnmarshallerContext _ctx) {
 		
-		compareFacesResponse.setRequestId(context.stringValue("CompareFacesResponse.RequestId"));
-		compareFacesResponse.setSuccess(context.booleanValue("CompareFacesResponse.Success"));
-		compareFacesResponse.setCode(context.stringValue("CompareFacesResponse.Code"));
-		compareFacesResponse.setMessage(context.stringValue("CompareFacesResponse.Message"));
+		compareFacesResponse.setRequestId(_ctx.stringValue("CompareFacesResponse.RequestId"));
+		compareFacesResponse.setSuccess(_ctx.booleanValue("CompareFacesResponse.Success"));
+		compareFacesResponse.setCode(_ctx.stringValue("CompareFacesResponse.Code"));
+		compareFacesResponse.setMessage(_ctx.stringValue("CompareFacesResponse.Message"));
 
 		Data data = new Data();
-		data.setSimilarityScore(context.floatValue("CompareFacesResponse.Data.SimilarityScore"));
-		data.setConfidenceThresholds(context.stringValue("CompareFacesResponse.Data.ConfidenceThresholds"));
+		data.setSimilarityScore(_ctx.floatValue("CompareFacesResponse.Data.SimilarityScore"));
+		data.setConfidenceThresholds(_ctx.stringValue("CompareFacesResponse.Data.ConfidenceThresholds"));
 		compareFacesResponse.setData(data);
 	 
 	 	return compareFacesResponse;

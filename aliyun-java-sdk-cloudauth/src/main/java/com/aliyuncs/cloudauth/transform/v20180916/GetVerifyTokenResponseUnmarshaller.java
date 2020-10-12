@@ -23,29 +23,29 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class GetVerifyTokenResponseUnmarshaller {
 
-	public static GetVerifyTokenResponse unmarshall(GetVerifyTokenResponse getVerifyTokenResponse, UnmarshallerContext context) {
+	public static GetVerifyTokenResponse unmarshall(GetVerifyTokenResponse getVerifyTokenResponse, UnmarshallerContext _ctx) {
 		
-		getVerifyTokenResponse.setRequestId(context.stringValue("GetVerifyTokenResponse.RequestId"));
-		getVerifyTokenResponse.setSuccess(context.booleanValue("GetVerifyTokenResponse.Success"));
-		getVerifyTokenResponse.setCode(context.stringValue("GetVerifyTokenResponse.Code"));
-		getVerifyTokenResponse.setMessage(context.stringValue("GetVerifyTokenResponse.Message"));
+		getVerifyTokenResponse.setRequestId(_ctx.stringValue("GetVerifyTokenResponse.RequestId"));
+		getVerifyTokenResponse.setSuccess(_ctx.booleanValue("GetVerifyTokenResponse.Success"));
+		getVerifyTokenResponse.setCode(_ctx.stringValue("GetVerifyTokenResponse.Code"));
+		getVerifyTokenResponse.setMessage(_ctx.stringValue("GetVerifyTokenResponse.Message"));
 
 		Data data = new Data();
-		data.setCloudauthPageUrl(context.stringValue("GetVerifyTokenResponse.Data.CloudauthPageUrl"));
+		data.setCloudauthPageUrl(_ctx.stringValue("GetVerifyTokenResponse.Data.CloudauthPageUrl"));
 
 		VerifyToken verifyToken = new VerifyToken();
-		verifyToken.setToken(context.stringValue("GetVerifyTokenResponse.Data.VerifyToken.Token"));
-		verifyToken.setDurationSeconds(context.integerValue("GetVerifyTokenResponse.Data.VerifyToken.DurationSeconds"));
+		verifyToken.setToken(_ctx.stringValue("GetVerifyTokenResponse.Data.VerifyToken.Token"));
+		verifyToken.setDurationSeconds(_ctx.integerValue("GetVerifyTokenResponse.Data.VerifyToken.DurationSeconds"));
 		data.setVerifyToken(verifyToken);
 
 		StsToken stsToken = new StsToken();
-		stsToken.setAccessKeyId(context.stringValue("GetVerifyTokenResponse.Data.StsToken.AccessKeyId"));
-		stsToken.setAccessKeySecret(context.stringValue("GetVerifyTokenResponse.Data.StsToken.AccessKeySecret"));
-		stsToken.setExpiration(context.stringValue("GetVerifyTokenResponse.Data.StsToken.Expiration"));
-		stsToken.setEndPoint(context.stringValue("GetVerifyTokenResponse.Data.StsToken.EndPoint"));
-		stsToken.setBucketName(context.stringValue("GetVerifyTokenResponse.Data.StsToken.BucketName"));
-		stsToken.setPath(context.stringValue("GetVerifyTokenResponse.Data.StsToken.Path"));
-		stsToken.setToken(context.stringValue("GetVerifyTokenResponse.Data.StsToken.Token"));
+		stsToken.setAccessKeyId(_ctx.stringValue("GetVerifyTokenResponse.Data.StsToken.AccessKeyId"));
+		stsToken.setAccessKeySecret(_ctx.stringValue("GetVerifyTokenResponse.Data.StsToken.AccessKeySecret"));
+		stsToken.setExpiration(_ctx.stringValue("GetVerifyTokenResponse.Data.StsToken.Expiration"));
+		stsToken.setEndPoint(_ctx.stringValue("GetVerifyTokenResponse.Data.StsToken.EndPoint"));
+		stsToken.setBucketName(_ctx.stringValue("GetVerifyTokenResponse.Data.StsToken.BucketName"));
+		stsToken.setPath(_ctx.stringValue("GetVerifyTokenResponse.Data.StsToken.Path"));
+		stsToken.setToken(_ctx.stringValue("GetVerifyTokenResponse.Data.StsToken.Token"));
 		data.setStsToken(stsToken);
 		getVerifyTokenResponse.setData(data);
 	 

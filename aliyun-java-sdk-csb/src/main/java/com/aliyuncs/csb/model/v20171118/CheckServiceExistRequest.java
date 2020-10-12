@@ -17,22 +17,27 @@ package com.aliyuncs.csb.model.v20171118;
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.csb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CheckServiceExistRequest extends RpcAcsRequest<CheckServiceExistResponse> {
-	
-	public CheckServiceExistRequest() {
-		super("CSB", "2017-11-18", "CheckServiceExist");
-		setProtocol(ProtocolType.HTTPS);
-		setMethod(MethodType.POST);
-	}
+	   
 
 	private Long csbId;
 
 	private String serviceName;
+	public CheckServiceExistRequest() {
+		super("CSB", "2017-11-18", "CheckServiceExist");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getCsbId() {
 		return this.csbId;

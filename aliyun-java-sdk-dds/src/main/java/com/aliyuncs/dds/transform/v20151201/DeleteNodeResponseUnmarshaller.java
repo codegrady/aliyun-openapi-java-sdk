@@ -20,10 +20,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteNodeResponseUnmarshaller {
 
-	public static DeleteNodeResponse unmarshall(DeleteNodeResponse deleteNodeResponse, UnmarshallerContext context) {
+	public static DeleteNodeResponse unmarshall(DeleteNodeResponse deleteNodeResponse, UnmarshallerContext _ctx) {
 		
-		deleteNodeResponse.setRequestId(context.stringValue("DeleteNodeResponse.RequestId"));
-		deleteNodeResponse.setTaskId(context.integerValue("DeleteNodeResponse.TaskId"));
+		deleteNodeResponse.setRequestId(_ctx.stringValue("DeleteNodeResponse.RequestId"));
+		deleteNodeResponse.setTaskId(_ctx.integerValue("DeleteNodeResponse.TaskId"));
+		deleteNodeResponse.setOrderId(_ctx.stringValue("DeleteNodeResponse.OrderId"));
 	 
 	 	return deleteNodeResponse;
 	}

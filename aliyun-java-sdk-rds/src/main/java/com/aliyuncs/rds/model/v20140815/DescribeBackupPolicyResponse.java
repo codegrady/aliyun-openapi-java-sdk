@@ -52,6 +52,24 @@ public class DescribeBackupPolicyResponse extends AcsResponse {
 
 	private String logBackupFrequency;
 
+	private String compressType;
+
+	private String archiveBackupRetentionPeriod;
+
+	private String archiveBackupKeepPolicy;
+
+	private String archiveBackupKeepCount;
+
+	private String releasedKeepPolicy;
+
+	private Integer logBackupLocalRetentionNumber;
+
+	private String category;
+
+	private Integer supportReleasedKeep;
+
+	private String backupInterval;
+
 	private DuplicationLocation duplicationLocation;
 
 	public String getRequestId() {
@@ -164,6 +182,78 @@ public class DescribeBackupPolicyResponse extends AcsResponse {
 
 	public void setLogBackupFrequency(String logBackupFrequency) {
 		this.logBackupFrequency = logBackupFrequency;
+	}
+
+	public String getCompressType() {
+		return this.compressType;
+	}
+
+	public void setCompressType(String compressType) {
+		this.compressType = compressType;
+	}
+
+	public String getArchiveBackupRetentionPeriod() {
+		return this.archiveBackupRetentionPeriod;
+	}
+
+	public void setArchiveBackupRetentionPeriod(String archiveBackupRetentionPeriod) {
+		this.archiveBackupRetentionPeriod = archiveBackupRetentionPeriod;
+	}
+
+	public String getArchiveBackupKeepPolicy() {
+		return this.archiveBackupKeepPolicy;
+	}
+
+	public void setArchiveBackupKeepPolicy(String archiveBackupKeepPolicy) {
+		this.archiveBackupKeepPolicy = archiveBackupKeepPolicy;
+	}
+
+	public String getArchiveBackupKeepCount() {
+		return this.archiveBackupKeepCount;
+	}
+
+	public void setArchiveBackupKeepCount(String archiveBackupKeepCount) {
+		this.archiveBackupKeepCount = archiveBackupKeepCount;
+	}
+
+	public String getReleasedKeepPolicy() {
+		return this.releasedKeepPolicy;
+	}
+
+	public void setReleasedKeepPolicy(String releasedKeepPolicy) {
+		this.releasedKeepPolicy = releasedKeepPolicy;
+	}
+
+	public Integer getLogBackupLocalRetentionNumber() {
+		return this.logBackupLocalRetentionNumber;
+	}
+
+	public void setLogBackupLocalRetentionNumber(Integer logBackupLocalRetentionNumber) {
+		this.logBackupLocalRetentionNumber = logBackupLocalRetentionNumber;
+	}
+
+	public String getCategory() {
+		return this.category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public Integer getSupportReleasedKeep() {
+		return this.supportReleasedKeep;
+	}
+
+	public void setSupportReleasedKeep(Integer supportReleasedKeep) {
+		this.supportReleasedKeep = supportReleasedKeep;
+	}
+
+	public String getBackupInterval() {
+		return this.backupInterval;
+	}
+
+	public void setBackupInterval(String backupInterval) {
+		this.backupInterval = backupInterval;
 	}
 
 	public DuplicationLocation getDuplicationLocation() {

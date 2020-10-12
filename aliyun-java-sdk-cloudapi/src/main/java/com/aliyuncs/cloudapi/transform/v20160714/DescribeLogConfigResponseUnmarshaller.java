@@ -11,29 +11,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.aliyuncs.cloudapi.model.v20160714.DescribeLogConfigResponse;
 import com.aliyuncs.cloudapi.model.v20160714.DescribeLogConfigResponse.LogInfo;
 import com.aliyuncs.transform.UnmarshallerContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class DescribeLogConfigResponseUnmarshaller {
 
-	public static DescribeLogConfigResponse unmarshall(DescribeLogConfigResponse describeLogConfigResponse, UnmarshallerContext context) {
+	public static DescribeLogConfigResponse unmarshall(DescribeLogConfigResponse describeLogConfigResponse, UnmarshallerContext _ctx) {
 		
-		describeLogConfigResponse.setRequestId(context.stringValue("DescribeLogConfigResponse.RequestId"));
+		describeLogConfigResponse.setRequestId(_ctx.stringValue("DescribeLogConfigResponse.RequestId"));
 
 		List<LogInfo> logInfos = new ArrayList<LogInfo>();
-		for (int i = 0; i < context.lengthValue("DescribeLogConfigResponse.LogInfos.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeLogConfigResponse.LogInfos.Length"); i++) {
 			LogInfo logInfo = new LogInfo();
-			logInfo.setRegionId(context.stringValue("DescribeLogConfigResponse.LogInfos["+ i +"].RegionId"));
-			logInfo.setSlsProject(context.stringValue("DescribeLogConfigResponse.LogInfos["+ i +"].SlsProject"));
-			logInfo.setSlsLogStore(context.stringValue("DescribeLogConfigResponse.LogInfos["+ i +"].SlsLogStore"));
-			logInfo.setLogType(context.stringValue("DescribeLogConfigResponse.LogInfos["+ i +"].LogType"));
+			logInfo.setRegionId(_ctx.stringValue("DescribeLogConfigResponse.LogInfos["+ i +"].RegionId"));
+			logInfo.setSlsProject(_ctx.stringValue("DescribeLogConfigResponse.LogInfos["+ i +"].SlsProject"));
+			logInfo.setSlsLogStore(_ctx.stringValue("DescribeLogConfigResponse.LogInfos["+ i +"].SlsLogStore"));
+			logInfo.setLogType(_ctx.stringValue("DescribeLogConfigResponse.LogInfos["+ i +"].LogType"));
 
 			logInfos.add(logInfo);
 		}

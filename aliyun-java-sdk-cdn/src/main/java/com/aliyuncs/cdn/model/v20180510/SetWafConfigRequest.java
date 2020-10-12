@@ -15,16 +15,15 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetWafConfigRequest extends RpcAcsRequest<SetWafConfigResponse> {
-	
-	public SetWafConfigRequest() {
-		super("Cdn", "2018-05-10", "SetWafConfig");
-	}
+	   
 
 	private String enable;
 
@@ -33,6 +32,14 @@ public class SetWafConfigRequest extends RpcAcsRequest<SetWafConfigResponse> {
 	private Long ownerId;
 
 	private Long configId;
+	public SetWafConfigRequest() {
+		super("Cdn", "2018-05-10", "SetWafConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getEnable() {
 		return this.enable;

@@ -77,6 +77,8 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 	public static class DBInstance {
 
+		private String resourceGroupId;
+
 		private String dBInstanceId;
 
 		private String dBInstanceDescription;
@@ -107,15 +109,27 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 		private String dBInstanceType;
 
-		private Integer lastDowngradeTime;
+		private String lastDowngradeTime;
 
 		private String replicationFactor;
 
 		private String destroyTime;
 
+		private String vpcAuthMode;
+
 		private List<MongosAttribute> mongosList;
 
 		private List<ShardAttribute> shardList;
+
+		private List<Tag> tags;
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
 
 		public String getDBInstanceId() {
 			return this.dBInstanceId;
@@ -237,11 +251,11 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 			this.dBInstanceType = dBInstanceType;
 		}
 
-		public Integer getLastDowngradeTime() {
+		public String getLastDowngradeTime() {
 			return this.lastDowngradeTime;
 		}
 
-		public void setLastDowngradeTime(Integer lastDowngradeTime) {
+		public void setLastDowngradeTime(String lastDowngradeTime) {
 			this.lastDowngradeTime = lastDowngradeTime;
 		}
 
@@ -261,6 +275,14 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 			this.destroyTime = destroyTime;
 		}
 
+		public String getVpcAuthMode() {
+			return this.vpcAuthMode;
+		}
+
+		public void setVpcAuthMode(String vpcAuthMode) {
+			this.vpcAuthMode = vpcAuthMode;
+		}
+
 		public List<MongosAttribute> getMongosList() {
 			return this.mongosList;
 		}
@@ -277,6 +299,14 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 			this.shardList = shardList;
 		}
 
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
 		public static class MongosAttribute {
 
 			private String nodeId;
@@ -284,10 +314,6 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 			private String nodeDescription;
 
 			private String nodeClass;
-
-			private String connectSting;
-
-			private Integer port;
 
 			public String getNodeId() {
 				return this.nodeId;
@@ -311,22 +337,6 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 			public void setNodeClass(String nodeClass) {
 				this.nodeClass = nodeClass;
-			}
-
-			public String getConnectSting() {
-				return this.connectSting;
-			}
-
-			public void setConnectSting(String connectSting) {
-				this.connectSting = connectSting;
-			}
-
-			public Integer getPort() {
-				return this.port;
-			}
-
-			public void setPort(Integer port) {
-				this.port = port;
 			}
 		}
 
@@ -370,6 +380,29 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 			public void setNodeStorage(Integer nodeStorage) {
 				this.nodeStorage = nodeStorage;
+			}
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
 			}
 		}
 	}

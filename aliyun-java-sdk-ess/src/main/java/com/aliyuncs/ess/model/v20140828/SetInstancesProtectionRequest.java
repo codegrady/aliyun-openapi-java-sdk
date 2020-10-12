@@ -16,49 +16,32 @@ package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetInstancesProtectionRequest extends RpcAcsRequest<SetInstancesProtectionResponse> {
-	
-	public SetInstancesProtectionRequest() {
-		super("Ess", "2014-08-28", "SetInstancesProtection", "ess");
-	}
-
-	private List<String> instanceIds;
-
-	private String resourceOwnerAccount;
+	   
 
 	private String scalingGroupId;
 
+	private String resourceOwnerAccount;
+
 	private Long ownerId;
 
+	private List<String> instanceIds;
+
 	private Boolean protectedFromScaleIn;
-
-	public List<String> getInstanceIds() {
-		return this.instanceIds;
-	}
-
-	public void setInstanceIds(List<String> instanceIds) {
-		this.instanceIds = instanceIds;	
-		if (instanceIds != null) {
-			for (int i = 0; i < instanceIds.size(); i++) {
-				putQueryParameter("InstanceId." + (i + 1) , instanceIds.get(i));
-			}
-		}	
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
+	public SetInstancesProtectionRequest() {
+		super("Ess", "2014-08-28", "SetInstancesProtection", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getScalingGroupId() {
@@ -72,6 +55,17 @@ public class SetInstancesProtectionRequest extends RpcAcsRequest<SetInstancesPro
 		}
 	}
 
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -81,6 +75,19 @@ public class SetInstancesProtectionRequest extends RpcAcsRequest<SetInstancesPro
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
 		}
+	}
+
+	public List<String> getInstanceIds() {
+		return this.instanceIds;
+	}
+
+	public void setInstanceIds(List<String> instanceIds) {
+		this.instanceIds = instanceIds;	
+		if (instanceIds != null) {
+			for (int i = 0; i < instanceIds.size(); i++) {
+				putQueryParameter("InstanceId." + (i + 1) , instanceIds.get(i));
+			}
+		}	
 	}
 
 	public Boolean getProtectedFromScaleIn() {

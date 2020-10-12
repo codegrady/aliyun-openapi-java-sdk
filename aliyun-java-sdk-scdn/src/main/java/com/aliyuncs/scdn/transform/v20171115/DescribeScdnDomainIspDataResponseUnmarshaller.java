@@ -18,37 +18,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.scdn.model.v20171115.DescribeScdnDomainIspDataResponse;
-import com.aliyuncs.scdn.model.v20171115.DescribeScdnDomainIspDataResponse.IspProportionData;
-import java.util.Map;
+import com.aliyuncs.scdn.model.v20171115.DescribeScdnDomainIspDataResponse.ISPProportionData;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeScdnDomainIspDataResponseUnmarshaller {
 
-	public static DescribeScdnDomainIspDataResponse unmarshall(DescribeScdnDomainIspDataResponse describeScdnDomainIspDataResponse, UnmarshallerContext context) {
+	public static DescribeScdnDomainIspDataResponse unmarshall(DescribeScdnDomainIspDataResponse describeScdnDomainIspDataResponse, UnmarshallerContext _ctx) {
 		
-		describeScdnDomainIspDataResponse.setRequestId(context.stringValue("DescribeScdnDomainIspDataResponse.RequestId"));
-		describeScdnDomainIspDataResponse.setDomainName(context.stringValue("DescribeScdnDomainIspDataResponse.DomainName"));
-		describeScdnDomainIspDataResponse.setDataInterval(context.stringValue("DescribeScdnDomainIspDataResponse.DataInterval"));
-		describeScdnDomainIspDataResponse.setStartTime(context.stringValue("DescribeScdnDomainIspDataResponse.StartTime"));
-		describeScdnDomainIspDataResponse.setEndTime(context.stringValue("DescribeScdnDomainIspDataResponse.EndTime"));
+		describeScdnDomainIspDataResponse.setRequestId(_ctx.stringValue("DescribeScdnDomainIspDataResponse.RequestId"));
+		describeScdnDomainIspDataResponse.setDomainName(_ctx.stringValue("DescribeScdnDomainIspDataResponse.DomainName"));
+		describeScdnDomainIspDataResponse.setDataInterval(_ctx.stringValue("DescribeScdnDomainIspDataResponse.DataInterval"));
+		describeScdnDomainIspDataResponse.setStartTime(_ctx.stringValue("DescribeScdnDomainIspDataResponse.StartTime"));
+		describeScdnDomainIspDataResponse.setEndTime(_ctx.stringValue("DescribeScdnDomainIspDataResponse.EndTime"));
 
-		List<IspProportionData> value = new ArrayList<IspProportionData>();
-		for (int i = 0; i < context.lengthValue("DescribeScdnDomainIspDataResponse.Value.Length"); i++) {
-			IspProportionData ispProportionData = new IspProportionData();
-			ispProportionData.setIsp(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].Isp"));
-			ispProportionData.setProportion(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].Proportion"));
-			ispProportionData.setIspEname(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].IspEname"));
-			ispProportionData.setAvgObjectSize(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].AvgObjectSize"));
-			ispProportionData.setAvgResponseTime(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].AvgResponseTime"));
-			ispProportionData.setBps(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].Bps"));
-			ispProportionData.setQps(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].Qps"));
-			ispProportionData.setAvgResponseRate(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].AvgResponseRate"));
-			ispProportionData.setTotalBytes(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].TotalBytes"));
-			ispProportionData.setBytesProportion(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].BytesProportion"));
-			ispProportionData.setTotalQuery(context.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].TotalQuery"));
+		List<ISPProportionData> value = new ArrayList<ISPProportionData>();
+		for (int i = 0; i < _ctx.lengthValue("DescribeScdnDomainIspDataResponse.Value.Length"); i++) {
+			ISPProportionData iSPProportionData = new ISPProportionData();
+			iSPProportionData.setISP(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].ISP"));
+			iSPProportionData.setProportion(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].Proportion"));
+			iSPProportionData.setIspEname(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].IspEname"));
+			iSPProportionData.setAvgObjectSize(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].AvgObjectSize"));
+			iSPProportionData.setAvgResponseTime(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].AvgResponseTime"));
+			iSPProportionData.setBps(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].Bps"));
+			iSPProportionData.setQps(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].Qps"));
+			iSPProportionData.setAvgResponseRate(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].AvgResponseRate"));
+			iSPProportionData.setReqErrRate(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].ReqErrRate"));
+			iSPProportionData.setTotalBytes(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].TotalBytes"));
+			iSPProportionData.setBytesProportion(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].BytesProportion"));
+			iSPProportionData.setTotalQuery(_ctx.stringValue("DescribeScdnDomainIspDataResponse.Value["+ i +"].TotalQuery"));
 
-			value.add(ispProportionData);
+			value.add(iSPProportionData);
 		}
 		describeScdnDomainIspDataResponse.setValue(value);
 	 

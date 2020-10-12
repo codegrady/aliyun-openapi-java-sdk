@@ -16,28 +16,35 @@ package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListInvocationResultsRequest extends RpcAcsRequest<ListInvocationResultsResponse> {
-	
-	public ListInvocationResultsRequest() {
-		super("EHPC", "2018-04-12", "ListInvocationResults", "ehs");
-	}
+	   
 
 	private List<Instance> instances;
-
-	private String invokeRecordStatus;
-
-	private Integer pageSize;
 
 	private String clusterId;
 
 	private String commandId;
 
 	private Integer pageNumber;
+
+	private String invokeRecordStatus;
+
+	private Integer pageSize;
+	public ListInvocationResultsRequest() {
+		super("EHPC", "2018-04-12", "ListInvocationResults");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public List<Instance> getInstances() {
 		return this.instances;
@@ -50,28 +57,6 @@ public class ListInvocationResultsRequest extends RpcAcsRequest<ListInvocationRe
 				putQueryParameter("Instance." + (depth1 + 1) + ".Id" , instances.get(depth1).getId());
 			}
 		}	
-	}
-
-	public String getInvokeRecordStatus() {
-		return this.invokeRecordStatus;
-	}
-
-	public void setInvokeRecordStatus(String invokeRecordStatus) {
-		this.invokeRecordStatus = invokeRecordStatus;
-		if(invokeRecordStatus != null){
-			putQueryParameter("InvokeRecordStatus", invokeRecordStatus);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
 	}
 
 	public String getClusterId() {
@@ -104,6 +89,28 @@ public class ListInvocationResultsRequest extends RpcAcsRequest<ListInvocationRe
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getInvokeRecordStatus() {
+		return this.invokeRecordStatus;
+	}
+
+	public void setInvokeRecordStatus(String invokeRecordStatus) {
+		this.invokeRecordStatus = invokeRecordStatus;
+		if(invokeRecordStatus != null){
+			putQueryParameter("InvokeRecordStatus", invokeRecordStatus);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

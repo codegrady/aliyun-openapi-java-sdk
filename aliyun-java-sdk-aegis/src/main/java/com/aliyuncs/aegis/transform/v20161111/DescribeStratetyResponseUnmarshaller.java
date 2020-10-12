@@ -1,29 +1,25 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package com.aliyuncs.aegis.transform.v20161111;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.aegis.model.v20161111.DescribeStratetyResponse;
-import com.aliyuncs.aegis.model.v20161111.DescribeStratetyResponse.Data;
-import com.aliyuncs.aegis.model.v20161111.DescribeStratetyResponse.Data.ConfigTarget;
+import com.aliyuncs.aegis.model.v20161111.DescribeStratetyResponse.Strategy;
+import com.aliyuncs.aegis.model.v20161111.DescribeStratetyResponse.Strategy.ConfigTarget;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -32,18 +28,20 @@ public class DescribeStratetyResponseUnmarshaller {
 	public static DescribeStratetyResponse unmarshall(DescribeStratetyResponse describeStratetyResponse, UnmarshallerContext context) {
 		
 		describeStratetyResponse.setRequestId(context.stringValue("DescribeStratetyResponse.RequestId"));
-		describeStratetyResponse.setCount(context.integerValue("DescribeStratetyResponse.Count"));
 
-		List<Data> strategies = new ArrayList<Data>();
+		List<Strategy> strategies = new ArrayList<Strategy>();
 		for (int i = 0; i < context.lengthValue("DescribeStratetyResponse.Strategies.Length"); i++) {
-			Data data = new Data();
-			data.setCycleDays(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].CycleDays"));
-			data.setId(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].Id"));
-			data.setCycleStartTime(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].CycleStartTime"));
-			data.setType(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].Type"));
-			data.setName(context.stringValue("DescribeStratetyResponse.Strategies["+ i +"].Name"));
-			data.setRiskCount(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].RiskCount"));
-			data.setEcsCount(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].EcsCount"));
+			Strategy strategy = new Strategy();
+			strategy.setCycleDays(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].CycleDays"));
+			strategy.setId(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].Id"));
+			strategy.setCycleStartTime(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].CycleStartTime"));
+			strategy.setType(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].Type"));
+			strategy.setName(context.stringValue("DescribeStratetyResponse.Strategies["+ i +"].Name"));
+			strategy.setRiskCount(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].RiskCount"));
+			strategy.setEcsCount(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].EcsCount"));
+			strategy.setExecStatus(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].ExecStatus"));
+			strategy.setProcessRate(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].ProcessRate"));
+			strategy.setPassRate(context.integerValue("DescribeStratetyResponse.Strategies["+ i +"].PassRate"));
 
 			List<ConfigTarget> configTargets = new ArrayList<ConfigTarget>();
 			for (int j = 0; j < context.lengthValue("DescribeStratetyResponse.Strategies["+ i +"].ConfigTargets.Length"); j++) {
@@ -54,9 +52,9 @@ public class DescribeStratetyResponseUnmarshaller {
 
 				configTargets.add(configTarget);
 			}
-			data.setConfigTargets(configTargets);
+			strategy.setConfigTargets(configTargets);
 
-			strategies.add(data);
+			strategies.add(strategy);
 		}
 		describeStratetyResponse.setStrategies(strategies);
 	 

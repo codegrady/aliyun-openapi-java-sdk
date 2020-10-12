@@ -173,7 +173,33 @@ public class DescribeDBInstanceAttributeResponse extends AcsResponse {
 
 		private String securityIPMode;
 
+		private String timeZone;
+
+		private String collation;
+
+		private String dispenseMode;
+
+		private String masterZone;
+
+		private String autoUpgradeMinorVersion;
+
+		private Integer proxyType;
+
+		private String consoleVersion;
+
+		private Boolean multipleTempUpgrade;
+
+		private String originConfiguration;
+
+		private String dedicatedHostGroupId;
+
+		private String superPermissionMode;
+
+		private List<SlaveZone> slaveZones;
+
 		private List<ReadOnlyDBInstanceId> readOnlyDBInstanceIds;
+
+		private Extra extra;
 
 		public String getIPType() {
 			return this.iPType;
@@ -679,12 +705,129 @@ public class DescribeDBInstanceAttributeResponse extends AcsResponse {
 			this.securityIPMode = securityIPMode;
 		}
 
+		public String getTimeZone() {
+			return this.timeZone;
+		}
+
+		public void setTimeZone(String timeZone) {
+			this.timeZone = timeZone;
+		}
+
+		public String getCollation() {
+			return this.collation;
+		}
+
+		public void setCollation(String collation) {
+			this.collation = collation;
+		}
+
+		public String getDispenseMode() {
+			return this.dispenseMode;
+		}
+
+		public void setDispenseMode(String dispenseMode) {
+			this.dispenseMode = dispenseMode;
+		}
+
+		public String getMasterZone() {
+			return this.masterZone;
+		}
+
+		public void setMasterZone(String masterZone) {
+			this.masterZone = masterZone;
+		}
+
+		public String getAutoUpgradeMinorVersion() {
+			return this.autoUpgradeMinorVersion;
+		}
+
+		public void setAutoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+			this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+		}
+
+		public Integer getProxyType() {
+			return this.proxyType;
+		}
+
+		public void setProxyType(Integer proxyType) {
+			this.proxyType = proxyType;
+		}
+
+		public String getConsoleVersion() {
+			return this.consoleVersion;
+		}
+
+		public void setConsoleVersion(String consoleVersion) {
+			this.consoleVersion = consoleVersion;
+		}
+
+		public Boolean getMultipleTempUpgrade() {
+			return this.multipleTempUpgrade;
+		}
+
+		public void setMultipleTempUpgrade(Boolean multipleTempUpgrade) {
+			this.multipleTempUpgrade = multipleTempUpgrade;
+		}
+
+		public String getOriginConfiguration() {
+			return this.originConfiguration;
+		}
+
+		public void setOriginConfiguration(String originConfiguration) {
+			this.originConfiguration = originConfiguration;
+		}
+
+		public String getDedicatedHostGroupId() {
+			return this.dedicatedHostGroupId;
+		}
+
+		public void setDedicatedHostGroupId(String dedicatedHostGroupId) {
+			this.dedicatedHostGroupId = dedicatedHostGroupId;
+		}
+
+		public String getSuperPermissionMode() {
+			return this.superPermissionMode;
+		}
+
+		public void setSuperPermissionMode(String superPermissionMode) {
+			this.superPermissionMode = superPermissionMode;
+		}
+
+		public List<SlaveZone> getSlaveZones() {
+			return this.slaveZones;
+		}
+
+		public void setSlaveZones(List<SlaveZone> slaveZones) {
+			this.slaveZones = slaveZones;
+		}
+
 		public List<ReadOnlyDBInstanceId> getReadOnlyDBInstanceIds() {
 			return this.readOnlyDBInstanceIds;
 		}
 
 		public void setReadOnlyDBInstanceIds(List<ReadOnlyDBInstanceId> readOnlyDBInstanceIds) {
 			this.readOnlyDBInstanceIds = readOnlyDBInstanceIds;
+		}
+
+		public Extra getExtra() {
+			return this.extra;
+		}
+
+		public void setExtra(Extra extra) {
+			this.extra = extra;
+		}
+
+		public static class SlaveZone {
+
+			private String zoneId;
+
+			public String getZoneId() {
+				return this.zoneId;
+			}
+
+			public void setZoneId(String zoneId) {
+				this.zoneId = zoneId;
+			}
 		}
 
 		public static class ReadOnlyDBInstanceId {
@@ -697,6 +840,49 @@ public class DescribeDBInstanceAttributeResponse extends AcsResponse {
 
 			public void setDBInstanceId(String dBInstanceId) {
 				this.dBInstanceId = dBInstanceId;
+			}
+		}
+
+		public static class Extra {
+
+			private String replicaGroupID;
+
+			private String replicaGroupStatus;
+
+			private String activeReplicaDBInstanceID;
+
+			private List<String> dBInstanceIds;
+
+			public String getReplicaGroupID() {
+				return this.replicaGroupID;
+			}
+
+			public void setReplicaGroupID(String replicaGroupID) {
+				this.replicaGroupID = replicaGroupID;
+			}
+
+			public String getReplicaGroupStatus() {
+				return this.replicaGroupStatus;
+			}
+
+			public void setReplicaGroupStatus(String replicaGroupStatus) {
+				this.replicaGroupStatus = replicaGroupStatus;
+			}
+
+			public String getActiveReplicaDBInstanceID() {
+				return this.activeReplicaDBInstanceID;
+			}
+
+			public void setActiveReplicaDBInstanceID(String activeReplicaDBInstanceID) {
+				this.activeReplicaDBInstanceID = activeReplicaDBInstanceID;
+			}
+
+			public List<String> getDBInstanceIds() {
+				return this.dBInstanceIds;
+			}
+
+			public void setDBInstanceIds(List<String> dBInstanceIds) {
+				this.dBInstanceIds = dBInstanceIds;
 			}
 		}
 	}

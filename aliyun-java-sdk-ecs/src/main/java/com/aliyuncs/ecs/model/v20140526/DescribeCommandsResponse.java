@@ -91,6 +91,14 @@ public class DescribeCommandsResponse extends AcsResponse {
 
 		private Long timeout;
 
+		private Integer invokeTimes;
+
+		private String creationTime;
+
+		private Boolean enableParameter;
+
+		private List<String> parameterNames;
+
 		public String getCommandId() {
 			return this.commandId;
 		}
@@ -145,6 +153,38 @@ public class DescribeCommandsResponse extends AcsResponse {
 
 		public void setTimeout(Long timeout) {
 			this.timeout = timeout;
+		}
+
+		public Integer getInvokeTimes() {
+			return this.invokeTimes;
+		}
+
+		public void setInvokeTimes(Integer invokeTimes) {
+			this.invokeTimes = invokeTimes;
+		}
+
+		public String getCreationTime() {
+			return this.creationTime;
+		}
+
+		public void setCreationTime(String creationTime) {
+			this.creationTime = creationTime;
+		}
+
+		public Boolean getEnableParameter() {
+			return this.enableParameter;
+		}
+
+		public void setEnableParameter(Boolean enableParameter) {
+			this.enableParameter = enableParameter;
+		}
+
+		public List<String> getParameterNames() {
+			return this.parameterNames;
+		}
+
+		public void setParameterNames(List<String> parameterNames) {
+			this.parameterNames = parameterNames;
 		}
 	}
 

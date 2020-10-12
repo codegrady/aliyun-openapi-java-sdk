@@ -15,7 +15,6 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import java.util.List;
-import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.bssopenapi.transform.v20171214.GetOrderDetailResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -173,6 +172,14 @@ public class GetOrderDetailResponse extends AcsResponse {
 			private String afterTaxAmount;
 
 			private String paymentCurrency;
+
+			private String operator;
+
+			private String relatedOrderId;
+
+			private String orderSubType;
+
+			private String originalConfig;
 
 			public String getOrderId() {
 				return this.orderId;
@@ -348,6 +355,38 @@ public class GetOrderDetailResponse extends AcsResponse {
 
 			public void setPaymentCurrency(String paymentCurrency) {
 				this.paymentCurrency = paymentCurrency;
+			}
+
+			public String getOperator() {
+				return this.operator;
+			}
+
+			public void setOperator(String operator) {
+				this.operator = operator;
+			}
+
+			public String getRelatedOrderId() {
+				return this.relatedOrderId;
+			}
+
+			public void setRelatedOrderId(String relatedOrderId) {
+				this.relatedOrderId = relatedOrderId;
+			}
+
+			public String getOrderSubType() {
+				return this.orderSubType;
+			}
+
+			public void setOrderSubType(String orderSubType) {
+				this.orderSubType = orderSubType;
+			}
+
+			public String getOriginalConfig() {
+				return this.originalConfig;
+			}
+
+			public void setOriginalConfig(String originalConfig) {
+				this.originalConfig = originalConfig;
 			}
 		}
 	}

@@ -15,16 +15,19 @@
 package com.aliyuncs.drds.model.v20171016;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.drds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDrdsIpWhiteListRequest extends RpcAcsRequest<ModifyDrdsIpWhiteListResponse> {
-	
-	public ModifyDrdsIpWhiteListRequest() {
-		super("Drds", "2017-10-16", "ModifyDrdsIpWhiteList", "Drds");
-	}
+	   
+
+	private String drdsInstanceId;
+
+	private String groupName;
 
 	private Boolean mode;
 
@@ -33,10 +36,36 @@ public class ModifyDrdsIpWhiteListRequest extends RpcAcsRequest<ModifyDrdsIpWhit
 	private String groupAttribute;
 
 	private String ipWhiteList;
+	public ModifyDrdsIpWhiteListRequest() {
+		super("Drds", "2017-10-16", "ModifyDrdsIpWhiteList", "Drds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String drdsInstanceId;
+	public String getDrdsInstanceId() {
+		return this.drdsInstanceId;
+	}
 
-	private String groupName;
+	public void setDrdsInstanceId(String drdsInstanceId) {
+		this.drdsInstanceId = drdsInstanceId;
+		if(drdsInstanceId != null){
+			putQueryParameter("DrdsInstanceId", drdsInstanceId);
+		}
+	}
+
+	public String getGroupName() {
+		return this.groupName;
+	}
+
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+		if(groupName != null){
+			putQueryParameter("GroupName", groupName);
+		}
+	}
 
 	public Boolean getMode() {
 		return this.mode;
@@ -79,28 +108,6 @@ public class ModifyDrdsIpWhiteListRequest extends RpcAcsRequest<ModifyDrdsIpWhit
 		this.ipWhiteList = ipWhiteList;
 		if(ipWhiteList != null){
 			putQueryParameter("IpWhiteList", ipWhiteList);
-		}
-	}
-
-	public String getDrdsInstanceId() {
-		return this.drdsInstanceId;
-	}
-
-	public void setDrdsInstanceId(String drdsInstanceId) {
-		this.drdsInstanceId = drdsInstanceId;
-		if(drdsInstanceId != null){
-			putQueryParameter("DrdsInstanceId", drdsInstanceId);
-		}
-	}
-
-	public String getGroupName() {
-		return this.groupName;
-	}
-
-	public void setGroupName(String groupName) {
-		this.groupName = groupName;
-		if(groupName != null){
-			putQueryParameter("GroupName", groupName);
 		}
 	}
 

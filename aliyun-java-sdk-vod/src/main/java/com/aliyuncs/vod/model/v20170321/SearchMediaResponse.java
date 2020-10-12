@@ -77,6 +77,10 @@ public class SearchMediaResponse extends AcsResponse {
 
 		private Audio audio;
 
+		private Image image;
+
+		private AttachedMedia attachedMedia;
+
 		public String getMediaType() {
 			return this.mediaType;
 		}
@@ -115,6 +119,22 @@ public class SearchMediaResponse extends AcsResponse {
 
 		public void setAudio(Audio audio) {
 			this.audio = audio;
+		}
+
+		public Image getImage() {
+			return this.image;
+		}
+
+		public void setImage(Image image) {
+			this.image = image;
+		}
+
+		public AttachedMedia getAttachedMedia() {
+			return this.attachedMedia;
+		}
+
+		public void setAttachedMedia(AttachedMedia attachedMedia) {
+			this.attachedMedia = attachedMedia;
 		}
 
 		public static class Video {
@@ -156,6 +176,26 @@ public class SearchMediaResponse extends AcsResponse {
 			private String regionId;
 
 			private String transcodeMode;
+
+			private String auditStatus;
+
+			private String auditAIStatus;
+
+			private String auditManualStatus;
+
+			private String auditAIResult;
+
+			private String auditTemplateId;
+
+			private String customMediaInfo;
+
+			private String appId;
+
+			private String auditAbnormalModules;
+
+			private String auditLabel;
+
+			private List<PlayInfo> playInfoList;
 
 			private List<String> snapshots;
 
@@ -313,6 +353,86 @@ public class SearchMediaResponse extends AcsResponse {
 				this.transcodeMode = transcodeMode;
 			}
 
+			public String getAuditStatus() {
+				return this.auditStatus;
+			}
+
+			public void setAuditStatus(String auditStatus) {
+				this.auditStatus = auditStatus;
+			}
+
+			public String getAuditAIStatus() {
+				return this.auditAIStatus;
+			}
+
+			public void setAuditAIStatus(String auditAIStatus) {
+				this.auditAIStatus = auditAIStatus;
+			}
+
+			public String getAuditManualStatus() {
+				return this.auditManualStatus;
+			}
+
+			public void setAuditManualStatus(String auditManualStatus) {
+				this.auditManualStatus = auditManualStatus;
+			}
+
+			public String getAuditAIResult() {
+				return this.auditAIResult;
+			}
+
+			public void setAuditAIResult(String auditAIResult) {
+				this.auditAIResult = auditAIResult;
+			}
+
+			public String getAuditTemplateId() {
+				return this.auditTemplateId;
+			}
+
+			public void setAuditTemplateId(String auditTemplateId) {
+				this.auditTemplateId = auditTemplateId;
+			}
+
+			public String getCustomMediaInfo() {
+				return this.customMediaInfo;
+			}
+
+			public void setCustomMediaInfo(String customMediaInfo) {
+				this.customMediaInfo = customMediaInfo;
+			}
+
+			public String getAppId() {
+				return this.appId;
+			}
+
+			public void setAppId(String appId) {
+				this.appId = appId;
+			}
+
+			public String getAuditAbnormalModules() {
+				return this.auditAbnormalModules;
+			}
+
+			public void setAuditAbnormalModules(String auditAbnormalModules) {
+				this.auditAbnormalModules = auditAbnormalModules;
+			}
+
+			public String getAuditLabel() {
+				return this.auditLabel;
+			}
+
+			public void setAuditLabel(String auditLabel) {
+				this.auditLabel = auditLabel;
+			}
+
+			public List<PlayInfo> getPlayInfoList() {
+				return this.playInfoList;
+			}
+
+			public void setPlayInfoList(List<PlayInfo> playInfoList) {
+				this.playInfoList = playInfoList;
+			}
+
 			public List<String> getSnapshots() {
 				return this.snapshots;
 			}
@@ -327,6 +447,159 @@ public class SearchMediaResponse extends AcsResponse {
 
 			public void setSpriteSnapshots(List<String> spriteSnapshots) {
 				this.spriteSnapshots = spriteSnapshots;
+			}
+
+			public static class PlayInfo {
+
+				private String width;
+
+				private String height;
+
+				private String size;
+
+				private String playURL;
+
+				private String bitrate;
+
+				private String definition;
+
+				private String duration;
+
+				private String format;
+
+				private String fps;
+
+				private Long encrypt;
+
+				private String plaintext;
+
+				private String complexity;
+
+				private String streamType;
+
+				private String rand;
+
+				private String jobId;
+
+				public String getWidth() {
+					return this.width;
+				}
+
+				public void setWidth(String width) {
+					this.width = width;
+				}
+
+				public String getHeight() {
+					return this.height;
+				}
+
+				public void setHeight(String height) {
+					this.height = height;
+				}
+
+				public String getSize() {
+					return this.size;
+				}
+
+				public void setSize(String size) {
+					this.size = size;
+				}
+
+				public String getPlayURL() {
+					return this.playURL;
+				}
+
+				public void setPlayURL(String playURL) {
+					this.playURL = playURL;
+				}
+
+				public String getBitrate() {
+					return this.bitrate;
+				}
+
+				public void setBitrate(String bitrate) {
+					this.bitrate = bitrate;
+				}
+
+				public String getDefinition() {
+					return this.definition;
+				}
+
+				public void setDefinition(String definition) {
+					this.definition = definition;
+				}
+
+				public String getDuration() {
+					return this.duration;
+				}
+
+				public void setDuration(String duration) {
+					this.duration = duration;
+				}
+
+				public String getFormat() {
+					return this.format;
+				}
+
+				public void setFormat(String format) {
+					this.format = format;
+				}
+
+				public String getFps() {
+					return this.fps;
+				}
+
+				public void setFps(String fps) {
+					this.fps = fps;
+				}
+
+				public Long getEncrypt() {
+					return this.encrypt;
+				}
+
+				public void setEncrypt(Long encrypt) {
+					this.encrypt = encrypt;
+				}
+
+				public String getPlaintext() {
+					return this.plaintext;
+				}
+
+				public void setPlaintext(String plaintext) {
+					this.plaintext = plaintext;
+				}
+
+				public String getComplexity() {
+					return this.complexity;
+				}
+
+				public void setComplexity(String complexity) {
+					this.complexity = complexity;
+				}
+
+				public String getStreamType() {
+					return this.streamType;
+				}
+
+				public void setStreamType(String streamType) {
+					this.streamType = streamType;
+				}
+
+				public String getRand() {
+					return this.rand;
+				}
+
+				public void setRand(String rand) {
+					this.rand = rand;
+				}
+
+				public String getJobId() {
+					return this.jobId;
+				}
+
+				public void setJobId(String jobId) {
+					this.jobId = jobId;
+				}
 			}
 		}
 
@@ -367,6 +640,22 @@ public class SearchMediaResponse extends AcsResponse {
 			private String regionId;
 
 			private String transcodeMode;
+
+			private String auditStatus;
+
+			private String auditAIStatus;
+
+			private String auditManualStatus;
+
+			private String auditAIResult;
+
+			private String auditTemplateId;
+
+			private String customMediaInfo;
+
+			private String appId;
+
+			private List<PlayInfo4> playInfoList3;
 
 			private List<String> snapshots1;
 
@@ -516,6 +805,70 @@ public class SearchMediaResponse extends AcsResponse {
 				this.transcodeMode = transcodeMode;
 			}
 
+			public String getAuditStatus() {
+				return this.auditStatus;
+			}
+
+			public void setAuditStatus(String auditStatus) {
+				this.auditStatus = auditStatus;
+			}
+
+			public String getAuditAIStatus() {
+				return this.auditAIStatus;
+			}
+
+			public void setAuditAIStatus(String auditAIStatus) {
+				this.auditAIStatus = auditAIStatus;
+			}
+
+			public String getAuditManualStatus() {
+				return this.auditManualStatus;
+			}
+
+			public void setAuditManualStatus(String auditManualStatus) {
+				this.auditManualStatus = auditManualStatus;
+			}
+
+			public String getAuditAIResult() {
+				return this.auditAIResult;
+			}
+
+			public void setAuditAIResult(String auditAIResult) {
+				this.auditAIResult = auditAIResult;
+			}
+
+			public String getAuditTemplateId() {
+				return this.auditTemplateId;
+			}
+
+			public void setAuditTemplateId(String auditTemplateId) {
+				this.auditTemplateId = auditTemplateId;
+			}
+
+			public String getCustomMediaInfo() {
+				return this.customMediaInfo;
+			}
+
+			public void setCustomMediaInfo(String customMediaInfo) {
+				this.customMediaInfo = customMediaInfo;
+			}
+
+			public String getAppId() {
+				return this.appId;
+			}
+
+			public void setAppId(String appId) {
+				this.appId = appId;
+			}
+
+			public List<PlayInfo4> getPlayInfoList3() {
+				return this.playInfoList3;
+			}
+
+			public void setPlayInfoList3(List<PlayInfo4> playInfoList3) {
+				this.playInfoList3 = playInfoList3;
+			}
+
 			public List<String> getSnapshots1() {
 				return this.snapshots1;
 			}
@@ -530,6 +883,518 @@ public class SearchMediaResponse extends AcsResponse {
 
 			public void setSpriteSnapshots2(List<String> spriteSnapshots2) {
 				this.spriteSnapshots2 = spriteSnapshots2;
+			}
+
+			public static class PlayInfo4 {
+
+				private String width;
+
+				private String height;
+
+				private String size;
+
+				private String playURL;
+
+				private String bitrate;
+
+				private String definition;
+
+				private String duration;
+
+				private String format;
+
+				private String fps;
+
+				private Long encrypt;
+
+				private String plaintext;
+
+				private String complexity;
+
+				private String streamType;
+
+				private String rand;
+
+				private String jobId;
+
+				public String getWidth() {
+					return this.width;
+				}
+
+				public void setWidth(String width) {
+					this.width = width;
+				}
+
+				public String getHeight() {
+					return this.height;
+				}
+
+				public void setHeight(String height) {
+					this.height = height;
+				}
+
+				public String getSize() {
+					return this.size;
+				}
+
+				public void setSize(String size) {
+					this.size = size;
+				}
+
+				public String getPlayURL() {
+					return this.playURL;
+				}
+
+				public void setPlayURL(String playURL) {
+					this.playURL = playURL;
+				}
+
+				public String getBitrate() {
+					return this.bitrate;
+				}
+
+				public void setBitrate(String bitrate) {
+					this.bitrate = bitrate;
+				}
+
+				public String getDefinition() {
+					return this.definition;
+				}
+
+				public void setDefinition(String definition) {
+					this.definition = definition;
+				}
+
+				public String getDuration() {
+					return this.duration;
+				}
+
+				public void setDuration(String duration) {
+					this.duration = duration;
+				}
+
+				public String getFormat() {
+					return this.format;
+				}
+
+				public void setFormat(String format) {
+					this.format = format;
+				}
+
+				public String getFps() {
+					return this.fps;
+				}
+
+				public void setFps(String fps) {
+					this.fps = fps;
+				}
+
+				public Long getEncrypt() {
+					return this.encrypt;
+				}
+
+				public void setEncrypt(Long encrypt) {
+					this.encrypt = encrypt;
+				}
+
+				public String getPlaintext() {
+					return this.plaintext;
+				}
+
+				public void setPlaintext(String plaintext) {
+					this.plaintext = plaintext;
+				}
+
+				public String getComplexity() {
+					return this.complexity;
+				}
+
+				public void setComplexity(String complexity) {
+					this.complexity = complexity;
+				}
+
+				public String getStreamType() {
+					return this.streamType;
+				}
+
+				public void setStreamType(String streamType) {
+					this.streamType = streamType;
+				}
+
+				public String getRand() {
+					return this.rand;
+				}
+
+				public void setRand(String rand) {
+					this.rand = rand;
+				}
+
+				public String getJobId() {
+					return this.jobId;
+				}
+
+				public void setJobId(String jobId) {
+					this.jobId = jobId;
+				}
+			}
+		}
+
+		public static class Image {
+
+			private String title;
+
+			private String imageId;
+
+			private Long cateId;
+
+			private String cateName;
+
+			private String ext;
+
+			private String creationTime;
+
+			private String modificationTime;
+
+			private String tags;
+
+			private String type;
+
+			private String uRL;
+
+			private String status;
+
+			private String description;
+
+			private String storageLocation;
+
+			private String regionId;
+
+			private String appId;
+
+			public String getTitle() {
+				return this.title;
+			}
+
+			public void setTitle(String title) {
+				this.title = title;
+			}
+
+			public String getImageId() {
+				return this.imageId;
+			}
+
+			public void setImageId(String imageId) {
+				this.imageId = imageId;
+			}
+
+			public Long getCateId() {
+				return this.cateId;
+			}
+
+			public void setCateId(Long cateId) {
+				this.cateId = cateId;
+			}
+
+			public String getCateName() {
+				return this.cateName;
+			}
+
+			public void setCateName(String cateName) {
+				this.cateName = cateName;
+			}
+
+			public String getExt() {
+				return this.ext;
+			}
+
+			public void setExt(String ext) {
+				this.ext = ext;
+			}
+
+			public String getCreationTime() {
+				return this.creationTime;
+			}
+
+			public void setCreationTime(String creationTime) {
+				this.creationTime = creationTime;
+			}
+
+			public String getModificationTime() {
+				return this.modificationTime;
+			}
+
+			public void setModificationTime(String modificationTime) {
+				this.modificationTime = modificationTime;
+			}
+
+			public String getTags() {
+				return this.tags;
+			}
+
+			public void setTags(String tags) {
+				this.tags = tags;
+			}
+
+			public String getType() {
+				return this.type;
+			}
+
+			public void setType(String type) {
+				this.type = type;
+			}
+
+			public String getURL() {
+				return this.uRL;
+			}
+
+			public void setURL(String uRL) {
+				this.uRL = uRL;
+			}
+
+			public String getStatus() {
+				return this.status;
+			}
+
+			public void setStatus(String status) {
+				this.status = status;
+			}
+
+			public String getDescription() {
+				return this.description;
+			}
+
+			public void setDescription(String description) {
+				this.description = description;
+			}
+
+			public String getStorageLocation() {
+				return this.storageLocation;
+			}
+
+			public void setStorageLocation(String storageLocation) {
+				this.storageLocation = storageLocation;
+			}
+
+			public String getRegionId() {
+				return this.regionId;
+			}
+
+			public void setRegionId(String regionId) {
+				this.regionId = regionId;
+			}
+
+			public String getAppId() {
+				return this.appId;
+			}
+
+			public void setAppId(String appId) {
+				this.appId = appId;
+			}
+		}
+
+		public static class AttachedMedia {
+
+			private String title;
+
+			private String mediaId;
+
+			private String ext;
+
+			private String creationTime;
+
+			private String modificationTime;
+
+			private String tags;
+
+			private String businessType;
+
+			private String uRL;
+
+			private String status;
+
+			private String description;
+
+			private String storageLocation;
+
+			private String regionId;
+
+			private String appId;
+
+			private String icon;
+
+			private String onlineStatus;
+
+			private List<Category> categories;
+
+			public String getTitle() {
+				return this.title;
+			}
+
+			public void setTitle(String title) {
+				this.title = title;
+			}
+
+			public String getMediaId() {
+				return this.mediaId;
+			}
+
+			public void setMediaId(String mediaId) {
+				this.mediaId = mediaId;
+			}
+
+			public String getExt() {
+				return this.ext;
+			}
+
+			public void setExt(String ext) {
+				this.ext = ext;
+			}
+
+			public String getCreationTime() {
+				return this.creationTime;
+			}
+
+			public void setCreationTime(String creationTime) {
+				this.creationTime = creationTime;
+			}
+
+			public String getModificationTime() {
+				return this.modificationTime;
+			}
+
+			public void setModificationTime(String modificationTime) {
+				this.modificationTime = modificationTime;
+			}
+
+			public String getTags() {
+				return this.tags;
+			}
+
+			public void setTags(String tags) {
+				this.tags = tags;
+			}
+
+			public String getBusinessType() {
+				return this.businessType;
+			}
+
+			public void setBusinessType(String businessType) {
+				this.businessType = businessType;
+			}
+
+			public String getURL() {
+				return this.uRL;
+			}
+
+			public void setURL(String uRL) {
+				this.uRL = uRL;
+			}
+
+			public String getStatus() {
+				return this.status;
+			}
+
+			public void setStatus(String status) {
+				this.status = status;
+			}
+
+			public String getDescription() {
+				return this.description;
+			}
+
+			public void setDescription(String description) {
+				this.description = description;
+			}
+
+			public String getStorageLocation() {
+				return this.storageLocation;
+			}
+
+			public void setStorageLocation(String storageLocation) {
+				this.storageLocation = storageLocation;
+			}
+
+			public String getRegionId() {
+				return this.regionId;
+			}
+
+			public void setRegionId(String regionId) {
+				this.regionId = regionId;
+			}
+
+			public String getAppId() {
+				return this.appId;
+			}
+
+			public void setAppId(String appId) {
+				this.appId = appId;
+			}
+
+			public String getIcon() {
+				return this.icon;
+			}
+
+			public void setIcon(String icon) {
+				this.icon = icon;
+			}
+
+			public String getOnlineStatus() {
+				return this.onlineStatus;
+			}
+
+			public void setOnlineStatus(String onlineStatus) {
+				this.onlineStatus = onlineStatus;
+			}
+
+			public List<Category> getCategories() {
+				return this.categories;
+			}
+
+			public void setCategories(List<Category> categories) {
+				this.categories = categories;
+			}
+
+			public static class Category {
+
+				private Long cateId;
+
+				private String cateName;
+
+				private Long level;
+
+				private Long parentId;
+
+				public Long getCateId() {
+					return this.cateId;
+				}
+
+				public void setCateId(Long cateId) {
+					this.cateId = cateId;
+				}
+
+				public String getCateName() {
+					return this.cateName;
+				}
+
+				public void setCateName(String cateName) {
+					this.cateName = cateName;
+				}
+
+				public Long getLevel() {
+					return this.level;
+				}
+
+				public void setLevel(Long level) {
+					this.level = level;
+				}
+
+				public Long getParentId() {
+					return this.parentId;
+				}
+
+				public void setParentId(Long parentId) {
+					this.parentId = parentId;
+				}
 			}
 		}
 	}

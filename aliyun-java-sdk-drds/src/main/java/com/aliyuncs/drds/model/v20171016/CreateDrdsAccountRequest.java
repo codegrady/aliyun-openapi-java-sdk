@@ -15,24 +15,42 @@
 package com.aliyuncs.drds.model.v20171016;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.drds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateDrdsAccountRequest extends RpcAcsRequest<CreateDrdsAccountResponse> {
-	
-	public CreateDrdsAccountRequest() {
-		super("Drds", "2017-10-16", "CreateDrdsAccount", "Drds");
-	}
+	   
+
+	private String drdsInstanceId;
 
 	private String password;
 
 	private String dbName;
 
-	private String drdsInstanceId;
-
 	private String userName;
+	public CreateDrdsAccountRequest() {
+		super("Drds", "2017-10-16", "CreateDrdsAccount", "Drds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getDrdsInstanceId() {
+		return this.drdsInstanceId;
+	}
+
+	public void setDrdsInstanceId(String drdsInstanceId) {
+		this.drdsInstanceId = drdsInstanceId;
+		if(drdsInstanceId != null){
+			putQueryParameter("DrdsInstanceId", drdsInstanceId);
+		}
+	}
 
 	public String getPassword() {
 		return this.password;
@@ -53,17 +71,6 @@ public class CreateDrdsAccountRequest extends RpcAcsRequest<CreateDrdsAccountRes
 		this.dbName = dbName;
 		if(dbName != null){
 			putQueryParameter("DbName", dbName);
-		}
-	}
-
-	public String getDrdsInstanceId() {
-		return this.drdsInstanceId;
-	}
-
-	public void setDrdsInstanceId(String drdsInstanceId) {
-		this.drdsInstanceId = drdsInstanceId;
-		if(drdsInstanceId != null){
-			putQueryParameter("DrdsInstanceId", drdsInstanceId);
 		}
 	}
 

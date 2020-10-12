@@ -15,7 +15,6 @@
 package com.aliyuncs.csb.model.v20171118;
 
 import java.util.List;
-import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.csb.transform.v20171118.FindServiceListResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -151,6 +150,10 @@ public class FindServiceListResponse extends AcsResponse {
 			private String userId;
 
 			private String casTargets;
+
+			private String routeConfJson;
+
+			private Integer qps;
 
 			public String getAlias() {
 				return this.alias;
@@ -318,6 +321,22 @@ public class FindServiceListResponse extends AcsResponse {
 
 			public void setCasTargets(String casTargets) {
 				this.casTargets = casTargets;
+			}
+
+			public String getRouteConfJson() {
+				return this.routeConfJson;
+			}
+
+			public void setRouteConfJson(String routeConfJson) {
+				this.routeConfJson = routeConfJson;
+			}
+
+			public Integer getQps() {
+				return this.qps;
+			}
+
+			public void setQps(Integer qps) {
+				this.qps = qps;
 			}
 		}
 	}

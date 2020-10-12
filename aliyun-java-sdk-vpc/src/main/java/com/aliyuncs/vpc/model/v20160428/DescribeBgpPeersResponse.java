@@ -109,6 +109,12 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 
 		private String regionId;
 
+		private Boolean enableBfd;
+
+		private String ipVersion;
+
+		private Integer bfdMultiHop;
+
 		public String getName() {
 			return this.name;
 		}
@@ -235,6 +241,30 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 
 		public void setRegionId(String regionId) {
 			this.regionId = regionId;
+		}
+
+		public Boolean getEnableBfd() {
+			return this.enableBfd;
+		}
+
+		public void setEnableBfd(Boolean enableBfd) {
+			this.enableBfd = enableBfd;
+		}
+
+		public String getIpVersion() {
+			return this.ipVersion;
+		}
+
+		public void setIpVersion(String ipVersion) {
+			this.ipVersion = ipVersion;
+		}
+
+		public Integer getBfdMultiHop() {
+			return this.bfdMultiHop;
+		}
+
+		public void setBfdMultiHop(Integer bfdMultiHop) {
+			this.bfdMultiHop = bfdMultiHop;
 		}
 	}
 

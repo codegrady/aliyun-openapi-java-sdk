@@ -75,6 +75,14 @@ public class DescribeServerCertificatesResponse extends AcsResponse {
 
 		private String commonName;
 
+		private String encryptionAlgorithm;
+
+		private Integer encryptionKeyLength;
+
+		private String standardType;
+
+		private List<Tag> tags;
+
 		private List<String> subjectAlternativeNames;
 
 		public String getServerCertificateId() {
@@ -189,12 +197,67 @@ public class DescribeServerCertificatesResponse extends AcsResponse {
 			this.commonName = commonName;
 		}
 
+		public String getEncryptionAlgorithm() {
+			return this.encryptionAlgorithm;
+		}
+
+		public void setEncryptionAlgorithm(String encryptionAlgorithm) {
+			this.encryptionAlgorithm = encryptionAlgorithm;
+		}
+
+		public Integer getEncryptionKeyLength() {
+			return this.encryptionKeyLength;
+		}
+
+		public void setEncryptionKeyLength(Integer encryptionKeyLength) {
+			this.encryptionKeyLength = encryptionKeyLength;
+		}
+
+		public String getStandardType() {
+			return this.standardType;
+		}
+
+		public void setStandardType(String standardType) {
+			this.standardType = standardType;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
 		public List<String> getSubjectAlternativeNames() {
 			return this.subjectAlternativeNames;
 		}
 
 		public void setSubjectAlternativeNames(List<String> subjectAlternativeNames) {
 			this.subjectAlternativeNames = subjectAlternativeNames;
+		}
+
+		public static class Tag {
+
+			private String tagKey;
+
+			private String tagValue;
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
+			}
+
+			public String getTagValue() {
+				return this.tagValue;
+			}
+
+			public void setTagValue(String tagValue) {
+				this.tagValue = tagValue;
+			}
 		}
 	}
 

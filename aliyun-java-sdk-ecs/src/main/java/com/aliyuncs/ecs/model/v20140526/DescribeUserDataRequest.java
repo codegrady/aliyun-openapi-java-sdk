@@ -15,24 +15,31 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeUserDataRequest extends RpcAcsRequest<DescribeUserDataResponse> {
-	
-	public DescribeUserDataRequest() {
-		super("Ecs", "2014-05-26", "DescribeUserData", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String instanceId;
 
 	private String resourceOwnerAccount;
 
 	private Long ownerId;
+
+	private String instanceId;
+	public DescribeUserDataRequest() {
+		super("Ecs", "2014-05-26", "DescribeUserData", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -42,17 +49,6 @@ public class DescribeUserDataRequest extends RpcAcsRequest<DescribeUserDataRespo
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
@@ -75,6 +71,17 @@ public class DescribeUserDataRequest extends RpcAcsRequest<DescribeUserDataRespo
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

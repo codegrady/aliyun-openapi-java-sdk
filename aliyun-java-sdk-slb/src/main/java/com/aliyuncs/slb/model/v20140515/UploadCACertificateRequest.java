@@ -15,40 +15,36 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UploadCACertificateRequest extends RpcAcsRequest<UploadCACertificateResponse> {
-	
-	public UploadCACertificateRequest() {
-		super("Slb", "2014-05-15", "UploadCACertificate", "slb");
-	}
-
-	private String resourceGroupId;
+	   
 
 	private Long resourceOwnerId;
 
-	private String cACertificate;
+	private String resourceGroupId;
 
 	private String cACertificateName;
+
+	private String cACertificate;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	public String getResourceGroupId() {
-		return this.resourceGroupId;
-	}
-
-	public void setResourceGroupId(String resourceGroupId) {
-		this.resourceGroupId = resourceGroupId;
-		if(resourceGroupId != null){
-			putQueryParameter("ResourceGroupId", resourceGroupId);
-		}
+	public UploadCACertificateRequest() {
+		super("Slb", "2014-05-15", "UploadCACertificate", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -62,14 +58,14 @@ public class UploadCACertificateRequest extends RpcAcsRequest<UploadCACertificat
 		}
 	}
 
-	public String getCACertificate() {
-		return this.cACertificate;
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
 	}
 
-	public void setCACertificate(String cACertificate) {
-		this.cACertificate = cACertificate;
-		if(cACertificate != null){
-			putQueryParameter("CACertificate", cACertificate);
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -81,6 +77,17 @@ public class UploadCACertificateRequest extends RpcAcsRequest<UploadCACertificat
 		this.cACertificateName = cACertificateName;
 		if(cACertificateName != null){
 			putQueryParameter("CACertificateName", cACertificateName);
+		}
+	}
+
+	public String getCACertificate() {
+		return this.cACertificate;
+	}
+
+	public void setCACertificate(String cACertificate) {
+		this.cACertificate = cACertificate;
+		if(cACertificate != null){
+			putQueryParameter("CACertificate", cACertificate);
 		}
 	}
 

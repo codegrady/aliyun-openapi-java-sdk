@@ -15,45 +15,30 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetIpAllowListConfigRequest extends RpcAcsRequest<SetIpAllowListConfigResponse> {
-	
-	public SetIpAllowListConfigRequest() {
-		super("Cdn", "2018-05-10", "SetIpAllowListConfig");
-	}
-
-	private String allowIps;
-
-	private String securityToken;
+	   
 
 	private String domainName;
 
 	private Long ownerId;
 
-	public String getAllowIps() {
-		return this.allowIps;
-	}
+	private String allowIps;
 
-	public void setAllowIps(String allowIps) {
-		this.allowIps = allowIps;
-		if(allowIps != null){
-			putQueryParameter("AllowIps", allowIps);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
+	private String securityToken;
+	public SetIpAllowListConfigRequest() {
+		super("Cdn", "2018-05-10", "SetIpAllowListConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDomainName() {
@@ -75,6 +60,28 @@ public class SetIpAllowListConfigRequest extends RpcAcsRequest<SetIpAllowListCon
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getAllowIps() {
+		return this.allowIps;
+	}
+
+	public void setAllowIps(String allowIps) {
+		this.allowIps = allowIps;
+		if(allowIps != null){
+			putQueryParameter("AllowIps", allowIps);
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

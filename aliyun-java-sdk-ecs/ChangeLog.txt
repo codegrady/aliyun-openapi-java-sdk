@@ -1,3 +1,212 @@
+2020-09-23 Version: 4.19.12
+- Add spotDuration support.
+
+2020-09-04 Version: 4.19.11
+- Supported QueueNumber for API CreateNetworkInterface.
+- Supported MaximumQueueNumberPerEni, PrimaryEniQueueNumber, SecondaryEniQueueNumber for API DescribeInstanceTypes.
+- Supported NetworkInterfaceQueueNumber for API ModifyInstanceAttribute.
+- Supported NetworkInterfaceQueueNumber for API RunInstances.
+
+2020-08-11 Version: 4.19.10
+- Add ResourceGroup in resource snapshot.
+
+2020-07-15 Version: 4.19.9
+- Support ModifyImageAttribute by LaunchPermission.
+- Support ImageFamily.
+
+2020-07-15 Version: 4.19.9
+- Axt describe invocation results add error code and info.
+
+2020-07-15 Version: 4.19.1
+- Axt describe invocation results add error code and info.
+
+2020-06-17 Version: 4.19.8
+- Supported sync create eni and assign private ip.
+
+2020-06-05 Version: 4.19.7
+- Supported Eni Trunking.
+
+2020-06-04 Version: 4.19.7
+- Supported Eni Trunking.
+
+2020-05-19 Version: 4.19.6
+- ModifyInstanceVpcAttribute supports modification of instance vpc.
+
+2020-05-19 Version: 4.19.5
+- ModifyInstanceVpcAttribute supports modification of instance vpc.
+
+2020-04-17 Version: 4.19.4
+- DescribeInstanceTypes support TotalEniQueueQuantity.
+
+2020-04-16 Version: 4.19.3
+- Add BatchOptimization param in Stop and Start Instances.
+- Add RemoveSymbols in GetInstanceConsoleOutput.
+- Add ImageFamily in ModifyImageAttribute.
+- Customize InstanceType on DedicatedHosts is supported.
+- Add StorageCapacityUnit interfaces.
+- Add param Tag in CreateAutoSnapshotPolicy.
+
+2020-03-24 Version: 4.19.2
+- DescribeInstanceTypes Supports EniIpv6AddressQuantity.
+
+2020-03-24 Version: 4.19.1
+- DescribeInstanceTypes Supports EniIpv6AddressQuantity.
+
+2020-03-16 Version: 4.19.1
+- Add ImageFamily paramters and apis, in Instance creation apis and Image query apis, and add DescribeImageFromFamily.
+- Add Instance batch operation apis RebootInstances StartInstances and StopInstances.
+- Add EncryptAlgorithm paramter in instance creati
+
+2020-03-03 Version: 4.19.0
+- Add StopInstances, StartInstances, RebootInstances interfaces.
+
+2020-02-13 Version: 4.18.3
+- ModifyNetworkInterfaceAttribute support modify QueueNumber.
+- DescribeNetworkInterfaces support QueueNumber.
+
+2020-02-13 Version: 4.18.2
+- ModifyNetworkInterfaceAttribute support modify QueueNumber.
+- DescribeNetworkInterfaces support QueueNumber.
+
+2020-02-13 Version: 4.18.2
+- ModifyNetworkInterfaceAttribute support modify QueueNumber.
+- DescribeNetworkInterfaces support QueueNumber.
+
+2020-02-13 Version: 4.18.2
+- ModifyNetworkInterfaceAttribute support modify QueueNumber.
+- DescribeNetworkInterfaces support QueueNumber.
+
+2020-02-13 Version: 4.18.2
+- ModifyNetworkInterfaceAttribute support modify QueueNumber.
+- DescribeNetworkInterfaces support QueueNumber.
+
+2020-02-13 Version: 4.18.2
+- ModifyNetworkInterfaceAttribute support modify QueueNumber.
+- DescribeNetworkInterfaces support QueueNumber.
+
+2020-02-11 Version: 4.18.1
+- Support ModifyInstanceAttributes for SecurityGroupIds.
+
+2020-01-13 Version: 4.18.0
+- Supported InstanceMaintenanceAtrributes for maintening the attributes of instances.
+- Deleted MaintenanceProperty.
+- Supported RedeployDedicatedHost for redeploying dedicated host in under-assessment status.
+
+2019-12-19 Version: 4.17.9
+- DescribeNetworkInterfaces Supports NextToken.
+
+2019-11-28 Version: 4.17.8
+- Eni Supports Multi-SecurityGroup.
+
+2019-11-20 Version: 4.17.7
+- Supported ecsDemand CreateDemand, ModifyDemand, DeleteDemand API.
+- Modify ecsDemand DescribesDemands API.
+
+2019-10-22 Version: 4.17.6
+- RunInstances support AutoSnapshotPolicyId.
+
+2019-09-23 Version: 4.17.5
+- Add param, DescribePrice supprot ReservedInstance.
+
+2019-09-06 Version: 4.17.4
+- Update endpoint data.
+
+2019-09-05 Version: 4.17.3
+- Generated 2014-05-26 for `Ecs`.
+
+2019-08-27 Version: 4.17.2
+- Fixed endpoint data init.
+
+2019-08-08 Version: 4.17.1
+- Add CreateStorageSet api to support storageSet.
+- Add DeleteStorageSet api to support storageSet.
+- Add ModifyStorageSetAttribute api to support storageSet.
+- Add DescribeStorageSets api to support storageSet.
+- Add DescribeStorageSetDetails api to support storageSet.
+- Add parameter StorageSetId,StorageSetPartitionNumber to api CreateDisk,RunInstances,CreateInstance support storageSet.
+- Add StorageSetId,StorageSetPartitionNumber with response of api DescribeDisks.
+- Add DescribeNetworkInterfaces to support filter by PrivateIpAddress.
+
+2019-07-09 Version: 4.17.0
+- Add CreateStorageSet api to support storageSet.
+- Add DeleteStorageSet api to support storageSet.
+- Add ModifyStorageSetAttribute api to support storageSet.
+- Add DescribeStorageSets api to support storageSet.
+- Add DescribeStorageSetDetails api to support storageSet.
+- Add parameter StorageSetId,StorageSetPartitionNumber to api CreateDisk,RunInstances,CreateInstance support storageSet.
+- Add StorageSetId,StorageSetPartitionNumber with response of api DescribeDisks.
+
+2019-07-01 Version: 4.16.11
+- Support cloud_essd disk category for API CreateDisk, CreateInstance and RunInstances, and support configurating PerformanceLevel when choose cloud_essd.
+- Add ModifyDiskSpec API to support cloud_essd PerformanceLevel modification.
+- Add AutoProvisioningGroup interfaces, provide AutoProvisioningGroup function.
+- Add RetentionDays to snapshot creating.
+
+2019-07-01 Version: 4.16.11
+- Support cloud_essd disk category for API CreateDisk, CreateInstance and RunInstances, and support configurating PerformanceLevel when choose cloud_essd.
+- Add ModifyDiskSpec API to support cloud_essd PerformanceLevel modification.
+- Add AutoProvisioningGroup interfaces, provide AutoProvisioningGroup function.
+- Add RetentionDays to snapshot creating.
+
+2019-05-22 Version: 4.16.10
+1, Add EndTime parameter to api ModifyPrepayInstanceSpec
+2, Add RebootTime parameter to api ModifyPrepayInstanceSpec
+
+2019-05-15 Version: 4.16.9
+1, Add InstanceId parameter to api CreateDisk
+2, Add parameter Affinity and Tenancy in ECS instance DedicatedHost related apis.
+3, Add SecurityGroupIds parameter to Instance creation apis.
+
+2019-05-13 Version: 4.16.8
+1, Support for creating instances and joining multiple security groups at the same time.
+
+2019-04-18 Version: 4.16.7
+1, add ReservedInstance API.
+
+2019-04-15 Version: 4.16.6
+1, add arns parameter to CreateDisk/CreateInstance API in order to support disk encryption by performing a sts role play.
+
+2019-04-09 Version: 4.16.5
+1, support service account management networkInterface function.
+
+2019-03-28 Version: 4.16.4
+1, Add multiple language support in DescribeZones
+2, Add gray parameter in CreateDisk
+
+2019-03-13 Version: 4.16.3
+1, add DescribeDemands interface
+
+2019-02-27 Version: 4.16.2
+1, Add three APIs for tag. APIs : TagResources, UntagResources, ListTagResources.
+
+2019-02-18 Version: 4.16.1
+1, Add DryRun into StartInstance, StopInstance and RebootInstance.
+2, Add snapshot operations: ExportSnapshot and ImportSnapshot
+
+2019-01-17 Version: 4.16.0
+1, Add api AcceptInquiredSystemEvent.
+2, Add ExtendedAttribute to response of api DescribeInstanceHistoryEvents.
+3, Add ExtendedAttribute to response of api DescribeInstancesFullStatus.
+
+2018-12-06 Version: 4.15.0
+1, Add api RedeployInstance
+
+2018-11-28 Version: 4.14.0
+1, Add RedeployInstance interface, and support to migrate ecs instance with specified maintenance events actively
+
+2018-11-22 Version: 4.13.1
+1, Add parameter DeletionProtection when creating instance and modifying instance attribute
+
+
+2018-11-15 Version: 4.13.0
+1, ECS support ipv6Address
+
+2018-10-16 Version: 4.12.0
+1, Delete deprecated and unusable apis : AddIpRange, UnbindIpRange, BindIpRange, DescribeIntranetAttributeKb, DescribeIpRanges, ModifyIntranetBandwidthKb, DescribeEventDetail, CheckAutoSnapshotPolicy, CheckDiskEnableAutoSnapshotValidation, DescribeAutoSnapshotPolicy
+2, Add instance topology api DescribeInstanceTopology
+3, Add mount point in DescribeDisksFullStatus
+
+
 2018-09-14 Version: 4.11.0
 1, Add DedicatedHost Feature
 

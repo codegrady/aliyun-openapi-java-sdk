@@ -16,44 +16,67 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
-	
-	public CreateDiskRequest() {
-		super("Ecs", "2014-05-26", "CreateDisk", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String snapshotId;
 
-	private String resourceOwnerAccount;
-
 	private String clientToken;
 
-	private String ownerAccount;
+	private String encryptAlgorithm;
 
 	private String description;
-
-	private Long ownerId;
 
 	private String diskName;
 
 	private String resourceGroupId;
 
+	private String diskCategory;
+
+	private Integer storageSetPartitionNumber;
+
+	private List<Tag> tags;
+
+	private List<Arn> arns;
+
+	private String advancedFeatures;
+
+	private String resourceOwnerAccount;
+
+	private String performanceLevel;
+
+	private String ownerAccount;
+
+	private Long ownerId;
+
+	private String instanceId;
+
+	private String storageSetId;
+
 	private Integer size;
 
 	private Boolean encrypted;
 
-	private String diskCategory;
-
 	private String zoneId;
 
-	private List<Tag> tags;
+	private String kMSKeyId;
+	public CreateDiskRequest() {
+		super("Ecs", "2014-05-26", "CreateDisk", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -77,17 +100,6 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
 	public String getClientToken() {
 		return this.clientToken;
 	}
@@ -99,14 +111,14 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		}
 	}
 
-	public String getOwnerAccount() {
-		return this.ownerAccount;
+	public String getEncryptAlgorithm() {
+		return this.encryptAlgorithm;
 	}
 
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
+	public void setEncryptAlgorithm(String encryptAlgorithm) {
+		this.encryptAlgorithm = encryptAlgorithm;
+		if(encryptAlgorithm != null){
+			putQueryParameter("EncryptAlgorithm", encryptAlgorithm);
 		}
 	}
 
@@ -118,17 +130,6 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 
@@ -154,6 +155,134 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		}
 	}
 
+	public String getDiskCategory() {
+		return this.diskCategory;
+	}
+
+	public void setDiskCategory(String diskCategory) {
+		this.diskCategory = diskCategory;
+		if(diskCategory != null){
+			putQueryParameter("DiskCategory", diskCategory);
+		}
+	}
+
+	public Integer getStorageSetPartitionNumber() {
+		return this.storageSetPartitionNumber;
+	}
+
+	public void setStorageSetPartitionNumber(Integer storageSetPartitionNumber) {
+		this.storageSetPartitionNumber = storageSetPartitionNumber;
+		if(storageSetPartitionNumber != null){
+			putQueryParameter("StorageSetPartitionNumber", storageSetPartitionNumber.toString());
+		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public List<Arn> getArns() {
+		return this.arns;
+	}
+
+	public void setArns(List<Arn> arns) {
+		this.arns = arns;	
+		if (arns != null) {
+			for (int depth1 = 0; depth1 < arns.size(); depth1++) {
+				putQueryParameter("Arn." + (depth1 + 1) + ".Rolearn" , arns.get(depth1).getRolearn());
+				putQueryParameter("Arn." + (depth1 + 1) + ".RoleType" , arns.get(depth1).getRoleType());
+				putQueryParameter("Arn." + (depth1 + 1) + ".AssumeRoleFor" , arns.get(depth1).getAssumeRoleFor());
+			}
+		}	
+	}
+
+	public String getAdvancedFeatures() {
+		return this.advancedFeatures;
+	}
+
+	public void setAdvancedFeatures(String advancedFeatures) {
+		this.advancedFeatures = advancedFeatures;
+		if(advancedFeatures != null){
+			putQueryParameter("AdvancedFeatures", advancedFeatures);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getPerformanceLevel() {
+		return this.performanceLevel;
+	}
+
+	public void setPerformanceLevel(String performanceLevel) {
+		this.performanceLevel = performanceLevel;
+		if(performanceLevel != null){
+			putQueryParameter("PerformanceLevel", performanceLevel);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getStorageSetId() {
+		return this.storageSetId;
+	}
+
+	public void setStorageSetId(String storageSetId) {
+		this.storageSetId = storageSetId;
+		if(storageSetId != null){
+			putQueryParameter("StorageSetId", storageSetId);
+		}
+	}
+
 	public Integer getSize() {
 		return this.size;
 	}
@@ -176,17 +305,6 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		}
 	}
 
-	public String getDiskCategory() {
-		return this.diskCategory;
-	}
-
-	public void setDiskCategory(String diskCategory) {
-		this.diskCategory = diskCategory;
-		if(diskCategory != null){
-			putQueryParameter("DiskCategory", diskCategory);
-		}
-	}
-
 	public String getZoneId() {
 		return this.zoneId;
 	}
@@ -198,18 +316,15 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		}
 	}
 
-	public List<Tag> getTags() {
-		return this.tags;
+	public String getKMSKeyId() {
+		return this.kMSKeyId;
 	}
 
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;	
-		if (tags != null) {
-			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
-				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
-				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
-			}
-		}	
+	public void setKMSKeyId(String kMSKeyId) {
+		this.kMSKeyId = kMSKeyId;
+		if(kMSKeyId != null){
+			putQueryParameter("KMSKeyId", kMSKeyId);
+		}
 	}
 
 	public static class Tag {
@@ -232,6 +347,39 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 
 		public void setKey(String key) {
 			this.key = key;
+		}
+	}
+
+	public static class Arn {
+
+		private String rolearn;
+
+		private String roleType;
+
+		private Long assumeRoleFor;
+
+		public String getRolearn() {
+			return this.rolearn;
+		}
+
+		public void setRolearn(String rolearn) {
+			this.rolearn = rolearn;
+		}
+
+		public String getRoleType() {
+			return this.roleType;
+		}
+
+		public void setRoleType(String roleType) {
+			this.roleType = roleType;
+		}
+
+		public Long getAssumeRoleFor() {
+			return this.assumeRoleFor;
+		}
+
+		public void setAssumeRoleFor(Long assumeRoleFor) {
+			this.assumeRoleFor = assumeRoleFor;
 		}
 	}
 

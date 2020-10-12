@@ -153,6 +153,8 @@ public class QueryRegistrantProfilesResponse extends AcsResponse {
 
 		private String realNameStatus;
 
+		private String registrantProfileType;
+
 		public Long getRegistrantProfileId() {
 			return this.registrantProfileId;
 		}
@@ -335,6 +337,14 @@ public class QueryRegistrantProfilesResponse extends AcsResponse {
 
 		public void setRealNameStatus(String realNameStatus) {
 			this.realNameStatus = realNameStatus;
+		}
+
+		public String getRegistrantProfileType() {
+			return this.registrantProfileType;
+		}
+
+		public void setRegistrantProfileType(String registrantProfileType) {
+			this.registrantProfileType = registrantProfileType;
 		}
 	}
 

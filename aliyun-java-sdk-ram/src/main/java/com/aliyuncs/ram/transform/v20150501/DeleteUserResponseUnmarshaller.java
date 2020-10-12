@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.DeleteUserResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteUserResponseUnmarshaller {
 
-	public static DeleteUserResponse unmarshall(DeleteUserResponse deleteUserResponse, UnmarshallerContext context) {
+	public static DeleteUserResponse unmarshall(DeleteUserResponse deleteUserResponse, UnmarshallerContext _ctx) {
 		
-		deleteUserResponse.setRequestId(context.stringValue("DeleteUserResponse.RequestId"));
+		deleteUserResponse.setRequestId(_ctx.stringValue("DeleteUserResponse.RequestId"));
 	 
 	 	return deleteUserResponse;
 	}

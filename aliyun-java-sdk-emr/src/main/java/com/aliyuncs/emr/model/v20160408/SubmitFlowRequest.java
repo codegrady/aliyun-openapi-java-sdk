@@ -15,34 +15,28 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SubmitFlowRequest extends RpcAcsRequest<SubmitFlowResponse> {
-	
-	public SubmitFlowRequest() {
-		super("Emr", "2016-04-08", "SubmitFlow");
-	}
-
-	private Long resourceOwnerId;
+	   
 
 	private String conf;
 
 	private String projectId;
 
 	private String flowId;
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
+	public SubmitFlowRequest() {
+		super("Emr", "2016-04-08", "SubmitFlow");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getConf() {

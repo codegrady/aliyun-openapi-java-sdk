@@ -15,18 +15,21 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyCommonBandwidthPackagePayTypeRequest extends RpcAcsRequest<ModifyCommonBandwidthPackagePayTypeResponse> {
-	
-	public ModifyCommonBandwidthPackagePayTypeRequest() {
-		super("Vpc", "2016-04-28", "ModifyCommonBandwidthPackagePayType", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private Integer duration;
+
+	private Long resourceUid;
 
 	private String bandwidthPackageId;
 
@@ -40,17 +43,21 @@ public class ModifyCommonBandwidthPackagePayTypeRequest extends RpcAcsRequest<Mo
 
 	private Long ownerId;
 
-	private Integer duration;
-
 	private String kbpsBandwidth;
-
-	private Long resourceUid;
 
 	private String resourceBid;
 
 	private String payType;
 
 	private String pricingCycle;
+	public ModifyCommonBandwidthPackagePayTypeRequest() {
+		super("Vpc", "2016-04-28", "ModifyCommonBandwidthPackagePayType", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -60,6 +67,28 @@ public class ModifyCommonBandwidthPackagePayTypeRequest extends RpcAcsRequest<Mo
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Integer getDuration() {
+		return this.duration;
+	}
+
+	public void setDuration(Integer duration) {
+		this.duration = duration;
+		if(duration != null){
+			putQueryParameter("Duration", duration.toString());
+		}
+	}
+
+	public Long getResourceUid() {
+		return this.resourceUid;
+	}
+
+	public void setResourceUid(Long resourceUid) {
+		this.resourceUid = resourceUid;
+		if(resourceUid != null){
+			putQueryParameter("ResourceUid", resourceUid.toString());
 		}
 	}
 
@@ -129,17 +158,6 @@ public class ModifyCommonBandwidthPackagePayTypeRequest extends RpcAcsRequest<Mo
 		}
 	}
 
-	public Integer getDuration() {
-		return this.duration;
-	}
-
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-		if(duration != null){
-			putQueryParameter("Duration", duration.toString());
-		}
-	}
-
 	public String getKbpsBandwidth() {
 		return this.kbpsBandwidth;
 	}
@@ -148,17 +166,6 @@ public class ModifyCommonBandwidthPackagePayTypeRequest extends RpcAcsRequest<Mo
 		this.kbpsBandwidth = kbpsBandwidth;
 		if(kbpsBandwidth != null){
 			putQueryParameter("KbpsBandwidth", kbpsBandwidth);
-		}
-	}
-
-	public Long getResourceUid() {
-		return this.resourceUid;
-	}
-
-	public void setResourceUid(Long resourceUid) {
-		this.resourceUid = resourceUid;
-		if(resourceUid != null){
-			putQueryParameter("ResourceUid", resourceUid.toString());
 		}
 	}
 

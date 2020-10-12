@@ -15,24 +15,25 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateMigrateTaskRequest extends RpcAcsRequest<CreateMigrateTaskResponse> {
-	
-	public CreateMigrateTaskRequest() {
-		super("Rds", "2014-08-15", "CreateMigrateTask", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String isOnlineDB;
+
+	private String dBInstanceId;
 
 	private String migrateTaskId;
 
 	private String resourceOwnerAccount;
-
-	private String isOnlineDB;
 
 	private Long ownerId;
 
@@ -42,11 +43,17 @@ public class CreateMigrateTaskRequest extends RpcAcsRequest<CreateMigrateTaskRes
 
 	private String dBName;
 
-	private String dBInstanceId;
-
 	private String backupMode;
 
 	private String checkDBMode;
+	public CreateMigrateTaskRequest() {
+		super("Rds", "2014-08-15", "CreateMigrateTask", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -56,6 +63,28 @@ public class CreateMigrateTaskRequest extends RpcAcsRequest<CreateMigrateTaskRes
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getIsOnlineDB() {
+		return this.isOnlineDB;
+	}
+
+	public void setIsOnlineDB(String isOnlineDB) {
+		this.isOnlineDB = isOnlineDB;
+		if(isOnlineDB != null){
+			putQueryParameter("IsOnlineDB", isOnlineDB);
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 
@@ -78,17 +107,6 @@ public class CreateMigrateTaskRequest extends RpcAcsRequest<CreateMigrateTaskRes
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getIsOnlineDB() {
-		return this.isOnlineDB;
-	}
-
-	public void setIsOnlineDB(String isOnlineDB) {
-		this.isOnlineDB = isOnlineDB;
-		if(isOnlineDB != null){
-			putQueryParameter("IsOnlineDB", isOnlineDB);
 		}
 	}
 
@@ -133,17 +151,6 @@ public class CreateMigrateTaskRequest extends RpcAcsRequest<CreateMigrateTaskRes
 		this.dBName = dBName;
 		if(dBName != null){
 			putQueryParameter("DBName", dBName);
-		}
-	}
-
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

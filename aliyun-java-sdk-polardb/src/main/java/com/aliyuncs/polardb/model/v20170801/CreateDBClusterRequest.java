@@ -15,50 +15,79 @@
 package com.aliyuncs.polardb.model.v20170801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.polardb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterResponse> {
-	
-	public CreateDBClusterRequest() {
-		super("polardb", "2017-08-01", "CreateDBCluster", "polardb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String dBClusterDescription;
 
+	private String creationCategory;
+
+	private String resourceGroupId;
+
+	private String dBNodeClass;
+
+	private String creationOption;
+
+	private String sourceResourceId;
+
+	private String backupRetentionPolicyOnClusterDeletion;
+
 	private String period;
+
+	private Long ownerId;
+
+	private String vSwitchId;
+
+	private String securityIPList;
+
+	private Boolean autoRenew;
+
+	private String zoneId;
+
+	private Boolean tDEStatus;
+
+	private String lowerCaseTableNames;
+
+	private String clientToken;
+
+	private String defaultTimeZone;
+
+	private String clusterNetworkType;
+
+	private String gDNId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private Long ownerId;
-
 	private String usedTime;
-
-	private String dBInstanceClass;
-
-	private String clusterNetworkType;
-
-	private String securityIPList;
-
-	private String vSwitchId;
-
-	private String engine;
 
 	private String vPCId;
 
 	private String dBType;
 
-	private String zoneId;
-
 	private String dBVersion;
 
+	private String cloneDataPoint;
+
 	private String payType;
+	public CreateDBClusterRequest() {
+		super("polardb", "2017-08-01", "CreateDBCluster", "polardb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -82,6 +111,72 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
+	public String getCreationCategory() {
+		return this.creationCategory;
+	}
+
+	public void setCreationCategory(String creationCategory) {
+		this.creationCategory = creationCategory;
+		if(creationCategory != null){
+			putQueryParameter("CreationCategory", creationCategory);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getDBNodeClass() {
+		return this.dBNodeClass;
+	}
+
+	public void setDBNodeClass(String dBNodeClass) {
+		this.dBNodeClass = dBNodeClass;
+		if(dBNodeClass != null){
+			putQueryParameter("DBNodeClass", dBNodeClass);
+		}
+	}
+
+	public String getCreationOption() {
+		return this.creationOption;
+	}
+
+	public void setCreationOption(String creationOption) {
+		this.creationOption = creationOption;
+		if(creationOption != null){
+			putQueryParameter("CreationOption", creationOption);
+		}
+	}
+
+	public String getSourceResourceId() {
+		return this.sourceResourceId;
+	}
+
+	public void setSourceResourceId(String sourceResourceId) {
+		this.sourceResourceId = sourceResourceId;
+		if(sourceResourceId != null){
+			putQueryParameter("SourceResourceId", sourceResourceId);
+		}
+	}
+
+	public String getBackupRetentionPolicyOnClusterDeletion() {
+		return this.backupRetentionPolicyOnClusterDeletion;
+	}
+
+	public void setBackupRetentionPolicyOnClusterDeletion(String backupRetentionPolicyOnClusterDeletion) {
+		this.backupRetentionPolicyOnClusterDeletion = backupRetentionPolicyOnClusterDeletion;
+		if(backupRetentionPolicyOnClusterDeletion != null){
+			putQueryParameter("BackupRetentionPolicyOnClusterDeletion", backupRetentionPolicyOnClusterDeletion);
+		}
+	}
+
 	public String getPeriod() {
 		return this.period;
 	}
@@ -90,6 +185,127 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.period = period;
 		if(period != null){
 			putQueryParameter("Period", period);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
+	public String getSecurityIPList() {
+		return this.securityIPList;
+	}
+
+	public void setSecurityIPList(String securityIPList) {
+		this.securityIPList = securityIPList;
+		if(securityIPList != null){
+			putQueryParameter("SecurityIPList", securityIPList);
+		}
+	}
+
+	public Boolean getAutoRenew() {
+		return this.autoRenew;
+	}
+
+	public void setAutoRenew(Boolean autoRenew) {
+		this.autoRenew = autoRenew;
+		if(autoRenew != null){
+			putQueryParameter("AutoRenew", autoRenew.toString());
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public Boolean getTDEStatus() {
+		return this.tDEStatus;
+	}
+
+	public void setTDEStatus(Boolean tDEStatus) {
+		this.tDEStatus = tDEStatus;
+		if(tDEStatus != null){
+			putQueryParameter("TDEStatus", tDEStatus.toString());
+		}
+	}
+
+	public String getLowerCaseTableNames() {
+		return this.lowerCaseTableNames;
+	}
+
+	public void setLowerCaseTableNames(String lowerCaseTableNames) {
+		this.lowerCaseTableNames = lowerCaseTableNames;
+		if(lowerCaseTableNames != null){
+			putQueryParameter("LowerCaseTableNames", lowerCaseTableNames);
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getDefaultTimeZone() {
+		return this.defaultTimeZone;
+	}
+
+	public void setDefaultTimeZone(String defaultTimeZone) {
+		this.defaultTimeZone = defaultTimeZone;
+		if(defaultTimeZone != null){
+			putQueryParameter("DefaultTimeZone", defaultTimeZone);
+		}
+	}
+
+	public String getClusterNetworkType() {
+		return this.clusterNetworkType;
+	}
+
+	public void setClusterNetworkType(String clusterNetworkType) {
+		this.clusterNetworkType = clusterNetworkType;
+		if(clusterNetworkType != null){
+			putQueryParameter("ClusterNetworkType", clusterNetworkType);
+		}
+	}
+
+	public String getGDNId() {
+		return this.gDNId;
+	}
+
+	public void setGDNId(String gDNId) {
+		this.gDNId = gDNId;
+		if(gDNId != null){
+			putQueryParameter("GDNId", gDNId);
 		}
 	}
 
@@ -115,17 +331,6 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
 	public String getUsedTime() {
 		return this.usedTime;
 	}
@@ -134,61 +339,6 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.usedTime = usedTime;
 		if(usedTime != null){
 			putQueryParameter("UsedTime", usedTime);
-		}
-	}
-
-	public String getDBInstanceClass() {
-		return this.dBInstanceClass;
-	}
-
-	public void setDBInstanceClass(String dBInstanceClass) {
-		this.dBInstanceClass = dBInstanceClass;
-		if(dBInstanceClass != null){
-			putQueryParameter("DBInstanceClass", dBInstanceClass);
-		}
-	}
-
-	public String getClusterNetworkType() {
-		return this.clusterNetworkType;
-	}
-
-	public void setClusterNetworkType(String clusterNetworkType) {
-		this.clusterNetworkType = clusterNetworkType;
-		if(clusterNetworkType != null){
-			putQueryParameter("ClusterNetworkType", clusterNetworkType);
-		}
-	}
-
-	public String getSecurityIPList() {
-		return this.securityIPList;
-	}
-
-	public void setSecurityIPList(String securityIPList) {
-		this.securityIPList = securityIPList;
-		if(securityIPList != null){
-			putQueryParameter("SecurityIPList", securityIPList);
-		}
-	}
-
-	public String getVSwitchId() {
-		return this.vSwitchId;
-	}
-
-	public void setVSwitchId(String vSwitchId) {
-		this.vSwitchId = vSwitchId;
-		if(vSwitchId != null){
-			putQueryParameter("VSwitchId", vSwitchId);
-		}
-	}
-
-	public String getEngine() {
-		return this.engine;
-	}
-
-	public void setEngine(String engine) {
-		this.engine = engine;
-		if(engine != null){
-			putQueryParameter("Engine", engine);
 		}
 	}
 
@@ -214,17 +364,6 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
-	public String getZoneId() {
-		return this.zoneId;
-	}
-
-	public void setZoneId(String zoneId) {
-		this.zoneId = zoneId;
-		if(zoneId != null){
-			putQueryParameter("ZoneId", zoneId);
-		}
-	}
-
 	public String getDBVersion() {
 		return this.dBVersion;
 	}
@@ -233,6 +372,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.dBVersion = dBVersion;
 		if(dBVersion != null){
 			putQueryParameter("DBVersion", dBVersion);
+		}
+	}
+
+	public String getCloneDataPoint() {
+		return this.cloneDataPoint;
+	}
+
+	public void setCloneDataPoint(String cloneDataPoint) {
+		this.cloneDataPoint = cloneDataPoint;
+		if(cloneDataPoint != null){
+			putQueryParameter("CloneDataPoint", cloneDataPoint);
 		}
 	}
 

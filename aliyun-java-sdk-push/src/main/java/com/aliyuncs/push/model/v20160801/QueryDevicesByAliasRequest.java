@@ -15,20 +15,27 @@
 package com.aliyuncs.push.model.v20160801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.push.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryDevicesByAliasRequest extends RpcAcsRequest<QueryDevicesByAliasResponse> {
-	
-	public QueryDevicesByAliasRequest() {
-		super("Push", "2016-08-01", "QueryDevicesByAlias");
-	}
+	   
 
 	private String alias;
 
 	private Long appKey;
+	public QueryDevicesByAliasRequest() {
+		super("Push", "2016-08-01", "QueryDevicesByAlias");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getAlias() {
 		return this.alias;

@@ -15,22 +15,17 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreatePhysicalConnectionRequest extends RpcAcsRequest<CreatePhysicalConnectionResponse> {
-	
-	public CreatePhysicalConnectionRequest() {
-		super("Ecs", "2014-05-26", "CreatePhysicalConnection", "ecs");
-	}
+	   
 
 	private String accessPointId;
-
-	private String redundantPhysicalConnectionId;
-
-	private String peerLocation;
 
 	private Long resourceOwnerId;
 
@@ -38,25 +33,37 @@ public class CreatePhysicalConnectionRequest extends RpcAcsRequest<CreatePhysica
 
 	private String circuitCode;
 
-	private Integer bandwidth;
-
 	private String clientToken;
-
-	private String resourceOwnerAccount;
-
-	private String ownerAccount;
 
 	private String description;
 
 	private String type;
+
+	private String userCidr;
+
+	private String redundantPhysicalConnectionId;
+
+	private String peerLocation;
+
+	private Integer bandwidth;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
 
 	private Long ownerId;
 
 	private String lineOperator;
 
 	private String name;
-
-	private String userCidr;
+	public CreatePhysicalConnectionRequest() {
+		super("Ecs", "2014-05-26", "CreatePhysicalConnection", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getAccessPointId() {
 		return this.accessPointId;
@@ -66,28 +73,6 @@ public class CreatePhysicalConnectionRequest extends RpcAcsRequest<CreatePhysica
 		this.accessPointId = accessPointId;
 		if(accessPointId != null){
 			putQueryParameter("AccessPointId", accessPointId);
-		}
-	}
-
-	public String getRedundantPhysicalConnectionId() {
-		return this.redundantPhysicalConnectionId;
-	}
-
-	public void setRedundantPhysicalConnectionId(String redundantPhysicalConnectionId) {
-		this.redundantPhysicalConnectionId = redundantPhysicalConnectionId;
-		if(redundantPhysicalConnectionId != null){
-			putQueryParameter("RedundantPhysicalConnectionId", redundantPhysicalConnectionId);
-		}
-	}
-
-	public String getPeerLocation() {
-		return this.peerLocation;
-	}
-
-	public void setPeerLocation(String peerLocation) {
-		this.peerLocation = peerLocation;
-		if(peerLocation != null){
-			putQueryParameter("PeerLocation", peerLocation);
 		}
 	}
 
@@ -124,17 +109,6 @@ public class CreatePhysicalConnectionRequest extends RpcAcsRequest<CreatePhysica
 		}
 	}
 
-	public Integer getBandwidth() {
-		return this.bandwidth;
-	}
-
-	public void setBandwidth(Integer bandwidth) {
-		this.bandwidth = bandwidth;
-		if(bandwidth != null){
-			putQueryParameter("bandwidth", bandwidth.toString());
-		}
-	}
-
 	public String getClientToken() {
 		return this.clientToken;
 	}
@@ -143,28 +117,6 @@ public class CreatePhysicalConnectionRequest extends RpcAcsRequest<CreatePhysica
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -187,6 +139,72 @@ public class CreatePhysicalConnectionRequest extends RpcAcsRequest<CreatePhysica
 		this.type = type;
 		if(type != null){
 			putQueryParameter("Type", type);
+		}
+	}
+
+	public String getUserCidr() {
+		return this.userCidr;
+	}
+
+	public void setUserCidr(String userCidr) {
+		this.userCidr = userCidr;
+		if(userCidr != null){
+			putQueryParameter("UserCidr", userCidr);
+		}
+	}
+
+	public String getRedundantPhysicalConnectionId() {
+		return this.redundantPhysicalConnectionId;
+	}
+
+	public void setRedundantPhysicalConnectionId(String redundantPhysicalConnectionId) {
+		this.redundantPhysicalConnectionId = redundantPhysicalConnectionId;
+		if(redundantPhysicalConnectionId != null){
+			putQueryParameter("RedundantPhysicalConnectionId", redundantPhysicalConnectionId);
+		}
+	}
+
+	public String getPeerLocation() {
+		return this.peerLocation;
+	}
+
+	public void setPeerLocation(String peerLocation) {
+		this.peerLocation = peerLocation;
+		if(peerLocation != null){
+			putQueryParameter("PeerLocation", peerLocation);
+		}
+	}
+
+	public Integer getBandwidth() {
+		return this.bandwidth;
+	}
+
+	public void setBandwidth(Integer bandwidth) {
+		this.bandwidth = bandwidth;
+		if(bandwidth != null){
+			putQueryParameter("bandwidth", bandwidth.toString());
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -220,17 +238,6 @@ public class CreatePhysicalConnectionRequest extends RpcAcsRequest<CreatePhysica
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
-		}
-	}
-
-	public String getUserCidr() {
-		return this.userCidr;
-	}
-
-	public void setUserCidr(String userCidr) {
-		this.userCidr = userCidr;
-		if(userCidr != null){
-			putQueryParameter("UserCidr", userCidr);
 		}
 	}
 

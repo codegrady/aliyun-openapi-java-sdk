@@ -15,28 +15,19 @@
 package com.aliyuncs.dds.model.v20151201;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyNodeSpecRequest extends RpcAcsRequest<ModifyNodeSpecResponse> {
-	
-	public ModifyNodeSpecRequest() {
-		super("Dds", "2015-12-01", "ModifyNodeSpec", "dds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String clientToken;
-
-	private Integer nodeStorage;
-
-	private String ownerAccount;
-
-	private Long ownerId;
 
 	private String nodeClass;
 
@@ -47,6 +38,28 @@ public class ModifyNodeSpecRequest extends RpcAcsRequest<ModifyNodeSpecResponse>
 	private String dBInstanceId;
 
 	private String nodeId;
+
+	private Boolean autoPay;
+
+	private String fromApp;
+
+	private String resourceOwnerAccount;
+
+	private Integer nodeStorage;
+
+	private String ownerAccount;
+
+	private Long ownerId;
+
+	private String orderType;
+	public ModifyNodeSpecRequest() {
+		super("Dds", "2015-12-01", "ModifyNodeSpec", "Dds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -59,17 +72,6 @@ public class ModifyNodeSpecRequest extends RpcAcsRequest<ModifyNodeSpecResponse>
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
 	public String getClientToken() {
 		return this.clientToken;
 	}
@@ -78,39 +80,6 @@ public class ModifyNodeSpecRequest extends RpcAcsRequest<ModifyNodeSpecResponse>
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
-	public Integer getNodeStorage() {
-		return this.nodeStorage;
-	}
-
-	public void setNodeStorage(Integer nodeStorage) {
-		this.nodeStorage = nodeStorage;
-		if(nodeStorage != null){
-			putQueryParameter("NodeStorage", nodeStorage.toString());
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 
@@ -166,6 +135,83 @@ public class ModifyNodeSpecRequest extends RpcAcsRequest<ModifyNodeSpecResponse>
 		this.nodeId = nodeId;
 		if(nodeId != null){
 			putQueryParameter("NodeId", nodeId);
+		}
+	}
+
+	public Boolean getAutoPay() {
+		return this.autoPay;
+	}
+
+	public void setAutoPay(Boolean autoPay) {
+		this.autoPay = autoPay;
+		if(autoPay != null){
+			putQueryParameter("AutoPay", autoPay.toString());
+		}
+	}
+
+	public String getFromApp() {
+		return this.fromApp;
+	}
+
+	public void setFromApp(String fromApp) {
+		this.fromApp = fromApp;
+		if(fromApp != null){
+			putQueryParameter("FromApp", fromApp);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public Integer getNodeStorage() {
+		return this.nodeStorage;
+	}
+
+	public void setNodeStorage(Integer nodeStorage) {
+		this.nodeStorage = nodeStorage;
+		if(nodeStorage != null){
+			putQueryParameter("NodeStorage", nodeStorage.toString());
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 

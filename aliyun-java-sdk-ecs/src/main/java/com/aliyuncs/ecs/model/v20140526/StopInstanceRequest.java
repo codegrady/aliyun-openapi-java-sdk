@@ -15,32 +15,41 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class StopInstanceRequest extends RpcAcsRequest<StopInstanceResponse> {
-	
-	public StopInstanceRequest() {
-		super("Ecs", "2014-05-26", "StopInstance", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
+	private String stoppedMode;
 
-	private String resourceOwnerAccount;
+	private Boolean forceStop;
 
 	private Boolean confirmStop;
 
-	private String ownerAccount;
+	private Boolean dryRun;
 
-	private String stoppedMode;
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
 
 	private Long ownerId;
 
-	private Boolean forceStop;
+	private String instanceId;
+	public StopInstanceRequest() {
+		super("Ecs", "2014-05-26", "StopInstance", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -50,50 +59,6 @@ public class StopInstanceRequest extends RpcAcsRequest<StopInstanceResponse> {
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public Boolean getConfirmStop() {
-		return this.confirmStop;
-	}
-
-	public void setConfirmStop(Boolean confirmStop) {
-		this.confirmStop = confirmStop;
-		if(confirmStop != null){
-			putQueryParameter("ConfirmStop", confirmStop.toString());
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -108,6 +73,61 @@ public class StopInstanceRequest extends RpcAcsRequest<StopInstanceResponse> {
 		}
 	}
 
+	public Boolean getForceStop() {
+		return this.forceStop;
+	}
+
+	public void setForceStop(Boolean forceStop) {
+		this.forceStop = forceStop;
+		if(forceStop != null){
+			putQueryParameter("ForceStop", forceStop.toString());
+		}
+	}
+
+	public Boolean getConfirmStop() {
+		return this.confirmStop;
+	}
+
+	public void setConfirmStop(Boolean confirmStop) {
+		this.confirmStop = confirmStop;
+		if(confirmStop != null){
+			putQueryParameter("ConfirmStop", confirmStop.toString());
+		}
+	}
+
+	public Boolean getDryRun() {
+		return this.dryRun;
+	}
+
+	public void setDryRun(Boolean dryRun) {
+		this.dryRun = dryRun;
+		if(dryRun != null){
+			putQueryParameter("DryRun", dryRun.toString());
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -119,14 +139,14 @@ public class StopInstanceRequest extends RpcAcsRequest<StopInstanceResponse> {
 		}
 	}
 
-	public Boolean getForceStop() {
-		return this.forceStop;
+	public String getInstanceId() {
+		return this.instanceId;
 	}
 
-	public void setForceStop(Boolean forceStop) {
-		this.forceStop = forceStop;
-		if(forceStop != null){
-			putQueryParameter("ForceStop", forceStop.toString());
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.CreateVirtualMFADeviceResponse;
@@ -20,14 +21,14 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateVirtualMFADeviceResponseUnmarshaller {
 
-	public static CreateVirtualMFADeviceResponse unmarshall(CreateVirtualMFADeviceResponse createVirtualMFADeviceResponse, UnmarshallerContext context) {
+	public static CreateVirtualMFADeviceResponse unmarshall(CreateVirtualMFADeviceResponse createVirtualMFADeviceResponse, UnmarshallerContext _ctx) {
 		
-		createVirtualMFADeviceResponse.setRequestId(context.stringValue("CreateVirtualMFADeviceResponse.RequestId"));
+		createVirtualMFADeviceResponse.setRequestId(_ctx.stringValue("CreateVirtualMFADeviceResponse.RequestId"));
 
 		VirtualMFADevice virtualMFADevice = new VirtualMFADevice();
-		virtualMFADevice.setSerialNumber(context.stringValue("CreateVirtualMFADeviceResponse.VirtualMFADevice.SerialNumber"));
-		virtualMFADevice.setBase32StringSeed(context.stringValue("CreateVirtualMFADeviceResponse.VirtualMFADevice.Base32StringSeed"));
-		virtualMFADevice.setQRCodePNG(context.stringValue("CreateVirtualMFADeviceResponse.VirtualMFADevice.QRCodePNG"));
+		virtualMFADevice.setSerialNumber(_ctx.stringValue("CreateVirtualMFADeviceResponse.VirtualMFADevice.SerialNumber"));
+		virtualMFADevice.setBase32StringSeed(_ctx.stringValue("CreateVirtualMFADeviceResponse.VirtualMFADevice.Base32StringSeed"));
+		virtualMFADevice.setQRCodePNG(_ctx.stringValue("CreateVirtualMFADeviceResponse.VirtualMFADevice.QRCodePNG"));
 		createVirtualMFADeviceResponse.setVirtualMFADevice(virtualMFADevice);
 	 
 	 	return createVirtualMFADeviceResponse;

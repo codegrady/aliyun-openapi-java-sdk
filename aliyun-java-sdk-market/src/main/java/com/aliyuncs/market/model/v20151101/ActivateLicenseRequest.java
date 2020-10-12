@@ -15,20 +15,27 @@
 package com.aliyuncs.market.model.v20151101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.market.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ActivateLicenseRequest extends RpcAcsRequest<ActivateLicenseResponse> {
-	
-	public ActivateLicenseRequest() {
-		super("Market", "2015-11-01", "ActivateLicense", "yunmarket");
-	}
+	   
 
 	private String identification;
 
 	private String licenseCode;
+	public ActivateLicenseRequest() {
+		super("Market", "2015-11-01", "ActivateLicense");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getIdentification() {
 		return this.identification;

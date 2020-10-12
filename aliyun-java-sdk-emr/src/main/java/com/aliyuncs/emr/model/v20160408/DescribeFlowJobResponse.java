@@ -35,6 +35,8 @@ public class DescribeFlowJobResponse extends AcsResponse {
 
 	private String name;
 
+	private String type;
+
 	private String description;
 
 	private String failAct;
@@ -43,19 +45,35 @@ public class DescribeFlowJobResponse extends AcsResponse {
 
 	private Long retryInterval;
 
+	private String retryPolicy;
+
 	private String params;
 
 	private String paramConf;
+
+	private String customVariables;
 
 	private String envConf;
 
 	private String runConf;
 
+	private String monitorConf;
+
 	private String categoryId;
 
 	private String mode;
 
-	private List<String> resource;
+	private String lastInstanceId;
+
+	private String adhoc;
+
+	private String alertConf;
+
+	private String editLockDetail;
+
+	private Long maxRunningTimeSec;
+
+	private List<Resource> resourceList;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -97,6 +115,14 @@ public class DescribeFlowJobResponse extends AcsResponse {
 		this.name = name;
 	}
 
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public String getDescription() {
 		return this.description;
 	}
@@ -129,6 +155,14 @@ public class DescribeFlowJobResponse extends AcsResponse {
 		this.retryInterval = retryInterval;
 	}
 
+	public String getRetryPolicy() {
+		return this.retryPolicy;
+	}
+
+	public void setRetryPolicy(String retryPolicy) {
+		this.retryPolicy = retryPolicy;
+	}
+
 	public String getParams() {
 		return this.params;
 	}
@@ -143,6 +177,14 @@ public class DescribeFlowJobResponse extends AcsResponse {
 
 	public void setParamConf(String paramConf) {
 		this.paramConf = paramConf;
+	}
+
+	public String getCustomVariables() {
+		return this.customVariables;
+	}
+
+	public void setCustomVariables(String customVariables) {
+		this.customVariables = customVariables;
 	}
 
 	public String getEnvConf() {
@@ -161,6 +203,14 @@ public class DescribeFlowJobResponse extends AcsResponse {
 		this.runConf = runConf;
 	}
 
+	public String getMonitorConf() {
+		return this.monitorConf;
+	}
+
+	public void setMonitorConf(String monitorConf) {
+		this.monitorConf = monitorConf;
+	}
+
 	public String getCategoryId() {
 		return this.categoryId;
 	}
@@ -177,12 +227,75 @@ public class DescribeFlowJobResponse extends AcsResponse {
 		this.mode = mode;
 	}
 
-	public List<String> getResource() {
-		return this.resource;
+	public String getLastInstanceId() {
+		return this.lastInstanceId;
 	}
 
-	public void setResource(List<String> resource) {
-		this.resource = resource;
+	public void setLastInstanceId(String lastInstanceId) {
+		this.lastInstanceId = lastInstanceId;
+	}
+
+	public String getAdhoc() {
+		return this.adhoc;
+	}
+
+	public void setAdhoc(String adhoc) {
+		this.adhoc = adhoc;
+	}
+
+	public String getAlertConf() {
+		return this.alertConf;
+	}
+
+	public void setAlertConf(String alertConf) {
+		this.alertConf = alertConf;
+	}
+
+	public String getEditLockDetail() {
+		return this.editLockDetail;
+	}
+
+	public void setEditLockDetail(String editLockDetail) {
+		this.editLockDetail = editLockDetail;
+	}
+
+	public Long getMaxRunningTimeSec() {
+		return this.maxRunningTimeSec;
+	}
+
+	public void setMaxRunningTimeSec(Long maxRunningTimeSec) {
+		this.maxRunningTimeSec = maxRunningTimeSec;
+	}
+
+	public List<Resource> getResourceList() {
+		return this.resourceList;
+	}
+
+	public void setResourceList(List<Resource> resourceList) {
+		this.resourceList = resourceList;
+	}
+
+	public static class Resource {
+
+		private String path;
+
+		private String alias;
+
+		public String getPath() {
+			return this.path;
+		}
+
+		public void setPath(String path) {
+			this.path = path;
+		}
+
+		public String getAlias() {
+			return this.alias;
+		}
+
+		public void setAlias(String alias) {
+			this.alias = alias;
+		}
 	}
 
 	@Override

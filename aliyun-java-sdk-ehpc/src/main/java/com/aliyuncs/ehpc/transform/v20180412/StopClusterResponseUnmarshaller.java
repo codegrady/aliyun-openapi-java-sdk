@@ -20,9 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class StopClusterResponseUnmarshaller {
 
-	public static StopClusterResponse unmarshall(StopClusterResponse stopClusterResponse, UnmarshallerContext context) {
+	public static StopClusterResponse unmarshall(StopClusterResponse stopClusterResponse, UnmarshallerContext _ctx) {
 		
-		stopClusterResponse.setRequestId(context.stringValue("StopClusterResponse.RequestId"));
+		stopClusterResponse.setRequestId(_ctx.stringValue("StopClusterResponse.RequestId"));
+		stopClusterResponse.setTaskId(_ctx.stringValue("StopClusterResponse.TaskId"));
 	 
 	 	return stopClusterResponse;
 	}

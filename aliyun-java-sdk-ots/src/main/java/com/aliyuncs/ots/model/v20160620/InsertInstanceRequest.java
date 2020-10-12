@@ -23,46 +23,22 @@ import com.aliyuncs.http.MethodType;
  * @version 
  */
 public class InsertInstanceRequest extends RpcAcsRequest<InsertInstanceResponse> {
-	
-	public InsertInstanceRequest() {
-		super("Ots", "2016-06-20", "InsertInstance", "ots");
-		setMethod(MethodType.POST);
-	}
-
-	private String access_key_id;
-
-	private String clusterType;
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceName;
-
 	private String description;
-
-	private List<TagInfo> tagInfos;
 
 	private String network;
 
-	public String getAccess_key_id() {
-		return this.access_key_id;
-	}
+	private String clusterType;
 
-	public void setAccess_key_id(String access_key_id) {
-		this.access_key_id = access_key_id;
-		if(access_key_id != null){
-			putQueryParameter("access_key_id", access_key_id);
-		}
-	}
+	private String instanceName;
 
-	public String getClusterType() {
-		return this.clusterType;
-	}
-
-	public void setClusterType(String clusterType) {
-		this.clusterType = clusterType;
-		if(clusterType != null){
-			putQueryParameter("ClusterType", clusterType);
-		}
+	private List<TagInfo> tagInfos;
+	public InsertInstanceRequest() {
+		super("Ots", "2016-06-20", "InsertInstance", "ots");
+		setMethod(MethodType.POST);
 	}
 
 	public Long getResourceOwnerId() {
@@ -73,17 +49,6 @@ public class InsertInstanceRequest extends RpcAcsRequest<InsertInstanceResponse>
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getInstanceName() {
-		return this.instanceName;
-	}
-
-	public void setInstanceName(String instanceName) {
-		this.instanceName = instanceName;
-		if(instanceName != null){
-			putQueryParameter("InstanceName", instanceName);
 		}
 	}
 
@@ -98,20 +63,6 @@ public class InsertInstanceRequest extends RpcAcsRequest<InsertInstanceResponse>
 		}
 	}
 
-	public List<TagInfo> getTagInfos() {
-		return this.tagInfos;
-	}
-
-	public void setTagInfos(List<TagInfo> tagInfos) {
-		this.tagInfos = tagInfos;	
-		if (tagInfos != null) {
-			for (int depth1 = 0; depth1 < tagInfos.size(); depth1++) {
-				putQueryParameter("TagInfo." + (depth1 + 1) + ".TagKey" , tagInfos.get(depth1).getTagKey());
-				putQueryParameter("TagInfo." + (depth1 + 1) + ".TagValue" , tagInfos.get(depth1).getTagValue());
-			}
-		}	
-	}
-
 	public String getNetwork() {
 		return this.network;
 	}
@@ -123,19 +74,47 @@ public class InsertInstanceRequest extends RpcAcsRequest<InsertInstanceResponse>
 		}
 	}
 
-	public static class TagInfo {
+	public String getClusterType() {
+		return this.clusterType;
+	}
 
-		private String tagKey;
+	public void setClusterType(String clusterType) {
+		this.clusterType = clusterType;
+		if(clusterType != null){
+			putQueryParameter("ClusterType", clusterType);
+		}
+	}
+
+	public String getInstanceName() {
+		return this.instanceName;
+	}
+
+	public void setInstanceName(String instanceName) {
+		this.instanceName = instanceName;
+		if(instanceName != null){
+			putQueryParameter("InstanceName", instanceName);
+		}
+	}
+
+	public List<TagInfo> getTagInfos() {
+		return this.tagInfos;
+	}
+
+	public void setTagInfos(List<TagInfo> tagInfos) {
+		this.tagInfos = tagInfos;	
+		if (tagInfos != null) {
+			for (int depth1 = 0; depth1 < tagInfos.size(); depth1++) {
+				putQueryParameter("TagInfo." + (depth1 + 1) + ".TagValue" , tagInfos.get(depth1).getTagValue());
+				putQueryParameter("TagInfo." + (depth1 + 1) + ".TagKey" , tagInfos.get(depth1).getTagKey());
+			}
+		}	
+	}
+
+	public static class TagInfo {
 
 		private String tagValue;
 
-		public String getTagKey() {
-			return this.tagKey;
-		}
-
-		public void setTagKey(String tagKey) {
-			this.tagKey = tagKey;
-		}
+		private String tagKey;
 
 		public String getTagValue() {
 			return this.tagValue;
@@ -143,6 +122,14 @@ public class InsertInstanceRequest extends RpcAcsRequest<InsertInstanceResponse>
 
 		public void setTagValue(String tagValue) {
 			this.tagValue = tagValue;
+		}
+
+		public String getTagKey() {
+			return this.tagKey;
+		}
+
+		public void setTagKey(String tagKey) {
+			this.tagKey = tagKey;
 		}
 	}
 

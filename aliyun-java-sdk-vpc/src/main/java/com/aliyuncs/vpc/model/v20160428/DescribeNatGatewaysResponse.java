@@ -91,11 +91,25 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 
 		private String instanceChargeType;
 
+		private String expiredTime;
+
+		private Boolean autoPay;
+
 		private String businessStatus;
 
 		private String creationTime;
 
 		private String status;
+
+		private String natType;
+
+		private String internetChargeType;
+
+		private String resourceGroupId;
+
+		private Boolean deletionProtection;
+
+		private Boolean ecsMetricEnabled;
 
 		private List<IpList> ipLists;
 
@@ -104,6 +118,8 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 		private List<String> snatTableIds;
 
 		private List<String> bandwidthPackageIds;
+
+		private NatGatewayPrivateInfo natGatewayPrivateInfo;
 
 		public String getNatGatewayId() {
 			return this.natGatewayId;
@@ -161,6 +177,22 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 			this.instanceChargeType = instanceChargeType;
 		}
 
+		public String getExpiredTime() {
+			return this.expiredTime;
+		}
+
+		public void setExpiredTime(String expiredTime) {
+			this.expiredTime = expiredTime;
+		}
+
+		public Boolean getAutoPay() {
+			return this.autoPay;
+		}
+
+		public void setAutoPay(Boolean autoPay) {
+			this.autoPay = autoPay;
+		}
+
 		public String getBusinessStatus() {
 			return this.businessStatus;
 		}
@@ -183,6 +215,46 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 
 		public void setStatus(String status) {
 			this.status = status;
+		}
+
+		public String getNatType() {
+			return this.natType;
+		}
+
+		public void setNatType(String natType) {
+			this.natType = natType;
+		}
+
+		public String getInternetChargeType() {
+			return this.internetChargeType;
+		}
+
+		public void setInternetChargeType(String internetChargeType) {
+			this.internetChargeType = internetChargeType;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public Boolean getDeletionProtection() {
+			return this.deletionProtection;
+		}
+
+		public void setDeletionProtection(Boolean deletionProtection) {
+			this.deletionProtection = deletionProtection;
+		}
+
+		public Boolean getEcsMetricEnabled() {
+			return this.ecsMetricEnabled;
+		}
+
+		public void setEcsMetricEnabled(Boolean ecsMetricEnabled) {
+			this.ecsMetricEnabled = ecsMetricEnabled;
 		}
 
 		public List<IpList> getIpLists() {
@@ -217,6 +289,14 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 			this.bandwidthPackageIds = bandwidthPackageIds;
 		}
 
+		public NatGatewayPrivateInfo getNatGatewayPrivateInfo() {
+			return this.natGatewayPrivateInfo;
+		}
+
+		public void setNatGatewayPrivateInfo(NatGatewayPrivateInfo natGatewayPrivateInfo) {
+			this.natGatewayPrivateInfo = natGatewayPrivateInfo;
+		}
+
 		public static class IpList {
 
 			private String allocationId;
@@ -226,6 +306,8 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 			private String usingStatus;
 
 			private Boolean apAccessEnabled;
+
+			private Boolean snatEntryEnabled;
 
 			public String getAllocationId() {
 				return this.allocationId;
@@ -257,6 +339,67 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 
 			public void setApAccessEnabled(Boolean apAccessEnabled) {
 				this.apAccessEnabled = apAccessEnabled;
+			}
+
+			public Boolean getSnatEntryEnabled() {
+				return this.snatEntryEnabled;
+			}
+
+			public void setSnatEntryEnabled(Boolean snatEntryEnabled) {
+				this.snatEntryEnabled = snatEntryEnabled;
+			}
+		}
+
+		public static class NatGatewayPrivateInfo {
+
+			private String eniInstanceId;
+
+			private String privateIpAddress;
+
+			private String vswitchId;
+
+			private String izNo;
+
+			private Integer maxBandwidth;
+
+			public String getEniInstanceId() {
+				return this.eniInstanceId;
+			}
+
+			public void setEniInstanceId(String eniInstanceId) {
+				this.eniInstanceId = eniInstanceId;
+			}
+
+			public String getPrivateIpAddress() {
+				return this.privateIpAddress;
+			}
+
+			public void setPrivateIpAddress(String privateIpAddress) {
+				this.privateIpAddress = privateIpAddress;
+			}
+
+			public String getVswitchId() {
+				return this.vswitchId;
+			}
+
+			public void setVswitchId(String vswitchId) {
+				this.vswitchId = vswitchId;
+			}
+
+			public String getIzNo() {
+				return this.izNo;
+			}
+
+			public void setIzNo(String izNo) {
+				this.izNo = izNo;
+			}
+
+			public Integer getMaxBandwidth() {
+				return this.maxBandwidth;
+			}
+
+			public void setMaxBandwidth(Integer maxBandwidth) {
+				this.maxBandwidth = maxBandwidth;
 			}
 		}
 	}

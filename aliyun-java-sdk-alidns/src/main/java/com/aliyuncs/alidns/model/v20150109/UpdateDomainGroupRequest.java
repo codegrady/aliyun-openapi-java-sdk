@@ -11,44 +11,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.model.v20150109;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.alidns.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateDomainGroupRequest extends RpcAcsRequest<UpdateDomainGroupResponse> {
-	
-	public UpdateDomainGroupRequest() {
-		super("Alidns", "2015-01-09", "UpdateDomainGroup");
-	}
-
-	private String lang;
-
-	private String userClientIp;
+	   
 
 	private String groupId;
 
 	private String groupName;
 
-	public String getLang() {
-		return this.lang;
-	}
-
-	public void setLang(String lang) {
-		this.lang = lang;
-		putQueryParameter("Lang", lang);
-	}
-
-	public String getUserClientIp() {
-		return this.userClientIp;
-	}
-
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		putQueryParameter("UserClientIp", userClientIp);
+	private String lang;
+	public UpdateDomainGroupRequest() {
+		super("Alidns", "2015-01-09", "UpdateDomainGroup", "alidns");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getGroupId() {
@@ -57,7 +45,9 @@ public class UpdateDomainGroupRequest extends RpcAcsRequest<UpdateDomainGroupRes
 
 	public void setGroupId(String groupId) {
 		this.groupId = groupId;
-		putQueryParameter("GroupId", groupId);
+		if(groupId != null){
+			putQueryParameter("GroupId", groupId);
+		}
 	}
 
 	public String getGroupName() {
@@ -66,7 +56,20 @@ public class UpdateDomainGroupRequest extends RpcAcsRequest<UpdateDomainGroupRes
 
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
-		putQueryParameter("GroupName", groupName);
+		if(groupName != null){
+			putQueryParameter("GroupName", groupName);
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
+		}
 	}
 
 	@Override

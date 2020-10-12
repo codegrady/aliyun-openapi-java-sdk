@@ -15,22 +15,25 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDedicatedHostAttributeRequest extends RpcAcsRequest<ModifyDedicatedHostAttributeResponse> {
-	
-	public ModifyDedicatedHostAttributeRequest() {
-		super("Ecs", "2014-05-26", "ModifyDedicatedHostAttribute", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String description;
 
+	private Float cpuOverCommitRatio;
+
 	private String actionOnMaintenance;
+
+	private String dedicatedHostClusterId;
 
 	private String dedicatedHostName;
 
@@ -44,7 +47,17 @@ public class ModifyDedicatedHostAttributeRequest extends RpcAcsRequest<ModifyDed
 
 	private Integer networkAttributesSlbUdpTimeout;
 
+	private String autoPlacement;
+
 	private Integer networkAttributesUdpTimeout;
+	public ModifyDedicatedHostAttributeRequest() {
+		super("Ecs", "2014-05-26", "ModifyDedicatedHostAttribute", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -68,6 +81,17 @@ public class ModifyDedicatedHostAttributeRequest extends RpcAcsRequest<ModifyDed
 		}
 	}
 
+	public Float getCpuOverCommitRatio() {
+		return this.cpuOverCommitRatio;
+	}
+
+	public void setCpuOverCommitRatio(Float cpuOverCommitRatio) {
+		this.cpuOverCommitRatio = cpuOverCommitRatio;
+		if(cpuOverCommitRatio != null){
+			putQueryParameter("CpuOverCommitRatio", cpuOverCommitRatio.toString());
+		}
+	}
+
 	public String getActionOnMaintenance() {
 		return this.actionOnMaintenance;
 	}
@@ -76,6 +100,17 @@ public class ModifyDedicatedHostAttributeRequest extends RpcAcsRequest<ModifyDed
 		this.actionOnMaintenance = actionOnMaintenance;
 		if(actionOnMaintenance != null){
 			putQueryParameter("ActionOnMaintenance", actionOnMaintenance);
+		}
+	}
+
+	public String getDedicatedHostClusterId() {
+		return this.dedicatedHostClusterId;
+	}
+
+	public void setDedicatedHostClusterId(String dedicatedHostClusterId) {
+		this.dedicatedHostClusterId = dedicatedHostClusterId;
+		if(dedicatedHostClusterId != null){
+			putQueryParameter("DedicatedHostClusterId", dedicatedHostClusterId);
 		}
 	}
 
@@ -142,6 +177,17 @@ public class ModifyDedicatedHostAttributeRequest extends RpcAcsRequest<ModifyDed
 		this.networkAttributesSlbUdpTimeout = networkAttributesSlbUdpTimeout;
 		if(networkAttributesSlbUdpTimeout != null){
 			putQueryParameter("NetworkAttributes.SlbUdpTimeout", networkAttributesSlbUdpTimeout.toString());
+		}
+	}
+
+	public String getAutoPlacement() {
+		return this.autoPlacement;
+	}
+
+	public void setAutoPlacement(String autoPlacement) {
+		this.autoPlacement = autoPlacement;
+		if(autoPlacement != null){
+			putQueryParameter("AutoPlacement", autoPlacement);
 		}
 	}
 

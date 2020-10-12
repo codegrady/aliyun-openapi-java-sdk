@@ -16,6 +16,7 @@ package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
@@ -24,7 +25,11 @@ import java.util.List;
 public class RunOpsCommandRequest extends RpcAcsRequest<RunOpsCommandResponse> {
 	
 	public RunOpsCommandRequest() {
-		super("Emr", "2016-04-08", "RunOpsCommand");
+		super("Emr", "2016-04-08", "RunOpsCommand", "emr");
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private Long resourceOwnerId;
@@ -37,7 +42,7 @@ public class RunOpsCommandRequest extends RpcAcsRequest<RunOpsCommandResponse> {
 
 	private String clusterId;
 
-	private List<Long> hostIdLists;
+	private List<String> hostIdLists;
 
 	private String dimension;
 
@@ -96,11 +101,11 @@ public class RunOpsCommandRequest extends RpcAcsRequest<RunOpsCommandResponse> {
 		}
 	}
 
-	public List<Long> getHostIdLists() {
+	public List<String> getHostIdLists() {
 		return this.hostIdLists;
 	}
 
-	public void setHostIdLists(List<Long> hostIdLists) {
+	public void setHostIdLists(List<String> hostIdLists) {
 		this.hostIdLists = hostIdLists;	
 		if (hostIdLists != null) {
 			for (int i = 0; i < hostIdLists.size(); i++) {

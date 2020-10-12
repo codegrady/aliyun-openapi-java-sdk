@@ -15,22 +15,33 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateRuleActionRequest extends RpcAcsRequest<CreateRuleActionResponse> {
-	
-	public CreateRuleActionRequest() {
-		super("Iot", "2018-01-20", "CreateRuleAction");
-	}
+	   
 
 	private String configuration;
 
-	private Long ruleId;
-
 	private String type;
+
+	private String iotInstanceId;
+
+	private Boolean errorActionFlag;
+
+	private Long ruleId;
+	public CreateRuleActionRequest() {
+		super("Iot", "2018-01-20", "CreateRuleAction", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getConfiguration() {
 		return this.configuration;
@@ -43,17 +54,6 @@ public class CreateRuleActionRequest extends RpcAcsRequest<CreateRuleActionRespo
 		}
 	}
 
-	public Long getRuleId() {
-		return this.ruleId;
-	}
-
-	public void setRuleId(Long ruleId) {
-		this.ruleId = ruleId;
-		if(ruleId != null){
-			putQueryParameter("RuleId", ruleId.toString());
-		}
-	}
-
 	public String getType() {
 		return this.type;
 	}
@@ -62,6 +62,39 @@ public class CreateRuleActionRequest extends RpcAcsRequest<CreateRuleActionRespo
 		this.type = type;
 		if(type != null){
 			putQueryParameter("Type", type);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public Boolean getErrorActionFlag() {
+		return this.errorActionFlag;
+	}
+
+	public void setErrorActionFlag(Boolean errorActionFlag) {
+		this.errorActionFlag = errorActionFlag;
+		if(errorActionFlag != null){
+			putQueryParameter("ErrorActionFlag", errorActionFlag.toString());
+		}
+	}
+
+	public Long getRuleId() {
+		return this.ruleId;
+	}
+
+	public void setRuleId(Long ruleId) {
+		this.ruleId = ruleId;
+		if(ruleId != null){
+			putQueryParameter("RuleId", ruleId.toString());
 		}
 	}
 

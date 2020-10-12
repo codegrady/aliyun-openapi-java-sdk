@@ -111,6 +111,10 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 		private String vSwitchId;
 
+		private String instanceDeployType;
+
+		private List<Tag> tags;
+
 		public String getDBInstanceId() {
 			return this.dBInstanceId;
 		}
@@ -245,6 +249,45 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 		public void setVSwitchId(String vSwitchId) {
 			this.vSwitchId = vSwitchId;
+		}
+
+		public String getInstanceDeployType() {
+			return this.instanceDeployType;
+		}
+
+		public void setInstanceDeployType(String instanceDeployType) {
+			this.instanceDeployType = instanceDeployType;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

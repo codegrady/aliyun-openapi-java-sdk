@@ -19,22 +19,22 @@ import java.util.List;
 
 import com.aliyuncs.smartag.model.v20180313.DescribeSmartAccessGatewayVersionsResponse;
 import com.aliyuncs.smartag.model.v20180313.DescribeSmartAccessGatewayVersionsResponse.SmartAGVersion;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeSmartAccessGatewayVersionsResponseUnmarshaller {
 
-	public static DescribeSmartAccessGatewayVersionsResponse unmarshall(DescribeSmartAccessGatewayVersionsResponse describeSmartAccessGatewayVersionsResponse, UnmarshallerContext context) {
+	public static DescribeSmartAccessGatewayVersionsResponse unmarshall(DescribeSmartAccessGatewayVersionsResponse describeSmartAccessGatewayVersionsResponse, UnmarshallerContext _ctx) {
 		
-		describeSmartAccessGatewayVersionsResponse.setRequestId(context.stringValue("DescribeSmartAccessGatewayVersionsResponse.RequestId"));
+		describeSmartAccessGatewayVersionsResponse.setRequestId(_ctx.stringValue("DescribeSmartAccessGatewayVersionsResponse.RequestId"));
 
 		List<SmartAGVersion> smartAGVersions = new ArrayList<SmartAGVersion>();
-		for (int i = 0; i < context.lengthValue("DescribeSmartAccessGatewayVersionsResponse.SmartAGVersions.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeSmartAccessGatewayVersionsResponse.SmartAGVersions.Length"); i++) {
 			SmartAGVersion smartAGVersion = new SmartAGVersion();
-			smartAGVersion.setVersionCode(context.stringValue("DescribeSmartAccessGatewayVersionsResponse.SmartAGVersions["+ i +"].VersionCode"));
-			smartAGVersion.setVersionName(context.stringValue("DescribeSmartAccessGatewayVersionsResponse.SmartAGVersions["+ i +"].VersionName"));
-			smartAGVersion.setCreateTime(context.longValue("DescribeSmartAccessGatewayVersionsResponse.SmartAGVersions["+ i +"].CreateTime"));
+			smartAGVersion.setVersionCode(_ctx.stringValue("DescribeSmartAccessGatewayVersionsResponse.SmartAGVersions["+ i +"].VersionCode"));
+			smartAGVersion.setVersionName(_ctx.stringValue("DescribeSmartAccessGatewayVersionsResponse.SmartAGVersions["+ i +"].VersionName"));
+			smartAGVersion.setCreateTime(_ctx.longValue("DescribeSmartAccessGatewayVersionsResponse.SmartAGVersions["+ i +"].CreateTime"));
+			smartAGVersion.setType(_ctx.stringValue("DescribeSmartAccessGatewayVersionsResponse.SmartAGVersions["+ i +"].Type"));
 
 			smartAGVersions.add(smartAGVersion);
 		}

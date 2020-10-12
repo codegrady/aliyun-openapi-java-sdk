@@ -15,16 +15,15 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetServerCertificateNameRequest extends RpcAcsRequest<SetServerCertificateNameResponse> {
-	
-	public SetServerCertificateNameRequest() {
-		super("Slb", "2014-05-15", "SetServerCertificateName", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -37,8 +36,14 @@ public class SetServerCertificateNameRequest extends RpcAcsRequest<SetServerCert
 	private String serverCertificateId;
 
 	private String serverCertificateName;
-
-	private String tags;
+	public SetServerCertificateNameRequest() {
+		super("Slb", "2014-05-15", "SetServerCertificateName", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -103,17 +108,6 @@ public class SetServerCertificateNameRequest extends RpcAcsRequest<SetServerCert
 		this.serverCertificateName = serverCertificateName;
 		if(serverCertificateName != null){
 			putQueryParameter("ServerCertificateName", serverCertificateName);
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
 		}
 	}
 

@@ -109,6 +109,12 @@ public class QueryBrokerDemandResponse extends AcsResponse {
 
 		private Integer produceType;
 
+		private Float bargainSellerPrice;
+
+		private String bargainSellerMobile;
+
+		private Float servicePayPrice;
+
 		public String getBizId() {
 			return this.bizId;
 		}
@@ -195,6 +201,30 @@ public class QueryBrokerDemandResponse extends AcsResponse {
 
 		public void setProduceType(Integer produceType) {
 			this.produceType = produceType;
+		}
+
+		public Float getBargainSellerPrice() {
+			return this.bargainSellerPrice;
+		}
+
+		public void setBargainSellerPrice(Float bargainSellerPrice) {
+			this.bargainSellerPrice = bargainSellerPrice;
+		}
+
+		public String getBargainSellerMobile() {
+			return this.bargainSellerMobile;
+		}
+
+		public void setBargainSellerMobile(String bargainSellerMobile) {
+			this.bargainSellerMobile = bargainSellerMobile;
+		}
+
+		public Float getServicePayPrice() {
+			return this.servicePayPrice;
+		}
+
+		public void setServicePayPrice(Float servicePayPrice) {
+			this.servicePayPrice = servicePayPrice;
 		}
 	}
 

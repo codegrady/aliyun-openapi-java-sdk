@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.transform.v20170626;
 
 import com.aliyuncs.nas.model.v20170626.DeleteAccessRuleResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteAccessRuleResponseUnmarshaller {
 
-	public static DeleteAccessRuleResponse unmarshall(DeleteAccessRuleResponse deleteAccessRuleResponse, UnmarshallerContext context) {
+	public static DeleteAccessRuleResponse unmarshall(DeleteAccessRuleResponse deleteAccessRuleResponse, UnmarshallerContext _ctx) {
 		
-		deleteAccessRuleResponse.setRequestId(context.stringValue("DeleteAccessRuleResponse.RequestId"));
+		deleteAccessRuleResponse.setRequestId(_ctx.stringValue("DeleteAccessRuleResponse.RequestId"));
 	 
 	 	return deleteAccessRuleResponse;
 	}

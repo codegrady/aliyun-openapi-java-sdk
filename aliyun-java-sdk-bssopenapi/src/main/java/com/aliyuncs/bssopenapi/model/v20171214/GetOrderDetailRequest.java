@@ -15,20 +15,27 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetOrderDetailRequest extends RpcAcsRequest<GetOrderDetailResponse> {
-	
-	public GetOrderDetailRequest() {
-		super("BssOpenApi", "2017-12-14", "GetOrderDetail");
-	}
+	   
 
 	private String orderId;
 
 	private Long ownerId;
+	public GetOrderDetailRequest() {
+		super("BssOpenApi", "2017-12-14", "GetOrderDetail");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getOrderId() {
 		return this.orderId;

@@ -53,6 +53,8 @@ public class DescribeBackupTasksResponse extends AcsResponse {
 
 		private String jobMode;
 
+		private String startTime;
+
 		private String process;
 
 		private String taskAction;
@@ -79,6 +81,14 @@ public class DescribeBackupTasksResponse extends AcsResponse {
 
 		public void setJobMode(String jobMode) {
 			this.jobMode = jobMode;
+		}
+
+		public String getStartTime() {
+			return this.startTime;
+		}
+
+		public void setStartTime(String startTime) {
+			this.startTime = startTime;
 		}
 
 		public String getProcess() {

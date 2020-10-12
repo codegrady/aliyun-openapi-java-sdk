@@ -1,38 +1,30 @@
-/*
- * Copyright 2017 Alibaba Group
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.aliyuncs.http.clients;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.http.conn.HttpClientConnectionManager;
 
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.http.conn.HttpClientConnectionManager;
-
 public class ApacheIdleConnectionCleaner extends Thread {
 
     private static final Log LOG = LogFactory.getLog(ApacheIdleConnectionCleaner.class);
-    private static final int PERIOD_SEC = 60;
 
+    public static int getPeriodSec() {
+        return periodSec;
+    }
+
+    public static void setPeriodSec(int periodSec) {
+        ApacheIdleConnectionCleaner.periodSec = periodSec;
+    }
+
+    private static final int DEFAULT_PERIOD_SEC = 60;
+    private static int periodSec = DEFAULT_PERIOD_SEC;
+    private static final Map<HttpClientConnectionManager, Long> CONNMGRMAP = new ConcurrentHashMap<HttpClientConnectionManager, Long>();
     private static volatile ApacheIdleConnectionCleaner instance;
-    private static final Map<HttpClientConnectionManager, Long> connMgrMap = new ConcurrentHashMap<HttpClientConnectionManager, Long>();
-
     private volatile boolean isShuttingDown;
 
     private ApacheIdleConnectionCleaner() {
@@ -40,7 +32,7 @@ public class ApacheIdleConnectionCleaner extends Thread {
         setDaemon(true);
     }
 
-    public static void registerConnectionManager(HttpClientConnectionManager connMgr, Long idleTimeMills){
+    public static void registerConnectionManager(HttpClientConnectionManager connMgr, Long idleTimeMills) {
         if (instance == null) {
             synchronized (ApacheIdleConnectionCleaner.class) {
                 if (instance == null) {
@@ -49,21 +41,21 @@ public class ApacheIdleConnectionCleaner extends Thread {
                 }
             }
         }
-        connMgrMap.put(connMgr, idleTimeMills);
+        CONNMGRMAP.put(connMgr, idleTimeMills);
     }
 
     public static void removeConnectionManager(HttpClientConnectionManager connectionManager) {
-        connMgrMap.remove(connectionManager);
-        if (connMgrMap.isEmpty()) {
+        CONNMGRMAP.remove(connectionManager);
+        if (CONNMGRMAP.isEmpty()) {
             shutdown();
         }
     }
 
-    public static void shutdown(){
+    public static void shutdown() {
         if (instance != null) {
             instance.isShuttingDown = true;
             instance.interrupt();
-            connMgrMap.clear();
+            CONNMGRMAP.clear();
             instance = null;
         }
     }
@@ -76,19 +68,17 @@ public class ApacheIdleConnectionCleaner extends Thread {
                 return;
             }
             try {
-                Thread.sleep(PERIOD_SEC * 1000);
+                Thread.sleep(periodSec * 1000);
 
-                for (Entry<HttpClientConnectionManager, Long> entry : connMgrMap.entrySet()) {
+                for (Entry<HttpClientConnectionManager, Long> entry : CONNMGRMAP.entrySet()) {
                     try {
                         entry.getKey().closeIdleConnections(entry.getValue(), TimeUnit.MILLISECONDS);
                     } catch (Exception t) {
                         LOG.warn("close idle connections failed", t);
                     }
                 }
-            } catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 LOG.debug("interrupted.", e);
-            } catch (Throwable t) {
-                LOG.warn("fatal error", t);
             }
         }
     }

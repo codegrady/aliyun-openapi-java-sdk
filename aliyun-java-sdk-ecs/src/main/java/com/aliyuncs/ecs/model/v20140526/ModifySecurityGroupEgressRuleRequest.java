@@ -15,16 +15,15 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifySecurityGroupEgressRuleRequest extends RpcAcsRequest<ModifySecurityGroupEgressRuleResponse> {
-	
-	public ModifySecurityGroupEgressRuleRequest() {
-		super("Ecs", "2014-05-26", "ModifySecurityGroupEgressRule", "ecs");
-	}
+	   
 
 	private String nicType;
 
@@ -37,6 +36,10 @@ public class ModifySecurityGroupEgressRuleRequest extends RpcAcsRequest<ModifySe
 	private String securityGroupId;
 
 	private String description;
+
+	private String ipv6DestCidrIp;
+
+	private String ipv6SourceCidrIp;
 
 	private String policy;
 
@@ -61,6 +64,14 @@ public class ModifySecurityGroupEgressRuleRequest extends RpcAcsRequest<ModifySe
 	private String destCidrIp;
 
 	private Long destGroupOwnerId;
+	public ModifySecurityGroupEgressRuleRequest() {
+		super("Ecs", "2014-05-26", "ModifySecurityGroupEgressRule", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getNicType() {
 		return this.nicType;
@@ -125,6 +136,28 @@ public class ModifySecurityGroupEgressRuleRequest extends RpcAcsRequest<ModifySe
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getIpv6DestCidrIp() {
+		return this.ipv6DestCidrIp;
+	}
+
+	public void setIpv6DestCidrIp(String ipv6DestCidrIp) {
+		this.ipv6DestCidrIp = ipv6DestCidrIp;
+		if(ipv6DestCidrIp != null){
+			putQueryParameter("Ipv6DestCidrIp", ipv6DestCidrIp);
+		}
+	}
+
+	public String getIpv6SourceCidrIp() {
+		return this.ipv6SourceCidrIp;
+	}
+
+	public void setIpv6SourceCidrIp(String ipv6SourceCidrIp) {
+		this.ipv6SourceCidrIp = ipv6SourceCidrIp;
+		if(ipv6SourceCidrIp != null){
+			putQueryParameter("Ipv6SourceCidrIp", ipv6SourceCidrIp);
 		}
 	}
 

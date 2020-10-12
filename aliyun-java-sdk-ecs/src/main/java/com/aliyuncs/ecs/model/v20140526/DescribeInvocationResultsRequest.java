@@ -15,22 +15,23 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeInvocationResultsRequest extends RpcAcsRequest<DescribeInvocationResultsResponse> {
-	
-	public DescribeInvocationResultsRequest() {
-		super("Ecs", "2014-05-26", "DescribeInvocationResults", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String commandId;
 
 	private Long pageNumber;
+
+	private String contentEncoding;
 
 	private Long pageSize;
 
@@ -45,6 +46,16 @@ public class DescribeInvocationResultsRequest extends RpcAcsRequest<DescribeInvo
 	private String instanceId;
 
 	private String invokeRecordStatus;
+
+	private Boolean includeHistory;
+	public DescribeInvocationResultsRequest() {
+		super("Ecs", "2014-05-26", "DescribeInvocationResults", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -76,6 +87,17 @@ public class DescribeInvocationResultsRequest extends RpcAcsRequest<DescribeInvo
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getContentEncoding() {
+		return this.contentEncoding;
+	}
+
+	public void setContentEncoding(String contentEncoding) {
+		this.contentEncoding = contentEncoding;
+		if(contentEncoding != null){
+			putQueryParameter("ContentEncoding", contentEncoding);
 		}
 	}
 
@@ -153,6 +175,17 @@ public class DescribeInvocationResultsRequest extends RpcAcsRequest<DescribeInvo
 		this.invokeRecordStatus = invokeRecordStatus;
 		if(invokeRecordStatus != null){
 			putQueryParameter("InvokeRecordStatus", invokeRecordStatus);
+		}
+	}
+
+	public Boolean getIncludeHistory() {
+		return this.includeHistory;
+	}
+
+	public void setIncludeHistory(Boolean includeHistory) {
+		this.includeHistory = includeHistory;
+		if(includeHistory != null){
+			putQueryParameter("IncludeHistory", includeHistory.toString());
 		}
 	}
 

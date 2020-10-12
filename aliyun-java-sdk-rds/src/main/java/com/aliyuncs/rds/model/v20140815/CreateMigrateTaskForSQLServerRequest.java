@@ -15,32 +15,39 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateMigrateTaskForSQLServerRequest extends RpcAcsRequest<CreateMigrateTaskForSQLServerResponse> {
-	
-	public CreateMigrateTaskForSQLServerRequest() {
-		super("Rds", "2014-08-15", "CreateMigrateTaskForSQLServer", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String taskType;
-
-	private String dBName;
-
-	private String resourceOwnerAccount;
 
 	private String isOnlineDB;
 
 	private String dBInstanceId;
 
+	private String taskType;
+
+	private String resourceOwnerAccount;
+
 	private Long ownerId;
 
 	private String oSSUrls;
+
+	private String dBName;
+	public CreateMigrateTaskForSQLServerRequest() {
+		super("Rds", "2014-08-15", "CreateMigrateTaskForSQLServer", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -50,39 +57,6 @@ public class CreateMigrateTaskForSQLServerRequest extends RpcAcsRequest<CreateMi
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getTaskType() {
-		return this.taskType;
-	}
-
-	public void setTaskType(String taskType) {
-		this.taskType = taskType;
-		if(taskType != null){
-			putQueryParameter("TaskType", taskType);
-		}
-	}
-
-	public String getDBName() {
-		return this.dBName;
-	}
-
-	public void setDBName(String dBName) {
-		this.dBName = dBName;
-		if(dBName != null){
-			putQueryParameter("DBName", dBName);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -108,6 +82,28 @@ public class CreateMigrateTaskForSQLServerRequest extends RpcAcsRequest<CreateMi
 		}
 	}
 
+	public String getTaskType() {
+		return this.taskType;
+	}
+
+	public void setTaskType(String taskType) {
+		this.taskType = taskType;
+		if(taskType != null){
+			putQueryParameter("TaskType", taskType);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -127,6 +123,17 @@ public class CreateMigrateTaskForSQLServerRequest extends RpcAcsRequest<CreateMi
 		this.oSSUrls = oSSUrls;
 		if(oSSUrls != null){
 			putQueryParameter("OSSUrls", oSSUrls);
+		}
+	}
+
+	public String getDBName() {
+		return this.dBName;
+	}
+
+	public void setDBName(String dBName) {
+		this.dBName = dBName;
+		if(dBName != null){
+			putQueryParameter("DBName", dBName);
 		}
 	}
 

@@ -16,77 +16,40 @@ package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateLiveSnapshotDetectPornConfigRequest extends RpcAcsRequest<UpdateLiveSnapshotDetectPornConfigResponse> {
-	
-	public UpdateLiveSnapshotDetectPornConfigRequest() {
-		super("live", "2016-11-01", "UpdateLiveSnapshotDetectPornConfig", "live");
-	}
-
-	private String ossBucket;
-
-	private String appName;
-
-	private String securityToken;
-
-	private String domainName;
+	   
 
 	private String ossEndpoint;
-
-	private Integer interval;
-
-	private Long ownerId;
 
 	private String ossObject;
 
 	private List<String> scenes;
 
-	public String getOssBucket() {
-		return this.ossBucket;
-	}
+	private String appName;
 
-	public void setOssBucket(String ossBucket) {
-		this.ossBucket = ossBucket;
-		if(ossBucket != null){
-			putQueryParameter("OssBucket", ossBucket);
-		}
-	}
+	private String securityToken;
 
-	public String getAppName() {
-		return this.appName;
-	}
+	private String ossBucket;
 
-	public void setAppName(String appName) {
-		this.appName = appName;
-		if(appName != null){
-			putQueryParameter("AppName", appName);
-		}
-	}
+	private String domainName;
 
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
+	private Long ownerId;
 
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	public String getDomainName() {
-		return this.domainName;
-	}
-
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
-		if(domainName != null){
-			putQueryParameter("DomainName", domainName);
-		}
+	private Integer interval;
+	public UpdateLiveSnapshotDetectPornConfigRequest() {
+		super("live", "2016-11-01", "UpdateLiveSnapshotDetectPornConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getOssEndpoint() {
@@ -97,28 +60,6 @@ public class UpdateLiveSnapshotDetectPornConfigRequest extends RpcAcsRequest<Upd
 		this.ossEndpoint = ossEndpoint;
 		if(ossEndpoint != null){
 			putQueryParameter("OssEndpoint", ossEndpoint);
-		}
-	}
-
-	public Integer getInterval() {
-		return this.interval;
-	}
-
-	public void setInterval(Integer interval) {
-		this.interval = interval;
-		if(interval != null){
-			putQueryParameter("Interval", interval.toString());
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 
@@ -144,6 +85,72 @@ public class UpdateLiveSnapshotDetectPornConfigRequest extends RpcAcsRequest<Upd
 				putQueryParameter("Scene." + (i + 1) , scenes.get(i));
 			}
 		}	
+	}
+
+	public String getAppName() {
+		return this.appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
+		if(appName != null){
+			putQueryParameter("AppName", appName);
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getOssBucket() {
+		return this.ossBucket;
+	}
+
+	public void setOssBucket(String ossBucket) {
+		this.ossBucket = ossBucket;
+		if(ossBucket != null){
+			putQueryParameter("OssBucket", ossBucket);
+		}
+	}
+
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Integer getInterval() {
+		return this.interval;
+	}
+
+	public void setInterval(Integer interval) {
+		this.interval = interval;
+		if(interval != null){
+			putQueryParameter("Interval", interval.toString());
+		}
 	}
 
 	@Override

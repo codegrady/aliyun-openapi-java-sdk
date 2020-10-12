@@ -11,20 +11,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.sts.model.v20150401;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sts.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetCallerIdentityRequest extends RpcAcsRequest<GetCallerIdentityResponse> {
-	
+	   
 	public GetCallerIdentityRequest() {
-		super("Sts", "2015-04-01", "GetCallerIdentity");
+		super("Sts", "2015-04-01", "GetCallerIdentity", "sts");
 		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	@Override

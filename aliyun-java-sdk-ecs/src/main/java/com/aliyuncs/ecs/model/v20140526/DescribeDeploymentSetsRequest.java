@@ -15,40 +15,47 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDeploymentSetsRequest extends RpcAcsRequest<DescribeDeploymentSetsResponse> {
-	
-	public DescribeDeploymentSetsRequest() {
-		super("Ecs", "2014-05-26", "DescribeDeploymentSets", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
-	private String ownerAccount;
-
 	private String networkType;
-
-	private String deploymentSetName;
-
-	private Long ownerId;
 
 	private Integer pageNumber;
 
 	private String deploymentSetIds;
 
+	private Integer pageSize;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private String deploymentSetName;
+
+	private Long ownerId;
+
 	private String granularity;
 
 	private String domain;
 
-	private Integer pageSize;
-
 	private String strategy;
+	public DescribeDeploymentSetsRequest() {
+		super("Ecs", "2014-05-26", "DescribeDeploymentSets", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -61,28 +68,6 @@ public class DescribeDeploymentSetsRequest extends RpcAcsRequest<DescribeDeploym
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
 	public String getNetworkType() {
 		return this.networkType;
 	}
@@ -91,28 +76,6 @@ public class DescribeDeploymentSetsRequest extends RpcAcsRequest<DescribeDeploym
 		this.networkType = networkType;
 		if(networkType != null){
 			putQueryParameter("NetworkType", networkType);
-		}
-	}
-
-	public String getDeploymentSetName() {
-		return this.deploymentSetName;
-	}
-
-	public void setDeploymentSetName(String deploymentSetName) {
-		this.deploymentSetName = deploymentSetName;
-		if(deploymentSetName != null){
-			putQueryParameter("DeploymentSetName", deploymentSetName);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 
@@ -138,6 +101,61 @@ public class DescribeDeploymentSetsRequest extends RpcAcsRequest<DescribeDeploym
 		}
 	}
 
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public String getDeploymentSetName() {
+		return this.deploymentSetName;
+	}
+
+	public void setDeploymentSetName(String deploymentSetName) {
+		this.deploymentSetName = deploymentSetName;
+		if(deploymentSetName != null){
+			putQueryParameter("DeploymentSetName", deploymentSetName);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
 	public String getGranularity() {
 		return this.granularity;
 	}
@@ -157,17 +175,6 @@ public class DescribeDeploymentSetsRequest extends RpcAcsRequest<DescribeDeploym
 		this.domain = domain;
 		if(domain != null){
 			putQueryParameter("Domain", domain);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

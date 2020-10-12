@@ -19,21 +19,20 @@ import java.util.List;
 
 import com.aliyuncs.live.model.v20161101.DescribeLiveStreamHistoryUserNumResponse;
 import com.aliyuncs.live.model.v20161101.DescribeLiveStreamHistoryUserNumResponse.LiveStreamUserNumInfo;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeLiveStreamHistoryUserNumResponseUnmarshaller {
 
-	public static DescribeLiveStreamHistoryUserNumResponse unmarshall(DescribeLiveStreamHistoryUserNumResponse describeLiveStreamHistoryUserNumResponse, UnmarshallerContext context) {
+	public static DescribeLiveStreamHistoryUserNumResponse unmarshall(DescribeLiveStreamHistoryUserNumResponse describeLiveStreamHistoryUserNumResponse, UnmarshallerContext _ctx) {
 		
-		describeLiveStreamHistoryUserNumResponse.setRequestId(context.stringValue("DescribeLiveStreamHistoryUserNumResponse.RequestId"));
+		describeLiveStreamHistoryUserNumResponse.setRequestId(_ctx.stringValue("DescribeLiveStreamHistoryUserNumResponse.RequestId"));
 
 		List<LiveStreamUserNumInfo> liveStreamUserNumInfos = new ArrayList<LiveStreamUserNumInfo>();
-		for (int i = 0; i < context.lengthValue("DescribeLiveStreamHistoryUserNumResponse.LiveStreamUserNumInfos.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeLiveStreamHistoryUserNumResponse.LiveStreamUserNumInfos.Length"); i++) {
 			LiveStreamUserNumInfo liveStreamUserNumInfo = new LiveStreamUserNumInfo();
-			liveStreamUserNumInfo.setStreamTime(context.stringValue("DescribeLiveStreamHistoryUserNumResponse.LiveStreamUserNumInfos["+ i +"].StreamTime"));
-			liveStreamUserNumInfo.setUserNum(context.stringValue("DescribeLiveStreamHistoryUserNumResponse.LiveStreamUserNumInfos["+ i +"].UserNum"));
+			liveStreamUserNumInfo.setStreamTime(_ctx.stringValue("DescribeLiveStreamHistoryUserNumResponse.LiveStreamUserNumInfos["+ i +"].StreamTime"));
+			liveStreamUserNumInfo.setUserNum(_ctx.stringValue("DescribeLiveStreamHistoryUserNumResponse.LiveStreamUserNumInfos["+ i +"].UserNum"));
 
 			liveStreamUserNumInfos.add(liveStreamUserNumInfo);
 		}

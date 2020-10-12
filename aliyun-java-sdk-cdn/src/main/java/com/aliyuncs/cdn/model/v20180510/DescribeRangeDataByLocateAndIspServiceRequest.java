@@ -15,51 +15,34 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRangeDataByLocateAndIspServiceRequest extends RpcAcsRequest<DescribeRangeDataByLocateAndIspServiceResponse> {
-	
-	public DescribeRangeDataByLocateAndIspServiceRequest() {
-		super("Cdn", "2018-05-10", "DescribeRangeDataByLocateAndIspService");
-	}
-
-	private String ispNames;
-
-	private String securityToken;
+	   
 
 	private String domainNames;
 
 	private String locationNames;
 
-	private String endTime;
-
 	private String startTime;
 
+	private String ispNames;
+
+	private String endTime;
+
 	private Long ownerId;
-
-	public String getIspNames() {
-		return this.ispNames;
-	}
-
-	public void setIspNames(String ispNames) {
-		this.ispNames = ispNames;
-		if(ispNames != null){
-			putQueryParameter("IspNames", ispNames);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
+	public DescribeRangeDataByLocateAndIspServiceRequest() {
+		super("Cdn", "2018-05-10", "DescribeRangeDataByLocateAndIspService");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDomainNames() {
@@ -84,6 +67,28 @@ public class DescribeRangeDataByLocateAndIspServiceRequest extends RpcAcsRequest
 		}
 	}
 
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
+		}
+	}
+
+	public String getIspNames() {
+		return this.ispNames;
+	}
+
+	public void setIspNames(String ispNames) {
+		this.ispNames = ispNames;
+		if(ispNames != null){
+			putQueryParameter("IspNames", ispNames);
+		}
+	}
+
 	public String getEndTime() {
 		return this.endTime;
 	}
@@ -92,17 +97,6 @@ public class DescribeRangeDataByLocateAndIspServiceRequest extends RpcAcsRequest
 		this.endTime = endTime;
 		if(endTime != null){
 			putQueryParameter("EndTime", endTime);
-		}
-	}
-
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("startTime", startTime);
 		}
 	}
 

@@ -15,22 +15,19 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyVServerGroupBackendServersRequest extends RpcAcsRequest<ModifyVServerGroupBackendServersResponse> {
-	
-	public ModifyVServerGroupBackendServersRequest() {
-		super("Slb", "2014-05-15", "ModifyVServerGroupBackendServers", "slb");
-	}
-
-	private String vServerGroupId;
+	   
 
 	private Long resourceOwnerId;
 
-	private String oldBackendServers;
+	private String vServerGroupId;
 
 	private String resourceOwnerAccount;
 
@@ -40,17 +37,14 @@ public class ModifyVServerGroupBackendServersRequest extends RpcAcsRequest<Modif
 
 	private Long ownerId;
 
-	private String tags;
-
-	public String getVServerGroupId() {
-		return this.vServerGroupId;
-	}
-
-	public void setVServerGroupId(String vServerGroupId) {
-		this.vServerGroupId = vServerGroupId;
-		if(vServerGroupId != null){
-			putQueryParameter("VServerGroupId", vServerGroupId);
-		}
+	private String oldBackendServers;
+	public ModifyVServerGroupBackendServersRequest() {
+		super("Slb", "2014-05-15", "ModifyVServerGroupBackendServers", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -64,14 +58,14 @@ public class ModifyVServerGroupBackendServersRequest extends RpcAcsRequest<Modif
 		}
 	}
 
-	public String getOldBackendServers() {
-		return this.oldBackendServers;
+	public String getVServerGroupId() {
+		return this.vServerGroupId;
 	}
 
-	public void setOldBackendServers(String oldBackendServers) {
-		this.oldBackendServers = oldBackendServers;
-		if(oldBackendServers != null){
-			putQueryParameter("OldBackendServers", oldBackendServers);
+	public void setVServerGroupId(String vServerGroupId) {
+		this.vServerGroupId = vServerGroupId;
+		if(vServerGroupId != null){
+			putQueryParameter("VServerGroupId", vServerGroupId);
 		}
 	}
 
@@ -119,14 +113,14 @@ public class ModifyVServerGroupBackendServersRequest extends RpcAcsRequest<Modif
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getOldBackendServers() {
+		return this.oldBackendServers;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setOldBackendServers(String oldBackendServers) {
+		this.oldBackendServers = oldBackendServers;
+		if(oldBackendServers != null){
+			putQueryParameter("OldBackendServers", oldBackendServers);
 		}
 	}
 

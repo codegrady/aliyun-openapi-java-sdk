@@ -15,31 +15,40 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryPageByApplyIdRequest extends RpcAcsRequest<QueryPageByApplyIdResponse> {
-	
-	public QueryPageByApplyIdRequest() {
-		super("Iot", "2018-01-20", "QueryPageByApplyId");
-	}
+	   
 
-	private Long applyId;
+	private String iotInstanceId;
 
 	private Integer pageSize;
 
 	private Integer currentPage;
 
-	public Long getApplyId() {
-		return this.applyId;
+	private Long applyId;
+	public QueryPageByApplyIdRequest() {
+		super("Iot", "2018-01-20", "QueryPageByApplyId", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setApplyId(Long applyId) {
-		this.applyId = applyId;
-		if(applyId != null){
-			putQueryParameter("ApplyId", applyId.toString());
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -62,6 +71,17 @@ public class QueryPageByApplyIdRequest extends RpcAcsRequest<QueryPageByApplyIdR
 		this.currentPage = currentPage;
 		if(currentPage != null){
 			putQueryParameter("CurrentPage", currentPage.toString());
+		}
+	}
+
+	public Long getApplyId() {
+		return this.applyId;
+	}
+
+	public void setApplyId(Long applyId) {
+		this.applyId = applyId;
+		if(applyId != null){
+			putQueryParameter("ApplyId", applyId.toString());
 		}
 	}
 

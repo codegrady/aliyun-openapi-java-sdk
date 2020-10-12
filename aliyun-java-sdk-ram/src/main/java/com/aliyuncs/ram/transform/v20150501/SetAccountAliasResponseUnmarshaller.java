@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.SetAccountAliasResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SetAccountAliasResponseUnmarshaller {
 
-	public static SetAccountAliasResponse unmarshall(SetAccountAliasResponse setAccountAliasResponse, UnmarshallerContext context) {
+	public static SetAccountAliasResponse unmarshall(SetAccountAliasResponse setAccountAliasResponse, UnmarshallerContext _ctx) {
 		
-		setAccountAliasResponse.setRequestId(context.stringValue("SetAccountAliasResponse.RequestId"));
+		setAccountAliasResponse.setRequestId(_ctx.stringValue("SetAccountAliasResponse.RequestId"));
 	 
 	 	return setAccountAliasResponse;
 	}

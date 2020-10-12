@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.DeletePolicyResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeletePolicyResponseUnmarshaller {
 
-	public static DeletePolicyResponse unmarshall(DeletePolicyResponse deletePolicyResponse, UnmarshallerContext context) {
+	public static DeletePolicyResponse unmarshall(DeletePolicyResponse deletePolicyResponse, UnmarshallerContext _ctx) {
 		
-		deletePolicyResponse.setRequestId(context.stringValue("DeletePolicyResponse.RequestId"));
+		deletePolicyResponse.setRequestId(_ctx.stringValue("DeletePolicyResponse.RequestId"));
 	 
 	 	return deletePolicyResponse;
 	}

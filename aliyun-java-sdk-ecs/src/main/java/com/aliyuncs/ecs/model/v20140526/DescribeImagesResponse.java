@@ -93,6 +93,8 @@ public class DescribeImagesResponse extends AcsResponse {
 
 		private String imageName;
 
+		private String imageFamily;
+
 		private String imageVersion;
 
 		private String description;
@@ -106,6 +108,8 @@ public class DescribeImagesResponse extends AcsResponse {
 		private Boolean isSupportCloudinit;
 
 		private String oSName;
+
+		private String oSNameEn;
 
 		private String architecture;
 
@@ -155,6 +159,14 @@ public class DescribeImagesResponse extends AcsResponse {
 
 		public void setImageName(String imageName) {
 			this.imageName = imageName;
+		}
+
+		public String getImageFamily() {
+			return this.imageFamily;
+		}
+
+		public void setImageFamily(String imageFamily) {
+			this.imageFamily = imageFamily;
 		}
 
 		public String getImageVersion() {
@@ -211,6 +223,14 @@ public class DescribeImagesResponse extends AcsResponse {
 
 		public void setOSName(String oSName) {
 			this.oSName = oSName;
+		}
+
+		public String getOSNameEn() {
+			return this.oSNameEn;
+		}
+
+		public void setOSNameEn(String oSNameEn) {
+			this.oSNameEn = oSNameEn;
 		}
 
 		public String getArchitecture() {
@@ -333,6 +353,10 @@ public class DescribeImagesResponse extends AcsResponse {
 
 			private String importOSSObject;
 
+			private String progress;
+
+			private Integer remainTime;
+
 			public String getSnapshotId() {
 				return this.snapshotId;
 			}
@@ -387,6 +411,22 @@ public class DescribeImagesResponse extends AcsResponse {
 
 			public void setImportOSSObject(String importOSSObject) {
 				this.importOSSObject = importOSSObject;
+			}
+
+			public String getProgress() {
+				return this.progress;
+			}
+
+			public void setProgress(String progress) {
+				this.progress = progress;
+			}
+
+			public Integer getRemainTime() {
+				return this.remainTime;
+			}
+
+			public void setRemainTime(Integer remainTime) {
+				this.remainTime = remainTime;
 			}
 		}
 

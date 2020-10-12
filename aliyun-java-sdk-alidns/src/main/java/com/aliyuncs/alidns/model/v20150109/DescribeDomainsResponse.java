@@ -1,21 +1,17 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package com.aliyuncs.alidns.model.v20150109;
 
 import java.util.List;
@@ -89,7 +85,11 @@ public class DescribeDomainsResponse extends AcsResponse {
 
 		private Boolean aliDomain;
 
+		private Long recordCount;
+
 		private String registrantEmail;
+
+		private String remark;
 
 		private String groupId;
 
@@ -100,6 +100,20 @@ public class DescribeDomainsResponse extends AcsResponse {
 		private String versionCode;
 
 		private String versionName;
+
+		private String instanceEndTime;
+
+		private Boolean instanceExpired;
+
+		private Boolean starmark;
+
+		private String createTime;
+
+		private Long createTimestamp;
+
+		private String resourceGroupId;
+
+		private List<Tag> tags;
 
 		private List<String> dnsServers;
 
@@ -135,12 +149,28 @@ public class DescribeDomainsResponse extends AcsResponse {
 			this.aliDomain = aliDomain;
 		}
 
+		public Long getRecordCount() {
+			return this.recordCount;
+		}
+
+		public void setRecordCount(Long recordCount) {
+			this.recordCount = recordCount;
+		}
+
 		public String getRegistrantEmail() {
 			return this.registrantEmail;
 		}
 
 		public void setRegistrantEmail(String registrantEmail) {
 			this.registrantEmail = registrantEmail;
+		}
+
+		public String getRemark() {
+			return this.remark;
+		}
+
+		public void setRemark(String remark) {
+			this.remark = remark;
 		}
 
 		public String getGroupId() {
@@ -183,12 +213,91 @@ public class DescribeDomainsResponse extends AcsResponse {
 			this.versionName = versionName;
 		}
 
+		public String getInstanceEndTime() {
+			return this.instanceEndTime;
+		}
+
+		public void setInstanceEndTime(String instanceEndTime) {
+			this.instanceEndTime = instanceEndTime;
+		}
+
+		public Boolean getInstanceExpired() {
+			return this.instanceExpired;
+		}
+
+		public void setInstanceExpired(Boolean instanceExpired) {
+			this.instanceExpired = instanceExpired;
+		}
+
+		public Boolean getStarmark() {
+			return this.starmark;
+		}
+
+		public void setStarmark(Boolean starmark) {
+			this.starmark = starmark;
+		}
+
+		public String getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(String createTime) {
+			this.createTime = createTime;
+		}
+
+		public Long getCreateTimestamp() {
+			return this.createTimestamp;
+		}
+
+		public void setCreateTimestamp(Long createTimestamp) {
+			this.createTimestamp = createTimestamp;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
 		public List<String> getDnsServers() {
 			return this.dnsServers;
 		}
 
 		public void setDnsServers(List<String> dnsServers) {
 			this.dnsServers = dnsServers;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

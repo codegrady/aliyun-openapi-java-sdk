@@ -42,6 +42,7 @@ public class ChatResponseUnmarshaller {
 			Text text = new Text();
 			text.setContent(context.stringValue("ChatResponse.Messages["+ i +"].Text.Content"));
 			text.setAnswerSource(context.stringValue("ChatResponse.Messages["+ i +"].Text.AnswerSource"));
+			text.setMetaData(context.stringValue("ChatResponse.Messages["+ i +"].Text.MetaData"));
 			message.setText(text);
 
 			Knowledge knowledge = new Knowledge();

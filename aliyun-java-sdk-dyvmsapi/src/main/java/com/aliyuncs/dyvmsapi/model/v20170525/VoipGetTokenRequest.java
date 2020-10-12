@@ -15,16 +15,14 @@
 package com.aliyuncs.dyvmsapi.model.v20170525;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class VoipGetTokenRequest extends RpcAcsRequest<VoipGetTokenResponse> {
-	
-	public VoipGetTokenRequest() {
-		super("Dyvmsapi", "2017-05-25", "VoipGetToken");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -35,6 +33,12 @@ public class VoipGetTokenRequest extends RpcAcsRequest<VoipGetTokenResponse> {
 	private Long ownerId;
 
 	private String deviceId;
+
+	private Boolean isCustomAccount;
+	public VoipGetTokenRequest() {
+		super("Dyvmsapi", "2017-05-25", "VoipGetToken", "dyvms");
+		setMethod(MethodType.POST);
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -88,6 +92,17 @@ public class VoipGetTokenRequest extends RpcAcsRequest<VoipGetTokenResponse> {
 		this.deviceId = deviceId;
 		if(deviceId != null){
 			putQueryParameter("DeviceId", deviceId);
+		}
+	}
+
+	public Boolean getIsCustomAccount() {
+		return this.isCustomAccount;
+	}
+
+	public void setIsCustomAccount(Boolean isCustomAccount) {
+		this.isCustomAccount = isCustomAccount;
+		if(isCustomAccount != null){
+			putQueryParameter("IsCustomAccount", isCustomAccount.toString());
 		}
 	}
 

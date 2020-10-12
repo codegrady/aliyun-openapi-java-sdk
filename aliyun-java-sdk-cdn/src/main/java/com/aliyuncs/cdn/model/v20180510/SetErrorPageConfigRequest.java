@@ -15,16 +15,15 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetErrorPageConfigRequest extends RpcAcsRequest<SetErrorPageConfigResponse> {
-	
-	public SetErrorPageConfigRequest() {
-		super("Cdn", "2018-05-10", "SetErrorPageConfig");
-	}
+	   
 
 	private String pageType;
 
@@ -35,6 +34,14 @@ public class SetErrorPageConfigRequest extends RpcAcsRequest<SetErrorPageConfigR
 	private String customPageUrl;
 
 	private Long ownerId;
+	public SetErrorPageConfigRequest() {
+		super("Cdn", "2018-05-10", "SetErrorPageConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getPageType() {
 		return this.pageType;

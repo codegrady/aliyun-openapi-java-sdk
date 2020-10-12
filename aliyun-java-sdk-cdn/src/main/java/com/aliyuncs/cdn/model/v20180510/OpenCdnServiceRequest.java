@@ -15,22 +15,40 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class OpenCdnServiceRequest extends RpcAcsRequest<OpenCdnServiceResponse> {
-	
-	public OpenCdnServiceRequest() {
-		super("Cdn", "2018-05-10", "OpenCdnService");
-	}
+	   
+
+	private Long ownerId;
 
 	private String securityToken;
 
 	private String internetChargeType;
+	public OpenCdnServiceRequest() {
+		super("Cdn", "2018-05-10", "OpenCdnService");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Long ownerId;
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
 
 	public String getSecurityToken() {
 		return this.securityToken;
@@ -51,17 +69,6 @@ public class OpenCdnServiceRequest extends RpcAcsRequest<OpenCdnServiceResponse>
 		this.internetChargeType = internetChargeType;
 		if(internetChargeType != null){
 			putQueryParameter("InternetChargeType", internetChargeType);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 

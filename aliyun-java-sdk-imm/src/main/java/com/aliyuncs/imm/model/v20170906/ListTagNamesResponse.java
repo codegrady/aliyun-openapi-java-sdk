@@ -27,6 +27,8 @@ public class ListTagNamesResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String nextMarker;
+
 	private List<TagsItem> tags;
 
 	public String getRequestId() {
@@ -35,6 +37,14 @@ public class ListTagNamesResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getNextMarker() {
+		return this.nextMarker;
+	}
+
+	public void setNextMarker(String nextMarker) {
+		this.nextMarker = nextMarker;
 	}
 
 	public List<TagsItem> getTags() {

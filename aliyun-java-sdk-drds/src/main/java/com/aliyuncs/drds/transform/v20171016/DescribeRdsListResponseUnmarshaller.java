@@ -25,32 +25,32 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeRdsListResponseUnmarshaller {
 
-	public static DescribeRdsListResponse unmarshall(DescribeRdsListResponse describeRdsListResponse, UnmarshallerContext context) {
+	public static DescribeRdsListResponse unmarshall(DescribeRdsListResponse describeRdsListResponse, UnmarshallerContext _ctx) {
 		
-		describeRdsListResponse.setRequestId(context.stringValue("DescribeRdsListResponse.RequestId"));
-		describeRdsListResponse.setSuccess(context.booleanValue("DescribeRdsListResponse.Success"));
+		describeRdsListResponse.setRequestId(_ctx.stringValue("DescribeRdsListResponse.RequestId"));
+		describeRdsListResponse.setSuccess(_ctx.booleanValue("DescribeRdsListResponse.Success"));
 
 		List<RdsInstance> data = new ArrayList<RdsInstance>();
-		for (int i = 0; i < context.lengthValue("DescribeRdsListResponse.Data.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeRdsListResponse.Data.Length"); i++) {
 			RdsInstance rdsInstance = new RdsInstance();
-			rdsInstance.setInstanceId(context.integerValue("DescribeRdsListResponse.Data["+ i +"].InstanceId"));
-			rdsInstance.setInstanceName(context.stringValue("DescribeRdsListResponse.Data["+ i +"].InstanceName"));
-			rdsInstance.setConnectUrl(context.stringValue("DescribeRdsListResponse.Data["+ i +"].ConnectUrl"));
-			rdsInstance.setPort(context.integerValue("DescribeRdsListResponse.Data["+ i +"].Port"));
-			rdsInstance.setInstanceStatus(context.stringValue("DescribeRdsListResponse.Data["+ i +"].InstanceStatus"));
-			rdsInstance.setDbType(context.stringValue("DescribeRdsListResponse.Data["+ i +"].DbType"));
-			rdsInstance.setReadWeight(context.integerValue("DescribeRdsListResponse.Data["+ i +"].ReadWeight"));
+			rdsInstance.setInstanceId(_ctx.integerValue("DescribeRdsListResponse.Data["+ i +"].InstanceId"));
+			rdsInstance.setInstanceName(_ctx.stringValue("DescribeRdsListResponse.Data["+ i +"].InstanceName"));
+			rdsInstance.setConnectUrl(_ctx.stringValue("DescribeRdsListResponse.Data["+ i +"].ConnectUrl"));
+			rdsInstance.setPort(_ctx.integerValue("DescribeRdsListResponse.Data["+ i +"].Port"));
+			rdsInstance.setInstanceStatus(_ctx.stringValue("DescribeRdsListResponse.Data["+ i +"].InstanceStatus"));
+			rdsInstance.setDbType(_ctx.stringValue("DescribeRdsListResponse.Data["+ i +"].DbType"));
+			rdsInstance.setReadWeight(_ctx.integerValue("DescribeRdsListResponse.Data["+ i +"].ReadWeight"));
 
 			List<Child> readOnlyChildren = new ArrayList<Child>();
-			for (int j = 0; j < context.lengthValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren.Length"); j++) {
+			for (int j = 0; j < _ctx.lengthValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren.Length"); j++) {
 				Child child = new Child();
-				child.setInstanceId(context.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].InstanceId"));
-				child.setInstanceName(context.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].InstanceName"));
-				child.setConnectUrl(context.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].ConnectUrl"));
-				child.setPort(context.integerValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].port"));
-				child.setInstanceStatus(context.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].InstanceStatus"));
-				child.setDbType(context.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].DbType"));
-				child.setReadWeight(context.integerValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].ReadWeight"));
+				child.setInstanceId(_ctx.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].InstanceId"));
+				child.setInstanceName(_ctx.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].InstanceName"));
+				child.setConnectUrl(_ctx.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].ConnectUrl"));
+				child.setPort(_ctx.integerValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].port"));
+				child.setInstanceStatus(_ctx.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].InstanceStatus"));
+				child.setDbType(_ctx.stringValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].DbType"));
+				child.setReadWeight(_ctx.integerValue("DescribeRdsListResponse.Data["+ i +"].ReadOnlyChildren["+ j +"].ReadWeight"));
 
 				readOnlyChildren.add(child);
 			}

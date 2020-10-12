@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.transform.v20150109;
 
 import com.aliyuncs.alidns.model.v20150109.DeleteDomainGroupResponse;
@@ -19,10 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteDomainGroupResponseUnmarshaller {
 
-	public static DeleteDomainGroupResponse unmarshall(DeleteDomainGroupResponse deleteDomainGroupResponse, UnmarshallerContext context) {
+	public static DeleteDomainGroupResponse unmarshall(DeleteDomainGroupResponse deleteDomainGroupResponse, UnmarshallerContext _ctx) {
 		
-		deleteDomainGroupResponse.setRequestId(context.stringValue("DeleteDomainGroupResponse.RequestId"));
-		deleteDomainGroupResponse.setGroupName(context.stringValue("DeleteDomainGroupResponse.GroupName"));
+		deleteDomainGroupResponse.setRequestId(_ctx.stringValue("DeleteDomainGroupResponse.RequestId"));
+		deleteDomainGroupResponse.setGroupName(_ctx.stringValue("DeleteDomainGroupResponse.GroupName"));
 	 
 	 	return deleteDomainGroupResponse;
 	}

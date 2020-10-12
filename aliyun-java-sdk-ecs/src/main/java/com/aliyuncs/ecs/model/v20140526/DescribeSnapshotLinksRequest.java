@@ -15,34 +15,41 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeSnapshotLinksRequest extends RpcAcsRequest<DescribeSnapshotLinksResponse> {
-	
-	public DescribeSnapshotLinksRequest() {
-		super("Ecs", "2014-05-26", "DescribeSnapshotLinks", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
-
-	private String resourceOwnerAccount;
-
-	private String ownerAccount;
+	private Integer pageNumber;
 
 	private Integer pageSize;
 
 	private String diskIds;
 
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
 	private String snapshotLinkIds;
 
 	private Long ownerId;
 
-	private Integer pageNumber;
+	private String instanceId;
+	public DescribeSnapshotLinksRequest() {
+		super("Ecs", "2014-05-26", "DescribeSnapshotLinks", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -55,36 +62,14 @@ public class DescribeSnapshotLinksRequest extends RpcAcsRequest<DescribeSnapshot
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
+	public Integer getPageNumber() {
+		return this.pageNumber;
 	}
 
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -110,6 +95,28 @@ public class DescribeSnapshotLinksRequest extends RpcAcsRequest<DescribeSnapshot
 		}
 	}
 
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
 	public String getSnapshotLinkIds() {
 		return this.snapshotLinkIds;
 	}
@@ -132,14 +139,14 @@ public class DescribeSnapshotLinksRequest extends RpcAcsRequest<DescribeSnapshot
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public String getInstanceId() {
+		return this.instanceId;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

@@ -15,33 +15,38 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyFlowProjectRequest extends RpcAcsRequest<ModifyFlowProjectResponse> {
-	
-	public ModifyFlowProjectRequest() {
-		super("Emr", "2016-04-08", "ModifyFlowProject");
-	}
-
-	private Long resourceOwnerId;
-
-	private String name;
+	   
 
 	private String description;
 
-	private String projectId;
+	private String name;
 
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
+	private String projectId;
+	public ModifyFlowProjectRequest() {
+		super("Emr", "2016-04-08", "ModifyFlowProject");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
 		}
 	}
 
@@ -53,17 +58,6 @@ public class ModifyFlowProjectRequest extends RpcAcsRequest<ModifyFlowProjectRes
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
-		}
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
 		}
 	}
 

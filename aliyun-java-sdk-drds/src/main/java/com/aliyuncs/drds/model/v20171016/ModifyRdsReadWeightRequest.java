@@ -15,45 +15,30 @@
 package com.aliyuncs.drds.model.v20171016;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.drds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyRdsReadWeightRequest extends RpcAcsRequest<ModifyRdsReadWeightResponse> {
-	
-	public ModifyRdsReadWeightRequest() {
-		super("Drds", "2017-10-16", "ModifyRdsReadWeight", "Drds");
-	}
-
-	private String instanceNames;
-
-	private String dbName;
+	   
 
 	private String weights;
 
 	private String drdsInstanceId;
 
-	public String getInstanceNames() {
-		return this.instanceNames;
-	}
+	private String instanceNames;
 
-	public void setInstanceNames(String instanceNames) {
-		this.instanceNames = instanceNames;
-		if(instanceNames != null){
-			putQueryParameter("InstanceNames", instanceNames);
-		}
-	}
-
-	public String getDbName() {
-		return this.dbName;
-	}
-
-	public void setDbName(String dbName) {
-		this.dbName = dbName;
-		if(dbName != null){
-			putQueryParameter("DbName", dbName);
-		}
+	private String dbName;
+	public ModifyRdsReadWeightRequest() {
+		super("Drds", "2017-10-16", "ModifyRdsReadWeight", "Drds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getWeights() {
@@ -75,6 +60,28 @@ public class ModifyRdsReadWeightRequest extends RpcAcsRequest<ModifyRdsReadWeigh
 		this.drdsInstanceId = drdsInstanceId;
 		if(drdsInstanceId != null){
 			putQueryParameter("DrdsInstanceId", drdsInstanceId);
+		}
+	}
+
+	public String getInstanceNames() {
+		return this.instanceNames;
+	}
+
+	public void setInstanceNames(String instanceNames) {
+		this.instanceNames = instanceNames;
+		if(instanceNames != null){
+			putQueryParameter("InstanceNames", instanceNames);
+		}
+	}
+
+	public String getDbName() {
+		return this.dbName;
+	}
+
+	public void setDbName(String dbName) {
+		this.dbName = dbName;
+		if(dbName != null){
+			putQueryParameter("DbName", dbName);
 		}
 	}
 

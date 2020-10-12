@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.aegis.model.v20161111;
 
 import com.aliyuncs.AcsResponse;
@@ -25,32 +26,12 @@ public class ModifyBatchIgnoreVulResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Boolean success;
-
-	private Integer httpStatusCode;
-
 	public String getRequestId() {
 		return this.requestId;
 	}
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
-	}
-
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
 	}
 
 	@Override

@@ -15,18 +15,81 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RecoverClusterRequest extends RpcAcsRequest<RecoverClusterResponse> {
-	
-	public RecoverClusterRequest() {
-		super("EHPC", "2018-04-12", "RecoverCluster", "ehs");
-	}
+	   
+
+	private String imageId;
+
+	private String osTag;
+
+	private String clientVersion;
+
+	private String accountType;
 
 	private String clusterId;
+
+	private String imageOwnerAlias;
+
+	private String schedulerType;
+	public RecoverClusterRequest() {
+		super("EHPC", "2018-04-12", "RecoverCluster");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getImageId() {
+		return this.imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+		if(imageId != null){
+			putQueryParameter("ImageId", imageId);
+		}
+	}
+
+	public String getOsTag() {
+		return this.osTag;
+	}
+
+	public void setOsTag(String osTag) {
+		this.osTag = osTag;
+		if(osTag != null){
+			putQueryParameter("OsTag", osTag);
+		}
+	}
+
+	public String getClientVersion() {
+		return this.clientVersion;
+	}
+
+	public void setClientVersion(String clientVersion) {
+		this.clientVersion = clientVersion;
+		if(clientVersion != null){
+			putQueryParameter("ClientVersion", clientVersion);
+		}
+	}
+
+	public String getAccountType() {
+		return this.accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+		if(accountType != null){
+			putQueryParameter("AccountType", accountType);
+		}
+	}
 
 	public String getClusterId() {
 		return this.clusterId;
@@ -36,6 +99,28 @@ public class RecoverClusterRequest extends RpcAcsRequest<RecoverClusterResponse>
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getImageOwnerAlias() {
+		return this.imageOwnerAlias;
+	}
+
+	public void setImageOwnerAlias(String imageOwnerAlias) {
+		this.imageOwnerAlias = imageOwnerAlias;
+		if(imageOwnerAlias != null){
+			putQueryParameter("ImageOwnerAlias", imageOwnerAlias);
+		}
+	}
+
+	public String getSchedulerType() {
+		return this.schedulerType;
+	}
+
+	public void setSchedulerType(String schedulerType) {
+		this.schedulerType = schedulerType;
+		if(schedulerType != null){
+			putQueryParameter("SchedulerType", schedulerType);
 		}
 	}
 

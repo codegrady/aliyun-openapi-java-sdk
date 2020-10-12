@@ -15,28 +15,35 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyScheduledTaskRequest extends RpcAcsRequest<ModifyScheduledTaskResponse> {
-	
-	public ModifyScheduledTaskRequest() {
-		super("Ess", "2014-08-28", "ModifyScheduledTask", "ess");
-	}
-
-	private String launchTime;
+	   
 
 	private Long resourceOwnerId;
 
 	private String scheduledAction;
 
+	private Integer maxValue;
+
+	private String scalingGroupId;
+
+	private String description;
+
+	private String recurrenceEndTime;
+
+	private String launchTime;
+
+	private Integer desiredCapacity;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
-
-	private String description;
 
 	private Long ownerId;
 
@@ -44,7 +51,7 @@ public class ModifyScheduledTaskRequest extends RpcAcsRequest<ModifyScheduledTas
 
 	private Integer launchExpirationTime;
 
-	private String recurrenceEndTime;
+	private Integer minValue;
 
 	private String scheduledTaskName;
 
@@ -53,16 +60,13 @@ public class ModifyScheduledTaskRequest extends RpcAcsRequest<ModifyScheduledTas
 	private String scheduledTaskId;
 
 	private String recurrenceType;
-
-	public String getLaunchTime() {
-		return this.launchTime;
-	}
-
-	public void setLaunchTime(String launchTime) {
-		this.launchTime = launchTime;
-		if(launchTime != null){
-			putQueryParameter("LaunchTime", launchTime);
-		}
+	public ModifyScheduledTaskRequest() {
+		super("Ess", "2014-08-28", "ModifyScheduledTask", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -87,6 +91,72 @@ public class ModifyScheduledTaskRequest extends RpcAcsRequest<ModifyScheduledTas
 		}
 	}
 
+	public Integer getMaxValue() {
+		return this.maxValue;
+	}
+
+	public void setMaxValue(Integer maxValue) {
+		this.maxValue = maxValue;
+		if(maxValue != null){
+			putQueryParameter("MaxValue", maxValue.toString());
+		}
+	}
+
+	public String getScalingGroupId() {
+		return this.scalingGroupId;
+	}
+
+	public void setScalingGroupId(String scalingGroupId) {
+		this.scalingGroupId = scalingGroupId;
+		if(scalingGroupId != null){
+			putQueryParameter("ScalingGroupId", scalingGroupId);
+		}
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getRecurrenceEndTime() {
+		return this.recurrenceEndTime;
+	}
+
+	public void setRecurrenceEndTime(String recurrenceEndTime) {
+		this.recurrenceEndTime = recurrenceEndTime;
+		if(recurrenceEndTime != null){
+			putQueryParameter("RecurrenceEndTime", recurrenceEndTime);
+		}
+	}
+
+	public String getLaunchTime() {
+		return this.launchTime;
+	}
+
+	public void setLaunchTime(String launchTime) {
+		this.launchTime = launchTime;
+		if(launchTime != null){
+			putQueryParameter("LaunchTime", launchTime);
+		}
+	}
+
+	public Integer getDesiredCapacity() {
+		return this.desiredCapacity;
+	}
+
+	public void setDesiredCapacity(Integer desiredCapacity) {
+		this.desiredCapacity = desiredCapacity;
+		if(desiredCapacity != null){
+			putQueryParameter("DesiredCapacity", desiredCapacity.toString());
+		}
+	}
+
 	public String getResourceOwnerAccount() {
 		return this.resourceOwnerAccount;
 	}
@@ -106,17 +176,6 @@ public class ModifyScheduledTaskRequest extends RpcAcsRequest<ModifyScheduledTas
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
 		}
 	}
 
@@ -153,14 +212,14 @@ public class ModifyScheduledTaskRequest extends RpcAcsRequest<ModifyScheduledTas
 		}
 	}
 
-	public String getRecurrenceEndTime() {
-		return this.recurrenceEndTime;
+	public Integer getMinValue() {
+		return this.minValue;
 	}
 
-	public void setRecurrenceEndTime(String recurrenceEndTime) {
-		this.recurrenceEndTime = recurrenceEndTime;
-		if(recurrenceEndTime != null){
-			putQueryParameter("RecurrenceEndTime", recurrenceEndTime);
+	public void setMinValue(Integer minValue) {
+		this.minValue = minValue;
+		if(minValue != null){
+			putQueryParameter("MinValue", minValue.toString());
 		}
 	}
 

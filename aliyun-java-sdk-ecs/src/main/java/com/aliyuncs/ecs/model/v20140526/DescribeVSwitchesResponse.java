@@ -97,6 +97,8 @@ public class DescribeVSwitchesResponse extends AcsResponse {
 
 		private Boolean isDefault;
 
+		private String resourceGroupId;
+
 		public String getVSwitchId() {
 			return this.vSwitchId;
 		}
@@ -175,6 +177,14 @@ public class DescribeVSwitchesResponse extends AcsResponse {
 
 		public void setIsDefault(Boolean isDefault) {
 			this.isDefault = isDefault;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 	}
 

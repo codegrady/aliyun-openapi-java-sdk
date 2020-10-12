@@ -15,24 +15,21 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddListenerWhiteListItemRequest extends RpcAcsRequest<AddListenerWhiteListItemResponse> {
-	
-	public AddListenerWhiteListItemRequest() {
-		super("Slb", "2014-05-15", "AddListenerWhiteListItem", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private Integer listenerPort;
-
-	private String loadBalancerId;
-
 	private String sourceItems;
+
+	private Integer listenerPort;
 
 	private String resourceOwnerAccount;
 
@@ -40,7 +37,17 @@ public class AddListenerWhiteListItemRequest extends RpcAcsRequest<AddListenerWh
 
 	private Long ownerId;
 
-	private String tags;
+	private String listenerProtocol;
+
+	private String loadBalancerId;
+	public AddListenerWhiteListItemRequest() {
+		super("Slb", "2014-05-15", "AddListenerWhiteListItem", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -53,28 +60,6 @@ public class AddListenerWhiteListItemRequest extends RpcAcsRequest<AddListenerWh
 		}
 	}
 
-	public Integer getListenerPort() {
-		return this.listenerPort;
-	}
-
-	public void setListenerPort(Integer listenerPort) {
-		this.listenerPort = listenerPort;
-		if(listenerPort != null){
-			putQueryParameter("ListenerPort", listenerPort.toString());
-		}
-	}
-
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
-	}
-
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
-		}
-	}
-
 	public String getSourceItems() {
 		return this.sourceItems;
 	}
@@ -83,6 +68,17 @@ public class AddListenerWhiteListItemRequest extends RpcAcsRequest<AddListenerWh
 		this.sourceItems = sourceItems;
 		if(sourceItems != null){
 			putQueryParameter("SourceItems", sourceItems);
+		}
+	}
+
+	public Integer getListenerPort() {
+		return this.listenerPort;
+	}
+
+	public void setListenerPort(Integer listenerPort) {
+		this.listenerPort = listenerPort;
+		if(listenerPort != null){
+			putQueryParameter("ListenerPort", listenerPort.toString());
 		}
 	}
 
@@ -119,14 +115,25 @@ public class AddListenerWhiteListItemRequest extends RpcAcsRequest<AddListenerWh
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getListenerProtocol() {
+		return this.listenerProtocol;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setListenerProtocol(String listenerProtocol) {
+		this.listenerProtocol = listenerProtocol;
+		if(listenerProtocol != null){
+			putQueryParameter("ListenerProtocol", listenerProtocol);
+		}
+	}
+
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
+	}
+
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 

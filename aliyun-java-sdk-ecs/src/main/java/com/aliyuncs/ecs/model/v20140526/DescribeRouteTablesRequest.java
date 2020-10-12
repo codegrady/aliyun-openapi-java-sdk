@@ -15,20 +15,27 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRouteTablesRequest extends RpcAcsRequest<DescribeRouteTablesResponse> {
-	
-	public DescribeRouteTablesRequest() {
-		super("Ecs", "2014-05-26", "DescribeRouteTables", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String vRouterId;
+
+	private Integer pageNumber;
+
+	private String routeTableName;
+
+	private Integer pageSize;
+
+	private String routeTableId;
 
 	private String resourceOwnerAccount;
 
@@ -36,17 +43,17 @@ public class DescribeRouteTablesRequest extends RpcAcsRequest<DescribeRouteTable
 
 	private Long ownerId;
 
-	private Integer pageNumber;
-
 	private String routerType;
 
-	private String routeTableName;
-
 	private String routerId;
-
-	private Integer pageSize;
-
-	private String routeTableId;
+	public DescribeRouteTablesRequest() {
+		super("Ecs", "2014-05-26", "DescribeRouteTables", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -67,6 +74,50 @@ public class DescribeRouteTablesRequest extends RpcAcsRequest<DescribeRouteTable
 		this.vRouterId = vRouterId;
 		if(vRouterId != null){
 			putQueryParameter("VRouterId", vRouterId);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getRouteTableName() {
+		return this.routeTableName;
+	}
+
+	public void setRouteTableName(String routeTableName) {
+		this.routeTableName = routeTableName;
+		if(routeTableName != null){
+			putQueryParameter("RouteTableName", routeTableName);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getRouteTableId() {
+		return this.routeTableId;
+	}
+
+	public void setRouteTableId(String routeTableId) {
+		this.routeTableId = routeTableId;
+		if(routeTableId != null){
+			putQueryParameter("RouteTableId", routeTableId);
 		}
 	}
 
@@ -103,17 +154,6 @@ public class DescribeRouteTablesRequest extends RpcAcsRequest<DescribeRouteTable
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
-		}
-	}
-
 	public String getRouterType() {
 		return this.routerType;
 	}
@@ -125,17 +165,6 @@ public class DescribeRouteTablesRequest extends RpcAcsRequest<DescribeRouteTable
 		}
 	}
 
-	public String getRouteTableName() {
-		return this.routeTableName;
-	}
-
-	public void setRouteTableName(String routeTableName) {
-		this.routeTableName = routeTableName;
-		if(routeTableName != null){
-			putQueryParameter("RouteTableName", routeTableName);
-		}
-	}
-
 	public String getRouterId() {
 		return this.routerId;
 	}
@@ -144,28 +173,6 @@ public class DescribeRouteTablesRequest extends RpcAcsRequest<DescribeRouteTable
 		this.routerId = routerId;
 		if(routerId != null){
 			putQueryParameter("RouterId", routerId);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
-	public String getRouteTableId() {
-		return this.routeTableId;
-	}
-
-	public void setRouteTableId(String routeTableId) {
-		this.routeTableId = routeTableId;
-		if(routeTableId != null){
-			putQueryParameter("RouteTableId", routeTableId);
 		}
 	}
 

@@ -15,18 +15,19 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeVpnGatewayRequest extends RpcAcsRequest<DescribeVpnGatewayResponse> {
-	
-	public DescribeVpnGatewayRequest() {
-		super("Vpc", "2016-04-28", "DescribeVpnGateway", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private Boolean includeReservationData;
 
 	private String resourceOwnerAccount;
 
@@ -35,6 +36,14 @@ public class DescribeVpnGatewayRequest extends RpcAcsRequest<DescribeVpnGatewayR
 	private String vpnGatewayId;
 
 	private Long ownerId;
+	public DescribeVpnGatewayRequest() {
+		super("Vpc", "2016-04-28", "DescribeVpnGateway", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -44,6 +53,17 @@ public class DescribeVpnGatewayRequest extends RpcAcsRequest<DescribeVpnGatewayR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getIncludeReservationData() {
+		return this.includeReservationData;
+	}
+
+	public void setIncludeReservationData(Boolean includeReservationData) {
+		this.includeReservationData = includeReservationData;
+		if(includeReservationData != null){
+			putQueryParameter("IncludeReservationData", includeReservationData.toString());
 		}
 	}
 

@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.sts.transform.v20150401;
 
 import com.aliyuncs.sts.model.v20150401.AssumeRoleResponse;
@@ -21,20 +22,20 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class AssumeRoleResponseUnmarshaller {
 
-	public static AssumeRoleResponse unmarshall(AssumeRoleResponse assumeRoleResponse, UnmarshallerContext context) {
+	public static AssumeRoleResponse unmarshall(AssumeRoleResponse assumeRoleResponse, UnmarshallerContext _ctx) {
 		
-		assumeRoleResponse.setRequestId(context.stringValue("AssumeRoleResponse.RequestId"));
+		assumeRoleResponse.setRequestId(_ctx.stringValue("AssumeRoleResponse.RequestId"));
 
 		Credentials credentials = new Credentials();
-		credentials.setSecurityToken(context.stringValue("AssumeRoleResponse.Credentials.SecurityToken"));
-		credentials.setAccessKeySecret(context.stringValue("AssumeRoleResponse.Credentials.AccessKeySecret"));
-		credentials.setAccessKeyId(context.stringValue("AssumeRoleResponse.Credentials.AccessKeyId"));
-		credentials.setExpiration(context.stringValue("AssumeRoleResponse.Credentials.Expiration"));
+		credentials.setSecurityToken(_ctx.stringValue("AssumeRoleResponse.Credentials.SecurityToken"));
+		credentials.setAccessKeySecret(_ctx.stringValue("AssumeRoleResponse.Credentials.AccessKeySecret"));
+		credentials.setAccessKeyId(_ctx.stringValue("AssumeRoleResponse.Credentials.AccessKeyId"));
+		credentials.setExpiration(_ctx.stringValue("AssumeRoleResponse.Credentials.Expiration"));
 		assumeRoleResponse.setCredentials(credentials);
 
 		AssumedRoleUser assumedRoleUser = new AssumedRoleUser();
-		assumedRoleUser.setArn(context.stringValue("AssumeRoleResponse.AssumedRoleUser.Arn"));
-		assumedRoleUser.setAssumedRoleId(context.stringValue("AssumeRoleResponse.AssumedRoleUser.AssumedRoleId"));
+		assumedRoleUser.setArn(_ctx.stringValue("AssumeRoleResponse.AssumedRoleUser.Arn"));
+		assumedRoleUser.setAssumedRoleId(_ctx.stringValue("AssumeRoleResponse.AssumedRoleUser.AssumedRoleId"));
 		assumeRoleResponse.setAssumedRoleUser(assumedRoleUser);
 	 
 	 	return assumeRoleResponse;

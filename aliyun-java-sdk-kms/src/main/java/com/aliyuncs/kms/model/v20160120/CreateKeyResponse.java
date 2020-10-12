@@ -66,6 +66,20 @@ public class CreateKeyResponse extends AcsResponse {
 
 		private String materialExpireTime;
 
+		private String protectionLevel;
+
+		private String primaryKeyVersion;
+
+		private String lastRotationDate;
+
+		private String automaticRotation;
+
+		private String rotationInterval;
+
+		private String nextRotationDate;
+
+		private String keySpec;
+
 		public String getCreationDate() {
 			return this.creationDate;
 		}
@@ -144,6 +158,62 @@ public class CreateKeyResponse extends AcsResponse {
 
 		public void setMaterialExpireTime(String materialExpireTime) {
 			this.materialExpireTime = materialExpireTime;
+		}
+
+		public String getProtectionLevel() {
+			return this.protectionLevel;
+		}
+
+		public void setProtectionLevel(String protectionLevel) {
+			this.protectionLevel = protectionLevel;
+		}
+
+		public String getPrimaryKeyVersion() {
+			return this.primaryKeyVersion;
+		}
+
+		public void setPrimaryKeyVersion(String primaryKeyVersion) {
+			this.primaryKeyVersion = primaryKeyVersion;
+		}
+
+		public String getLastRotationDate() {
+			return this.lastRotationDate;
+		}
+
+		public void setLastRotationDate(String lastRotationDate) {
+			this.lastRotationDate = lastRotationDate;
+		}
+
+		public String getAutomaticRotation() {
+			return this.automaticRotation;
+		}
+
+		public void setAutomaticRotation(String automaticRotation) {
+			this.automaticRotation = automaticRotation;
+		}
+
+		public String getRotationInterval() {
+			return this.rotationInterval;
+		}
+
+		public void setRotationInterval(String rotationInterval) {
+			this.rotationInterval = rotationInterval;
+		}
+
+		public String getNextRotationDate() {
+			return this.nextRotationDate;
+		}
+
+		public void setNextRotationDate(String nextRotationDate) {
+			this.nextRotationDate = nextRotationDate;
+		}
+
+		public String getKeySpec() {
+			return this.keySpec;
+		}
+
+		public void setKeySpec(String keySpec) {
+			this.keySpec = keySpec;
 		}
 	}
 

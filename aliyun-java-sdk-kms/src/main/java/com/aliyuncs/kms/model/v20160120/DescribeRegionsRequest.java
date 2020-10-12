@@ -16,29 +16,23 @@ package com.aliyuncs.kms.model.v20160120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.kms.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRegionsRequest extends RpcAcsRequest<DescribeRegionsResponse> {
-	
+	   
 	public DescribeRegionsRequest() {
 		super("Kms", "2016-01-20", "DescribeRegions", "kms");
 		setProtocol(ProtocolType.HTTPS);
-	}
-
-	private String sTSToken;
-
-	public String getSTSToken() {
-		return this.sTSToken;
-	}
-
-	public void setSTSToken(String sTSToken) {
-		this.sTSToken = sTSToken;
-		if(sTSToken != null){
-			putQueryParameter("STSToken", sTSToken);
-		}
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	@Override

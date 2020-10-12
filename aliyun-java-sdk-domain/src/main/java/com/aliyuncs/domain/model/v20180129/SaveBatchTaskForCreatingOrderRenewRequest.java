@@ -16,22 +16,70 @@ package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SaveBatchTaskForCreatingOrderRenewRequest extends RpcAcsRequest<SaveBatchTaskForCreatingOrderRenewResponse> {
-	
-	public SaveBatchTaskForCreatingOrderRenewRequest() {
-		super("Domain", "2018-01-29", "SaveBatchTaskForCreatingOrderRenew");
-	}
+	   
+
+	private String couponNo;
+
+	private Boolean useCoupon;
+
+	private String promotionNo;
 
 	private String userClientIp;
 
 	private List<OrderRenewParam> orderRenewParams;
 
 	private String lang;
+
+	private Boolean usePromotion;
+	public SaveBatchTaskForCreatingOrderRenewRequest() {
+		super("Domain", "2018-01-29", "SaveBatchTaskForCreatingOrderRenew", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getCouponNo() {
+		return this.couponNo;
+	}
+
+	public void setCouponNo(String couponNo) {
+		this.couponNo = couponNo;
+		if(couponNo != null){
+			putQueryParameter("CouponNo", couponNo);
+		}
+	}
+
+	public Boolean getUseCoupon() {
+		return this.useCoupon;
+	}
+
+	public void setUseCoupon(Boolean useCoupon) {
+		this.useCoupon = useCoupon;
+		if(useCoupon != null){
+			putQueryParameter("UseCoupon", useCoupon.toString());
+		}
+	}
+
+	public String getPromotionNo() {
+		return this.promotionNo;
+	}
+
+	public void setPromotionNo(String promotionNo) {
+		this.promotionNo = promotionNo;
+		if(promotionNo != null){
+			putQueryParameter("PromotionNo", promotionNo);
+		}
+	}
 
 	public String getUserClientIp() {
 		return this.userClientIp;
@@ -52,9 +100,9 @@ public class SaveBatchTaskForCreatingOrderRenewRequest extends RpcAcsRequest<Sav
 		this.orderRenewParams = orderRenewParams;	
 		if (orderRenewParams != null) {
 			for (int depth1 = 0; depth1 < orderRenewParams.size(); depth1++) {
-				putQueryParameter("OrderRenewParam." + (depth1 + 1) + ".DomainName" , orderRenewParams.get(depth1).getDomainName());
-				putQueryParameter("OrderRenewParam." + (depth1 + 1) + ".CurrentExpirationDate" , orderRenewParams.get(depth1).getCurrentExpirationDate());
 				putQueryParameter("OrderRenewParam." + (depth1 + 1) + ".SubscriptionDuration" , orderRenewParams.get(depth1).getSubscriptionDuration());
+				putQueryParameter("OrderRenewParam." + (depth1 + 1) + ".CurrentExpirationDate" , orderRenewParams.get(depth1).getCurrentExpirationDate());
+				putQueryParameter("OrderRenewParam." + (depth1 + 1) + ".DomainName" , orderRenewParams.get(depth1).getDomainName());
 			}
 		}	
 	}
@@ -70,20 +118,31 @@ public class SaveBatchTaskForCreatingOrderRenewRequest extends RpcAcsRequest<Sav
 		}
 	}
 
+	public Boolean getUsePromotion() {
+		return this.usePromotion;
+	}
+
+	public void setUsePromotion(Boolean usePromotion) {
+		this.usePromotion = usePromotion;
+		if(usePromotion != null){
+			putQueryParameter("UsePromotion", usePromotion.toString());
+		}
+	}
+
 	public static class OrderRenewParam {
-
-		private String domainName;
-
-		private Long currentExpirationDate;
 
 		private Integer subscriptionDuration;
 
-		public String getDomainName() {
-			return this.domainName;
+		private Long currentExpirationDate;
+
+		private String domainName;
+
+		public Integer getSubscriptionDuration() {
+			return this.subscriptionDuration;
 		}
 
-		public void setDomainName(String domainName) {
-			this.domainName = domainName;
+		public void setSubscriptionDuration(Integer subscriptionDuration) {
+			this.subscriptionDuration = subscriptionDuration;
 		}
 
 		public Long getCurrentExpirationDate() {
@@ -94,12 +153,12 @@ public class SaveBatchTaskForCreatingOrderRenewRequest extends RpcAcsRequest<Sav
 			this.currentExpirationDate = currentExpirationDate;
 		}
 
-		public Integer getSubscriptionDuration() {
-			return this.subscriptionDuration;
+		public String getDomainName() {
+			return this.domainName;
 		}
 
-		public void setSubscriptionDuration(Integer subscriptionDuration) {
-			this.subscriptionDuration = subscriptionDuration;
+		public void setDomainName(String domainName) {
+			this.domainName = domainName;
 		}
 	}
 

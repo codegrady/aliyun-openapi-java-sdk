@@ -198,9 +198,13 @@ public class DescribeClusterServiceResponse extends AcsResponse {
 
 			private String value;
 
+			private Integer desiredStoppedValue;
+
 			private String status;
 
 			private String type;
+
+			private String category;
 
 			private String alertInfo;
 
@@ -228,6 +232,14 @@ public class DescribeClusterServiceResponse extends AcsResponse {
 				this.value = value;
 			}
 
+			public Integer getDesiredStoppedValue() {
+				return this.desiredStoppedValue;
+			}
+
+			public void setDesiredStoppedValue(Integer desiredStoppedValue) {
+				this.desiredStoppedValue = desiredStoppedValue;
+			}
+
 			public String getStatus() {
 				return this.status;
 			}
@@ -242,6 +254,14 @@ public class DescribeClusterServiceResponse extends AcsResponse {
 
 			public void setType(String type) {
 				this.type = type;
+			}
+
+			public String getCategory() {
+				return this.category;
+			}
+
+			public void setCategory(String category) {
+				this.category = category;
 			}
 
 			public String getAlertInfo() {

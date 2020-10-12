@@ -15,22 +15,21 @@
 package com.aliyuncs.dds.model.v20151201;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeAvailableTimeRangeRequest extends RpcAcsRequest<DescribeAvailableTimeRangeResponse> {
-	
-	public DescribeAvailableTimeRangeRequest() {
-		super("Dds", "2015-12-01", "DescribeAvailableTimeRange", "dds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
-
 	private String securityToken;
+
+	private String nodeId;
 
 	private String resourceOwnerAccount;
 
@@ -38,7 +37,15 @@ public class DescribeAvailableTimeRangeRequest extends RpcAcsRequest<DescribeAva
 
 	private Long ownerId;
 
-	private String nodeId;
+	private String instanceId;
+	public DescribeAvailableTimeRangeRequest() {
+		super("Dds", "2015-12-01", "DescribeAvailableTimeRange", "Dds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -51,17 +58,6 @@ public class DescribeAvailableTimeRangeRequest extends RpcAcsRequest<DescribeAva
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -70,6 +66,17 @@ public class DescribeAvailableTimeRangeRequest extends RpcAcsRequest<DescribeAva
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getNodeId() {
+		return this.nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
+		if(nodeId != null){
+			putQueryParameter("NodeId", nodeId);
 		}
 	}
 
@@ -106,14 +113,14 @@ public class DescribeAvailableTimeRangeRequest extends RpcAcsRequest<DescribeAva
 		}
 	}
 
-	public String getNodeId() {
-		return this.nodeId;
+	public String getInstanceId() {
+		return this.instanceId;
 	}
 
-	public void setNodeId(String nodeId) {
-		this.nodeId = nodeId;
-		if(nodeId != null){
-			putQueryParameter("NodeId", nodeId);
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

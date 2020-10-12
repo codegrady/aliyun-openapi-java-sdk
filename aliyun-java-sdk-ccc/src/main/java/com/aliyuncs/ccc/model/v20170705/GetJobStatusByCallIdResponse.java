@@ -15,7 +15,6 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import java.util.List;
-import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.ccc.transform.v20170705.GetJobStatusByCallIdResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -338,6 +337,8 @@ public class GetJobStatusByCallIdResponse extends AcsResponse {
 
 			private Long actualTime;
 
+			private Long endTime;
+
 			private String callingNumber;
 
 			private String calledNumber;
@@ -400,6 +401,14 @@ public class GetJobStatusByCallIdResponse extends AcsResponse {
 
 			public void setActualTime(Long actualTime) {
 				this.actualTime = actualTime;
+			}
+
+			public Long getEndTime() {
+				return this.endTime;
+			}
+
+			public void setEndTime(Long endTime) {
+				this.endTime = endTime;
 			}
 
 			public String getCallingNumber() {

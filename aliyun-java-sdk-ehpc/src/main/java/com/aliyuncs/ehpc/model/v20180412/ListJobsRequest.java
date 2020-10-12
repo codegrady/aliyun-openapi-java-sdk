@@ -15,28 +15,35 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListJobsRequest extends RpcAcsRequest<ListJobsResponse> {
-	
-	public ListJobsRequest() {
-		super("EHPC", "2018-04-12", "ListJobs", "ehs");
-	}
+	   
 
 	private String owner;
 
-	private Integer pageSize;
-
 	private String clusterId;
-
-	private String state;
 
 	private String rerunable;
 
 	private Integer pageNumber;
+
+	private Integer pageSize;
+
+	private String state;
+	public ListJobsRequest() {
+		super("EHPC", "2018-04-12", "ListJobs");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getOwner() {
 		return this.owner;
@@ -49,17 +56,6 @@ public class ListJobsRequest extends RpcAcsRequest<ListJobsResponse> {
 		}
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
 	public String getClusterId() {
 		return this.clusterId;
 	}
@@ -68,17 +64,6 @@ public class ListJobsRequest extends RpcAcsRequest<ListJobsResponse> {
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
-		}
-	}
-
-	public String getState() {
-		return this.state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-		if(state != null){
-			putQueryParameter("State", state);
 		}
 	}
 
@@ -101,6 +86,28 @@ public class ListJobsRequest extends RpcAcsRequest<ListJobsResponse> {
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getState() {
+		return this.state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+		if(state != null){
+			putQueryParameter("State", state);
 		}
 	}
 

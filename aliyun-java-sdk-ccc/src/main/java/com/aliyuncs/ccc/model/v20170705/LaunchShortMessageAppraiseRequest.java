@@ -15,47 +15,32 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class LaunchShortMessageAppraiseRequest extends RpcAcsRequest<LaunchShortMessageAppraiseResponse> {
-	
-	public LaunchShortMessageAppraiseRequest() {
-		super("CCC", "2017-07-05", "LaunchShortMessageAppraise", "ccc");
-	}
-
-	private String acid;
-
-	private String instanceId;
+	   
 
 	private Integer contactType;
 
 	private String phoneNumbers;
 
+	private String acid;
+
+	private String instanceId;
+
 	private String skillGroupId;
-
-	public String getAcid() {
-		return this.acid;
-	}
-
-	public void setAcid(String acid) {
-		this.acid = acid;
-		if(acid != null){
-			putQueryParameter("Acid", acid);
-		}
-	}
-
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
-		}
+	public LaunchShortMessageAppraiseRequest() {
+		super("CCC", "2017-07-05", "LaunchShortMessageAppraise", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Integer getContactType() {
@@ -77,6 +62,28 @@ public class LaunchShortMessageAppraiseRequest extends RpcAcsRequest<LaunchShort
 		this.phoneNumbers = phoneNumbers;
 		if(phoneNumbers != null){
 			putQueryParameter("PhoneNumbers", phoneNumbers);
+		}
+	}
+
+	public String getAcid() {
+		return this.acid;
+	}
+
+	public void setAcid(String acid) {
+		this.acid = acid;
+		if(acid != null){
+			putQueryParameter("Acid", acid);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

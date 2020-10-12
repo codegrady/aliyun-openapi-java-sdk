@@ -19,23 +19,24 @@ import java.util.List;
 
 import com.aliyuncs.ehpc.model.v20180412.ListImagesResponse;
 import com.aliyuncs.ehpc.model.v20180412.ListImagesResponse.OsInfo;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class ListImagesResponseUnmarshaller {
 
-	public static ListImagesResponse unmarshall(ListImagesResponse listImagesResponse, UnmarshallerContext context) {
+	public static ListImagesResponse unmarshall(ListImagesResponse listImagesResponse, UnmarshallerContext _ctx) {
 		
-		listImagesResponse.setRequestId(context.stringValue("ListImagesResponse.RequestId"));
+		listImagesResponse.setRequestId(_ctx.stringValue("ListImagesResponse.RequestId"));
 
 		List<OsInfo> osTags = new ArrayList<OsInfo>();
-		for (int i = 0; i < context.lengthValue("ListImagesResponse.OsTags.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListImagesResponse.OsTags.Length"); i++) {
 			OsInfo osInfo = new OsInfo();
-			osInfo.setOsTag(context.stringValue("ListImagesResponse.OsTags["+ i +"].OsTag"));
-			osInfo.setPlatform(context.stringValue("ListImagesResponse.OsTags["+ i +"].Platform"));
-			osInfo.setVersion(context.stringValue("ListImagesResponse.OsTags["+ i +"].Version"));
-			osInfo.setArchitecture(context.stringValue("ListImagesResponse.OsTags["+ i +"].Architecture"));
+			osInfo.setOsTag(_ctx.stringValue("ListImagesResponse.OsTags["+ i +"].OsTag"));
+			osInfo.setPlatform(_ctx.stringValue("ListImagesResponse.OsTags["+ i +"].Platform"));
+			osInfo.setVersion(_ctx.stringValue("ListImagesResponse.OsTags["+ i +"].Version"));
+			osInfo.setArchitecture(_ctx.stringValue("ListImagesResponse.OsTags["+ i +"].Architecture"));
+			osInfo.setBaseOsTag(_ctx.stringValue("ListImagesResponse.OsTags["+ i +"].BaseOsTag"));
+			osInfo.setImageId(_ctx.stringValue("ListImagesResponse.OsTags["+ i +"].ImageId"));
 
 			osTags.add(osInfo);
 		}

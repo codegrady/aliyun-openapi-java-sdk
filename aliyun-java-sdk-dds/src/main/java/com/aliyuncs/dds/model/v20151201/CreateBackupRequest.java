@@ -15,40 +15,36 @@
 package com.aliyuncs.dds.model.v20151201;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
-	
-	public CreateBackupRequest() {
-		super("Dds", "2015-12-01", "CreateBackup", "dds");
-	}
-
-	private String backupMethod;
+	   
 
 	private Long resourceOwnerId;
 
 	private String securityToken;
 
+	private String dBInstanceId;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String dBInstanceId;
-
 	private Long ownerId;
 
-	public String getBackupMethod() {
-		return this.backupMethod;
-	}
-
-	public void setBackupMethod(String backupMethod) {
-		this.backupMethod = backupMethod;
-		if(backupMethod != null){
-			putQueryParameter("BackupMethod", backupMethod);
-		}
+	private String backupMethod;
+	public CreateBackupRequest() {
+		super("Dds", "2015-12-01", "CreateBackup", "Dds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -70,6 +66,17 @@ public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 
@@ -95,17 +102,6 @@ public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,6 +110,17 @@ public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getBackupMethod() {
+		return this.backupMethod;
+	}
+
+	public void setBackupMethod(String backupMethod) {
+		this.backupMethod = backupMethod;
+		if(backupMethod != null){
+			putQueryParameter("BackupMethod", backupMethod);
 		}
 	}
 

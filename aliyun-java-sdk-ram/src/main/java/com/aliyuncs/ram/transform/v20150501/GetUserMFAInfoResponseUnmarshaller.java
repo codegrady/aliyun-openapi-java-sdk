@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.GetUserMFAInfoResponse;
@@ -20,12 +21,12 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class GetUserMFAInfoResponseUnmarshaller {
 
-	public static GetUserMFAInfoResponse unmarshall(GetUserMFAInfoResponse getUserMFAInfoResponse, UnmarshallerContext context) {
+	public static GetUserMFAInfoResponse unmarshall(GetUserMFAInfoResponse getUserMFAInfoResponse, UnmarshallerContext _ctx) {
 		
-		getUserMFAInfoResponse.setRequestId(context.stringValue("GetUserMFAInfoResponse.RequestId"));
+		getUserMFAInfoResponse.setRequestId(_ctx.stringValue("GetUserMFAInfoResponse.RequestId"));
 
 		MFADevice mFADevice = new MFADevice();
-		mFADevice.setSerialNumber(context.stringValue("GetUserMFAInfoResponse.MFADevice.SerialNumber"));
+		mFADevice.setSerialNumber(_ctx.stringValue("GetUserMFAInfoResponse.MFADevice.SerialNumber"));
 		getUserMFAInfoResponse.setMFADevice(mFADevice);
 	 
 	 	return getUserMFAInfoResponse;

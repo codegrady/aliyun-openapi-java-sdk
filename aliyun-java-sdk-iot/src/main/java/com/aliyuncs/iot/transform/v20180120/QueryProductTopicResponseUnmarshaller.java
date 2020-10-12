@@ -19,27 +19,26 @@ import java.util.List;
 
 import com.aliyuncs.iot.model.v20180120.QueryProductTopicResponse;
 import com.aliyuncs.iot.model.v20180120.QueryProductTopicResponse.ProductTopicInfo;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class QueryProductTopicResponseUnmarshaller {
 
-	public static QueryProductTopicResponse unmarshall(QueryProductTopicResponse queryProductTopicResponse, UnmarshallerContext context) {
+	public static QueryProductTopicResponse unmarshall(QueryProductTopicResponse queryProductTopicResponse, UnmarshallerContext _ctx) {
 		
-		queryProductTopicResponse.setRequestId(context.stringValue("QueryProductTopicResponse.RequestId"));
-		queryProductTopicResponse.setSuccess(context.booleanValue("QueryProductTopicResponse.Success"));
-		queryProductTopicResponse.setCode(context.stringValue("QueryProductTopicResponse.Code"));
-		queryProductTopicResponse.setErrorMessage(context.stringValue("QueryProductTopicResponse.ErrorMessage"));
+		queryProductTopicResponse.setRequestId(_ctx.stringValue("QueryProductTopicResponse.RequestId"));
+		queryProductTopicResponse.setSuccess(_ctx.booleanValue("QueryProductTopicResponse.Success"));
+		queryProductTopicResponse.setCode(_ctx.stringValue("QueryProductTopicResponse.Code"));
+		queryProductTopicResponse.setErrorMessage(_ctx.stringValue("QueryProductTopicResponse.ErrorMessage"));
 
 		List<ProductTopicInfo> data = new ArrayList<ProductTopicInfo>();
-		for (int i = 0; i < context.lengthValue("QueryProductTopicResponse.Data.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("QueryProductTopicResponse.Data.Length"); i++) {
 			ProductTopicInfo productTopicInfo = new ProductTopicInfo();
-			productTopicInfo.setProductKey(context.stringValue("QueryProductTopicResponse.Data["+ i +"].ProductKey"));
-			productTopicInfo.setTopicShortName(context.stringValue("QueryProductTopicResponse.Data["+ i +"].TopicShortName"));
-			productTopicInfo.setOperation(context.stringValue("QueryProductTopicResponse.Data["+ i +"].Operation"));
-			productTopicInfo.setDesc(context.stringValue("QueryProductTopicResponse.Data["+ i +"].Desc"));
-			productTopicInfo.setId(context.stringValue("QueryProductTopicResponse.Data["+ i +"].Id"));
+			productTopicInfo.setProductKey(_ctx.stringValue("QueryProductTopicResponse.Data["+ i +"].ProductKey"));
+			productTopicInfo.setTopicShortName(_ctx.stringValue("QueryProductTopicResponse.Data["+ i +"].TopicShortName"));
+			productTopicInfo.setOperation(_ctx.stringValue("QueryProductTopicResponse.Data["+ i +"].Operation"));
+			productTopicInfo.setDesc(_ctx.stringValue("QueryProductTopicResponse.Data["+ i +"].Desc"));
+			productTopicInfo.setId(_ctx.stringValue("QueryProductTopicResponse.Data["+ i +"].Id"));
 
 			data.add(productTopicInfo);
 		}

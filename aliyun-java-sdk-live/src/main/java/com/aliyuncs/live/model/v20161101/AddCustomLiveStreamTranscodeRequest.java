@@ -15,30 +15,41 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustomLiveStreamTranscodeResponse> {
-	
-	public AddCustomLiveStreamTranscodeRequest() {
-		super("live", "2016-11-01", "AddCustomLiveStreamTranscode", "live");
-	}
+	   
+
+	private String template;
+
+	private String lazy;
+
+	private String gop;
+
+	private String audioCodec;
+
+	private String templateType;
+
+	private String audioProfile;
+
+	private Integer height;
 
 	private String app;
 
-	private String template;
+	private Integer audioChannelNum;
 
 	private Integer profile;
 
 	private Integer fPS;
 
-	private String gop;
-
 	private Long ownerId;
 
-	private String templateType;
+	private Integer audioRate;
 
 	private Integer audioBitrate;
 
@@ -47,8 +58,91 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 	private Integer width;
 
 	private Integer videoBitrate;
+	public AddCustomLiveStreamTranscodeRequest() {
+		super("live", "2016-11-01", "AddCustomLiveStreamTranscode", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Integer height;
+	public String getTemplate() {
+		return this.template;
+	}
+
+	public void setTemplate(String template) {
+		this.template = template;
+		if(template != null){
+			putQueryParameter("Template", template);
+		}
+	}
+
+	public String getLazy() {
+		return this.lazy;
+	}
+
+	public void setLazy(String lazy) {
+		this.lazy = lazy;
+		if(lazy != null){
+			putQueryParameter("Lazy", lazy);
+		}
+	}
+
+	public String getGop() {
+		return this.gop;
+	}
+
+	public void setGop(String gop) {
+		this.gop = gop;
+		if(gop != null){
+			putQueryParameter("Gop", gop);
+		}
+	}
+
+	public String getAudioCodec() {
+		return this.audioCodec;
+	}
+
+	public void setAudioCodec(String audioCodec) {
+		this.audioCodec = audioCodec;
+		if(audioCodec != null){
+			putQueryParameter("AudioCodec", audioCodec);
+		}
+	}
+
+	public String getTemplateType() {
+		return this.templateType;
+	}
+
+	public void setTemplateType(String templateType) {
+		this.templateType = templateType;
+		if(templateType != null){
+			putQueryParameter("TemplateType", templateType);
+		}
+	}
+
+	public String getAudioProfile() {
+		return this.audioProfile;
+	}
+
+	public void setAudioProfile(String audioProfile) {
+		this.audioProfile = audioProfile;
+		if(audioProfile != null){
+			putQueryParameter("AudioProfile", audioProfile);
+		}
+	}
+
+	public Integer getHeight() {
+		return this.height;
+	}
+
+	public void setHeight(Integer height) {
+		this.height = height;
+		if(height != null){
+			putQueryParameter("Height", height.toString());
+		}
+	}
 
 	public String getApp() {
 		return this.app;
@@ -61,14 +155,14 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 		}
 	}
 
-	public String getTemplate() {
-		return this.template;
+	public Integer getAudioChannelNum() {
+		return this.audioChannelNum;
 	}
 
-	public void setTemplate(String template) {
-		this.template = template;
-		if(template != null){
-			putQueryParameter("Template", template);
+	public void setAudioChannelNum(Integer audioChannelNum) {
+		this.audioChannelNum = audioChannelNum;
+		if(audioChannelNum != null){
+			putQueryParameter("AudioChannelNum", audioChannelNum.toString());
 		}
 	}
 
@@ -94,17 +188,6 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 		}
 	}
 
-	public String getGop() {
-		return this.gop;
-	}
-
-	public void setGop(String gop) {
-		this.gop = gop;
-		if(gop != null){
-			putQueryParameter("Gop", gop);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -116,14 +199,14 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 		}
 	}
 
-	public String getTemplateType() {
-		return this.templateType;
+	public Integer getAudioRate() {
+		return this.audioRate;
 	}
 
-	public void setTemplateType(String templateType) {
-		this.templateType = templateType;
-		if(templateType != null){
-			putQueryParameter("TemplateType", templateType);
+	public void setAudioRate(Integer audioRate) {
+		this.audioRate = audioRate;
+		if(audioRate != null){
+			putQueryParameter("AudioRate", audioRate.toString());
 		}
 	}
 
@@ -168,17 +251,6 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 		this.videoBitrate = videoBitrate;
 		if(videoBitrate != null){
 			putQueryParameter("VideoBitrate", videoBitrate.toString());
-		}
-	}
-
-	public Integer getHeight() {
-		return this.height;
-	}
-
-	public void setHeight(Integer height) {
-		this.height = height;
-		if(height != null){
-			putQueryParameter("Height", height.toString());
 		}
 	}
 

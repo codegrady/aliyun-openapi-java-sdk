@@ -15,16 +15,15 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyReplicaDescriptionRequest extends RpcAcsRequest<ModifyReplicaDescriptionResponse> {
-	
-	public ModifyReplicaDescriptionRequest() {
-		super("Rds", "2014-08-15", "ModifyReplicaDescription", "rds");
-	}
+	   
 
 	private String replicaDescription;
 
@@ -32,13 +31,21 @@ public class ModifyReplicaDescriptionRequest extends RpcAcsRequest<ModifyReplica
 
 	private String securityToken;
 
+	private String replicaId;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String replicaId;
-
 	private Long ownerId;
+	public ModifyReplicaDescriptionRequest() {
+		super("Rds", "2014-08-15", "ModifyReplicaDescription", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getReplicaDescription() {
 		return this.replicaDescription;
@@ -73,6 +80,17 @@ public class ModifyReplicaDescriptionRequest extends RpcAcsRequest<ModifyReplica
 		}
 	}
 
+	public String getReplicaId() {
+		return this.replicaId;
+	}
+
+	public void setReplicaId(String replicaId) {
+		this.replicaId = replicaId;
+		if(replicaId != null){
+			putQueryParameter("ReplicaId", replicaId);
+		}
+	}
+
 	public String getResourceOwnerAccount() {
 		return this.resourceOwnerAccount;
 	}
@@ -92,17 +110,6 @@ public class ModifyReplicaDescriptionRequest extends RpcAcsRequest<ModifyReplica
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getReplicaId() {
-		return this.replicaId;
-	}
-
-	public void setReplicaId(String replicaId) {
-		this.replicaId = replicaId;
-		if(replicaId != null){
-			putQueryParameter("ReplicaId", replicaId);
 		}
 	}
 

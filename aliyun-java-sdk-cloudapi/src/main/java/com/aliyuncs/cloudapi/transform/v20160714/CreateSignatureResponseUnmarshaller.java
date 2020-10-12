@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.CreateSignatureResponse;
@@ -19,11 +20,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateSignatureResponseUnmarshaller {
 
-	public static CreateSignatureResponse unmarshall(CreateSignatureResponse createSignatureResponse, UnmarshallerContext context) {
+	public static CreateSignatureResponse unmarshall(CreateSignatureResponse createSignatureResponse, UnmarshallerContext _ctx) {
 		
-		createSignatureResponse.setRequestId(context.stringValue("CreateSignatureResponse.RequestId"));
-		createSignatureResponse.setSignatureId(context.stringValue("CreateSignatureResponse.SignatureId"));
-		createSignatureResponse.setSignatureName(context.stringValue("CreateSignatureResponse.SignatureName"));
+		createSignatureResponse.setRequestId(_ctx.stringValue("CreateSignatureResponse.RequestId"));
+		createSignatureResponse.setSignatureId(_ctx.stringValue("CreateSignatureResponse.SignatureId"));
+		createSignatureResponse.setSignatureName(_ctx.stringValue("CreateSignatureResponse.SignatureName"));
 	 
 	 	return createSignatureResponse;
 	}

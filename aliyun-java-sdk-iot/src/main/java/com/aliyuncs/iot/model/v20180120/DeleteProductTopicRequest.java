@@ -15,18 +15,27 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteProductTopicRequest extends RpcAcsRequest<DeleteProductTopicResponse> {
-	
-	public DeleteProductTopicRequest() {
-		super("Iot", "2018-01-20", "DeleteProductTopic");
-	}
+	   
 
 	private String topicId;
+
+	private String iotInstanceId;
+	public DeleteProductTopicRequest() {
+		super("Iot", "2018-01-20", "DeleteProductTopic", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getTopicId() {
 		return this.topicId;
@@ -36,6 +45,17 @@ public class DeleteProductTopicRequest extends RpcAcsRequest<DeleteProductTopicR
 		this.topicId = topicId;
 		if(topicId != null){
 			putQueryParameter("TopicId", topicId);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 

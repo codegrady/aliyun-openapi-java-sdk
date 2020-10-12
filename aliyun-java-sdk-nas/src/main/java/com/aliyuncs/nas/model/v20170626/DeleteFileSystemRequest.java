@@ -11,21 +11,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.model.v20170626;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.nas.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteFileSystemRequest extends RpcAcsRequest<DeleteFileSystemResponse> {
-	
-	public DeleteFileSystemRequest() {
-		super("NAS", "2017-06-26", "DeleteFileSystem", "nas");
-	}
+	   
 
 	private String fileSystemId;
+	public DeleteFileSystemRequest() {
+		super("NAS", "2017-06-26", "DeleteFileSystem");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFileSystemId() {
 		return this.fileSystemId;

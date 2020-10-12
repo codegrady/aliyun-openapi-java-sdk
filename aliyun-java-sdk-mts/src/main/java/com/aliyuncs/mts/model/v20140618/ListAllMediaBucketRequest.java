@@ -15,24 +15,35 @@
 package com.aliyuncs.mts.model.v20140618;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.mts.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListAllMediaBucketRequest extends RpcAcsRequest<ListAllMediaBucketResponse> {
-	
-	public ListAllMediaBucketRequest() {
-		super("Mts", "2014-06-18", "ListAllMediaBucket", "mts");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String nextPageToken;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
+	private Integer maximumPageSize;
+
 	private Long ownerId;
+	public ListAllMediaBucketRequest() {
+		super("Mts", "2014-06-18", "ListAllMediaBucket");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -42,6 +53,17 @@ public class ListAllMediaBucketRequest extends RpcAcsRequest<ListAllMediaBucketR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getNextPageToken() {
+		return this.nextPageToken;
+	}
+
+	public void setNextPageToken(String nextPageToken) {
+		this.nextPageToken = nextPageToken;
+		if(nextPageToken != null){
+			putQueryParameter("NextPageToken", nextPageToken);
 		}
 	}
 
@@ -64,6 +86,17 @@ public class ListAllMediaBucketRequest extends RpcAcsRequest<ListAllMediaBucketR
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Integer getMaximumPageSize() {
+		return this.maximumPageSize;
+	}
+
+	public void setMaximumPageSize(Integer maximumPageSize) {
+		this.maximumPageSize = maximumPageSize;
+		if(maximumPageSize != null){
+			putQueryParameter("MaximumPageSize", maximumPageSize.toString());
 		}
 	}
 

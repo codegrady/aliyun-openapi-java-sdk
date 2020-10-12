@@ -15,34 +15,25 @@
 package com.aliyuncs.cas.model.v20180713;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeUserCertificateListRequest extends RpcAcsRequest<DescribeUserCertificateListResponse> {
-	
-	public DescribeUserCertificateListRequest() {
-		super("cas", "2018-07-13", "DescribeUserCertificateList", "cas");
-	}
-
-	private String sourceIp;
+	   
 
 	private Integer showSize;
 
 	private Integer currentPage;
 
+	private String sourceIp;
+
 	private String lang;
-
-	public String getSourceIp() {
-		return this.sourceIp;
-	}
-
-	public void setSourceIp(String sourceIp) {
-		this.sourceIp = sourceIp;
-		if(sourceIp != null){
-			putQueryParameter("SourceIp", sourceIp);
-		}
+	public DescribeUserCertificateListRequest() {
+		super("cas", "2018-07-13", "DescribeUserCertificateList", "cas");
+		setMethod(MethodType.POST);
 	}
 
 	public Integer getShowSize() {
@@ -64,6 +55,17 @@ public class DescribeUserCertificateListRequest extends RpcAcsRequest<DescribeUs
 		this.currentPage = currentPage;
 		if(currentPage != null){
 			putQueryParameter("CurrentPage", currentPage.toString());
+		}
+	}
+
+	public String getSourceIp() {
+		return this.sourceIp;
+	}
+
+	public void setSourceIp(String sourceIp) {
+		this.sourceIp = sourceIp;
+		if(sourceIp != null){
+			putQueryParameter("SourceIp", sourceIp);
 		}
 	}
 

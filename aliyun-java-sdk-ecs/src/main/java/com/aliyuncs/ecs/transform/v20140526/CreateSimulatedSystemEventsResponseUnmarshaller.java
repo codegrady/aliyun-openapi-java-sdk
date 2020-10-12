@@ -18,19 +18,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.ecs.model.v20140526.CreateSimulatedSystemEventsResponse;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class CreateSimulatedSystemEventsResponseUnmarshaller {
 
-	public static CreateSimulatedSystemEventsResponse unmarshall(CreateSimulatedSystemEventsResponse createSimulatedSystemEventsResponse, UnmarshallerContext context) {
+	public static CreateSimulatedSystemEventsResponse unmarshall(CreateSimulatedSystemEventsResponse createSimulatedSystemEventsResponse, UnmarshallerContext _ctx) {
 		
-		createSimulatedSystemEventsResponse.setRequestId(context.stringValue("CreateSimulatedSystemEventsResponse.RequestId"));
+		createSimulatedSystemEventsResponse.setRequestId(_ctx.stringValue("CreateSimulatedSystemEventsResponse.RequestId"));
 
 		List<String> eventIdSet = new ArrayList<String>();
-		for (int i = 0; i < context.lengthValue("CreateSimulatedSystemEventsResponse.EventIdSet.Length"); i++) {
-			eventIdSet.add(context.stringValue("CreateSimulatedSystemEventsResponse.EventIdSet["+ i +"]"));
+		for (int i = 0; i < _ctx.lengthValue("CreateSimulatedSystemEventsResponse.EventIdSet.Length"); i++) {
+			eventIdSet.add(_ctx.stringValue("CreateSimulatedSystemEventsResponse.EventIdSet["+ i +"]"));
 		}
 		createSimulatedSystemEventsResponse.setEventIdSet(eventIdSet);
 	 

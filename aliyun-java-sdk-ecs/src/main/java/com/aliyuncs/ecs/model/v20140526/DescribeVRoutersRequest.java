@@ -15,30 +15,37 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeVRoutersRequest extends RpcAcsRequest<DescribeVRoutersResponse> {
-	
-	public DescribeVRoutersRequest() {
-		super("Ecs", "2014-05-26", "DescribeVRouters", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String vRouterId;
 
+	private Integer pageNumber;
+
+	private Integer pageSize;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private Integer pageSize;
-
 	private Long ownerId;
-
-	private Integer pageNumber;
+	public DescribeVRoutersRequest() {
+		super("Ecs", "2014-05-26", "DescribeVRouters", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -59,6 +66,28 @@ public class DescribeVRoutersRequest extends RpcAcsRequest<DescribeVRoutersRespo
 		this.vRouterId = vRouterId;
 		if(vRouterId != null){
 			putQueryParameter("VRouterId", vRouterId);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -84,17 +113,6 @@ public class DescribeVRoutersRequest extends RpcAcsRequest<DescribeVRoutersRespo
 		}
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -103,17 +121,6 @@ public class DescribeVRoutersRequest extends RpcAcsRequest<DescribeVRoutersRespo
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 

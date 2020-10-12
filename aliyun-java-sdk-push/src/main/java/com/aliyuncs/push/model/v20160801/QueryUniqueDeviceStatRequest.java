@@ -15,34 +15,30 @@
 package com.aliyuncs.push.model.v20160801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.push.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryUniqueDeviceStatRequest extends RpcAcsRequest<QueryUniqueDeviceStatResponse> {
-	
-	public QueryUniqueDeviceStatRequest() {
-		super("Push", "2016-08-01", "QueryUniqueDeviceStat");
-	}
-
-	private String granularity;
+	   
 
 	private String endTime;
 
-	private Long appKey;
-
 	private String startTime;
 
-	public String getGranularity() {
-		return this.granularity;
-	}
+	private String granularity;
 
-	public void setGranularity(String granularity) {
-		this.granularity = granularity;
-		if(granularity != null){
-			putQueryParameter("Granularity", granularity);
-		}
+	private Long appKey;
+	public QueryUniqueDeviceStatRequest() {
+		super("Push", "2016-08-01", "QueryUniqueDeviceStat");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getEndTime() {
@@ -56,17 +52,6 @@ public class QueryUniqueDeviceStatRequest extends RpcAcsRequest<QueryUniqueDevic
 		}
 	}
 
-	public Long getAppKey() {
-		return this.appKey;
-	}
-
-	public void setAppKey(Long appKey) {
-		this.appKey = appKey;
-		if(appKey != null){
-			putQueryParameter("AppKey", appKey.toString());
-		}
-	}
-
 	public String getStartTime() {
 		return this.startTime;
 	}
@@ -75,6 +60,28 @@ public class QueryUniqueDeviceStatRequest extends RpcAcsRequest<QueryUniqueDevic
 		this.startTime = startTime;
 		if(startTime != null){
 			putQueryParameter("StartTime", startTime);
+		}
+	}
+
+	public String getGranularity() {
+		return this.granularity;
+	}
+
+	public void setGranularity(String granularity) {
+		this.granularity = granularity;
+		if(granularity != null){
+			putQueryParameter("Granularity", granularity);
+		}
+	}
+
+	public Long getAppKey() {
+		return this.appKey;
+	}
+
+	public void setAppKey(Long appKey) {
+		this.appKey = appKey;
+		if(appKey != null){
+			putQueryParameter("AppKey", appKey.toString());
 		}
 	}
 

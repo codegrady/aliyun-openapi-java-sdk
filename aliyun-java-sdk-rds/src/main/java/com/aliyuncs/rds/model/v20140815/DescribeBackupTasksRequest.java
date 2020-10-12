@@ -15,45 +15,52 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeBackupTasksRequest extends RpcAcsRequest<DescribeBackupTasksResponse> {
-	
-	public DescribeBackupTasksRequest() {
-		super("Rds", "2014-08-15", "DescribeBackupTasks", "rds");
-	}
+	   
 
-	private String backupJobId;
+	private Integer backupJobId;
 
 	private Long resourceOwnerId;
 
 	private String flag;
 
-	private String resourceOwnerAccount;
-
 	private String clientToken;
-
-	private String ownerAccount;
 
 	private String dBInstanceId;
 
-	private String backupMode;
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
 
 	private Long ownerId;
 
 	private String backupJobStatus;
 
-	public String getBackupJobId() {
+	private String backupMode;
+	public DescribeBackupTasksRequest() {
+		super("Rds", "2014-08-15", "DescribeBackupTasks", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public Integer getBackupJobId() {
 		return this.backupJobId;
 	}
 
-	public void setBackupJobId(String backupJobId) {
+	public void setBackupJobId(Integer backupJobId) {
 		this.backupJobId = backupJobId;
 		if(backupJobId != null){
-			putQueryParameter("BackupJobId", backupJobId);
+			putQueryParameter("BackupJobId", backupJobId.toString());
 		}
 	}
 
@@ -79,17 +86,6 @@ public class DescribeBackupTasksRequest extends RpcAcsRequest<DescribeBackupTask
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
 	public String getClientToken() {
 		return this.clientToken;
 	}
@@ -98,17 +94,6 @@ public class DescribeBackupTasksRequest extends RpcAcsRequest<DescribeBackupTask
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -123,14 +108,25 @@ public class DescribeBackupTasksRequest extends RpcAcsRequest<DescribeBackupTask
 		}
 	}
 
-	public String getBackupMode() {
-		return this.backupMode;
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
 	}
 
-	public void setBackupMode(String backupMode) {
-		this.backupMode = backupMode;
-		if(backupMode != null){
-			putQueryParameter("BackupMode", backupMode);
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -153,6 +149,17 @@ public class DescribeBackupTasksRequest extends RpcAcsRequest<DescribeBackupTask
 		this.backupJobStatus = backupJobStatus;
 		if(backupJobStatus != null){
 			putQueryParameter("BackupJobStatus", backupJobStatus);
+		}
+	}
+
+	public String getBackupMode() {
+		return this.backupMode;
+	}
+
+	public void setBackupMode(String backupMode) {
+		this.backupMode = backupMode;
+		if(backupMode != null){
+			putQueryParameter("BackupMode", backupMode);
 		}
 	}
 

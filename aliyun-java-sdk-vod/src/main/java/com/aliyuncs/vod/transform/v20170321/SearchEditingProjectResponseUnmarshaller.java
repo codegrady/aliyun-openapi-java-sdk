@@ -19,27 +19,29 @@ import java.util.List;
 
 import com.aliyuncs.vod.model.v20170321.SearchEditingProjectResponse;
 import com.aliyuncs.vod.model.v20170321.SearchEditingProjectResponse.Project;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class SearchEditingProjectResponseUnmarshaller {
 
-	public static SearchEditingProjectResponse unmarshall(SearchEditingProjectResponse searchEditingProjectResponse, UnmarshallerContext context) {
+	public static SearchEditingProjectResponse unmarshall(SearchEditingProjectResponse searchEditingProjectResponse, UnmarshallerContext _ctx) {
 		
-		searchEditingProjectResponse.setRequestId(context.stringValue("SearchEditingProjectResponse.RequestId"));
-		searchEditingProjectResponse.setTotal(context.integerValue("SearchEditingProjectResponse.Total"));
+		searchEditingProjectResponse.setRequestId(_ctx.stringValue("SearchEditingProjectResponse.RequestId"));
+		searchEditingProjectResponse.setTotal(_ctx.integerValue("SearchEditingProjectResponse.Total"));
 
 		List<Project> projectList = new ArrayList<Project>();
-		for (int i = 0; i < context.lengthValue("SearchEditingProjectResponse.ProjectList.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("SearchEditingProjectResponse.ProjectList.Length"); i++) {
 			Project project = new Project();
-			project.setProjectId(context.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].ProjectId"));
-			project.setCreationTime(context.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].CreationTime"));
-			project.setModifiedTime(context.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].ModifiedTime"));
-			project.setStatus(context.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].Status"));
-			project.setDescription(context.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].Description"));
-			project.setTitle(context.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].Title"));
-			project.setCoverURL(context.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].CoverURL"));
+			project.setProjectId(_ctx.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].ProjectId"));
+			project.setCreationTime(_ctx.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].CreationTime"));
+			project.setModifiedTime(_ctx.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].ModifiedTime"));
+			project.setStatus(_ctx.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].Status"));
+			project.setDescription(_ctx.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].Description"));
+			project.setTitle(_ctx.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].Title"));
+			project.setCoverURL(_ctx.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].CoverURL"));
+			project.setStorageLocation(_ctx.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].StorageLocation"));
+			project.setRegionId(_ctx.stringValue("SearchEditingProjectResponse.ProjectList["+ i +"].RegionId"));
+			project.setDuration(_ctx.floatValue("SearchEditingProjectResponse.ProjectList["+ i +"].Duration"));
 
 			projectList.add(project);
 		}

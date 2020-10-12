@@ -15,32 +15,45 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AttachDiskRequest extends RpcAcsRequest<AttachDiskResponse> {
-	
-	public AttachDiskRequest() {
-		super("Ecs", "2014-05-26", "AttachDisk", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
+	private String keyPairName;
+
+	private Boolean bootable;
+
+	private String password;
+
+	private String diskId;
+
+	private Boolean deleteWithInstance;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String diskId;
-
 	private Long ownerId;
 
-	private String device;
+	private String instanceId;
 
-	private Boolean deleteWithInstance;
+	private String device;
+	public AttachDiskRequest() {
+		super("Ecs", "2014-05-26", "AttachDisk", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -53,14 +66,58 @@ public class AttachDiskRequest extends RpcAcsRequest<AttachDiskResponse> {
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
+	public String getKeyPairName() {
+		return this.keyPairName;
 	}
 
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
+	public void setKeyPairName(String keyPairName) {
+		this.keyPairName = keyPairName;
+		if(keyPairName != null){
+			putQueryParameter("KeyPairName", keyPairName);
+		}
+	}
+
+	public Boolean getBootable() {
+		return this.bootable;
+	}
+
+	public void setBootable(Boolean bootable) {
+		this.bootable = bootable;
+		if(bootable != null){
+			putQueryParameter("Bootable", bootable.toString());
+		}
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+		if(password != null){
+			putQueryParameter("Password", password);
+		}
+	}
+
+	public String getDiskId() {
+		return this.diskId;
+	}
+
+	public void setDiskId(String diskId) {
+		this.diskId = diskId;
+		if(diskId != null){
+			putQueryParameter("DiskId", diskId);
+		}
+	}
+
+	public Boolean getDeleteWithInstance() {
+		return this.deleteWithInstance;
+	}
+
+	public void setDeleteWithInstance(Boolean deleteWithInstance) {
+		this.deleteWithInstance = deleteWithInstance;
+		if(deleteWithInstance != null){
+			putQueryParameter("DeleteWithInstance", deleteWithInstance.toString());
 		}
 	}
 
@@ -86,17 +143,6 @@ public class AttachDiskRequest extends RpcAcsRequest<AttachDiskResponse> {
 		}
 	}
 
-	public String getDiskId() {
-		return this.diskId;
-	}
-
-	public void setDiskId(String diskId) {
-		this.diskId = diskId;
-		if(diskId != null){
-			putQueryParameter("DiskId", diskId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -108,6 +154,17 @@ public class AttachDiskRequest extends RpcAcsRequest<AttachDiskResponse> {
 		}
 	}
 
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
 	public String getDevice() {
 		return this.device;
 	}
@@ -116,17 +173,6 @@ public class AttachDiskRequest extends RpcAcsRequest<AttachDiskResponse> {
 		this.device = device;
 		if(device != null){
 			putQueryParameter("Device", device);
-		}
-	}
-
-	public Boolean getDeleteWithInstance() {
-		return this.deleteWithInstance;
-	}
-
-	public void setDeleteWithInstance(Boolean deleteWithInstance) {
-		this.deleteWithInstance = deleteWithInstance;
-		if(deleteWithInstance != null){
-			putQueryParameter("DeleteWithInstance", deleteWithInstance.toString());
 		}
 	}
 

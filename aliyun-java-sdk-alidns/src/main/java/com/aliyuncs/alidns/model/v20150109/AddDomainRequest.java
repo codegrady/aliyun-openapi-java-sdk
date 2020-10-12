@@ -11,53 +11,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.model.v20150109;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.alidns.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddDomainRequest extends RpcAcsRequest<AddDomainResponse> {
-	
-	public AddDomainRequest() {
-		super("Alidns", "2015-01-09", "AddDomain");
-	}
-
-	private String lang;
-
-	private String userClientIp;
-
-	private String domainName;
+	   
 
 	private String groupId;
 
-	public String getLang() {
-		return this.lang;
-	}
+	private String domainName;
 
-	public void setLang(String lang) {
-		this.lang = lang;
-		putQueryParameter("Lang", lang);
-	}
+	private String resourceGroupId;
 
-	public String getUserClientIp() {
-		return this.userClientIp;
-	}
-
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		putQueryParameter("UserClientIp", userClientIp);
-	}
-
-	public String getDomainName() {
-		return this.domainName;
-	}
-
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
-		putQueryParameter("DomainName", domainName);
+	private String lang;
+	public AddDomainRequest() {
+		super("Alidns", "2015-01-09", "AddDomain", "alidns");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getGroupId() {
@@ -66,7 +47,42 @@ public class AddDomainRequest extends RpcAcsRequest<AddDomainResponse> {
 
 	public void setGroupId(String groupId) {
 		this.groupId = groupId;
-		putQueryParameter("GroupId", groupId);
+		if(groupId != null){
+			putQueryParameter("GroupId", groupId);
+		}
+	}
+
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
+		}
 	}
 
 	@Override

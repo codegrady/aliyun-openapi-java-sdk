@@ -59,9 +59,9 @@ public class DescribeScdnDomainLogResponse extends AcsResponse {
 
 		private Long logCount;
 
-		private List<PageInfoDetail> pageInfos;
-
 		private List<LogInfoDetail> logInfos;
+
+		private PageInfos pageInfos;
 
 		public Long getLogCount() {
 			return this.logCount;
@@ -69,14 +69,6 @@ public class DescribeScdnDomainLogResponse extends AcsResponse {
 
 		public void setLogCount(Long logCount) {
 			this.logCount = logCount;
-		}
-
-		public List<PageInfoDetail> getPageInfos() {
-			return this.pageInfos;
-		}
-
-		public void setPageInfos(List<PageInfoDetail> pageInfos) {
-			this.pageInfos = pageInfos;
 		}
 
 		public List<LogInfoDetail> getLogInfos() {
@@ -87,37 +79,12 @@ public class DescribeScdnDomainLogResponse extends AcsResponse {
 			this.logInfos = logInfos;
 		}
 
-		public static class PageInfoDetail {
+		public PageInfos getPageInfos() {
+			return this.pageInfos;
+		}
 
-			private Long pageIndex;
-
-			private Long pageSize;
-
-			private Long total;
-
-			public Long getPageIndex() {
-				return this.pageIndex;
-			}
-
-			public void setPageIndex(Long pageIndex) {
-				this.pageIndex = pageIndex;
-			}
-
-			public Long getPageSize() {
-				return this.pageSize;
-			}
-
-			public void setPageSize(Long pageSize) {
-				this.pageSize = pageSize;
-			}
-
-			public Long getTotal() {
-				return this.total;
-			}
-
-			public void setTotal(Long total) {
-				this.total = total;
-			}
+		public void setPageInfos(PageInfos pageInfos) {
+			this.pageInfos = pageInfos;
 		}
 
 		public static class LogInfoDetail {
@@ -170,6 +137,39 @@ public class DescribeScdnDomainLogResponse extends AcsResponse {
 
 			public void setEndTime(String endTime) {
 				this.endTime = endTime;
+			}
+		}
+
+		public static class PageInfos {
+
+			private Long pageNumber;
+
+			private Long pageSize;
+
+			private Long total;
+
+			public Long getPageNumber() {
+				return this.pageNumber;
+			}
+
+			public void setPageNumber(Long pageNumber) {
+				this.pageNumber = pageNumber;
+			}
+
+			public Long getPageSize() {
+				return this.pageSize;
+			}
+
+			public void setPageSize(Long pageSize) {
+				this.pageSize = pageSize;
+			}
+
+			public Long getTotal() {
+				return this.total;
+			}
+
+			public void setTotal(Long total) {
+				this.total = total;
 			}
 		}
 	}

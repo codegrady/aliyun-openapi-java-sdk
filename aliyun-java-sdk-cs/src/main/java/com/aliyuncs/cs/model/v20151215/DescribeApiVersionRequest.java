@@ -11,21 +11,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.model.v20151215;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeApiVersionRequest extends RoaAcsRequest<DescribeApiVersionResponse> {
-	
+	   
 	public DescribeApiVersionRequest() {
 		super("CS", "2015-12-15", "DescribeApiVersion");
 		setUriPattern("/version");
 		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	@Override

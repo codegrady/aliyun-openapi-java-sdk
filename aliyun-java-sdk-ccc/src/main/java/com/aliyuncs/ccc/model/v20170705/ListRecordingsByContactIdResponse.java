@@ -113,6 +113,10 @@ public class ListRecordingsByContactIdResponse extends AcsResponse {
 
 		private String instanceId;
 
+		private String qualityCheckTid;
+
+		private String qualityCheckTaskId;
+
 		public String getContactId() {
 			return this.contactId;
 		}
@@ -215,6 +219,22 @@ public class ListRecordingsByContactIdResponse extends AcsResponse {
 
 		public void setInstanceId(String instanceId) {
 			this.instanceId = instanceId;
+		}
+
+		public String getQualityCheckTid() {
+			return this.qualityCheckTid;
+		}
+
+		public void setQualityCheckTid(String qualityCheckTid) {
+			this.qualityCheckTid = qualityCheckTid;
+		}
+
+		public String getQualityCheckTaskId() {
+			return this.qualityCheckTaskId;
+		}
+
+		public void setQualityCheckTaskId(String qualityCheckTaskId) {
+			this.qualityCheckTaskId = qualityCheckTaskId;
 		}
 	}
 

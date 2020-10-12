@@ -15,49 +15,32 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDomainBpsDataByTimeStampRequest extends RpcAcsRequest<DescribeDomainBpsDataByTimeStampResponse> {
-	
-	public DescribeDomainBpsDataByTimeStampRequest() {
-		super("Cdn", "2018-05-10", "DescribeDomainBpsDataByTimeStamp");
-	}
-
-	private String ispNames;
-
-	private String securityToken;
+	   
 
 	private String locationNames;
+
+	private String ispNames;
 
 	private String domainName;
 
 	private Long ownerId;
 
 	private String timePoint;
-
-	public String getIspNames() {
-		return this.ispNames;
-	}
-
-	public void setIspNames(String ispNames) {
-		this.ispNames = ispNames;
-		if(ispNames != null){
-			putQueryParameter("IspNames", ispNames);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
+	public DescribeDomainBpsDataByTimeStampRequest() {
+		super("Cdn", "2018-05-10", "DescribeDomainBpsDataByTimeStamp");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getLocationNames() {
@@ -68,6 +51,17 @@ public class DescribeDomainBpsDataByTimeStampRequest extends RpcAcsRequest<Descr
 		this.locationNames = locationNames;
 		if(locationNames != null){
 			putQueryParameter("LocationNames", locationNames);
+		}
+	}
+
+	public String getIspNames() {
+		return this.ispNames;
+	}
+
+	public void setIspNames(String ispNames) {
+		this.ispNames = ispNames;
+		if(ispNames != null){
+			putQueryParameter("IspNames", ispNames);
 		}
 	}
 

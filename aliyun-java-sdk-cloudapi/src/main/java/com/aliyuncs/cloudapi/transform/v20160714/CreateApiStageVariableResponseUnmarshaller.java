@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.CreateApiStageVariableResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateApiStageVariableResponseUnmarshaller {
 
-	public static CreateApiStageVariableResponse unmarshall(CreateApiStageVariableResponse createApiStageVariableResponse, UnmarshallerContext context) {
+	public static CreateApiStageVariableResponse unmarshall(CreateApiStageVariableResponse createApiStageVariableResponse, UnmarshallerContext _ctx) {
 		
-		createApiStageVariableResponse.setRequestId(context.stringValue("CreateApiStageVariableResponse.RequestId"));
+		createApiStageVariableResponse.setRequestId(_ctx.stringValue("CreateApiStageVariableResponse.RequestId"));
 	 
 	 	return createApiStageVariableResponse;
 	}

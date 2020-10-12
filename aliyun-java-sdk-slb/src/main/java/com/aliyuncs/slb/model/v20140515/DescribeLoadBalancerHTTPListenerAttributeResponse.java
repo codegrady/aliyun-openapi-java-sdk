@@ -51,6 +51,8 @@ public class DescribeLoadBalancerHTTPListenerAttributeResponse extends AcsRespon
 
 	private String healthCheck;
 
+	private String healthCheckType;
+
 	private String healthCheckDomain;
 
 	private String healthCheckURI;
@@ -66,6 +68,10 @@ public class DescribeLoadBalancerHTTPListenerAttributeResponse extends AcsRespon
 	private Integer healthCheckConnectPort;
 
 	private String healthCheckHttpCode;
+
+	private String healthCheckMethod;
+
+	private String healthCheckHttpVersion;
 
 	private Integer maxConnection;
 
@@ -97,7 +103,15 @@ public class DescribeLoadBalancerHTTPListenerAttributeResponse extends AcsRespon
 
 	private String description;
 
+	private String xForwardedFor_SLBPORT;
+
+	private String xForwardedFor_ClientSrcPort;
+
+	private Integer forwardCode;
+
 	private List<Rule> rules;
+
+	private List<String> aclIds;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -203,6 +217,14 @@ public class DescribeLoadBalancerHTTPListenerAttributeResponse extends AcsRespon
 		this.healthCheck = healthCheck;
 	}
 
+	public String getHealthCheckType() {
+		return this.healthCheckType;
+	}
+
+	public void setHealthCheckType(String healthCheckType) {
+		this.healthCheckType = healthCheckType;
+	}
+
 	public String getHealthCheckDomain() {
 		return this.healthCheckDomain;
 	}
@@ -265,6 +287,22 @@ public class DescribeLoadBalancerHTTPListenerAttributeResponse extends AcsRespon
 
 	public void setHealthCheckHttpCode(String healthCheckHttpCode) {
 		this.healthCheckHttpCode = healthCheckHttpCode;
+	}
+
+	public String getHealthCheckMethod() {
+		return this.healthCheckMethod;
+	}
+
+	public void setHealthCheckMethod(String healthCheckMethod) {
+		this.healthCheckMethod = healthCheckMethod;
+	}
+
+	public String getHealthCheckHttpVersion() {
+		return this.healthCheckHttpVersion;
+	}
+
+	public void setHealthCheckHttpVersion(String healthCheckHttpVersion) {
+		this.healthCheckHttpVersion = healthCheckHttpVersion;
 	}
 
 	public Integer getMaxConnection() {
@@ -387,12 +425,44 @@ public class DescribeLoadBalancerHTTPListenerAttributeResponse extends AcsRespon
 		this.description = description;
 	}
 
+	public String getXForwardedFor_SLBPORT() {
+		return this.xForwardedFor_SLBPORT;
+	}
+
+	public void setXForwardedFor_SLBPORT(String xForwardedFor_SLBPORT) {
+		this.xForwardedFor_SLBPORT = xForwardedFor_SLBPORT;
+	}
+
+	public String getXForwardedFor_ClientSrcPort() {
+		return this.xForwardedFor_ClientSrcPort;
+	}
+
+	public void setXForwardedFor_ClientSrcPort(String xForwardedFor_ClientSrcPort) {
+		this.xForwardedFor_ClientSrcPort = xForwardedFor_ClientSrcPort;
+	}
+
+	public Integer getForwardCode() {
+		return this.forwardCode;
+	}
+
+	public void setForwardCode(Integer forwardCode) {
+		this.forwardCode = forwardCode;
+	}
+
 	public List<Rule> getRules() {
 		return this.rules;
 	}
 
 	public void setRules(List<Rule> rules) {
 		this.rules = rules;
+	}
+
+	public List<String> getAclIds() {
+		return this.aclIds;
+	}
+
+	public void setAclIds(List<String> aclIds) {
+		this.aclIds = aclIds;
 	}
 
 	public static class Rule {

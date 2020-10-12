@@ -15,38 +15,45 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UploadServerCertificateRequest extends RpcAcsRequest<UploadServerCertificateResponse> {
-	
-	public UploadServerCertificateRequest() {
-		super("Slb", "2014-05-15", "UploadServerCertificate", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String serverCertificate;
 
-	private String resourceOwnerAccount;
-
-	private String ownerAccount;
-
 	private String aliCloudCertificateName;
 
 	private String aliCloudCertificateId;
-
-	private Long ownerId;
-
-	private String tags;
 
 	private String privateKey;
 
 	private String resourceGroupId;
 
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private Long ownerId;
+
+	private String aliCloudCertificateRegionId;
+
 	private String serverCertificateName;
+	public UploadServerCertificateRequest() {
+		super("Slb", "2014-05-15", "UploadServerCertificate", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -67,28 +74,6 @@ public class UploadServerCertificateRequest extends RpcAcsRequest<UploadServerCe
 		this.serverCertificate = serverCertificate;
 		if(serverCertificate != null){
 			putQueryParameter("ServerCertificate", serverCertificate);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -114,28 +99,6 @@ public class UploadServerCertificateRequest extends RpcAcsRequest<UploadServerCe
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
-		}
-	}
-
 	public String getPrivateKey() {
 		return this.privateKey;
 	}
@@ -155,6 +118,50 @@ public class UploadServerCertificateRequest extends RpcAcsRequest<UploadServerCe
 		this.resourceGroupId = resourceGroupId;
 		if(resourceGroupId != null){
 			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getAliCloudCertificateRegionId() {
+		return this.aliCloudCertificateRegionId;
+	}
+
+	public void setAliCloudCertificateRegionId(String aliCloudCertificateRegionId) {
+		this.aliCloudCertificateRegionId = aliCloudCertificateRegionId;
+		if(aliCloudCertificateRegionId != null){
+			putQueryParameter("AliCloudCertificateRegionId", aliCloudCertificateRegionId);
 		}
 	}
 

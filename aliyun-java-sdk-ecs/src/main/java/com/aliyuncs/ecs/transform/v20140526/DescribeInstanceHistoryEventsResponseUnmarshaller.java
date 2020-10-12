@@ -21,37 +21,58 @@ import com.aliyuncs.ecs.model.v20140526.DescribeInstanceHistoryEventsResponse;
 import com.aliyuncs.ecs.model.v20140526.DescribeInstanceHistoryEventsResponse.InstanceSystemEventType;
 import com.aliyuncs.ecs.model.v20140526.DescribeInstanceHistoryEventsResponse.InstanceSystemEventType.EventCycleStatus;
 import com.aliyuncs.ecs.model.v20140526.DescribeInstanceHistoryEventsResponse.InstanceSystemEventType.EventType;
-import java.util.Map;
+import com.aliyuncs.ecs.model.v20140526.DescribeInstanceHistoryEventsResponse.InstanceSystemEventType.ExtendedAttribute;
+import com.aliyuncs.ecs.model.v20140526.DescribeInstanceHistoryEventsResponse.InstanceSystemEventType.ExtendedAttribute.InactiveDisk;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeInstanceHistoryEventsResponseUnmarshaller {
 
-	public static DescribeInstanceHistoryEventsResponse unmarshall(DescribeInstanceHistoryEventsResponse describeInstanceHistoryEventsResponse, UnmarshallerContext context) {
+	public static DescribeInstanceHistoryEventsResponse unmarshall(DescribeInstanceHistoryEventsResponse describeInstanceHistoryEventsResponse, UnmarshallerContext _ctx) {
 		
-		describeInstanceHistoryEventsResponse.setRequestId(context.stringValue("DescribeInstanceHistoryEventsResponse.RequestId"));
-		describeInstanceHistoryEventsResponse.setTotalCount(context.integerValue("DescribeInstanceHistoryEventsResponse.TotalCount"));
-		describeInstanceHistoryEventsResponse.setPageNumber(context.integerValue("DescribeInstanceHistoryEventsResponse.PageNumber"));
-		describeInstanceHistoryEventsResponse.setPageSize(context.integerValue("DescribeInstanceHistoryEventsResponse.PageSize"));
+		describeInstanceHistoryEventsResponse.setRequestId(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.RequestId"));
+		describeInstanceHistoryEventsResponse.setTotalCount(_ctx.integerValue("DescribeInstanceHistoryEventsResponse.TotalCount"));
+		describeInstanceHistoryEventsResponse.setPageNumber(_ctx.integerValue("DescribeInstanceHistoryEventsResponse.PageNumber"));
+		describeInstanceHistoryEventsResponse.setPageSize(_ctx.integerValue("DescribeInstanceHistoryEventsResponse.PageSize"));
 
 		List<InstanceSystemEventType> instanceSystemEventSet = new ArrayList<InstanceSystemEventType>();
-		for (int i = 0; i < context.lengthValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet.Length"); i++) {
 			InstanceSystemEventType instanceSystemEventType = new InstanceSystemEventType();
-			instanceSystemEventType.setInstanceId(context.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].InstanceId"));
-			instanceSystemEventType.setEventId(context.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventId"));
-			instanceSystemEventType.setEventPublishTime(context.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventPublishTime"));
-			instanceSystemEventType.setNotBefore(context.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].NotBefore"));
-			instanceSystemEventType.setEventFinishTime(context.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventFinishTime"));
+			instanceSystemEventType.setInstanceId(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].InstanceId"));
+			instanceSystemEventType.setEventId(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventId"));
+			instanceSystemEventType.setEventPublishTime(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventPublishTime"));
+			instanceSystemEventType.setNotBefore(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].NotBefore"));
+			instanceSystemEventType.setEventFinishTime(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventFinishTime"));
+			instanceSystemEventType.setReason(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].Reason"));
+			instanceSystemEventType.setImpactLevel(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].ImpactLevel"));
 
 			EventType eventType = new EventType();
-			eventType.setCode(context.integerValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventType.Code"));
-			eventType.setName(context.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventType.Name"));
+			eventType.setCode(_ctx.integerValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventType.Code"));
+			eventType.setName(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventType.Name"));
 			instanceSystemEventType.setEventType(eventType);
 
 			EventCycleStatus eventCycleStatus = new EventCycleStatus();
-			eventCycleStatus.setCode(context.integerValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventCycleStatus.Code"));
-			eventCycleStatus.setName(context.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventCycleStatus.Name"));
+			eventCycleStatus.setCode(_ctx.integerValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventCycleStatus.Code"));
+			eventCycleStatus.setName(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].EventCycleStatus.Name"));
 			instanceSystemEventType.setEventCycleStatus(eventCycleStatus);
+
+			ExtendedAttribute extendedAttribute = new ExtendedAttribute();
+			extendedAttribute.setDiskId(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].ExtendedAttribute.DiskId"));
+			extendedAttribute.setDevice(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].ExtendedAttribute.Device"));
+
+			List<InactiveDisk> inactiveDisks = new ArrayList<InactiveDisk>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].ExtendedAttribute.InactiveDisks.Length"); j++) {
+				InactiveDisk inactiveDisk = new InactiveDisk();
+				inactiveDisk.setCreationTime(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].ExtendedAttribute.InactiveDisks["+ j +"].CreationTime"));
+				inactiveDisk.setReleaseTime(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].ExtendedAttribute.InactiveDisks["+ j +"].ReleaseTime"));
+				inactiveDisk.setDeviceType(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].ExtendedAttribute.InactiveDisks["+ j +"].DeviceType"));
+				inactiveDisk.setDeviceCategory(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].ExtendedAttribute.InactiveDisks["+ j +"].DeviceCategory"));
+				inactiveDisk.setDeviceSize(_ctx.stringValue("DescribeInstanceHistoryEventsResponse.InstanceSystemEventSet["+ i +"].ExtendedAttribute.InactiveDisks["+ j +"].DeviceSize"));
+
+				inactiveDisks.add(inactiveDisk);
+			}
+			extendedAttribute.setInactiveDisks(inactiveDisks);
+			instanceSystemEventType.setExtendedAttribute(extendedAttribute);
 
 			instanceSystemEventSet.add(instanceSystemEventType);
 		}

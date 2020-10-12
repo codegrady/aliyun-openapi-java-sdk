@@ -93,6 +93,16 @@ public class DescribeScalingInstancesResponse extends AcsResponse {
 
 		private String creationType;
 
+		private String launchTemplateId;
+
+		private String launchTemplateVersion;
+
+		private String warmupState;
+
+		private Boolean entrusted;
+
+		private String createdTime;
+
 		public String getInstanceId() {
 			return this.instanceId;
 		}
@@ -155,6 +165,46 @@ public class DescribeScalingInstancesResponse extends AcsResponse {
 
 		public void setCreationType(String creationType) {
 			this.creationType = creationType;
+		}
+
+		public String getLaunchTemplateId() {
+			return this.launchTemplateId;
+		}
+
+		public void setLaunchTemplateId(String launchTemplateId) {
+			this.launchTemplateId = launchTemplateId;
+		}
+
+		public String getLaunchTemplateVersion() {
+			return this.launchTemplateVersion;
+		}
+
+		public void setLaunchTemplateVersion(String launchTemplateVersion) {
+			this.launchTemplateVersion = launchTemplateVersion;
+		}
+
+		public String getWarmupState() {
+			return this.warmupState;
+		}
+
+		public void setWarmupState(String warmupState) {
+			this.warmupState = warmupState;
+		}
+
+		public Boolean getEntrusted() {
+			return this.entrusted;
+		}
+
+		public void setEntrusted(Boolean entrusted) {
+			this.entrusted = entrusted;
+		}
+
+		public String getCreatedTime() {
+			return this.createdTime;
+		}
+
+		public void setCreatedTime(String createdTime) {
+			this.createdTime = createdTime;
 		}
 	}
 

@@ -1,37 +1,17 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package com.aliyuncs.profile;
 
-import com.aliyuncs.auth.AlibabaCloudCredentialsProvider;
-import com.aliyuncs.auth.Credential;
-import com.aliyuncs.auth.CredentialsBackupCompatibilityAdaptor;
-import com.aliyuncs.auth.ICredentialProvider;
-import com.aliyuncs.auth.ISigner;
+import com.aliyuncs.auth.*;
 import com.aliyuncs.endpoint.DefaultEndpointResolver;
-import com.aliyuncs.endpoint.UserCustomizedEndpointResolver;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.http.FormatType;
 import com.aliyuncs.http.HttpClientConfig;
+import com.aliyuncs.utils.ParameterHelper;
+import org.slf4j.Logger;
+
+import static com.aliyuncs.utils.LogUtils.DEFAULT_LOG_FORMAT;
 
 @SuppressWarnings("deprecation")
 public class DefaultProfile implements IClientProfile {
-
     private static DefaultProfile profile = null;
     private String regionId = null;
     private FormatType acceptFormat = null;
@@ -39,6 +19,11 @@ public class DefaultProfile implements IClientProfile {
     private Credential credential;
     private String certPath;
     private HttpClientConfig httpClientConfig = HttpClientConfig.getDefault();
+    private boolean usingInternalLocationService = false;
+    private boolean usingVpcEndpoint = false;
+    private Logger logger;
+    private String logFormat = DEFAULT_LOG_FORMAT;
+    private boolean isCloseTrace = false;
 
     private DefaultProfile() {
     }
@@ -52,47 +37,15 @@ public class DefaultProfile implements IClientProfile {
         this.regionId = regionId;
     }
 
-
-    private DefaultProfile(ICredentialProvider icredential) {
-        this.icredential = icredential;
-    }
-
     private DefaultProfile(String region, ICredentialProvider icredential) {
         this.regionId = region;
         this.icredential = icredential;
     }
 
-    private DefaultProfile(ICredentialProvider icredential, String region, FormatType format) {
-        this.regionId = region;
-        this.acceptFormat = format;
-        this.icredential = icredential;
-    }
-
-    @Override
-    public synchronized String getRegionId() {
-        return regionId;
-    }
-
-    @Override
-    public synchronized FormatType getFormat() {
-        return acceptFormat;
-    }
-
-    @Override
-    public synchronized Credential getCredential() {
-        if (null == credential && null != icredential) { credential = icredential.fresh(); }
-        return credential;
-    }
-
-    @Override
-    @Deprecated
-    public ISigner getSigner() {
-        return null;
-    }
-
     public synchronized static DefaultProfile getProfile() {
-        if (null == profile) { profile = new DefaultProfile(); }
-
+        if (null == profile) {
+            profile = new DefaultProfile();
+        }
         return profile;
     }
 
@@ -118,12 +71,18 @@ public class DefaultProfile implements IClientProfile {
         return new DefaultProfile(regionId);
     }
 
+    /**
+     * @Deprecated : Use addEndpoint(String regionId, String product, String endpoint) instead of this
+     */
     @Deprecated
     public synchronized static void addEndpoint(String endpointName, String regionId, String product, String domain)
-        throws ClientException {
+            throws ClientException {
         addEndpoint(endpointName, regionId, product, domain, true);
     }
 
+    /**
+     * @Deprecated : Use addEndpoint(String regionId, String product, String endpoint) instead of this
+     */
     @Deprecated
     public synchronized static void addEndpoint(String endpointName, String regionId, String product, String domain,
                                                 boolean isNeverExpire) {
@@ -132,7 +91,32 @@ public class DefaultProfile implements IClientProfile {
     }
 
     public synchronized static void addEndpoint(String regionId, String product, String endpoint) {
+        ParameterHelper.validateParameter(regionId, "regionId");
         DefaultEndpointResolver.predefinedEndpointResolver.putEndpointEntry(regionId, product, endpoint);
+    }
+
+    @Override
+    public synchronized String getRegionId() {
+        return regionId;
+    }
+
+    @Override
+    public synchronized FormatType getFormat() {
+        return acceptFormat;
+    }
+
+    @Override
+    public synchronized Credential getCredential() {
+        if (null == credential && null != icredential) {
+            credential = icredential.fresh();
+        }
+        return credential;
+    }
+
+    @Override
+    @Deprecated
+    public ISigner getSigner() {
+        return null;
     }
 
     @Override
@@ -161,5 +145,64 @@ public class DefaultProfile implements IClientProfile {
     @Override
     public void setHttpClientConfig(HttpClientConfig httpClientConfig) {
         this.httpClientConfig = httpClientConfig;
+    }
+
+    @Override
+    public void enableUsingInternalLocationService() {
+        usingInternalLocationService = true;
+    }
+
+    @Override
+    public boolean isUsingInternalLocationService() {
+        return usingInternalLocationService;
+    }
+
+    @Override
+    public boolean isUsingVpcEndpoint() {
+        return usingVpcEndpoint;
+    }
+
+    @Override
+    public void enableUsingVpcEndpoint() {
+        this.usingVpcEndpoint = true;
+    }
+
+    /**
+     * @deprecated : use enableUsingInternalLocationService instead of this.
+     */
+    @Override
+    @Deprecated
+    public void setUsingInternalLocationService() {
+        enableUsingInternalLocationService();
+    }
+
+    @Override
+    public Logger getLogger() {
+        return logger;
+    }
+
+    @Override
+    public void setLogger(Logger logger) {
+        this.logger = logger;
+    }
+
+    @Override
+    public String getLogFormat() {
+        return logFormat;
+    }
+
+    @Override
+    public void setLogFormat(String logFormat) {
+        this.logFormat = logFormat;
+    }
+
+    @Override
+    public boolean isCloseTrace() {
+        return isCloseTrace;
+    }
+
+    @Override
+    public void setCloseTrace(boolean closeTrace) {
+        isCloseTrace = closeTrace;
     }
 }

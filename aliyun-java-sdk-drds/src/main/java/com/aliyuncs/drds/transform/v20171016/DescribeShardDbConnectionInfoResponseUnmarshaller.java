@@ -21,24 +21,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeShardDbConnectionInfoResponseUnmarshaller {
 
-	public static DescribeShardDbConnectionInfoResponse unmarshall(DescribeShardDbConnectionInfoResponse describeShardDbConnectionInfoResponse, UnmarshallerContext context) {
+	public static DescribeShardDbConnectionInfoResponse unmarshall(DescribeShardDbConnectionInfoResponse describeShardDbConnectionInfoResponse, UnmarshallerContext _ctx) {
 		
-		describeShardDbConnectionInfoResponse.setRequestId(context.stringValue("DescribeShardDbConnectionInfoResponse.RequestId"));
-		describeShardDbConnectionInfoResponse.setSuccess(context.booleanValue("DescribeShardDbConnectionInfoResponse.Success"));
+		describeShardDbConnectionInfoResponse.setRequestId(_ctx.stringValue("DescribeShardDbConnectionInfoResponse.RequestId"));
+		describeShardDbConnectionInfoResponse.setSuccess(_ctx.booleanValue("DescribeShardDbConnectionInfoResponse.Success"));
 
 		ConnectionInfo connectionInfo = new ConnectionInfo();
-		connectionInfo.setInstanceName(context.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.InstanceName"));
-		connectionInfo.setInstanceUrl(context.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.InstanceUrl"));
-		connectionInfo.setSubDbName(context.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.subDbName"));
-		connectionInfo.setDbStatus(context.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.dbStatus"));
-		connectionInfo.setDbType(context.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.dbType"));
-		connectionInfo.setMinPoolSize(context.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.minPoolSize"));
-		connectionInfo.setMaxPoolSize(context.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.maxPoolSize"));
-		connectionInfo.setIdleTimeOut(context.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.idleTimeOut"));
-		connectionInfo.setBlockingTimeout(context.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.blockingTimeout"));
-		connectionInfo.setConnectionProperties(context.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.connectionProperties"));
-		connectionInfo.setPreparedStatementCacheSize(context.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.preparedStatementCacheSize"));
-		connectionInfo.setUserName(context.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.userName"));
+		connectionInfo.setInstanceName(_ctx.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.InstanceName"));
+		connectionInfo.setInstanceUrl(_ctx.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.InstanceUrl"));
+		connectionInfo.setSubDbName(_ctx.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.subDbName"));
+		connectionInfo.setDbStatus(_ctx.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.dbStatus"));
+		connectionInfo.setDbType(_ctx.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.dbType"));
+		connectionInfo.setMinPoolSize(_ctx.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.minPoolSize"));
+		connectionInfo.setMaxPoolSize(_ctx.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.maxPoolSize"));
+		connectionInfo.setIdleTimeOut(_ctx.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.idleTimeOut"));
+		connectionInfo.setBlockingTimeout(_ctx.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.blockingTimeout"));
+		connectionInfo.setConnectionProperties(_ctx.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.connectionProperties"));
+		connectionInfo.setPreparedStatementCacheSize(_ctx.integerValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.preparedStatementCacheSize"));
+		connectionInfo.setUserName(_ctx.stringValue("DescribeShardDbConnectionInfoResponse.ConnectionInfo.userName"));
 		describeShardDbConnectionInfoResponse.setConnectionInfo(connectionInfo);
 	 
 	 	return describeShardDbConnectionInfoResponse;

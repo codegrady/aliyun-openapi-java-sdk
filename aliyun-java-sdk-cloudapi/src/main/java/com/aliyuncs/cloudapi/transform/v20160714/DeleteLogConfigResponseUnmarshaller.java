@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.DeleteLogConfigResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteLogConfigResponseUnmarshaller {
 
-	public static DeleteLogConfigResponse unmarshall(DeleteLogConfigResponse deleteLogConfigResponse, UnmarshallerContext context) {
+	public static DeleteLogConfigResponse unmarshall(DeleteLogConfigResponse deleteLogConfigResponse, UnmarshallerContext _ctx) {
 		
-		deleteLogConfigResponse.setRequestId(context.stringValue("DeleteLogConfigResponse.RequestId"));
+		deleteLogConfigResponse.setRequestId(_ctx.stringValue("DeleteLogConfigResponse.RequestId"));
 	 
 	 	return deleteLogConfigResponse;
 	}

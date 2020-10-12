@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.RemoveUserFromGroupResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class RemoveUserFromGroupResponseUnmarshaller {
 
-	public static RemoveUserFromGroupResponse unmarshall(RemoveUserFromGroupResponse removeUserFromGroupResponse, UnmarshallerContext context) {
+	public static RemoveUserFromGroupResponse unmarshall(RemoveUserFromGroupResponse removeUserFromGroupResponse, UnmarshallerContext _ctx) {
 		
-		removeUserFromGroupResponse.setRequestId(context.stringValue("RemoveUserFromGroupResponse.RequestId"));
+		removeUserFromGroupResponse.setRequestId(_ctx.stringValue("RemoveUserFromGroupResponse.RequestId"));
 	 
 	 	return removeUserFromGroupResponse;
 	}

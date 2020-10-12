@@ -1,3 +1,30 @@
+2020-09-22 Version: 3.9.1
+- Generated 2016-11-01 for `live`.
+
+2020-08-19 Version: 3.9.1
+- Add DescribeLiveDomainCertificateInfo.
+
+2020-05-18 Version: 3.9.0
+- Support live audio audit config API.
+
+2019-09-18 Version: 3.8.0
+- Generated 2016-11-01 for `live`.
+
+2019-07-12 Version: 3.7.5
+- Public api AddLivePullStreamInfoConfig.
+
+2019-06-04 Version: 3.7.4
+1, Add new API: UpdateLivePullStreamInfoConfig
+
+2018-12-06 Version: 3.7.3
+1, Add DescribeLiveDomainRealTimeBpsData, DescribeLiveDomainRealTimeHttpCodeData,DescribeLiveDomainRealTimeTrafficData.
+2, Update DescirbeCasterChannels and DescribeCasterStreamUrl.
+
+
+2018-10-30 Version: 3.7.2
+1, Add API DescribeLiveDomainBpsData,DescribeLiveDomainTrafficData.
+
+
 2018-09-17 Version: 3.7.1
 1, Add field for AddCasterVideoResource, DescribeCasterVideoResources, ModifyCasterVideoResource.
 

@@ -16,22 +16,37 @@ package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SaveBatchTaskForCreatingOrderTransferRequest extends RpcAcsRequest<SaveBatchTaskForCreatingOrderTransferResponse> {
-	
-	public SaveBatchTaskForCreatingOrderTransferRequest() {
-		super("Domain", "2018-01-29", "SaveBatchTaskForCreatingOrderTransfer");
-	}
+	   
 
 	private List<OrderTransferParam> orderTransferParams;
+
+	private String couponNo;
+
+	private Boolean useCoupon;
+
+	private String promotionNo;
 
 	private String userClientIp;
 
 	private String lang;
+
+	private Boolean usePromotion;
+	public SaveBatchTaskForCreatingOrderTransferRequest() {
+		super("Domain", "2018-01-29", "SaveBatchTaskForCreatingOrderTransfer", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public List<OrderTransferParam> getOrderTransferParams() {
 		return this.orderTransferParams;
@@ -41,12 +56,45 @@ public class SaveBatchTaskForCreatingOrderTransferRequest extends RpcAcsRequest<
 		this.orderTransferParams = orderTransferParams;	
 		if (orderTransferParams != null) {
 			for (int depth1 = 0; depth1 < orderTransferParams.size(); depth1++) {
-				putQueryParameter("OrderTransferParam." + (depth1 + 1) + ".DomainName" , orderTransferParams.get(depth1).getDomainName());
-				putQueryParameter("OrderTransferParam." + (depth1 + 1) + ".AuthorizationCode" , orderTransferParams.get(depth1).getAuthorizationCode());
-				putQueryParameter("OrderTransferParam." + (depth1 + 1) + ".RegistrantProfileId" , orderTransferParams.get(depth1).getRegistrantProfileId());
 				putQueryParameter("OrderTransferParam." + (depth1 + 1) + ".PermitPremiumTransfer" , orderTransferParams.get(depth1).getPermitPremiumTransfer());
+				putQueryParameter("OrderTransferParam." + (depth1 + 1) + ".AuthorizationCode" , orderTransferParams.get(depth1).getAuthorizationCode());
+				putQueryParameter("OrderTransferParam." + (depth1 + 1) + ".DomainName" , orderTransferParams.get(depth1).getDomainName());
+				putQueryParameter("OrderTransferParam." + (depth1 + 1) + ".RegistrantProfileId" , orderTransferParams.get(depth1).getRegistrantProfileId());
 			}
 		}	
+	}
+
+	public String getCouponNo() {
+		return this.couponNo;
+	}
+
+	public void setCouponNo(String couponNo) {
+		this.couponNo = couponNo;
+		if(couponNo != null){
+			putQueryParameter("CouponNo", couponNo);
+		}
+	}
+
+	public Boolean getUseCoupon() {
+		return this.useCoupon;
+	}
+
+	public void setUseCoupon(Boolean useCoupon) {
+		this.useCoupon = useCoupon;
+		if(useCoupon != null){
+			putQueryParameter("UseCoupon", useCoupon.toString());
+		}
+	}
+
+	public String getPromotionNo() {
+		return this.promotionNo;
+	}
+
+	public void setPromotionNo(String promotionNo) {
+		this.promotionNo = promotionNo;
+		if(promotionNo != null){
+			putQueryParameter("PromotionNo", promotionNo);
+		}
 	}
 
 	public String getUserClientIp() {
@@ -71,22 +119,33 @@ public class SaveBatchTaskForCreatingOrderTransferRequest extends RpcAcsRequest<
 		}
 	}
 
+	public Boolean getUsePromotion() {
+		return this.usePromotion;
+	}
+
+	public void setUsePromotion(Boolean usePromotion) {
+		this.usePromotion = usePromotion;
+		if(usePromotion != null){
+			putQueryParameter("UsePromotion", usePromotion.toString());
+		}
+	}
+
 	public static class OrderTransferParam {
-
-		private String domainName;
-
-		private String authorizationCode;
-
-		private Long registrantProfileId;
 
 		private Boolean permitPremiumTransfer;
 
-		public String getDomainName() {
-			return this.domainName;
+		private String authorizationCode;
+
+		private String domainName;
+
+		private Long registrantProfileId;
+
+		public Boolean getPermitPremiumTransfer() {
+			return this.permitPremiumTransfer;
 		}
 
-		public void setDomainName(String domainName) {
-			this.domainName = domainName;
+		public void setPermitPremiumTransfer(Boolean permitPremiumTransfer) {
+			this.permitPremiumTransfer = permitPremiumTransfer;
 		}
 
 		public String getAuthorizationCode() {
@@ -97,20 +156,20 @@ public class SaveBatchTaskForCreatingOrderTransferRequest extends RpcAcsRequest<
 			this.authorizationCode = authorizationCode;
 		}
 
+		public String getDomainName() {
+			return this.domainName;
+		}
+
+		public void setDomainName(String domainName) {
+			this.domainName = domainName;
+		}
+
 		public Long getRegistrantProfileId() {
 			return this.registrantProfileId;
 		}
 
 		public void setRegistrantProfileId(Long registrantProfileId) {
 			this.registrantProfileId = registrantProfileId;
-		}
-
-		public Boolean getPermitPremiumTransfer() {
-			return this.permitPremiumTransfer;
-		}
-
-		public void setPermitPremiumTransfer(Boolean permitPremiumTransfer) {
-			this.permitPremiumTransfer = permitPremiumTransfer;
 		}
 	}
 

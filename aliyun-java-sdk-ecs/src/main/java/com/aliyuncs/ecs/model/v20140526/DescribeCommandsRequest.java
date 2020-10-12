@@ -15,16 +15,15 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeCommandsRequest extends RpcAcsRequest<DescribeCommandsResponse> {
-	
-	public DescribeCommandsRequest() {
-		super("Ecs", "2014-05-26", "DescribeCommands", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -36,6 +35,8 @@ public class DescribeCommandsRequest extends RpcAcsRequest<DescribeCommandsRespo
 
 	private Long pageNumber;
 
+	private String contentEncoding;
+
 	private Long pageSize;
 
 	private String resourceOwnerAccount;
@@ -45,6 +46,14 @@ public class DescribeCommandsRequest extends RpcAcsRequest<DescribeCommandsRespo
 	private Long ownerId;
 
 	private String name;
+	public DescribeCommandsRequest() {
+		super("Ecs", "2014-05-26", "DescribeCommands", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -98,6 +107,17 @@ public class DescribeCommandsRequest extends RpcAcsRequest<DescribeCommandsRespo
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getContentEncoding() {
+		return this.contentEncoding;
+	}
+
+	public void setContentEncoding(String contentEncoding) {
+		this.contentEncoding = contentEncoding;
+		if(contentEncoding != null){
+			putQueryParameter("ContentEncoding", contentEncoding);
 		}
 	}
 

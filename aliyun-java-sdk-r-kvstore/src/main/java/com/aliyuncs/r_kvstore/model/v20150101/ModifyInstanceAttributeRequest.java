@@ -15,24 +15,21 @@
 package com.aliyuncs.r_kvstore.model.v20150101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.r_kvstore.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstanceAttributeResponse> {
-	
-	public ModifyInstanceAttributeRequest() {
-		super("R-kvstore", "2015-01-01", "ModifyInstanceAttribute", "redisa");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
-
-	private String instanceName;
-
 	private String securityToken;
+
+	private Boolean instanceReleaseProtection;
 
 	private String resourceOwnerAccount;
 
@@ -41,6 +38,18 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 	private Long ownerId;
 
 	private String newPassword;
+
+	private String instanceId;
+
+	private String instanceName;
+	public ModifyInstanceAttributeRequest() {
+		super("R-kvstore", "2015-01-01", "ModifyInstanceAttribute", "redisa");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -53,28 +62,6 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
-	public String getInstanceName() {
-		return this.instanceName;
-	}
-
-	public void setInstanceName(String instanceName) {
-		this.instanceName = instanceName;
-		if(instanceName != null){
-			putQueryParameter("InstanceName", instanceName);
-		}
-	}
-
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -83,6 +70,17 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public Boolean getInstanceReleaseProtection() {
+		return this.instanceReleaseProtection;
+	}
+
+	public void setInstanceReleaseProtection(Boolean instanceReleaseProtection) {
+		this.instanceReleaseProtection = instanceReleaseProtection;
+		if(instanceReleaseProtection != null){
+			putQueryParameter("InstanceReleaseProtection", instanceReleaseProtection.toString());
 		}
 	}
 
@@ -127,6 +125,28 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 		this.newPassword = newPassword;
 		if(newPassword != null){
 			putQueryParameter("NewPassword", newPassword);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getInstanceName() {
+		return this.instanceName;
+	}
+
+	public void setInstanceName(String instanceName) {
+		this.instanceName = instanceName;
+		if(instanceName != null){
+			putQueryParameter("InstanceName", instanceName);
 		}
 	}
 

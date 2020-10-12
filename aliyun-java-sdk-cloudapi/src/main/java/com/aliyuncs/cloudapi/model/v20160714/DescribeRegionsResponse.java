@@ -11,13 +11,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.model.v20160714;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.cloudapi.transform.v20160714.DescribeRegionsResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
-
-import java.util.List;
 
 /**
  * @author auto create
@@ -51,12 +51,28 @@ public class DescribeRegionsResponse extends AcsResponse {
 
 		private String localName;
 
-		private String endPoint;
+		private String regionEndpoint;
 
+		public String getBizRegionId() {
+			return this.regionId;
+		}
+
+		public void setBizRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		/**
+		 * @deprecated use getBizRegionId instead of this.
+		 */
+		@Deprecated
 		public String getRegionId() {
 			return this.regionId;
 		}
 
+		/**
+		 * @deprecated use setBizRegionId instead of this.
+		 */
+		@Deprecated
 		public void setRegionId(String regionId) {
 			this.regionId = regionId;
 		}
@@ -69,12 +85,12 @@ public class DescribeRegionsResponse extends AcsResponse {
 			this.localName = localName;
 		}
 
-		public String getEndPoint() {
-			return this.endPoint;
+		public String getRegionEndpoint() {
+			return this.regionEndpoint;
 		}
 
-		public void setEndPoint(String endPoint) {
-			this.endPoint = endPoint;
+		public void setRegionEndpoint(String regionEndpoint) {
+			this.regionEndpoint = regionEndpoint;
 		}
 	}
 

@@ -15,31 +15,38 @@
 package com.aliyuncs.gpdb.model.v20160503;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.gpdb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBInstanceMaintainTimeResponse> {
-	
-	public ModifyDBInstanceMaintainTimeRequest() {
-		super("gpdb", "2016-05-03", "ModifyDBInstanceMaintainTime", "gpdb");
-	}
-
-	private String endTime;
-
-	private String dBInstanceId;
+	   
 
 	private String startTime;
 
-	public String getEndTime() {
-		return this.endTime;
+	private String dBInstanceId;
+
+	private String endTime;
+	public ModifyDBInstanceMaintainTimeRequest() {
+		super("gpdb", "2016-05-03", "ModifyDBInstanceMaintainTime", "gpdb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-		if(endTime != null){
-			putQueryParameter("EndTime", endTime);
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
 		}
 	}
 
@@ -54,14 +61,14 @@ public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBI
 		}
 	}
 
-	public String getStartTime() {
-		return this.startTime;
+	public String getEndTime() {
+		return this.endTime;
 	}
 
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime);
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime);
 		}
 	}
 

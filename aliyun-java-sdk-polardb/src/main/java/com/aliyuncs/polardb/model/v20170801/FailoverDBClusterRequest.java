@@ -15,30 +15,37 @@
 package com.aliyuncs.polardb.model.v20170801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.polardb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class FailoverDBClusterRequest extends RpcAcsRequest<FailoverDBClusterResponse> {
-	
-	public FailoverDBClusterRequest() {
-		super("polardb", "2017-08-01", "FailoverDBCluster", "polardb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String clientToken;
+
+	private String resourceOwnerAccount;
 
 	private String dBClusterId;
 
 	private String ownerAccount;
 
-	private String targetDBInstanceId;
-
 	private Long ownerId;
+
+	private String targetDBNodeId;
+	public FailoverDBClusterRequest() {
+		super("polardb", "2017-08-01", "FailoverDBCluster", "polardb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -51,17 +58,6 @@ public class FailoverDBClusterRequest extends RpcAcsRequest<FailoverDBClusterRes
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
 	public String getClientToken() {
 		return this.clientToken;
 	}
@@ -70,6 +66,17 @@ public class FailoverDBClusterRequest extends RpcAcsRequest<FailoverDBClusterRes
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -95,17 +102,6 @@ public class FailoverDBClusterRequest extends RpcAcsRequest<FailoverDBClusterRes
 		}
 	}
 
-	public String getTargetDBInstanceId() {
-		return this.targetDBInstanceId;
-	}
-
-	public void setTargetDBInstanceId(String targetDBInstanceId) {
-		this.targetDBInstanceId = targetDBInstanceId;
-		if(targetDBInstanceId != null){
-			putQueryParameter("TargetDBInstanceId", targetDBInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,6 +110,17 @@ public class FailoverDBClusterRequest extends RpcAcsRequest<FailoverDBClusterRes
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getTargetDBNodeId() {
+		return this.targetDBNodeId;
+	}
+
+	public void setTargetDBNodeId(String targetDBNodeId) {
+		this.targetDBNodeId = targetDBNodeId;
+		if(targetDBNodeId != null){
+			putQueryParameter("TargetDBNodeId", targetDBNodeId);
 		}
 	}
 

@@ -15,30 +15,37 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifySecurityGroupPolicyRequest extends RpcAcsRequest<ModifySecurityGroupPolicyResponse> {
-	
-	public ModifySecurityGroupPolicyRequest() {
-		super("Ecs", "2014-05-26", "ModifySecurityGroupPolicy", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String clientToken;
 
+	private String securityGroupId;
+
+	private String innerAccessPolicy;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String securityGroupId;
-
 	private Long ownerId;
-
-	private String innerAccessPolicy;
+	public ModifySecurityGroupPolicyRequest() {
+		super("Ecs", "2014-05-26", "ModifySecurityGroupPolicy", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -59,6 +66,28 @@ public class ModifySecurityGroupPolicyRequest extends RpcAcsRequest<ModifySecuri
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getSecurityGroupId() {
+		return this.securityGroupId;
+	}
+
+	public void setSecurityGroupId(String securityGroupId) {
+		this.securityGroupId = securityGroupId;
+		if(securityGroupId != null){
+			putQueryParameter("SecurityGroupId", securityGroupId);
+		}
+	}
+
+	public String getInnerAccessPolicy() {
+		return this.innerAccessPolicy;
+	}
+
+	public void setInnerAccessPolicy(String innerAccessPolicy) {
+		this.innerAccessPolicy = innerAccessPolicy;
+		if(innerAccessPolicy != null){
+			putQueryParameter("InnerAccessPolicy", innerAccessPolicy);
 		}
 	}
 
@@ -84,17 +113,6 @@ public class ModifySecurityGroupPolicyRequest extends RpcAcsRequest<ModifySecuri
 		}
 	}
 
-	public String getSecurityGroupId() {
-		return this.securityGroupId;
-	}
-
-	public void setSecurityGroupId(String securityGroupId) {
-		this.securityGroupId = securityGroupId;
-		if(securityGroupId != null){
-			putQueryParameter("SecurityGroupId", securityGroupId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -103,17 +121,6 @@ public class ModifySecurityGroupPolicyRequest extends RpcAcsRequest<ModifySecuri
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getInnerAccessPolicy() {
-		return this.innerAccessPolicy;
-	}
-
-	public void setInnerAccessPolicy(String innerAccessPolicy) {
-		this.innerAccessPolicy = innerAccessPolicy;
-		if(innerAccessPolicy != null){
-			putQueryParameter("InnerAccessPolicy", innerAccessPolicy);
 		}
 	}
 

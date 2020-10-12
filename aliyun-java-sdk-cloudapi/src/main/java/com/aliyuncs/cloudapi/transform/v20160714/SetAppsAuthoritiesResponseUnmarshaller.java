@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.SetAppsAuthoritiesResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SetAppsAuthoritiesResponseUnmarshaller {
 
-	public static SetAppsAuthoritiesResponse unmarshall(SetAppsAuthoritiesResponse setAppsAuthoritiesResponse, UnmarshallerContext context) {
+	public static SetAppsAuthoritiesResponse unmarshall(SetAppsAuthoritiesResponse setAppsAuthoritiesResponse, UnmarshallerContext _ctx) {
 		
-		setAppsAuthoritiesResponse.setRequestId(context.stringValue("SetAppsAuthoritiesResponse.RequestId"));
+		setAppsAuthoritiesResponse.setRequestId(_ctx.stringValue("SetAppsAuthoritiesResponse.RequestId"));
 	 
 	 	return setAppsAuthoritiesResponse;
 	}

@@ -32,6 +32,12 @@ public class QuerySyncPicScheduleRequest extends RpcAcsRequest<QuerySyncPicSched
 
 	private String iotId;
 
+	private String groupId;
+
+	private String deviceName;
+
+	private String productKey;
+
 	public String getIotId() {
 		return this.iotId;
 	}
@@ -40,6 +46,39 @@ public class QuerySyncPicScheduleRequest extends RpcAcsRequest<QuerySyncPicSched
 		this.iotId = iotId;
 		if(iotId != null){
 			putBodyParameter("IotId", iotId);
+		}
+	}
+
+	public String getGroupId() {
+		return this.groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+		if(groupId != null){
+			putBodyParameter("GroupId", groupId);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putBodyParameter("DeviceName", deviceName);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putBodyParameter("ProductKey", productKey);
 		}
 	}
 

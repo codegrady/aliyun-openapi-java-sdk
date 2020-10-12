@@ -20,10 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ModifyFullTableScanResponseUnmarshaller {
 
-	public static ModifyFullTableScanResponse unmarshall(ModifyFullTableScanResponse modifyFullTableScanResponse, UnmarshallerContext context) {
+	public static ModifyFullTableScanResponse unmarshall(ModifyFullTableScanResponse modifyFullTableScanResponse, UnmarshallerContext _ctx) {
 		
-		modifyFullTableScanResponse.setRequestId(context.stringValue("ModifyFullTableScanResponse.RequestId"));
-		modifyFullTableScanResponse.setSuccess(context.booleanValue("ModifyFullTableScanResponse.Success"));
+		modifyFullTableScanResponse.setRequestId(_ctx.stringValue("ModifyFullTableScanResponse.RequestId"));
+		modifyFullTableScanResponse.setSuccess(_ctx.booleanValue("ModifyFullTableScanResponse.Success"));
 	 
 	 	return modifyFullTableScanResponse;
 	}

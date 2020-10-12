@@ -11,9 +11,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.model.v20160714;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cloudapi.Endpoint;
 
 /**
  * @author auto create
@@ -23,17 +26,18 @@ public class SetDomainRequest extends RpcAcsRequest<SetDomainResponse> {
 	
 	public SetDomainRequest() {
 		super("CloudAPI", "2016-07-14", "SetDomain", "apigateway");
+		setSysMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private String groupId;
 
 	private String domainName;
 
-	private String certificateName;
-
-	private String certificateBody;
-
-	private String certificatePrivateKey;
+	private String securityToken;
 
 	public String getGroupId() {
 		return this.groupId;
@@ -41,7 +45,9 @@ public class SetDomainRequest extends RpcAcsRequest<SetDomainResponse> {
 
 	public void setGroupId(String groupId) {
 		this.groupId = groupId;
-		putQueryParameter("GroupId", groupId);
+		if(groupId != null){
+			putQueryParameter("GroupId", groupId);
+		}
 	}
 
 	public String getDomainName() {
@@ -50,34 +56,39 @@ public class SetDomainRequest extends RpcAcsRequest<SetDomainResponse> {
 
 	public void setDomainName(String domainName) {
 		this.domainName = domainName;
-		putQueryParameter("DomainName", domainName);
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
 	}
 
-	public String getCertificateName() {
-		return this.certificateName;
+	public String getBizSecurityToken() {
+		return this.securityToken;
 	}
 
-	public void setCertificateName(String certificateName) {
-		this.certificateName = certificateName;
-		putQueryParameter("CertificateName", certificateName);
+	public void setBizSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
 	}
 
-	public String getCertificateBody() {
-		return this.certificateBody;
+	/**
+	 * @deprecated use getBizSecurityToken instead of this.
+	 */
+	@Deprecated
+	public String getSecurityToken() {
+		return this.securityToken;
 	}
 
-	public void setCertificateBody(String certificateBody) {
-		this.certificateBody = certificateBody;
-		putQueryParameter("CertificateBody", certificateBody);
-	}
-
-	public String getCertificatePrivateKey() {
-		return this.certificatePrivateKey;
-	}
-
-	public void setCertificatePrivateKey(String certificatePrivateKey) {
-		this.certificatePrivateKey = certificatePrivateKey;
-		putQueryParameter("CertificatePrivateKey", certificatePrivateKey);
+	/**
+	 * @deprecated use setBizSecurityToken instead of this.
+	 */
+	@Deprecated
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
 	}
 
 	@Override

@@ -11,21 +11,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ros.model.v20150901;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ros.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class PreviewStackRequest extends RoaAcsRequest<PreviewStackResponse> {
-	
+	   
 	public PreviewStackRequest() {
-		super("ROS", "2015-09-01", "PreviewStack");
+		super("ROS", "2015-09-01", "PreviewStack", "ros");
 		setUriPattern("/stacks/preview");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	@Override

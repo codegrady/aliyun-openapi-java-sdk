@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.transform.v20151215;
 
 import com.aliyuncs.cs.model.v20151215.DeleteClusterResponse;
@@ -19,7 +20,7 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteClusterResponseUnmarshaller {
 
-	public static DeleteClusterResponse unmarshall(DeleteClusterResponse deleteClusterResponse, UnmarshallerContext context) {
+	public static DeleteClusterResponse unmarshall(DeleteClusterResponse deleteClusterResponse, UnmarshallerContext _ctx) {
 		
 	 
 	 	return deleteClusterResponse;

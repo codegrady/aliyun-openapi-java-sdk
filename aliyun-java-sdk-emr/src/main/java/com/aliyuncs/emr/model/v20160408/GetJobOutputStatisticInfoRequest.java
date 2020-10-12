@@ -15,28 +15,35 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetJobOutputStatisticInfoRequest extends RpcAcsRequest<GetJobOutputStatisticInfoResponse> {
-	
-	public GetJobOutputStatisticInfoRequest() {
-		super("Emr", "2016-04-08", "GetJobOutputStatisticInfo");
-	}
+	   
 
 	private String fromDatetime;
 
 	private Long resourceOwnerId;
-
-	private Integer pageSize;
 
 	private String clusterId;
 
 	private String toDatetime;
 
 	private Integer pageNumber;
+
+	private Integer pageSize;
+	public GetJobOutputStatisticInfoRequest() {
+		super("Emr", "2016-04-08", "GetJobOutputStatisticInfo");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFromDatetime() {
 		return this.fromDatetime;
@@ -57,17 +64,6 @@ public class GetJobOutputStatisticInfoRequest extends RpcAcsRequest<GetJobOutput
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -101,6 +97,17 @@ public class GetJobOutputStatisticInfoRequest extends RpcAcsRequest<GetJobOutput
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

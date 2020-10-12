@@ -15,20 +15,41 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRulesResponse> {
-	
-	public DescribeScalingRulesRequest() {
-		super("Ess", "2014-08-28", "DescribeScalingRules", "ess");
-	}
-
-	private String scalingRuleName1;
+	   
 
 	private Long resourceOwnerId;
+
+	private String scalingRuleId10;
+
+	private Long ownerId;
+
+	private String scalingRuleAri1;
+
+	private String scalingRuleAri2;
+
+	private String scalingRuleAri3;
+
+	private String scalingRuleAri4;
+
+	private String scalingRuleAri5;
+
+	private String scalingRuleAri6;
+
+	private String scalingRuleAri7;
+
+	private String scalingRuleAri8;
+
+	private Boolean showAlarmRules;
+
+	private String scalingRuleName1;
 
 	private String scalingRuleName2;
 
@@ -54,37 +75,19 @@ public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRu
 
 	private Integer pageSize;
 
-	private String scalingRuleId10;
+	private String scalingRuleType;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private Long ownerId;
-
-	private String scalingRuleAri1;
-
-	private String scalingRuleAri2;
-
 	private String scalingRuleName10;
-
-	private String scalingRuleAri3;
-
-	private String scalingRuleAri4;
 
 	private String scalingRuleId8;
 
-	private String scalingRuleAri5;
-
 	private String scalingRuleId9;
 
-	private String scalingRuleAri6;
-
-	private String scalingRuleAri7;
-
 	private String scalingRuleAri10;
-
-	private String scalingRuleAri8;
 
 	private String scalingRuleId4;
 
@@ -99,16 +102,13 @@ public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRu
 	private String scalingRuleId2;
 
 	private String scalingRuleId3;
-
-	public String getScalingRuleName1() {
-		return this.scalingRuleName1;
-	}
-
-	public void setScalingRuleName1(String scalingRuleName1) {
-		this.scalingRuleName1 = scalingRuleName1;
-		if(scalingRuleName1 != null){
-			putQueryParameter("ScalingRuleName.1", scalingRuleName1);
-		}
+	public DescribeScalingRulesRequest() {
+		super("Ess", "2014-08-28", "DescribeScalingRules", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -119,6 +119,138 @@ public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRu
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getScalingRuleId10() {
+		return this.scalingRuleId10;
+	}
+
+	public void setScalingRuleId10(String scalingRuleId10) {
+		this.scalingRuleId10 = scalingRuleId10;
+		if(scalingRuleId10 != null){
+			putQueryParameter("ScalingRuleId.10", scalingRuleId10);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getScalingRuleAri1() {
+		return this.scalingRuleAri1;
+	}
+
+	public void setScalingRuleAri1(String scalingRuleAri1) {
+		this.scalingRuleAri1 = scalingRuleAri1;
+		if(scalingRuleAri1 != null){
+			putQueryParameter("ScalingRuleAri.1", scalingRuleAri1);
+		}
+	}
+
+	public String getScalingRuleAri2() {
+		return this.scalingRuleAri2;
+	}
+
+	public void setScalingRuleAri2(String scalingRuleAri2) {
+		this.scalingRuleAri2 = scalingRuleAri2;
+		if(scalingRuleAri2 != null){
+			putQueryParameter("ScalingRuleAri.2", scalingRuleAri2);
+		}
+	}
+
+	public String getScalingRuleAri3() {
+		return this.scalingRuleAri3;
+	}
+
+	public void setScalingRuleAri3(String scalingRuleAri3) {
+		this.scalingRuleAri3 = scalingRuleAri3;
+		if(scalingRuleAri3 != null){
+			putQueryParameter("ScalingRuleAri.3", scalingRuleAri3);
+		}
+	}
+
+	public String getScalingRuleAri4() {
+		return this.scalingRuleAri4;
+	}
+
+	public void setScalingRuleAri4(String scalingRuleAri4) {
+		this.scalingRuleAri4 = scalingRuleAri4;
+		if(scalingRuleAri4 != null){
+			putQueryParameter("ScalingRuleAri.4", scalingRuleAri4);
+		}
+	}
+
+	public String getScalingRuleAri5() {
+		return this.scalingRuleAri5;
+	}
+
+	public void setScalingRuleAri5(String scalingRuleAri5) {
+		this.scalingRuleAri5 = scalingRuleAri5;
+		if(scalingRuleAri5 != null){
+			putQueryParameter("ScalingRuleAri.5", scalingRuleAri5);
+		}
+	}
+
+	public String getScalingRuleAri6() {
+		return this.scalingRuleAri6;
+	}
+
+	public void setScalingRuleAri6(String scalingRuleAri6) {
+		this.scalingRuleAri6 = scalingRuleAri6;
+		if(scalingRuleAri6 != null){
+			putQueryParameter("ScalingRuleAri.6", scalingRuleAri6);
+		}
+	}
+
+	public String getScalingRuleAri7() {
+		return this.scalingRuleAri7;
+	}
+
+	public void setScalingRuleAri7(String scalingRuleAri7) {
+		this.scalingRuleAri7 = scalingRuleAri7;
+		if(scalingRuleAri7 != null){
+			putQueryParameter("ScalingRuleAri.7", scalingRuleAri7);
+		}
+	}
+
+	public String getScalingRuleAri8() {
+		return this.scalingRuleAri8;
+	}
+
+	public void setScalingRuleAri8(String scalingRuleAri8) {
+		this.scalingRuleAri8 = scalingRuleAri8;
+		if(scalingRuleAri8 != null){
+			putQueryParameter("ScalingRuleAri.8", scalingRuleAri8);
+		}
+	}
+
+	public Boolean getShowAlarmRules() {
+		return this.showAlarmRules;
+	}
+
+	public void setShowAlarmRules(Boolean showAlarmRules) {
+		this.showAlarmRules = showAlarmRules;
+		if(showAlarmRules != null){
+			putQueryParameter("ShowAlarmRules", showAlarmRules.toString());
+		}
+	}
+
+	public String getScalingRuleName1() {
+		return this.scalingRuleName1;
+	}
+
+	public void setScalingRuleName1(String scalingRuleName1) {
+		this.scalingRuleName1 = scalingRuleName1;
+		if(scalingRuleName1 != null){
+			putQueryParameter("ScalingRuleName.1", scalingRuleName1);
 		}
 	}
 
@@ -254,14 +386,14 @@ public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRu
 		}
 	}
 
-	public String getScalingRuleId10() {
-		return this.scalingRuleId10;
+	public String getScalingRuleType() {
+		return this.scalingRuleType;
 	}
 
-	public void setScalingRuleId10(String scalingRuleId10) {
-		this.scalingRuleId10 = scalingRuleId10;
-		if(scalingRuleId10 != null){
-			putQueryParameter("ScalingRuleId.10", scalingRuleId10);
+	public void setScalingRuleType(String scalingRuleType) {
+		this.scalingRuleType = scalingRuleType;
+		if(scalingRuleType != null){
+			putQueryParameter("ScalingRuleType", scalingRuleType);
 		}
 	}
 
@@ -287,39 +419,6 @@ public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRu
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getScalingRuleAri1() {
-		return this.scalingRuleAri1;
-	}
-
-	public void setScalingRuleAri1(String scalingRuleAri1) {
-		this.scalingRuleAri1 = scalingRuleAri1;
-		if(scalingRuleAri1 != null){
-			putQueryParameter("ScalingRuleAri.1", scalingRuleAri1);
-		}
-	}
-
-	public String getScalingRuleAri2() {
-		return this.scalingRuleAri2;
-	}
-
-	public void setScalingRuleAri2(String scalingRuleAri2) {
-		this.scalingRuleAri2 = scalingRuleAri2;
-		if(scalingRuleAri2 != null){
-			putQueryParameter("ScalingRuleAri.2", scalingRuleAri2);
-		}
-	}
-
 	public String getScalingRuleName10() {
 		return this.scalingRuleName10;
 	}
@@ -328,28 +427,6 @@ public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRu
 		this.scalingRuleName10 = scalingRuleName10;
 		if(scalingRuleName10 != null){
 			putQueryParameter("ScalingRuleName.10", scalingRuleName10);
-		}
-	}
-
-	public String getScalingRuleAri3() {
-		return this.scalingRuleAri3;
-	}
-
-	public void setScalingRuleAri3(String scalingRuleAri3) {
-		this.scalingRuleAri3 = scalingRuleAri3;
-		if(scalingRuleAri3 != null){
-			putQueryParameter("ScalingRuleAri.3", scalingRuleAri3);
-		}
-	}
-
-	public String getScalingRuleAri4() {
-		return this.scalingRuleAri4;
-	}
-
-	public void setScalingRuleAri4(String scalingRuleAri4) {
-		this.scalingRuleAri4 = scalingRuleAri4;
-		if(scalingRuleAri4 != null){
-			putQueryParameter("ScalingRuleAri.4", scalingRuleAri4);
 		}
 	}
 
@@ -364,17 +441,6 @@ public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRu
 		}
 	}
 
-	public String getScalingRuleAri5() {
-		return this.scalingRuleAri5;
-	}
-
-	public void setScalingRuleAri5(String scalingRuleAri5) {
-		this.scalingRuleAri5 = scalingRuleAri5;
-		if(scalingRuleAri5 != null){
-			putQueryParameter("ScalingRuleAri.5", scalingRuleAri5);
-		}
-	}
-
 	public String getScalingRuleId9() {
 		return this.scalingRuleId9;
 	}
@@ -386,28 +452,6 @@ public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRu
 		}
 	}
 
-	public String getScalingRuleAri6() {
-		return this.scalingRuleAri6;
-	}
-
-	public void setScalingRuleAri6(String scalingRuleAri6) {
-		this.scalingRuleAri6 = scalingRuleAri6;
-		if(scalingRuleAri6 != null){
-			putQueryParameter("ScalingRuleAri.6", scalingRuleAri6);
-		}
-	}
-
-	public String getScalingRuleAri7() {
-		return this.scalingRuleAri7;
-	}
-
-	public void setScalingRuleAri7(String scalingRuleAri7) {
-		this.scalingRuleAri7 = scalingRuleAri7;
-		if(scalingRuleAri7 != null){
-			putQueryParameter("ScalingRuleAri.7", scalingRuleAri7);
-		}
-	}
-
 	public String getScalingRuleAri10() {
 		return this.scalingRuleAri10;
 	}
@@ -416,17 +460,6 @@ public class DescribeScalingRulesRequest extends RpcAcsRequest<DescribeScalingRu
 		this.scalingRuleAri10 = scalingRuleAri10;
 		if(scalingRuleAri10 != null){
 			putQueryParameter("ScalingRuleAri.10", scalingRuleAri10);
-		}
-	}
-
-	public String getScalingRuleAri8() {
-		return this.scalingRuleAri8;
-	}
-
-	public void setScalingRuleAri8(String scalingRuleAri8) {
-		this.scalingRuleAri8 = scalingRuleAri8;
-		if(scalingRuleAri8 != null){
-			putQueryParameter("ScalingRuleAri.8", scalingRuleAri8);
 		}
 	}
 

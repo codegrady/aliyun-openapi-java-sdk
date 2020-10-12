@@ -15,26 +15,33 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeVpnConnectionRequest extends RpcAcsRequest<DescribeVpnConnectionResponse> {
-	
-	public DescribeVpnConnectionRequest() {
-		super("Vpc", "2016-04-28", "DescribeVpnConnection", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String resourceOwnerAccount;
 
-	private String vpnConnectionId;
-
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String vpnConnectionId;
+	public DescribeVpnConnectionRequest() {
+		super("Vpc", "2016-04-28", "DescribeVpnConnection", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -58,17 +65,6 @@ public class DescribeVpnConnectionRequest extends RpcAcsRequest<DescribeVpnConne
 		}
 	}
 
-	public String getVpnConnectionId() {
-		return this.vpnConnectionId;
-	}
-
-	public void setVpnConnectionId(String vpnConnectionId) {
-		this.vpnConnectionId = vpnConnectionId;
-		if(vpnConnectionId != null){
-			putQueryParameter("VpnConnectionId", vpnConnectionId);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -88,6 +84,17 @@ public class DescribeVpnConnectionRequest extends RpcAcsRequest<DescribeVpnConne
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getVpnConnectionId() {
+		return this.vpnConnectionId;
+	}
+
+	public void setVpnConnectionId(String vpnConnectionId) {
+		this.vpnConnectionId = vpnConnectionId;
+		if(vpnConnectionId != null){
+			putQueryParameter("VpnConnectionId", vpnConnectionId);
 		}
 	}
 

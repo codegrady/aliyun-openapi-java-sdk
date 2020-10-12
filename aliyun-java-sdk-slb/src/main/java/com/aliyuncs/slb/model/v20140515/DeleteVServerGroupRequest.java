@@ -15,38 +15,32 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteVServerGroupRequest extends RpcAcsRequest<DeleteVServerGroupResponse> {
-	
-	public DeleteVServerGroupRequest() {
-		super("Slb", "2014-05-15", "DeleteVServerGroup", "slb");
-	}
-
-	private String vServerGroupId;
+	   
 
 	private Long resourceOwnerId;
+
+	private String vServerGroupId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	private String tags;
-
-	public String getVServerGroupId() {
-		return this.vServerGroupId;
-	}
-
-	public void setVServerGroupId(String vServerGroupId) {
-		this.vServerGroupId = vServerGroupId;
-		if(vServerGroupId != null){
-			putQueryParameter("VServerGroupId", vServerGroupId);
-		}
+	public DeleteVServerGroupRequest() {
+		super("Slb", "2014-05-15", "DeleteVServerGroup", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -57,6 +51,17 @@ public class DeleteVServerGroupRequest extends RpcAcsRequest<DeleteVServerGroupR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getVServerGroupId() {
+		return this.vServerGroupId;
+	}
+
+	public void setVServerGroupId(String vServerGroupId) {
+		this.vServerGroupId = vServerGroupId;
+		if(vServerGroupId != null){
+			putQueryParameter("VServerGroupId", vServerGroupId);
 		}
 	}
 
@@ -90,17 +95,6 @@ public class DeleteVServerGroupRequest extends RpcAcsRequest<DeleteVServerGroupR
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
 		}
 	}
 

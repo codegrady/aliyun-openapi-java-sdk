@@ -15,16 +15,15 @@
 package com.aliyuncs.polardb.model.v20170801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.polardb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeBackupTasksRequest extends RpcAcsRequest<DescribeBackupTasksResponse> {
-	
-	public DescribeBackupTasksRequest() {
-		super("polardb", "2017-08-01", "DescribeBackupTasks", "polardb");
-	}
+	   
 
 	private String backupJobId;
 
@@ -37,6 +36,16 @@ public class DescribeBackupTasksRequest extends RpcAcsRequest<DescribeBackupTask
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String backupMode;
+	public DescribeBackupTasksRequest() {
+		super("polardb", "2017-08-01", "DescribeBackupTasks", "polardb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getBackupJobId() {
 		return this.backupJobId;
@@ -101,6 +110,17 @@ public class DescribeBackupTasksRequest extends RpcAcsRequest<DescribeBackupTask
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getBackupMode() {
+		return this.backupMode;
+	}
+
+	public void setBackupMode(String backupMode) {
+		this.backupMode = backupMode;
+		if(backupMode != null){
+			putQueryParameter("BackupMode", backupMode);
 		}
 	}
 

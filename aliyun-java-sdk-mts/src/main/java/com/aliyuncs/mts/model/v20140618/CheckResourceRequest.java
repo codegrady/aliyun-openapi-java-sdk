@@ -15,16 +15,15 @@
 package com.aliyuncs.mts.model.v20140618;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.mts.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CheckResourceRequest extends RpcAcsRequest<CheckResourceResponse> {
-	
-	public CheckResourceRequest() {
-		super("Mts", "2014-06-18", "CheckResource", "mts");
-	}
+	   
 
 	private String country;
 
@@ -53,6 +52,14 @@ public class CheckResourceRequest extends RpcAcsRequest<CheckResourceResponse> {
 	private String taskExtraData;
 
 	private String taskIdentifier;
+	public CheckResourceRequest() {
+		super("Mts", "2014-06-18", "CheckResource");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getCountry() {
 		return this.country;

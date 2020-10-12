@@ -69,11 +69,15 @@ public class DescribeDBInstanceNetInfoResponse extends AcsResponse {
 
 		private String dBInstanceNetType;
 
+		private String vPCInstanceId;
+
 		private String iPType;
 
 		private String expiredTime;
 
 		private String upgradeable;
+
+		private Integer directConnection;
 
 		public String getConnectionString() {
 			return this.connectionString;
@@ -123,6 +127,14 @@ public class DescribeDBInstanceNetInfoResponse extends AcsResponse {
 			this.dBInstanceNetType = dBInstanceNetType;
 		}
 
+		public String getVPCInstanceId() {
+			return this.vPCInstanceId;
+		}
+
+		public void setVPCInstanceId(String vPCInstanceId) {
+			this.vPCInstanceId = vPCInstanceId;
+		}
+
 		public String getIPType() {
 			return this.iPType;
 		}
@@ -145,6 +157,14 @@ public class DescribeDBInstanceNetInfoResponse extends AcsResponse {
 
 		public void setUpgradeable(String upgradeable) {
 			this.upgradeable = upgradeable;
+		}
+
+		public Integer getDirectConnection() {
+			return this.directConnection;
+		}
+
+		public void setDirectConnection(Integer directConnection) {
+			this.directConnection = directConnection;
 		}
 	}
 

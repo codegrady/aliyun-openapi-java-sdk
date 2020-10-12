@@ -20,11 +20,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeSQLCollectorPolicyResponseUnmarshaller {
 
-	public static DescribeSQLCollectorPolicyResponse unmarshall(DescribeSQLCollectorPolicyResponse describeSQLCollectorPolicyResponse, UnmarshallerContext context) {
+	public static DescribeSQLCollectorPolicyResponse unmarshall(DescribeSQLCollectorPolicyResponse describeSQLCollectorPolicyResponse, UnmarshallerContext _ctx) {
 		
-		describeSQLCollectorPolicyResponse.setRequestId(context.stringValue("DescribeSQLCollectorPolicyResponse.RequestId"));
-		describeSQLCollectorPolicyResponse.setSQLCollectorStatus(context.stringValue("DescribeSQLCollectorPolicyResponse.SQLCollectorStatus"));
-		describeSQLCollectorPolicyResponse.setStoragePeriod(context.integerValue("DescribeSQLCollectorPolicyResponse.StoragePeriod"));
+		describeSQLCollectorPolicyResponse.setRequestId(_ctx.stringValue("DescribeSQLCollectorPolicyResponse.RequestId"));
+		describeSQLCollectorPolicyResponse.setSQLCollectorStatus(_ctx.stringValue("DescribeSQLCollectorPolicyResponse.SQLCollectorStatus"));
+		describeSQLCollectorPolicyResponse.setStoragePeriod(_ctx.integerValue("DescribeSQLCollectorPolicyResponse.StoragePeriod"));
 	 
 	 	return describeSQLCollectorPolicyResponse;
 	}

@@ -15,38 +15,45 @@
 package com.aliyuncs.dds.model.v20151201;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDBInstanceNetworkTypeRequest extends RpcAcsRequest<ModifyDBInstanceNetworkTypeResponse> {
-	
-	public ModifyDBInstanceNetworkTypeRequest() {
-		super("Dds", "2015-12-01", "ModifyDBInstanceNetworkType", "dds");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String networkType;
+
+	private String securityToken;
+
+	private Integer classicExpiredDays;
+
+	private String dBInstanceId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String networkType;
-
 	private Long ownerId;
 
 	private String vSwitchId;
 
-	private String securityToken;
-
 	private String retainClassic;
 
-	private Integer classicExpiredDays;
-
 	private String vpcId;
-
-	private String dBInstanceId;
+	public ModifyDBInstanceNetworkTypeRequest() {
+		super("Dds", "2015-12-01", "ModifyDBInstanceNetworkType", "Dds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -56,6 +63,50 @@ public class ModifyDBInstanceNetworkTypeRequest extends RpcAcsRequest<ModifyDBIn
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getNetworkType() {
+		return this.networkType;
+	}
+
+	public void setNetworkType(String networkType) {
+		this.networkType = networkType;
+		if(networkType != null){
+			putQueryParameter("NetworkType", networkType);
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public Integer getClassicExpiredDays() {
+		return this.classicExpiredDays;
+	}
+
+	public void setClassicExpiredDays(Integer classicExpiredDays) {
+		this.classicExpiredDays = classicExpiredDays;
+		if(classicExpiredDays != null){
+			putQueryParameter("ClassicExpiredDays", classicExpiredDays.toString());
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 
@@ -81,17 +132,6 @@ public class ModifyDBInstanceNetworkTypeRequest extends RpcAcsRequest<ModifyDBIn
 		}
 	}
 
-	public String getNetworkType() {
-		return this.networkType;
-	}
-
-	public void setNetworkType(String networkType) {
-		this.networkType = networkType;
-		if(networkType != null){
-			putQueryParameter("NetworkType", networkType);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,17 +154,6 @@ public class ModifyDBInstanceNetworkTypeRequest extends RpcAcsRequest<ModifyDBIn
 		}
 	}
 
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
 	public String getRetainClassic() {
 		return this.retainClassic;
 	}
@@ -136,17 +165,6 @@ public class ModifyDBInstanceNetworkTypeRequest extends RpcAcsRequest<ModifyDBIn
 		}
 	}
 
-	public Integer getClassicExpiredDays() {
-		return this.classicExpiredDays;
-	}
-
-	public void setClassicExpiredDays(Integer classicExpiredDays) {
-		this.classicExpiredDays = classicExpiredDays;
-		if(classicExpiredDays != null){
-			putQueryParameter("ClassicExpiredDays", classicExpiredDays.toString());
-		}
-	}
-
 	public String getVpcId() {
 		return this.vpcId;
 	}
@@ -155,17 +173,6 @@ public class ModifyDBInstanceNetworkTypeRequest extends RpcAcsRequest<ModifyDBIn
 		this.vpcId = vpcId;
 		if(vpcId != null){
 			putQueryParameter("VpcId", vpcId);
-		}
-	}
-
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

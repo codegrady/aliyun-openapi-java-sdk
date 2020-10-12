@@ -15,26 +15,55 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RunCloudMetricProfilingRequest extends RpcAcsRequest<RunCloudMetricProfilingResponse> {
-	
-	public RunCloudMetricProfilingRequest() {
-		super("EHPC", "2018-04-12", "RunCloudMetricProfiling", "ehs");
-	}
+	   
+
+	private Integer freq;
+
+	private String clusterId;
 
 	private Integer duration;
 
 	private String hostName;
 
 	private Integer processId;
+	public RunCloudMetricProfilingRequest() {
+		super("EHPC", "2018-04-12", "RunCloudMetricProfiling");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Integer freq;
+	public Integer getFreq() {
+		return this.freq;
+	}
 
-	private String clusterId;
+	public void setFreq(Integer freq) {
+		this.freq = freq;
+		if(freq != null){
+			putQueryParameter("Freq", freq.toString());
+		}
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
 
 	public Integer getDuration() {
 		return this.duration;
@@ -66,28 +95,6 @@ public class RunCloudMetricProfilingRequest extends RpcAcsRequest<RunCloudMetric
 		this.processId = processId;
 		if(processId != null){
 			putQueryParameter("ProcessId", processId.toString());
-		}
-	}
-
-	public Integer getFreq() {
-		return this.freq;
-	}
-
-	public void setFreq(Integer freq) {
-		this.freq = freq;
-		if(freq != null){
-			putQueryParameter("Freq", freq.toString());
-		}
-	}
-
-	public String getClusterId() {
-		return this.clusterId;
-	}
-
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putQueryParameter("ClusterId", clusterId);
 		}
 	}
 

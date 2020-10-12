@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.model.v20151215;
 
 import com.aliyuncs.AcsResponse;
@@ -23,8 +24,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateTemplateResponse extends AcsResponse {
 
+	private String template_id;
+
+	public String getTemplate_id() {
+		return this.template_id;
+	}
+
+	public void setTemplate_id(String template_id) {
+		this.template_id = template_id;
+	}
+
 	@Override
 	public CreateTemplateResponse getInstance(UnmarshallerContext context) {
 		return	CreateTemplateResponseUnmarshaller.unmarshall(this, context);
+	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
 	}
 }

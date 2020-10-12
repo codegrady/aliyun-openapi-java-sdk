@@ -15,20 +15,19 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeServerCertificatesRequest extends RpcAcsRequest<DescribeServerCertificatesResponse> {
-	
-	public DescribeServerCertificatesRequest() {
-		super("Slb", "2014-05-15", "DescribeServerCertificates", "slb");
-	}
-
-	private String resourceGroupId;
+	   
 
 	private Long resourceOwnerId;
+
+	private String resourceGroupId;
 
 	private String resourceOwnerAccount;
 
@@ -37,18 +36,13 @@ public class DescribeServerCertificatesRequest extends RpcAcsRequest<DescribeSer
 	private Long ownerId;
 
 	private String serverCertificateId;
-
-	private String tags;
-
-	public String getResourceGroupId() {
-		return this.resourceGroupId;
-	}
-
-	public void setResourceGroupId(String resourceGroupId) {
-		this.resourceGroupId = resourceGroupId;
-		if(resourceGroupId != null){
-			putQueryParameter("ResourceGroupId", resourceGroupId);
-		}
+	public DescribeServerCertificatesRequest() {
+		super("Slb", "2014-05-15", "DescribeServerCertificates", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -59,6 +53,17 @@ public class DescribeServerCertificatesRequest extends RpcAcsRequest<DescribeSer
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -103,17 +108,6 @@ public class DescribeServerCertificatesRequest extends RpcAcsRequest<DescribeSer
 		this.serverCertificateId = serverCertificateId;
 		if(serverCertificateId != null){
 			putQueryParameter("ServerCertificateId", serverCertificateId);
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
 		}
 	}
 

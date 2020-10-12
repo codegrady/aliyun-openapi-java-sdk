@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.model.v20160714;
 
 import com.aliyuncs.AcsResponse;
@@ -32,6 +33,12 @@ public class CreateApiGroupResponse extends AcsResponse {
 	private String subDomain;
 
 	private String description;
+
+	private String instanceId;
+
+	private String instanceType;
+
+	private Boolean tagStatus;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -71,6 +78,30 @@ public class CreateApiGroupResponse extends AcsResponse {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+	}
+
+	public String getInstanceType() {
+		return this.instanceType;
+	}
+
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+	}
+
+	public Boolean getTagStatus() {
+		return this.tagStatus;
+	}
+
+	public void setTagStatus(Boolean tagStatus) {
+		this.tagStatus = tagStatus;
 	}
 
 	@Override

@@ -15,20 +15,19 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RemoveBackendServersRequest extends RpcAcsRequest<RemoveBackendServersResponse> {
-	
-	public RemoveBackendServersRequest() {
-		super("Slb", "2014-05-15", "RemoveBackendServers", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String loadBalancerId;
+	private String backendServers;
 
 	private String resourceOwnerAccount;
 
@@ -36,9 +35,15 @@ public class RemoveBackendServersRequest extends RpcAcsRequest<RemoveBackendServ
 
 	private Long ownerId;
 
-	private String backendServers;
-
-	private String tags;
+	private String loadBalancerId;
+	public RemoveBackendServersRequest() {
+		super("Slb", "2014-05-15", "RemoveBackendServers", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -51,14 +56,14 @@ public class RemoveBackendServersRequest extends RpcAcsRequest<RemoveBackendServ
 		}
 	}
 
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
+	public String getBackendServers() {
+		return this.backendServers;
 	}
 
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
+	public void setBackendServers(String backendServers) {
+		this.backendServers = backendServers;
+		if(backendServers != null){
+			putQueryParameter("BackendServers", backendServers);
 		}
 	}
 
@@ -95,25 +100,14 @@ public class RemoveBackendServersRequest extends RpcAcsRequest<RemoveBackendServ
 		}
 	}
 
-	public String getBackendServers() {
-		return this.backendServers;
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
 	}
 
-	public void setBackendServers(String backendServers) {
-		this.backendServers = backendServers;
-		if(backendServers != null){
-			putQueryParameter("BackendServers", backendServers);
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 

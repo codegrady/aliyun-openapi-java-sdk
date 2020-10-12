@@ -33,6 +33,8 @@ public class DescribeNetworkInterfacesResponse extends AcsResponse {
 
 	private Integer pageSize;
 
+	private String nextToken;
+
 	private List<NetworkInterfaceSet> networkInterfaceSets;
 
 	public String getRequestId() {
@@ -65,6 +67,14 @@ public class DescribeNetworkInterfacesResponse extends AcsResponse {
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getNextToken() {
+		return this.nextToken;
+	}
+
+	public void setNextToken(String nextToken) {
+		this.nextToken = nextToken;
 	}
 
 	public List<NetworkInterfaceSet> getNetworkInterfaceSets() {
@@ -103,13 +113,25 @@ public class DescribeNetworkInterfacesResponse extends AcsResponse {
 
 		private String resourceGroupId;
 
+		private Long serviceID;
+
+		private Boolean serviceManaged;
+
+		private Integer queueNumber;
+
+		private String ownerId;
+
 		private List<PrivateIpSet> privateIpSets;
+
+		private List<Ipv6Set> ipv6Sets;
 
 		private List<Tag> tags;
 
 		private List<String> securityGroupIds;
 
 		private AssociatedPublicIp associatedPublicIp;
+
+		private Attachment attachment;
 
 		public String getNetworkInterfaceId() {
 			return this.networkInterfaceId;
@@ -215,12 +237,52 @@ public class DescribeNetworkInterfacesResponse extends AcsResponse {
 			this.resourceGroupId = resourceGroupId;
 		}
 
+		public Long getServiceID() {
+			return this.serviceID;
+		}
+
+		public void setServiceID(Long serviceID) {
+			this.serviceID = serviceID;
+		}
+
+		public Boolean getServiceManaged() {
+			return this.serviceManaged;
+		}
+
+		public void setServiceManaged(Boolean serviceManaged) {
+			this.serviceManaged = serviceManaged;
+		}
+
+		public Integer getQueueNumber() {
+			return this.queueNumber;
+		}
+
+		public void setQueueNumber(Integer queueNumber) {
+			this.queueNumber = queueNumber;
+		}
+
+		public String getOwnerId() {
+			return this.ownerId;
+		}
+
+		public void setOwnerId(String ownerId) {
+			this.ownerId = ownerId;
+		}
+
 		public List<PrivateIpSet> getPrivateIpSets() {
 			return this.privateIpSets;
 		}
 
 		public void setPrivateIpSets(List<PrivateIpSet> privateIpSets) {
 			this.privateIpSets = privateIpSets;
+		}
+
+		public List<Ipv6Set> getIpv6Sets() {
+			return this.ipv6Sets;
+		}
+
+		public void setIpv6Sets(List<Ipv6Set> ipv6Sets) {
+			this.ipv6Sets = ipv6Sets;
 		}
 
 		public List<Tag> getTags() {
@@ -245,6 +307,14 @@ public class DescribeNetworkInterfacesResponse extends AcsResponse {
 
 		public void setAssociatedPublicIp(AssociatedPublicIp associatedPublicIp) {
 			this.associatedPublicIp = associatedPublicIp;
+		}
+
+		public Attachment getAttachment() {
+			return this.attachment;
+		}
+
+		public void setAttachment(Attachment attachment) {
+			this.attachment = attachment;
 		}
 
 		public static class PrivateIpSet {
@@ -303,6 +373,19 @@ public class DescribeNetworkInterfacesResponse extends AcsResponse {
 			}
 		}
 
+		public static class Ipv6Set {
+
+			private String ipv6Address;
+
+			public String getIpv6Address() {
+				return this.ipv6Address;
+			}
+
+			public void setIpv6Address(String ipv6Address) {
+				this.ipv6Address = ipv6Address;
+			}
+		}
+
 		public static class Tag {
 
 			private String tagKey;
@@ -346,6 +429,39 @@ public class DescribeNetworkInterfacesResponse extends AcsResponse {
 
 			public void setAllocationId(String allocationId) {
 				this.allocationId = allocationId;
+			}
+		}
+
+		public static class Attachment {
+
+			private String instanceId;
+
+			private String trunkNetworkInterfaceId;
+
+			private Integer deviceIndex;
+
+			public String getInstanceId() {
+				return this.instanceId;
+			}
+
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
+			}
+
+			public String getTrunkNetworkInterfaceId() {
+				return this.trunkNetworkInterfaceId;
+			}
+
+			public void setTrunkNetworkInterfaceId(String trunkNetworkInterfaceId) {
+				this.trunkNetworkInterfaceId = trunkNetworkInterfaceId;
+			}
+
+			public Integer getDeviceIndex() {
+				return this.deviceIndex;
+			}
+
+			public void setDeviceIndex(Integer deviceIndex) {
+				this.deviceIndex = deviceIndex;
 			}
 		}
 	}

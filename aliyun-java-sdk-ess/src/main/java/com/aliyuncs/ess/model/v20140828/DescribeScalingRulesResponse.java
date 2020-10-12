@@ -85,6 +85,8 @@ public class DescribeScalingRulesResponse extends AcsResponse {
 
 		private Integer cooldown;
 
+		private Integer minAdjustmentMagnitude;
+
 		private String adjustmentType;
 
 		private Integer adjustmentValue;
@@ -94,6 +96,34 @@ public class DescribeScalingRulesResponse extends AcsResponse {
 		private Integer maxSize;
 
 		private String scalingRuleAri;
+
+		private String scalingRuleType;
+
+		private Integer estimatedInstanceWarmup;
+
+		private String metricName;
+
+		private Float targetValue;
+
+		private Boolean disableScaleIn;
+
+		private Integer scaleInEvaluationCount;
+
+		private Integer scaleOutEvaluationCount;
+
+		private String predictiveScalingMode;
+
+		private String predictiveValueBehavior;
+
+		private Integer predictiveValueBuffer;
+
+		private Integer predictiveTaskBufferTime;
+
+		private Integer initialMaxSize;
+
+		private List<Alarm> alarms;
+
+		private List<StepAdjustment> stepAdjustments;
 
 		public String getScalingRuleId() {
 			return this.scalingRuleId;
@@ -125,6 +155,14 @@ public class DescribeScalingRulesResponse extends AcsResponse {
 
 		public void setCooldown(Integer cooldown) {
 			this.cooldown = cooldown;
+		}
+
+		public Integer getMinAdjustmentMagnitude() {
+			return this.minAdjustmentMagnitude;
+		}
+
+		public void setMinAdjustmentMagnitude(Integer minAdjustmentMagnitude) {
+			this.minAdjustmentMagnitude = minAdjustmentMagnitude;
 		}
 
 		public String getAdjustmentType() {
@@ -165,6 +203,257 @@ public class DescribeScalingRulesResponse extends AcsResponse {
 
 		public void setScalingRuleAri(String scalingRuleAri) {
 			this.scalingRuleAri = scalingRuleAri;
+		}
+
+		public String getScalingRuleType() {
+			return this.scalingRuleType;
+		}
+
+		public void setScalingRuleType(String scalingRuleType) {
+			this.scalingRuleType = scalingRuleType;
+		}
+
+		public Integer getEstimatedInstanceWarmup() {
+			return this.estimatedInstanceWarmup;
+		}
+
+		public void setEstimatedInstanceWarmup(Integer estimatedInstanceWarmup) {
+			this.estimatedInstanceWarmup = estimatedInstanceWarmup;
+		}
+
+		public String getMetricName() {
+			return this.metricName;
+		}
+
+		public void setMetricName(String metricName) {
+			this.metricName = metricName;
+		}
+
+		public Float getTargetValue() {
+			return this.targetValue;
+		}
+
+		public void setTargetValue(Float targetValue) {
+			this.targetValue = targetValue;
+		}
+
+		public Boolean getDisableScaleIn() {
+			return this.disableScaleIn;
+		}
+
+		public void setDisableScaleIn(Boolean disableScaleIn) {
+			this.disableScaleIn = disableScaleIn;
+		}
+
+		public Integer getScaleInEvaluationCount() {
+			return this.scaleInEvaluationCount;
+		}
+
+		public void setScaleInEvaluationCount(Integer scaleInEvaluationCount) {
+			this.scaleInEvaluationCount = scaleInEvaluationCount;
+		}
+
+		public Integer getScaleOutEvaluationCount() {
+			return this.scaleOutEvaluationCount;
+		}
+
+		public void setScaleOutEvaluationCount(Integer scaleOutEvaluationCount) {
+			this.scaleOutEvaluationCount = scaleOutEvaluationCount;
+		}
+
+		public String getPredictiveScalingMode() {
+			return this.predictiveScalingMode;
+		}
+
+		public void setPredictiveScalingMode(String predictiveScalingMode) {
+			this.predictiveScalingMode = predictiveScalingMode;
+		}
+
+		public String getPredictiveValueBehavior() {
+			return this.predictiveValueBehavior;
+		}
+
+		public void setPredictiveValueBehavior(String predictiveValueBehavior) {
+			this.predictiveValueBehavior = predictiveValueBehavior;
+		}
+
+		public Integer getPredictiveValueBuffer() {
+			return this.predictiveValueBuffer;
+		}
+
+		public void setPredictiveValueBuffer(Integer predictiveValueBuffer) {
+			this.predictiveValueBuffer = predictiveValueBuffer;
+		}
+
+		public Integer getPredictiveTaskBufferTime() {
+			return this.predictiveTaskBufferTime;
+		}
+
+		public void setPredictiveTaskBufferTime(Integer predictiveTaskBufferTime) {
+			this.predictiveTaskBufferTime = predictiveTaskBufferTime;
+		}
+
+		public Integer getInitialMaxSize() {
+			return this.initialMaxSize;
+		}
+
+		public void setInitialMaxSize(Integer initialMaxSize) {
+			this.initialMaxSize = initialMaxSize;
+		}
+
+		public List<Alarm> getAlarms() {
+			return this.alarms;
+		}
+
+		public void setAlarms(List<Alarm> alarms) {
+			this.alarms = alarms;
+		}
+
+		public List<StepAdjustment> getStepAdjustments() {
+			return this.stepAdjustments;
+		}
+
+		public void setStepAdjustments(List<StepAdjustment> stepAdjustments) {
+			this.stepAdjustments = stepAdjustments;
+		}
+
+		public static class Alarm {
+
+			private String alarmTaskName;
+
+			private String alarmTaskId;
+
+			private String comparisonOperator;
+
+			private String statistics;
+
+			private String metricName;
+
+			private Float threshold;
+
+			private Integer evaluationCount;
+
+			private List<Dimension> dimensions;
+
+			public String getAlarmTaskName() {
+				return this.alarmTaskName;
+			}
+
+			public void setAlarmTaskName(String alarmTaskName) {
+				this.alarmTaskName = alarmTaskName;
+			}
+
+			public String getAlarmTaskId() {
+				return this.alarmTaskId;
+			}
+
+			public void setAlarmTaskId(String alarmTaskId) {
+				this.alarmTaskId = alarmTaskId;
+			}
+
+			public String getComparisonOperator() {
+				return this.comparisonOperator;
+			}
+
+			public void setComparisonOperator(String comparisonOperator) {
+				this.comparisonOperator = comparisonOperator;
+			}
+
+			public String getStatistics() {
+				return this.statistics;
+			}
+
+			public void setStatistics(String statistics) {
+				this.statistics = statistics;
+			}
+
+			public String getMetricName() {
+				return this.metricName;
+			}
+
+			public void setMetricName(String metricName) {
+				this.metricName = metricName;
+			}
+
+			public Float getThreshold() {
+				return this.threshold;
+			}
+
+			public void setThreshold(Float threshold) {
+				this.threshold = threshold;
+			}
+
+			public Integer getEvaluationCount() {
+				return this.evaluationCount;
+			}
+
+			public void setEvaluationCount(Integer evaluationCount) {
+				this.evaluationCount = evaluationCount;
+			}
+
+			public List<Dimension> getDimensions() {
+				return this.dimensions;
+			}
+
+			public void setDimensions(List<Dimension> dimensions) {
+				this.dimensions = dimensions;
+			}
+
+			public static class Dimension {
+
+				private String dimensionKey;
+
+				private String dimensionValue;
+
+				public String getDimensionKey() {
+					return this.dimensionKey;
+				}
+
+				public void setDimensionKey(String dimensionKey) {
+					this.dimensionKey = dimensionKey;
+				}
+
+				public String getDimensionValue() {
+					return this.dimensionValue;
+				}
+
+				public void setDimensionValue(String dimensionValue) {
+					this.dimensionValue = dimensionValue;
+				}
+			}
+		}
+
+		public static class StepAdjustment {
+
+			private Float metricIntervalLowerBound;
+
+			private Float metricIntervalUpperBound;
+
+			private Integer scalingAdjustment;
+
+			public Float getMetricIntervalLowerBound() {
+				return this.metricIntervalLowerBound;
+			}
+
+			public void setMetricIntervalLowerBound(Float metricIntervalLowerBound) {
+				this.metricIntervalLowerBound = metricIntervalLowerBound;
+			}
+
+			public Float getMetricIntervalUpperBound() {
+				return this.metricIntervalUpperBound;
+			}
+
+			public void setMetricIntervalUpperBound(Float metricIntervalUpperBound) {
+				this.metricIntervalUpperBound = metricIntervalUpperBound;
+			}
+
+			public Integer getScalingAdjustment() {
+				return this.scalingAdjustment;
+			}
+
+			public void setScalingAdjustment(Integer scalingAdjustment) {
+				this.scalingAdjustment = scalingAdjustment;
+			}
 		}
 	}
 

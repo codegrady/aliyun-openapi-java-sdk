@@ -84,6 +84,12 @@ public class RegisterDeviceResponse extends AcsResponse {
 
 		private String deviceSecret;
 
+		private String devEui;
+
+		private String joinEui;
+
+		private String nickname;
+
 		public String getIotId() {
 			return this.iotId;
 		}
@@ -114,6 +120,30 @@ public class RegisterDeviceResponse extends AcsResponse {
 
 		public void setDeviceSecret(String deviceSecret) {
 			this.deviceSecret = deviceSecret;
+		}
+
+		public String getDevEui() {
+			return this.devEui;
+		}
+
+		public void setDevEui(String devEui) {
+			this.devEui = devEui;
+		}
+
+		public String getJoinEui() {
+			return this.joinEui;
+		}
+
+		public void setJoinEui(String joinEui) {
+			this.joinEui = joinEui;
+		}
+
+		public String getNickname() {
+			return this.nickname;
+		}
+
+		public void setNickname(String nickname) {
+			this.nickname = nickname;
 		}
 	}
 

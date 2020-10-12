@@ -15,26 +15,31 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateSslVpnServerRequest extends RpcAcsRequest<CreateSslVpnServerResponse> {
-	
-	public CreateSslVpnServerRequest() {
-		super("Vpc", "2016-04-28", "CreateSslVpnServer", "vpc");
-	}
-
-	private String cipher;
+	   
 
 	private Long resourceOwnerId;
+
+	private String clientToken;
+
+	private String localSubnet;
+
+	private Boolean enableMultiFactorAuth;
+
+	private String iDaaSInstanceId;
+
+	private String cipher;
 
 	private String clientIpPool;
 
 	private String resourceOwnerAccount;
-
-	private String clientToken;
 
 	private Boolean compress;
 
@@ -44,23 +49,18 @@ public class CreateSslVpnServerRequest extends RpcAcsRequest<CreateSslVpnServerR
 
 	private Long ownerId;
 
-	private String localSubnet;
-
 	private Integer port;
 
 	private String proto;
 
 	private String name;
-
-	public String getCipher() {
-		return this.cipher;
-	}
-
-	public void setCipher(String cipher) {
-		this.cipher = cipher;
-		if(cipher != null){
-			putQueryParameter("Cipher", cipher);
-		}
+	public CreateSslVpnServerRequest() {
+		super("Vpc", "2016-04-28", "CreateSslVpnServer", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -71,6 +71,61 @@ public class CreateSslVpnServerRequest extends RpcAcsRequest<CreateSslVpnServerR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getLocalSubnet() {
+		return this.localSubnet;
+	}
+
+	public void setLocalSubnet(String localSubnet) {
+		this.localSubnet = localSubnet;
+		if(localSubnet != null){
+			putQueryParameter("LocalSubnet", localSubnet);
+		}
+	}
+
+	public Boolean getEnableMultiFactorAuth() {
+		return this.enableMultiFactorAuth;
+	}
+
+	public void setEnableMultiFactorAuth(Boolean enableMultiFactorAuth) {
+		this.enableMultiFactorAuth = enableMultiFactorAuth;
+		if(enableMultiFactorAuth != null){
+			putQueryParameter("EnableMultiFactorAuth", enableMultiFactorAuth.toString());
+		}
+	}
+
+	public String getIDaaSInstanceId() {
+		return this.iDaaSInstanceId;
+	}
+
+	public void setIDaaSInstanceId(String iDaaSInstanceId) {
+		this.iDaaSInstanceId = iDaaSInstanceId;
+		if(iDaaSInstanceId != null){
+			putQueryParameter("IDaaSInstanceId", iDaaSInstanceId);
+		}
+	}
+
+	public String getCipher() {
+		return this.cipher;
+	}
+
+	public void setCipher(String cipher) {
+		this.cipher = cipher;
+		if(cipher != null){
+			putQueryParameter("Cipher", cipher);
 		}
 	}
 
@@ -93,17 +148,6 @@ public class CreateSslVpnServerRequest extends RpcAcsRequest<CreateSslVpnServerR
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -148,17 +192,6 @@ public class CreateSslVpnServerRequest extends RpcAcsRequest<CreateSslVpnServerR
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getLocalSubnet() {
-		return this.localSubnet;
-	}
-
-	public void setLocalSubnet(String localSubnet) {
-		this.localSubnet = localSubnet;
-		if(localSubnet != null){
-			putQueryParameter("LocalSubnet", localSubnet);
 		}
 	}
 

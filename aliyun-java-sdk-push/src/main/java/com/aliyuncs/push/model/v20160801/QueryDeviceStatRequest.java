@@ -15,26 +15,33 @@
 package com.aliyuncs.push.model.v20160801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.push.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryDeviceStatRequest extends RpcAcsRequest<QueryDeviceStatResponse> {
-	
-	public QueryDeviceStatRequest() {
-		super("Push", "2016-08-01", "QueryDeviceStat");
-	}
+	   
 
 	private String endTime;
-
-	private Long appKey;
 
 	private String startTime;
 
 	private String deviceType;
 
+	private Long appKey;
+
 	private String queryType;
+	public QueryDeviceStatRequest() {
+		super("Push", "2016-08-01", "QueryDeviceStat");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getEndTime() {
 		return this.endTime;
@@ -44,17 +51,6 @@ public class QueryDeviceStatRequest extends RpcAcsRequest<QueryDeviceStatRespons
 		this.endTime = endTime;
 		if(endTime != null){
 			putQueryParameter("EndTime", endTime);
-		}
-	}
-
-	public Long getAppKey() {
-		return this.appKey;
-	}
-
-	public void setAppKey(Long appKey) {
-		this.appKey = appKey;
-		if(appKey != null){
-			putQueryParameter("AppKey", appKey.toString());
 		}
 	}
 
@@ -77,6 +73,17 @@ public class QueryDeviceStatRequest extends RpcAcsRequest<QueryDeviceStatRespons
 		this.deviceType = deviceType;
 		if(deviceType != null){
 			putQueryParameter("DeviceType", deviceType);
+		}
+	}
+
+	public Long getAppKey() {
+		return this.appKey;
+	}
+
+	public void setAppKey(Long appKey) {
+		this.appKey = appKey;
+		if(appKey != null){
+			putQueryParameter("AppKey", appKey.toString());
 		}
 	}
 

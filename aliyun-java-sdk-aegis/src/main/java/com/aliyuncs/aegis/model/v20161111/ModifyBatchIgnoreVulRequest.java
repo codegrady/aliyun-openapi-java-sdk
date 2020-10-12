@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.aegis.model.v20161111;
 
 import com.aliyuncs.RpcAcsRequest;
@@ -27,8 +28,6 @@ public class ModifyBatchIgnoreVulRequest extends RpcAcsRequest<ModifyBatchIgnore
 
 	private String reason;
 
-	private Long resourceOwnerId;
-
 	private String sourceIp;
 
 	private String info;
@@ -41,17 +40,6 @@ public class ModifyBatchIgnoreVulRequest extends RpcAcsRequest<ModifyBatchIgnore
 		this.reason = reason;
 		if(reason != null){
 			putQueryParameter("Reason", reason);
-		}
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
 		}
 	}
 

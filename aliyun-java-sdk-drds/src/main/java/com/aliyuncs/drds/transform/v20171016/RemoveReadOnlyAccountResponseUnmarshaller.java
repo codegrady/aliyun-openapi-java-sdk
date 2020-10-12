@@ -20,10 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class RemoveReadOnlyAccountResponseUnmarshaller {
 
-	public static RemoveReadOnlyAccountResponse unmarshall(RemoveReadOnlyAccountResponse removeReadOnlyAccountResponse, UnmarshallerContext context) {
+	public static RemoveReadOnlyAccountResponse unmarshall(RemoveReadOnlyAccountResponse removeReadOnlyAccountResponse, UnmarshallerContext _ctx) {
 		
-		removeReadOnlyAccountResponse.setRequestId(context.stringValue("RemoveReadOnlyAccountResponse.RequestId"));
-		removeReadOnlyAccountResponse.setSuccess(context.booleanValue("RemoveReadOnlyAccountResponse.Success"));
+		removeReadOnlyAccountResponse.setRequestId(_ctx.stringValue("RemoveReadOnlyAccountResponse.RequestId"));
+		removeReadOnlyAccountResponse.setSuccess(_ctx.booleanValue("RemoveReadOnlyAccountResponse.Success"));
 	 
 	 	return removeReadOnlyAccountResponse;
 	}

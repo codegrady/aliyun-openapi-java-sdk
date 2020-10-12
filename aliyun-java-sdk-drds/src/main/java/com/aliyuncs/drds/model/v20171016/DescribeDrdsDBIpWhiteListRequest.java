@@ -15,32 +15,28 @@
 package com.aliyuncs.drds.model.v20171016;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.drds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDrdsDBIpWhiteListRequest extends RpcAcsRequest<DescribeDrdsDBIpWhiteListResponse> {
-	
-	public DescribeDrdsDBIpWhiteListRequest() {
-		super("Drds", "2017-10-16", "DescribeDrdsDBIpWhiteList", "Drds");
-	}
-
-	private String dbName;
+	   
 
 	private String drdsInstanceId;
 
 	private String groupName;
 
-	public String getDbName() {
-		return this.dbName;
-	}
-
-	public void setDbName(String dbName) {
-		this.dbName = dbName;
-		if(dbName != null){
-			putQueryParameter("DbName", dbName);
-		}
+	private String dbName;
+	public DescribeDrdsDBIpWhiteListRequest() {
+		super("Drds", "2017-10-16", "DescribeDrdsDBIpWhiteList", "Drds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDrdsInstanceId() {
@@ -62,6 +58,17 @@ public class DescribeDrdsDBIpWhiteListRequest extends RpcAcsRequest<DescribeDrds
 		this.groupName = groupName;
 		if(groupName != null){
 			putQueryParameter("GroupName", groupName);
+		}
+	}
+
+	public String getDbName() {
+		return this.dbName;
+	}
+
+	public void setDbName(String dbName) {
+		this.dbName = dbName;
+		if(dbName != null){
+			putQueryParameter("DbName", dbName);
 		}
 	}
 

@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.ClearAccountAliasResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ClearAccountAliasResponseUnmarshaller {
 
-	public static ClearAccountAliasResponse unmarshall(ClearAccountAliasResponse clearAccountAliasResponse, UnmarshallerContext context) {
+	public static ClearAccountAliasResponse unmarshall(ClearAccountAliasResponse clearAccountAliasResponse, UnmarshallerContext _ctx) {
 		
-		clearAccountAliasResponse.setRequestId(context.stringValue("ClearAccountAliasResponse.RequestId"));
+		clearAccountAliasResponse.setRequestId(_ctx.stringValue("ClearAccountAliasResponse.RequestId"));
 	 
 	 	return clearAccountAliasResponse;
 	}

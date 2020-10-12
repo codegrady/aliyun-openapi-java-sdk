@@ -16,32 +16,28 @@ package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddCasterProgramRequest extends RpcAcsRequest<AddCasterProgramResponse> {
-	
-	public AddCasterProgramRequest() {
-		super("live", "2016-11-01", "AddCasterProgram", "live");
-	}
-
-	private String casterId;
+	   
 
 	private List<Episode> episodes;
 
+	private String casterId;
+
 	private Long ownerId;
-
-	public String getCasterId() {
-		return this.casterId;
-	}
-
-	public void setCasterId(String casterId) {
-		this.casterId = casterId;
-		if(casterId != null){
-			putQueryParameter("CasterId", casterId);
-		}
+	public AddCasterProgramRequest() {
+		super("live", "2016-11-01", "AddCasterProgram", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public List<Episode> getEpisodes() {
@@ -52,19 +48,30 @@ public class AddCasterProgramRequest extends RpcAcsRequest<AddCasterProgramRespo
 		this.episodes = episodes;	
 		if (episodes != null) {
 			for (int depth1 = 0; depth1 < episodes.size(); depth1++) {
+				putQueryParameter("Episode." + (depth1 + 1) + ".EpisodeType" , episodes.get(depth1).getEpisodeType());
+				putQueryParameter("Episode." + (depth1 + 1) + ".EpisodeName" , episodes.get(depth1).getEpisodeName());
 				putQueryParameter("Episode." + (depth1 + 1) + ".ResourceId" , episodes.get(depth1).getResourceId());
 				if (episodes.get(depth1).getComponentIds() != null) {
 					for (int i = 0; i < episodes.get(depth1).getComponentIds().size(); i++) {
 						putQueryParameter("Episode." + (depth1 + 1) + ".ComponentId." + (i + 1) , episodes.get(depth1).getComponentIds().get(i));
 					}
 				}
-				putQueryParameter("Episode." + (depth1 + 1) + ".SwitchType" , episodes.get(depth1).getSwitchType());
-				putQueryParameter("Episode." + (depth1 + 1) + ".EpisodeType" , episodes.get(depth1).getEpisodeType());
-				putQueryParameter("Episode." + (depth1 + 1) + ".EpisodeName" , episodes.get(depth1).getEpisodeName());
-				putQueryParameter("Episode." + (depth1 + 1) + ".EndTime" , episodes.get(depth1).getEndTime());
 				putQueryParameter("Episode." + (depth1 + 1) + ".StartTime" , episodes.get(depth1).getStartTime());
+				putQueryParameter("Episode." + (depth1 + 1) + ".EndTime" , episodes.get(depth1).getEndTime());
+				putQueryParameter("Episode." + (depth1 + 1) + ".SwitchType" , episodes.get(depth1).getSwitchType());
 			}
 		}	
+	}
+
+	public String getCasterId() {
+		return this.casterId;
+	}
+
+	public void setCasterId(String casterId) {
+		this.casterId = casterId;
+		if(casterId != null){
+			putQueryParameter("CasterId", casterId);
+		}
 	}
 
 	public Long getOwnerId() {
@@ -80,43 +87,19 @@ public class AddCasterProgramRequest extends RpcAcsRequest<AddCasterProgramRespo
 
 	public static class Episode {
 
-		private String resourceId;
-
-		private List<String> componentIds;
-
-		private String switchType;
-
 		private String episodeType;
 
 		private String episodeName;
 
-		private String endTime;
+		private String resourceId;
+
+		private List<String> componentIds;
 
 		private String startTime;
 
-		public String getResourceId() {
-			return this.resourceId;
-		}
+		private String endTime;
 
-		public void setResourceId(String resourceId) {
-			this.resourceId = resourceId;
-		}
-
-		public List<String> getComponentIds() {
-			return this.componentIds;
-		}
-
-		public void setComponentIds(List<String> componentIds) {
-			this.componentIds = componentIds;
-		}
-
-		public String getSwitchType() {
-			return this.switchType;
-		}
-
-		public void setSwitchType(String switchType) {
-			this.switchType = switchType;
-		}
+		private String switchType;
 
 		public String getEpisodeType() {
 			return this.episodeType;
@@ -134,12 +117,20 @@ public class AddCasterProgramRequest extends RpcAcsRequest<AddCasterProgramRespo
 			this.episodeName = episodeName;
 		}
 
-		public String getEndTime() {
-			return this.endTime;
+		public String getResourceId() {
+			return this.resourceId;
 		}
 
-		public void setEndTime(String endTime) {
-			this.endTime = endTime;
+		public void setResourceId(String resourceId) {
+			this.resourceId = resourceId;
+		}
+
+		public List<String> getComponentIds() {
+			return this.componentIds;
+		}
+
+		public void setComponentIds(List<String> componentIds) {
+			this.componentIds = componentIds;
 		}
 
 		public String getStartTime() {
@@ -148,6 +139,22 @@ public class AddCasterProgramRequest extends RpcAcsRequest<AddCasterProgramRespo
 
 		public void setStartTime(String startTime) {
 			this.startTime = startTime;
+		}
+
+		public String getEndTime() {
+			return this.endTime;
+		}
+
+		public void setEndTime(String endTime) {
+			this.endTime = endTime;
+		}
+
+		public String getSwitchType() {
+			return this.switchType;
+		}
+
+		public void setSwitchType(String switchType) {
+			this.switchType = switchType;
 		}
 	}
 

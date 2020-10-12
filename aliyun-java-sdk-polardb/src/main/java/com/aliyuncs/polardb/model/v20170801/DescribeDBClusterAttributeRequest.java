@@ -15,16 +15,15 @@
 package com.aliyuncs.polardb.model.v20170801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.polardb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDBClusterAttributeRequest extends RpcAcsRequest<DescribeDBClusterAttributeResponse> {
-	
-	public DescribeDBClusterAttributeRequest() {
-		super("polardb", "2017-08-01", "DescribeDBClusterAttribute", "polardb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -35,6 +34,14 @@ public class DescribeDBClusterAttributeRequest extends RpcAcsRequest<DescribeDBC
 	private String ownerAccount;
 
 	private Long ownerId;
+	public DescribeDBClusterAttributeRequest() {
+		super("polardb", "2017-08-01", "DescribeDBClusterAttribute", "polardb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;

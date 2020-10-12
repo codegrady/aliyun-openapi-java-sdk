@@ -1,3 +1,143 @@
+﻿2020-09-29 Version: 4.5.12
+1, Improve x-acs-action
+
+2020-09-24 Version: 4.5.11
+1, Improve endpoints.json
+
+2020-09-14 Version: 4.5.10
+1, Add x-acs-version and x-acs-action in header
+
+2020-09-10 Version: 4.5.9
+1, Add accept in commonRequest
+
+2020-08-26 Version: 4.5.8
+1, Add set/get method for the Location service
+
+2020-08-17 Version: 4.5.7
+1, Supports throwing the response header
+2, Improve serialization method
+
+2020-07-31 Version: 4.5.6
+1, Support for complex type serialization
+
+2020-07-22 Version: 4.5.5
+1, Null and enmpty strings are not validated
+
+2020-07-22 Version: 4.5.4
+1, Improve dependencies
+2, Added regionId, network and suffix validation
+
+2020-07-03 Version: 4.5.3
+1, Change DefaultAcsClient parameter to IAcsClient
+
+2020-06-05 Version: 4.5.2
+1, Add return to resolve no error message problem
+
+2020-04-01 Version: 4.5.1
+1, Support for basic types in list
+
+2020-02-07 Version: 4.5.0
+1, Add description in ClientException
+2, Add tracing
+
+2019-11-26 Version: 4.4.9
+1, Improve toMap method
+
+2019-11-25 Version: 4.4.8
+1, Improve filtrateMap method
+
+2019-11-12 Version: 4.4.7
+1, Support list and map loop nesting
+2, Change put mode default type to form
+
+2019-09-30 Version: 4.4.6
+1, Change setParameter: Add null check
+
+2019-09-16 Version: 4.4.5
+1, Modify getEndpoint logic
+
+2019-05-27 Version: 4.4.4
+1, Update dependency
+2, Change exception message
+3, Add new endpoint resolve and test
+
+2019-05-27 Version: 4.4.3
+1, Fix project name
+
+2019-05-27 Version: 4.4.2
+1, keep compatible with old gson version
+
+2019-04-19 Version: 4.4.1
+1, Add http debug info.
+2, Change logger.
+
+
+2019-04-04 Version: 4.4.0
+1. Support Logging Capabilities
+2. Support tokens specify permissions
+
+
+2019-03-29 Version: 4.3.9
+1. Optimize dependency
+2. Update the version of mock framework
+3. Fix bad words
+
+2019-03-25 Version: 4.3.8
+1. Support http proxy
+2. Update endpoint.json file
+
+2019-03-21 Version: 4.3.7
+1. Fix content has not bean provided
+2. Support https cert
+3. Add deprecated comments
+
+2019-03-18 Version: 4.3.6
+1. Add timeout setting and test
+2. Add the certificate provider chain and test
+3. Add region id in the http header
+
+2019-03-01 Version: 4.3.5
+1. Update endpoint data
+2. Modify the default client to apache client
+3. Multiple SDK clients share one connection pool
+
+2019-01-31 Version: 4.3.4
+1. Add User-Agent to the http/https protocol
+2. Add User-Agent test
+
+2019-01-31 Version: 4.3.3
+1. Compatible with commonRequest usage.
+2. Fixed an issue where the format was empty.
+3. Add more test cases.
+
+2019-01-16 Version: 4.3.2
+1. Add more test cases
+2. Improve coding style
+3. Add back setUsingInternalLocationService and mark it as deprecated.
+
+2019-01-16 Version: 4.3.1
+1. Add more test cases
+2. support VPC endPoint
+
+2019-01-07 Version: 4.3.0
+1, Separation of system and business parameters
+
+2018-12-27 Version: 4.2.5
+1, The actual data format defaults to a form.
+2, Signature adds timestamp and thread id.
+
+
+2018-11-19 Version: 4.2.2
+1,  remove buggy retry logic
+2,  add deprecated warning for request.setSecurityToken()
+3,  fixes 2 potential NPE
+
+2018-11-07 Version: 4.2.0
+1, add bssopenapi & fass endpoints
+
+2018-10-25 Version: 4.1.2
+1, fix bug for json reader
+
 2018-09-29 Version: 4.1.1
 1, endpoints data updated
 2, fixed global config location code normalization bug

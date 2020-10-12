@@ -15,26 +15,27 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyRouterInterfaceAttributeRequest extends RpcAcsRequest<ModifyRouterInterfaceAttributeResponse> {
-	
-	public ModifyRouterInterfaceAttributeRequest() {
-		super("Ecs", "2014-05-26", "ModifyRouterInterfaceAttribute", "ecs");
-	}
+	   
 
 	private String oppositeRouterId;
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String description;
 
 	private String healthCheckTargetIp;
+
+	private String oppositeInterfaceId;
+
+	private String resourceOwnerAccount;
 
 	private Long ownerId;
 
@@ -47,8 +48,14 @@ public class ModifyRouterInterfaceAttributeRequest extends RpcAcsRequest<ModifyR
 	private String name;
 
 	private String oppositeRouterType;
-
-	private String oppositeInterfaceId;
+	public ModifyRouterInterfaceAttributeRequest() {
+		super("Ecs", "2014-05-26", "ModifyRouterInterfaceAttribute", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getOppositeRouterId() {
 		return this.oppositeRouterId;
@@ -72,17 +79,6 @@ public class ModifyRouterInterfaceAttributeRequest extends RpcAcsRequest<ModifyR
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
 	public String getDescription() {
 		return this.description;
 	}
@@ -102,6 +98,28 @@ public class ModifyRouterInterfaceAttributeRequest extends RpcAcsRequest<ModifyR
 		this.healthCheckTargetIp = healthCheckTargetIp;
 		if(healthCheckTargetIp != null){
 			putQueryParameter("HealthCheckTargetIp", healthCheckTargetIp);
+		}
+	}
+
+	public String getOppositeInterfaceId() {
+		return this.oppositeInterfaceId;
+	}
+
+	public void setOppositeInterfaceId(String oppositeInterfaceId) {
+		this.oppositeInterfaceId = oppositeInterfaceId;
+		if(oppositeInterfaceId != null){
+			putQueryParameter("OppositeInterfaceId", oppositeInterfaceId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -168,17 +186,6 @@ public class ModifyRouterInterfaceAttributeRequest extends RpcAcsRequest<ModifyR
 		this.oppositeRouterType = oppositeRouterType;
 		if(oppositeRouterType != null){
 			putQueryParameter("OppositeRouterType", oppositeRouterType);
-		}
-	}
-
-	public String getOppositeInterfaceId() {
-		return this.oppositeInterfaceId;
-	}
-
-	public void setOppositeInterfaceId(String oppositeInterfaceId) {
-		this.oppositeInterfaceId = oppositeInterfaceId;
-		if(oppositeInterfaceId != null){
-			putQueryParameter("OppositeInterfaceId", oppositeInterfaceId);
 		}
 	}
 

@@ -16,36 +16,51 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ImportImageRequest extends RpcAcsRequest<ImportImageResponse> {
-	
-	public ImportImageRequest() {
-		super("Ecs", "2014-05-26", "ImportImage", "ecs");
-	}
+	   
 
 	private List<DiskDeviceMapping> diskDeviceMappings;
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
+	private String description;
+
+	private String platform;
+
+	private String resourceGroupId;
+
+	private String bootMode;
 
 	private String imageName;
 
-	private String roleName;
+	private List<Tag> tags;
 
-	private String description;
+	private String architecture;
+
+	private String licenseType;
+
+	private String resourceOwnerAccount;
+
+	private String roleName;
 
 	private String oSType;
 
 	private Long ownerId;
-
-	private String platform;
-
-	private String architecture;
+	public ImportImageRequest() {
+		super("Ecs", "2014-05-26", "ImportImage", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public List<DiskDeviceMapping> getDiskDeviceMappings() {
 		return this.diskDeviceMappings;
@@ -76,14 +91,47 @@ public class ImportImageRequest extends RpcAcsRequest<ImportImageResponse> {
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getPlatform() {
+		return this.platform;
+	}
+
+	public void setPlatform(String platform) {
+		this.platform = platform;
+		if(platform != null){
+			putQueryParameter("Platform", platform);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getBootMode() {
+		return this.bootMode;
+	}
+
+	public void setBootMode(String bootMode) {
+		this.bootMode = bootMode;
+		if(bootMode != null){
+			putQueryParameter("BootMode", bootMode);
 		}
 	}
 
@@ -98,6 +146,53 @@ public class ImportImageRequest extends RpcAcsRequest<ImportImageResponse> {
 		}
 	}
 
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public String getArchitecture() {
+		return this.architecture;
+	}
+
+	public void setArchitecture(String architecture) {
+		this.architecture = architecture;
+		if(architecture != null){
+			putQueryParameter("Architecture", architecture);
+		}
+	}
+
+	public String getLicenseType() {
+		return this.licenseType;
+	}
+
+	public void setLicenseType(String licenseType) {
+		this.licenseType = licenseType;
+		if(licenseType != null){
+			putQueryParameter("LicenseType", licenseType);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
 	public String getRoleName() {
 		return this.roleName;
 	}
@@ -106,17 +201,6 @@ public class ImportImageRequest extends RpcAcsRequest<ImportImageResponse> {
 		this.roleName = roleName;
 		if(roleName != null){
 			putQueryParameter("RoleName", roleName);
-		}
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
 		}
 	}
 
@@ -139,28 +223,6 @@ public class ImportImageRequest extends RpcAcsRequest<ImportImageResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getPlatform() {
-		return this.platform;
-	}
-
-	public void setPlatform(String platform) {
-		this.platform = platform;
-		if(platform != null){
-			putQueryParameter("Platform", platform);
-		}
-	}
-
-	public String getArchitecture() {
-		return this.architecture;
-	}
-
-	public void setArchitecture(String architecture) {
-		this.architecture = architecture;
-		if(architecture != null){
-			putQueryParameter("Architecture", architecture);
 		}
 	}
 
@@ -224,6 +286,29 @@ public class ImportImageRequest extends RpcAcsRequest<ImportImageResponse> {
 
 		public void setDiskImageSize(Integer diskImageSize) {
 			this.diskImageSize = diskImageSize;
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

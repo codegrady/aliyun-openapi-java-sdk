@@ -15,34 +15,43 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddLiveAppSnapshotConfigRequest extends RpcAcsRequest<AddLiveAppSnapshotConfigResponse> {
-	
-	public AddLiveAppSnapshotConfigRequest() {
-		super("live", "2016-11-01", "AddLiveAppSnapshotConfig", "live");
-	}
+	   
 
 	private Integer timeInterval;
 
-	private String ossBucket;
+	private String ossEndpoint;
 
 	private String appName;
 
 	private String securityToken;
 
-	private String domainName;
+	private String overwriteOssObject;
 
-	private String ossEndpoint;
+	private String ossBucket;
+
+	private String domainName;
 
 	private String sequenceOssObject;
 
-	private String overwriteOssObject;
-
 	private Long ownerId;
+
+	private String callback;
+	public AddLiveAppSnapshotConfigRequest() {
+		super("live", "2016-11-01", "AddLiveAppSnapshotConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Integer getTimeInterval() {
 		return this.timeInterval;
@@ -55,14 +64,14 @@ public class AddLiveAppSnapshotConfigRequest extends RpcAcsRequest<AddLiveAppSna
 		}
 	}
 
-	public String getOssBucket() {
-		return this.ossBucket;
+	public String getOssEndpoint() {
+		return this.ossEndpoint;
 	}
 
-	public void setOssBucket(String ossBucket) {
-		this.ossBucket = ossBucket;
-		if(ossBucket != null){
-			putQueryParameter("OssBucket", ossBucket);
+	public void setOssEndpoint(String ossEndpoint) {
+		this.ossEndpoint = ossEndpoint;
+		if(ossEndpoint != null){
+			putQueryParameter("OssEndpoint", ossEndpoint);
 		}
 	}
 
@@ -88,6 +97,28 @@ public class AddLiveAppSnapshotConfigRequest extends RpcAcsRequest<AddLiveAppSna
 		}
 	}
 
+	public String getOverwriteOssObject() {
+		return this.overwriteOssObject;
+	}
+
+	public void setOverwriteOssObject(String overwriteOssObject) {
+		this.overwriteOssObject = overwriteOssObject;
+		if(overwriteOssObject != null){
+			putQueryParameter("OverwriteOssObject", overwriteOssObject);
+		}
+	}
+
+	public String getOssBucket() {
+		return this.ossBucket;
+	}
+
+	public void setOssBucket(String ossBucket) {
+		this.ossBucket = ossBucket;
+		if(ossBucket != null){
+			putQueryParameter("OssBucket", ossBucket);
+		}
+	}
+
 	public String getDomainName() {
 		return this.domainName;
 	}
@@ -96,17 +127,6 @@ public class AddLiveAppSnapshotConfigRequest extends RpcAcsRequest<AddLiveAppSna
 		this.domainName = domainName;
 		if(domainName != null){
 			putQueryParameter("DomainName", domainName);
-		}
-	}
-
-	public String getOssEndpoint() {
-		return this.ossEndpoint;
-	}
-
-	public void setOssEndpoint(String ossEndpoint) {
-		this.ossEndpoint = ossEndpoint;
-		if(ossEndpoint != null){
-			putQueryParameter("OssEndpoint", ossEndpoint);
 		}
 	}
 
@@ -121,17 +141,6 @@ public class AddLiveAppSnapshotConfigRequest extends RpcAcsRequest<AddLiveAppSna
 		}
 	}
 
-	public String getOverwriteOssObject() {
-		return this.overwriteOssObject;
-	}
-
-	public void setOverwriteOssObject(String overwriteOssObject) {
-		this.overwriteOssObject = overwriteOssObject;
-		if(overwriteOssObject != null){
-			putQueryParameter("OverwriteOssObject", overwriteOssObject);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -140,6 +149,17 @@ public class AddLiveAppSnapshotConfigRequest extends RpcAcsRequest<AddLiveAppSna
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getCallback() {
+		return this.callback;
+	}
+
+	public void setCallback(String callback) {
+		this.callback = callback;
+		if(callback != null){
+			putQueryParameter("Callback", callback);
 		}
 	}
 

@@ -11,25 +11,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.model.v20170626;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.nas.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateAccessGroupRequest extends RpcAcsRequest<CreateAccessGroupResponse> {
-	
-	public CreateAccessGroupRequest() {
-		super("NAS", "2017-06-26", "CreateAccessGroup", "nas");
-	}
+	   
 
 	private String description;
+
+	private String fileSystemType;
 
 	private String accessGroupType;
 
 	private String accessGroupName;
+	public CreateAccessGroupRequest() {
+		super("NAS", "2017-06-26", "CreateAccessGroup");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getDescription() {
 		return this.description;
@@ -39,6 +49,17 @@ public class CreateAccessGroupRequest extends RpcAcsRequest<CreateAccessGroupRes
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getFileSystemType() {
+		return this.fileSystemType;
+	}
+
+	public void setFileSystemType(String fileSystemType) {
+		this.fileSystemType = fileSystemType;
+		if(fileSystemType != null){
+			putQueryParameter("FileSystemType", fileSystemType);
 		}
 	}
 

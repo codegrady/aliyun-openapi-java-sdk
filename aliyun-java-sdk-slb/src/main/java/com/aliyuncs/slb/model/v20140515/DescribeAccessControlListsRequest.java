@@ -15,46 +15,40 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeAccessControlListsRequest extends RpcAcsRequest<DescribeAccessControlListsResponse> {
-	
-	public DescribeAccessControlListsRequest() {
-		super("Slb", "2014-05-15", "DescribeAccessControlLists", "slb");
-	}
-
-	private String access_key_id;
+	   
 
 	private Long resourceOwnerId;
 
 	private String aclName;
+
+	private String addressIPVersion;
+
+	private Integer pageNumber;
+
+	private String resourceGroupId;
+
+	private Integer pageSize;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	private String addressIPVersion;
-
-	private Integer pageNumber;
-
-	private String tags;
-
-	private Integer pageSize;
-
-	public String getAccess_key_id() {
-		return this.access_key_id;
-	}
-
-	public void setAccess_key_id(String access_key_id) {
-		this.access_key_id = access_key_id;
-		if(access_key_id != null){
-			putQueryParameter("access_key_id", access_key_id);
-		}
+	public DescribeAccessControlListsRequest() {
+		super("Slb", "2014-05-15", "DescribeAccessControlLists", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -76,6 +70,50 @@ public class DescribeAccessControlListsRequest extends RpcAcsRequest<DescribeAcc
 		this.aclName = aclName;
 		if(aclName != null){
 			putQueryParameter("AclName", aclName);
+		}
+	}
+
+	public String getAddressIPVersion() {
+		return this.addressIPVersion;
+	}
+
+	public void setAddressIPVersion(String addressIPVersion) {
+		this.addressIPVersion = addressIPVersion;
+		if(addressIPVersion != null){
+			putQueryParameter("AddressIPVersion", addressIPVersion);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -109,50 +147,6 @@ public class DescribeAccessControlListsRequest extends RpcAcsRequest<DescribeAcc
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getAddressIPVersion() {
-		return this.addressIPVersion;
-	}
-
-	public void setAddressIPVersion(String addressIPVersion) {
-		this.addressIPVersion = addressIPVersion;
-		if(addressIPVersion != null){
-			putQueryParameter("AddressIPVersion", addressIPVersion);
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

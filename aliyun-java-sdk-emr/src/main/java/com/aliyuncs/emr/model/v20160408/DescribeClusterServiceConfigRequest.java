@@ -15,28 +15,37 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeClusterServiceConfigRequest extends RpcAcsRequest<DescribeClusterServiceConfigResponse> {
-	
-	public DescribeClusterServiceConfigRequest() {
-		super("Emr", "2016-04-08", "DescribeClusterServiceConfig");
-	}
+	   
 
 	private Long resourceOwnerId;
 
+	private String hostInstanceId;
+
 	private String tagValue;
 
-	private Long groupId;
-
-	private String serviceName;
+	private String groupId;
 
 	private String clusterId;
 
 	private String configVersion;
+
+	private String serviceName;
+	public DescribeClusterServiceConfigRequest() {
+		super("Emr", "2016-04-08", "DescribeClusterServiceConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,6 +55,17 @@ public class DescribeClusterServiceConfigRequest extends RpcAcsRequest<DescribeC
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getHostInstanceId() {
+		return this.hostInstanceId;
+	}
+
+	public void setHostInstanceId(String hostInstanceId) {
+		this.hostInstanceId = hostInstanceId;
+		if(hostInstanceId != null){
+			putQueryParameter("HostInstanceId", hostInstanceId);
 		}
 	}
 
@@ -60,25 +80,14 @@ public class DescribeClusterServiceConfigRequest extends RpcAcsRequest<DescribeC
 		}
 	}
 
-	public Long getGroupId() {
+	public String getGroupId() {
 		return this.groupId;
 	}
 
-	public void setGroupId(Long groupId) {
+	public void setGroupId(String groupId) {
 		this.groupId = groupId;
 		if(groupId != null){
-			putQueryParameter("GroupId", groupId.toString());
-		}
-	}
-
-	public String getServiceName() {
-		return this.serviceName;
-	}
-
-	public void setServiceName(String serviceName) {
-		this.serviceName = serviceName;
-		if(serviceName != null){
-			putQueryParameter("ServiceName", serviceName);
+			putQueryParameter("GroupId", groupId);
 		}
 	}
 
@@ -101,6 +110,17 @@ public class DescribeClusterServiceConfigRequest extends RpcAcsRequest<DescribeC
 		this.configVersion = configVersion;
 		if(configVersion != null){
 			putQueryParameter("ConfigVersion", configVersion);
+		}
+	}
+
+	public String getServiceName() {
+		return this.serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+		if(serviceName != null){
+			putQueryParameter("ServiceName", serviceName);
 		}
 	}
 

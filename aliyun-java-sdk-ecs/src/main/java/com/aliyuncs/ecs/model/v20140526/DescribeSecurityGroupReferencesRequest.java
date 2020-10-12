@@ -16,26 +16,33 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeSecurityGroupReferencesRequest extends RpcAcsRequest<DescribeSecurityGroupReferencesResponse> {
-	
-	public DescribeSecurityGroupReferencesRequest() {
-		super("Ecs", "2014-05-26", "DescribeSecurityGroupReferences", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private List<String> securityGroupIds;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private List<String> securityGroupIds;
-
 	private Long ownerId;
+	public DescribeSecurityGroupReferencesRequest() {
+		super("Ecs", "2014-05-26", "DescribeSecurityGroupReferences", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,6 +53,19 @@ public class DescribeSecurityGroupReferencesRequest extends RpcAcsRequest<Descri
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
 		}
+	}
+
+	public List<String> getSecurityGroupIds() {
+		return this.securityGroupIds;
+	}
+
+	public void setSecurityGroupIds(List<String> securityGroupIds) {
+		this.securityGroupIds = securityGroupIds;	
+		if (securityGroupIds != null) {
+			for (int i = 0; i < securityGroupIds.size(); i++) {
+				putQueryParameter("SecurityGroupId." + (i + 1) , securityGroupIds.get(i));
+			}
+		}	
 	}
 
 	public String getResourceOwnerAccount() {
@@ -68,19 +88,6 @@ public class DescribeSecurityGroupReferencesRequest extends RpcAcsRequest<Descri
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
 		}
-	}
-
-	public List<String> getSecurityGroupIds() {
-		return this.securityGroupIds;
-	}
-
-	public void setSecurityGroupIds(List<String> securityGroupIds) {
-		this.securityGroupIds = securityGroupIds;	
-		if (securityGroupIds != null) {
-			for (int i = 0; i < securityGroupIds.size(); i++) {
-				putQueryParameter("SecurityGroupId." + (i + 1) , securityGroupIds.get(i));
-			}
-		}	
 	}
 
 	public Long getOwnerId() {

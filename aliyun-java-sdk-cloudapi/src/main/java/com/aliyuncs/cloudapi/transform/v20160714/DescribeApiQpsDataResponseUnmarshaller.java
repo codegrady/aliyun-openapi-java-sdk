@@ -11,39 +11,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.aliyuncs.cloudapi.model.v20160714.DescribeApiQpsDataResponse;
 import com.aliyuncs.cloudapi.model.v20160714.DescribeApiQpsDataResponse.MonitorItem;
 import com.aliyuncs.transform.UnmarshallerContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class DescribeApiQpsDataResponseUnmarshaller {
 
-	public static DescribeApiQpsDataResponse unmarshall(DescribeApiQpsDataResponse describeApiQpsDataResponse, UnmarshallerContext context) {
+	public static DescribeApiQpsDataResponse unmarshall(DescribeApiQpsDataResponse describeApiQpsDataResponse, UnmarshallerContext _ctx) {
 		
-		describeApiQpsDataResponse.setRequestId(context.stringValue("DescribeApiQpsDataResponse.RequestId"));
+		describeApiQpsDataResponse.setRequestId(_ctx.stringValue("DescribeApiQpsDataResponse.RequestId"));
 
 		List<MonitorItem> callSuccesses = new ArrayList<MonitorItem>();
-		for (int i = 0; i < context.lengthValue("DescribeApiQpsDataResponse.CallSuccesses.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeApiQpsDataResponse.CallSuccesses.Length"); i++) {
 			MonitorItem monitorItem = new MonitorItem();
-			monitorItem.setItemTime(context.stringValue("DescribeApiQpsDataResponse.CallSuccesses["+ i +"].ItemTime"));
-			monitorItem.setItemValue(context.stringValue("DescribeApiQpsDataResponse.CallSuccesses["+ i +"].ItemValue"));
+			monitorItem.setItemTime(_ctx.stringValue("DescribeApiQpsDataResponse.CallSuccesses["+ i +"].ItemTime"));
+			monitorItem.setItemValue(_ctx.stringValue("DescribeApiQpsDataResponse.CallSuccesses["+ i +"].ItemValue"));
 
 			callSuccesses.add(monitorItem);
 		}
 		describeApiQpsDataResponse.setCallSuccesses(callSuccesses);
 
 		List<MonitorItem> callFails = new ArrayList<MonitorItem>();
-		for (int i = 0; i < context.lengthValue("DescribeApiQpsDataResponse.CallFails.Length"); i++) {
-			MonitorItem monitorItem = new MonitorItem();
-			monitorItem.setItemTime(context.stringValue("DescribeApiQpsDataResponse.CallFails["+ i +"].ItemTime"));
-			monitorItem.setItemValue(context.stringValue("DescribeApiQpsDataResponse.CallFails["+ i +"].ItemValue"));
+		for (int i = 0; i < _ctx.lengthValue("DescribeApiQpsDataResponse.CallFails.Length"); i++) {
+			MonitorItem monitorItem_ = new MonitorItem();
+			monitorItem_.setItemTime(_ctx.stringValue("DescribeApiQpsDataResponse.CallFails["+ i +"].ItemTime"));
+			monitorItem_.setItemValue(_ctx.stringValue("DescribeApiQpsDataResponse.CallFails["+ i +"].ItemValue"));
 
-			callFails.add(monitorItem);
+			callFails.add(monitorItem_);
 		}
 		describeApiQpsDataResponse.setCallFails(callFails);
 	 

@@ -16,26 +16,19 @@ package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateAlarmRequest extends RpcAcsRequest<CreateAlarmResponse> {
-	
-	public CreateAlarmRequest() {
-		super("Ess", "2014-08-28", "CreateAlarm", "ess");
-	}
+	   
 
 	private String metricType;
 
-	private Integer period;
-
-	private String resourceOwnerAccount;
-
 	private String scalingGroupId;
-
-	private Integer groupId;
 
 	private String description;
 
@@ -43,19 +36,35 @@ public class CreateAlarmRequest extends RpcAcsRequest<CreateAlarmResponse> {
 
 	private Float threshold;
 
-	private Long ownerId;
-
-	private String name;
+	private String effective;
 
 	private Integer evaluationCount;
 
 	private String metricName;
 
-	private String comparisonOperator;
-
 	private List<Dimension> dimensions;
 
+	private Integer period;
+
+	private String resourceOwnerAccount;
+
+	private Integer groupId;
+
+	private Long ownerId;
+
+	private String name;
+
+	private String comparisonOperator;
+
 	private String statistics;
+	public CreateAlarmRequest() {
+		super("Ess", "2014-08-28", "CreateAlarm", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getMetricType() {
 		return this.metricType;
@@ -68,28 +77,6 @@ public class CreateAlarmRequest extends RpcAcsRequest<CreateAlarmResponse> {
 		}
 	}
 
-	public Integer getPeriod() {
-		return this.period;
-	}
-
-	public void setPeriod(Integer period) {
-		this.period = period;
-		if(period != null){
-			putQueryParameter("Period", period.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
 	public String getScalingGroupId() {
 		return this.scalingGroupId;
 	}
@@ -98,17 +85,6 @@ public class CreateAlarmRequest extends RpcAcsRequest<CreateAlarmResponse> {
 		this.scalingGroupId = scalingGroupId;
 		if(scalingGroupId != null){
 			putQueryParameter("ScalingGroupId", scalingGroupId);
-		}
-	}
-
-	public Integer getGroupId() {
-		return this.groupId;
-	}
-
-	public void setGroupId(Integer groupId) {
-		this.groupId = groupId;
-		if(groupId != null){
-			putQueryParameter("GroupId", groupId.toString());
 		}
 	}
 
@@ -147,25 +123,14 @@ public class CreateAlarmRequest extends RpcAcsRequest<CreateAlarmResponse> {
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
+	public String getEffective() {
+		return this.effective;
 	}
 
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		if(name != null){
-			putQueryParameter("Name", name);
+	public void setEffective(String effective) {
+		this.effective = effective;
+		if(effective != null){
+			putQueryParameter("Effective", effective);
 		}
 	}
 
@@ -191,17 +156,6 @@ public class CreateAlarmRequest extends RpcAcsRequest<CreateAlarmResponse> {
 		}
 	}
 
-	public String getComparisonOperator() {
-		return this.comparisonOperator;
-	}
-
-	public void setComparisonOperator(String comparisonOperator) {
-		this.comparisonOperator = comparisonOperator;
-		if(comparisonOperator != null){
-			putQueryParameter("ComparisonOperator", comparisonOperator);
-		}
-	}
-
 	public List<Dimension> getDimensions() {
 		return this.dimensions;
 	}
@@ -214,6 +168,72 @@ public class CreateAlarmRequest extends RpcAcsRequest<CreateAlarmResponse> {
 				putQueryParameter("Dimension." + (depth1 + 1) + ".DimensionKey" , dimensions.get(depth1).getDimensionKey());
 			}
 		}	
+	}
+
+	public Integer getPeriod() {
+		return this.period;
+	}
+
+	public void setPeriod(Integer period) {
+		this.period = period;
+		if(period != null){
+			putQueryParameter("Period", period.toString());
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public Integer getGroupId() {
+		return this.groupId;
+	}
+
+	public void setGroupId(Integer groupId) {
+		this.groupId = groupId;
+		if(groupId != null){
+			putQueryParameter("GroupId", groupId.toString());
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("Name", name);
+		}
+	}
+
+	public String getComparisonOperator() {
+		return this.comparisonOperator;
+	}
+
+	public void setComparisonOperator(String comparisonOperator) {
+		this.comparisonOperator = comparisonOperator;
+		if(comparisonOperator != null){
+			putQueryParameter("ComparisonOperator", comparisonOperator);
+		}
 	}
 
 	public String getStatistics() {

@@ -15,24 +15,31 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeLiveDomainConfigsRequest extends RpcAcsRequest<DescribeLiveDomainConfigsResponse> {
-	
-	public DescribeLiveDomainConfigsRequest() {
-		super("live", "2016-11-01", "DescribeLiveDomainConfigs", "live");
-	}
+	   
 
 	private String functionNames;
-
-	private String securityToken;
 
 	private String domainName;
 
 	private Long ownerId;
+
+	private String securityToken;
+	public DescribeLiveDomainConfigsRequest() {
+		super("live", "2016-11-01", "DescribeLiveDomainConfigs", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFunctionNames() {
 		return this.functionNames;
@@ -42,17 +49,6 @@ public class DescribeLiveDomainConfigsRequest extends RpcAcsRequest<DescribeLive
 		this.functionNames = functionNames;
 		if(functionNames != null){
 			putQueryParameter("FunctionNames", functionNames);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 
@@ -75,6 +71,17 @@ public class DescribeLiveDomainConfigsRequest extends RpcAcsRequest<DescribeLive
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

@@ -15,16 +15,17 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeZoneRecordsRequest extends RpcAcsRequest<DescribeZoneRecordsResponse> {
-	
-	public DescribeZoneRecordsRequest() {
-		super("pvtz", "2018-01-01", "DescribeZoneRecords", "pvtz");
-	}
+	   
+
+	private Integer pageNumber;
 
 	private Integer pageSize;
 
@@ -32,13 +33,32 @@ public class DescribeZoneRecordsRequest extends RpcAcsRequest<DescribeZoneRecord
 
 	private String zoneId;
 
-	private String tag;
+	private String searchMode;
 
-	private String keyword;
+	private String tag;
 
 	private String lang;
 
-	private Integer pageNumber;
+	private String keyword;
+	public DescribeZoneRecordsRequest() {
+		super("pvtz", "2018-01-01", "DescribeZoneRecords", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
 
 	public Integer getPageSize() {
 		return this.pageSize;
@@ -73,6 +93,17 @@ public class DescribeZoneRecordsRequest extends RpcAcsRequest<DescribeZoneRecord
 		}
 	}
 
+	public String getSearchMode() {
+		return this.searchMode;
+	}
+
+	public void setSearchMode(String searchMode) {
+		this.searchMode = searchMode;
+		if(searchMode != null){
+			putQueryParameter("SearchMode", searchMode);
+		}
+	}
+
 	public String getTag() {
 		return this.tag;
 	}
@@ -81,17 +112,6 @@ public class DescribeZoneRecordsRequest extends RpcAcsRequest<DescribeZoneRecord
 		this.tag = tag;
 		if(tag != null){
 			putQueryParameter("Tag", tag);
-		}
-	}
-
-	public String getKeyword() {
-		return this.keyword;
-	}
-
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-		if(keyword != null){
-			putQueryParameter("Keyword", keyword);
 		}
 	}
 
@@ -106,14 +126,14 @@ public class DescribeZoneRecordsRequest extends RpcAcsRequest<DescribeZoneRecord
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public String getKeyword() {
+		return this.keyword;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+		if(keyword != null){
+			putQueryParameter("Keyword", keyword);
 		}
 	}
 

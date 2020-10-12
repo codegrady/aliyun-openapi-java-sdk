@@ -11,29 +11,83 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.model.v20170626;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.nas.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateMountTargetRequest extends RpcAcsRequest<CreateMountTargetResponse> {
-	
-	public CreateMountTargetRequest() {
-		super("NAS", "2017-06-26", "CreateMountTarget", "nas");
-	}
+	   
+
+	private String securityGroupId;
+
+	private String networkType;
+
+	private String fileSystemId;
+
+	private String accessGroupName;
 
 	private String vSwitchId;
 
 	private String vpcId;
+	public CreateMountTargetRequest() {
+		super("NAS", "2017-06-26", "CreateMountTarget");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String networkType;
+	public String getSecurityGroupId() {
+		return this.securityGroupId;
+	}
 
-	private String accessGroupName;
+	public void setSecurityGroupId(String securityGroupId) {
+		this.securityGroupId = securityGroupId;
+		if(securityGroupId != null){
+			putQueryParameter("SecurityGroupId", securityGroupId);
+		}
+	}
 
-	private String fileSystemId;
+	public String getNetworkType() {
+		return this.networkType;
+	}
+
+	public void setNetworkType(String networkType) {
+		this.networkType = networkType;
+		if(networkType != null){
+			putQueryParameter("NetworkType", networkType);
+		}
+	}
+
+	public String getFileSystemId() {
+		return this.fileSystemId;
+	}
+
+	public void setFileSystemId(String fileSystemId) {
+		this.fileSystemId = fileSystemId;
+		if(fileSystemId != null){
+			putQueryParameter("FileSystemId", fileSystemId);
+		}
+	}
+
+	public String getAccessGroupName() {
+		return this.accessGroupName;
+	}
+
+	public void setAccessGroupName(String accessGroupName) {
+		this.accessGroupName = accessGroupName;
+		if(accessGroupName != null){
+			putQueryParameter("AccessGroupName", accessGroupName);
+		}
+	}
 
 	public String getVSwitchId() {
 		return this.vSwitchId;
@@ -54,39 +108,6 @@ public class CreateMountTargetRequest extends RpcAcsRequest<CreateMountTargetRes
 		this.vpcId = vpcId;
 		if(vpcId != null){
 			putQueryParameter("VpcId", vpcId);
-		}
-	}
-
-	public String getNetworkType() {
-		return this.networkType;
-	}
-
-	public void setNetworkType(String networkType) {
-		this.networkType = networkType;
-		if(networkType != null){
-			putQueryParameter("NetworkType", networkType);
-		}
-	}
-
-	public String getAccessGroupName() {
-		return this.accessGroupName;
-	}
-
-	public void setAccessGroupName(String accessGroupName) {
-		this.accessGroupName = accessGroupName;
-		if(accessGroupName != null){
-			putQueryParameter("AccessGroupName", accessGroupName);
-		}
-	}
-
-	public String getFileSystemId() {
-		return this.fileSystemId;
-	}
-
-	public void setFileSystemId(String fileSystemId) {
-		this.fileSystemId = fileSystemId;
-		if(fileSystemId != null){
-			putQueryParameter("FileSystemId", fileSystemId);
 		}
 	}
 

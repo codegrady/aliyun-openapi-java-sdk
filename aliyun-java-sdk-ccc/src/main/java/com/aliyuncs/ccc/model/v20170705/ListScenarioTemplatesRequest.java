@@ -15,15 +15,22 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListScenarioTemplatesRequest extends RpcAcsRequest<ListScenarioTemplatesResponse> {
-	
+	   
 	public ListScenarioTemplatesRequest() {
-		super("CCC", "2017-07-05", "ListScenarioTemplates", "ccc");
+		super("CCC", "2017-07-05", "ListScenarioTemplates", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	@Override

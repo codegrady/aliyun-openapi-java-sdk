@@ -15,20 +15,27 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListDomainsByLogConfigIdRequest extends RpcAcsRequest<ListDomainsByLogConfigIdResponse> {
-	
-	public ListDomainsByLogConfigIdRequest() {
-		super("Cdn", "2018-05-10", "ListDomainsByLogConfigId");
-	}
+	   
 
 	private Long ownerId;
 
 	private String configId;
+	public ListDomainsByLogConfigIdRequest() {
+		super("Cdn", "2018-05-10", "ListDomainsByLogConfigId");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getOwnerId() {
 		return this.ownerId;

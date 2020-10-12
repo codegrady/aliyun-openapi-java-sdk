@@ -15,18 +15,15 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeactivateScalingConfigurationRequest extends RpcAcsRequest<DeactivateScalingConfigurationResponse> {
-	
-	public DeactivateScalingConfigurationRequest() {
-		super("Ess", "2014-08-28", "DeactivateScalingConfiguration", "ess");
-	}
-
-	private String scalingConfigurationId;
+	   
 
 	private String resourceOwnerAccount;
 
@@ -34,15 +31,14 @@ public class DeactivateScalingConfigurationRequest extends RpcAcsRequest<Deactiv
 
 	private Long ownerId;
 
-	public String getScalingConfigurationId() {
-		return this.scalingConfigurationId;
-	}
-
-	public void setScalingConfigurationId(String scalingConfigurationId) {
-		this.scalingConfigurationId = scalingConfigurationId;
-		if(scalingConfigurationId != null){
-			putQueryParameter("ScalingConfigurationId", scalingConfigurationId);
-		}
+	private String scalingConfigurationId;
+	public DeactivateScalingConfigurationRequest() {
+		super("Ess", "2014-08-28", "DeactivateScalingConfiguration", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getResourceOwnerAccount() {
@@ -75,6 +71,17 @@ public class DeactivateScalingConfigurationRequest extends RpcAcsRequest<Deactiv
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getScalingConfigurationId() {
+		return this.scalingConfigurationId;
+	}
+
+	public void setScalingConfigurationId(String scalingConfigurationId) {
+		this.scalingConfigurationId = scalingConfigurationId;
+		if(scalingConfigurationId != null){
+			putQueryParameter("ScalingConfigurationId", scalingConfigurationId);
 		}
 	}
 

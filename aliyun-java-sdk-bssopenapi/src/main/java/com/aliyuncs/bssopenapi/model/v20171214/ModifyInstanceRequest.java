@@ -16,30 +16,39 @@ package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyInstanceRequest extends RpcAcsRequest<ModifyInstanceResponse> {
-	
-	public ModifyInstanceRequest() {
-		super("BssOpenApi", "2017-12-14", "ModifyInstance");
-	}
+	   
 
 	private String productCode;
 
-	private String instanceId;
+	private String clientToken;
 
 	private String subscriptionType;
-
-	private String modifyType;
-
-	private List<Parameter> parameters;
 
 	private Long ownerId;
 
 	private String productType;
+
+	private String instanceId;
+
+	private String modifyType;
+
+	private List<Parameter> parameters;
+	public ModifyInstanceRequest() {
+		super("BssOpenApi", "2017-12-14", "ModifyInstance");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProductCode() {
 		return this.productCode;
@@ -52,14 +61,14 @@ public class ModifyInstanceRequest extends RpcAcsRequest<ModifyInstanceResponse>
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
+	public String getClientToken() {
+		return this.clientToken;
 	}
 
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -71,6 +80,39 @@ public class ModifyInstanceRequest extends RpcAcsRequest<ModifyInstanceResponse>
 		this.subscriptionType = subscriptionType;
 		if(subscriptionType != null){
 			putQueryParameter("SubscriptionType", subscriptionType);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getProductType() {
+		return this.productType;
+	}
+
+	public void setProductType(String productType) {
+		this.productType = productType;
+		if(productType != null){
+			putQueryParameter("ProductType", productType);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
@@ -97,28 +139,6 @@ public class ModifyInstanceRequest extends RpcAcsRequest<ModifyInstanceResponse>
 				putQueryParameter("Parameter." + (depth1 + 1) + ".Value" , parameters.get(depth1).getValue());
 			}
 		}	
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getProductType() {
-		return this.productType;
-	}
-
-	public void setProductType(String productType) {
-		this.productType = productType;
-		if(productType != null){
-			putQueryParameter("ProductType", productType);
-		}
 	}
 
 	public static class Parameter {

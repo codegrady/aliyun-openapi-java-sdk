@@ -16,35 +16,44 @@ package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DetachDBInstancesRequest extends RpcAcsRequest<DetachDBInstancesResponse> {
-	
-	public DetachDBInstancesRequest() {
-		super("Ess", "2014-08-28", "DetachDBInstances", "ess");
-	}
+	   
 
-	private String resourceOwnerAccount;
+	private String clientToken;
 
 	private String scalingGroupId;
 
-	private List<String> dBInstances;
+	private String resourceOwnerAccount;
 
-	private Boolean forceDetach;
+	private List<String> dBInstances;
 
 	private Long ownerId;
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
+	private Boolean forceDetach;
+	public DetachDBInstancesRequest() {
+		super("Ess", "2014-08-28", "DetachDBInstances", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -56,6 +65,17 @@ public class DetachDBInstancesRequest extends RpcAcsRequest<DetachDBInstancesRes
 		this.scalingGroupId = scalingGroupId;
 		if(scalingGroupId != null){
 			putQueryParameter("ScalingGroupId", scalingGroupId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -72,17 +92,6 @@ public class DetachDBInstancesRequest extends RpcAcsRequest<DetachDBInstancesRes
 		}	
 	}
 
-	public Boolean getForceDetach() {
-		return this.forceDetach;
-	}
-
-	public void setForceDetach(Boolean forceDetach) {
-		this.forceDetach = forceDetach;
-		if(forceDetach != null){
-			putQueryParameter("ForceDetach", forceDetach.toString());
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -91,6 +100,17 @@ public class DetachDBInstancesRequest extends RpcAcsRequest<DetachDBInstancesRes
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Boolean getForceDetach() {
+		return this.forceDetach;
+	}
+
+	public void setForceDetach(Boolean forceDetach) {
+		this.forceDetach = forceDetach;
+		if(forceDetach != null){
+			putQueryParameter("ForceDetach", forceDetach.toString());
 		}
 	}
 

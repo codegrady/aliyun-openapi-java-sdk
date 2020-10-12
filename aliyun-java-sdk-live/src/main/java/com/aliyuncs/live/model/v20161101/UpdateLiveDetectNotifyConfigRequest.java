@@ -15,34 +15,30 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateLiveDetectNotifyConfigRequest extends RpcAcsRequest<UpdateLiveDetectNotifyConfigResponse> {
-	
-	public UpdateLiveDetectNotifyConfigRequest() {
-		super("live", "2016-11-01", "UpdateLiveDetectNotifyConfig", "live");
-	}
-
-	private String securityToken;
+	   
 
 	private String domainName;
 
-	private String notifyUrl;
-
 	private Long ownerId;
 
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
+	private String securityToken;
 
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
+	private String notifyUrl;
+	public UpdateLiveDetectNotifyConfigRequest() {
+		super("live", "2016-11-01", "UpdateLiveDetectNotifyConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDomainName() {
@@ -56,17 +52,6 @@ public class UpdateLiveDetectNotifyConfigRequest extends RpcAcsRequest<UpdateLiv
 		}
 	}
 
-	public String getNotifyUrl() {
-		return this.notifyUrl;
-	}
-
-	public void setNotifyUrl(String notifyUrl) {
-		this.notifyUrl = notifyUrl;
-		if(notifyUrl != null){
-			putQueryParameter("NotifyUrl", notifyUrl);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -75,6 +60,28 @@ public class UpdateLiveDetectNotifyConfigRequest extends RpcAcsRequest<UpdateLiv
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getNotifyUrl() {
+		return this.notifyUrl;
+	}
+
+	public void setNotifyUrl(String notifyUrl) {
+		this.notifyUrl = notifyUrl;
+		if(notifyUrl != null){
+			putQueryParameter("NotifyUrl", notifyUrl);
 		}
 	}
 

@@ -11,13 +11,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.model.v20160714;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.cloudapi.transform.v20160714.DescribeDomainsResolutionResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
-
-import java.util.List;
 
 /**
  * @author auto create

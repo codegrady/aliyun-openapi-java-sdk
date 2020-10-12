@@ -15,30 +15,41 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDBInstanceTDERequest extends RpcAcsRequest<ModifyDBInstanceTDEResponse> {
-	
-	public ModifyDBInstanceTDERequest() {
-		super("Rds", "2014-08-15", "ModifyDBInstanceTDE", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String dBName;
+	private String dBInstanceId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String dBInstanceId;
+	private String encryptionKey;
 
 	private Long ownerId;
 
+	private String dBName;
+
+	private String roleArn;
+
 	private String tDEStatus;
+	public ModifyDBInstanceTDERequest() {
+		super("Rds", "2014-08-15", "ModifyDBInstanceTDE", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -51,14 +62,14 @@ public class ModifyDBInstanceTDERequest extends RpcAcsRequest<ModifyDBInstanceTD
 		}
 	}
 
-	public String getDBName() {
-		return this.dBName;
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
 	}
 
-	public void setDBName(String dBName) {
-		this.dBName = dBName;
-		if(dBName != null){
-			putQueryParameter("DBName", dBName);
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 
@@ -84,14 +95,14 @@ public class ModifyDBInstanceTDERequest extends RpcAcsRequest<ModifyDBInstanceTD
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
+	public String getEncryptionKey() {
+		return this.encryptionKey;
 	}
 
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
+	public void setEncryptionKey(String encryptionKey) {
+		this.encryptionKey = encryptionKey;
+		if(encryptionKey != null){
+			putQueryParameter("EncryptionKey", encryptionKey);
 		}
 	}
 
@@ -103,6 +114,28 @@ public class ModifyDBInstanceTDERequest extends RpcAcsRequest<ModifyDBInstanceTD
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getDBName() {
+		return this.dBName;
+	}
+
+	public void setDBName(String dBName) {
+		this.dBName = dBName;
+		if(dBName != null){
+			putQueryParameter("DBName", dBName);
+		}
+	}
+
+	public String getRoleArn() {
+		return this.roleArn;
+	}
+
+	public void setRoleArn(String roleArn) {
+		this.roleArn = roleArn;
+		if(roleArn != null){
+			putQueryParameter("RoleArn", roleArn);
 		}
 	}
 

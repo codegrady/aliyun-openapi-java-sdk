@@ -15,30 +15,37 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddBandwidthPackageIpsRequest extends RpcAcsRequest<AddBandwidthPackageIpsResponse> {
-	
-	public AddBandwidthPackageIpsRequest() {
-		super("Ecs", "2014-05-26", "AddBandwidthPackageIps", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String clientToken;
 
 	private String bandwidthPackageId;
 
 	private String resourceOwnerAccount;
-
-	private String clientToken;
 
 	private String ownerAccount;
 
 	private Long ownerId;
 
 	private String ipCount;
+	public AddBandwidthPackageIpsRequest() {
+		super("Ecs", "2014-05-26", "AddBandwidthPackageIps", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -48,6 +55,17 @@ public class AddBandwidthPackageIpsRequest extends RpcAcsRequest<AddBandwidthPac
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -70,17 +88,6 @@ public class AddBandwidthPackageIpsRequest extends RpcAcsRequest<AddBandwidthPac
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 

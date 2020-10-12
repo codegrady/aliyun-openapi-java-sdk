@@ -15,6 +15,7 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
@@ -23,16 +24,39 @@ import com.aliyuncs.RpcAcsRequest;
 public class MetastoreCreateDatabaseRequest extends RpcAcsRequest<MetastoreCreateDatabaseResponse> {
 	
 	public MetastoreCreateDatabaseRequest() {
-		super("Emr", "2016-04-08", "MetastoreCreateDatabase");
+		super("Emr", "2016-04-08", "MetastoreCreateDatabase", "emr");
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
+
+	private String dbSource;
 
 	private Long resourceOwnerId;
 
 	private String dbName;
 
+	private String dataSourceId;
+
 	private String description;
 
+	private String comment;
+
 	private String locationUri;
+
+	private String clusterBizId;
+
+	public String getDbSource() {
+		return this.dbSource;
+	}
+
+	public void setDbSource(String dbSource) {
+		this.dbSource = dbSource;
+		if(dbSource != null){
+			putQueryParameter("DbSource", dbSource);
+		}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -56,6 +80,17 @@ public class MetastoreCreateDatabaseRequest extends RpcAcsRequest<MetastoreCreat
 		}
 	}
 
+	public String getDataSourceId() {
+		return this.dataSourceId;
+	}
+
+	public void setDataSourceId(String dataSourceId) {
+		this.dataSourceId = dataSourceId;
+		if(dataSourceId != null){
+			putQueryParameter("DataSourceId", dataSourceId);
+		}
+	}
+
 	public String getDescription() {
 		return this.description;
 	}
@@ -67,6 +102,17 @@ public class MetastoreCreateDatabaseRequest extends RpcAcsRequest<MetastoreCreat
 		}
 	}
 
+	public String getComment() {
+		return this.comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+		if(comment != null){
+			putQueryParameter("Comment", comment);
+		}
+	}
+
 	public String getLocationUri() {
 		return this.locationUri;
 	}
@@ -75,6 +121,17 @@ public class MetastoreCreateDatabaseRequest extends RpcAcsRequest<MetastoreCreat
 		this.locationUri = locationUri;
 		if(locationUri != null){
 			putQueryParameter("LocationUri", locationUri);
+		}
+	}
+
+	public String getClusterBizId() {
+		return this.clusterBizId;
+	}
+
+	public void setClusterBizId(String clusterBizId) {
+		this.clusterBizId = clusterBizId;
+		if(clusterBizId != null){
+			putQueryParameter("ClusterBizId", clusterBizId);
 		}
 	}
 

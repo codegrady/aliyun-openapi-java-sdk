@@ -28,6 +28,8 @@ public class DeleteNodeResponse extends AcsResponse {
 
 	private Integer taskId;
 
+	private String orderId;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -42,6 +44,14 @@ public class DeleteNodeResponse extends AcsResponse {
 
 	public void setTaskId(Integer taskId) {
 		this.taskId = taskId;
+	}
+
+	public String getOrderId() {
+		return this.orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 
 	@Override

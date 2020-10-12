@@ -15,22 +15,27 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SuspendFlowRequest extends RpcAcsRequest<SuspendFlowResponse> {
-	
-	public SuspendFlowRequest() {
-		super("Emr", "2016-04-08", "SuspendFlow");
-	}
+	   
 
 	private String flowInstanceId;
 
-	private Long resourceOwnerId;
-
 	private String projectId;
+	public SuspendFlowRequest() {
+		super("Emr", "2016-04-08", "SuspendFlow");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFlowInstanceId() {
 		return this.flowInstanceId;
@@ -40,17 +45,6 @@ public class SuspendFlowRequest extends RpcAcsRequest<SuspendFlowResponse> {
 		this.flowInstanceId = flowInstanceId;
 		if(flowInstanceId != null){
 			putQueryParameter("FlowInstanceId", flowInstanceId);
-		}
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
 		}
 	}
 

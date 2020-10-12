@@ -20,27 +20,26 @@ import java.util.List;
 import com.aliyuncs.vod.model.v20170321.ListSnapshotsResponse;
 import com.aliyuncs.vod.model.v20170321.ListSnapshotsResponse.MediaSnapshot;
 import com.aliyuncs.vod.model.v20170321.ListSnapshotsResponse.MediaSnapshot.Snapshot;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class ListSnapshotsResponseUnmarshaller {
 
-	public static ListSnapshotsResponse unmarshall(ListSnapshotsResponse listSnapshotsResponse, UnmarshallerContext context) {
+	public static ListSnapshotsResponse unmarshall(ListSnapshotsResponse listSnapshotsResponse, UnmarshallerContext _ctx) {
 		
-		listSnapshotsResponse.setRequestId(context.stringValue("ListSnapshotsResponse.RequestId"));
+		listSnapshotsResponse.setRequestId(_ctx.stringValue("ListSnapshotsResponse.RequestId"));
 
 		MediaSnapshot mediaSnapshot = new MediaSnapshot();
-		mediaSnapshot.setTotal(context.longValue("ListSnapshotsResponse.MediaSnapshot.Total"));
-		mediaSnapshot.setRegular(context.stringValue("ListSnapshotsResponse.MediaSnapshot.Regular"));
-		mediaSnapshot.setCreationTime(context.stringValue("ListSnapshotsResponse.MediaSnapshot.CreationTime"));
-		mediaSnapshot.setJobId(context.stringValue("ListSnapshotsResponse.MediaSnapshot.JobId"));
+		mediaSnapshot.setTotal(_ctx.longValue("ListSnapshotsResponse.MediaSnapshot.Total"));
+		mediaSnapshot.setRegular(_ctx.stringValue("ListSnapshotsResponse.MediaSnapshot.Regular"));
+		mediaSnapshot.setCreationTime(_ctx.stringValue("ListSnapshotsResponse.MediaSnapshot.CreationTime"));
+		mediaSnapshot.setJobId(_ctx.stringValue("ListSnapshotsResponse.MediaSnapshot.JobId"));
 
 		List<Snapshot> snapshots = new ArrayList<Snapshot>();
-		for (int i = 0; i < context.lengthValue("ListSnapshotsResponse.MediaSnapshot.Snapshots.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListSnapshotsResponse.MediaSnapshot.Snapshots.Length"); i++) {
 			Snapshot snapshot = new Snapshot();
-			snapshot.setIndex(context.longValue("ListSnapshotsResponse.MediaSnapshot.Snapshots["+ i +"].Index"));
-			snapshot.setUrl(context.stringValue("ListSnapshotsResponse.MediaSnapshot.Snapshots["+ i +"].Url"));
+			snapshot.setIndex(_ctx.longValue("ListSnapshotsResponse.MediaSnapshot.Snapshots["+ i +"].Index"));
+			snapshot.setUrl(_ctx.stringValue("ListSnapshotsResponse.MediaSnapshot.Snapshots["+ i +"].Url"));
 
 			snapshots.add(snapshot);
 		}

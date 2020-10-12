@@ -16,32 +16,28 @@ package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteNodesRequest extends RpcAcsRequest<DeleteNodesResponse> {
-	
-	public DeleteNodesRequest() {
-		super("EHPC", "2018-04-12", "DeleteNodes", "ehs");
-	}
-
-	private Boolean releaseInstance;
+	   
 
 	private List<Instance> instances;
 
 	private String clusterId;
 
-	public Boolean getReleaseInstance() {
-		return this.releaseInstance;
-	}
-
-	public void setReleaseInstance(Boolean releaseInstance) {
-		this.releaseInstance = releaseInstance;
-		if(releaseInstance != null){
-			putQueryParameter("ReleaseInstance", releaseInstance.toString());
-		}
+	private Boolean releaseInstance;
+	public DeleteNodesRequest() {
+		super("EHPC", "2018-04-12", "DeleteNodes");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public List<Instance> getInstances() {
@@ -65,6 +61,17 @@ public class DeleteNodesRequest extends RpcAcsRequest<DeleteNodesResponse> {
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public Boolean getReleaseInstance() {
+		return this.releaseInstance;
+	}
+
+	public void setReleaseInstance(Boolean releaseInstance) {
+		this.releaseInstance = releaseInstance;
+		if(releaseInstance != null){
+			putQueryParameter("ReleaseInstance", releaseInstance.toString());
 		}
 	}
 

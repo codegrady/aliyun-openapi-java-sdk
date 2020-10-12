@@ -19,32 +19,40 @@ import java.util.List;
 
 import com.aliyuncs.live.model.v20161101.DescribeLiveStreamsOnlineListResponse;
 import com.aliyuncs.live.model.v20161101.DescribeLiveStreamsOnlineListResponse.LiveStreamOnlineInfo;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeLiveStreamsOnlineListResponseUnmarshaller {
 
-	public static DescribeLiveStreamsOnlineListResponse unmarshall(DescribeLiveStreamsOnlineListResponse describeLiveStreamsOnlineListResponse, UnmarshallerContext context) {
+	public static DescribeLiveStreamsOnlineListResponse unmarshall(DescribeLiveStreamsOnlineListResponse describeLiveStreamsOnlineListResponse, UnmarshallerContext _ctx) {
 		
-		describeLiveStreamsOnlineListResponse.setRequestId(context.stringValue("DescribeLiveStreamsOnlineListResponse.RequestId"));
-		describeLiveStreamsOnlineListResponse.setPageNum(context.integerValue("DescribeLiveStreamsOnlineListResponse.PageNum"));
-		describeLiveStreamsOnlineListResponse.setPageSize(context.integerValue("DescribeLiveStreamsOnlineListResponse.PageSize"));
-		describeLiveStreamsOnlineListResponse.setTotalNum(context.integerValue("DescribeLiveStreamsOnlineListResponse.TotalNum"));
-		describeLiveStreamsOnlineListResponse.setTotalPage(context.integerValue("DescribeLiveStreamsOnlineListResponse.TotalPage"));
+		describeLiveStreamsOnlineListResponse.setRequestId(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.RequestId"));
+		describeLiveStreamsOnlineListResponse.setPageNum(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.PageNum"));
+		describeLiveStreamsOnlineListResponse.setPageSize(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.PageSize"));
+		describeLiveStreamsOnlineListResponse.setTotalNum(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.TotalNum"));
+		describeLiveStreamsOnlineListResponse.setTotalPage(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.TotalPage"));
 
 		List<LiveStreamOnlineInfo> onlineInfo = new ArrayList<LiveStreamOnlineInfo>();
-		for (int i = 0; i < context.lengthValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo.Length"); i++) {
 			LiveStreamOnlineInfo liveStreamOnlineInfo = new LiveStreamOnlineInfo();
-			liveStreamOnlineInfo.setDomainName(context.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].DomainName"));
-			liveStreamOnlineInfo.setAppName(context.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].AppName"));
-			liveStreamOnlineInfo.setStreamName(context.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].StreamName"));
-			liveStreamOnlineInfo.setPublishTime(context.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].PublishTime"));
-			liveStreamOnlineInfo.setPublishUrl(context.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].PublishUrl"));
-			liveStreamOnlineInfo.setPublishDomain(context.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].PublishDomain"));
-			liveStreamOnlineInfo.setPublishType(context.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].PublishType"));
-			liveStreamOnlineInfo.setTranscoded(context.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].Transcoded"));
-			liveStreamOnlineInfo.setTranscodeId(context.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].TranscodeId"));
+			liveStreamOnlineInfo.setDomainName(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].DomainName"));
+			liveStreamOnlineInfo.setAppName(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].AppName"));
+			liveStreamOnlineInfo.setStreamName(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].StreamName"));
+			liveStreamOnlineInfo.setPublishTime(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].PublishTime"));
+			liveStreamOnlineInfo.setPublishUrl(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].PublishUrl"));
+			liveStreamOnlineInfo.setPublishDomain(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].PublishDomain"));
+			liveStreamOnlineInfo.setPublishType(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].PublishType"));
+			liveStreamOnlineInfo.setTranscoded(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].Transcoded"));
+			liveStreamOnlineInfo.setTranscodeId(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].TranscodeId"));
+			liveStreamOnlineInfo.setServerIp(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].ServerIp"));
+			liveStreamOnlineInfo.setClientIp(_ctx.stringValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].ClientIp"));
+			liveStreamOnlineInfo.setVideoCodecId(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].VideoCodecId"));
+			liveStreamOnlineInfo.setVideoDataRate(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].VideoDataRate"));
+			liveStreamOnlineInfo.setFrameRate(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].FrameRate"));
+			liveStreamOnlineInfo.setWidth(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].Width"));
+			liveStreamOnlineInfo.setHeight(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].Height"));
+			liveStreamOnlineInfo.setAudioCodecId(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].AudioCodecId"));
+			liveStreamOnlineInfo.setAudioDataRate(_ctx.integerValue("DescribeLiveStreamsOnlineListResponse.OnlineInfo["+ i +"].AudioDataRate"));
 
 			onlineInfo.add(liveStreamOnlineInfo);
 		}

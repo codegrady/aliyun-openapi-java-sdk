@@ -19,21 +19,20 @@ import java.util.List;
 
 import com.aliyuncs.live.model.v20161101.DescribeLiveDomainSnapshotDataResponse;
 import com.aliyuncs.live.model.v20161101.DescribeLiveDomainSnapshotDataResponse.SnapshotDataInfo;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeLiveDomainSnapshotDataResponseUnmarshaller {
 
-	public static DescribeLiveDomainSnapshotDataResponse unmarshall(DescribeLiveDomainSnapshotDataResponse describeLiveDomainSnapshotDataResponse, UnmarshallerContext context) {
+	public static DescribeLiveDomainSnapshotDataResponse unmarshall(DescribeLiveDomainSnapshotDataResponse describeLiveDomainSnapshotDataResponse, UnmarshallerContext _ctx) {
 		
-		describeLiveDomainSnapshotDataResponse.setRequestId(context.stringValue("DescribeLiveDomainSnapshotDataResponse.RequestId"));
+		describeLiveDomainSnapshotDataResponse.setRequestId(_ctx.stringValue("DescribeLiveDomainSnapshotDataResponse.RequestId"));
 
 		List<SnapshotDataInfo> snapshotDataInfos = new ArrayList<SnapshotDataInfo>();
-		for (int i = 0; i < context.lengthValue("DescribeLiveDomainSnapshotDataResponse.SnapshotDataInfos.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeLiveDomainSnapshotDataResponse.SnapshotDataInfos.Length"); i++) {
 			SnapshotDataInfo snapshotDataInfo = new SnapshotDataInfo();
-			snapshotDataInfo.setDate(context.stringValue("DescribeLiveDomainSnapshotDataResponse.SnapshotDataInfos["+ i +"].Date"));
-			snapshotDataInfo.setTotal(context.integerValue("DescribeLiveDomainSnapshotDataResponse.SnapshotDataInfos["+ i +"].Total"));
+			snapshotDataInfo.setDate(_ctx.stringValue("DescribeLiveDomainSnapshotDataResponse.SnapshotDataInfos["+ i +"].Date"));
+			snapshotDataInfo.setTotal(_ctx.integerValue("DescribeLiveDomainSnapshotDataResponse.SnapshotDataInfos["+ i +"].Total"));
 
 			snapshotDataInfos.add(snapshotDataInfo);
 		}

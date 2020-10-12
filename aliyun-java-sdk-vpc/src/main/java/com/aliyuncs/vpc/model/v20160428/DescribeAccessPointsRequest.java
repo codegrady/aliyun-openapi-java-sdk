@@ -15,52 +15,32 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
-import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeAccessPointsRequest extends RpcAcsRequest<DescribeAccessPointsResponse> {
-	
-	public DescribeAccessPointsRequest() {
-		super("Vpc", "2016-04-28", "DescribeAccessPoints", "vpc");
-	}
-
-	private List<Filter> filters;
+	   
 
 	private Long resourceOwnerId;
 
-	private String hostOperator;
-
-	private String resourceOwnerAccount;
-
-	private String name;
+	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String resourceOwnerAccount;
+
 	private Long ownerId;
-
-	private String type;
-
-	private Integer pageNumber;
-
-	public List<Filter> getFilters() {
-		return this.filters;
-	}
-
-	public void setFilters(List<Filter> filters) {
-		this.filters = filters;	
-		if (filters != null) {
-			for (int depth1 = 0; depth1 < filters.size(); depth1++) {
-				putQueryParameter("Filter." + (depth1 + 1) + ".Key" , filters.get(depth1).getKey());
-				if (filters.get(depth1).getValues() != null) {
-					for (int i = 0; i < filters.get(depth1).getValues().size(); i++) {
-						putQueryParameter("Filter." + (depth1 + 1) + ".Value." + (i + 1) , filters.get(depth1).getValues().get(i));
-					}
-				}
-			}
-		}	
+	public DescribeAccessPointsRequest() {
+		super("Vpc", "2016-04-28", "DescribeAccessPoints", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -71,72 +51,6 @@ public class DescribeAccessPointsRequest extends RpcAcsRequest<DescribeAccessPoi
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getHostOperator() {
-		return this.hostOperator;
-	}
-
-	public void setHostOperator(String hostOperator) {
-		this.hostOperator = hostOperator;
-		if(hostOperator != null){
-			putQueryParameter("HostOperator", hostOperator);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		if(name != null){
-			putQueryParameter("Name", name);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getType() {
-		return this.type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-		if(type != null){
-			putQueryParameter("Type", type);
 		}
 	}
 
@@ -151,26 +65,36 @@ public class DescribeAccessPointsRequest extends RpcAcsRequest<DescribeAccessPoi
 		}
 	}
 
-	public static class Filter {
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
 
-		private String key;
-
-		private List<String> values;
-
-		public String getKey() {
-			return this.key;
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
+	}
 
-		public void setKey(String key) {
-			this.key = key;
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
+	}
 
-		public List<String> getValues() {
-			return this.values;
-		}
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
 
-		public void setValues(List<String> values) {
-			this.values = values;
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 

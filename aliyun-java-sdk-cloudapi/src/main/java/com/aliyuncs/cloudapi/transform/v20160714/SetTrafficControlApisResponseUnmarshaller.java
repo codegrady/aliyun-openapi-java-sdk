@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.SetTrafficControlApisResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SetTrafficControlApisResponseUnmarshaller {
 
-	public static SetTrafficControlApisResponse unmarshall(SetTrafficControlApisResponse setTrafficControlApisResponse, UnmarshallerContext context) {
+	public static SetTrafficControlApisResponse unmarshall(SetTrafficControlApisResponse setTrafficControlApisResponse, UnmarshallerContext _ctx) {
 		
-		setTrafficControlApisResponse.setRequestId(context.stringValue("SetTrafficControlApisResponse.RequestId"));
+		setTrafficControlApisResponse.setRequestId(_ctx.stringValue("SetTrafficControlApisResponse.RequestId"));
 	 
 	 	return setTrafficControlApisResponse;
 	}

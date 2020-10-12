@@ -15,20 +15,21 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateUsageDetailDataExportTaskRequest extends RpcAcsRequest<CreateUsageDetailDataExportTaskResponse> {
-	
-	public CreateUsageDetailDataExportTaskRequest() {
-		super("Cdn", "2018-05-10", "CreateUsageDetailDataExportTask");
-	}
+	   
 
 	private String domainNames;
 
 	private String taskName;
+
+	private String language;
 
 	private String startTime;
 
@@ -39,6 +40,14 @@ public class CreateUsageDetailDataExportTaskRequest extends RpcAcsRequest<Create
 	private String endTime;
 
 	private Long ownerId;
+	public CreateUsageDetailDataExportTaskRequest() {
+		super("Cdn", "2018-05-10", "CreateUsageDetailDataExportTask");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getDomainNames() {
 		return this.domainNames;
@@ -59,6 +68,17 @@ public class CreateUsageDetailDataExportTaskRequest extends RpcAcsRequest<Create
 		this.taskName = taskName;
 		if(taskName != null){
 			putQueryParameter("TaskName", taskName);
+		}
+	}
+
+	public String getLanguage() {
+		return this.language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+		if(language != null){
+			putQueryParameter("Language", language);
 		}
 	}
 

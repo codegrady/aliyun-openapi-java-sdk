@@ -11,42 +11,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.model.v20150109;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.alidns.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetMainDomainNameRequest extends RpcAcsRequest<GetMainDomainNameResponse> {
-	
-	public GetMainDomainNameRequest() {
-		super("Alidns", "2015-01-09", "GetMainDomainName");
-	}
-
-	private String lang;
-
-	private String userClientIp;
+	   
 
 	private String inputString;
 
-	public String getLang() {
-		return this.lang;
-	}
-
-	public void setLang(String lang) {
-		this.lang = lang;
-		putQueryParameter("Lang", lang);
-	}
-
-	public String getUserClientIp() {
-		return this.userClientIp;
-	}
-
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		putQueryParameter("UserClientIp", userClientIp);
+	private String lang;
+	public GetMainDomainNameRequest() {
+		super("Alidns", "2015-01-09", "GetMainDomainName", "alidns");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getInputString() {
@@ -55,7 +43,20 @@ public class GetMainDomainNameRequest extends RpcAcsRequest<GetMainDomainNameRes
 
 	public void setInputString(String inputString) {
 		this.inputString = inputString;
-		putQueryParameter("InputString", inputString);
+		if(inputString != null){
+			putQueryParameter("InputString", inputString);
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
+		}
 	}
 
 	@Override

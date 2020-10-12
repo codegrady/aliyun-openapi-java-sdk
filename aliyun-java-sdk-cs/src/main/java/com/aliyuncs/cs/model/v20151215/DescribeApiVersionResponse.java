@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.model.v20151215;
 
 import com.aliyuncs.AcsResponse;
@@ -22,6 +23,46 @@ import com.aliyuncs.transform.UnmarshallerContext;
  * @version 
  */
 public class DescribeApiVersionResponse extends AcsResponse {
+
+	private String version;
+
+	private String build;
+
+	private String docker_version;
+
+	private String docker_region_versions;
+
+	public String getVersion() {
+		return this.version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
+	public String getBuild() {
+		return this.build;
+	}
+
+	public void setBuild(String build) {
+		this.build = build;
+	}
+
+	public String getDocker_version() {
+		return this.docker_version;
+	}
+
+	public void setDocker_version(String docker_version) {
+		this.docker_version = docker_version;
+	}
+
+	public String getDocker_region_versions() {
+		return this.docker_region_versions;
+	}
+
+	public void setDocker_region_versions(String docker_region_versions) {
+		this.docker_region_versions = docker_region_versions;
+	}
 
 	@Override
 	public DescribeApiVersionResponse getInstance(UnmarshallerContext context) {

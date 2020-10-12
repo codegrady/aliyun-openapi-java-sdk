@@ -15,32 +15,37 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
-	
-	public RenewInstanceRequest() {
-		super("Rds", "2014-08-15", "RenewInstance", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String period;
-
-	private String autoPay;
-
-	private String resourceOwnerAccount;
 
 	private String clientToken;
 
 	private String dBInstanceId;
 
-	private Long ownerId;
+	private Integer period;
 
-	private String businessInfo;
+	private String autoPay;
+
+	private String resourceOwnerAccount;
+
+	private Long ownerId;
+	public RenewInstanceRequest() {
+		super("Rds", "2014-08-15", "RenewInstance", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -50,39 +55,6 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getPeriod() {
-		return this.period;
-	}
-
-	public void setPeriod(String period) {
-		this.period = period;
-		if(period != null){
-			putQueryParameter("Period", period);
-		}
-	}
-
-	public String getAutoPay() {
-		return this.autoPay;
-	}
-
-	public void setAutoPay(String autoPay) {
-		this.autoPay = autoPay;
-		if(autoPay != null){
-			putQueryParameter("AutoPay", autoPay);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -108,6 +80,39 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		}
 	}
 
+	public Integer getPeriod() {
+		return this.period;
+	}
+
+	public void setPeriod(Integer period) {
+		this.period = period;
+		if(period != null){
+			putQueryParameter("Period", period.toString());
+		}
+	}
+
+	public String getAutoPay() {
+		return this.autoPay;
+	}
+
+	public void setAutoPay(String autoPay) {
+		this.autoPay = autoPay;
+		if(autoPay != null){
+			putQueryParameter("AutoPay", autoPay);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -116,17 +121,6 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getBusinessInfo() {
-		return this.businessInfo;
-	}
-
-	public void setBusinessInfo(String businessInfo) {
-		this.businessInfo = businessInfo;
-		if(businessInfo != null){
-			putQueryParameter("BusinessInfo", businessInfo);
 		}
 	}
 

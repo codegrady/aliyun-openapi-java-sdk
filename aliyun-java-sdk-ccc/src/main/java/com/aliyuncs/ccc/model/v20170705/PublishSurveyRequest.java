@@ -15,22 +15,29 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class PublishSurveyRequest extends RpcAcsRequest<PublishSurveyResponse> {
-	
-	public PublishSurveyRequest() {
-		super("CCC", "2017-07-05", "PublishSurvey", "ccc");
-	}
+	   
 
 	private String surveyId;
 
 	private String instanceId;
 
 	private String scenarioId;
+	public PublishSurveyRequest() {
+		super("CCC", "2017-07-05", "PublishSurvey", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getSurveyId() {
 		return this.surveyId;

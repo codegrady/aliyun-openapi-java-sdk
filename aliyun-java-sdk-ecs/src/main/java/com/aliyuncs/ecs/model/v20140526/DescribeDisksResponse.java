@@ -33,6 +33,8 @@ public class DescribeDisksResponse extends AcsResponse {
 
 	private Integer pageSize;
 
+	private String nextToken;
+
 	private List<Disk> disks;
 
 	public String getRequestId() {
@@ -65,6 +67,14 @@ public class DescribeDisksResponse extends AcsResponse {
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getNextToken() {
+		return this.nextToken;
+	}
+
+	public void setNextToken(String nextToken) {
+		this.nextToken = nextToken;
 	}
 
 	public List<Disk> getDisks() {
@@ -131,6 +141,10 @@ public class DescribeDisksResponse extends AcsResponse {
 
 		private Boolean encrypted;
 
+		private String storageSetId;
+
+		private Integer storageSetPartitionNumber;
+
 		private Integer mountInstanceNum;
 
 		private Integer iOPS;
@@ -138,6 +152,14 @@ public class DescribeDisksResponse extends AcsResponse {
 		private Integer iOPSRead;
 
 		private Integer iOPSWrite;
+
+		private String kMSKeyId;
+
+		private String performanceLevel;
+
+		private String bdfId;
+
+		private String serialNumber;
 
 		private List<OperationLock> operationLocks;
 
@@ -361,6 +383,22 @@ public class DescribeDisksResponse extends AcsResponse {
 			this.encrypted = encrypted;
 		}
 
+		public String getStorageSetId() {
+			return this.storageSetId;
+		}
+
+		public void setStorageSetId(String storageSetId) {
+			this.storageSetId = storageSetId;
+		}
+
+		public Integer getStorageSetPartitionNumber() {
+			return this.storageSetPartitionNumber;
+		}
+
+		public void setStorageSetPartitionNumber(Integer storageSetPartitionNumber) {
+			this.storageSetPartitionNumber = storageSetPartitionNumber;
+		}
+
 		public Integer getMountInstanceNum() {
 			return this.mountInstanceNum;
 		}
@@ -391,6 +429,38 @@ public class DescribeDisksResponse extends AcsResponse {
 
 		public void setIOPSWrite(Integer iOPSWrite) {
 			this.iOPSWrite = iOPSWrite;
+		}
+
+		public String getKMSKeyId() {
+			return this.kMSKeyId;
+		}
+
+		public void setKMSKeyId(String kMSKeyId) {
+			this.kMSKeyId = kMSKeyId;
+		}
+
+		public String getPerformanceLevel() {
+			return this.performanceLevel;
+		}
+
+		public void setPerformanceLevel(String performanceLevel) {
+			this.performanceLevel = performanceLevel;
+		}
+
+		public String getBdfId() {
+			return this.bdfId;
+		}
+
+		public void setBdfId(String bdfId) {
+			this.bdfId = bdfId;
+		}
+
+		public String getSerialNumber() {
+			return this.serialNumber;
+		}
+
+		public void setSerialNumber(String serialNumber) {
+			this.serialNumber = serialNumber;
 		}
 
 		public List<OperationLock> getOperationLocks() {

@@ -15,39 +15,42 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteAccessControlListRequest extends RpcAcsRequest<DeleteAccessControlListResponse> {
-	
-	public DeleteAccessControlListRequest() {
-		super("Slb", "2014-05-15", "DeleteAccessControlList", "slb");
-	}
-
-	private String access_key_id;
-
-	private String aclId;
+	   
 
 	private Long resourceOwnerId;
+
+	private String aclId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	private String tags;
-
-	public String getAccess_key_id() {
-		return this.access_key_id;
+	public DeleteAccessControlListRequest() {
+		super("Slb", "2014-05-15", "DeleteAccessControlList", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setAccess_key_id(String access_key_id) {
-		this.access_key_id = access_key_id;
-		if(access_key_id != null){
-			putQueryParameter("access_key_id", access_key_id);
+	public Long getResourceOwnerId() {
+		return this.resourceOwnerId;
+	}
+
+	public void setResourceOwnerId(Long resourceOwnerId) {
+		this.resourceOwnerId = resourceOwnerId;
+		if(resourceOwnerId != null){
+			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
 		}
 	}
 
@@ -59,17 +62,6 @@ public class DeleteAccessControlListRequest extends RpcAcsRequest<DeleteAccessCo
 		this.aclId = aclId;
 		if(aclId != null){
 			putQueryParameter("AclId", aclId);
-		}
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
 		}
 	}
 
@@ -103,17 +95,6 @@ public class DeleteAccessControlListRequest extends RpcAcsRequest<DeleteAccessCo
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
 		}
 	}
 

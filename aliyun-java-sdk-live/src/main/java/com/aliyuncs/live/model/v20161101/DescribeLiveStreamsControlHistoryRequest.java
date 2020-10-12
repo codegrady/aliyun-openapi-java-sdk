@@ -15,16 +15,17 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeLiveStreamsControlHistoryRequest extends RpcAcsRequest<DescribeLiveStreamsControlHistoryResponse> {
-	
-	public DescribeLiveStreamsControlHistoryRequest() {
-		super("live", "2016-11-01", "DescribeLiveStreamsControlHistory", "live");
-	}
+	   
+
+	private String startTime;
 
 	private String appName;
 
@@ -34,9 +35,26 @@ public class DescribeLiveStreamsControlHistoryRequest extends RpcAcsRequest<Desc
 
 	private String endTime;
 
-	private String startTime;
-
 	private Long ownerId;
+	public DescribeLiveStreamsControlHistoryRequest() {
+		super("live", "2016-11-01", "DescribeLiveStreamsControlHistory", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
+		}
+	}
 
 	public String getAppName() {
 		return this.appName;
@@ -79,17 +97,6 @@ public class DescribeLiveStreamsControlHistoryRequest extends RpcAcsRequest<Desc
 		this.endTime = endTime;
 		if(endTime != null){
 			putQueryParameter("EndTime", endTime);
-		}
-	}
-
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime);
 		}
 	}
 

@@ -15,16 +15,15 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyImageShareGroupPermissionRequest extends RpcAcsRequest<ModifyImageShareGroupPermissionResponse> {
-	
-	public ModifyImageShareGroupPermissionRequest() {
-		super("Ecs", "2014-05-26", "ModifyImageShareGroupPermission", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -36,9 +35,17 @@ public class ModifyImageShareGroupPermissionRequest extends RpcAcsRequest<Modify
 
 	private String ownerAccount;
 
-	private String removeGroup1;
-
 	private Long ownerId;
+
+	private String removeGroup1;
+	public ModifyImageShareGroupPermissionRequest() {
+		super("Ecs", "2014-05-26", "ModifyImageShareGroupPermission", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -95,17 +102,6 @@ public class ModifyImageShareGroupPermissionRequest extends RpcAcsRequest<Modify
 		}
 	}
 
-	public String getRemoveGroup1() {
-		return this.removeGroup1;
-	}
-
-	public void setRemoveGroup1(String removeGroup1) {
-		this.removeGroup1 = removeGroup1;
-		if(removeGroup1 != null){
-			putQueryParameter("RemoveGroup.1", removeGroup1);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,6 +110,17 @@ public class ModifyImageShareGroupPermissionRequest extends RpcAcsRequest<Modify
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getRemoveGroup1() {
+		return this.removeGroup1;
+	}
+
+	public void setRemoveGroup1(String removeGroup1) {
+		this.removeGroup1 = removeGroup1;
+		if(removeGroup1 != null){
+			putQueryParameter("RemoveGroup.1", removeGroup1);
 		}
 	}
 

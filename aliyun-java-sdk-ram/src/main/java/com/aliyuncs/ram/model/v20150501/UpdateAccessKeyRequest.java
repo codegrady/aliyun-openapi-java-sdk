@@ -11,27 +11,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.model.v20150501;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ram.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateAccessKeyRequest extends RpcAcsRequest<UpdateAccessKeyResponse> {
-	
-	public UpdateAccessKeyRequest() {
-		super("Ram", "2015-05-01", "UpdateAccessKey");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private String userAccessKeyId;
 
 	private String userName;
 
 	private String status;
+	public UpdateAccessKeyRequest() {
+		super("Ram", "2015-05-01", "UpdateAccessKey", "Ram");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getUserAccessKeyId() {
 		return this.userAccessKeyId;

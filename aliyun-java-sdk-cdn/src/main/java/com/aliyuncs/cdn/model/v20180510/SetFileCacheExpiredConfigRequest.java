@@ -15,26 +15,46 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetFileCacheExpiredConfigRequest extends RpcAcsRequest<SetFileCacheExpiredConfigResponse> {
-	
-	public SetFileCacheExpiredConfigRequest() {
-		super("Cdn", "2018-05-10", "SetFileCacheExpiredConfig");
-	}
+	   
+
+	private String securityToken;
 
 	private String domainName;
+
+	private String weight;
 
 	private String cacheContent;
 
 	private Long ownerId;
 
 	private String tTL;
+	public SetFileCacheExpiredConfigRequest() {
+		super("Cdn", "2018-05-10", "SetFileCacheExpiredConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Long configId;
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
 
 	public String getDomainName() {
 		return this.domainName;
@@ -44,6 +64,17 @@ public class SetFileCacheExpiredConfigRequest extends RpcAcsRequest<SetFileCache
 		this.domainName = domainName;
 		if(domainName != null){
 			putQueryParameter("DomainName", domainName);
+		}
+	}
+
+	public String getWeight() {
+		return this.weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+		if(weight != null){
+			putQueryParameter("Weight", weight);
 		}
 	}
 
@@ -77,17 +108,6 @@ public class SetFileCacheExpiredConfigRequest extends RpcAcsRequest<SetFileCache
 		this.tTL = tTL;
 		if(tTL != null){
 			putQueryParameter("TTL", tTL);
-		}
-	}
-
-	public Long getConfigId() {
-		return this.configId;
-	}
-
-	public void setConfigId(Long configId) {
-		this.configId = configId;
-		if(configId != null){
-			putQueryParameter("ConfigId", configId.toString());
 		}
 	}
 

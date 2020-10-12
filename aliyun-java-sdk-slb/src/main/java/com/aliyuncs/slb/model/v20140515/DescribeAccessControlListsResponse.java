@@ -27,6 +27,14 @@ public class DescribeAccessControlListsResponse extends AcsResponse {
 
 	private String requestId;
 
+	private Integer totalCount;
+
+	private Integer pageSize;
+
+	private Integer count;
+
+	private Integer pageNumber;
+
 	private List<Acl> acls;
 
 	public String getRequestId() {
@@ -35,6 +43,38 @@ public class DescribeAccessControlListsResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public Integer getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public Integer getCount() {
+		return this.count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<Acl> getAcls() {
@@ -52,6 +92,10 @@ public class DescribeAccessControlListsResponse extends AcsResponse {
 		private String aclName;
 
 		private String addressIPVersion;
+
+		private String resourceGroupId;
+
+		private List<Tag> tags;
 
 		public String getAclId() {
 			return this.aclId;
@@ -75,6 +119,45 @@ public class DescribeAccessControlListsResponse extends AcsResponse {
 
 		public void setAddressIPVersion(String addressIPVersion) {
 			this.addressIPVersion = addressIPVersion;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String tagKey;
+
+			private String tagValue;
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
+			}
+
+			public String getTagValue() {
+				return this.tagValue;
+			}
+
+			public void setTagValue(String tagValue) {
+				this.tagValue = tagValue;
+			}
 		}
 	}
 

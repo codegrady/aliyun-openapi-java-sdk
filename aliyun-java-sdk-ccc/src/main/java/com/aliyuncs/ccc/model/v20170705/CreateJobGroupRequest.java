@@ -16,16 +16,17 @@ package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateJobGroupRequest extends RpcAcsRequest<CreateJobGroupResponse> {
-	
-	public CreateJobGroupRequest() {
-		super("CCC", "2017-07-05", "CreateJobGroup", "ccc");
-	}
+	   
+
+	private String description;
 
 	private List<String> callingNumbers;
 
@@ -35,9 +36,26 @@ public class CreateJobGroupRequest extends RpcAcsRequest<CreateJobGroupResponse>
 
 	private String name;
 
-	private String description;
-
 	private String scenarioId;
+	public CreateJobGroupRequest() {
+		super("CCC", "2017-07-05", "CreateJobGroup", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
 
 	public List<String> getCallingNumbers() {
 		return this.callingNumbers;
@@ -82,17 +100,6 @@ public class CreateJobGroupRequest extends RpcAcsRequest<CreateJobGroupResponse>
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
-		}
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
 		}
 	}
 

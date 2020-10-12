@@ -95,7 +95,7 @@ public class DescribeTopDomainsByFlowResponse extends AcsResponse {
 
 		private String trafficPercent;
 
-		private Long maxBps;
+		private Float maxBps;
 
 		private String maxBpsTime;
 
@@ -133,11 +133,11 @@ public class DescribeTopDomainsByFlowResponse extends AcsResponse {
 			this.trafficPercent = trafficPercent;
 		}
 
-		public Long getMaxBps() {
+		public Float getMaxBps() {
 			return this.maxBps;
 		}
 
-		public void setMaxBps(Long maxBps) {
+		public void setMaxBps(Float maxBps) {
 			this.maxBps = maxBps;
 		}
 

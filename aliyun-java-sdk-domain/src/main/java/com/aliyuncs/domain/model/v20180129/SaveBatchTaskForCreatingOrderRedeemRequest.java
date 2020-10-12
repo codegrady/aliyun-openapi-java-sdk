@@ -16,22 +16,70 @@ package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SaveBatchTaskForCreatingOrderRedeemRequest extends RpcAcsRequest<SaveBatchTaskForCreatingOrderRedeemResponse> {
-	
-	public SaveBatchTaskForCreatingOrderRedeemRequest() {
-		super("Domain", "2018-01-29", "SaveBatchTaskForCreatingOrderRedeem");
-	}
+	   
+
+	private String couponNo;
+
+	private Boolean useCoupon;
+
+	private String promotionNo;
 
 	private List<OrderRedeemParam> orderRedeemParams;
 
 	private String userClientIp;
 
 	private String lang;
+
+	private Boolean usePromotion;
+	public SaveBatchTaskForCreatingOrderRedeemRequest() {
+		super("Domain", "2018-01-29", "SaveBatchTaskForCreatingOrderRedeem", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getCouponNo() {
+		return this.couponNo;
+	}
+
+	public void setCouponNo(String couponNo) {
+		this.couponNo = couponNo;
+		if(couponNo != null){
+			putQueryParameter("CouponNo", couponNo);
+		}
+	}
+
+	public Boolean getUseCoupon() {
+		return this.useCoupon;
+	}
+
+	public void setUseCoupon(Boolean useCoupon) {
+		this.useCoupon = useCoupon;
+		if(useCoupon != null){
+			putQueryParameter("UseCoupon", useCoupon.toString());
+		}
+	}
+
+	public String getPromotionNo() {
+		return this.promotionNo;
+	}
+
+	public void setPromotionNo(String promotionNo) {
+		this.promotionNo = promotionNo;
+		if(promotionNo != null){
+			putQueryParameter("PromotionNo", promotionNo);
+		}
+	}
 
 	public List<OrderRedeemParam> getOrderRedeemParams() {
 		return this.orderRedeemParams;
@@ -41,8 +89,8 @@ public class SaveBatchTaskForCreatingOrderRedeemRequest extends RpcAcsRequest<Sa
 		this.orderRedeemParams = orderRedeemParams;	
 		if (orderRedeemParams != null) {
 			for (int depth1 = 0; depth1 < orderRedeemParams.size(); depth1++) {
-				putQueryParameter("OrderRedeemParam." + (depth1 + 1) + ".DomainName" , orderRedeemParams.get(depth1).getDomainName());
 				putQueryParameter("OrderRedeemParam." + (depth1 + 1) + ".CurrentExpirationDate" , orderRedeemParams.get(depth1).getCurrentExpirationDate());
+				putQueryParameter("OrderRedeemParam." + (depth1 + 1) + ".DomainName" , orderRedeemParams.get(depth1).getDomainName());
 			}
 		}	
 	}
@@ -69,19 +117,22 @@ public class SaveBatchTaskForCreatingOrderRedeemRequest extends RpcAcsRequest<Sa
 		}
 	}
 
-	public static class OrderRedeemParam {
+	public Boolean getUsePromotion() {
+		return this.usePromotion;
+	}
 
-		private String domainName;
+	public void setUsePromotion(Boolean usePromotion) {
+		this.usePromotion = usePromotion;
+		if(usePromotion != null){
+			putQueryParameter("UsePromotion", usePromotion.toString());
+		}
+	}
+
+	public static class OrderRedeemParam {
 
 		private Long currentExpirationDate;
 
-		public String getDomainName() {
-			return this.domainName;
-		}
-
-		public void setDomainName(String domainName) {
-			this.domainName = domainName;
-		}
+		private String domainName;
 
 		public Long getCurrentExpirationDate() {
 			return this.currentExpirationDate;
@@ -89,6 +140,14 @@ public class SaveBatchTaskForCreatingOrderRedeemRequest extends RpcAcsRequest<Sa
 
 		public void setCurrentExpirationDate(Long currentExpirationDate) {
 			this.currentExpirationDate = currentExpirationDate;
+		}
+
+		public String getDomainName() {
+			return this.domainName;
+		}
+
+		public void setDomainName(String domainName) {
+			this.domainName = domainName;
 		}
 	}
 

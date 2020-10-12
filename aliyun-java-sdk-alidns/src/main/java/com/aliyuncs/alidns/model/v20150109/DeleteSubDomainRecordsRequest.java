@@ -11,55 +11,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.model.v20150109;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.alidns.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteSubDomainRecordsRequest extends RpcAcsRequest<DeleteSubDomainRecordsResponse> {
-	
-	public DeleteSubDomainRecordsRequest() {
-		super("Alidns", "2015-01-09", "DeleteSubDomainRecords");
-	}
-
-	private String lang;
-
-	private String userClientIp;
-
-	private String domainName;
+	   
 
 	private String rR;
 
+	private String domainName;
+
 	private String type;
 
-	public String getLang() {
-		return this.lang;
-	}
+	private String userClientIp;
 
-	public void setLang(String lang) {
-		this.lang = lang;
-		putQueryParameter("Lang", lang);
-	}
-
-	public String getUserClientIp() {
-		return this.userClientIp;
-	}
-
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		putQueryParameter("UserClientIp", userClientIp);
-	}
-
-	public String getDomainName() {
-		return this.domainName;
-	}
-
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
-		putQueryParameter("DomainName", domainName);
+	private String lang;
+	public DeleteSubDomainRecordsRequest() {
+		super("Alidns", "2015-01-09", "DeleteSubDomainRecords", "alidns");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getRR() {
@@ -68,7 +49,20 @@ public class DeleteSubDomainRecordsRequest extends RpcAcsRequest<DeleteSubDomain
 
 	public void setRR(String rR) {
 		this.rR = rR;
-		putQueryParameter("RR", rR);
+		if(rR != null){
+			putQueryParameter("RR", rR);
+		}
+	}
+
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
 	}
 
 	public String getType() {
@@ -77,7 +71,31 @@ public class DeleteSubDomainRecordsRequest extends RpcAcsRequest<DeleteSubDomain
 
 	public void setType(String type) {
 		this.type = type;
-		putQueryParameter("Type", type);
+		if(type != null){
+			putQueryParameter("Type", type);
+		}
+	}
+
+	public String getUserClientIp() {
+		return this.userClientIp;
+	}
+
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
+		}
 	}
 
 	@Override

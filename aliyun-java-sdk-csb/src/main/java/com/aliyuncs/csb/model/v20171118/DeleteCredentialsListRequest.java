@@ -17,24 +17,29 @@ package com.aliyuncs.csb.model.v20171118;
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.csb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteCredentialsListRequest extends RpcAcsRequest<DeleteCredentialsListResponse> {
-	
-	public DeleteCredentialsListRequest() {
-		super("CSB", "2017-11-18", "DeleteCredentialsList");
-		setProtocol(ProtocolType.HTTPS);
-		setMethod(MethodType.POST);
-	}
+	   
 
 	private String data;
 
 	private Boolean ignoreDauth;
 
 	private Boolean force;
+	public DeleteCredentialsListRequest() {
+		super("CSB", "2017-11-18", "DeleteCredentialsList");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getData() {
 		return this.data;

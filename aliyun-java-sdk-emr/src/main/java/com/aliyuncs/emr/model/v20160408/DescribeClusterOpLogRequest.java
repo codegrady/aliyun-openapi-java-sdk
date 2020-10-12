@@ -15,6 +15,7 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
@@ -23,12 +24,20 @@ import com.aliyuncs.RpcAcsRequest;
 public class DescribeClusterOpLogRequest extends RpcAcsRequest<DescribeClusterOpLogResponse> {
 	
 	public DescribeClusterOpLogRequest() {
-		super("Emr", "2016-04-08", "DescribeClusterOpLog");
+		super("Emr", "2016-04-08", "DescribeClusterOpLog", "emr");
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private Long resourceOwnerId;
 
+	private Long endTime;
+
 	private String id;
+
+	private Long startTime;
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -41,6 +50,17 @@ public class DescribeClusterOpLogRequest extends RpcAcsRequest<DescribeClusterOp
 		}
 	}
 
+	public Long getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime.toString());
+		}
+	}
+
 	public String getId() {
 		return this.id;
 	}
@@ -49,6 +69,17 @@ public class DescribeClusterOpLogRequest extends RpcAcsRequest<DescribeClusterOp
 		this.id = id;
 		if(id != null){
 			putQueryParameter("Id", id);
+		}
+	}
+
+	public Long getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime.toString());
 		}
 	}
 

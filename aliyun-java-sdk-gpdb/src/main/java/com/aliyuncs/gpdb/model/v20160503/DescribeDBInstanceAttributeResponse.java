@@ -111,6 +111,22 @@ public class DescribeDBInstanceAttributeResponse extends AcsResponse {
 
 		private String connectionMode;
 
+		private String storageType;
+
+		private Integer cpuCoresPerNode;
+
+		private Integer segmentCounts;
+
+		private Integer storagePerNode;
+
+		private Integer memoryPerNode;
+
+		private String storageUnit;
+
+		private String memoryUnit;
+
+		private List<Tag> tags;
+
 		public String getDBInstanceId() {
 			return this.dBInstanceId;
 		}
@@ -365,6 +381,93 @@ public class DescribeDBInstanceAttributeResponse extends AcsResponse {
 
 		public void setConnectionMode(String connectionMode) {
 			this.connectionMode = connectionMode;
+		}
+
+		public String getStorageType() {
+			return this.storageType;
+		}
+
+		public void setStorageType(String storageType) {
+			this.storageType = storageType;
+		}
+
+		public Integer getCpuCoresPerNode() {
+			return this.cpuCoresPerNode;
+		}
+
+		public void setCpuCoresPerNode(Integer cpuCoresPerNode) {
+			this.cpuCoresPerNode = cpuCoresPerNode;
+		}
+
+		public Integer getSegmentCounts() {
+			return this.segmentCounts;
+		}
+
+		public void setSegmentCounts(Integer segmentCounts) {
+			this.segmentCounts = segmentCounts;
+		}
+
+		public Integer getStoragePerNode() {
+			return this.storagePerNode;
+		}
+
+		public void setStoragePerNode(Integer storagePerNode) {
+			this.storagePerNode = storagePerNode;
+		}
+
+		public Integer getMemoryPerNode() {
+			return this.memoryPerNode;
+		}
+
+		public void setMemoryPerNode(Integer memoryPerNode) {
+			this.memoryPerNode = memoryPerNode;
+		}
+
+		public String getStorageUnit() {
+			return this.storageUnit;
+		}
+
+		public void setStorageUnit(String storageUnit) {
+			this.storageUnit = storageUnit;
+		}
+
+		public String getMemoryUnit() {
+			return this.memoryUnit;
+		}
+
+		public void setMemoryUnit(String memoryUnit) {
+			this.memoryUnit = memoryUnit;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

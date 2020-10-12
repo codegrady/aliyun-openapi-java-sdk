@@ -11,23 +11,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.model.v20150501;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ram.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListUsersForGroupRequest extends RpcAcsRequest<ListUsersForGroupResponse> {
-	
-	public ListUsersForGroupRequest() {
-		super("Ram", "2015-05-01", "ListUsersForGroup");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private String groupName;
+
+	private String marker;
+
+	private Integer maxItems;
+	public ListUsersForGroupRequest() {
+		super("Ram", "2015-05-01", "ListUsersForGroup", "Ram");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getGroupName() {
 		return this.groupName;
@@ -37,6 +49,28 @@ public class ListUsersForGroupRequest extends RpcAcsRequest<ListUsersForGroupRes
 		this.groupName = groupName;
 		if(groupName != null){
 			putQueryParameter("GroupName", groupName);
+		}
+	}
+
+	public String getMarker() {
+		return this.marker;
+	}
+
+	public void setMarker(String marker) {
+		this.marker = marker;
+		if(marker != null){
+			putQueryParameter("Marker", marker);
+		}
+	}
+
+	public Integer getMaxItems() {
+		return this.maxItems;
+	}
+
+	public void setMaxItems(Integer maxItems) {
+		this.maxItems = maxItems;
+		if(maxItems != null){
+			putQueryParameter("MaxItems", maxItems.toString());
 		}
 	}
 

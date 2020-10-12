@@ -15,24 +15,31 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteAutoSnapshotPolicyRequest extends RpcAcsRequest<DeleteAutoSnapshotPolicyResponse> {
-	
-	public DeleteAutoSnapshotPolicyRequest() {
-		super("Ecs", "2014-05-26", "DeleteAutoSnapshotPolicy", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String autoSnapshotPolicyId;
 
+	private String resourceOwnerAccount;
+
 	private Long ownerId;
+	public DeleteAutoSnapshotPolicyRequest() {
+		super("Ecs", "2014-05-26", "DeleteAutoSnapshotPolicy", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -45,17 +52,6 @@ public class DeleteAutoSnapshotPolicyRequest extends RpcAcsRequest<DeleteAutoSna
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
 	public String getAutoSnapshotPolicyId() {
 		return this.autoSnapshotPolicyId;
 	}
@@ -64,6 +60,17 @@ public class DeleteAutoSnapshotPolicyRequest extends RpcAcsRequest<DeleteAutoSna
 		this.autoSnapshotPolicyId = autoSnapshotPolicyId;
 		if(autoSnapshotPolicyId != null){
 			putQueryParameter("autoSnapshotPolicyId", autoSnapshotPolicyId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 

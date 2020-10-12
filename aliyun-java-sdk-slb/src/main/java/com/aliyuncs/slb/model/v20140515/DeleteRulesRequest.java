@@ -15,20 +15,17 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteRulesRequest extends RpcAcsRequest<DeleteRulesResponse> {
-	
-	public DeleteRulesRequest() {
-		super("Slb", "2014-05-15", "DeleteRules", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String ruleIds;
 
 	private String resourceOwnerAccount;
 
@@ -36,7 +33,15 @@ public class DeleteRulesRequest extends RpcAcsRequest<DeleteRulesResponse> {
 
 	private Long ownerId;
 
-	private String tags;
+	private String ruleIds;
+	public DeleteRulesRequest() {
+		super("Slb", "2014-05-15", "DeleteRules", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,17 +51,6 @@ public class DeleteRulesRequest extends RpcAcsRequest<DeleteRulesResponse> {
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getRuleIds() {
-		return this.ruleIds;
-	}
-
-	public void setRuleIds(String ruleIds) {
-		this.ruleIds = ruleIds;
-		if(ruleIds != null){
-			putQueryParameter("RuleIds", ruleIds);
 		}
 	}
 
@@ -93,14 +87,14 @@ public class DeleteRulesRequest extends RpcAcsRequest<DeleteRulesResponse> {
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getRuleIds() {
+		return this.ruleIds;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setRuleIds(String ruleIds) {
+		this.ruleIds = ruleIds;
+		if(ruleIds != null){
+			putQueryParameter("RuleIds", ruleIds);
 		}
 	}
 

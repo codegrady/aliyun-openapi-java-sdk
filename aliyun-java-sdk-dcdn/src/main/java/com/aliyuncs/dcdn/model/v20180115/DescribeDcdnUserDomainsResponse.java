@@ -33,8 +33,6 @@ public class DescribeDcdnUserDomainsResponse extends AcsResponse {
 
 	private Long totalCount;
 
-	private Long onlineCount;
-
 	private List<PageData> domains;
 
 	public String getRequestId() {
@@ -67,14 +65,6 @@ public class DescribeDcdnUserDomainsResponse extends AcsResponse {
 
 	public void setTotalCount(Long totalCount) {
 		this.totalCount = totalCount;
-	}
-
-	public Long getOnlineCount() {
-		return this.onlineCount;
-	}
-
-	public void setOnlineCount(Long onlineCount) {
-		this.onlineCount = onlineCount;
 	}
 
 	public List<PageData> getDomains() {

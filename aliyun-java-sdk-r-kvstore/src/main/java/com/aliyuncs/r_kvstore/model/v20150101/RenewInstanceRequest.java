@@ -15,18 +15,27 @@
 package com.aliyuncs.r_kvstore.model.v20150101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.r_kvstore.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
-	
-	public RenewInstanceRequest() {
-		super("R-kvstore", "2015-01-01", "RenewInstance", "redisa");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String couponNo;
+
+	private String instanceClass;
+
+	private String capacity;
+
+	private String securityToken;
+
+	private String businessInfo;
 
 	private Long period;
 
@@ -38,21 +47,17 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 
 	private String ownerAccount;
 
-	private String couponNo;
-
 	private Long ownerId;
 
-	private String instanceClass;
-
-	private String capacity;
-
 	private String instanceId;
-
-	private String securityToken;
-
-	private Boolean forceUpgrade;
-
-	private String businessInfo;
+	public RenewInstanceRequest() {
+		super("R-kvstore", "2015-01-01", "RenewInstance", "redisa");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -62,6 +67,61 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getCouponNo() {
+		return this.couponNo;
+	}
+
+	public void setCouponNo(String couponNo) {
+		this.couponNo = couponNo;
+		if(couponNo != null){
+			putQueryParameter("CouponNo", couponNo);
+		}
+	}
+
+	public String getInstanceClass() {
+		return this.instanceClass;
+	}
+
+	public void setInstanceClass(String instanceClass) {
+		this.instanceClass = instanceClass;
+		if(instanceClass != null){
+			putQueryParameter("InstanceClass", instanceClass);
+		}
+	}
+
+	public String getCapacity() {
+		return this.capacity;
+	}
+
+	public void setCapacity(String capacity) {
+		this.capacity = capacity;
+		if(capacity != null){
+			putQueryParameter("Capacity", capacity);
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getBusinessInfo() {
+		return this.businessInfo;
+	}
+
+	public void setBusinessInfo(String businessInfo) {
+		this.businessInfo = businessInfo;
+		if(businessInfo != null){
+			putQueryParameter("BusinessInfo", businessInfo);
 		}
 	}
 
@@ -120,17 +180,6 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		}
 	}
 
-	public String getCouponNo() {
-		return this.couponNo;
-	}
-
-	public void setCouponNo(String couponNo) {
-		this.couponNo = couponNo;
-		if(couponNo != null){
-			putQueryParameter("CouponNo", couponNo);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -142,28 +191,6 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		}
 	}
 
-	public String getInstanceClass() {
-		return this.instanceClass;
-	}
-
-	public void setInstanceClass(String instanceClass) {
-		this.instanceClass = instanceClass;
-		if(instanceClass != null){
-			putQueryParameter("InstanceClass", instanceClass);
-		}
-	}
-
-	public String getCapacity() {
-		return this.capacity;
-	}
-
-	public void setCapacity(String capacity) {
-		this.capacity = capacity;
-		if(capacity != null){
-			putQueryParameter("Capacity", capacity);
-		}
-	}
-
 	public String getInstanceId() {
 		return this.instanceId;
 	}
@@ -172,39 +199,6 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	public Boolean getForceUpgrade() {
-		return this.forceUpgrade;
-	}
-
-	public void setForceUpgrade(Boolean forceUpgrade) {
-		this.forceUpgrade = forceUpgrade;
-		if(forceUpgrade != null){
-			putQueryParameter("ForceUpgrade", forceUpgrade.toString());
-		}
-	}
-
-	public String getBusinessInfo() {
-		return this.businessInfo;
-	}
-
-	public void setBusinessInfo(String businessInfo) {
-		this.businessInfo = businessInfo;
-		if(businessInfo != null){
-			putQueryParameter("BusinessInfo", businessInfo);
 		}
 	}
 

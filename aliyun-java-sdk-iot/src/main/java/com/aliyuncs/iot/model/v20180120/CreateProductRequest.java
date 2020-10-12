@@ -15,42 +15,52 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
-	
-	public CreateProductRequest() {
-		super("Iot", "2018-01-20", "CreateProduct");
-	}
-
-	private Integer dataFormat;
+	   
 
 	private Integer nodeType;
 
-	private Boolean id2;
+	private String description;
+
+	private String categoryKey;
+
+	private String joinPermissionId;
+
+	private String authType;
+
+	private String resourceGroupId;
+
+	private String iotInstanceId;
 
 	private String productName;
 
-	private String description;
-
-	private String protocolType;
-
 	private String aliyunCommodityCode;
+
+	private Boolean publishAuto;
 
 	private Long categoryId;
 
-	public Integer getDataFormat() {
-		return this.dataFormat;
-	}
+	private Integer dataFormat;
 
-	public void setDataFormat(Integer dataFormat) {
-		this.dataFormat = dataFormat;
-		if(dataFormat != null){
-			putQueryParameter("DataFormat", dataFormat.toString());
-		}
+	private Boolean id2;
+
+	private String netType;
+
+	private String protocolType;
+	public CreateProductRequest() {
+		super("Iot", "2018-01-20", "CreateProduct", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Integer getNodeType() {
@@ -61,28 +71,6 @@ public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
 		this.nodeType = nodeType;
 		if(nodeType != null){
 			putQueryParameter("NodeType", nodeType.toString());
-		}
-	}
-
-	public Boolean getId2() {
-		return this.id2;
-	}
-
-	public void setId2(Boolean id2) {
-		this.id2 = id2;
-		if(id2 != null){
-			putQueryParameter("Id2", id2.toString());
-		}
-	}
-
-	public String getProductName() {
-		return this.productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-		if(productName != null){
-			putQueryParameter("ProductName", productName);
 		}
 	}
 
@@ -97,14 +85,69 @@ public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
 		}
 	}
 
-	public String getProtocolType() {
-		return this.protocolType;
+	public String getCategoryKey() {
+		return this.categoryKey;
 	}
 
-	public void setProtocolType(String protocolType) {
-		this.protocolType = protocolType;
-		if(protocolType != null){
-			putQueryParameter("ProtocolType", protocolType);
+	public void setCategoryKey(String categoryKey) {
+		this.categoryKey = categoryKey;
+		if(categoryKey != null){
+			putQueryParameter("CategoryKey", categoryKey);
+		}
+	}
+
+	public String getJoinPermissionId() {
+		return this.joinPermissionId;
+	}
+
+	public void setJoinPermissionId(String joinPermissionId) {
+		this.joinPermissionId = joinPermissionId;
+		if(joinPermissionId != null){
+			putQueryParameter("JoinPermissionId", joinPermissionId);
+		}
+	}
+
+	public String getAuthType() {
+		return this.authType;
+	}
+
+	public void setAuthType(String authType) {
+		this.authType = authType;
+		if(authType != null){
+			putQueryParameter("AuthType", authType);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductName() {
+		return this.productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+		if(productName != null){
+			putQueryParameter("ProductName", productName);
 		}
 	}
 
@@ -119,6 +162,17 @@ public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
 		}
 	}
 
+	public Boolean getPublishAuto() {
+		return this.publishAuto;
+	}
+
+	public void setPublishAuto(Boolean publishAuto) {
+		this.publishAuto = publishAuto;
+		if(publishAuto != null){
+			putQueryParameter("PublishAuto", publishAuto.toString());
+		}
+	}
+
 	public Long getCategoryId() {
 		return this.categoryId;
 	}
@@ -127,6 +181,50 @@ public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
 		this.categoryId = categoryId;
 		if(categoryId != null){
 			putQueryParameter("CategoryId", categoryId.toString());
+		}
+	}
+
+	public Integer getDataFormat() {
+		return this.dataFormat;
+	}
+
+	public void setDataFormat(Integer dataFormat) {
+		this.dataFormat = dataFormat;
+		if(dataFormat != null){
+			putQueryParameter("DataFormat", dataFormat.toString());
+		}
+	}
+
+	public Boolean getId2() {
+		return this.id2;
+	}
+
+	public void setId2(Boolean id2) {
+		this.id2 = id2;
+		if(id2 != null){
+			putQueryParameter("Id2", id2.toString());
+		}
+	}
+
+	public String getNetType() {
+		return this.netType;
+	}
+
+	public void setNetType(String netType) {
+		this.netType = netType;
+		if(netType != null){
+			putQueryParameter("NetType", netType);
+		}
+	}
+
+	public String getProtocolType() {
+		return this.protocolType;
+	}
+
+	public void setProtocolType(String protocolType) {
+		this.protocolType = protocolType;
+		if(protocolType != null){
+			putQueryParameter("ProtocolType", protocolType);
 		}
 	}
 

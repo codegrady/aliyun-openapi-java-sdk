@@ -27,6 +27,8 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String dBClusterId;
+
 	private String engine;
 
 	private Integer totalRecordCount;
@@ -43,6 +45,14 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getDBClusterId() {
+		return this.dBClusterId;
+	}
+
+	public void setDBClusterId(String dBClusterId) {
+		this.dBClusterId = dBClusterId;
 	}
 
 	public String getEngine() {
@@ -102,6 +112,8 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 		private Long returnRowCounts;
 
 		private String executionStartTime;
+
+		private String dBNodeId;
 
 		public String getHostAddress() {
 			return this.hostAddress;
@@ -165,6 +177,14 @@ public class DescribeSlowLogRecordsResponse extends AcsResponse {
 
 		public void setExecutionStartTime(String executionStartTime) {
 			this.executionStartTime = executionStartTime;
+		}
+
+		public String getDBNodeId() {
+			return this.dBNodeId;
+		}
+
+		public void setDBNodeId(String dBNodeId) {
+			this.dBNodeId = dBNodeId;
 		}
 	}
 

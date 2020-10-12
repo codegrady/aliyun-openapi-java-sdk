@@ -15,28 +15,35 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetReqHeaderConfigRequest extends RpcAcsRequest<SetReqHeaderConfigResponse> {
-	
-	public SetReqHeaderConfigRequest() {
-		super("Cdn", "2018-05-10", "SetReqHeaderConfig");
-	}
+	   
 
 	private String securityToken;
 
-	private Long configId;
+	private String value;
+
+	private String key;
 
 	private String domainName;
 
 	private Long ownerId;
 
-	private String value;
-
-	private String key;
+	private Long configId;
+	public SetReqHeaderConfigRequest() {
+		super("Cdn", "2018-05-10", "SetReqHeaderConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getSecurityToken() {
 		return this.securityToken;
@@ -49,14 +56,25 @@ public class SetReqHeaderConfigRequest extends RpcAcsRequest<SetReqHeaderConfigR
 		}
 	}
 
-	public Long getConfigId() {
-		return this.configId;
+	public String getValue() {
+		return this.value;
 	}
 
-	public void setConfigId(Long configId) {
-		this.configId = configId;
-		if(configId != null){
-			putQueryParameter("ConfigId", configId.toString());
+	public void setValue(String value) {
+		this.value = value;
+		if(value != null){
+			putQueryParameter("Value", value);
+		}
+	}
+
+	public String getKey() {
+		return this.key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+		if(key != null){
+			putQueryParameter("Key", key);
 		}
 	}
 
@@ -82,25 +100,14 @@ public class SetReqHeaderConfigRequest extends RpcAcsRequest<SetReqHeaderConfigR
 		}
 	}
 
-	public String getValue() {
-		return this.value;
+	public Long getConfigId() {
+		return this.configId;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
-		if(value != null){
-			putQueryParameter("Value", value);
-		}
-	}
-
-	public String getKey() {
-		return this.key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
-		if(key != null){
-			putQueryParameter("Key", key);
+	public void setConfigId(Long configId) {
+		this.configId = configId;
+		if(configId != null){
+			putQueryParameter("ConfigId", configId.toString());
 		}
 	}
 

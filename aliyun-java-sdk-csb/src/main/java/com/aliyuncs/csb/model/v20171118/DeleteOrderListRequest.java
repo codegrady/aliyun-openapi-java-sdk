@@ -17,20 +17,25 @@ package com.aliyuncs.csb.model.v20171118;
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.csb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteOrderListRequest extends RpcAcsRequest<DeleteOrderListResponse> {
-	
+	   
+
+	private String data;
 	public DeleteOrderListRequest() {
 		super("CSB", "2017-11-18", "DeleteOrderList");
 		setProtocol(ProtocolType.HTTPS);
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
-
-	private String data;
 
 	public String getData() {
 		return this.data;

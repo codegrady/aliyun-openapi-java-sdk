@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.sts.transform.v20150401;
 
 import com.aliyuncs.sts.model.v20150401.GetCallerIdentityResponse;
@@ -19,12 +20,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class GetCallerIdentityResponseUnmarshaller {
 
-	public static GetCallerIdentityResponse unmarshall(GetCallerIdentityResponse getCallerIdentityResponse, UnmarshallerContext context) {
+	public static GetCallerIdentityResponse unmarshall(GetCallerIdentityResponse getCallerIdentityResponse, UnmarshallerContext _ctx) {
 		
-		getCallerIdentityResponse.setRequestId(context.stringValue("GetCallerIdentityResponse.RequestId"));
-		getCallerIdentityResponse.setAccountId(context.stringValue("GetCallerIdentityResponse.AccountId"));
-		getCallerIdentityResponse.setUserId(context.stringValue("GetCallerIdentityResponse.UserId"));
-		getCallerIdentityResponse.setArn(context.stringValue("GetCallerIdentityResponse.Arn"));
+		getCallerIdentityResponse.setRequestId(_ctx.stringValue("GetCallerIdentityResponse.RequestId"));
+		getCallerIdentityResponse.setAccountId(_ctx.stringValue("GetCallerIdentityResponse.AccountId"));
+		getCallerIdentityResponse.setUserId(_ctx.stringValue("GetCallerIdentityResponse.UserId"));
+		getCallerIdentityResponse.setRoleId(_ctx.stringValue("GetCallerIdentityResponse.RoleId"));
+		getCallerIdentityResponse.setArn(_ctx.stringValue("GetCallerIdentityResponse.Arn"));
+		getCallerIdentityResponse.setIdentityType(_ctx.stringValue("GetCallerIdentityResponse.IdentityType"));
+		getCallerIdentityResponse.setPrincipalId(_ctx.stringValue("GetCallerIdentityResponse.PrincipalId"));
 	 
 	 	return getCallerIdentityResponse;
 	}

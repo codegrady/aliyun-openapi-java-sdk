@@ -15,18 +15,25 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RefreshTokenRequest extends RpcAcsRequest<RefreshTokenResponse> {
-	
-	public RefreshTokenRequest() {
-		super("CCC", "2017-07-05", "RefreshToken", "ccc");
-	}
+	   
 
 	private String instanceId;
+	public RefreshTokenRequest() {
+		super("CCC", "2017-07-05", "RefreshToken", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getInstanceId() {
 		return this.instanceId;

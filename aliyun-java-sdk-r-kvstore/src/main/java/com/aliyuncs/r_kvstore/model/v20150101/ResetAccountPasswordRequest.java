@@ -15,22 +15,17 @@
 package com.aliyuncs.r_kvstore.model.v20150101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.r_kvstore.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ResetAccountPasswordRequest extends RpcAcsRequest<ResetAccountPasswordResponse> {
-	
-	public ResetAccountPasswordRequest() {
-		super("R-kvstore", "2015-01-01", "ResetAccountPassword", "redisa");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String accountPassword;
-
-	private String instanceId;
 
 	private String accountName;
 
@@ -42,6 +37,18 @@ public class ResetAccountPasswordRequest extends RpcAcsRequest<ResetAccountPassw
 
 	private Long ownerId;
 
+	private String accountPassword;
+
+	private String instanceId;
+	public ResetAccountPasswordRequest() {
+		super("R-kvstore", "2015-01-01", "ResetAccountPassword", "redisa");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
 	}
@@ -50,28 +57,6 @@ public class ResetAccountPasswordRequest extends RpcAcsRequest<ResetAccountPassw
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getAccountPassword() {
-		return this.accountPassword;
-	}
-
-	public void setAccountPassword(String accountPassword) {
-		this.accountPassword = accountPassword;
-		if(accountPassword != null){
-			putQueryParameter("AccountPassword", accountPassword);
-		}
-	}
-
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
@@ -127,6 +112,28 @@ public class ResetAccountPasswordRequest extends RpcAcsRequest<ResetAccountPassw
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getAccountPassword() {
+		return this.accountPassword;
+	}
+
+	public void setAccountPassword(String accountPassword) {
+		this.accountPassword = accountPassword;
+		if(accountPassword != null){
+			putQueryParameter("AccountPassword", accountPassword);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

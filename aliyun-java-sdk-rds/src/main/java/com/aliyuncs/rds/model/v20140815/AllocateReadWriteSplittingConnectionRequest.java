@@ -15,20 +15,23 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AllocateReadWriteSplittingConnectionRequest extends RpcAcsRequest<AllocateReadWriteSplittingConnectionResponse> {
-	
-	public AllocateReadWriteSplittingConnectionRequest() {
-		super("Rds", "2014-08-15", "AllocateReadWriteSplittingConnection", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String connectionStringPrefix;
+
+	private String distributionType;
+
+	private String dBInstanceId;
 
 	private String resourceOwnerAccount;
 
@@ -38,15 +41,19 @@ public class AllocateReadWriteSplittingConnectionRequest extends RpcAcsRequest<A
 
 	private Long ownerId;
 
-	private String iPType;
-
 	private String port;
 
-	private String distributionType;
-
-	private String dBInstanceId;
+	private String netType;
 
 	private String maxDelayTime;
+	public AllocateReadWriteSplittingConnectionRequest() {
+		super("Rds", "2014-08-15", "AllocateReadWriteSplittingConnection", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -67,6 +74,28 @@ public class AllocateReadWriteSplittingConnectionRequest extends RpcAcsRequest<A
 		this.connectionStringPrefix = connectionStringPrefix;
 		if(connectionStringPrefix != null){
 			putQueryParameter("ConnectionStringPrefix", connectionStringPrefix);
+		}
+	}
+
+	public String getDistributionType() {
+		return this.distributionType;
+	}
+
+	public void setDistributionType(String distributionType) {
+		this.distributionType = distributionType;
+		if(distributionType != null){
+			putQueryParameter("DistributionType", distributionType);
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 
@@ -114,17 +143,6 @@ public class AllocateReadWriteSplittingConnectionRequest extends RpcAcsRequest<A
 		}
 	}
 
-	public String getIPType() {
-		return this.iPType;
-	}
-
-	public void setIPType(String iPType) {
-		this.iPType = iPType;
-		if(iPType != null){
-			putQueryParameter("IPType", iPType);
-		}
-	}
-
 	public String getPort() {
 		return this.port;
 	}
@@ -136,25 +154,14 @@ public class AllocateReadWriteSplittingConnectionRequest extends RpcAcsRequest<A
 		}
 	}
 
-	public String getDistributionType() {
-		return this.distributionType;
+	public String getNetType() {
+		return this.netType;
 	}
 
-	public void setDistributionType(String distributionType) {
-		this.distributionType = distributionType;
-		if(distributionType != null){
-			putQueryParameter("DistributionType", distributionType);
-		}
-	}
-
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
+	public void setNetType(String netType) {
+		this.netType = netType;
+		if(netType != null){
+			putQueryParameter("NetType", netType);
 		}
 	}
 

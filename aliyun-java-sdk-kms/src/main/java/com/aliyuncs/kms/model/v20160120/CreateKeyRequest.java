@@ -16,17 +16,17 @@ package com.aliyuncs.kms.model.v20160120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.kms.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateKeyRequest extends RpcAcsRequest<CreateKeyResponse> {
-	
-	public CreateKeyRequest() {
-		super("Kms", "2016-01-20", "CreateKey", "kms");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
+
+	private String protectionLevel;
 
 	private String keyUsage;
 
@@ -34,7 +34,31 @@ public class CreateKeyRequest extends RpcAcsRequest<CreateKeyResponse> {
 
 	private String description;
 
-	private String sTSToken;
+	private String keySpec;
+
+	private String rotationInterval;
+
+	private Boolean enableAutomaticRotation;
+	public CreateKeyRequest() {
+		super("Kms", "2016-01-20", "CreateKey", "kms");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getProtectionLevel() {
+		return this.protectionLevel;
+	}
+
+	public void setProtectionLevel(String protectionLevel) {
+		this.protectionLevel = protectionLevel;
+		if(protectionLevel != null){
+			putQueryParameter("ProtectionLevel", protectionLevel);
+		}
+	}
 
 	public String getKeyUsage() {
 		return this.keyUsage;
@@ -69,14 +93,36 @@ public class CreateKeyRequest extends RpcAcsRequest<CreateKeyResponse> {
 		}
 	}
 
-	public String getSTSToken() {
-		return this.sTSToken;
+	public String getKeySpec() {
+		return this.keySpec;
 	}
 
-	public void setSTSToken(String sTSToken) {
-		this.sTSToken = sTSToken;
-		if(sTSToken != null){
-			putQueryParameter("STSToken", sTSToken);
+	public void setKeySpec(String keySpec) {
+		this.keySpec = keySpec;
+		if(keySpec != null){
+			putQueryParameter("KeySpec", keySpec);
+		}
+	}
+
+	public String getRotationInterval() {
+		return this.rotationInterval;
+	}
+
+	public void setRotationInterval(String rotationInterval) {
+		this.rotationInterval = rotationInterval;
+		if(rotationInterval != null){
+			putQueryParameter("RotationInterval", rotationInterval);
+		}
+	}
+
+	public Boolean getEnableAutomaticRotation() {
+		return this.enableAutomaticRotation;
+	}
+
+	public void setEnableAutomaticRotation(Boolean enableAutomaticRotation) {
+		this.enableAutomaticRotation = enableAutomaticRotation;
+		if(enableAutomaticRotation != null){
+			putQueryParameter("EnableAutomaticRotation", enableAutomaticRotation.toString());
 		}
 	}
 

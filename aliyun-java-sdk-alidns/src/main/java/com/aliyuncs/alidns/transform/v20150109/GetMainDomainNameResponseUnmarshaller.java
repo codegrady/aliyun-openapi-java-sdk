@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.transform.v20150109;
 
 import com.aliyuncs.alidns.model.v20150109.GetMainDomainNameResponse;
@@ -19,12 +20,12 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class GetMainDomainNameResponseUnmarshaller {
 
-	public static GetMainDomainNameResponse unmarshall(GetMainDomainNameResponse getMainDomainNameResponse, UnmarshallerContext context) {
+	public static GetMainDomainNameResponse unmarshall(GetMainDomainNameResponse getMainDomainNameResponse, UnmarshallerContext _ctx) {
 		
-		getMainDomainNameResponse.setRequestId(context.stringValue("GetMainDomainNameResponse.RequestId"));
-		getMainDomainNameResponse.setDomainName(context.stringValue("GetMainDomainNameResponse.DomainName"));
-		getMainDomainNameResponse.setRR(context.stringValue("GetMainDomainNameResponse.RR"));
-		getMainDomainNameResponse.setDomainLevel(context.longValue("GetMainDomainNameResponse.DomainLevel"));
+		getMainDomainNameResponse.setRequestId(_ctx.stringValue("GetMainDomainNameResponse.RequestId"));
+		getMainDomainNameResponse.setDomainName(_ctx.stringValue("GetMainDomainNameResponse.DomainName"));
+		getMainDomainNameResponse.setRR(_ctx.stringValue("GetMainDomainNameResponse.RR"));
+		getMainDomainNameResponse.setDomainLevel(_ctx.longValue("GetMainDomainNameResponse.DomainLevel"));
 	 
 	 	return getMainDomainNameResponse;
 	}

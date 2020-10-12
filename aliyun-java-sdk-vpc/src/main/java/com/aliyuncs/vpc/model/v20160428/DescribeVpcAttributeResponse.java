@@ -39,6 +39,8 @@ public class DescribeVpcAttributeResponse extends AcsResponse {
 
 	private String cidrBlock;
 
+	private String ipv6CidrBlock;
+
 	private String vRouterId;
 
 	private String description;
@@ -49,6 +51,14 @@ public class DescribeVpcAttributeResponse extends AcsResponse {
 
 	private String resourceGroupId;
 
+	private String networkAclNum;
+
+	private Long ownerId;
+
+	private String dhcpOptionsSetId;
+
+	private String dhcpOptionsSetStatus;
+
 	private List<AssociatedCen> associatedCens;
 
 	private List<CloudResourceSetType> cloudResources;
@@ -56,6 +66,8 @@ public class DescribeVpcAttributeResponse extends AcsResponse {
 	private List<String> vSwitchIds;
 
 	private List<String> userCidrs;
+
+	private List<String> secondaryCidrBlocks;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -113,6 +125,14 @@ public class DescribeVpcAttributeResponse extends AcsResponse {
 		this.cidrBlock = cidrBlock;
 	}
 
+	public String getIpv6CidrBlock() {
+		return this.ipv6CidrBlock;
+	}
+
+	public void setIpv6CidrBlock(String ipv6CidrBlock) {
+		this.ipv6CidrBlock = ipv6CidrBlock;
+	}
+
 	public String getVRouterId() {
 		return this.vRouterId;
 	}
@@ -153,6 +173,38 @@ public class DescribeVpcAttributeResponse extends AcsResponse {
 		this.resourceGroupId = resourceGroupId;
 	}
 
+	public String getNetworkAclNum() {
+		return this.networkAclNum;
+	}
+
+	public void setNetworkAclNum(String networkAclNum) {
+		this.networkAclNum = networkAclNum;
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+	}
+
+	public String getDhcpOptionsSetId() {
+		return this.dhcpOptionsSetId;
+	}
+
+	public void setDhcpOptionsSetId(String dhcpOptionsSetId) {
+		this.dhcpOptionsSetId = dhcpOptionsSetId;
+	}
+
+	public String getDhcpOptionsSetStatus() {
+		return this.dhcpOptionsSetStatus;
+	}
+
+	public void setDhcpOptionsSetStatus(String dhcpOptionsSetStatus) {
+		this.dhcpOptionsSetStatus = dhcpOptionsSetStatus;
+	}
+
 	public List<AssociatedCen> getAssociatedCens() {
 		return this.associatedCens;
 	}
@@ -183,6 +235,14 @@ public class DescribeVpcAttributeResponse extends AcsResponse {
 
 	public void setUserCidrs(List<String> userCidrs) {
 		this.userCidrs = userCidrs;
+	}
+
+	public List<String> getSecondaryCidrBlocks() {
+		return this.secondaryCidrBlocks;
+	}
+
+	public void setSecondaryCidrBlocks(List<String> secondaryCidrBlocks) {
+		this.secondaryCidrBlocks = secondaryCidrBlocks;
 	}
 
 	public static class AssociatedCen {

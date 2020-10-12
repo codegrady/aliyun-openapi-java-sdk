@@ -27,6 +27,8 @@ public class DescribeMasterSlaveServerGroupAttributeResponse extends AcsResponse
 
 	private String requestId;
 
+	private String loadBalancerId;
+
 	private String masterSlaveServerGroupId;
 
 	private String masterSlaveServerGroupName;
@@ -39,6 +41,14 @@ public class DescribeMasterSlaveServerGroupAttributeResponse extends AcsResponse
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
+	}
+
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
 	}
 
 	public String getMasterSlaveServerGroupId() {
@@ -79,9 +89,9 @@ public class DescribeMasterSlaveServerGroupAttributeResponse extends AcsResponse
 
 		private String serverIp;
 
-		private String eniHost;
-
 		private String vpcId;
+
+		private String description;
 
 		public String getServerId() {
 			return this.serverId;
@@ -131,20 +141,20 @@ public class DescribeMasterSlaveServerGroupAttributeResponse extends AcsResponse
 			this.serverIp = serverIp;
 		}
 
-		public String getEniHost() {
-			return this.eniHost;
-		}
-
-		public void setEniHost(String eniHost) {
-			this.eniHost = eniHost;
-		}
-
 		public String getVpcId() {
 			return this.vpcId;
 		}
 
 		public void setVpcId(String vpcId) {
 			this.vpcId = vpcId;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
 		}
 	}
 

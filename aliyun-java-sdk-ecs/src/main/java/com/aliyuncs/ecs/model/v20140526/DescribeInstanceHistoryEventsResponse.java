@@ -87,9 +87,15 @@ public class DescribeInstanceHistoryEventsResponse extends AcsResponse {
 
 		private String eventFinishTime;
 
+		private String reason;
+
+		private String impactLevel;
+
 		private EventType eventType;
 
 		private EventCycleStatus eventCycleStatus;
+
+		private ExtendedAttribute extendedAttribute;
 
 		public String getInstanceId() {
 			return this.instanceId;
@@ -131,6 +137,22 @@ public class DescribeInstanceHistoryEventsResponse extends AcsResponse {
 			this.eventFinishTime = eventFinishTime;
 		}
 
+		public String getReason() {
+			return this.reason;
+		}
+
+		public void setReason(String reason) {
+			this.reason = reason;
+		}
+
+		public String getImpactLevel() {
+			return this.impactLevel;
+		}
+
+		public void setImpactLevel(String impactLevel) {
+			this.impactLevel = impactLevel;
+		}
+
 		public EventType getEventType() {
 			return this.eventType;
 		}
@@ -145,6 +167,14 @@ public class DescribeInstanceHistoryEventsResponse extends AcsResponse {
 
 		public void setEventCycleStatus(EventCycleStatus eventCycleStatus) {
 			this.eventCycleStatus = eventCycleStatus;
+		}
+
+		public ExtendedAttribute getExtendedAttribute() {
+			return this.extendedAttribute;
+		}
+
+		public void setExtendedAttribute(ExtendedAttribute extendedAttribute) {
+			this.extendedAttribute = extendedAttribute;
 		}
 
 		public static class EventType {
@@ -190,6 +220,92 @@ public class DescribeInstanceHistoryEventsResponse extends AcsResponse {
 
 			public void setName(String name) {
 				this.name = name;
+			}
+		}
+
+		public static class ExtendedAttribute {
+
+			private String diskId;
+
+			private String device;
+
+			private List<InactiveDisk> inactiveDisks;
+
+			public String getDiskId() {
+				return this.diskId;
+			}
+
+			public void setDiskId(String diskId) {
+				this.diskId = diskId;
+			}
+
+			public String getDevice() {
+				return this.device;
+			}
+
+			public void setDevice(String device) {
+				this.device = device;
+			}
+
+			public List<InactiveDisk> getInactiveDisks() {
+				return this.inactiveDisks;
+			}
+
+			public void setInactiveDisks(List<InactiveDisk> inactiveDisks) {
+				this.inactiveDisks = inactiveDisks;
+			}
+
+			public static class InactiveDisk {
+
+				private String creationTime;
+
+				private String releaseTime;
+
+				private String deviceType;
+
+				private String deviceCategory;
+
+				private String deviceSize;
+
+				public String getCreationTime() {
+					return this.creationTime;
+				}
+
+				public void setCreationTime(String creationTime) {
+					this.creationTime = creationTime;
+				}
+
+				public String getReleaseTime() {
+					return this.releaseTime;
+				}
+
+				public void setReleaseTime(String releaseTime) {
+					this.releaseTime = releaseTime;
+				}
+
+				public String getDeviceType() {
+					return this.deviceType;
+				}
+
+				public void setDeviceType(String deviceType) {
+					this.deviceType = deviceType;
+				}
+
+				public String getDeviceCategory() {
+					return this.deviceCategory;
+				}
+
+				public void setDeviceCategory(String deviceCategory) {
+					this.deviceCategory = deviceCategory;
+				}
+
+				public String getDeviceSize() {
+					return this.deviceSize;
+				}
+
+				public void setDeviceSize(String deviceSize) {
+					this.deviceSize = deviceSize;
+				}
 			}
 		}
 	}

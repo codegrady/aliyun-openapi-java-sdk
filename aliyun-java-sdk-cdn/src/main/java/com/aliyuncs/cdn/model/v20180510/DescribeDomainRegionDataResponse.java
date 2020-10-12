@@ -103,6 +103,8 @@ public class DescribeDomainRegionDataResponse extends AcsResponse {
 
 		private String avgResponseRate;
 
+		private String reqErrRate;
+
 		private String totalBytes;
 
 		private String bytesProportion;
@@ -171,6 +173,14 @@ public class DescribeDomainRegionDataResponse extends AcsResponse {
 
 		public void setAvgResponseRate(String avgResponseRate) {
 			this.avgResponseRate = avgResponseRate;
+		}
+
+		public String getReqErrRate() {
+			return this.reqErrRate;
+		}
+
+		public void setReqErrRate(String reqErrRate) {
+			this.reqErrRate = reqErrRate;
 		}
 
 		public String getTotalBytes() {

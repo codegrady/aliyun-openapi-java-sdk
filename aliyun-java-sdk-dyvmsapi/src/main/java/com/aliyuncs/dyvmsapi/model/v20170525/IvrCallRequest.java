@@ -16,30 +16,20 @@ package com.aliyuncs.dyvmsapi.model.v20170525;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class IvrCallRequest extends RpcAcsRequest<IvrCallResponse> {
-	
-	public IvrCallRequest() {
-		super("Dyvmsapi", "2017-05-25", "IvrCall");
-	}
+	   
 
 	private String byeCode;
 
-	private List<MenuKeyMap> menuKeyMaps;
-
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String startTtsParams;
-
-	private Long playTimes;
-
-	private Long ownerId;
 
 	private Integer timeout;
 
@@ -49,9 +39,21 @@ public class IvrCallRequest extends RpcAcsRequest<IvrCallResponse> {
 
 	private String calledShowNumber;
 
+	private List<MenuKeyMap> menuKeyMaps;
+
+	private String resourceOwnerAccount;
+
+	private Long playTimes;
+
+	private Long ownerId;
+
 	private String outId;
 
 	private String byeTtsParams;
+	public IvrCallRequest() {
+		super("Dyvmsapi", "2017-05-25", "IvrCall", "dyvms");
+		setMethod(MethodType.POST);
+	}
 
 	public String getByeCode() {
 		return this.byeCode;
@@ -62,21 +64,6 @@ public class IvrCallRequest extends RpcAcsRequest<IvrCallResponse> {
 		if(byeCode != null){
 			putQueryParameter("ByeCode", byeCode);
 		}
-	}
-
-	public List<MenuKeyMap> getMenuKeyMaps() {
-		return this.menuKeyMaps;
-	}
-
-	public void setMenuKeyMaps(List<MenuKeyMap> menuKeyMaps) {
-		this.menuKeyMaps = menuKeyMaps;	
-		if (menuKeyMaps != null) {
-			for (int depth1 = 0; depth1 < menuKeyMaps.size(); depth1++) {
-				putQueryParameter("MenuKeyMap." + (depth1 + 1) + ".Key" , menuKeyMaps.get(depth1).getKey());
-				putQueryParameter("MenuKeyMap." + (depth1 + 1) + ".Code" , menuKeyMaps.get(depth1).getCode());
-				putQueryParameter("MenuKeyMap." + (depth1 + 1) + ".TtsParams" , menuKeyMaps.get(depth1).getTtsParams());
-			}
-		}	
 	}
 
 	public Long getResourceOwnerId() {
@@ -90,17 +77,6 @@ public class IvrCallRequest extends RpcAcsRequest<IvrCallResponse> {
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
 	public String getStartTtsParams() {
 		return this.startTtsParams;
 	}
@@ -109,28 +85,6 @@ public class IvrCallRequest extends RpcAcsRequest<IvrCallResponse> {
 		this.startTtsParams = startTtsParams;
 		if(startTtsParams != null){
 			putQueryParameter("StartTtsParams", startTtsParams);
-		}
-	}
-
-	public Long getPlayTimes() {
-		return this.playTimes;
-	}
-
-	public void setPlayTimes(Long playTimes) {
-		this.playTimes = playTimes;
-		if(playTimes != null){
-			putQueryParameter("PlayTimes", playTimes.toString());
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 
@@ -178,6 +132,54 @@ public class IvrCallRequest extends RpcAcsRequest<IvrCallResponse> {
 		}
 	}
 
+	public List<MenuKeyMap> getMenuKeyMaps() {
+		return this.menuKeyMaps;
+	}
+
+	public void setMenuKeyMaps(List<MenuKeyMap> menuKeyMaps) {
+		this.menuKeyMaps = menuKeyMaps;	
+		if (menuKeyMaps != null) {
+			for (int depth1 = 0; depth1 < menuKeyMaps.size(); depth1++) {
+				putQueryParameter("MenuKeyMap." + (depth1 + 1) + ".Code" , menuKeyMaps.get(depth1).getCode());
+				putQueryParameter("MenuKeyMap." + (depth1 + 1) + ".TtsParams" , menuKeyMaps.get(depth1).getTtsParams());
+				putQueryParameter("MenuKeyMap." + (depth1 + 1) + ".Key" , menuKeyMaps.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public Long getPlayTimes() {
+		return this.playTimes;
+	}
+
+	public void setPlayTimes(Long playTimes) {
+		this.playTimes = playTimes;
+		if(playTimes != null){
+			putQueryParameter("PlayTimes", playTimes.toString());
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
 	public String getOutId() {
 		return this.outId;
 	}
@@ -202,19 +204,11 @@ public class IvrCallRequest extends RpcAcsRequest<IvrCallResponse> {
 
 	public static class MenuKeyMap {
 
-		private String key;
-
 		private String code;
 
 		private String ttsParams;
 
-		public String getKey() {
-			return this.key;
-		}
-
-		public void setKey(String key) {
-			this.key = key;
-		}
+		private String key;
 
 		public String getCode() {
 			return this.code;
@@ -230,6 +224,14 @@ public class IvrCallRequest extends RpcAcsRequest<IvrCallResponse> {
 
 		public void setTtsParams(String ttsParams) {
 			this.ttsParams = ttsParams;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

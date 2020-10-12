@@ -43,9 +43,27 @@ public class DescribeFlowInstanceResponse extends AcsResponse {
 
 	private String clusterId;
 
+	private String namespace;
+
+	private String logArchiveLocation;
+
+	private String lifecycle;
+
 	private Long startTime;
 
 	private Long endTime;
+
+	private Long duration;
+
+	private Long scheduleTime;
+
+	private String graph;
+
+	private String cronExpression;
+
+	private Boolean hasNodeFailed;
+
+	private List<ParentFlow> dependencyFlowList;
 
 	private List<NodeInstanceItem> nodeInstance;
 
@@ -121,6 +139,30 @@ public class DescribeFlowInstanceResponse extends AcsResponse {
 		this.clusterId = clusterId;
 	}
 
+	public String getNamespace() {
+		return this.namespace;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+	}
+
+	public String getLogArchiveLocation() {
+		return this.logArchiveLocation;
+	}
+
+	public void setLogArchiveLocation(String logArchiveLocation) {
+		this.logArchiveLocation = logArchiveLocation;
+	}
+
+	public String getLifecycle() {
+		return this.lifecycle;
+	}
+
+	public void setLifecycle(String lifecycle) {
+		this.lifecycle = lifecycle;
+	}
+
 	public Long getStartTime() {
 		return this.startTime;
 	}
@@ -137,12 +179,143 @@ public class DescribeFlowInstanceResponse extends AcsResponse {
 		this.endTime = endTime;
 	}
 
+	public Long getDuration() {
+		return this.duration;
+	}
+
+	public void setDuration(Long duration) {
+		this.duration = duration;
+	}
+
+	public Long getScheduleTime() {
+		return this.scheduleTime;
+	}
+
+	public void setScheduleTime(Long scheduleTime) {
+		this.scheduleTime = scheduleTime;
+	}
+
+	public String getGraph() {
+		return this.graph;
+	}
+
+	public void setGraph(String graph) {
+		this.graph = graph;
+	}
+
+	public String getCronExpression() {
+		return this.cronExpression;
+	}
+
+	public void setCronExpression(String cronExpression) {
+		this.cronExpression = cronExpression;
+	}
+
+	public Boolean getHasNodeFailed() {
+		return this.hasNodeFailed;
+	}
+
+	public void setHasNodeFailed(Boolean hasNodeFailed) {
+		this.hasNodeFailed = hasNodeFailed;
+	}
+
+	public List<ParentFlow> getDependencyFlowList() {
+		return this.dependencyFlowList;
+	}
+
+	public void setDependencyFlowList(List<ParentFlow> dependencyFlowList) {
+		this.dependencyFlowList = dependencyFlowList;
+	}
+
 	public List<NodeInstanceItem> getNodeInstance() {
 		return this.nodeInstance;
 	}
 
 	public void setNodeInstance(List<NodeInstanceItem> nodeInstance) {
 		this.nodeInstance = nodeInstance;
+	}
+
+	public static class ParentFlow {
+
+		private String projectId;
+
+		private String flowId;
+
+		private String dependencyFlowId;
+
+		private String flowInstanceId;
+
+		private String dependencyInstanceId;
+
+		private String scheduleKey;
+
+		private Long bizDate;
+
+		private Boolean meet;
+
+		public String getProjectId() {
+			return this.projectId;
+		}
+
+		public void setProjectId(String projectId) {
+			this.projectId = projectId;
+		}
+
+		public String getFlowId() {
+			return this.flowId;
+		}
+
+		public void setFlowId(String flowId) {
+			this.flowId = flowId;
+		}
+
+		public String getDependencyFlowId() {
+			return this.dependencyFlowId;
+		}
+
+		public void setDependencyFlowId(String dependencyFlowId) {
+			this.dependencyFlowId = dependencyFlowId;
+		}
+
+		public String getFlowInstanceId() {
+			return this.flowInstanceId;
+		}
+
+		public void setFlowInstanceId(String flowInstanceId) {
+			this.flowInstanceId = flowInstanceId;
+		}
+
+		public String getDependencyInstanceId() {
+			return this.dependencyInstanceId;
+		}
+
+		public void setDependencyInstanceId(String dependencyInstanceId) {
+			this.dependencyInstanceId = dependencyInstanceId;
+		}
+
+		public String getScheduleKey() {
+			return this.scheduleKey;
+		}
+
+		public void setScheduleKey(String scheduleKey) {
+			this.scheduleKey = scheduleKey;
+		}
+
+		public Long getBizDate() {
+			return this.bizDate;
+		}
+
+		public void setBizDate(Long bizDate) {
+			this.bizDate = bizDate;
+		}
+
+		public Boolean getMeet() {
+			return this.meet;
+		}
+
+		public void setMeet(Boolean meet) {
+			this.meet = meet;
+		}
 	}
 
 	public static class NodeInstanceItem {
@@ -177,9 +350,13 @@ public class DescribeFlowInstanceResponse extends AcsResponse {
 
 		private String projectId;
 
+		private Boolean pending;
+
 		private Long startTime;
 
 		private Long endTime;
+
+		private Long duration;
 
 		private Integer retries;
 
@@ -188,12 +365,6 @@ public class DescribeFlowInstanceResponse extends AcsResponse {
 		private String externalStatus;
 
 		private String externalInfo;
-
-		private String paramConf;
-
-		private String envConf;
-
-		private String runConf;
 
 		public String getId() {
 			return this.id;
@@ -315,6 +486,14 @@ public class DescribeFlowInstanceResponse extends AcsResponse {
 			this.projectId = projectId;
 		}
 
+		public Boolean getPending() {
+			return this.pending;
+		}
+
+		public void setPending(Boolean pending) {
+			this.pending = pending;
+		}
+
 		public Long getStartTime() {
 			return this.startTime;
 		}
@@ -329,6 +508,14 @@ public class DescribeFlowInstanceResponse extends AcsResponse {
 
 		public void setEndTime(Long endTime) {
 			this.endTime = endTime;
+		}
+
+		public Long getDuration() {
+			return this.duration;
+		}
+
+		public void setDuration(Long duration) {
+			this.duration = duration;
 		}
 
 		public Integer getRetries() {
@@ -361,30 +548,6 @@ public class DescribeFlowInstanceResponse extends AcsResponse {
 
 		public void setExternalInfo(String externalInfo) {
 			this.externalInfo = externalInfo;
-		}
-
-		public String getParamConf() {
-			return this.paramConf;
-		}
-
-		public void setParamConf(String paramConf) {
-			this.paramConf = paramConf;
-		}
-
-		public String getEnvConf() {
-			return this.envConf;
-		}
-
-		public void setEnvConf(String envConf) {
-			this.envConf = envConf;
-		}
-
-		public String getRunConf() {
-			return this.runConf;
-		}
-
-		public void setRunConf(String runConf) {
-			this.runConf = runConf;
 		}
 	}
 

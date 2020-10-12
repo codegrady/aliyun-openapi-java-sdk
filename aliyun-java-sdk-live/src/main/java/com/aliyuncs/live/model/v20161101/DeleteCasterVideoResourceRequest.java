@@ -15,22 +15,29 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteCasterVideoResourceRequest extends RpcAcsRequest<DeleteCasterVideoResourceResponse> {
-	
-	public DeleteCasterVideoResourceRequest() {
-		super("live", "2016-11-01", "DeleteCasterVideoResource", "live");
-	}
+	   
 
 	private String resourceId;
 
 	private String casterId;
 
 	private Long ownerId;
+	public DeleteCasterVideoResourceRequest() {
+		super("live", "2016-11-01", "DeleteCasterVideoResource", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getResourceId() {
 		return this.resourceId;

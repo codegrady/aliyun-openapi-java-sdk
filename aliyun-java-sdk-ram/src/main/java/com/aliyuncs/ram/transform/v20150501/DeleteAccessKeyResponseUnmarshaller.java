@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.DeleteAccessKeyResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteAccessKeyResponseUnmarshaller {
 
-	public static DeleteAccessKeyResponse unmarshall(DeleteAccessKeyResponse deleteAccessKeyResponse, UnmarshallerContext context) {
+	public static DeleteAccessKeyResponse unmarshall(DeleteAccessKeyResponse deleteAccessKeyResponse, UnmarshallerContext _ctx) {
 		
-		deleteAccessKeyResponse.setRequestId(context.stringValue("DeleteAccessKeyResponse.RequestId"));
+		deleteAccessKeyResponse.setRequestId(_ctx.stringValue("DeleteAccessKeyResponse.RequestId"));
 	 
 	 	return deleteAccessKeyResponse;
 	}

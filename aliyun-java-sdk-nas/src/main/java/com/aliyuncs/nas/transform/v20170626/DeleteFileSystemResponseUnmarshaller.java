@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.transform.v20170626;
 
 import com.aliyuncs.nas.model.v20170626.DeleteFileSystemResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteFileSystemResponseUnmarshaller {
 
-	public static DeleteFileSystemResponse unmarshall(DeleteFileSystemResponse deleteFileSystemResponse, UnmarshallerContext context) {
+	public static DeleteFileSystemResponse unmarshall(DeleteFileSystemResponse deleteFileSystemResponse, UnmarshallerContext _ctx) {
 		
-		deleteFileSystemResponse.setRequestId(context.stringValue("DeleteFileSystemResponse.RequestId"));
+		deleteFileSystemResponse.setRequestId(_ctx.stringValue("DeleteFileSystemResponse.RequestId"));
 	 
 	 	return deleteFileSystemResponse;
 	}

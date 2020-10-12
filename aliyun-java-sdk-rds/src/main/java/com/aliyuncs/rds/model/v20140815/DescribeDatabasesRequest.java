@@ -15,34 +15,41 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDatabasesRequest extends RpcAcsRequest<DescribeDatabasesResponse> {
-	
-	public DescribeDatabasesRequest() {
-		super("Rds", "2014-08-15", "DescribeDatabases", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String dBName;
-
-	private String resourceOwnerAccount;
+	private Integer pageNumber;
 
 	private String dBStatus;
-
-	private String ownerAccount;
 
 	private Integer pageSize;
 
 	private String dBInstanceId;
 
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
 	private Long ownerId;
 
-	private Integer pageNumber;
+	private String dBName;
+	public DescribeDatabasesRequest() {
+		super("Rds", "2014-08-15", "DescribeDatabases", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -55,25 +62,14 @@ public class DescribeDatabasesRequest extends RpcAcsRequest<DescribeDatabasesRes
 		}
 	}
 
-	public String getDBName() {
-		return this.dBName;
+	public Integer getPageNumber() {
+		return this.pageNumber;
 	}
 
-	public void setDBName(String dBName) {
-		this.dBName = dBName;
-		if(dBName != null){
-			putQueryParameter("DBName", dBName);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -85,17 +81,6 @@ public class DescribeDatabasesRequest extends RpcAcsRequest<DescribeDatabasesRes
 		this.dBStatus = dBStatus;
 		if(dBStatus != null){
 			putQueryParameter("DBStatus", dBStatus);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -121,6 +106,28 @@ public class DescribeDatabasesRequest extends RpcAcsRequest<DescribeDatabasesRes
 		}
 	}
 
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -132,14 +139,14 @@ public class DescribeDatabasesRequest extends RpcAcsRequest<DescribeDatabasesRes
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public String getDBName() {
+		return this.dBName;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+	public void setDBName(String dBName) {
+		this.dBName = dBName;
+		if(dBName != null){
+			putQueryParameter("DBName", dBName);
 		}
 	}
 

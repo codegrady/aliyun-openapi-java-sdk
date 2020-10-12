@@ -15,32 +15,27 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateFlowProjectUserRequest extends RpcAcsRequest<CreateFlowProjectUserResponse> {
-	
-	public CreateFlowProjectUserRequest() {
-		super("Emr", "2016-04-08", "CreateFlowProjectUser");
-	}
-
-	private String userAccountId;
+	   
 
 	private String projectId;
 
-	private String userName;
-
-	public String getUserAccountId() {
-		return this.userAccountId;
-	}
-
-	public void setUserAccountId(String userAccountId) {
-		this.userAccountId = userAccountId;
-		if(userAccountId != null){
-			putQueryParameter("UserAccountId", userAccountId);
-		}
+	private List<User> users;
+	public CreateFlowProjectUserRequest() {
+		super("Emr", "2016-04-08", "CreateFlowProjectUser");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getProjectId() {
@@ -54,14 +49,40 @@ public class CreateFlowProjectUserRequest extends RpcAcsRequest<CreateFlowProjec
 		}
 	}
 
-	public String getUserName() {
-		return this.userName;
+	public List<User> getUsers() {
+		return this.users;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-		if(userName != null){
-			putQueryParameter("UserName", userName);
+	public void setUsers(List<User> users) {
+		this.users = users;	
+		if (users != null) {
+			for (int depth1 = 0; depth1 < users.size(); depth1++) {
+				putQueryParameter("User." + (depth1 + 1) + ".UserId" , users.get(depth1).getUserId());
+				putQueryParameter("User." + (depth1 + 1) + ".UserName" , users.get(depth1).getUserName());
+			}
+		}	
+	}
+
+	public static class User {
+
+		private String userId;
+
+		private String userName;
+
+		public String getUserId() {
+			return this.userId;
+		}
+
+		public void setUserId(String userId) {
+			this.userId = userId;
+		}
+
+		public String getUserName() {
+			return this.userName;
+		}
+
+		public void setUserName(String userName) {
+			this.userName = userName;
 		}
 	}
 

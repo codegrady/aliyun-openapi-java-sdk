@@ -15,18 +15,19 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeSnapshotMonitorDataRequest extends RpcAcsRequest<DescribeSnapshotMonitorDataResponse> {
-	
-	public DescribeSnapshotMonitorDataRequest() {
-		super("Ecs", "2014-05-26", "DescribeSnapshotMonitorData", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String startTime;
 
 	private Integer period;
 
@@ -36,9 +37,17 @@ public class DescribeSnapshotMonitorDataRequest extends RpcAcsRequest<DescribeSn
 
 	private String endTime;
 
-	private String startTime;
-
 	private Long ownerId;
+
+	private String category;
+	public DescribeSnapshotMonitorDataRequest() {
+		super("Ecs", "2014-05-26", "DescribeSnapshotMonitorData", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -48,6 +57,17 @@ public class DescribeSnapshotMonitorDataRequest extends RpcAcsRequest<DescribeSn
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
 		}
 	}
 
@@ -95,17 +115,6 @@ public class DescribeSnapshotMonitorDataRequest extends RpcAcsRequest<DescribeSn
 		}
 	}
 
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,6 +123,17 @@ public class DescribeSnapshotMonitorDataRequest extends RpcAcsRequest<DescribeSn
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getCategory() {
+		return this.category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+		if(category != null){
+			putQueryParameter("Category", category);
 		}
 	}
 

@@ -15,6 +15,7 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
@@ -23,14 +24,22 @@ import com.aliyuncs.RpcAcsRequest;
 public class ListServiceLogRequest extends RpcAcsRequest<ListServiceLogResponse> {
 	
 	public ListServiceLogRequest() {
-		super("Emr", "2016-04-08", "ListServiceLog");
+		super("Emr", "2016-04-08", "ListServiceLog", "emr");
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private Long resourceOwnerId;
 
 	private String hostName;
 
+	private Integer maxKeys;
+
 	private String logstoreName;
+
+	private String marker;
 
 	private String clusterId;
 
@@ -56,6 +65,17 @@ public class ListServiceLogRequest extends RpcAcsRequest<ListServiceLogResponse>
 		}
 	}
 
+	public Integer getMaxKeys() {
+		return this.maxKeys;
+	}
+
+	public void setMaxKeys(Integer maxKeys) {
+		this.maxKeys = maxKeys;
+		if(maxKeys != null){
+			putQueryParameter("MaxKeys", maxKeys.toString());
+		}
+	}
+
 	public String getLogstoreName() {
 		return this.logstoreName;
 	}
@@ -64,6 +84,17 @@ public class ListServiceLogRequest extends RpcAcsRequest<ListServiceLogResponse>
 		this.logstoreName = logstoreName;
 		if(logstoreName != null){
 			putQueryParameter("LogstoreName", logstoreName);
+		}
+	}
+
+	public String getMarker() {
+		return this.marker;
+	}
+
+	public void setMarker(String marker) {
+		this.marker = marker;
+		if(marker != null){
+			putQueryParameter("Marker", marker);
 		}
 	}
 

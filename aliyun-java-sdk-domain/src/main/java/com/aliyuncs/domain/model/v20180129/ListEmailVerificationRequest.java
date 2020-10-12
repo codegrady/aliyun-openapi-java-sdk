@@ -15,40 +15,38 @@
 package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListEmailVerificationRequest extends RpcAcsRequest<ListEmailVerificationResponse> {
-	
-	public ListEmailVerificationRequest() {
-		super("Domain", "2018-01-29", "ListEmailVerification");
-	}
-
-	private Long beginCreateTime;
+	   
 
 	private Long endCreateTime;
 
-	private Integer pageSize;
-
-	private String lang;
-
 	private Integer pageNum;
-
-	private String email;
 
 	private Integer verificationStatus;
 
-	public Long getBeginCreateTime() {
-		return this.beginCreateTime;
-	}
+	private Long beginCreateTime;
 
-	public void setBeginCreateTime(Long beginCreateTime) {
-		this.beginCreateTime = beginCreateTime;
-		if(beginCreateTime != null){
-			putQueryParameter("BeginCreateTime", beginCreateTime.toString());
-		}
+	private Integer pageSize;
+
+	private String userClientIp;
+
+	private String lang;
+
+	private String email;
+	public ListEmailVerificationRequest() {
+		super("Domain", "2018-01-29", "ListEmailVerification", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getEndCreateTime() {
@@ -59,28 +57,6 @@ public class ListEmailVerificationRequest extends RpcAcsRequest<ListEmailVerific
 		this.endCreateTime = endCreateTime;
 		if(endCreateTime != null){
 			putQueryParameter("EndCreateTime", endCreateTime.toString());
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
-	public String getLang() {
-		return this.lang;
-	}
-
-	public void setLang(String lang) {
-		this.lang = lang;
-		if(lang != null){
-			putQueryParameter("Lang", lang);
 		}
 	}
 
@@ -95,17 +71,6 @@ public class ListEmailVerificationRequest extends RpcAcsRequest<ListEmailVerific
 		}
 	}
 
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-		if(email != null){
-			putQueryParameter("Email", email);
-		}
-	}
-
 	public Integer getVerificationStatus() {
 		return this.verificationStatus;
 	}
@@ -114,6 +79,61 @@ public class ListEmailVerificationRequest extends RpcAcsRequest<ListEmailVerific
 		this.verificationStatus = verificationStatus;
 		if(verificationStatus != null){
 			putQueryParameter("VerificationStatus", verificationStatus.toString());
+		}
+	}
+
+	public Long getBeginCreateTime() {
+		return this.beginCreateTime;
+	}
+
+	public void setBeginCreateTime(Long beginCreateTime) {
+		this.beginCreateTime = beginCreateTime;
+		if(beginCreateTime != null){
+			putQueryParameter("BeginCreateTime", beginCreateTime.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getUserClientIp() {
+		return this.userClientIp;
+	}
+
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
+		}
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+		if(email != null){
+			putQueryParameter("Email", email);
 		}
 	}
 

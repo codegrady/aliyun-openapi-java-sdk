@@ -15,42 +15,46 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class MigrateToOtherZoneRequest extends RpcAcsRequest<MigrateToOtherZoneResponse> {
-	
-	public MigrateToOtherZoneRequest() {
-		super("Rds", "2014-08-15", "MigrateToOtherZone", "rds");
-	}
-
-	private String vSwitchId;
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
+	private String zoneIdSlave1;
+
+	private String zoneIdSlave2;
 
 	private String effectiveTime;
 
-	private String ownerAccount;
-
-	private String zoneId;
-
 	private String dBInstanceId;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
 
 	private Long ownerId;
 
-	public String getVSwitchId() {
-		return this.vSwitchId;
-	}
+	private String vSwitchId;
 
-	public void setVSwitchId(String vSwitchId) {
-		this.vSwitchId = vSwitchId;
-		if(vSwitchId != null){
-			putQueryParameter("VSwitchId", vSwitchId);
-		}
+	private String vPCId;
+
+	private String zoneId;
+
+	private String category;
+	public MigrateToOtherZoneRequest() {
+		super("Rds", "2014-08-15", "MigrateToOtherZone", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -64,14 +68,25 @@ public class MigrateToOtherZoneRequest extends RpcAcsRequest<MigrateToOtherZoneR
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
+	public String getZoneIdSlave1() {
+		return this.zoneIdSlave1;
 	}
 
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public void setZoneIdSlave1(String zoneIdSlave1) {
+		this.zoneIdSlave1 = zoneIdSlave1;
+		if(zoneIdSlave1 != null){
+			putQueryParameter("ZoneIdSlave1", zoneIdSlave1);
+		}
+	}
+
+	public String getZoneIdSlave2() {
+		return this.zoneIdSlave2;
+	}
+
+	public void setZoneIdSlave2(String zoneIdSlave2) {
+		this.zoneIdSlave2 = zoneIdSlave2;
+		if(zoneIdSlave2 != null){
+			putQueryParameter("ZoneIdSlave2", zoneIdSlave2);
 		}
 	}
 
@@ -86,6 +101,28 @@ public class MigrateToOtherZoneRequest extends RpcAcsRequest<MigrateToOtherZoneR
 		}
 	}
 
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -94,6 +131,39 @@ public class MigrateToOtherZoneRequest extends RpcAcsRequest<MigrateToOtherZoneR
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
+	public String getVPCId() {
+		return this.vPCId;
+	}
+
+	public void setVPCId(String vPCId) {
+		this.vPCId = vPCId;
+		if(vPCId != null){
+			putQueryParameter("VPCId", vPCId);
 		}
 	}
 
@@ -108,25 +178,14 @@ public class MigrateToOtherZoneRequest extends RpcAcsRequest<MigrateToOtherZoneR
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
+	public String getCategory() {
+		return this.category;
 	}
 
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
+	public void setCategory(String category) {
+		this.category = category;
+		if(category != null){
+			putQueryParameter("Category", category);
 		}
 	}
 

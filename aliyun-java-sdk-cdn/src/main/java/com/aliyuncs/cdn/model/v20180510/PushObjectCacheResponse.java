@@ -26,7 +26,7 @@ public class PushObjectCacheResponse extends AcsResponse {
 
 	private String requestId;
 
-	private String preloadTaskId;
+	private String pushTaskId;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -36,12 +36,12 @@ public class PushObjectCacheResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getPreloadTaskId() {
-		return this.preloadTaskId;
+	public String getPushTaskId() {
+		return this.pushTaskId;
 	}
 
-	public void setPreloadTaskId(String preloadTaskId) {
-		this.preloadTaskId = preloadTaskId;
+	public void setPushTaskId(String pushTaskId) {
+		this.pushTaskId = pushTaskId;
 	}
 
 	@Override

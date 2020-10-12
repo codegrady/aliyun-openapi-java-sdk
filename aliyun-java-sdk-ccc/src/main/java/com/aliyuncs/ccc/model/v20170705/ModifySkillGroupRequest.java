@@ -16,16 +16,23 @@ package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifySkillGroupRequest extends RpcAcsRequest<ModifySkillGroupResponse> {
-	
-	public ModifySkillGroupRequest() {
-		super("CCC", "2017-07-05", "ModifySkillGroup", "ccc");
-	}
+	   
+
+	private Boolean allowPrivateOutboundNumber;
+
+	private String description;
+
+	private String routingStrategy;
+
+	private List<String> userIds;
 
 	private List<Integer> skillLevels;
 
@@ -36,10 +43,60 @@ public class ModifySkillGroupRequest extends RpcAcsRequest<ModifySkillGroupRespo
 	private String skillGroupId;
 
 	private String name;
+	public ModifySkillGroupRequest() {
+		super("CCC", "2017-07-05", "ModifySkillGroup", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String description;
+	public Boolean getAllowPrivateOutboundNumber() {
+		return this.allowPrivateOutboundNumber;
+	}
 
-	private List<String> userIds;
+	public void setAllowPrivateOutboundNumber(Boolean allowPrivateOutboundNumber) {
+		this.allowPrivateOutboundNumber = allowPrivateOutboundNumber;
+		if(allowPrivateOutboundNumber != null){
+			putQueryParameter("AllowPrivateOutboundNumber", allowPrivateOutboundNumber.toString());
+		}
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getRoutingStrategy() {
+		return this.routingStrategy;
+	}
+
+	public void setRoutingStrategy(String routingStrategy) {
+		this.routingStrategy = routingStrategy;
+		if(routingStrategy != null){
+			putQueryParameter("RoutingStrategy", routingStrategy);
+		}
+	}
+
+	public List<String> getUserIds() {
+		return this.userIds;
+	}
+
+	public void setUserIds(List<String> userIds) {
+		this.userIds = userIds;	
+		if (userIds != null) {
+			for (int i = 0; i < userIds.size(); i++) {
+				putQueryParameter("UserId." + (i + 1) , userIds.get(i));
+			}
+		}	
+	}
 
 	public List<Integer> getSkillLevels() {
 		return this.skillLevels;
@@ -98,30 +155,6 @@ public class ModifySkillGroupRequest extends RpcAcsRequest<ModifySkillGroupRespo
 		if(name != null){
 			putQueryParameter("Name", name);
 		}
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
-		}
-	}
-
-	public List<String> getUserIds() {
-		return this.userIds;
-	}
-
-	public void setUserIds(List<String> userIds) {
-		this.userIds = userIds;	
-		if (userIds != null) {
-			for (int i = 0; i < userIds.size(); i++) {
-				putQueryParameter("UserId." + (i + 1) , userIds.get(i));
-			}
-		}	
 	}
 
 	@Override

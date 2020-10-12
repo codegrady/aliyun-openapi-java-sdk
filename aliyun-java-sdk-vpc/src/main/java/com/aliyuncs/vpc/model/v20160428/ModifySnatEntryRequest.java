@@ -15,18 +15,23 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifySnatEntryRequest extends RpcAcsRequest<ModifySnatEntryResponse> {
-	
-	public ModifySnatEntryRequest() {
-		super("Vpc", "2016-04-28", "ModifySnatEntry", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String clientToken;
+
+	private String snatIp;
+
+	private String snatEntryId;
 
 	private String resourceOwnerAccount;
 
@@ -34,11 +39,17 @@ public class ModifySnatEntryRequest extends RpcAcsRequest<ModifySnatEntryRespons
 
 	private String snatTableId;
 
-	private String snatEntryId;
-
 	private Long ownerId;
 
-	private String snatIp;
+	private String snatEntryName;
+	public ModifySnatEntryRequest() {
+		super("Vpc", "2016-04-28", "ModifySnatEntry", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -48,6 +59,39 @@ public class ModifySnatEntryRequest extends RpcAcsRequest<ModifySnatEntryRespons
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getSnatIp() {
+		return this.snatIp;
+	}
+
+	public void setSnatIp(String snatIp) {
+		this.snatIp = snatIp;
+		if(snatIp != null){
+			putQueryParameter("SnatIp", snatIp);
+		}
+	}
+
+	public String getSnatEntryId() {
+		return this.snatEntryId;
+	}
+
+	public void setSnatEntryId(String snatEntryId) {
+		this.snatEntryId = snatEntryId;
+		if(snatEntryId != null){
+			putQueryParameter("SnatEntryId", snatEntryId);
 		}
 	}
 
@@ -84,17 +128,6 @@ public class ModifySnatEntryRequest extends RpcAcsRequest<ModifySnatEntryRespons
 		}
 	}
 
-	public String getSnatEntryId() {
-		return this.snatEntryId;
-	}
-
-	public void setSnatEntryId(String snatEntryId) {
-		this.snatEntryId = snatEntryId;
-		if(snatEntryId != null){
-			putQueryParameter("SnatEntryId", snatEntryId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -106,14 +139,14 @@ public class ModifySnatEntryRequest extends RpcAcsRequest<ModifySnatEntryRespons
 		}
 	}
 
-	public String getSnatIp() {
-		return this.snatIp;
+	public String getSnatEntryName() {
+		return this.snatEntryName;
 	}
 
-	public void setSnatIp(String snatIp) {
-		this.snatIp = snatIp;
-		if(snatIp != null){
-			putQueryParameter("SnatIp", snatIp);
+	public void setSnatEntryName(String snatEntryName) {
+		this.snatEntryName = snatEntryName;
+		if(snatEntryName != null){
+			putQueryParameter("SnatEntryName", snatEntryName);
 		}
 	}
 

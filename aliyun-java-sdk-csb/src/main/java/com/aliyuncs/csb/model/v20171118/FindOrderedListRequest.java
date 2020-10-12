@@ -16,17 +16,15 @@ package com.aliyuncs.csb.model.v20171118;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.csb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class FindOrderedListRequest extends RpcAcsRequest<FindOrderedListResponse> {
-	
-	public FindOrderedListRequest() {
-		super("CSB", "2017-11-18", "FindOrderedList");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private String projectName;
 
@@ -34,15 +32,26 @@ public class FindOrderedListRequest extends RpcAcsRequest<FindOrderedListRespons
 
 	private Long csbId;
 
+	private Integer pageNum;
+
+	private String credentialGroupName;
+
 	private String alias;
 
 	private String serviceName;
 
-	private Integer pageNum;
-
 	private Long serviceId;
 
 	private String status;
+	public FindOrderedListRequest() {
+		super("CSB", "2017-11-18", "FindOrderedList");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProjectName() {
 		return this.projectName;
@@ -77,6 +86,28 @@ public class FindOrderedListRequest extends RpcAcsRequest<FindOrderedListRespons
 		}
 	}
 
+	public Integer getPageNum() {
+		return this.pageNum;
+	}
+
+	public void setPageNum(Integer pageNum) {
+		this.pageNum = pageNum;
+		if(pageNum != null){
+			putQueryParameter("PageNum", pageNum.toString());
+		}
+	}
+
+	public String getCredentialGroupName() {
+		return this.credentialGroupName;
+	}
+
+	public void setCredentialGroupName(String credentialGroupName) {
+		this.credentialGroupName = credentialGroupName;
+		if(credentialGroupName != null){
+			putQueryParameter("CredentialGroupName", credentialGroupName);
+		}
+	}
+
 	public String getAlias() {
 		return this.alias;
 	}
@@ -96,17 +127,6 @@ public class FindOrderedListRequest extends RpcAcsRequest<FindOrderedListRespons
 		this.serviceName = serviceName;
 		if(serviceName != null){
 			putQueryParameter("ServiceName", serviceName);
-		}
-	}
-
-	public Integer getPageNum() {
-		return this.pageNum;
-	}
-
-	public void setPageNum(Integer pageNum) {
-		this.pageNum = pageNum;
-		if(pageNum != null){
-			putQueryParameter("PageNum", pageNum.toString());
 		}
 	}
 

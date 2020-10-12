@@ -107,6 +107,36 @@ public class DescribeSmartAccessGatewaysResponse extends AcsResponse {
 
 		private Integer securityLockThreshold;
 
+		private String aclIds;
+
+		private Long dataPlan;
+
+		private Integer userCount;
+
+		private String routingStrategy;
+
+		private Integer upBandwidthWan;
+
+		private Integer upBandwidth4G;
+
+		private String qosIds;
+
+		private String backupSoftwareVersion;
+
+		private Long smartAGUid;
+
+		private String backupStatus;
+
+		private String resourceGroupId;
+
+		private String vpnStatus;
+
+		private String ipsecStatus;
+
+		private String accessPointId;
+
+		private List<Link> links;
+
 		public String getSmartAGId() {
 			return this.smartAGId;
 		}
@@ -225,6 +255,209 @@ public class DescribeSmartAccessGatewaysResponse extends AcsResponse {
 
 		public void setSecurityLockThreshold(Integer securityLockThreshold) {
 			this.securityLockThreshold = securityLockThreshold;
+		}
+
+		public String getAclIds() {
+			return this.aclIds;
+		}
+
+		public void setAclIds(String aclIds) {
+			this.aclIds = aclIds;
+		}
+
+		public Long getDataPlan() {
+			return this.dataPlan;
+		}
+
+		public void setDataPlan(Long dataPlan) {
+			this.dataPlan = dataPlan;
+		}
+
+		public Integer getUserCount() {
+			return this.userCount;
+		}
+
+		public void setUserCount(Integer userCount) {
+			this.userCount = userCount;
+		}
+
+		public String getRoutingStrategy() {
+			return this.routingStrategy;
+		}
+
+		public void setRoutingStrategy(String routingStrategy) {
+			this.routingStrategy = routingStrategy;
+		}
+
+		public Integer getUpBandwidthWan() {
+			return this.upBandwidthWan;
+		}
+
+		public void setUpBandwidthWan(Integer upBandwidthWan) {
+			this.upBandwidthWan = upBandwidthWan;
+		}
+
+		public Integer getUpBandwidth4G() {
+			return this.upBandwidth4G;
+		}
+
+		public void setUpBandwidth4G(Integer upBandwidth4G) {
+			this.upBandwidth4G = upBandwidth4G;
+		}
+
+		public String getQosIds() {
+			return this.qosIds;
+		}
+
+		public void setQosIds(String qosIds) {
+			this.qosIds = qosIds;
+		}
+
+		public String getBackupSoftwareVersion() {
+			return this.backupSoftwareVersion;
+		}
+
+		public void setBackupSoftwareVersion(String backupSoftwareVersion) {
+			this.backupSoftwareVersion = backupSoftwareVersion;
+		}
+
+		public Long getSmartAGUid() {
+			return this.smartAGUid;
+		}
+
+		public void setSmartAGUid(Long smartAGUid) {
+			this.smartAGUid = smartAGUid;
+		}
+
+		public String getBackupStatus() {
+			return this.backupStatus;
+		}
+
+		public void setBackupStatus(String backupStatus) {
+			this.backupStatus = backupStatus;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public String getVpnStatus() {
+			return this.vpnStatus;
+		}
+
+		public void setVpnStatus(String vpnStatus) {
+			this.vpnStatus = vpnStatus;
+		}
+
+		public String getIpsecStatus() {
+			return this.ipsecStatus;
+		}
+
+		public void setIpsecStatus(String ipsecStatus) {
+			this.ipsecStatus = ipsecStatus;
+		}
+
+		public String getAccessPointId() {
+			return this.accessPointId;
+		}
+
+		public void setAccessPointId(String accessPointId) {
+			this.accessPointId = accessPointId;
+		}
+
+		public List<Link> getLinks() {
+			return this.links;
+		}
+
+		public void setLinks(List<Link> links) {
+			this.links = links;
+		}
+
+		public static class Link {
+
+			private String instanceId;
+
+			private String type;
+
+			private String status;
+
+			private Long endTime;
+
+			private String bandwidth;
+
+			private String relateInstanceId;
+
+			private String relateInstanceRegionId;
+
+			private String commodityType;
+
+			public String getInstanceId() {
+				return this.instanceId;
+			}
+
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
+			}
+
+			public String getType() {
+				return this.type;
+			}
+
+			public void setType(String type) {
+				this.type = type;
+			}
+
+			public String getStatus() {
+				return this.status;
+			}
+
+			public void setStatus(String status) {
+				this.status = status;
+			}
+
+			public Long getEndTime() {
+				return this.endTime;
+			}
+
+			public void setEndTime(Long endTime) {
+				this.endTime = endTime;
+			}
+
+			public String getBandwidth() {
+				return this.bandwidth;
+			}
+
+			public void setBandwidth(String bandwidth) {
+				this.bandwidth = bandwidth;
+			}
+
+			public String getRelateInstanceId() {
+				return this.relateInstanceId;
+			}
+
+			public void setRelateInstanceId(String relateInstanceId) {
+				this.relateInstanceId = relateInstanceId;
+			}
+
+			public String getRelateInstanceRegionId() {
+				return this.relateInstanceRegionId;
+			}
+
+			public void setRelateInstanceRegionId(String relateInstanceRegionId) {
+				this.relateInstanceRegionId = relateInstanceRegionId;
+			}
+
+			public String getCommodityType() {
+				return this.commodityType;
+			}
+
+			public void setCommodityType(String commodityType) {
+				this.commodityType = commodityType;
+			}
 		}
 	}
 

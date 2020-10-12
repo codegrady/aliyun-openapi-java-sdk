@@ -11,32 +11,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.model.v20170626;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.nas.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRegionsRequest extends RpcAcsRequest<DescribeRegionsResponse> {
-	
-	public DescribeRegionsRequest() {
-		super("NAS", "2017-06-26", "DescribeRegions", "nas");
-	}
+	   
 
-	private Integer pageSize;
+	private String fileSystemType;
 
 	private Integer pageNumber;
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	private Integer pageSize;
+	public DescribeRegionsRequest() {
+		super("NAS", "2017-06-26", "DescribeRegions");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
+	public String getFileSystemType() {
+		return this.fileSystemType;
+	}
+
+	public void setFileSystemType(String fileSystemType) {
+		this.fileSystemType = fileSystemType;
+		if(fileSystemType != null){
+			putQueryParameter("FileSystemType", fileSystemType);
 		}
 	}
 
@@ -48,6 +58,17 @@ public class DescribeRegionsRequest extends RpcAcsRequest<DescribeRegionsRespons
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

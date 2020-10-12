@@ -15,24 +15,25 @@
 package com.aliyuncs.polardb.model.v20170801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.polardb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyResponse> {
-	
-	public ModifyBackupPolicyRequest() {
-		super("polardb", "2017-08-01", "ModifyBackupPolicy", "polardb");
-	}
+	   
 
-	private String preferredBackupTime;
+	private Long resourceOwnerId;
+
+	private String dataLevel2BackupRetentionPeriod;
 
 	private String preferredBackupPeriod;
 
-	private String backupRetentionPeriod;
+	private String dataLevel1BackupRetentionPeriod;
 
-	private Long resourceOwnerId;
+	private String backupRetentionPolicyOnClusterDeletion;
 
 	private String resourceOwnerAccount;
 
@@ -42,14 +43,35 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 
 	private Long ownerId;
 
-	public String getPreferredBackupTime() {
-		return this.preferredBackupTime;
+	private String preferredBackupTime;
+	public ModifyBackupPolicyRequest() {
+		super("polardb", "2017-08-01", "ModifyBackupPolicy", "polardb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setPreferredBackupTime(String preferredBackupTime) {
-		this.preferredBackupTime = preferredBackupTime;
-		if(preferredBackupTime != null){
-			putQueryParameter("PreferredBackupTime", preferredBackupTime);
+	public Long getResourceOwnerId() {
+		return this.resourceOwnerId;
+	}
+
+	public void setResourceOwnerId(Long resourceOwnerId) {
+		this.resourceOwnerId = resourceOwnerId;
+		if(resourceOwnerId != null){
+			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getDataLevel2BackupRetentionPeriod() {
+		return this.dataLevel2BackupRetentionPeriod;
+	}
+
+	public void setDataLevel2BackupRetentionPeriod(String dataLevel2BackupRetentionPeriod) {
+		this.dataLevel2BackupRetentionPeriod = dataLevel2BackupRetentionPeriod;
+		if(dataLevel2BackupRetentionPeriod != null){
+			putQueryParameter("DataLevel2BackupRetentionPeriod", dataLevel2BackupRetentionPeriod);
 		}
 	}
 
@@ -64,25 +86,25 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		}
 	}
 
-	public String getBackupRetentionPeriod() {
-		return this.backupRetentionPeriod;
+	public String getDataLevel1BackupRetentionPeriod() {
+		return this.dataLevel1BackupRetentionPeriod;
 	}
 
-	public void setBackupRetentionPeriod(String backupRetentionPeriod) {
-		this.backupRetentionPeriod = backupRetentionPeriod;
-		if(backupRetentionPeriod != null){
-			putQueryParameter("BackupRetentionPeriod", backupRetentionPeriod);
+	public void setDataLevel1BackupRetentionPeriod(String dataLevel1BackupRetentionPeriod) {
+		this.dataLevel1BackupRetentionPeriod = dataLevel1BackupRetentionPeriod;
+		if(dataLevel1BackupRetentionPeriod != null){
+			putQueryParameter("DataLevel1BackupRetentionPeriod", dataLevel1BackupRetentionPeriod);
 		}
 	}
 
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
+	public String getBackupRetentionPolicyOnClusterDeletion() {
+		return this.backupRetentionPolicyOnClusterDeletion;
 	}
 
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+	public void setBackupRetentionPolicyOnClusterDeletion(String backupRetentionPolicyOnClusterDeletion) {
+		this.backupRetentionPolicyOnClusterDeletion = backupRetentionPolicyOnClusterDeletion;
+		if(backupRetentionPolicyOnClusterDeletion != null){
+			putQueryParameter("BackupRetentionPolicyOnClusterDeletion", backupRetentionPolicyOnClusterDeletion);
 		}
 	}
 
@@ -127,6 +149,17 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getPreferredBackupTime() {
+		return this.preferredBackupTime;
+	}
+
+	public void setPreferredBackupTime(String preferredBackupTime) {
+		this.preferredBackupTime = preferredBackupTime;
+		if(preferredBackupTime != null){
+			putQueryParameter("PreferredBackupTime", preferredBackupTime);
 		}
 	}
 

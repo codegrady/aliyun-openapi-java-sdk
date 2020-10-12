@@ -15,26 +15,33 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteDiskRequest extends RpcAcsRequest<DeleteDiskResponse> {
-	
-	public DeleteDiskRequest() {
-		super("Ecs", "2014-05-26", "DeleteDisk", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String diskId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String diskId;
-
 	private Long ownerId;
+	public DeleteDiskRequest() {
+		super("Ecs", "2014-05-26", "DeleteDisk", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -44,6 +51,17 @@ public class DeleteDiskRequest extends RpcAcsRequest<DeleteDiskResponse> {
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getDiskId() {
+		return this.diskId;
+	}
+
+	public void setDiskId(String diskId) {
+		this.diskId = diskId;
+		if(diskId != null){
+			putQueryParameter("DiskId", diskId);
 		}
 	}
 
@@ -66,17 +84,6 @@ public class DeleteDiskRequest extends RpcAcsRequest<DeleteDiskResponse> {
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getDiskId() {
-		return this.diskId;
-	}
-
-	public void setDiskId(String diskId) {
-		this.diskId = diskId;
-		if(diskId != null){
-			putQueryParameter("DiskId", diskId);
 		}
 	}
 

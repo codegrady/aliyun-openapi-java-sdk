@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.DeleteApiGroupResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteApiGroupResponseUnmarshaller {
 
-	public static DeleteApiGroupResponse unmarshall(DeleteApiGroupResponse deleteApiGroupResponse, UnmarshallerContext context) {
+	public static DeleteApiGroupResponse unmarshall(DeleteApiGroupResponse deleteApiGroupResponse, UnmarshallerContext _ctx) {
 		
-		deleteApiGroupResponse.setRequestId(context.stringValue("DeleteApiGroupResponse.RequestId"));
+		deleteApiGroupResponse.setRequestId(_ctx.stringValue("DeleteApiGroupResponse.RequestId"));
 	 
 	 	return deleteApiGroupResponse;
 	}

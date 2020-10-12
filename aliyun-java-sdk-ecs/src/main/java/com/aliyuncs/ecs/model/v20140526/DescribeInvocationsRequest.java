@@ -15,24 +15,27 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeInvocationsRequest extends RpcAcsRequest<DescribeInvocationsResponse> {
-	
-	public DescribeInvocationsRequest() {
-		super("Ecs", "2014-05-26", "DescribeInvocations", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String invokeStatus;
 
+	private Boolean includeOutput;
+
 	private String commandId;
 
 	private Long pageNumber;
+
+	private String contentEncoding;
 
 	private Long pageSize;
 
@@ -51,6 +54,14 @@ public class DescribeInvocationsRequest extends RpcAcsRequest<DescribeInvocation
 	private String commandType;
 
 	private String instanceId;
+	public DescribeInvocationsRequest() {
+		super("Ecs", "2014-05-26", "DescribeInvocations", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -74,6 +85,17 @@ public class DescribeInvocationsRequest extends RpcAcsRequest<DescribeInvocation
 		}
 	}
 
+	public Boolean getIncludeOutput() {
+		return this.includeOutput;
+	}
+
+	public void setIncludeOutput(Boolean includeOutput) {
+		this.includeOutput = includeOutput;
+		if(includeOutput != null){
+			putQueryParameter("IncludeOutput", includeOutput.toString());
+		}
+	}
+
 	public String getCommandId() {
 		return this.commandId;
 	}
@@ -93,6 +115,17 @@ public class DescribeInvocationsRequest extends RpcAcsRequest<DescribeInvocation
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getContentEncoding() {
+		return this.contentEncoding;
+	}
+
+	public void setContentEncoding(String contentEncoding) {
+		this.contentEncoding = contentEncoding;
+		if(contentEncoding != null){
+			putQueryParameter("ContentEncoding", contentEncoding);
 		}
 	}
 

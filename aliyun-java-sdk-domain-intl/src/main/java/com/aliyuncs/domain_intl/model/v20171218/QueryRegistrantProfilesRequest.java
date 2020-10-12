@@ -34,11 +34,19 @@ public class QueryRegistrantProfilesRequest extends RpcAcsRequest<QueryRegistran
 
 	private Integer pageSize;
 
+	private String registrantType;
+
+	private String registrantProfileType;
+
+	private String realNameStatus;
+
 	private String lang;
 
 	private Integer pageNum;
 
 	private Boolean defaultRegistrantProfile;
+
+	private String email;
 
 	public String getRegistrantOrganization() {
 		return this.registrantOrganization;
@@ -84,6 +92,39 @@ public class QueryRegistrantProfilesRequest extends RpcAcsRequest<QueryRegistran
 		}
 	}
 
+	public String getRegistrantType() {
+		return this.registrantType;
+	}
+
+	public void setRegistrantType(String registrantType) {
+		this.registrantType = registrantType;
+		if(registrantType != null){
+			putQueryParameter("RegistrantType", registrantType);
+		}
+	}
+
+	public String getRegistrantProfileType() {
+		return this.registrantProfileType;
+	}
+
+	public void setRegistrantProfileType(String registrantProfileType) {
+		this.registrantProfileType = registrantProfileType;
+		if(registrantProfileType != null){
+			putQueryParameter("RegistrantProfileType", registrantProfileType);
+		}
+	}
+
+	public String getRealNameStatus() {
+		return this.realNameStatus;
+	}
+
+	public void setRealNameStatus(String realNameStatus) {
+		this.realNameStatus = realNameStatus;
+		if(realNameStatus != null){
+			putQueryParameter("RealNameStatus", realNameStatus);
+		}
+	}
+
 	public String getLang() {
 		return this.lang;
 	}
@@ -114,6 +155,17 @@ public class QueryRegistrantProfilesRequest extends RpcAcsRequest<QueryRegistran
 		this.defaultRegistrantProfile = defaultRegistrantProfile;
 		if(defaultRegistrantProfile != null){
 			putQueryParameter("DefaultRegistrantProfile", defaultRegistrantProfile.toString());
+		}
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+		if(email != null){
+			putQueryParameter("Email", email);
 		}
 	}
 

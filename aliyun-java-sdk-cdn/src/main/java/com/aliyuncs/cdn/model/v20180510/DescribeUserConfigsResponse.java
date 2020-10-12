@@ -50,6 +50,8 @@ public class DescribeUserConfigsResponse extends AcsResponse {
 
 		private GreenManagerConfig greenManagerConfig;
 
+		private WafConfig wafConfig;
+
 		public OssLogConfig getOssLogConfig() {
 			return this.ossLogConfig;
 		}
@@ -64,6 +66,14 @@ public class DescribeUserConfigsResponse extends AcsResponse {
 
 		public void setGreenManagerConfig(GreenManagerConfig greenManagerConfig) {
 			this.greenManagerConfig = greenManagerConfig;
+		}
+
+		public WafConfig getWafConfig() {
+			return this.wafConfig;
+		}
+
+		public void setWafConfig(WafConfig wafConfig) {
+			this.wafConfig = wafConfig;
 		}
 
 		public static class OssLogConfig {
@@ -119,6 +129,19 @@ public class DescribeUserConfigsResponse extends AcsResponse {
 
 			public void setRatio(String ratio) {
 				this.ratio = ratio;
+			}
+		}
+
+		public static class WafConfig {
+
+			private String enable;
+
+			public String getEnable() {
+				return this.enable;
+			}
+
+			public void setEnable(String enable) {
+				this.enable = enable;
 			}
 		}
 	}

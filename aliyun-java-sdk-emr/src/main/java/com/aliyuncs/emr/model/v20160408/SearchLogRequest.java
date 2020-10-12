@@ -15,20 +15,21 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SearchLogRequest extends RpcAcsRequest<SearchLogResponse> {
-	
-	public SearchLogRequest() {
-		super("Emr", "2016-04-08", "SearchLog");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String hostInnerIp;
+	private Integer line;
+
+	private String hostName;
 
 	private String logstoreName;
 
@@ -36,15 +37,23 @@ public class SearchLogRequest extends RpcAcsRequest<SearchLogResponse> {
 
 	private Integer offset;
 
-	private Integer line;
+	private String clusterId;
+
+	private Boolean reverse;
+
+	private String hostInnerIp;
 
 	private Integer toTimestamp;
 
 	private String slsQueryString;
-
-	private String clusterId;
-
-	private Boolean reverse;
+	public SearchLogRequest() {
+		super("Emr", "2016-04-08", "SearchLog");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -57,14 +66,25 @@ public class SearchLogRequest extends RpcAcsRequest<SearchLogResponse> {
 		}
 	}
 
-	public String getHostInnerIp() {
-		return this.hostInnerIp;
+	public Integer getLine() {
+		return this.line;
 	}
 
-	public void setHostInnerIp(String hostInnerIp) {
-		this.hostInnerIp = hostInnerIp;
-		if(hostInnerIp != null){
-			putQueryParameter("HostInnerIp", hostInnerIp);
+	public void setLine(Integer line) {
+		this.line = line;
+		if(line != null){
+			putQueryParameter("Line", line.toString());
+		}
+	}
+
+	public String getHostName() {
+		return this.hostName;
+	}
+
+	public void setHostName(String hostName) {
+		this.hostName = hostName;
+		if(hostName != null){
+			putQueryParameter("HostName", hostName);
 		}
 	}
 
@@ -101,14 +121,36 @@ public class SearchLogRequest extends RpcAcsRequest<SearchLogResponse> {
 		}
 	}
 
-	public Integer getLine() {
-		return this.line;
+	public String getClusterId() {
+		return this.clusterId;
 	}
 
-	public void setLine(Integer line) {
-		this.line = line;
-		if(line != null){
-			putQueryParameter("Line", line.toString());
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public Boolean getReverse() {
+		return this.reverse;
+	}
+
+	public void setReverse(Boolean reverse) {
+		this.reverse = reverse;
+		if(reverse != null){
+			putQueryParameter("Reverse", reverse.toString());
+		}
+	}
+
+	public String getHostInnerIp() {
+		return this.hostInnerIp;
+	}
+
+	public void setHostInnerIp(String hostInnerIp) {
+		this.hostInnerIp = hostInnerIp;
+		if(hostInnerIp != null){
+			putQueryParameter("HostInnerIp", hostInnerIp);
 		}
 	}
 
@@ -131,28 +173,6 @@ public class SearchLogRequest extends RpcAcsRequest<SearchLogResponse> {
 		this.slsQueryString = slsQueryString;
 		if(slsQueryString != null){
 			putQueryParameter("SlsQueryString", slsQueryString);
-		}
-	}
-
-	public String getClusterId() {
-		return this.clusterId;
-	}
-
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putQueryParameter("ClusterId", clusterId);
-		}
-	}
-
-	public Boolean getReverse() {
-		return this.reverse;
-	}
-
-	public void setReverse(Boolean reverse) {
-		this.reverse = reverse;
-		if(reverse != null){
-			putQueryParameter("Reverse", reverse.toString());
 		}
 	}
 

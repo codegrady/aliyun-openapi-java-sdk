@@ -18,28 +18,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.emr.model.v20160408.DescribeFlowNodeInstanceContainerLogResponse;
-import com.aliyuncs.emr.model.v20160408.DescribeFlowNodeInstanceContainerLogResponse.Log;
-import com.aliyuncs.emr.model.v20160408.DescribeFlowNodeInstanceContainerLogResponse.Log.LogEntry;
+import com.aliyuncs.emr.model.v20160408.DescribeFlowNodeInstanceContainerLogResponse.LogEntry;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeFlowNodeInstanceContainerLogResponseUnmarshaller {
 
-	public static DescribeFlowNodeInstanceContainerLogResponse unmarshall(DescribeFlowNodeInstanceContainerLogResponse describeFlowNodeInstanceContainerLogResponse, UnmarshallerContext context) {
+	public static DescribeFlowNodeInstanceContainerLogResponse unmarshall(DescribeFlowNodeInstanceContainerLogResponse describeFlowNodeInstanceContainerLogResponse, UnmarshallerContext _ctx) {
 		
-		describeFlowNodeInstanceContainerLogResponse.setRequestId(context.stringValue("DescribeFlowNodeInstanceContainerLogResponse.RequestId"));
+		describeFlowNodeInstanceContainerLogResponse.setRequestId(_ctx.stringValue("DescribeFlowNodeInstanceContainerLogResponse.RequestId"));
+		describeFlowNodeInstanceContainerLogResponse.setLogEnd(_ctx.booleanValue("DescribeFlowNodeInstanceContainerLogResponse.LogEnd"));
 
-		List<Log> logs = new ArrayList<Log>();
-		for (int i = 0; i < context.lengthValue("DescribeFlowNodeInstanceContainerLogResponse.Logs.Length"); i++) {
-			Log log = new Log();
-
+		List<LogEntry> logEntrys = new ArrayList<LogEntry>();
+		for (int i = 0; i < _ctx.lengthValue("DescribeFlowNodeInstanceContainerLogResponse.LogEntrys.Length"); i++) {
 			LogEntry logEntry = new LogEntry();
-			logEntry.setContent(context.stringValue("DescribeFlowNodeInstanceContainerLogResponse.Logs["+ i +"].LogEntry.Content"));
-			log.setLogEntry(logEntry);
+			logEntry.setContent(_ctx.stringValue("DescribeFlowNodeInstanceContainerLogResponse.LogEntrys["+ i +"].Content"));
 
-			logs.add(log);
+			logEntrys.add(logEntry);
 		}
-		describeFlowNodeInstanceContainerLogResponse.setLogs(logs);
+		describeFlowNodeInstanceContainerLogResponse.setLogEntrys(logEntrys);
 	 
 	 	return describeFlowNodeInstanceContainerLogResponse;
 	}

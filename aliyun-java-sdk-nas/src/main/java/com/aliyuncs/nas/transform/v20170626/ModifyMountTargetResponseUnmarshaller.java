@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.transform.v20170626;
 
 import com.aliyuncs.nas.model.v20170626.ModifyMountTargetResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ModifyMountTargetResponseUnmarshaller {
 
-	public static ModifyMountTargetResponse unmarshall(ModifyMountTargetResponse modifyMountTargetResponse, UnmarshallerContext context) {
+	public static ModifyMountTargetResponse unmarshall(ModifyMountTargetResponse modifyMountTargetResponse, UnmarshallerContext _ctx) {
 		
-		modifyMountTargetResponse.setRequestId(context.stringValue("ModifyMountTargetResponse.RequestId"));
+		modifyMountTargetResponse.setRequestId(_ctx.stringValue("ModifyMountTargetResponse.RequestId"));
 	 
 	 	return modifyMountTargetResponse;
 	}

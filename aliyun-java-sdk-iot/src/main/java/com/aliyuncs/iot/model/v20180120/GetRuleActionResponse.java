@@ -84,6 +84,8 @@ public class GetRuleActionResponse extends AcsResponse {
 
 		private String configuration;
 
+		private Boolean errorActionFlag;
+
 		public Long getId() {
 			return this.id;
 		}
@@ -114,6 +116,14 @@ public class GetRuleActionResponse extends AcsResponse {
 
 		public void setConfiguration(String configuration) {
 			this.configuration = configuration;
+		}
+
+		public Boolean getErrorActionFlag() {
+			return this.errorActionFlag;
+		}
+
+		public void setErrorActionFlag(Boolean errorActionFlag) {
+			this.errorActionFlag = errorActionFlag;
 		}
 	}
 

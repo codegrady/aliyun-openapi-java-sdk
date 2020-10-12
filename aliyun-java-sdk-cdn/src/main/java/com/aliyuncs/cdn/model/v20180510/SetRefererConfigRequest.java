@@ -15,30 +15,37 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetRefererConfigRequest extends RpcAcsRequest<SetRefererConfigResponse> {
-	
-	public SetRefererConfigRequest() {
-		super("Cdn", "2018-05-10", "SetRefererConfig");
-	}
+	   
 
 	private String referList;
 
 	private String securityToken;
 
-	private String domainName;
-
 	private String referType;
 
 	private String disableAst;
 
+	private String domainName;
+
 	private Long ownerId;
 
 	private String allowEmpty;
+	public SetRefererConfigRequest() {
+		super("Cdn", "2018-05-10", "SetRefererConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getReferList() {
 		return this.referList;
@@ -62,17 +69,6 @@ public class SetRefererConfigRequest extends RpcAcsRequest<SetRefererConfigRespo
 		}
 	}
 
-	public String getDomainName() {
-		return this.domainName;
-	}
-
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
-		if(domainName != null){
-			putQueryParameter("DomainName", domainName);
-		}
-	}
-
 	public String getReferType() {
 		return this.referType;
 	}
@@ -92,6 +88,17 @@ public class SetRefererConfigRequest extends RpcAcsRequest<SetRefererConfigRespo
 		this.disableAst = disableAst;
 		if(disableAst != null){
 			putQueryParameter("DisableAst", disableAst);
+		}
+	}
+
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
 		}
 	}
 

@@ -18,19 +18,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.ecs.model.v20140526.AllocateDedicatedHostsResponse;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class AllocateDedicatedHostsResponseUnmarshaller {
 
-	public static AllocateDedicatedHostsResponse unmarshall(AllocateDedicatedHostsResponse allocateDedicatedHostsResponse, UnmarshallerContext context) {
+	public static AllocateDedicatedHostsResponse unmarshall(AllocateDedicatedHostsResponse allocateDedicatedHostsResponse, UnmarshallerContext _ctx) {
 		
-		allocateDedicatedHostsResponse.setRequestId(context.stringValue("AllocateDedicatedHostsResponse.RequestId"));
+		allocateDedicatedHostsResponse.setRequestId(_ctx.stringValue("AllocateDedicatedHostsResponse.RequestId"));
 
 		List<String> dedicatedHostIdSets = new ArrayList<String>();
-		for (int i = 0; i < context.lengthValue("AllocateDedicatedHostsResponse.DedicatedHostIdSets.Length"); i++) {
-			dedicatedHostIdSets.add(context.stringValue("AllocateDedicatedHostsResponse.DedicatedHostIdSets["+ i +"]"));
+		for (int i = 0; i < _ctx.lengthValue("AllocateDedicatedHostsResponse.DedicatedHostIdSets.Length"); i++) {
+			dedicatedHostIdSets.add(_ctx.stringValue("AllocateDedicatedHostsResponse.DedicatedHostIdSets["+ i +"]"));
 		}
 		allocateDedicatedHostsResponse.setDedicatedHostIdSets(dedicatedHostIdSets);
 	 

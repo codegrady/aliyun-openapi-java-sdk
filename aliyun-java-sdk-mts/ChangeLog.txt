@@ -1,3 +1,24 @@
+2020-04-20 Version: 2.7.5
+- Add TemplateId.
+
+2020-04-16 Version: 2.7.4
+- Modify `SubmitSmarttagJob`.
+
+2019-11-20 Version: 2.7.3
+- Generated 2014-06-18 for `Mts`.
+
+2019-06-20 Version: 2.7.2
+- Support audio media info for audio dna compare.
+
+2019-06-20 Version: 2.6.2
+- Support audio media info for audio dna compare.
+
+2019-03-15 Version: 2.6.1
+1, Update Dependency
+
+2019-03-15 Version: 2.6.1
+1, Update Dependency
+
 2018-08-05 Version: 2.6.0
 1, Add Interface SubmitSubtitleJob
 2, Support convert ttml、stl subtitle to vtt

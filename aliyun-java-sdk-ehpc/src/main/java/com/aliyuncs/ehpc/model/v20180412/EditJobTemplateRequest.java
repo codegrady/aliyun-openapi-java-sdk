@@ -15,18 +15,25 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class EditJobTemplateRequest extends RpcAcsRequest<EditJobTemplateResponse> {
-	
-	public EditJobTemplateRequest() {
-		super("EHPC", "2018-04-12", "EditJobTemplate", "ehs");
-	}
+	   
 
 	private String stderrRedirectPath;
+
+	private String commandLine;
+
+	private String arrayRequest;
+
+	private String packagePath;
+
+	private String stdoutRedirectPath;
 
 	private String variables;
 
@@ -38,15 +45,15 @@ public class EditJobTemplateRequest extends RpcAcsRequest<EditJobTemplateRespons
 
 	private Integer priority;
 
-	private String commandLine;
-
-	private String arrayRequest;
-
-	private String packagePath;
-
 	private String name;
-
-	private String stdoutRedirectPath;
+	public EditJobTemplateRequest() {
+		super("EHPC", "2018-04-12", "EditJobTemplate");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getStderrRedirectPath() {
 		return this.stderrRedirectPath;
@@ -56,6 +63,50 @@ public class EditJobTemplateRequest extends RpcAcsRequest<EditJobTemplateRespons
 		this.stderrRedirectPath = stderrRedirectPath;
 		if(stderrRedirectPath != null){
 			putQueryParameter("StderrRedirectPath", stderrRedirectPath);
+		}
+	}
+
+	public String getCommandLine() {
+		return this.commandLine;
+	}
+
+	public void setCommandLine(String commandLine) {
+		this.commandLine = commandLine;
+		if(commandLine != null){
+			putQueryParameter("CommandLine", commandLine);
+		}
+	}
+
+	public String getArrayRequest() {
+		return this.arrayRequest;
+	}
+
+	public void setArrayRequest(String arrayRequest) {
+		this.arrayRequest = arrayRequest;
+		if(arrayRequest != null){
+			putQueryParameter("ArrayRequest", arrayRequest);
+		}
+	}
+
+	public String getPackagePath() {
+		return this.packagePath;
+	}
+
+	public void setPackagePath(String packagePath) {
+		this.packagePath = packagePath;
+		if(packagePath != null){
+			putQueryParameter("PackagePath", packagePath);
+		}
+	}
+
+	public String getStdoutRedirectPath() {
+		return this.stdoutRedirectPath;
+	}
+
+	public void setStdoutRedirectPath(String stdoutRedirectPath) {
+		this.stdoutRedirectPath = stdoutRedirectPath;
+		if(stdoutRedirectPath != null){
+			putQueryParameter("StdoutRedirectPath", stdoutRedirectPath);
 		}
 	}
 
@@ -114,39 +165,6 @@ public class EditJobTemplateRequest extends RpcAcsRequest<EditJobTemplateRespons
 		}
 	}
 
-	public String getCommandLine() {
-		return this.commandLine;
-	}
-
-	public void setCommandLine(String commandLine) {
-		this.commandLine = commandLine;
-		if(commandLine != null){
-			putQueryParameter("CommandLine", commandLine);
-		}
-	}
-
-	public String getArrayRequest() {
-		return this.arrayRequest;
-	}
-
-	public void setArrayRequest(String arrayRequest) {
-		this.arrayRequest = arrayRequest;
-		if(arrayRequest != null){
-			putQueryParameter("ArrayRequest", arrayRequest);
-		}
-	}
-
-	public String getPackagePath() {
-		return this.packagePath;
-	}
-
-	public void setPackagePath(String packagePath) {
-		this.packagePath = packagePath;
-		if(packagePath != null){
-			putQueryParameter("PackagePath", packagePath);
-		}
-	}
-
 	public String getName() {
 		return this.name;
 	}
@@ -155,17 +173,6 @@ public class EditJobTemplateRequest extends RpcAcsRequest<EditJobTemplateRespons
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
-		}
-	}
-
-	public String getStdoutRedirectPath() {
-		return this.stdoutRedirectPath;
-	}
-
-	public void setStdoutRedirectPath(String stdoutRedirectPath) {
-		this.stdoutRedirectPath = stdoutRedirectPath;
-		if(stdoutRedirectPath != null){
-			putQueryParameter("StdoutRedirectPath", stdoutRedirectPath);
 		}
 	}
 

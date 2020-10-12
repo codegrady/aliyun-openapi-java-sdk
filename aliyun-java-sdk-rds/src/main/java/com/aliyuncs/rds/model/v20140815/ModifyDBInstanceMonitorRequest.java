@@ -15,16 +15,15 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDBInstanceMonitorRequest extends RpcAcsRequest<ModifyDBInstanceMonitorResponse> {
-	
-	public ModifyDBInstanceMonitorRequest() {
-		super("Rds", "2014-08-15", "ModifyDBInstanceMonitor", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -36,9 +35,17 @@ public class ModifyDBInstanceMonitorRequest extends RpcAcsRequest<ModifyDBInstan
 
 	private String ownerAccount;
 
-	private String dBInstanceId;
-
 	private Long ownerId;
+
+	private String dBInstanceId;
+	public ModifyDBInstanceMonitorRequest() {
+		super("Rds", "2014-08-15", "ModifyDBInstanceMonitor", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -95,17 +102,6 @@ public class ModifyDBInstanceMonitorRequest extends RpcAcsRequest<ModifyDBInstan
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,6 +110,17 @@ public class ModifyDBInstanceMonitorRequest extends RpcAcsRequest<ModifyDBInstan
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

@@ -16,32 +16,41 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeTagsRequest extends RpcAcsRequest<DescribeTagsResponse> {
-	
-	public DescribeTagsRequest() {
-		super("Ecs", "2014-05-26", "DescribeTags", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceId;
-
-	private String resourceOwnerAccount;
+	private Integer pageNumber;
 
 	private Integer pageSize;
 
 	private List<Tag> tags;
 
+	private String resourceId;
+
+	private String resourceOwnerAccount;
+
 	private Long ownerId;
 
 	private String resourceType;
 
-	private Integer pageNumber;
+	private String category;
+	public DescribeTagsRequest() {
+		super("Ecs", "2014-05-26", "DescribeTags", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -54,25 +63,14 @@ public class DescribeTagsRequest extends RpcAcsRequest<DescribeTagsResponse> {
 		}
 	}
 
-	public String getResourceId() {
-		return this.resourceId;
+	public Integer getPageNumber() {
+		return this.pageNumber;
 	}
 
-	public void setResourceId(String resourceId) {
-		this.resourceId = resourceId;
-		if(resourceId != null){
-			putQueryParameter("ResourceId", resourceId);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -101,6 +99,28 @@ public class DescribeTagsRequest extends RpcAcsRequest<DescribeTagsResponse> {
 		}	
 	}
 
+	public String getResourceId() {
+		return this.resourceId;
+	}
+
+	public void setResourceId(String resourceId) {
+		this.resourceId = resourceId;
+		if(resourceId != null){
+			putQueryParameter("ResourceId", resourceId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -123,14 +143,14 @@ public class DescribeTagsRequest extends RpcAcsRequest<DescribeTagsResponse> {
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public String getCategory() {
+		return this.category;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+	public void setCategory(String category) {
+		this.category = category;
+		if(category != null){
+			putQueryParameter("Category", category);
 		}
 	}
 

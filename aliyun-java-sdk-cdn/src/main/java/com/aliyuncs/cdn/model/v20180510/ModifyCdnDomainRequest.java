@@ -15,37 +15,44 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyCdnDomainRequest extends RpcAcsRequest<ModifyCdnDomainResponse> {
-	
-	public ModifyCdnDomainRequest() {
-		super("Cdn", "2018-05-10", "ModifyCdnDomain");
-	}
-
-	private String topLevelDomain;
-
-	private String resourceGroupId;
+	   
 
 	private String sources;
 
+	private String resourceGroupId;
+
 	private String securityToken;
+
+	private String topLevelDomain;
 
 	private String domainName;
 
 	private Long ownerId;
-
-	public String getTopLevelDomain() {
-		return this.topLevelDomain;
+	public ModifyCdnDomainRequest() {
+		super("Cdn", "2018-05-10", "ModifyCdnDomain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setTopLevelDomain(String topLevelDomain) {
-		this.topLevelDomain = topLevelDomain;
-		if(topLevelDomain != null){
-			putQueryParameter("TopLevelDomain", topLevelDomain);
+	public String getSources() {
+		return this.sources;
+	}
+
+	public void setSources(String sources) {
+		this.sources = sources;
+		if(sources != null){
+			putQueryParameter("Sources", sources);
 		}
 	}
 
@@ -60,17 +67,6 @@ public class ModifyCdnDomainRequest extends RpcAcsRequest<ModifyCdnDomainRespons
 		}
 	}
 
-	public String getSources() {
-		return this.sources;
-	}
-
-	public void setSources(String sources) {
-		this.sources = sources;
-		if(sources != null){
-			putQueryParameter("Sources", sources);
-		}
-	}
-
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -79,6 +75,17 @@ public class ModifyCdnDomainRequest extends RpcAcsRequest<ModifyCdnDomainRespons
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getTopLevelDomain() {
+		return this.topLevelDomain;
+	}
+
+	public void setTopLevelDomain(String topLevelDomain) {
+		this.topLevelDomain = topLevelDomain;
+		if(topLevelDomain != null){
+			putQueryParameter("TopLevelDomain", topLevelDomain);
 		}
 	}
 

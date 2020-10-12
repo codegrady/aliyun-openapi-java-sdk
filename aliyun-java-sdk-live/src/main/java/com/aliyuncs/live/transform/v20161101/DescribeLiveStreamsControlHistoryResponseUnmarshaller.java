@@ -19,23 +19,22 @@ import java.util.List;
 
 import com.aliyuncs.live.model.v20161101.DescribeLiveStreamsControlHistoryResponse;
 import com.aliyuncs.live.model.v20161101.DescribeLiveStreamsControlHistoryResponse.LiveStreamControlInfo;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeLiveStreamsControlHistoryResponseUnmarshaller {
 
-	public static DescribeLiveStreamsControlHistoryResponse unmarshall(DescribeLiveStreamsControlHistoryResponse describeLiveStreamsControlHistoryResponse, UnmarshallerContext context) {
+	public static DescribeLiveStreamsControlHistoryResponse unmarshall(DescribeLiveStreamsControlHistoryResponse describeLiveStreamsControlHistoryResponse, UnmarshallerContext _ctx) {
 		
-		describeLiveStreamsControlHistoryResponse.setRequestId(context.stringValue("DescribeLiveStreamsControlHistoryResponse.RequestId"));
+		describeLiveStreamsControlHistoryResponse.setRequestId(_ctx.stringValue("DescribeLiveStreamsControlHistoryResponse.RequestId"));
 
 		List<LiveStreamControlInfo> controlInfo = new ArrayList<LiveStreamControlInfo>();
-		for (int i = 0; i < context.lengthValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo.Length"); i++) {
 			LiveStreamControlInfo liveStreamControlInfo = new LiveStreamControlInfo();
-			liveStreamControlInfo.setStreamName(context.stringValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo["+ i +"].StreamName"));
-			liveStreamControlInfo.setClientIP(context.stringValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo["+ i +"].ClientIP"));
-			liveStreamControlInfo.setAction(context.stringValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo["+ i +"].Action"));
-			liveStreamControlInfo.setTimeStamp(context.stringValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo["+ i +"].TimeStamp"));
+			liveStreamControlInfo.setStreamName(_ctx.stringValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo["+ i +"].StreamName"));
+			liveStreamControlInfo.setClientIP(_ctx.stringValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo["+ i +"].ClientIP"));
+			liveStreamControlInfo.setAction(_ctx.stringValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo["+ i +"].Action"));
+			liveStreamControlInfo.setTimeStamp(_ctx.stringValue("DescribeLiveStreamsControlHistoryResponse.ControlInfo["+ i +"].TimeStamp"));
 
 			controlInfo.add(liveStreamControlInfo);
 		}

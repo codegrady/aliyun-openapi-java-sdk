@@ -16,16 +16,51 @@ package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridClusterResponse> {
-	
-	public CreateHybridClusterRequest() {
-		super("EHPC", "2018-04-12", "CreateHybridCluster", "ehs");
-	}
+	   
+
+	private String keyPairName;
+
+	private String securityGroupName;
+
+	private String onPremiseVolumeRemotePath;
+
+	private String imageOwnerAlias;
+
+	private String resourceGroupId;
+
+	private String password;
+
+	private Float computeSpotPriceLimit;
+
+	private String onPremiseVolumeLocalPath;
+
+	private String remoteDirectory;
+
+	private String computeSpotStrategy;
+
+	private List<PostInstallScript> postInstallScripts;
+
+	private String vSwitchId;
+
+	private String domain;
+
+	private String name;
+
+	private String volumeId;
+
+	private String zoneId;
+
+	private String imageId;
+
+	private String clientToken;
 
 	private String ehpcVersion;
 
@@ -33,17 +68,11 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 
 	private String description;
 
-	private String keyPairName;
-
-	private String securityGroupName;
-
 	private String ecsOrderComputeInstanceType;
 
-	private String onPremiseVolumeRemotePath;
+	private String jobQueue;
 
 	private String volumeType;
-
-	private String password;
 
 	private String onPremiseVolumeMountPoint;
 
@@ -51,33 +80,230 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 
 	private String volumeProtocol;
 
-	private String onPremiseVolumeLocalPath;
-
 	private String clientVersion;
 
 	private String osTag;
 
-	private String remoteDirectory;
-
-	private String vSwitchId;
-
-	private String nodes;
+	private List<Nodes> nodess;
 
 	private List<Application> applications;
 
-	private String domain;
-
 	private String vpcId;
-
-	private String name;
-
-	private String volumeId;
 
 	private String volumeMountpoint;
 
-	private String zoneId;
+	private Boolean schedulerPreInstall;
 
 	private String location;
+	public CreateHybridClusterRequest() {
+		super("EHPC", "2018-04-12", "CreateHybridCluster");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getKeyPairName() {
+		return this.keyPairName;
+	}
+
+	public void setKeyPairName(String keyPairName) {
+		this.keyPairName = keyPairName;
+		if(keyPairName != null){
+			putQueryParameter("KeyPairName", keyPairName);
+		}
+	}
+
+	public String getSecurityGroupName() {
+		return this.securityGroupName;
+	}
+
+	public void setSecurityGroupName(String securityGroupName) {
+		this.securityGroupName = securityGroupName;
+		if(securityGroupName != null){
+			putQueryParameter("SecurityGroupName", securityGroupName);
+		}
+	}
+
+	public String getOnPremiseVolumeRemotePath() {
+		return this.onPremiseVolumeRemotePath;
+	}
+
+	public void setOnPremiseVolumeRemotePath(String onPremiseVolumeRemotePath) {
+		this.onPremiseVolumeRemotePath = onPremiseVolumeRemotePath;
+		if(onPremiseVolumeRemotePath != null){
+			putQueryParameter("OnPremiseVolumeRemotePath", onPremiseVolumeRemotePath);
+		}
+	}
+
+	public String getImageOwnerAlias() {
+		return this.imageOwnerAlias;
+	}
+
+	public void setImageOwnerAlias(String imageOwnerAlias) {
+		this.imageOwnerAlias = imageOwnerAlias;
+		if(imageOwnerAlias != null){
+			putQueryParameter("ImageOwnerAlias", imageOwnerAlias);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+		if(password != null){
+			putQueryParameter("Password", password);
+		}
+	}
+
+	public Float getComputeSpotPriceLimit() {
+		return this.computeSpotPriceLimit;
+	}
+
+	public void setComputeSpotPriceLimit(Float computeSpotPriceLimit) {
+		this.computeSpotPriceLimit = computeSpotPriceLimit;
+		if(computeSpotPriceLimit != null){
+			putQueryParameter("ComputeSpotPriceLimit", computeSpotPriceLimit.toString());
+		}
+	}
+
+	public String getOnPremiseVolumeLocalPath() {
+		return this.onPremiseVolumeLocalPath;
+	}
+
+	public void setOnPremiseVolumeLocalPath(String onPremiseVolumeLocalPath) {
+		this.onPremiseVolumeLocalPath = onPremiseVolumeLocalPath;
+		if(onPremiseVolumeLocalPath != null){
+			putQueryParameter("OnPremiseVolumeLocalPath", onPremiseVolumeLocalPath);
+		}
+	}
+
+	public String getRemoteDirectory() {
+		return this.remoteDirectory;
+	}
+
+	public void setRemoteDirectory(String remoteDirectory) {
+		this.remoteDirectory = remoteDirectory;
+		if(remoteDirectory != null){
+			putQueryParameter("RemoteDirectory", remoteDirectory);
+		}
+	}
+
+	public String getComputeSpotStrategy() {
+		return this.computeSpotStrategy;
+	}
+
+	public void setComputeSpotStrategy(String computeSpotStrategy) {
+		this.computeSpotStrategy = computeSpotStrategy;
+		if(computeSpotStrategy != null){
+			putQueryParameter("ComputeSpotStrategy", computeSpotStrategy);
+		}
+	}
+
+	public List<PostInstallScript> getPostInstallScripts() {
+		return this.postInstallScripts;
+	}
+
+	public void setPostInstallScripts(List<PostInstallScript> postInstallScripts) {
+		this.postInstallScripts = postInstallScripts;	
+		if (postInstallScripts != null) {
+			for (int depth1 = 0; depth1 < postInstallScripts.size(); depth1++) {
+				putQueryParameter("PostInstallScript." + (depth1 + 1) + ".Args" , postInstallScripts.get(depth1).getArgs());
+				putQueryParameter("PostInstallScript." + (depth1 + 1) + ".Url" , postInstallScripts.get(depth1).getUrl());
+			}
+		}	
+	}
+
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
+	public String getDomain() {
+		return this.domain;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+		if(domain != null){
+			putQueryParameter("Domain", domain);
+		}
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("Name", name);
+		}
+	}
+
+	public String getVolumeId() {
+		return this.volumeId;
+	}
+
+	public void setVolumeId(String volumeId) {
+		this.volumeId = volumeId;
+		if(volumeId != null){
+			putQueryParameter("VolumeId", volumeId);
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public String getImageId() {
+		return this.imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+		if(imageId != null){
+			putQueryParameter("ImageId", imageId);
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
 
 	public String getEhpcVersion() {
 		return this.ehpcVersion;
@@ -112,28 +338,6 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 		}
 	}
 
-	public String getKeyPairName() {
-		return this.keyPairName;
-	}
-
-	public void setKeyPairName(String keyPairName) {
-		this.keyPairName = keyPairName;
-		if(keyPairName != null){
-			putQueryParameter("KeyPairName", keyPairName);
-		}
-	}
-
-	public String getSecurityGroupName() {
-		return this.securityGroupName;
-	}
-
-	public void setSecurityGroupName(String securityGroupName) {
-		this.securityGroupName = securityGroupName;
-		if(securityGroupName != null){
-			putQueryParameter("SecurityGroupName", securityGroupName);
-		}
-	}
-
 	public String getEcsOrderComputeInstanceType() {
 		return this.ecsOrderComputeInstanceType;
 	}
@@ -145,14 +349,14 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 		}
 	}
 
-	public String getOnPremiseVolumeRemotePath() {
-		return this.onPremiseVolumeRemotePath;
+	public String getJobQueue() {
+		return this.jobQueue;
 	}
 
-	public void setOnPremiseVolumeRemotePath(String onPremiseVolumeRemotePath) {
-		this.onPremiseVolumeRemotePath = onPremiseVolumeRemotePath;
-		if(onPremiseVolumeRemotePath != null){
-			putQueryParameter("OnPremiseVolumeRemotePath", onPremiseVolumeRemotePath);
+	public void setJobQueue(String jobQueue) {
+		this.jobQueue = jobQueue;
+		if(jobQueue != null){
+			putQueryParameter("JobQueue", jobQueue);
 		}
 	}
 
@@ -164,17 +368,6 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 		this.volumeType = volumeType;
 		if(volumeType != null){
 			putQueryParameter("VolumeType", volumeType);
-		}
-	}
-
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-		if(password != null){
-			putQueryParameter("Password", password);
 		}
 	}
 
@@ -211,17 +404,6 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 		}
 	}
 
-	public String getOnPremiseVolumeLocalPath() {
-		return this.onPremiseVolumeLocalPath;
-	}
-
-	public void setOnPremiseVolumeLocalPath(String onPremiseVolumeLocalPath) {
-		this.onPremiseVolumeLocalPath = onPremiseVolumeLocalPath;
-		if(onPremiseVolumeLocalPath != null){
-			putQueryParameter("OnPremiseVolumeLocalPath", onPremiseVolumeLocalPath);
-		}
-	}
-
 	public String getClientVersion() {
 		return this.clientVersion;
 	}
@@ -244,37 +426,21 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 		}
 	}
 
-	public String getRemoteDirectory() {
-		return this.remoteDirectory;
+	public List<Nodes> getNodess() {
+		return this.nodess;
 	}
 
-	public void setRemoteDirectory(String remoteDirectory) {
-		this.remoteDirectory = remoteDirectory;
-		if(remoteDirectory != null){
-			putQueryParameter("RemoteDirectory", remoteDirectory);
-		}
-	}
-
-	public String getVSwitchId() {
-		return this.vSwitchId;
-	}
-
-	public void setVSwitchId(String vSwitchId) {
-		this.vSwitchId = vSwitchId;
-		if(vSwitchId != null){
-			putQueryParameter("VSwitchId", vSwitchId);
-		}
-	}
-
-	public String getNodes() {
-		return this.nodes;
-	}
-
-	public void setNodes(String nodes) {
-		this.nodes = nodes;
-		if(nodes != null){
-			putQueryParameter("Nodes", nodes);
-		}
+	public void setNodess(List<Nodes> nodess) {
+		this.nodess = nodess;	
+		if (nodess != null) {
+			for (int depth1 = 0; depth1 < nodess.size(); depth1++) {
+				putQueryParameter("Nodes." + (depth1 + 1) + ".IpAddress" , nodess.get(depth1).getIpAddress());
+				putQueryParameter("Nodes." + (depth1 + 1) + ".HostName" , nodess.get(depth1).getHostName());
+				putQueryParameter("Nodes." + (depth1 + 1) + ".Role" , nodess.get(depth1).getRole());
+				putQueryParameter("Nodes." + (depth1 + 1) + ".AccountType" , nodess.get(depth1).getAccountType());
+				putQueryParameter("Nodes." + (depth1 + 1) + ".SchedulerType" , nodess.get(depth1).getSchedulerType());
+			}
+		}	
 	}
 
 	public List<Application> getApplications() {
@@ -290,17 +456,6 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 		}	
 	}
 
-	public String getDomain() {
-		return this.domain;
-	}
-
-	public void setDomain(String domain) {
-		this.domain = domain;
-		if(domain != null){
-			putQueryParameter("Domain", domain);
-		}
-	}
-
 	public String getVpcId() {
 		return this.vpcId;
 	}
@@ -309,28 +464,6 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 		this.vpcId = vpcId;
 		if(vpcId != null){
 			putQueryParameter("VpcId", vpcId);
-		}
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		if(name != null){
-			putQueryParameter("Name", name);
-		}
-	}
-
-	public String getVolumeId() {
-		return this.volumeId;
-	}
-
-	public void setVolumeId(String volumeId) {
-		this.volumeId = volumeId;
-		if(volumeId != null){
-			putQueryParameter("VolumeId", volumeId);
 		}
 	}
 
@@ -345,14 +478,14 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 		}
 	}
 
-	public String getZoneId() {
-		return this.zoneId;
+	public Boolean getSchedulerPreInstall() {
+		return this.schedulerPreInstall;
 	}
 
-	public void setZoneId(String zoneId) {
-		this.zoneId = zoneId;
-		if(zoneId != null){
-			putQueryParameter("ZoneId", zoneId);
+	public void setSchedulerPreInstall(Boolean schedulerPreInstall) {
+		this.schedulerPreInstall = schedulerPreInstall;
+		if(schedulerPreInstall != null){
+			putQueryParameter("SchedulerPreInstall", schedulerPreInstall.toString());
 		}
 	}
 
@@ -364,6 +497,82 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 		this.location = location;
 		if(location != null){
 			putQueryParameter("Location", location);
+		}
+	}
+
+	public static class PostInstallScript {
+
+		private String args;
+
+		private String url;
+
+		public String getArgs() {
+			return this.args;
+		}
+
+		public void setArgs(String args) {
+			this.args = args;
+		}
+
+		public String getUrl() {
+			return this.url;
+		}
+
+		public void setUrl(String url) {
+			this.url = url;
+		}
+	}
+
+	public static class Nodes {
+
+		private String ipAddress;
+
+		private String hostName;
+
+		private String role;
+
+		private String accountType;
+
+		private String schedulerType;
+
+		public String getIpAddress() {
+			return this.ipAddress;
+		}
+
+		public void setIpAddress(String ipAddress) {
+			this.ipAddress = ipAddress;
+		}
+
+		public String getHostName() {
+			return this.hostName;
+		}
+
+		public void setHostName(String hostName) {
+			this.hostName = hostName;
+		}
+
+		public String getRole() {
+			return this.role;
+		}
+
+		public void setRole(String role) {
+			this.role = role;
+		}
+
+		public String getAccountType() {
+			return this.accountType;
+		}
+
+		public void setAccountType(String accountType) {
+			this.accountType = accountType;
+		}
+
+		public String getSchedulerType() {
+			return this.schedulerType;
+		}
+
+		public void setSchedulerType(String schedulerType) {
+			this.schedulerType = schedulerType;
 		}
 	}
 

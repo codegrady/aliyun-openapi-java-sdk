@@ -93,6 +93,10 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 
 		private String instanceType;
 
+		private Integer cpu;
+
+		private Integer memory;
+
 		private String instanceGeneration;
 
 		private String securityGroupId;
@@ -108,6 +112,12 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 		private String systemDiskCategory;
 
 		private Integer systemDiskSize;
+
+		private String systemDiskName;
+
+		private String systemDiskDescription;
+
+		private String systemDiskAutoSnapshotPolicyId;
 
 		private String lifecycleState;
 
@@ -129,6 +139,26 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 
 		private Boolean passwordInherit;
 
+		private String resourceGroupId;
+
+		private String hpcClusterId;
+
+		private String instanceDescription;
+
+		private String creditSpecification;
+
+		private String imageFamily;
+
+		private String zoneId;
+
+		private String dedicatedHostId;
+
+		private String affinity;
+
+		private String tenancy;
+
+		private Integer ipv6AddressCount;
+
 		private List<DataDisk> dataDisks;
 
 		private List<Tag> tags;
@@ -136,6 +166,8 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 		private List<SpotPriceModel> spotPriceLimit;
 
 		private List<String> instanceTypes;
+
+		private List<String> securityGroupIds;
 
 		public String getScalingConfigurationId() {
 			return this.scalingConfigurationId;
@@ -201,6 +233,22 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 			this.instanceType = instanceType;
 		}
 
+		public Integer getCpu() {
+			return this.cpu;
+		}
+
+		public void setCpu(Integer cpu) {
+			this.cpu = cpu;
+		}
+
+		public Integer getMemory() {
+			return this.memory;
+		}
+
+		public void setMemory(Integer memory) {
+			this.memory = memory;
+		}
+
 		public String getInstanceGeneration() {
 			return this.instanceGeneration;
 		}
@@ -263,6 +311,30 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 
 		public void setSystemDiskSize(Integer systemDiskSize) {
 			this.systemDiskSize = systemDiskSize;
+		}
+
+		public String getSystemDiskName() {
+			return this.systemDiskName;
+		}
+
+		public void setSystemDiskName(String systemDiskName) {
+			this.systemDiskName = systemDiskName;
+		}
+
+		public String getSystemDiskDescription() {
+			return this.systemDiskDescription;
+		}
+
+		public void setSystemDiskDescription(String systemDiskDescription) {
+			this.systemDiskDescription = systemDiskDescription;
+		}
+
+		public String getSystemDiskAutoSnapshotPolicyId() {
+			return this.systemDiskAutoSnapshotPolicyId;
+		}
+
+		public void setSystemDiskAutoSnapshotPolicyId(String systemDiskAutoSnapshotPolicyId) {
+			this.systemDiskAutoSnapshotPolicyId = systemDiskAutoSnapshotPolicyId;
 		}
 
 		public String getLifecycleState() {
@@ -345,6 +417,86 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 			this.passwordInherit = passwordInherit;
 		}
 
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public String getHpcClusterId() {
+			return this.hpcClusterId;
+		}
+
+		public void setHpcClusterId(String hpcClusterId) {
+			this.hpcClusterId = hpcClusterId;
+		}
+
+		public String getInstanceDescription() {
+			return this.instanceDescription;
+		}
+
+		public void setInstanceDescription(String instanceDescription) {
+			this.instanceDescription = instanceDescription;
+		}
+
+		public String getCreditSpecification() {
+			return this.creditSpecification;
+		}
+
+		public void setCreditSpecification(String creditSpecification) {
+			this.creditSpecification = creditSpecification;
+		}
+
+		public String getImageFamily() {
+			return this.imageFamily;
+		}
+
+		public void setImageFamily(String imageFamily) {
+			this.imageFamily = imageFamily;
+		}
+
+		public String getZoneId() {
+			return this.zoneId;
+		}
+
+		public void setZoneId(String zoneId) {
+			this.zoneId = zoneId;
+		}
+
+		public String getDedicatedHostId() {
+			return this.dedicatedHostId;
+		}
+
+		public void setDedicatedHostId(String dedicatedHostId) {
+			this.dedicatedHostId = dedicatedHostId;
+		}
+
+		public String getAffinity() {
+			return this.affinity;
+		}
+
+		public void setAffinity(String affinity) {
+			this.affinity = affinity;
+		}
+
+		public String getTenancy() {
+			return this.tenancy;
+		}
+
+		public void setTenancy(String tenancy) {
+			this.tenancy = tenancy;
+		}
+
+		public Integer getIpv6AddressCount() {
+			return this.ipv6AddressCount;
+		}
+
+		public void setIpv6AddressCount(Integer ipv6AddressCount) {
+			this.ipv6AddressCount = ipv6AddressCount;
+		}
+
 		public List<DataDisk> getDataDisks() {
 			return this.dataDisks;
 		}
@@ -377,6 +529,14 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 			this.instanceTypes = instanceTypes;
 		}
 
+		public List<String> getSecurityGroupIds() {
+			return this.securityGroupIds;
+		}
+
+		public void setSecurityGroupIds(List<String> securityGroupIds) {
+			this.securityGroupIds = securityGroupIds;
+		}
+
 		public static class DataDisk {
 
 			private Integer size;
@@ -388,6 +548,16 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 			private String device;
 
 			private Boolean deleteWithInstance;
+
+			private String encrypted;
+
+			private String kMSKeyId;
+
+			private String diskName;
+
+			private String description;
+
+			private String autoSnapshotPolicyId;
 
 			public Integer getSize() {
 				return this.size;
@@ -427,6 +597,46 @@ public class DescribeScalingConfigurationsResponse extends AcsResponse {
 
 			public void setDeleteWithInstance(Boolean deleteWithInstance) {
 				this.deleteWithInstance = deleteWithInstance;
+			}
+
+			public String getEncrypted() {
+				return this.encrypted;
+			}
+
+			public void setEncrypted(String encrypted) {
+				this.encrypted = encrypted;
+			}
+
+			public String getKMSKeyId() {
+				return this.kMSKeyId;
+			}
+
+			public void setKMSKeyId(String kMSKeyId) {
+				this.kMSKeyId = kMSKeyId;
+			}
+
+			public String getDiskName() {
+				return this.diskName;
+			}
+
+			public void setDiskName(String diskName) {
+				this.diskName = diskName;
+			}
+
+			public String getDescription() {
+				return this.description;
+			}
+
+			public void setDescription(String description) {
+				this.description = description;
+			}
+
+			public String getAutoSnapshotPolicyId() {
+				return this.autoSnapshotPolicyId;
+			}
+
+			public void setAutoSnapshotPolicyId(String autoSnapshotPolicyId) {
+				this.autoSnapshotPolicyId = autoSnapshotPolicyId;
 			}
 		}
 

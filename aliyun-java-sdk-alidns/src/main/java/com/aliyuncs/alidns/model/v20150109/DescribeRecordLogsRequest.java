@@ -11,48 +11,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.model.v20150109;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.alidns.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRecordLogsRequest extends RpcAcsRequest<DescribeRecordLogsResponse> {
-	
-	public DescribeRecordLogsRequest() {
-		super("Alidns", "2015-01-09", "DescribeRecordLogs");
-	}
-
-	private String lang;
-
-	private String userClientIp;
+	   
 
 	private String domainName;
 
+	private String startDate;
+
 	private Long pageNumber;
+
+	private String endDate;
+
+	private String userClientIp;
 
 	private Long pageSize;
 
+	private String lang;
+
 	private String keyWord;
-
-	public String getLang() {
-		return this.lang;
-	}
-
-	public void setLang(String lang) {
-		this.lang = lang;
-		putQueryParameter("Lang", lang);
-	}
-
-	public String getUserClientIp() {
-		return this.userClientIp;
-	}
-
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		putQueryParameter("UserClientIp", userClientIp);
+	public DescribeRecordLogsRequest() {
+		super("Alidns", "2015-01-09", "DescribeRecordLogs", "alidns");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDomainName() {
@@ -61,7 +55,20 @@ public class DescribeRecordLogsRequest extends RpcAcsRequest<DescribeRecordLogsR
 
 	public void setDomainName(String domainName) {
 		this.domainName = domainName;
-		putQueryParameter("DomainName", domainName);
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
+	}
+
+	public String getStartDate() {
+		return this.startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+		if(startDate != null){
+			putQueryParameter("StartDate", startDate);
+		}
 	}
 
 	public Long getPageNumber() {
@@ -70,7 +77,31 @@ public class DescribeRecordLogsRequest extends RpcAcsRequest<DescribeRecordLogsR
 
 	public void setPageNumber(Long pageNumber) {
 		this.pageNumber = pageNumber;
-		putQueryParameter("PageNumber", pageNumber);
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getEndDate() {
+		return this.endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+		if(endDate != null){
+			putQueryParameter("endDate", endDate);
+		}
+	}
+
+	public String getUserClientIp() {
+		return this.userClientIp;
+	}
+
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
+		}
 	}
 
 	public Long getPageSize() {
@@ -79,7 +110,20 @@ public class DescribeRecordLogsRequest extends RpcAcsRequest<DescribeRecordLogsR
 
 	public void setPageSize(Long pageSize) {
 		this.pageSize = pageSize;
-		putQueryParameter("PageSize", pageSize);
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
+		}
 	}
 
 	public String getKeyWord() {
@@ -88,7 +132,9 @@ public class DescribeRecordLogsRequest extends RpcAcsRequest<DescribeRecordLogsR
 
 	public void setKeyWord(String keyWord) {
 		this.keyWord = keyWord;
-		putQueryParameter("KeyWord", keyWord);
+		if(keyWord != null){
+			putQueryParameter("KeyWord", keyWord);
+		}
 	}
 
 	@Override

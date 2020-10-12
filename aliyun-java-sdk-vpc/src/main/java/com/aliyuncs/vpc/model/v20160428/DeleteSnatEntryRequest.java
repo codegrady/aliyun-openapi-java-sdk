@@ -15,18 +15,21 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteSnatEntryRequest extends RpcAcsRequest<DeleteSnatEntryResponse> {
-	
-	public DeleteSnatEntryRequest() {
-		super("Vpc", "2016-04-28", "DeleteSnatEntry", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String clientToken;
+
+	private String snatEntryId;
 
 	private String resourceOwnerAccount;
 
@@ -34,9 +37,15 @@ public class DeleteSnatEntryRequest extends RpcAcsRequest<DeleteSnatEntryRespons
 
 	private String snatTableId;
 
-	private String snatEntryId;
-
 	private Long ownerId;
+	public DeleteSnatEntryRequest() {
+		super("Vpc", "2016-04-28", "DeleteSnatEntry", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,6 +55,28 @@ public class DeleteSnatEntryRequest extends RpcAcsRequest<DeleteSnatEntryRespons
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getSnatEntryId() {
+		return this.snatEntryId;
+	}
+
+	public void setSnatEntryId(String snatEntryId) {
+		this.snatEntryId = snatEntryId;
+		if(snatEntryId != null){
+			putQueryParameter("SnatEntryId", snatEntryId);
 		}
 	}
 
@@ -79,17 +110,6 @@ public class DeleteSnatEntryRequest extends RpcAcsRequest<DeleteSnatEntryRespons
 		this.snatTableId = snatTableId;
 		if(snatTableId != null){
 			putQueryParameter("SnatTableId", snatTableId);
-		}
-	}
-
-	public String getSnatEntryId() {
-		return this.snatEntryId;
-	}
-
-	public void setSnatEntryId(String snatEntryId) {
-		this.snatEntryId = snatEntryId;
-		if(snatEntryId != null){
-			putQueryParameter("SnatEntryId", snatEntryId);
 		}
 	}
 

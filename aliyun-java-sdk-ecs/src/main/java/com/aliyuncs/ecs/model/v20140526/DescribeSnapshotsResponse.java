@@ -79,6 +79,8 @@ public class DescribeSnapshotsResponse extends AcsResponse {
 
 		private String snapshotId;
 
+		private String snapshotSN;
+
 		private String snapshotName;
 
 		private String progress;
@@ -99,6 +101,8 @@ public class DescribeSnapshotsResponse extends AcsResponse {
 
 		private String creationTime;
 
+		private String lastModifiedTime;
+
 		private String status;
 
 		private String usage;
@@ -109,6 +113,12 @@ public class DescribeSnapshotsResponse extends AcsResponse {
 
 		private String resourceGroupId;
 
+		private String kMSKeyId;
+
+		private String category;
+
+		private String snapshotType;
+
 		private List<Tag> tags;
 
 		public String getSnapshotId() {
@@ -117,6 +127,14 @@ public class DescribeSnapshotsResponse extends AcsResponse {
 
 		public void setSnapshotId(String snapshotId) {
 			this.snapshotId = snapshotId;
+		}
+
+		public String getSnapshotSN() {
+			return this.snapshotSN;
+		}
+
+		public void setSnapshotSN(String snapshotSN) {
+			this.snapshotSN = snapshotSN;
 		}
 
 		public String getSnapshotName() {
@@ -199,6 +217,14 @@ public class DescribeSnapshotsResponse extends AcsResponse {
 			this.creationTime = creationTime;
 		}
 
+		public String getLastModifiedTime() {
+			return this.lastModifiedTime;
+		}
+
+		public void setLastModifiedTime(String lastModifiedTime) {
+			this.lastModifiedTime = lastModifiedTime;
+		}
+
 		public String getStatus() {
 			return this.status;
 		}
@@ -237,6 +263,30 @@ public class DescribeSnapshotsResponse extends AcsResponse {
 
 		public void setResourceGroupId(String resourceGroupId) {
 			this.resourceGroupId = resourceGroupId;
+		}
+
+		public String getKMSKeyId() {
+			return this.kMSKeyId;
+		}
+
+		public void setKMSKeyId(String kMSKeyId) {
+			this.kMSKeyId = kMSKeyId;
+		}
+
+		public String getCategory() {
+			return this.category;
+		}
+
+		public void setCategory(String category) {
+			this.category = category;
+		}
+
+		public String getSnapshotType() {
+			return this.snapshotType;
+		}
+
+		public void setSnapshotType(String snapshotType) {
+			this.snapshotType = snapshotType;
 		}
 
 		public List<Tag> getTags() {

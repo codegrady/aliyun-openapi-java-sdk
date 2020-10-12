@@ -15,30 +15,48 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeLiveStreamsFrameRateAndBitRateDataRequest extends RpcAcsRequest<DescribeLiveStreamsFrameRateAndBitRateDataResponse> {
-	
-	public DescribeLiveStreamsFrameRateAndBitRateDataRequest() {
-		super("live", "2016-11-01", "DescribeLiveStreamsFrameRateAndBitRateData", "live");
-	}
+	   
+
+	private String startTime;
 
 	private String appName;
 
 	private String securityToken;
 
+	private String streamName;
+
 	private String domainName;
 
 	private String endTime;
 
-	private String startTime;
-
 	private Long ownerId;
+	public DescribeLiveStreamsFrameRateAndBitRateDataRequest() {
+		super("live", "2016-11-01", "DescribeLiveStreamsFrameRateAndBitRateData", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String streamName;
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
+		}
+	}
 
 	public String getAppName() {
 		return this.appName;
@@ -59,6 +77,17 @@ public class DescribeLiveStreamsFrameRateAndBitRateDataRequest extends RpcAcsReq
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getStreamName() {
+		return this.streamName;
+	}
+
+	public void setStreamName(String streamName) {
+		this.streamName = streamName;
+		if(streamName != null){
+			putQueryParameter("StreamName", streamName);
 		}
 	}
 
@@ -84,17 +113,6 @@ public class DescribeLiveStreamsFrameRateAndBitRateDataRequest extends RpcAcsReq
 		}
 	}
 
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -103,17 +121,6 @@ public class DescribeLiveStreamsFrameRateAndBitRateDataRequest extends RpcAcsReq
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getStreamName() {
-		return this.streamName;
-	}
-
-	public void setStreamName(String streamName) {
-		this.streamName = streamName;
-		if(streamName != null){
-			putQueryParameter("StreamName", streamName);
 		}
 	}
 

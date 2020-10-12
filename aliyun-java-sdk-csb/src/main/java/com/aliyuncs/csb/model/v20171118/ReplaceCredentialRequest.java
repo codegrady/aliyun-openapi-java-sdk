@@ -17,20 +17,25 @@ package com.aliyuncs.csb.model.v20171118;
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.csb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ReplaceCredentialRequest extends RpcAcsRequest<ReplaceCredentialResponse> {
-	
+	   
+
+	private Long credentialId;
 	public ReplaceCredentialRequest() {
 		super("CSB", "2017-11-18", "ReplaceCredential");
 		setProtocol(ProtocolType.HTTPS);
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
-
-	private Long credentialId;
 
 	public Long getCredentialId() {
 		return this.credentialId;

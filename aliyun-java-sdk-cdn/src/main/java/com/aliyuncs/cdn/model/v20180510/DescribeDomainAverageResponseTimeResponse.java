@@ -29,11 +29,11 @@ public class DescribeDomainAverageResponseTimeResponse extends AcsResponse {
 
 	private String domainName;
 
-	private String dataInterval;
-
 	private String startTime;
 
 	private String endTime;
+
+	private String dataInterval;
 
 	private List<DataModule> avgRTPerInterval;
 
@@ -53,14 +53,6 @@ public class DescribeDomainAverageResponseTimeResponse extends AcsResponse {
 		this.domainName = domainName;
 	}
 
-	public String getDataInterval() {
-		return this.dataInterval;
-	}
-
-	public void setDataInterval(String dataInterval) {
-		this.dataInterval = dataInterval;
-	}
-
 	public String getStartTime() {
 		return this.startTime;
 	}
@@ -75,6 +67,14 @@ public class DescribeDomainAverageResponseTimeResponse extends AcsResponse {
 
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
+	}
+
+	public String getDataInterval() {
+		return this.dataInterval;
+	}
+
+	public void setDataInterval(String dataInterval) {
+		this.dataInterval = dataInterval;
 	}
 
 	public List<DataModule> getAvgRTPerInterval() {

@@ -15,28 +15,35 @@
 package com.aliyuncs.dds.model.v20151201;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpgradeDBInstanceKernelVersionRequest extends RpcAcsRequest<UpgradeDBInstanceKernelVersionResponse> {
-	
-	public UpgradeDBInstanceKernelVersionRequest() {
-		super("Dds", "2015-12-01", "UpgradeDBInstanceKernelVersion", "dds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String securityToken;
 
+	private String dBInstanceId;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String dBInstanceId;
-
 	private Long ownerId;
+	public UpgradeDBInstanceKernelVersionRequest() {
+		super("Dds", "2015-12-01", "UpgradeDBInstanceKernelVersion", "Dds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -60,6 +67,17 @@ public class UpgradeDBInstanceKernelVersionRequest extends RpcAcsRequest<Upgrade
 		}
 	}
 
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
 	public String getResourceOwnerAccount() {
 		return this.resourceOwnerAccount;
 	}
@@ -79,17 +97,6 @@ public class UpgradeDBInstanceKernelVersionRequest extends RpcAcsRequest<Upgrade
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

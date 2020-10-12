@@ -16,18 +16,19 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetworkInterfacesResponse> {
-	
-	public DescribeNetworkInterfacesRequest() {
-		super("Ecs", "2014-05-26", "DescribeNetworkInterfaces", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private Boolean serviceManaged;
 
 	private String securityGroupId;
 
@@ -36,6 +37,8 @@ public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetw
 	private Integer pageNumber;
 
 	private String resourceGroupId;
+
+	private String nextToken;
 
 	private Integer pageSize;
 
@@ -51,13 +54,27 @@ public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetw
 
 	private String vSwitchId;
 
+	private List<String> privateIpAddresss;
+
 	private String instanceId;
 
 	private String vpcId;
 
 	private String primaryIpAddress;
 
+	private Integer maxResults;
+
 	private List<String> networkInterfaceIds;
+
+	private String status;
+	public DescribeNetworkInterfacesRequest() {
+		super("Ecs", "2014-05-26", "DescribeNetworkInterfaces", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -67,6 +84,17 @@ public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetw
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getServiceManaged() {
+		return this.serviceManaged;
+	}
+
+	public void setServiceManaged(Boolean serviceManaged) {
+		this.serviceManaged = serviceManaged;
+		if(serviceManaged != null){
+			putQueryParameter("ServiceManaged", serviceManaged.toString());
 		}
 	}
 
@@ -111,6 +139,17 @@ public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetw
 		this.resourceGroupId = resourceGroupId;
 		if(resourceGroupId != null){
 			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getNextToken() {
+		return this.nextToken;
+	}
+
+	public void setNextToken(String nextToken) {
+		this.nextToken = nextToken;
+		if(nextToken != null){
+			putQueryParameter("NextToken", nextToken);
 		}
 	}
 
@@ -194,6 +233,19 @@ public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetw
 		}
 	}
 
+	public List<String> getPrivateIpAddresss() {
+		return this.privateIpAddresss;
+	}
+
+	public void setPrivateIpAddresss(List<String> privateIpAddresss) {
+		this.privateIpAddresss = privateIpAddresss;	
+		if (privateIpAddresss != null) {
+			for (int i = 0; i < privateIpAddresss.size(); i++) {
+				putQueryParameter("PrivateIpAddress." + (i + 1) , privateIpAddresss.get(i));
+			}
+		}	
+	}
+
 	public String getInstanceId() {
 		return this.instanceId;
 	}
@@ -227,6 +279,17 @@ public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetw
 		}
 	}
 
+	public Integer getMaxResults() {
+		return this.maxResults;
+	}
+
+	public void setMaxResults(Integer maxResults) {
+		this.maxResults = maxResults;
+		if(maxResults != null){
+			putQueryParameter("MaxResults", maxResults.toString());
+		}
+	}
+
 	public List<String> getNetworkInterfaceIds() {
 		return this.networkInterfaceIds;
 	}
@@ -238,6 +301,17 @@ public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetw
 				putQueryParameter("NetworkInterfaceId." + (i + 1) , networkInterfaceIds.get(i));
 			}
 		}	
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+		if(status != null){
+			putQueryParameter("Status", status);
+		}
 	}
 
 	public static class Tag {

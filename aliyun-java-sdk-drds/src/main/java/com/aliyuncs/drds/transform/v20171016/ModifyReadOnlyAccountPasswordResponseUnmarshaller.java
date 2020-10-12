@@ -20,10 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ModifyReadOnlyAccountPasswordResponseUnmarshaller {
 
-	public static ModifyReadOnlyAccountPasswordResponse unmarshall(ModifyReadOnlyAccountPasswordResponse modifyReadOnlyAccountPasswordResponse, UnmarshallerContext context) {
+	public static ModifyReadOnlyAccountPasswordResponse unmarshall(ModifyReadOnlyAccountPasswordResponse modifyReadOnlyAccountPasswordResponse, UnmarshallerContext _ctx) {
 		
-		modifyReadOnlyAccountPasswordResponse.setRequestId(context.stringValue("ModifyReadOnlyAccountPasswordResponse.RequestId"));
-		modifyReadOnlyAccountPasswordResponse.setSuccess(context.booleanValue("ModifyReadOnlyAccountPasswordResponse.Success"));
+		modifyReadOnlyAccountPasswordResponse.setRequestId(_ctx.stringValue("ModifyReadOnlyAccountPasswordResponse.RequestId"));
+		modifyReadOnlyAccountPasswordResponse.setSuccess(_ctx.booleanValue("ModifyReadOnlyAccountPasswordResponse.Success"));
 	 
 	 	return modifyReadOnlyAccountPasswordResponse;
 	}

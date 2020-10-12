@@ -15,45 +15,52 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class BatchAddCdnDomainRequest extends RpcAcsRequest<BatchAddCdnDomainResponse> {
-	
-	public BatchAddCdnDomainRequest() {
-		super("Cdn", "2018-05-10", "BatchAddCdnDomain");
-	}
-
-	private String topLevelDomain;
-
-	private String resourceGroupId;
+	   
 
 	private String sources;
+
+	private String resourceGroupId;
 
 	private String securityToken;
 
 	private String cdnType;
 
-	private String ownerAccount;
-
 	private String scope;
+
+	private String topLevelDomain;
+
+	private String ownerAccount;
 
 	private String domainName;
 
 	private Long ownerId;
 
 	private String checkUrl;
-
-	public String getTopLevelDomain() {
-		return this.topLevelDomain;
+	public BatchAddCdnDomainRequest() {
+		super("Cdn", "2018-05-10", "BatchAddCdnDomain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setTopLevelDomain(String topLevelDomain) {
-		this.topLevelDomain = topLevelDomain;
-		if(topLevelDomain != null){
-			putQueryParameter("TopLevelDomain", topLevelDomain);
+	public String getSources() {
+		return this.sources;
+	}
+
+	public void setSources(String sources) {
+		this.sources = sources;
+		if(sources != null){
+			putQueryParameter("Sources", sources);
 		}
 	}
 
@@ -65,17 +72,6 @@ public class BatchAddCdnDomainRequest extends RpcAcsRequest<BatchAddCdnDomainRes
 		this.resourceGroupId = resourceGroupId;
 		if(resourceGroupId != null){
 			putQueryParameter("ResourceGroupId", resourceGroupId);
-		}
-	}
-
-	public String getSources() {
-		return this.sources;
-	}
-
-	public void setSources(String sources) {
-		this.sources = sources;
-		if(sources != null){
-			putQueryParameter("Sources", sources);
 		}
 	}
 
@@ -101,17 +97,6 @@ public class BatchAddCdnDomainRequest extends RpcAcsRequest<BatchAddCdnDomainRes
 		}
 	}
 
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
 	public String getScope() {
 		return this.scope;
 	}
@@ -120,6 +105,28 @@ public class BatchAddCdnDomainRequest extends RpcAcsRequest<BatchAddCdnDomainRes
 		this.scope = scope;
 		if(scope != null){
 			putQueryParameter("Scope", scope);
+		}
+	}
+
+	public String getTopLevelDomain() {
+		return this.topLevelDomain;
+	}
+
+	public void setTopLevelDomain(String topLevelDomain) {
+		this.topLevelDomain = topLevelDomain;
+		if(topLevelDomain != null){
+			putQueryParameter("TopLevelDomain", topLevelDomain);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 

@@ -15,30 +15,37 @@
 package com.aliyuncs.dds.model.v20151201;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDBInstanceSSLRequest extends RpcAcsRequest<ModifyDBInstanceSSLResponse> {
-	
-	public ModifyDBInstanceSSLRequest() {
-		super("Dds", "2015-12-01", "ModifyDBInstanceSSL", "dds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String securityToken;
 
+	private String dBInstanceId;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String sSLAction;
-
-	private String dBInstanceId;
-
 	private Long ownerId;
+
+	private String sSLAction;
+	public ModifyDBInstanceSSLRequest() {
+		super("Dds", "2015-12-01", "ModifyDBInstanceSSL", "Dds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -59,6 +66,17 @@ public class ModifyDBInstanceSSLRequest extends RpcAcsRequest<ModifyDBInstanceSS
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 
@@ -84,28 +102,6 @@ public class ModifyDBInstanceSSLRequest extends RpcAcsRequest<ModifyDBInstanceSS
 		}
 	}
 
-	public String getSSLAction() {
-		return this.sSLAction;
-	}
-
-	public void setSSLAction(String sSLAction) {
-		this.sSLAction = sSLAction;
-		if(sSLAction != null){
-			putQueryParameter("SSLAction", sSLAction);
-		}
-	}
-
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,6 +110,17 @@ public class ModifyDBInstanceSSLRequest extends RpcAcsRequest<ModifyDBInstanceSS
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSSLAction() {
+		return this.sSLAction;
+	}
+
+	public void setSSLAction(String sSLAction) {
+		this.sSLAction = sSLAction;
+		if(sSLAction != null){
+			putQueryParameter("SSLAction", sSLAction);
 		}
 	}
 

@@ -20,26 +20,25 @@ import java.util.List;
 import com.aliyuncs.polardb.model.v20170801.DescribeRegionsResponse;
 import com.aliyuncs.polardb.model.v20170801.DescribeRegionsResponse.Region;
 import com.aliyuncs.polardb.model.v20170801.DescribeRegionsResponse.Region.Zone;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeRegionsResponseUnmarshaller {
 
-	public static DescribeRegionsResponse unmarshall(DescribeRegionsResponse describeRegionsResponse, UnmarshallerContext context) {
+	public static DescribeRegionsResponse unmarshall(DescribeRegionsResponse describeRegionsResponse, UnmarshallerContext _ctx) {
 		
-		describeRegionsResponse.setRequestId(context.stringValue("DescribeRegionsResponse.RequestId"));
+		describeRegionsResponse.setRequestId(_ctx.stringValue("DescribeRegionsResponse.RequestId"));
 
 		List<Region> regions = new ArrayList<Region>();
-		for (int i = 0; i < context.lengthValue("DescribeRegionsResponse.Regions.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeRegionsResponse.Regions.Length"); i++) {
 			Region region = new Region();
-			region.setRegionId(context.stringValue("DescribeRegionsResponse.Regions["+ i +"].RegionId"));
+			region.setRegionId(_ctx.stringValue("DescribeRegionsResponse.Regions["+ i +"].RegionId"));
 
 			List<Zone> zones = new ArrayList<Zone>();
-			for (int j = 0; j < context.lengthValue("DescribeRegionsResponse.Regions["+ i +"].Zones.Length"); j++) {
+			for (int j = 0; j < _ctx.lengthValue("DescribeRegionsResponse.Regions["+ i +"].Zones.Length"); j++) {
 				Zone zone = new Zone();
-				zone.setZoneId(context.stringValue("DescribeRegionsResponse.Regions["+ i +"].Zones["+ j +"].ZoneId"));
-				zone.setVpcEnabled(context.booleanValue("DescribeRegionsResponse.Regions["+ i +"].Zones["+ j +"].VpcEnabled"));
+				zone.setZoneId(_ctx.stringValue("DescribeRegionsResponse.Regions["+ i +"].Zones["+ j +"].ZoneId"));
+				zone.setVpcEnabled(_ctx.booleanValue("DescribeRegionsResponse.Regions["+ i +"].Zones["+ j +"].VpcEnabled"));
 
 				zones.add(zone);
 			}

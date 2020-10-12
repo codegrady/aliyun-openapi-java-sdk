@@ -15,32 +15,26 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteFlowProjectUserRequest extends RpcAcsRequest<DeleteFlowProjectUserResponse> {
-	
-	public DeleteFlowProjectUserRequest() {
-		super("Emr", "2016-04-08", "DeleteFlowProjectUser");
-	}
-
-	private Long resourceOwnerId;
+	   
 
 	private String projectId;
 
 	private String userName;
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
+	public DeleteFlowProjectUserRequest() {
+		super("Emr", "2016-04-08", "DeleteFlowProjectUser");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getProjectId() {

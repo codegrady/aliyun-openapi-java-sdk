@@ -15,24 +15,29 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RerunFlowRequest extends RpcAcsRequest<RerunFlowResponse> {
-	
-	public RerunFlowRequest() {
-		super("Emr", "2016-04-08", "RerunFlow");
-	}
+	   
 
 	private String flowInstanceId;
 
-	private Long resourceOwnerId;
+	private Boolean reRunFail;
 
 	private String projectId;
-
-	private Boolean reRunFail;
+	public RerunFlowRequest() {
+		super("Emr", "2016-04-08", "RerunFlow");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFlowInstanceId() {
 		return this.flowInstanceId;
@@ -45,14 +50,14 @@ public class RerunFlowRequest extends RpcAcsRequest<RerunFlowResponse> {
 		}
 	}
 
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
+	public Boolean getReRunFail() {
+		return this.reRunFail;
 	}
 
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+	public void setReRunFail(Boolean reRunFail) {
+		this.reRunFail = reRunFail;
+		if(reRunFail != null){
+			putQueryParameter("ReRunFail", reRunFail.toString());
 		}
 	}
 
@@ -64,17 +69,6 @@ public class RerunFlowRequest extends RpcAcsRequest<RerunFlowResponse> {
 		this.projectId = projectId;
 		if(projectId != null){
 			putQueryParameter("ProjectId", projectId);
-		}
-	}
-
-	public Boolean getReRunFail() {
-		return this.reRunFail;
-	}
-
-	public void setReRunFail(Boolean reRunFail) {
-		this.reRunFail = reRunFail;
-		if(reRunFail != null){
-			putQueryParameter("ReRunFail", reRunFail.toString());
 		}
 	}
 

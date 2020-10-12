@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.model.v20160714;
 
 import com.aliyuncs.AcsResponse;
@@ -27,6 +28,8 @@ public class CreateAppResponse extends AcsResponse {
 
 	private Long appId;
 
+	private Boolean tagStatus;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -41,6 +44,14 @@ public class CreateAppResponse extends AcsResponse {
 
 	public void setAppId(Long appId) {
 		this.appId = appId;
+	}
+
+	public Boolean getTagStatus() {
+		return this.tagStatus;
+	}
+
+	public void setTagStatus(Boolean tagStatus) {
+		this.tagStatus = tagStatus;
 	}
 
 	@Override

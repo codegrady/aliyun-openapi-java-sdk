@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.DeleteTrafficSpecialControlResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteTrafficSpecialControlResponseUnmarshaller {
 
-	public static DeleteTrafficSpecialControlResponse unmarshall(DeleteTrafficSpecialControlResponse deleteTrafficSpecialControlResponse, UnmarshallerContext context) {
+	public static DeleteTrafficSpecialControlResponse unmarshall(DeleteTrafficSpecialControlResponse deleteTrafficSpecialControlResponse, UnmarshallerContext _ctx) {
 		
-		deleteTrafficSpecialControlResponse.setRequestId(context.stringValue("DeleteTrafficSpecialControlResponse.RequestId"));
+		deleteTrafficSpecialControlResponse.setRequestId(_ctx.stringValue("DeleteTrafficSpecialControlResponse.RequestId"));
 	 
 	 	return deleteTrafficSpecialControlResponse;
 	}

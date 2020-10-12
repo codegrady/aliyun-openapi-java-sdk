@@ -102,6 +102,10 @@ public class CreateProductResponse extends AcsResponse {
 
 		private String protocolType;
 
+		private String authType;
+
+		private String productSecret;
+
 		public Integer getDataFormat() {
 			return this.dataFormat;
 		}
@@ -165,10 +169,31 @@ public class CreateProductResponse extends AcsResponse {
 		public void setProtocolType(String protocolType) {
 			this.protocolType = protocolType;
 		}
+
+		public String getAuthType() {
+			return this.authType;
+		}
+
+		public void setAuthType(String authType) {
+			this.authType = authType;
+		}
+
+		public String getProductSecret() {
+			return this.productSecret;
+		}
+
+		public void setProductSecret(String productSecret) {
+			this.productSecret = productSecret;
+		}
 	}
 
 	@Override
 	public CreateProductResponse getInstance(UnmarshallerContext context) {
 		return	CreateProductResponseUnmarshaller.unmarshall(this, context);
+	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
 	}
 }

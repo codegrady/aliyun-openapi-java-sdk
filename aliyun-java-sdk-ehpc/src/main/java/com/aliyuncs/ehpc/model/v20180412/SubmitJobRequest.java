@@ -15,32 +15,19 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SubmitJobRequest extends RpcAcsRequest<SubmitJobResponse> {
-	
-	public SubmitJobRequest() {
-		super("EHPC", "2018-04-12", "SubmitJob", "ehs");
-	}
+	   
 
 	private String stderrRedirectPath;
 
-	private String variables;
-
 	private String runasUserPassword;
-
-	private String postCmdLine;
-
-	private String runasUser;
-
-	private String clusterId;
-
-	private Boolean reRunable;
-
-	private Integer priority;
 
 	private String commandLine;
 
@@ -52,13 +39,33 @@ public class SubmitJobRequest extends RpcAcsRequest<SubmitJobResponse> {
 
 	private String packagePath;
 
+	private String stdoutRedirectPath;
+
+	private String variables;
+
+	private String postCmdLine;
+
+	private String runasUser;
+
+	private String clusterId;
+
+	private Boolean reRunable;
+
+	private Integer priority;
+
 	private String inputFileUrl;
 
 	private String name;
 
-	private String stdoutRedirectPath;
-
 	private String containerId;
+	public SubmitJobRequest() {
+		super("EHPC", "2018-04-12", "SubmitJob");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getStderrRedirectPath() {
 		return this.stderrRedirectPath;
@@ -71,17 +78,6 @@ public class SubmitJobRequest extends RpcAcsRequest<SubmitJobResponse> {
 		}
 	}
 
-	public String getVariables() {
-		return this.variables;
-	}
-
-	public void setVariables(String variables) {
-		this.variables = variables;
-		if(variables != null){
-			putQueryParameter("Variables", variables);
-		}
-	}
-
 	public String getRunasUserPassword() {
 		return this.runasUserPassword;
 	}
@@ -90,61 +86,6 @@ public class SubmitJobRequest extends RpcAcsRequest<SubmitJobResponse> {
 		this.runasUserPassword = runasUserPassword;
 		if(runasUserPassword != null){
 			putQueryParameter("RunasUserPassword", runasUserPassword);
-		}
-	}
-
-	public String getPostCmdLine() {
-		return this.postCmdLine;
-	}
-
-	public void setPostCmdLine(String postCmdLine) {
-		this.postCmdLine = postCmdLine;
-		if(postCmdLine != null){
-			putQueryParameter("PostCmdLine", postCmdLine);
-		}
-	}
-
-	public String getRunasUser() {
-		return this.runasUser;
-	}
-
-	public void setRunasUser(String runasUser) {
-		this.runasUser = runasUser;
-		if(runasUser != null){
-			putQueryParameter("RunasUser", runasUser);
-		}
-	}
-
-	public String getClusterId() {
-		return this.clusterId;
-	}
-
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putQueryParameter("ClusterId", clusterId);
-		}
-	}
-
-	public Boolean getReRunable() {
-		return this.reRunable;
-	}
-
-	public void setReRunable(Boolean reRunable) {
-		this.reRunable = reRunable;
-		if(reRunable != null){
-			putQueryParameter("ReRunable", reRunable.toString());
-		}
-	}
-
-	public Integer getPriority() {
-		return this.priority;
-	}
-
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-		if(priority != null){
-			putQueryParameter("Priority", priority.toString());
 		}
 	}
 
@@ -203,6 +144,83 @@ public class SubmitJobRequest extends RpcAcsRequest<SubmitJobResponse> {
 		}
 	}
 
+	public String getStdoutRedirectPath() {
+		return this.stdoutRedirectPath;
+	}
+
+	public void setStdoutRedirectPath(String stdoutRedirectPath) {
+		this.stdoutRedirectPath = stdoutRedirectPath;
+		if(stdoutRedirectPath != null){
+			putQueryParameter("StdoutRedirectPath", stdoutRedirectPath);
+		}
+	}
+
+	public String getVariables() {
+		return this.variables;
+	}
+
+	public void setVariables(String variables) {
+		this.variables = variables;
+		if(variables != null){
+			putQueryParameter("Variables", variables);
+		}
+	}
+
+	public String getPostCmdLine() {
+		return this.postCmdLine;
+	}
+
+	public void setPostCmdLine(String postCmdLine) {
+		this.postCmdLine = postCmdLine;
+		if(postCmdLine != null){
+			putQueryParameter("PostCmdLine", postCmdLine);
+		}
+	}
+
+	public String getRunasUser() {
+		return this.runasUser;
+	}
+
+	public void setRunasUser(String runasUser) {
+		this.runasUser = runasUser;
+		if(runasUser != null){
+			putQueryParameter("RunasUser", runasUser);
+		}
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public Boolean getReRunable() {
+		return this.reRunable;
+	}
+
+	public void setReRunable(Boolean reRunable) {
+		this.reRunable = reRunable;
+		if(reRunable != null){
+			putQueryParameter("ReRunable", reRunable.toString());
+		}
+	}
+
+	public Integer getPriority() {
+		return this.priority;
+	}
+
+	public void setPriority(Integer priority) {
+		this.priority = priority;
+		if(priority != null){
+			putQueryParameter("Priority", priority.toString());
+		}
+	}
+
 	public String getInputFileUrl() {
 		return this.inputFileUrl;
 	}
@@ -222,17 +240,6 @@ public class SubmitJobRequest extends RpcAcsRequest<SubmitJobResponse> {
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
-		}
-	}
-
-	public String getStdoutRedirectPath() {
-		return this.stdoutRedirectPath;
-	}
-
-	public void setStdoutRedirectPath(String stdoutRedirectPath) {
-		this.stdoutRedirectPath = stdoutRedirectPath;
-		if(stdoutRedirectPath != null){
-			putQueryParameter("StdoutRedirectPath", stdoutRedirectPath);
 		}
 	}
 

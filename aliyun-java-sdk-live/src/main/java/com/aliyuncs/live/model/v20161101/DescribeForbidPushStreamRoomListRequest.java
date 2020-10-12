@@ -15,16 +15,15 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeForbidPushStreamRoomListRequest extends RpcAcsRequest<DescribeForbidPushStreamRoomListResponse> {
-	
-	public DescribeForbidPushStreamRoomListRequest() {
-		super("live", "2016-11-01", "DescribeForbidPushStreamRoomList", "live");
-	}
+	   
 
 	private Integer pageNum;
 
@@ -35,6 +34,14 @@ public class DescribeForbidPushStreamRoomListRequest extends RpcAcsRequest<Descr
 	private Long ownerId;
 
 	private String appId;
+	public DescribeForbidPushStreamRoomListRequest() {
+		super("live", "2016-11-01", "DescribeForbidPushStreamRoomList", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Integer getPageNum() {
 		return this.pageNum;

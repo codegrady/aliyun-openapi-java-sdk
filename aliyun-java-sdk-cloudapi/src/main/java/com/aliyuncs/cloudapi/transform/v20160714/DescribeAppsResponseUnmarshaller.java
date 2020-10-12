@@ -11,31 +11,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.aliyuncs.cloudapi.model.v20160714.DescribeAppsResponse;
 import com.aliyuncs.cloudapi.model.v20160714.DescribeAppsResponse.AppItem;
 import com.aliyuncs.transform.UnmarshallerContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class DescribeAppsResponseUnmarshaller {
 
-	public static DescribeAppsResponse unmarshall(DescribeAppsResponse describeAppsResponse, UnmarshallerContext context) {
+	public static DescribeAppsResponse unmarshall(DescribeAppsResponse describeAppsResponse, UnmarshallerContext _ctx) {
 		
-		describeAppsResponse.setRequestId(context.stringValue("DescribeAppsResponse.RequestId"));
-		describeAppsResponse.setTotalCount(context.integerValue("DescribeAppsResponse.TotalCount"));
-		describeAppsResponse.setPageSize(context.integerValue("DescribeAppsResponse.PageSize"));
-		describeAppsResponse.setPageNumber(context.integerValue("DescribeAppsResponse.PageNumber"));
+		describeAppsResponse.setRequestId(_ctx.stringValue("DescribeAppsResponse.RequestId"));
+		describeAppsResponse.setTotalCount(_ctx.integerValue("DescribeAppsResponse.TotalCount"));
+		describeAppsResponse.setPageSize(_ctx.integerValue("DescribeAppsResponse.PageSize"));
+		describeAppsResponse.setPageNumber(_ctx.integerValue("DescribeAppsResponse.PageNumber"));
 
 		List<AppItem> apps = new ArrayList<AppItem>();
-		for (int i = 0; i < context.lengthValue("DescribeAppsResponse.Apps.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeAppsResponse.Apps.Length"); i++) {
 			AppItem appItem = new AppItem();
-			appItem.setAppId(context.longValue("DescribeAppsResponse.Apps["+ i +"].AppId"));
-			appItem.setAppName(context.stringValue("DescribeAppsResponse.Apps["+ i +"].AppName"));
-			appItem.setDescription(context.stringValue("DescribeAppsResponse.Apps["+ i +"].Description"));
+			appItem.setAppId(_ctx.longValue("DescribeAppsResponse.Apps["+ i +"].AppId"));
+			appItem.setAppName(_ctx.stringValue("DescribeAppsResponse.Apps["+ i +"].AppName"));
+			appItem.setDescription(_ctx.stringValue("DescribeAppsResponse.Apps["+ i +"].Description"));
 
 			apps.add(appItem);
 		}

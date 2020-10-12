@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.DeleteApiStageVariableResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteApiStageVariableResponseUnmarshaller {
 
-	public static DeleteApiStageVariableResponse unmarshall(DeleteApiStageVariableResponse deleteApiStageVariableResponse, UnmarshallerContext context) {
+	public static DeleteApiStageVariableResponse unmarshall(DeleteApiStageVariableResponse deleteApiStageVariableResponse, UnmarshallerContext _ctx) {
 		
-		deleteApiStageVariableResponse.setRequestId(context.stringValue("DeleteApiStageVariableResponse.RequestId"));
+		deleteApiStageVariableResponse.setRequestId(_ctx.stringValue("DeleteApiStageVariableResponse.RequestId"));
 	 
 	 	return deleteApiStageVariableResponse;
 	}

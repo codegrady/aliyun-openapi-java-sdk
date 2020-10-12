@@ -15,20 +15,27 @@
 package com.aliyuncs.push.model.v20160801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.push.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RemoveTagRequest extends RpcAcsRequest<RemoveTagResponse> {
-	
-	public RemoveTagRequest() {
-		super("Push", "2016-08-01", "RemoveTag");
-	}
+	   
 
 	private String tagName;
 
 	private Long appKey;
+	public RemoveTagRequest() {
+		super("Push", "2016-08-01", "RemoveTag");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getTagName() {
 		return this.tagName;

@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.CreateApiResponse;
@@ -19,10 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateApiResponseUnmarshaller {
 
-	public static CreateApiResponse unmarshall(CreateApiResponse createApiResponse, UnmarshallerContext context) {
+	public static CreateApiResponse unmarshall(CreateApiResponse createApiResponse, UnmarshallerContext _ctx) {
 		
-		createApiResponse.setRequestId(context.stringValue("CreateApiResponse.RequestId"));
-		createApiResponse.setApiId(context.stringValue("CreateApiResponse.ApiId"));
+		createApiResponse.setRequestId(_ctx.stringValue("CreateApiResponse.RequestId"));
+		createApiResponse.setApiId(_ctx.stringValue("CreateApiResponse.ApiId"));
 	 
 	 	return createApiResponse;
 	}

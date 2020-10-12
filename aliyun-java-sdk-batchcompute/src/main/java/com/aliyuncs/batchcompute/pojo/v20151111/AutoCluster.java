@@ -1,8 +1,9 @@
 package com.aliyuncs.batchcompute.pojo.v20151111;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
  * Created by guangchun.luo on 16/1/15.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class AutoCluster{
 
 
@@ -26,11 +28,17 @@ public class AutoCluster{
     @JsonProperty("ResourceType")
     private String resourceType = "OnDemand";
 
+    @JsonProperty("ClusterId")
+    private String clusterId;
+
     @JsonProperty("Configs")
     private Configs configs;
 
     @JsonProperty("ReserveOnFail")
     private boolean reserveOnFail = false;
+
+    @JsonProperty("DependencyIsvService")
+    private String dependencyIsvService;
 
     @JsonIgnore
     public boolean isReserveOnFail() {
@@ -78,9 +86,6 @@ public class AutoCluster{
     public void setConfigs(Configs configs) {
         this.configs = configs;
     }
-
-
-
 
     @JsonIgnore
     public Map<String, String> getUserData() {
@@ -136,5 +141,17 @@ public class AutoCluster{
     public void setResourceType(String resourceType) {
         this.resourceType = resourceType;
     }
+
+    @JsonIgnore
+    public void setClusterId(String clusterId) { this.clusterId = clusterId; }
+
+    @JsonIgnore
+    public String getClusterId() { return clusterId; }
+
+    @JsonIgnore
+    public void setDependencyIsvService(String dependencyIsvService) { this.dependencyIsvService = dependencyIsvService; }
+
+    @JsonIgnore
+    public String getDependencyIsvService() { return dependencyIsvService; }
 
 }

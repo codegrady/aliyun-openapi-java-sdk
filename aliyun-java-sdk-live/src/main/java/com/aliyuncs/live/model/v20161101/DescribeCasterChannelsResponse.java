@@ -63,6 +63,8 @@ public class DescribeCasterChannelsResponse extends AcsResponse {
 
 		private String streamUrl;
 
+		private String rtmpUrl;
+
 		public String getChannelId() {
 			return this.channelId;
 		}
@@ -85,6 +87,14 @@ public class DescribeCasterChannelsResponse extends AcsResponse {
 
 		public void setStreamUrl(String streamUrl) {
 			this.streamUrl = streamUrl;
+		}
+
+		public String getRtmpUrl() {
+			return this.rtmpUrl;
+		}
+
+		public void setRtmpUrl(String rtmpUrl) {
+			this.rtmpUrl = rtmpUrl;
 		}
 	}
 

@@ -16,48 +16,35 @@ package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyScalingConfigurationRequest extends RpcAcsRequest<ModifyScalingConfigurationResponse> {
-	
-	public ModifyScalingConfigurationRequest() {
-		super("Ess", "2014-08-28", "ModifyScalingConfiguration", "ess");
-	}
+	   
 
-	private String imageId;
-
-	private String ioOptimized;
-
-	private List<String> instanceTypes;
-
-	private Integer internetMaxBandwidthOut;
+	private String hpcClusterId;
 
 	private String keyPairName;
 
 	private List<SpotPriceLimit> spotPriceLimits;
 
-	private String systemDiskCategory;
-
-	private String userData;
+	private String resourceGroupId;
 
 	private String hostName;
 
-	private Boolean passwordInherit;
+	private String instanceDescription;
 
-	private String imageName;
+	private String systemDiskAutoSnapshotPolicyId;
 
-	private String resourceOwnerAccount;
+	private Integer ipv6AddressCount;
 
-	private String ownerAccount;
-
-	private String ramRoleName;
+	private Integer cpu;
 
 	private Long ownerId;
-
-	private List<DataDisk> dataDisks;
 
 	private String scalingConfigurationName;
 
@@ -69,55 +56,78 @@ public class ModifyScalingConfigurationRequest extends RpcAcsRequest<ModifyScali
 
 	private String instanceName;
 
+	private String internetChargeType;
+
+	private String zoneId;
+
+	private String affinity;
+
+	private String imageId;
+
+	private Integer memory;
+
+	private String ioOptimized;
+
+	private List<String> instanceTypes;
+
+	private Integer internetMaxBandwidthOut;
+
+	private String securityGroupId;
+
+	private String systemDiskCategory;
+
+	private String userData;
+
+	private Boolean passwordInherit;
+
+	private String imageName;
+
+	private Boolean override;
+
+	private String deploymentSetId;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private String tenancy;
+
+	private String systemDiskDiskName;
+
+	private String ramRoleName;
+
+	private String dedicatedHostId;
+
+	private String creditSpecification;
+
+	private List<String> securityGroupIds;
+
+	private List<DataDisk> dataDisks;
+
 	private Integer loadBalancerWeight;
 
 	private Integer systemDiskSize;
 
-	private String internetChargeType;
+	private String imageFamily;
 
-	public String getImageId() {
-		return this.imageId;
+	private String systemDiskDescription;
+	public ModifyScalingConfigurationRequest() {
+		super("Ess", "2014-08-28", "ModifyScalingConfiguration", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setImageId(String imageId) {
-		this.imageId = imageId;
-		if(imageId != null){
-			putQueryParameter("ImageId", imageId);
-		}
+	public String getHpcClusterId() {
+		return this.hpcClusterId;
 	}
 
-	public String getIoOptimized() {
-		return this.ioOptimized;
-	}
-
-	public void setIoOptimized(String ioOptimized) {
-		this.ioOptimized = ioOptimized;
-		if(ioOptimized != null){
-			putQueryParameter("IoOptimized", ioOptimized);
-		}
-	}
-
-	public List<String> getInstanceTypes() {
-		return this.instanceTypes;
-	}
-
-	public void setInstanceTypes(List<String> instanceTypes) {
-		this.instanceTypes = instanceTypes;
-		if (instanceTypes != null) {
-			for (int i = 0; i < instanceTypes.size(); i++) {
-				putQueryParameter("InstanceTypes." + (i + 1) , instanceTypes.get(i));
-			}
-		}	
-	}
-
-	public Integer getInternetMaxBandwidthOut() {
-		return this.internetMaxBandwidthOut;
-	}
-
-	public void setInternetMaxBandwidthOut(Integer internetMaxBandwidthOut) {
-		this.internetMaxBandwidthOut = internetMaxBandwidthOut;
-		if(internetMaxBandwidthOut != null){
-			putQueryParameter("InternetMaxBandwidthOut", internetMaxBandwidthOut.toString());
+	public void setHpcClusterId(String hpcClusterId) {
+		this.hpcClusterId = hpcClusterId;
+		if(hpcClusterId != null){
+			putQueryParameter("HpcClusterId", hpcClusterId);
 		}
 	}
 
@@ -146,25 +156,14 @@ public class ModifyScalingConfigurationRequest extends RpcAcsRequest<ModifyScali
 		}	
 	}
 
-	public String getSystemDiskCategory() {
-		return this.systemDiskCategory;
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
 	}
 
-	public void setSystemDiskCategory(String systemDiskCategory) {
-		this.systemDiskCategory = systemDiskCategory;
-		if(systemDiskCategory != null){
-			putQueryParameter("SystemDisk.Category", systemDiskCategory);
-		}
-	}
-
-	public String getUserData() {
-		return this.userData;
-	}
-
-	public void setUserData(String userData) {
-		this.userData = userData;
-		if(userData != null){
-			putQueryParameter("UserData", userData);
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -179,58 +178,47 @@ public class ModifyScalingConfigurationRequest extends RpcAcsRequest<ModifyScali
 		}
 	}
 
-	public Boolean getPasswordInherit() {
-		return this.passwordInherit;
+	public String getInstanceDescription() {
+		return this.instanceDescription;
 	}
 
-	public void setPasswordInherit(Boolean passwordInherit) {
-		this.passwordInherit = passwordInherit;
-		if(passwordInherit != null){
-			putQueryParameter("PasswordInherit", passwordInherit.toString());
+	public void setInstanceDescription(String instanceDescription) {
+		this.instanceDescription = instanceDescription;
+		if(instanceDescription != null){
+			putQueryParameter("InstanceDescription", instanceDescription);
 		}
 	}
 
-	public String getImageName() {
-		return this.imageName;
+	public String getSystemDiskAutoSnapshotPolicyId() {
+		return this.systemDiskAutoSnapshotPolicyId;
 	}
 
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
-		if(imageName != null){
-			putQueryParameter("ImageName", imageName);
+	public void setSystemDiskAutoSnapshotPolicyId(String systemDiskAutoSnapshotPolicyId) {
+		this.systemDiskAutoSnapshotPolicyId = systemDiskAutoSnapshotPolicyId;
+		if(systemDiskAutoSnapshotPolicyId != null){
+			putQueryParameter("SystemDisk.AutoSnapshotPolicyId", systemDiskAutoSnapshotPolicyId);
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
+	public Integer getIpv6AddressCount() {
+		return this.ipv6AddressCount;
 	}
 
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public void setIpv6AddressCount(Integer ipv6AddressCount) {
+		this.ipv6AddressCount = ipv6AddressCount;
+		if(ipv6AddressCount != null){
+			putQueryParameter("Ipv6AddressCount", ipv6AddressCount.toString());
 		}
 	}
 
-	public String getOwnerAccount() {
-		return this.ownerAccount;
+	public Integer getCpu() {
+		return this.cpu;
 	}
 
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getRamRoleName() {
-		return this.ramRoleName;
-	}
-
-	public void setRamRoleName(String ramRoleName) {
-		this.ramRoleName = ramRoleName;
-		if(ramRoleName != null){
-			putQueryParameter("RamRoleName", ramRoleName);
+	public void setCpu(Integer cpu) {
+		this.cpu = cpu;
+		if(cpu != null){
+			putQueryParameter("Cpu", cpu.toString());
 		}
 	}
 
@@ -243,23 +231,6 @@ public class ModifyScalingConfigurationRequest extends RpcAcsRequest<ModifyScali
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
 		}
-	}
-
-	public List<DataDisk> getDataDisks() {
-		return this.dataDisks;
-	}
-
-	public void setDataDisks(List<DataDisk> dataDisks) {
-		this.dataDisks = dataDisks;	
-		if (dataDisks != null) {
-			for (int depth1 = 0; depth1 < dataDisks.size(); depth1++) {
-				putQueryParameter("DataDisk." + (depth1 + 1) + ".SnapshotId" , dataDisks.get(depth1).getSnapshotId());
-				putQueryParameter("DataDisk." + (depth1 + 1) + ".Size" , dataDisks.get(depth1).getSize());
-				putQueryParameter("DataDisk." + (depth1 + 1) + ".Category" , dataDisks.get(depth1).getCategory());
-				putQueryParameter("DataDisk." + (depth1 + 1) + ".Device" , dataDisks.get(depth1).getDevice());
-				putQueryParameter("DataDisk." + (depth1 + 1) + ".DeleteWithInstance" , dataDisks.get(depth1).getDeleteWithInstance());
-			}
-		}	
 	}
 
 	public String getScalingConfigurationName() {
@@ -317,6 +288,285 @@ public class ModifyScalingConfigurationRequest extends RpcAcsRequest<ModifyScali
 		}
 	}
 
+	public String getInternetChargeType() {
+		return this.internetChargeType;
+	}
+
+	public void setInternetChargeType(String internetChargeType) {
+		this.internetChargeType = internetChargeType;
+		if(internetChargeType != null){
+			putQueryParameter("InternetChargeType", internetChargeType);
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public String getAffinity() {
+		return this.affinity;
+	}
+
+	public void setAffinity(String affinity) {
+		this.affinity = affinity;
+		if(affinity != null){
+			putQueryParameter("Affinity", affinity);
+		}
+	}
+
+	public String getImageId() {
+		return this.imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+		if(imageId != null){
+			putQueryParameter("ImageId", imageId);
+		}
+	}
+
+	public Integer getMemory() {
+		return this.memory;
+	}
+
+	public void setMemory(Integer memory) {
+		this.memory = memory;
+		if(memory != null){
+			putQueryParameter("Memory", memory.toString());
+		}
+	}
+
+	public String getIoOptimized() {
+		return this.ioOptimized;
+	}
+
+	public void setIoOptimized(String ioOptimized) {
+		this.ioOptimized = ioOptimized;
+		if(ioOptimized != null){
+			putQueryParameter("IoOptimized", ioOptimized);
+		}
+	}
+
+	public List<String> getInstanceTypes() {
+		return this.instanceTypes;
+	}
+
+	public void setInstanceTypes(List<String> instanceTypes) {
+		this.instanceTypes = instanceTypes;
+		if (instanceTypes != null) {
+			for (int i = 0; i < instanceTypes.size(); i++) {
+				putQueryParameter("InstanceTypes." + (i + 1) , instanceTypes.get(i));
+			}
+		}	
+	}
+
+	public Integer getInternetMaxBandwidthOut() {
+		return this.internetMaxBandwidthOut;
+	}
+
+	public void setInternetMaxBandwidthOut(Integer internetMaxBandwidthOut) {
+		this.internetMaxBandwidthOut = internetMaxBandwidthOut;
+		if(internetMaxBandwidthOut != null){
+			putQueryParameter("InternetMaxBandwidthOut", internetMaxBandwidthOut.toString());
+		}
+	}
+
+	public String getSecurityGroupId() {
+		return this.securityGroupId;
+	}
+
+	public void setSecurityGroupId(String securityGroupId) {
+		this.securityGroupId = securityGroupId;
+		if(securityGroupId != null){
+			putQueryParameter("SecurityGroupId", securityGroupId);
+		}
+	}
+
+	public String getSystemDiskCategory() {
+		return this.systemDiskCategory;
+	}
+
+	public void setSystemDiskCategory(String systemDiskCategory) {
+		this.systemDiskCategory = systemDiskCategory;
+		if(systemDiskCategory != null){
+			putQueryParameter("SystemDisk.Category", systemDiskCategory);
+		}
+	}
+
+	public String getUserData() {
+		return this.userData;
+	}
+
+	public void setUserData(String userData) {
+		this.userData = userData;
+		if(userData != null){
+			putQueryParameter("UserData", userData);
+		}
+	}
+
+	public Boolean getPasswordInherit() {
+		return this.passwordInherit;
+	}
+
+	public void setPasswordInherit(Boolean passwordInherit) {
+		this.passwordInherit = passwordInherit;
+		if(passwordInherit != null){
+			putQueryParameter("PasswordInherit", passwordInherit.toString());
+		}
+	}
+
+	public String getImageName() {
+		return this.imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+		if(imageName != null){
+			putQueryParameter("ImageName", imageName);
+		}
+	}
+
+	public Boolean getOverride() {
+		return this.override;
+	}
+
+	public void setOverride(Boolean override) {
+		this.override = override;
+		if(override != null){
+			putQueryParameter("Override", override.toString());
+		}
+	}
+
+	public String getDeploymentSetId() {
+		return this.deploymentSetId;
+	}
+
+	public void setDeploymentSetId(String deploymentSetId) {
+		this.deploymentSetId = deploymentSetId;
+		if(deploymentSetId != null){
+			putQueryParameter("DeploymentSetId", deploymentSetId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public String getTenancy() {
+		return this.tenancy;
+	}
+
+	public void setTenancy(String tenancy) {
+		this.tenancy = tenancy;
+		if(tenancy != null){
+			putQueryParameter("Tenancy", tenancy);
+		}
+	}
+
+	public String getSystemDiskDiskName() {
+		return this.systemDiskDiskName;
+	}
+
+	public void setSystemDiskDiskName(String systemDiskDiskName) {
+		this.systemDiskDiskName = systemDiskDiskName;
+		if(systemDiskDiskName != null){
+			putQueryParameter("SystemDisk.DiskName", systemDiskDiskName);
+		}
+	}
+
+	public String getRamRoleName() {
+		return this.ramRoleName;
+	}
+
+	public void setRamRoleName(String ramRoleName) {
+		this.ramRoleName = ramRoleName;
+		if(ramRoleName != null){
+			putQueryParameter("RamRoleName", ramRoleName);
+		}
+	}
+
+	public String getDedicatedHostId() {
+		return this.dedicatedHostId;
+	}
+
+	public void setDedicatedHostId(String dedicatedHostId) {
+		this.dedicatedHostId = dedicatedHostId;
+		if(dedicatedHostId != null){
+			putQueryParameter("DedicatedHostId", dedicatedHostId);
+		}
+	}
+
+	public String getCreditSpecification() {
+		return this.creditSpecification;
+	}
+
+	public void setCreditSpecification(String creditSpecification) {
+		this.creditSpecification = creditSpecification;
+		if(creditSpecification != null){
+			putQueryParameter("CreditSpecification", creditSpecification);
+		}
+	}
+
+	public List<String> getSecurityGroupIds() {
+		return this.securityGroupIds;
+	}
+
+	public void setSecurityGroupIds(List<String> securityGroupIds) {
+		this.securityGroupIds = securityGroupIds;
+		if (securityGroupIds != null) {
+			for (int i = 0; i < securityGroupIds.size(); i++) {
+				putQueryParameter("SecurityGroupIds." + (i + 1) , securityGroupIds.get(i));
+			}
+		}	
+	}
+
+	public List<DataDisk> getDataDisks() {
+		return this.dataDisks;
+	}
+
+	public void setDataDisks(List<DataDisk> dataDisks) {
+		this.dataDisks = dataDisks;	
+		if (dataDisks != null) {
+			for (int depth1 = 0; depth1 < dataDisks.size(); depth1++) {
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".DiskName" , dataDisks.get(depth1).getDiskName());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".SnapshotId" , dataDisks.get(depth1).getSnapshotId());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".Size" , dataDisks.get(depth1).getSize());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".Encrypted" , dataDisks.get(depth1).getEncrypted());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".AutoSnapshotPolicyId" , dataDisks.get(depth1).getAutoSnapshotPolicyId());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".Description" , dataDisks.get(depth1).getDescription());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".Category" , dataDisks.get(depth1).getCategory());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".KMSKeyId" , dataDisks.get(depth1).getKMSKeyId());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".Device" , dataDisks.get(depth1).getDevice());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".DeleteWithInstance" , dataDisks.get(depth1).getDeleteWithInstance());
+			}
+		}	
+	}
+
 	public Integer getLoadBalancerWeight() {
 		return this.loadBalancerWeight;
 	}
@@ -339,14 +589,25 @@ public class ModifyScalingConfigurationRequest extends RpcAcsRequest<ModifyScali
 		}
 	}
 
-	public String getInternetChargeType() {
-		return this.internetChargeType;
+	public String getImageFamily() {
+		return this.imageFamily;
 	}
 
-	public void setInternetChargeType(String internetChargeType) {
-		this.internetChargeType = internetChargeType;
-		if(internetChargeType != null){
-			putQueryParameter("InternetChargeType", internetChargeType);
+	public void setImageFamily(String imageFamily) {
+		this.imageFamily = imageFamily;
+		if(imageFamily != null){
+			putQueryParameter("ImageFamily", imageFamily);
+		}
+	}
+
+	public String getSystemDiskDescription() {
+		return this.systemDiskDescription;
+	}
+
+	public void setSystemDiskDescription(String systemDiskDescription) {
+		this.systemDiskDescription = systemDiskDescription;
+		if(systemDiskDescription != null){
+			putQueryParameter("SystemDisk.Description", systemDiskDescription);
 		}
 	}
 
@@ -375,15 +636,33 @@ public class ModifyScalingConfigurationRequest extends RpcAcsRequest<ModifyScali
 
 	public static class DataDisk {
 
+		private String diskName;
+
 		private String snapshotId;
 
 		private Integer size;
 
+		private String encrypted;
+
+		private String autoSnapshotPolicyId;
+
+		private String description;
+
 		private String category;
+
+		private String kMSKeyId;
 
 		private String device;
 
 		private Boolean deleteWithInstance;
+
+		public String getDiskName() {
+			return this.diskName;
+		}
+
+		public void setDiskName(String diskName) {
+			this.diskName = diskName;
+		}
 
 		public String getSnapshotId() {
 			return this.snapshotId;
@@ -401,12 +680,44 @@ public class ModifyScalingConfigurationRequest extends RpcAcsRequest<ModifyScali
 			this.size = size;
 		}
 
+		public String getEncrypted() {
+			return this.encrypted;
+		}
+
+		public void setEncrypted(String encrypted) {
+			this.encrypted = encrypted;
+		}
+
+		public String getAutoSnapshotPolicyId() {
+			return this.autoSnapshotPolicyId;
+		}
+
+		public void setAutoSnapshotPolicyId(String autoSnapshotPolicyId) {
+			this.autoSnapshotPolicyId = autoSnapshotPolicyId;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
 		public String getCategory() {
 			return this.category;
 		}
 
 		public void setCategory(String category) {
 			this.category = category;
+		}
+
+		public String getKMSKeyId() {
+			return this.kMSKeyId;
+		}
+
+		public void setKMSKeyId(String kMSKeyId) {
+			this.kMSKeyId = kMSKeyId;
 		}
 
 		public String getDevice() {

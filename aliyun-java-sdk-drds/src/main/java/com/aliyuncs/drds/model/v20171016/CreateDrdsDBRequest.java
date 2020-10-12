@@ -15,26 +15,33 @@
 package com.aliyuncs.drds.model.v20171016;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.drds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateDrdsDBRequest extends RpcAcsRequest<CreateDrdsDBResponse> {
-	
-	public CreateDrdsDBRequest() {
-		super("Drds", "2017-10-16", "CreateDrdsDB", "Drds");
-	}
+	   
 
 	private String encode;
+
+	private String drdsInstanceId;
 
 	private String password;
 
 	private String dbName;
 
 	private String rdsInstances;
-
-	private String drdsInstanceId;
+	public CreateDrdsDBRequest() {
+		super("Drds", "2017-10-16", "CreateDrdsDB", "Drds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getEncode() {
 		return this.encode;
@@ -44,6 +51,17 @@ public class CreateDrdsDBRequest extends RpcAcsRequest<CreateDrdsDBResponse> {
 		this.encode = encode;
 		if(encode != null){
 			putQueryParameter("Encode", encode);
+		}
+	}
+
+	public String getDrdsInstanceId() {
+		return this.drdsInstanceId;
+	}
+
+	public void setDrdsInstanceId(String drdsInstanceId) {
+		this.drdsInstanceId = drdsInstanceId;
+		if(drdsInstanceId != null){
+			putQueryParameter("DrdsInstanceId", drdsInstanceId);
 		}
 	}
 
@@ -77,17 +95,6 @@ public class CreateDrdsDBRequest extends RpcAcsRequest<CreateDrdsDBResponse> {
 		this.rdsInstances = rdsInstances;
 		if(rdsInstances != null){
 			putQueryParameter("RdsInstances", rdsInstances);
-		}
-	}
-
-	public String getDrdsInstanceId() {
-		return this.drdsInstanceId;
-	}
-
-	public void setDrdsInstanceId(String drdsInstanceId) {
-		this.drdsInstanceId = drdsInstanceId;
-		if(drdsInstanceId != null){
-			putQueryParameter("DrdsInstanceId", drdsInstanceId);
 		}
 	}
 

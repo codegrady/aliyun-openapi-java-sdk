@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import java.util.ArrayList;
@@ -23,16 +24,18 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ListUsersForGroupResponseUnmarshaller {
 
-	public static ListUsersForGroupResponse unmarshall(ListUsersForGroupResponse listUsersForGroupResponse, UnmarshallerContext context) {
+	public static ListUsersForGroupResponse unmarshall(ListUsersForGroupResponse listUsersForGroupResponse, UnmarshallerContext _ctx) {
 		
-		listUsersForGroupResponse.setRequestId(context.stringValue("ListUsersForGroupResponse.RequestId"));
+		listUsersForGroupResponse.setRequestId(_ctx.stringValue("ListUsersForGroupResponse.RequestId"));
+		listUsersForGroupResponse.setIsTruncated(_ctx.booleanValue("ListUsersForGroupResponse.IsTruncated"));
+		listUsersForGroupResponse.setMarker(_ctx.stringValue("ListUsersForGroupResponse.Marker"));
 
 		List<User> users = new ArrayList<User>();
-		for (int i = 0; i < context.lengthValue("ListUsersForGroupResponse.Users.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListUsersForGroupResponse.Users.Length"); i++) {
 			User user = new User();
-			user.setUserName(context.stringValue("ListUsersForGroupResponse.Users["+ i +"].UserName"));
-			user.setDisplayName(context.stringValue("ListUsersForGroupResponse.Users["+ i +"].DisplayName"));
-			user.setJoinDate(context.stringValue("ListUsersForGroupResponse.Users["+ i +"].JoinDate"));
+			user.setUserName(_ctx.stringValue("ListUsersForGroupResponse.Users["+ i +"].UserName"));
+			user.setDisplayName(_ctx.stringValue("ListUsersForGroupResponse.Users["+ i +"].DisplayName"));
+			user.setJoinDate(_ctx.stringValue("ListUsersForGroupResponse.Users["+ i +"].JoinDate"));
 
 			users.add(user);
 		}

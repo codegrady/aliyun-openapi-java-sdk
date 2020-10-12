@@ -108,6 +108,10 @@ public class QueryDeviceDetailResponse extends AcsResponse {
 
 		private String region;
 
+		private Boolean owner;
+
+		private String nickname;
+
 		public String getIotId() {
 			return this.iotId;
 		}
@@ -234,6 +238,22 @@ public class QueryDeviceDetailResponse extends AcsResponse {
 
 		public void setRegion(String region) {
 			this.region = region;
+		}
+
+		public Boolean getOwner() {
+			return this.owner;
+		}
+
+		public void setOwner(Boolean owner) {
+			this.owner = owner;
+		}
+
+		public String getNickname() {
+			return this.nickname;
+		}
+
+		public void setNickname(String nickname) {
+			this.nickname = nickname;
 		}
 	}
 

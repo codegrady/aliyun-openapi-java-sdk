@@ -35,6 +35,8 @@ public class DescribeBackupsResponse extends AcsResponse {
 
 	private Long totalBackupSize;
 
+	private Long totalEcsSnapshotSize;
+
 	private List<Backup> items;
 
 	public String getRequestId() {
@@ -75,6 +77,14 @@ public class DescribeBackupsResponse extends AcsResponse {
 
 	public void setTotalBackupSize(Long totalBackupSize) {
 		this.totalBackupSize = totalBackupSize;
+	}
+
+	public Long getTotalEcsSnapshotSize() {
+		return this.totalEcsSnapshotSize;
+	}
+
+	public void setTotalEcsSnapshotSize(Long totalEcsSnapshotSize) {
+		this.totalEcsSnapshotSize = totalEcsSnapshotSize;
 	}
 
 	public List<Backup> getItems() {
@@ -122,6 +132,20 @@ public class DescribeBackupsResponse extends AcsResponse {
 		private String hostInstanceID;
 
 		private String storeStatus;
+
+		private String metaStatus;
+
+		private String slaveStatus;
+
+		private Long consistentTime;
+
+		private String backupInitiator;
+
+		private String copyOnlyBackup;
+
+		private String storageClass;
+
+		private Integer isAvail;
 
 		public String getBackupId() {
 			return this.backupId;
@@ -265,6 +289,62 @@ public class DescribeBackupsResponse extends AcsResponse {
 
 		public void setStoreStatus(String storeStatus) {
 			this.storeStatus = storeStatus;
+		}
+
+		public String getMetaStatus() {
+			return this.metaStatus;
+		}
+
+		public void setMetaStatus(String metaStatus) {
+			this.metaStatus = metaStatus;
+		}
+
+		public String getSlaveStatus() {
+			return this.slaveStatus;
+		}
+
+		public void setSlaveStatus(String slaveStatus) {
+			this.slaveStatus = slaveStatus;
+		}
+
+		public Long getConsistentTime() {
+			return this.consistentTime;
+		}
+
+		public void setConsistentTime(Long consistentTime) {
+			this.consistentTime = consistentTime;
+		}
+
+		public String getBackupInitiator() {
+			return this.backupInitiator;
+		}
+
+		public void setBackupInitiator(String backupInitiator) {
+			this.backupInitiator = backupInitiator;
+		}
+
+		public String getCopyOnlyBackup() {
+			return this.copyOnlyBackup;
+		}
+
+		public void setCopyOnlyBackup(String copyOnlyBackup) {
+			this.copyOnlyBackup = copyOnlyBackup;
+		}
+
+		public String getStorageClass() {
+			return this.storageClass;
+		}
+
+		public void setStorageClass(String storageClass) {
+			this.storageClass = storageClass;
+		}
+
+		public Integer getIsAvail() {
+			return this.isAvail;
+		}
+
+		public void setIsAvail(Integer isAvail) {
+			this.isAvail = isAvail;
 		}
 	}
 

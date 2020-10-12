@@ -15,26 +15,33 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ReleaseEipAddressRequest extends RpcAcsRequest<ReleaseEipAddressResponse> {
-	
-	public ReleaseEipAddressRequest() {
-		super("Ecs", "2014-05-26", "ReleaseEipAddress", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String allocationId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String allocationId;
-
 	private Long ownerId;
+	public ReleaseEipAddressRequest() {
+		super("Ecs", "2014-05-26", "ReleaseEipAddress", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -44,6 +51,17 @@ public class ReleaseEipAddressRequest extends RpcAcsRequest<ReleaseEipAddressRes
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getAllocationId() {
+		return this.allocationId;
+	}
+
+	public void setAllocationId(String allocationId) {
+		this.allocationId = allocationId;
+		if(allocationId != null){
+			putQueryParameter("AllocationId", allocationId);
 		}
 	}
 
@@ -66,17 +84,6 @@ public class ReleaseEipAddressRequest extends RpcAcsRequest<ReleaseEipAddressRes
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getAllocationId() {
-		return this.allocationId;
-	}
-
-	public void setAllocationId(String allocationId) {
-		this.allocationId = allocationId;
-		if(allocationId != null){
-			putQueryParameter("AllocationId", allocationId);
 		}
 	}
 

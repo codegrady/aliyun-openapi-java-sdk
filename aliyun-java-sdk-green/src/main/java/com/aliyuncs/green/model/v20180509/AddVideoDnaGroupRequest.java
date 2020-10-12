@@ -16,20 +16,25 @@ package com.aliyuncs.green.model.v20180509;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.green.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddVideoDnaGroupRequest extends RoaAcsRequest<AddVideoDnaGroupResponse> {
-	
+	   
+
+	private String clientInfo;
 	public AddVideoDnaGroupRequest() {
 		super("Green", "2018-05-09", "AddVideoDnaGroup", "green");
 		setUriPattern("/green/video/dna/group/add");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
-
-	private String clientInfo;
 
 	public String getClientInfo() {
 		return this.clientInfo;

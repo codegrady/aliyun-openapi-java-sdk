@@ -15,22 +15,29 @@
 package com.aliyuncs.market.model.v20151101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.market.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeProductRequest extends RpcAcsRequest<DescribeProductResponse> {
-	
-	public DescribeProductRequest() {
-		super("Market", "2015-11-01", "DescribeProduct", "yunmarket");
-	}
+	   
 
 	private String code;
 
 	private Boolean queryDraft;
 
 	private String aliUid;
+	public DescribeProductRequest() {
+		super("Market", "2015-11-01", "DescribeProduct");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getCode() {
 		return this.code;

@@ -16,36 +16,49 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CopyImageRequest extends RpcAcsRequest<CopyImageResponse> {
-	
-	public CopyImageRequest() {
-		super("Ecs", "2014-05-26", "CopyImage", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String imageId;
 
-	private Boolean encrypted;
+	private String encryptAlgorithm;
+
+	private String destinationRegionId;
+
+	private String resourceGroupId;
+
+	private List<Tag> tags;
 
 	private String resourceOwnerAccount;
 
 	private String destinationImageName;
 
-	private String destinationRegionId;
-
 	private String ownerAccount;
-
-	private List<Tag> tags;
 
 	private Long ownerId;
 
+	private Boolean encrypted;
+
+	private String kMSKeyId;
+
 	private String destinationDescription;
+	public CopyImageRequest() {
+		super("Ecs", "2014-05-26", "CopyImage", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -69,15 +82,51 @@ public class CopyImageRequest extends RpcAcsRequest<CopyImageResponse> {
 		}
 	}
 
-	public Boolean getEncrypted() {
-		return this.encrypted;
+	public String getEncryptAlgorithm() {
+		return this.encryptAlgorithm;
 	}
 
-	public void setEncrypted(Boolean encrypted) {
-		this.encrypted = encrypted;
-		if(encrypted != null){
-			putQueryParameter("Encrypted", encrypted.toString());
+	public void setEncryptAlgorithm(String encryptAlgorithm) {
+		this.encryptAlgorithm = encryptAlgorithm;
+		if(encryptAlgorithm != null){
+			putQueryParameter("EncryptAlgorithm", encryptAlgorithm);
 		}
+	}
+
+	public String getDestinationRegionId() {
+		return this.destinationRegionId;
+	}
+
+	public void setDestinationRegionId(String destinationRegionId) {
+		this.destinationRegionId = destinationRegionId;
+		if(destinationRegionId != null){
+			putQueryParameter("DestinationRegionId", destinationRegionId);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
 	}
 
 	public String getResourceOwnerAccount() {
@@ -102,17 +151,6 @@ public class CopyImageRequest extends RpcAcsRequest<CopyImageResponse> {
 		}
 	}
 
-	public String getDestinationRegionId() {
-		return this.destinationRegionId;
-	}
-
-	public void setDestinationRegionId(String destinationRegionId) {
-		this.destinationRegionId = destinationRegionId;
-		if(destinationRegionId != null){
-			putQueryParameter("DestinationRegionId", destinationRegionId);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -124,20 +162,6 @@ public class CopyImageRequest extends RpcAcsRequest<CopyImageResponse> {
 		}
 	}
 
-	public List<Tag> getTags() {
-		return this.tags;
-	}
-
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;	
-		if (tags != null) {
-			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
-				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
-				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
-			}
-		}	
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -146,6 +170,28 @@ public class CopyImageRequest extends RpcAcsRequest<CopyImageResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Boolean getEncrypted() {
+		return this.encrypted;
+	}
+
+	public void setEncrypted(Boolean encrypted) {
+		this.encrypted = encrypted;
+		if(encrypted != null){
+			putQueryParameter("Encrypted", encrypted.toString());
+		}
+	}
+
+	public String getKMSKeyId() {
+		return this.kMSKeyId;
+	}
+
+	public void setKMSKeyId(String kMSKeyId) {
+		this.kMSKeyId = kMSKeyId;
+		if(kMSKeyId != null){
+			putQueryParameter("KMSKeyId", kMSKeyId);
 		}
 	}
 

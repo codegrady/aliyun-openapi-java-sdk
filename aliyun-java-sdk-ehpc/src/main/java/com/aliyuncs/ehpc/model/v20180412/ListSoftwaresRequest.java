@@ -15,18 +15,38 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListSoftwaresRequest extends RpcAcsRequest<ListSoftwaresResponse> {
-	
-	public ListSoftwaresRequest() {
-		super("EHPC", "2018-04-12", "ListSoftwares", "ehs");
-	}
+	   
+
+	private String osTag;
 
 	private String ehpcVersion;
+	public ListSoftwaresRequest() {
+		super("EHPC", "2018-04-12", "ListSoftwares");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getOsTag() {
+		return this.osTag;
+	}
+
+	public void setOsTag(String osTag) {
+		this.osTag = osTag;
+		if(osTag != null){
+			putQueryParameter("OsTag", osTag);
+		}
+	}
 
 	public String getEhpcVersion() {
 		return this.ehpcVersion;

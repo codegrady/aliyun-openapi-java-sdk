@@ -15,18 +15,25 @@
 package com.aliyuncs.market.model.v20151101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.market.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryMarketImagesRequest extends RpcAcsRequest<QueryMarketImagesResponse> {
-	
-	public QueryMarketImagesRequest() {
-		super("Market", "2015-11-01", "QueryMarketImages", "yunmarket");
-	}
+	   
 
 	private String param;
+	public QueryMarketImagesRequest() {
+		super("Market", "2015-11-01", "QueryMarketImages");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getParam() {
 		return this.param;

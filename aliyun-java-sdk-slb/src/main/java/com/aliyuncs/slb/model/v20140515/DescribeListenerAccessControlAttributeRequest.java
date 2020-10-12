@@ -15,22 +15,19 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeListenerAccessControlAttributeRequest extends RpcAcsRequest<DescribeListenerAccessControlAttributeResponse> {
-	
-	public DescribeListenerAccessControlAttributeRequest() {
-		super("Slb", "2014-05-15", "DescribeListenerAccessControlAttribute", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private Integer listenerPort;
-
-	private String loadBalancerId;
 
 	private String resourceOwnerAccount;
 
@@ -38,7 +35,17 @@ public class DescribeListenerAccessControlAttributeRequest extends RpcAcsRequest
 
 	private Long ownerId;
 
-	private String tags;
+	private String listenerProtocol;
+
+	private String loadBalancerId;
+	public DescribeListenerAccessControlAttributeRequest() {
+		super("Slb", "2014-05-15", "DescribeListenerAccessControlAttribute", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -59,17 +66,6 @@ public class DescribeListenerAccessControlAttributeRequest extends RpcAcsRequest
 		this.listenerPort = listenerPort;
 		if(listenerPort != null){
 			putQueryParameter("ListenerPort", listenerPort.toString());
-		}
-	}
-
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
-	}
-
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 
@@ -106,14 +102,25 @@ public class DescribeListenerAccessControlAttributeRequest extends RpcAcsRequest
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getListenerProtocol() {
+		return this.listenerProtocol;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setListenerProtocol(String listenerProtocol) {
+		this.listenerProtocol = listenerProtocol;
+		if(listenerProtocol != null){
+			putQueryParameter("ListenerProtocol", listenerProtocol);
+		}
+	}
+
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
+	}
+
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 

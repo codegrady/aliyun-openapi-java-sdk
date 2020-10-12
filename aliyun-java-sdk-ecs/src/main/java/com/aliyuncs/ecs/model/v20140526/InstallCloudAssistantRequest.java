@@ -16,16 +16,15 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class InstallCloudAssistantRequest extends RpcAcsRequest<InstallCloudAssistantResponse> {
-	
-	public InstallCloudAssistantRequest() {
-		super("Ecs", "2014-05-26", "InstallCloudAssistant", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -36,6 +35,14 @@ public class InstallCloudAssistantRequest extends RpcAcsRequest<InstallCloudAssi
 	private Long ownerId;
 
 	private List<String> instanceIds;
+	public InstallCloudAssistantRequest() {
+		super("Ecs", "2014-05-26", "InstallCloudAssistant", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;

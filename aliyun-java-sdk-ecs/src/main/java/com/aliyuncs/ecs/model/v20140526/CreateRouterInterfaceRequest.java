@@ -15,16 +15,15 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateRouterInterfaceRequest extends RpcAcsRequest<CreateRouterInterfaceResponse> {
-	
-	public CreateRouterInterfaceRequest() {
-		super("Ecs", "2014-05-26", "CreateRouterInterface", "ecs");
-	}
+	   
 
 	private String accessPointId;
 
@@ -75,6 +74,14 @@ public class CreateRouterInterfaceRequest extends RpcAcsRequest<CreateRouterInte
 	private String name;
 
 	private String pricingCycle;
+	public CreateRouterInterfaceRequest() {
+		super("Ecs", "2014-05-26", "CreateRouterInterface", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getAccessPointId() {
 		return this.accessPointId;

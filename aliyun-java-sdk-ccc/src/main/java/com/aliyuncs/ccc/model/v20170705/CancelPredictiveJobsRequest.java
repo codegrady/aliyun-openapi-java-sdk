@@ -16,6 +16,8 @@ package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
@@ -24,7 +26,12 @@ import java.util.List;
 public class CancelPredictiveJobsRequest extends RpcAcsRequest<CancelPredictiveJobsResponse> {
 	
 	public CancelPredictiveJobsRequest() {
-		super("CCC", "2017-07-05", "CancelPredictiveJobs", "ccc");
+		super("CCC", "2017-07-05", "CancelPredictiveJobs");
+		setSysMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private Boolean all;

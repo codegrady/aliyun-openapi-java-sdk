@@ -15,30 +15,43 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyImageAttributeRequest extends RpcAcsRequest<ModifyImageAttributeResponse> {
-	
-	public ModifyImageAttributeRequest() {
-		super("Ecs", "2014-05-26", "ModifyImageAttribute", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String imageId;
 
-	private String resourceOwnerAccount;
+	private String description;
+
+	private String bootMode;
 
 	private String imageName;
 
+	private String resourceOwnerAccount;
+
 	private String ownerAccount;
 
-	private String description;
-
 	private Long ownerId;
+
+	private String imageFamily;
+
+	private String status;
+	public ModifyImageAttributeRequest() {
+		super("Ecs", "2014-05-26", "ModifyImageAttribute", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -62,14 +75,25 @@ public class ModifyImageAttributeRequest extends RpcAcsRequest<ModifyImageAttrib
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getBootMode() {
+		return this.bootMode;
+	}
+
+	public void setBootMode(String bootMode) {
+		this.bootMode = bootMode;
+		if(bootMode != null){
+			putQueryParameter("BootMode", bootMode);
 		}
 	}
 
@@ -84,6 +108,17 @@ public class ModifyImageAttributeRequest extends RpcAcsRequest<ModifyImageAttrib
 		}
 	}
 
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -95,17 +130,6 @@ public class ModifyImageAttributeRequest extends RpcAcsRequest<ModifyImageAttrib
 		}
 	}
 
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,6 +138,28 @@ public class ModifyImageAttributeRequest extends RpcAcsRequest<ModifyImageAttrib
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getImageFamily() {
+		return this.imageFamily;
+	}
+
+	public void setImageFamily(String imageFamily) {
+		this.imageFamily = imageFamily;
+		if(imageFamily != null){
+			putQueryParameter("ImageFamily", imageFamily);
+		}
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+		if(status != null){
+			putQueryParameter("Status", status);
 		}
 	}
 

@@ -15,20 +15,27 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteJobsRequest extends RpcAcsRequest<DeleteJobsResponse> {
-	
-	public DeleteJobsRequest() {
-		super("EHPC", "2018-04-12", "DeleteJobs", "ehs");
-	}
+	   
 
 	private String jobs;
 
 	private String clusterId;
+	public DeleteJobsRequest() {
+		super("EHPC", "2018-04-12", "DeleteJobs");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getJobs() {
 		return this.jobs;

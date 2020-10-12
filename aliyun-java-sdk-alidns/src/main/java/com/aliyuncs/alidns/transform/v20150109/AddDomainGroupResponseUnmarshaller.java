@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.transform.v20150109;
 
 import com.aliyuncs.alidns.model.v20150109.AddDomainGroupResponse;
@@ -19,11 +20,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class AddDomainGroupResponseUnmarshaller {
 
-	public static AddDomainGroupResponse unmarshall(AddDomainGroupResponse addDomainGroupResponse, UnmarshallerContext context) {
+	public static AddDomainGroupResponse unmarshall(AddDomainGroupResponse addDomainGroupResponse, UnmarshallerContext _ctx) {
 		
-		addDomainGroupResponse.setRequestId(context.stringValue("AddDomainGroupResponse.RequestId"));
-		addDomainGroupResponse.setGroupId(context.stringValue("AddDomainGroupResponse.GroupId"));
-		addDomainGroupResponse.setGroupName(context.stringValue("AddDomainGroupResponse.GroupName"));
+		addDomainGroupResponse.setRequestId(_ctx.stringValue("AddDomainGroupResponse.RequestId"));
+		addDomainGroupResponse.setGroupId(_ctx.stringValue("AddDomainGroupResponse.GroupId"));
+		addDomainGroupResponse.setGroupName(_ctx.stringValue("AddDomainGroupResponse.GroupName"));
 	 
 	 	return addDomainGroupResponse;
 	}

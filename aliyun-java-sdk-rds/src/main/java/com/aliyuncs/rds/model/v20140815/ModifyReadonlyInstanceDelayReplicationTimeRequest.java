@@ -15,26 +15,33 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyReadonlyInstanceDelayReplicationTimeRequest extends RpcAcsRequest<ModifyReadonlyInstanceDelayReplicationTimeResponse> {
-	
-	public ModifyReadonlyInstanceDelayReplicationTimeRequest() {
-		super("Rds", "2014-08-15", "ModifyReadonlyInstanceDelayReplicationTime", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String readSQLReplicationTime;
-
 	private String resourceOwnerAccount;
 
-	private String dBInstanceId;
-
 	private Long ownerId;
+
+	private String readSQLReplicationTime;
+
+	private String dBInstanceId;
+	public ModifyReadonlyInstanceDelayReplicationTimeRequest() {
+		super("Rds", "2014-08-15", "ModifyReadonlyInstanceDelayReplicationTime", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -44,17 +51,6 @@ public class ModifyReadonlyInstanceDelayReplicationTimeRequest extends RpcAcsReq
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getReadSQLReplicationTime() {
-		return this.readSQLReplicationTime;
-	}
-
-	public void setReadSQLReplicationTime(String readSQLReplicationTime) {
-		this.readSQLReplicationTime = readSQLReplicationTime;
-		if(readSQLReplicationTime != null){
-			putQueryParameter("ReadSQLReplicationTime", readSQLReplicationTime);
 		}
 	}
 
@@ -69,17 +65,6 @@ public class ModifyReadonlyInstanceDelayReplicationTimeRequest extends RpcAcsReq
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -88,6 +73,28 @@ public class ModifyReadonlyInstanceDelayReplicationTimeRequest extends RpcAcsReq
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getReadSQLReplicationTime() {
+		return this.readSQLReplicationTime;
+	}
+
+	public void setReadSQLReplicationTime(String readSQLReplicationTime) {
+		this.readSQLReplicationTime = readSQLReplicationTime;
+		if(readSQLReplicationTime != null){
+			putQueryParameter("ReadSQLReplicationTime", readSQLReplicationTime);
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

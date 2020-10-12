@@ -20,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class AddLivePullStreamInfoConfigResponseUnmarshaller {
 
-	public static AddLivePullStreamInfoConfigResponse unmarshall(AddLivePullStreamInfoConfigResponse addLivePullStreamInfoConfigResponse, UnmarshallerContext context) {
+	public static AddLivePullStreamInfoConfigResponse unmarshall(AddLivePullStreamInfoConfigResponse addLivePullStreamInfoConfigResponse, UnmarshallerContext _ctx) {
 		
-		addLivePullStreamInfoConfigResponse.setRequestId(context.stringValue("AddLivePullStreamInfoConfigResponse.RequestId"));
+		addLivePullStreamInfoConfigResponse.setRequestId(_ctx.stringValue("AddLivePullStreamInfoConfigResponse.RequestId"));
 	 
 	 	return addLivePullStreamInfoConfigResponse;
 	}

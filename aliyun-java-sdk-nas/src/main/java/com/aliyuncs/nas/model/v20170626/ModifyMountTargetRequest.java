@@ -11,27 +11,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.model.v20170626;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.nas.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyMountTargetRequest extends RpcAcsRequest<ModifyMountTargetResponse> {
-	
-	public ModifyMountTargetRequest() {
-		super("NAS", "2017-06-26", "ModifyMountTarget", "nas");
-	}
+	   
+
+	private String fileSystemId;
 
 	private String mountTargetDomain;
 
 	private String accessGroupName;
 
-	private String fileSystemId;
-
 	private String status;
+	public ModifyMountTargetRequest() {
+		super("NAS", "2017-06-26", "ModifyMountTarget");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getFileSystemId() {
+		return this.fileSystemId;
+	}
+
+	public void setFileSystemId(String fileSystemId) {
+		this.fileSystemId = fileSystemId;
+		if(fileSystemId != null){
+			putQueryParameter("FileSystemId", fileSystemId);
+		}
+	}
 
 	public String getMountTargetDomain() {
 		return this.mountTargetDomain;
@@ -52,17 +71,6 @@ public class ModifyMountTargetRequest extends RpcAcsRequest<ModifyMountTargetRes
 		this.accessGroupName = accessGroupName;
 		if(accessGroupName != null){
 			putQueryParameter("AccessGroupName", accessGroupName);
-		}
-	}
-
-	public String getFileSystemId() {
-		return this.fileSystemId;
-	}
-
-	public void setFileSystemId(String fileSystemId) {
-		this.fileSystemId = fileSystemId;
-		if(fileSystemId != null){
-			putQueryParameter("FileSystemId", fileSystemId);
 		}
 	}
 

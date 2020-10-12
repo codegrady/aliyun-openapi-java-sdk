@@ -15,38 +15,37 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyRouteTableAttributesRequest extends RpcAcsRequest<ModifyRouteTableAttributesResponse> {
-	
-	public ModifyRouteTableAttributesRequest() {
-		super("Vpc", "2016-04-28", "ModifyRouteTableAttributes", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
-	private String bandwidth;
-
-	private String ownerAccount;
-
 	private String description;
-
-	private Long ownerId;
-
-	private String kbpsBandwidth;
 
 	private String routeTableName;
 
-	private Long resourceUid;
-
-	private String resourceBid;
-
 	private String routeTableId;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private Long ownerId;
+	public ModifyRouteTableAttributesRequest() {
+		super("Vpc", "2016-04-28", "ModifyRouteTableAttributes", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -56,39 +55,6 @@ public class ModifyRouteTableAttributesRequest extends RpcAcsRequest<ModifyRoute
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getBandwidth() {
-		return this.bandwidth;
-	}
-
-	public void setBandwidth(String bandwidth) {
-		this.bandwidth = bandwidth;
-		if(bandwidth != null){
-			putQueryParameter("Bandwidth", bandwidth);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -103,28 +69,6 @@ public class ModifyRouteTableAttributesRequest extends RpcAcsRequest<ModifyRoute
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getKbpsBandwidth() {
-		return this.kbpsBandwidth;
-	}
-
-	public void setKbpsBandwidth(String kbpsBandwidth) {
-		this.kbpsBandwidth = kbpsBandwidth;
-		if(kbpsBandwidth != null){
-			putQueryParameter("KbpsBandwidth", kbpsBandwidth);
-		}
-	}
-
 	public String getRouteTableName() {
 		return this.routeTableName;
 	}
@@ -136,28 +80,6 @@ public class ModifyRouteTableAttributesRequest extends RpcAcsRequest<ModifyRoute
 		}
 	}
 
-	public Long getResourceUid() {
-		return this.resourceUid;
-	}
-
-	public void setResourceUid(Long resourceUid) {
-		this.resourceUid = resourceUid;
-		if(resourceUid != null){
-			putQueryParameter("ResourceUid", resourceUid.toString());
-		}
-	}
-
-	public String getResourceBid() {
-		return this.resourceBid;
-	}
-
-	public void setResourceBid(String resourceBid) {
-		this.resourceBid = resourceBid;
-		if(resourceBid != null){
-			putQueryParameter("ResourceBid", resourceBid);
-		}
-	}
-
 	public String getRouteTableId() {
 		return this.routeTableId;
 	}
@@ -166,6 +88,39 @@ public class ModifyRouteTableAttributesRequest extends RpcAcsRequest<ModifyRoute
 		this.routeTableId = routeTableId;
 		if(routeTableId != null){
 			putQueryParameter("RouteTableId", routeTableId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 

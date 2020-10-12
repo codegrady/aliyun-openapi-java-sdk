@@ -18,19 +18,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.ots.model.v20160620.ListClusterTypeResponse;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class ListClusterTypeResponseUnmarshaller {
 
-	public static ListClusterTypeResponse unmarshall(ListClusterTypeResponse listClusterTypeResponse, UnmarshallerContext context) {
+	public static ListClusterTypeResponse unmarshall(ListClusterTypeResponse listClusterTypeResponse, UnmarshallerContext _ctx) {
 		
-		listClusterTypeResponse.setRequestId(context.stringValue("ListClusterTypeResponse.RequestId"));
+		listClusterTypeResponse.setRequestId(_ctx.stringValue("ListClusterTypeResponse.RequestId"));
 
 		List<String> clusterTypeInfos = new ArrayList<String>();
-		for (int i = 0; i < context.lengthValue("ListClusterTypeResponse.ClusterTypeInfos.Length"); i++) {
-			clusterTypeInfos.add(context.stringValue("ListClusterTypeResponse.ClusterTypeInfos["+ i +"]"));
+		for (int i = 0; i < _ctx.lengthValue("ListClusterTypeResponse.ClusterTypeInfos.Length"); i++) {
+			clusterTypeInfos.add(_ctx.stringValue("ListClusterTypeResponse.ClusterTypeInfos["+ i +"]"));
 		}
 		listClusterTypeResponse.setClusterTypeInfos(clusterTypeInfos);
 	 

@@ -11,28 +11,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.model.v20151215;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeClusterNodesRequest extends RoaAcsRequest<DescribeClusterNodesResponse> {
-	
-	public DescribeClusterNodesRequest() {
-		super("CS", "2015-12-15", "DescribeClusterNodes");
-		setUriPattern("/clusters/[ClusterId]/nodes");
-		setMethod(MethodType.GET);
-	}
+	   
 
 	private String pageSize;
 
 	private String clusterId;
 
+	private String state;
+
+	private String nodepool_id;
+
 	private String pageNumber;
+	public DescribeClusterNodesRequest() {
+		super("CS", "2015-12-15", "DescribeClusterNodes");
+		setUriPattern("/clusters/[ClusterId]/nodes");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getPageSize() {
 		return this.pageSize;
@@ -53,6 +63,28 @@ public class DescribeClusterNodesRequest extends RoaAcsRequest<DescribeClusterNo
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putPathParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getState() {
+		return this.state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+		if(state != null){
+			putQueryParameter("state", state);
+		}
+	}
+
+	public String getNodepool_id() {
+		return this.nodepool_id;
+	}
+
+	public void setNodepool_id(String nodepool_id) {
+		this.nodepool_id = nodepool_id;
+		if(nodepool_id != null){
+			putQueryParameter("nodepool_id", nodepool_id);
 		}
 	}
 

@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package com.aliyuncs.reader;
 
 import java.text.CharacterIterator;
@@ -34,13 +16,6 @@ public class JsonReader implements Reader {
     private static final int FIRST_POSITION = 0;
     private static final int CURRENT_POSITION = 1;
     private static final int NEXT_POSITION = 2;
-
-    private CharacterIterator ct;
-    private char c;
-    private Object token;
-    private StringBuffer stringBuffer = new StringBuffer();
-    private Map<String, String> map = new HashMap<String, String>();
-
     private static Map<Character, Character> escapes = new HashMap<Character, Character>();
 
     static {
@@ -54,11 +29,27 @@ public class JsonReader implements Reader {
         escapes.put(Character.valueOf('f'), Character.valueOf('\f'));
     }
 
+    private CharacterIterator ct;
+    private char c;
+    private Object token;
+    private StringBuffer stringBuffer = new StringBuffer();
+    private Map<String, String> map = new HashMap<String, String>();
+
+    public static String trimFromLast(String str, String stripString) {
+        int pos = str.lastIndexOf(stripString);
+        if (pos > -1) {
+            return str.substring(0, pos);
+        } else {
+            return str;
+        }
+    }
+
     @Override
     public Map<String, String> read(String response, String endpoint) {
         return read(new StringCharacterIterator(response), endpoint, FIRST_POSITION);
     }
-    
+
+    @Override
     public Map<String, String> readForHideArrayItem(String response, String endpoint) {
         return readForHideItem(new StringCharacterIterator(response), endpoint, FIRST_POSITION);
     }
@@ -81,7 +72,7 @@ public class JsonReader implements Reader {
         readJson(endpoint);
         return map;
     }
-    
+
     public Map<String, String> readForHideItem(CharacterIterator ci, String endpoint, int start) {
         ct = ci;
         switch (start) {
@@ -157,7 +148,7 @@ public class JsonReader implements Reader {
         }
         return token;
     }
-    
+
     private Object readJsonForHideItem(String baseKey) {
         skipWhiteSpace();
         char ch = c;
@@ -219,9 +210,9 @@ public class JsonReader implements Reader {
 
     private void processObject(String baseKey) {
         String key = baseKey + "." + readJson(baseKey);
-        while (token != OBJECT_END_TOKEN) {
+        while (!token.equals(OBJECT_END_TOKEN)) {
             readJson(key);
-            if (token != OBJECT_END_TOKEN) {
+            if (!token.equals(OBJECT_END_TOKEN)) {
                 Object object = readJson(key);
                 if (object instanceof String || object instanceof Number || object instanceof Boolean) {
                     map.put(key, String.valueOf(object));
@@ -234,12 +225,12 @@ public class JsonReader implements Reader {
             }
         }
     }
-    
+
     private void processObjectForHideItemName(String baseKey) {
         String key = baseKey + "." + readJsonForHideItem(baseKey);
-        while (token != OBJECT_END_TOKEN) {
+        while (!token.equals(OBJECT_END_TOKEN)) {
             readJsonForHideItem(key);
-            if (token != OBJECT_END_TOKEN) {
+            if (!token.equals(OBJECT_END_TOKEN)) {
                 Object object = readJsonForHideItem(key);
                 if (object instanceof String || object instanceof Number || object instanceof Boolean) {
                     map.put(key, String.valueOf(object));
@@ -256,7 +247,7 @@ public class JsonReader implements Reader {
     private void processList(String baseKey) {
         Object value = readJson(baseKey);
         int index = 0;
-        while (token != ARRAY_END_TOKEN) {
+        while (!token.equals(ARRAY_END_TOKEN)) {
             String key = trimFromLast(baseKey, ".") + "[" + (index++) + "]";
             map.put(key, String.valueOf(value));
             if (readJson(baseKey) == COMMA_TOKEN) {
@@ -267,13 +258,13 @@ public class JsonReader implements Reader {
     }
 
     private void processListForHideItem(String baseKey) {
-        Object value = readJson(baseKey);
+        Object value = readJsonForHideItem(baseKey);
         int index = 0;
-        while (token != ARRAY_END_TOKEN) {
+        while (!token.equals(ARRAY_END_TOKEN)) {
             String key = baseKey + "[" + (index++) + "]";
             map.put(key, String.valueOf(value));
-            if (readJson(baseKey) == COMMA_TOKEN) {
-                value = readJson(baseKey);
+            if (readJsonForHideItem(baseKey) == COMMA_TOKEN) {
+                value = readJsonForHideItem(baseKey);
             }
         }
         map.put(baseKey + ".Length", String.valueOf(index));
@@ -285,7 +276,7 @@ public class JsonReader implements Reader {
         String key = preKey + "[" + index + "]";
         Object value = readJson(key);
 
-        while (token != ARRAY_END_TOKEN) {
+        while (!token.equals(ARRAY_END_TOKEN)) {
             map.put(preKey + ".Length", String.valueOf(index + 1));
             if (value instanceof String) {
                 map.put(key, String.valueOf(value));
@@ -296,21 +287,21 @@ public class JsonReader implements Reader {
             }
         }
     }
-    
+
     private void processArrayForHideItem(String baseKey) {
         int index = 0;
         String preKey = baseKey;
         String key = preKey + "[" + index + "]";
-        Object value = readJson(key);
+        Object value = readJsonForHideItem(key);
 
-        while (token != ARRAY_END_TOKEN) {
+        while (!token.equals(ARRAY_END_TOKEN)) {
             map.put(preKey + ".Length", String.valueOf(index + 1));
             if (value instanceof String) {
                 map.put(key, String.valueOf(value));
             }
-            if (readJson(baseKey) == COMMA_TOKEN) {
+            if (readJsonForHideItem(baseKey) == COMMA_TOKEN) {
                 key = preKey + "[" + (++index) + "]";
-                value = readJson(key);
+                value = readJsonForHideItem(key);
             }
         }
     }
@@ -359,7 +350,7 @@ public class JsonReader implements Reader {
                 nextChar();
                 Object value = escapes.get(Character.valueOf(c));
                 if (value != null) {
-                    addChar(((Character)value).charValue());
+                    addChar(((Character) value).charValue());
                 }
             } else {
                 addChar();
@@ -376,15 +367,6 @@ public class JsonReader implements Reader {
 
     private void addChar() {
         addChar(c);
-    }
-
-    public static String trimFromLast(String str, String stripString) {
-        int pos = str.lastIndexOf(stripString);
-        if (pos > -1) {
-            return str.substring(0, pos);
-        } else {
-            return str;
-        }
     }
 
 }

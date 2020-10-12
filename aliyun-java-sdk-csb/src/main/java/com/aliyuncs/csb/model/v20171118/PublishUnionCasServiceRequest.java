@@ -17,22 +17,27 @@ package com.aliyuncs.csb.model.v20171118;
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.csb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class PublishUnionCasServiceRequest extends RpcAcsRequest<PublishUnionCasServiceResponse> {
-	
-	public PublishUnionCasServiceRequest() {
-		super("CSB", "2017-11-18", "PublishUnionCasService");
-		setProtocol(ProtocolType.HTTPS);
-		setMethod(MethodType.POST);
-	}
+	   
 
 	private String casCsbName;
 
 	private String data;
+	public PublishUnionCasServiceRequest() {
+		super("CSB", "2017-11-18", "PublishUnionCasService");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getCasCsbName() {
 		return this.casCsbName;

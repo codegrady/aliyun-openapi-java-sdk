@@ -15,20 +15,29 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeClusterTemplateRequest extends RpcAcsRequest<DescribeClusterTemplateResponse> {
-	
-	public DescribeClusterTemplateRequest() {
-		super("Emr", "2016-04-08", "DescribeClusterTemplate");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String id;
+	private String resourceGroupId;
+
+	private String bizId;
+	public DescribeClusterTemplateRequest() {
+		super("Emr", "2016-04-08", "DescribeClusterTemplate");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -41,14 +50,25 @@ public class DescribeClusterTemplateRequest extends RpcAcsRequest<DescribeCluste
 		}
 	}
 
-	public String getId() {
-		return this.id;
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-		if(id != null){
-			putQueryParameter("Id", id);
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getBizId() {
+		return this.bizId;
+	}
+
+	public void setBizId(String bizId) {
+		this.bizId = bizId;
+		if(bizId != null){
+			putQueryParameter("BizId", bizId);
 		}
 	}
 

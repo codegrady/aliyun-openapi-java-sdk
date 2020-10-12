@@ -95,6 +95,14 @@ public class DescribeBackupsResponse extends AcsResponse {
 
 		private String storeStatus;
 
+		private String backupSetSize;
+
+		private String consistentTime;
+
+		private String backupsLevel;
+
+		private String isAvail;
+
 		public String getBackupId() {
 			return this.backupId;
 		}
@@ -165,6 +173,38 @@ public class DescribeBackupsResponse extends AcsResponse {
 
 		public void setStoreStatus(String storeStatus) {
 			this.storeStatus = storeStatus;
+		}
+
+		public String getBackupSetSize() {
+			return this.backupSetSize;
+		}
+
+		public void setBackupSetSize(String backupSetSize) {
+			this.backupSetSize = backupSetSize;
+		}
+
+		public String getConsistentTime() {
+			return this.consistentTime;
+		}
+
+		public void setConsistentTime(String consistentTime) {
+			this.consistentTime = consistentTime;
+		}
+
+		public String getBackupsLevel() {
+			return this.backupsLevel;
+		}
+
+		public void setBackupsLevel(String backupsLevel) {
+			this.backupsLevel = backupsLevel;
+		}
+
+		public String getIsAvail() {
+			return this.isAvail;
+		}
+
+		public void setIsAvail(String isAvail) {
+			this.isAvail = isAvail;
 		}
 	}
 

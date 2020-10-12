@@ -18,30 +18,51 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.market.model.v20151101.DescribePriceResponse;
+import com.aliyuncs.market.model.v20151101.DescribePriceResponse.Coupon;
 import com.aliyuncs.market.model.v20151101.DescribePriceResponse.PromotionRule;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribePriceResponseUnmarshaller {
 
-	public static DescribePriceResponse unmarshall(DescribePriceResponse describePriceResponse, UnmarshallerContext context) {
+	public static DescribePriceResponse unmarshall(DescribePriceResponse describePriceResponse, UnmarshallerContext _ctx) {
 		
-		describePriceResponse.setProductCode(context.stringValue("DescribePriceResponse.ProductCode"));
-		describePriceResponse.setOriginalPrice(context.floatValue("DescribePriceResponse.OriginalPrice"));
-		describePriceResponse.setTradePrice(context.floatValue("DescribePriceResponse.TradePrice"));
-		describePriceResponse.setDiscountPrice(context.floatValue("DescribePriceResponse.DiscountPrice"));
+		describePriceResponse.setProductCode(_ctx.stringValue("DescribePriceResponse.ProductCode"));
+		describePriceResponse.setOriginalPrice(_ctx.floatValue("DescribePriceResponse.OriginalPrice"));
+		describePriceResponse.setTradePrice(_ctx.floatValue("DescribePriceResponse.TradePrice"));
+		describePriceResponse.setDiscountPrice(_ctx.floatValue("DescribePriceResponse.DiscountPrice"));
+		describePriceResponse.setCuxiao(_ctx.booleanValue("DescribePriceResponse.Cuxiao"));
+		describePriceResponse.setDuration(_ctx.integerValue("DescribePriceResponse.Duration"));
+		describePriceResponse.setCycle(_ctx.stringValue("DescribePriceResponse.Cycle"));
+		describePriceResponse.setInfoTitle(_ctx.stringValue("DescribePriceResponse.InfoTitle"));
+		describePriceResponse.setExpressionCode(_ctx.stringValue("DescribePriceResponse.ExpressionCode"));
+		describePriceResponse.setCurrency(_ctx.stringValue("DescribePriceResponse.Currency"));
+		describePriceResponse.setExpressionMessage(_ctx.stringValue("DescribePriceResponse.ExpressionMessage"));
 
 		List<PromotionRule> promotionRules = new ArrayList<PromotionRule>();
-		for (int i = 0; i < context.lengthValue("DescribePriceResponse.PromotionRules.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribePriceResponse.PromotionRules.Length"); i++) {
 			PromotionRule promotionRule = new PromotionRule();
-			promotionRule.setRuleId(context.stringValue("DescribePriceResponse.PromotionRules["+ i +"].RuleId"));
-			promotionRule.setName(context.stringValue("DescribePriceResponse.PromotionRules["+ i +"].Name"));
-			promotionRule.setTitle(context.stringValue("DescribePriceResponse.PromotionRules["+ i +"].Title"));
+			promotionRule.setRuleId(_ctx.stringValue("DescribePriceResponse.PromotionRules["+ i +"].RuleId"));
+			promotionRule.setName(_ctx.stringValue("DescribePriceResponse.PromotionRules["+ i +"].Name"));
+			promotionRule.setTitle(_ctx.stringValue("DescribePriceResponse.PromotionRules["+ i +"].Title"));
 
 			promotionRules.add(promotionRule);
 		}
 		describePriceResponse.setPromotionRules(promotionRules);
+
+		List<Coupon> coupons = new ArrayList<Coupon>();
+		for (int i = 0; i < _ctx.lengthValue("DescribePriceResponse.Coupons.Length"); i++) {
+			Coupon coupon = new Coupon();
+			coupon.setCouponOptionCode(_ctx.stringValue("DescribePriceResponse.Coupons["+ i +"].CouponOptionCode"));
+			coupon.setCouponOptionNo(_ctx.stringValue("DescribePriceResponse.Coupons["+ i +"].CouponOptionNo"));
+			coupon.setCouponName(_ctx.stringValue("DescribePriceResponse.Coupons["+ i +"].CouponName"));
+			coupon.setCouponDesc(_ctx.stringValue("DescribePriceResponse.Coupons["+ i +"].CouponDesc"));
+			coupon.setCanPromFee(_ctx.floatValue("DescribePriceResponse.Coupons["+ i +"].CanPromFee"));
+			coupon.setIsSelected(_ctx.booleanValue("DescribePriceResponse.Coupons["+ i +"].IsSelected"));
+
+			coupons.add(coupon);
+		}
+		describePriceResponse.setCoupons(coupons);
 	 
 	 	return describePriceResponse;
 	}

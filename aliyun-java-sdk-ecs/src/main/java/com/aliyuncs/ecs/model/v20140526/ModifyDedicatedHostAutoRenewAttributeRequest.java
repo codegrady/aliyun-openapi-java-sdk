@@ -15,44 +15,40 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDedicatedHostAutoRenewAttributeRequest extends RpcAcsRequest<ModifyDedicatedHostAutoRenewAttributeResponse> {
-	
-	public ModifyDedicatedHostAutoRenewAttributeRequest() {
-		super("Ecs", "2014-05-26", "ModifyDedicatedHostAutoRenewAttribute", "ecs");
-	}
-
-	private Integer duration;
+	   
 
 	private String dedicatedHostIds;
 
 	private Long resourceOwnerId;
 
-	private String periodUnit;
+	private Integer duration;
 
-	private Boolean autoRenew;
+	private String renewalStatus;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String renewalStatus;
-
 	private Long ownerId;
 
-	public Integer getDuration() {
-		return this.duration;
-	}
+	private String periodUnit;
 
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-		if(duration != null){
-			putQueryParameter("Duration", duration.toString());
-		}
+	private Boolean autoRenew;
+	public ModifyDedicatedHostAutoRenewAttributeRequest() {
+		super("Ecs", "2014-05-26", "ModifyDedicatedHostAutoRenewAttribute", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDedicatedHostIds() {
@@ -77,25 +73,25 @@ public class ModifyDedicatedHostAutoRenewAttributeRequest extends RpcAcsRequest<
 		}
 	}
 
-	public String getPeriodUnit() {
-		return this.periodUnit;
+	public Integer getDuration() {
+		return this.duration;
 	}
 
-	public void setPeriodUnit(String periodUnit) {
-		this.periodUnit = periodUnit;
-		if(periodUnit != null){
-			putQueryParameter("PeriodUnit", periodUnit);
+	public void setDuration(Integer duration) {
+		this.duration = duration;
+		if(duration != null){
+			putQueryParameter("Duration", duration.toString());
 		}
 	}
 
-	public Boolean getAutoRenew() {
-		return this.autoRenew;
+	public String getRenewalStatus() {
+		return this.renewalStatus;
 	}
 
-	public void setAutoRenew(Boolean autoRenew) {
-		this.autoRenew = autoRenew;
-		if(autoRenew != null){
-			putQueryParameter("AutoRenew", autoRenew.toString());
+	public void setRenewalStatus(String renewalStatus) {
+		this.renewalStatus = renewalStatus;
+		if(renewalStatus != null){
+			putQueryParameter("RenewalStatus", renewalStatus);
 		}
 	}
 
@@ -121,17 +117,6 @@ public class ModifyDedicatedHostAutoRenewAttributeRequest extends RpcAcsRequest<
 		}
 	}
 
-	public String getRenewalStatus() {
-		return this.renewalStatus;
-	}
-
-	public void setRenewalStatus(String renewalStatus) {
-		this.renewalStatus = renewalStatus;
-		if(renewalStatus != null){
-			putQueryParameter("RenewalStatus", renewalStatus);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -140,6 +125,28 @@ public class ModifyDedicatedHostAutoRenewAttributeRequest extends RpcAcsRequest<
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getPeriodUnit() {
+		return this.periodUnit;
+	}
+
+	public void setPeriodUnit(String periodUnit) {
+		this.periodUnit = periodUnit;
+		if(periodUnit != null){
+			putQueryParameter("PeriodUnit", periodUnit);
+		}
+	}
+
+	public Boolean getAutoRenew() {
+		return this.autoRenew;
+	}
+
+	public void setAutoRenew(Boolean autoRenew) {
+		this.autoRenew = autoRenew;
+		if(autoRenew != null){
+			putQueryParameter("AutoRenew", autoRenew.toString());
 		}
 	}
 

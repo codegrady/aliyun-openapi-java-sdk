@@ -15,22 +15,29 @@
 package com.aliyuncs.vod.model.v20170321;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vod.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateUploadImageRequest extends RpcAcsRequest<CreateUploadImageResponse> {
-	
-	public CreateUploadImageRequest() {
-		super("vod", "2017-03-21", "CreateUploadImage", "vod");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String imageType;
+	private String description;
 
-	private String originalFileName;
+	private String title;
+
+	private String storageLocation;
+
+	private String userData;
+
+	private Long cateId;
+
+	private String imageType;
 
 	private String resourceOwnerAccount;
 
@@ -38,11 +45,19 @@ public class CreateUploadImageRequest extends RpcAcsRequest<CreateUploadImageRes
 
 	private Long ownerId;
 
-	private String title;
-
 	private String tags;
 
-	private String storageLocation;
+	private String originalFileName;
+
+	private String appId;
+	public CreateUploadImageRequest() {
+		super("vod", "2017-03-21", "CreateUploadImage", "vod");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -55,6 +70,61 @@ public class CreateUploadImageRequest extends RpcAcsRequest<CreateUploadImageRes
 		}
 	}
 
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getTitle() {
+		return this.title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+		if(title != null){
+			putQueryParameter("Title", title);
+		}
+	}
+
+	public String getStorageLocation() {
+		return this.storageLocation;
+	}
+
+	public void setStorageLocation(String storageLocation) {
+		this.storageLocation = storageLocation;
+		if(storageLocation != null){
+			putQueryParameter("StorageLocation", storageLocation);
+		}
+	}
+
+	public String getUserData() {
+		return this.userData;
+	}
+
+	public void setUserData(String userData) {
+		this.userData = userData;
+		if(userData != null){
+			putQueryParameter("UserData", userData);
+		}
+	}
+
+	public Long getCateId() {
+		return this.cateId;
+	}
+
+	public void setCateId(Long cateId) {
+		this.cateId = cateId;
+		if(cateId != null){
+			putQueryParameter("CateId", cateId.toString());
+		}
+	}
+
 	public String getImageType() {
 		return this.imageType;
 	}
@@ -63,17 +133,6 @@ public class CreateUploadImageRequest extends RpcAcsRequest<CreateUploadImageRes
 		this.imageType = imageType;
 		if(imageType != null){
 			putQueryParameter("ImageType", imageType);
-		}
-	}
-
-	public String getOriginalFileName() {
-		return this.originalFileName;
-	}
-
-	public void setOriginalFileName(String originalFileName) {
-		this.originalFileName = originalFileName;
-		if(originalFileName != null){
-			putQueryParameter("OriginalFileName", originalFileName);
 		}
 	}
 
@@ -110,17 +169,6 @@ public class CreateUploadImageRequest extends RpcAcsRequest<CreateUploadImageRes
 		}
 	}
 
-	public String getTitle() {
-		return this.title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-		if(title != null){
-			putQueryParameter("Title", title);
-		}
-	}
-
 	public String getTags() {
 		return this.tags;
 	}
@@ -132,14 +180,25 @@ public class CreateUploadImageRequest extends RpcAcsRequest<CreateUploadImageRes
 		}
 	}
 
-	public String getStorageLocation() {
-		return this.storageLocation;
+	public String getOriginalFileName() {
+		return this.originalFileName;
 	}
 
-	public void setStorageLocation(String storageLocation) {
-		this.storageLocation = storageLocation;
-		if(storageLocation != null){
-			putQueryParameter("StorageLocation", storageLocation);
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
+		if(originalFileName != null){
+			putQueryParameter("OriginalFileName", originalFileName);
+		}
+	}
+
+	public String getAppId() {
+		return this.appId;
+	}
+
+	public void setAppId(String appId) {
+		this.appId = appId;
+		if(appId != null){
+			putQueryParameter("AppId", appId);
 		}
 	}
 

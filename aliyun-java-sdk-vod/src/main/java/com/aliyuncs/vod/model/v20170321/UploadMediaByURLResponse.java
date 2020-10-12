@@ -72,4 +72,9 @@ public class UploadMediaByURLResponse extends AcsResponse {
 	public UploadMediaByURLResponse getInstance(UnmarshallerContext context) {
 		return	UploadMediaByURLResponseUnmarshaller.unmarshall(this, context);
 	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
+	}
 }

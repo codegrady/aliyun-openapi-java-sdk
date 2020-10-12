@@ -15,28 +15,39 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AttachNetworkInterfaceRequest extends RpcAcsRequest<AttachNetworkInterfaceResponse> {
-	
-	public AttachNetworkInterfaceRequest() {
-		super("Ecs", "2014-05-26", "AttachNetworkInterface", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String trunkNetworkInstanceId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
+
+	private Boolean waitForNetworkConfigurationReady;
 
 	private Long ownerId;
 
 	private String instanceId;
 
 	private String networkInterfaceId;
+	public AttachNetworkInterfaceRequest() {
+		super("Ecs", "2014-05-26", "AttachNetworkInterface", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,6 +57,17 @@ public class AttachNetworkInterfaceRequest extends RpcAcsRequest<AttachNetworkIn
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getTrunkNetworkInstanceId() {
+		return this.trunkNetworkInstanceId;
+	}
+
+	public void setTrunkNetworkInstanceId(String trunkNetworkInstanceId) {
+		this.trunkNetworkInstanceId = trunkNetworkInstanceId;
+		if(trunkNetworkInstanceId != null){
+			putQueryParameter("TrunkNetworkInstanceId", trunkNetworkInstanceId);
 		}
 	}
 
@@ -68,6 +90,17 @@ public class AttachNetworkInterfaceRequest extends RpcAcsRequest<AttachNetworkIn
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Boolean getWaitForNetworkConfigurationReady() {
+		return this.waitForNetworkConfigurationReady;
+	}
+
+	public void setWaitForNetworkConfigurationReady(Boolean waitForNetworkConfigurationReady) {
+		this.waitForNetworkConfigurationReady = waitForNetworkConfigurationReady;
+		if(waitForNetworkConfigurationReady != null){
+			putQueryParameter("WaitForNetworkConfigurationReady", waitForNetworkConfigurationReady.toString());
 		}
 	}
 

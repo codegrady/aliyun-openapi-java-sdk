@@ -19,22 +19,37 @@ import java.util.List;
 
 import com.aliyuncs.slb.model.v20140515.DescribeAccessControlListsResponse;
 import com.aliyuncs.slb.model.v20140515.DescribeAccessControlListsResponse.Acl;
-import java.util.Map;
+import com.aliyuncs.slb.model.v20140515.DescribeAccessControlListsResponse.Acl.Tag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeAccessControlListsResponseUnmarshaller {
 
-	public static DescribeAccessControlListsResponse unmarshall(DescribeAccessControlListsResponse describeAccessControlListsResponse, UnmarshallerContext context) {
+	public static DescribeAccessControlListsResponse unmarshall(DescribeAccessControlListsResponse describeAccessControlListsResponse, UnmarshallerContext _ctx) {
 		
-		describeAccessControlListsResponse.setRequestId(context.stringValue("DescribeAccessControlListsResponse.RequestId"));
+		describeAccessControlListsResponse.setRequestId(_ctx.stringValue("DescribeAccessControlListsResponse.RequestId"));
+		describeAccessControlListsResponse.setTotalCount(_ctx.integerValue("DescribeAccessControlListsResponse.TotalCount"));
+		describeAccessControlListsResponse.setPageSize(_ctx.integerValue("DescribeAccessControlListsResponse.PageSize"));
+		describeAccessControlListsResponse.setCount(_ctx.integerValue("DescribeAccessControlListsResponse.Count"));
+		describeAccessControlListsResponse.setPageNumber(_ctx.integerValue("DescribeAccessControlListsResponse.PageNumber"));
 
 		List<Acl> acls = new ArrayList<Acl>();
-		for (int i = 0; i < context.lengthValue("DescribeAccessControlListsResponse.Acls.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeAccessControlListsResponse.Acls.Length"); i++) {
 			Acl acl = new Acl();
-			acl.setAclId(context.stringValue("DescribeAccessControlListsResponse.Acls["+ i +"].AclId"));
-			acl.setAclName(context.stringValue("DescribeAccessControlListsResponse.Acls["+ i +"].AclName"));
-			acl.setAddressIPVersion(context.stringValue("DescribeAccessControlListsResponse.Acls["+ i +"].AddressIPVersion"));
+			acl.setAclId(_ctx.stringValue("DescribeAccessControlListsResponse.Acls["+ i +"].AclId"));
+			acl.setAclName(_ctx.stringValue("DescribeAccessControlListsResponse.Acls["+ i +"].AclName"));
+			acl.setAddressIPVersion(_ctx.stringValue("DescribeAccessControlListsResponse.Acls["+ i +"].AddressIPVersion"));
+			acl.setResourceGroupId(_ctx.stringValue("DescribeAccessControlListsResponse.Acls["+ i +"].ResourceGroupId"));
+
+			List<Tag> tags = new ArrayList<Tag>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeAccessControlListsResponse.Acls["+ i +"].Tags.Length"); j++) {
+				Tag tag = new Tag();
+				tag.setTagKey(_ctx.stringValue("DescribeAccessControlListsResponse.Acls["+ i +"].Tags["+ j +"].TagKey"));
+				tag.setTagValue(_ctx.stringValue("DescribeAccessControlListsResponse.Acls["+ i +"].Tags["+ j +"].TagValue"));
+
+				tags.add(tag);
+			}
+			acl.setTags(tags);
 
 			acls.add(acl);
 		}

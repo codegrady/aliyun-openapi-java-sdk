@@ -15,18 +15,20 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetProjectRequest extends RpcAcsRequest<GetProjectResponse> {
-	
-	public GetProjectRequest() {
-		super("imm", "2017-09-06", "GetProject", "imm");
-	}
+	   
 
 	private String project;
+	public GetProjectRequest() {
+		super("imm", "2017-09-06", "GetProject", "imm");
+		setMethod(MethodType.POST);
+	}
 
 	public String getProject() {
 		return this.project;

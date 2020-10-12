@@ -15,33 +15,38 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListFlowProjectClusterSettingRequest extends RpcAcsRequest<ListFlowProjectClusterSettingResponse> {
-	
-	public ListFlowProjectClusterSettingRequest() {
-		super("Emr", "2016-04-08", "ListFlowProjectClusterSetting");
-	}
+	   
 
-	private Long resourceOwnerId;
+	private Integer pageNumber;
 
 	private Integer pageSize;
 
 	private String projectId;
-
-	private Integer pageNumber;
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
+	public ListFlowProjectClusterSettingRequest() {
+		super("Emr", "2016-04-08", "ListFlowProjectClusterSetting");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -64,17 +69,6 @@ public class ListFlowProjectClusterSettingRequest extends RpcAcsRequest<ListFlow
 		this.projectId = projectId;
 		if(projectId != null){
 			putQueryParameter("ProjectId", projectId);
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 

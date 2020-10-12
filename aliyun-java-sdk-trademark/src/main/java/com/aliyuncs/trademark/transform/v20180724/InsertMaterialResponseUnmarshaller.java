@@ -20,12 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class InsertMaterialResponseUnmarshaller {
 
-	public static InsertMaterialResponse unmarshall(InsertMaterialResponse insertMaterialResponse, UnmarshallerContext context) {
+	public static InsertMaterialResponse unmarshall(InsertMaterialResponse insertMaterialResponse, UnmarshallerContext _ctx) {
 		
-		insertMaterialResponse.setRequestId(context.stringValue("InsertMaterialResponse.RequestId"));
-		insertMaterialResponse.setSuccess(context.booleanValue("InsertMaterialResponse.Success"));
-		insertMaterialResponse.setErrorMsg(context.stringValue("InsertMaterialResponse.ErrorMsg"));
-		insertMaterialResponse.setErrorCode(context.stringValue("InsertMaterialResponse.ErrorCode"));
+		insertMaterialResponse.setRequestId(_ctx.stringValue("InsertMaterialResponse.RequestId"));
+		insertMaterialResponse.setSuccess(_ctx.booleanValue("InsertMaterialResponse.Success"));
 	 
 	 	return insertMaterialResponse;
 	}

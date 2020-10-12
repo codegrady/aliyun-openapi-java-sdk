@@ -11,25 +11,70 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.model.v20170626;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.nas.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeAccessGroupsRequest extends RpcAcsRequest<DescribeAccessGroupsResponse> {
-	
-	public DescribeAccessGroupsRequest() {
-		super("NAS", "2017-06-26", "DescribeAccessGroups", "nas");
-	}
+	   
+
+	private Boolean useUTCDateTime;
+
+	private String fileSystemType;
+
+	private Integer pageNumber;
 
 	private Integer pageSize;
 
 	private String accessGroupName;
+	public DescribeAccessGroupsRequest() {
+		super("NAS", "2017-06-26", "DescribeAccessGroups");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Integer pageNumber;
+	public Boolean getUseUTCDateTime() {
+		return this.useUTCDateTime;
+	}
+
+	public void setUseUTCDateTime(Boolean useUTCDateTime) {
+		this.useUTCDateTime = useUTCDateTime;
+		if(useUTCDateTime != null){
+			putQueryParameter("UseUTCDateTime", useUTCDateTime.toString());
+		}
+	}
+
+	public String getFileSystemType() {
+		return this.fileSystemType;
+	}
+
+	public void setFileSystemType(String fileSystemType) {
+		this.fileSystemType = fileSystemType;
+		if(fileSystemType != null){
+			putQueryParameter("FileSystemType", fileSystemType);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
 
 	public Integer getPageSize() {
 		return this.pageSize;
@@ -50,17 +95,6 @@ public class DescribeAccessGroupsRequest extends RpcAcsRequest<DescribeAccessGro
 		this.accessGroupName = accessGroupName;
 		if(accessGroupName != null){
 			putQueryParameter("AccessGroupName", accessGroupName);
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 

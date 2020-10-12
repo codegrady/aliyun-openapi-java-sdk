@@ -15,26 +15,30 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class ConvertOfficeFormatRequest extends RpcAcsRequest<ConvertOfficeFormatResponse> {
-	
-	public ConvertOfficeFormatRequest() {
-		super("imm", "2017-09-06", "ConvertOfficeFormat", "imm");
-	}
-
-	private String imageSpec;
+	   
 
 	private String srcType;
 
-	private String modelId;
-
 	private String project;
 
-	private String externalID;
+	private Boolean pdfVector;
+
+	private String password;
+
+	private Long startPage;
+
+	private Boolean fitToPagesWide;
+
+	private String tgtFilePrefix;
+
+	private String modelId;
 
 	private Long maxSheetRow;
 
@@ -42,29 +46,26 @@ public class ConvertOfficeFormatRequest extends RpcAcsRequest<ConvertOfficeForma
 
 	private Long endPage;
 
+	private String tgtFileSuffix;
+
 	private Boolean sheetOnePage;
-
-	private String password;
-
-	private Long startPage;
 
 	private Long maxSheetCol;
 
 	private String tgtType;
 
+	private Boolean hidecomments;
+
+	private Boolean fitToPagesTall;
+
 	private String srcUri;
 
+	private String tgtFilePages;
+
 	private String tgtUri;
-
-	public String getImageSpec() {
-		return this.imageSpec;
-	}
-
-	public void setImageSpec(String imageSpec) {
-		this.imageSpec = imageSpec;
-		if(imageSpec != null){
-			putQueryParameter("ImageSpec", imageSpec);
-		}
+	public ConvertOfficeFormatRequest() {
+		super("imm", "2017-09-06", "ConvertOfficeFormat", "imm");
+		setMethod(MethodType.POST);
 	}
 
 	public String getSrcType() {
@@ -75,17 +76,6 @@ public class ConvertOfficeFormatRequest extends RpcAcsRequest<ConvertOfficeForma
 		this.srcType = srcType;
 		if(srcType != null){
 			putQueryParameter("SrcType", srcType);
-		}
-	}
-
-	public String getModelId() {
-		return this.modelId;
-	}
-
-	public void setModelId(String modelId) {
-		this.modelId = modelId;
-		if(modelId != null){
-			putQueryParameter("ModelId", modelId);
 		}
 	}
 
@@ -100,14 +90,69 @@ public class ConvertOfficeFormatRequest extends RpcAcsRequest<ConvertOfficeForma
 		}
 	}
 
-	public String getExternalID() {
-		return this.externalID;
+	public Boolean getPdfVector() {
+		return this.pdfVector;
 	}
 
-	public void setExternalID(String externalID) {
-		this.externalID = externalID;
-		if(externalID != null){
-			putQueryParameter("ExternalID", externalID);
+	public void setPdfVector(Boolean pdfVector) {
+		this.pdfVector = pdfVector;
+		if(pdfVector != null){
+			putQueryParameter("PdfVector", pdfVector.toString());
+		}
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+		if(password != null){
+			putQueryParameter("Password", password);
+		}
+	}
+
+	public Long getStartPage() {
+		return this.startPage;
+	}
+
+	public void setStartPage(Long startPage) {
+		this.startPage = startPage;
+		if(startPage != null){
+			putQueryParameter("StartPage", startPage.toString());
+		}
+	}
+
+	public Boolean getFitToPagesWide() {
+		return this.fitToPagesWide;
+	}
+
+	public void setFitToPagesWide(Boolean fitToPagesWide) {
+		this.fitToPagesWide = fitToPagesWide;
+		if(fitToPagesWide != null){
+			putQueryParameter("FitToPagesWide", fitToPagesWide.toString());
+		}
+	}
+
+	public String getTgtFilePrefix() {
+		return this.tgtFilePrefix;
+	}
+
+	public void setTgtFilePrefix(String tgtFilePrefix) {
+		this.tgtFilePrefix = tgtFilePrefix;
+		if(tgtFilePrefix != null){
+			putQueryParameter("TgtFilePrefix", tgtFilePrefix);
+		}
+	}
+
+	public String getModelId() {
+		return this.modelId;
+	}
+
+	public void setModelId(String modelId) {
+		this.modelId = modelId;
+		if(modelId != null){
+			putQueryParameter("ModelId", modelId);
 		}
 	}
 
@@ -144,6 +189,17 @@ public class ConvertOfficeFormatRequest extends RpcAcsRequest<ConvertOfficeForma
 		}
 	}
 
+	public String getTgtFileSuffix() {
+		return this.tgtFileSuffix;
+	}
+
+	public void setTgtFileSuffix(String tgtFileSuffix) {
+		this.tgtFileSuffix = tgtFileSuffix;
+		if(tgtFileSuffix != null){
+			putQueryParameter("TgtFileSuffix", tgtFileSuffix);
+		}
+	}
+
 	public Boolean getSheetOnePage() {
 		return this.sheetOnePage;
 	}
@@ -152,28 +208,6 @@ public class ConvertOfficeFormatRequest extends RpcAcsRequest<ConvertOfficeForma
 		this.sheetOnePage = sheetOnePage;
 		if(sheetOnePage != null){
 			putQueryParameter("SheetOnePage", sheetOnePage.toString());
-		}
-	}
-
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-		if(password != null){
-			putQueryParameter("Password", password);
-		}
-	}
-
-	public Long getStartPage() {
-		return this.startPage;
-	}
-
-	public void setStartPage(Long startPage) {
-		this.startPage = startPage;
-		if(startPage != null){
-			putQueryParameter("StartPage", startPage.toString());
 		}
 	}
 
@@ -199,6 +233,28 @@ public class ConvertOfficeFormatRequest extends RpcAcsRequest<ConvertOfficeForma
 		}
 	}
 
+	public Boolean getHidecomments() {
+		return this.hidecomments;
+	}
+
+	public void setHidecomments(Boolean hidecomments) {
+		this.hidecomments = hidecomments;
+		if(hidecomments != null){
+			putQueryParameter("Hidecomments", hidecomments.toString());
+		}
+	}
+
+	public Boolean getFitToPagesTall() {
+		return this.fitToPagesTall;
+	}
+
+	public void setFitToPagesTall(Boolean fitToPagesTall) {
+		this.fitToPagesTall = fitToPagesTall;
+		if(fitToPagesTall != null){
+			putQueryParameter("FitToPagesTall", fitToPagesTall.toString());
+		}
+	}
+
 	public String getSrcUri() {
 		return this.srcUri;
 	}
@@ -207,6 +263,17 @@ public class ConvertOfficeFormatRequest extends RpcAcsRequest<ConvertOfficeForma
 		this.srcUri = srcUri;
 		if(srcUri != null){
 			putQueryParameter("SrcUri", srcUri);
+		}
+	}
+
+	public String getTgtFilePages() {
+		return this.tgtFilePages;
+	}
+
+	public void setTgtFilePages(String tgtFilePages) {
+		this.tgtFilePages = tgtFilePages;
+		if(tgtFilePages != null){
+			putQueryParameter("TgtFilePages", tgtFilePages);
 		}
 	}
 

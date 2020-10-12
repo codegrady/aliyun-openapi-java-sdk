@@ -15,22 +15,29 @@
 package com.aliyuncs.gpdb.model.v20160503;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.gpdb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SwitchDBInstanceNetTypeRequest extends RpcAcsRequest<SwitchDBInstanceNetTypeResponse> {
-	
-	public SwitchDBInstanceNetTypeRequest() {
-		super("gpdb", "2016-05-03", "SwitchDBInstanceNetType", "gpdb");
-	}
+	   
 
 	private String connectionStringPrefix;
 
-	private String port;
-
 	private String dBInstanceId;
+
+	private String port;
+	public SwitchDBInstanceNetTypeRequest() {
+		super("gpdb", "2016-05-03", "SwitchDBInstanceNetType", "gpdb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getConnectionStringPrefix() {
 		return this.connectionStringPrefix;
@@ -43,17 +50,6 @@ public class SwitchDBInstanceNetTypeRequest extends RpcAcsRequest<SwitchDBInstan
 		}
 	}
 
-	public String getPort() {
-		return this.port;
-	}
-
-	public void setPort(String port) {
-		this.port = port;
-		if(port != null){
-			putQueryParameter("Port", port);
-		}
-	}
-
 	public String getDBInstanceId() {
 		return this.dBInstanceId;
 	}
@@ -62,6 +58,17 @@ public class SwitchDBInstanceNetTypeRequest extends RpcAcsRequest<SwitchDBInstan
 		this.dBInstanceId = dBInstanceId;
 		if(dBInstanceId != null){
 			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getPort() {
+		return this.port;
+	}
+
+	public void setPort(String port) {
+		this.port = port;
+		if(port != null){
+			putQueryParameter("Port", port);
 		}
 	}
 

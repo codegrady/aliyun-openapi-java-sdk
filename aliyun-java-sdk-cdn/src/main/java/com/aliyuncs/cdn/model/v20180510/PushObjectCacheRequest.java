@@ -15,33 +15,40 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class PushObjectCacheRequest extends RpcAcsRequest<PushObjectCacheResponse> {
-	
-	public PushObjectCacheRequest() {
-		super("Cdn", "2018-05-10", "PushObjectCache");
-	}
-
-	private String area;
-
-	private String securityToken;
+	   
 
 	private String objectPath;
 
-	private Long ownerId;
+	private String securityToken;
 
-	public String getArea() {
-		return this.area;
+	private String area;
+
+	private Long ownerId;
+	public PushObjectCacheRequest() {
+		super("Cdn", "2018-05-10", "PushObjectCache");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setArea(String area) {
-		this.area = area;
-		if(area != null){
-			putQueryParameter("Area", area);
+	public String getObjectPath() {
+		return this.objectPath;
+	}
+
+	public void setObjectPath(String objectPath) {
+		this.objectPath = objectPath;
+		if(objectPath != null){
+			putQueryParameter("ObjectPath", objectPath);
 		}
 	}
 
@@ -56,14 +63,14 @@ public class PushObjectCacheRequest extends RpcAcsRequest<PushObjectCacheRespons
 		}
 	}
 
-	public String getObjectPath() {
-		return this.objectPath;
+	public String getArea() {
+		return this.area;
 	}
 
-	public void setObjectPath(String objectPath) {
-		this.objectPath = objectPath;
-		if(objectPath != null){
-			putQueryParameter("ObjectPath", objectPath);
+	public void setArea(String area) {
+		this.area = area;
+		if(area != null){
+			putQueryParameter("Area", area);
 		}
 	}
 

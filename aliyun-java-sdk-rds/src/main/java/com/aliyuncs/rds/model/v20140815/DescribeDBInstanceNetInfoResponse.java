@@ -29,6 +29,8 @@ public class DescribeDBInstanceNetInfoResponse extends AcsResponse {
 
 	private String instanceNetworkType;
 
+	private String securityIPMode;
+
 	private List<DBInstanceNetInfo> dBInstanceNetInfos;
 
 	public String getRequestId() {
@@ -45,6 +47,14 @@ public class DescribeDBInstanceNetInfoResponse extends AcsResponse {
 
 	public void setInstanceNetworkType(String instanceNetworkType) {
 		this.instanceNetworkType = instanceNetworkType;
+	}
+
+	public String getSecurityIPMode() {
+		return this.securityIPMode;
+	}
+
+	public void setSecurityIPMode(String securityIPMode) {
+		this.securityIPMode = securityIPMode;
 	}
 
 	public List<DBInstanceNetInfo> getDBInstanceNetInfos() {

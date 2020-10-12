@@ -15,30 +15,43 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateBgpPeerRequest extends RpcAcsRequest<CreateBgpPeerResponse> {
-	
-	public CreateBgpPeerRequest() {
-		super("Vpc", "2016-04-28", "CreateBgpPeer", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String clientToken;
-
-	private String ownerAccount;
 
 	private String bgpGroupId;
 
-	private Long ownerId;
-
 	private String peerIpAddress;
+
+	private Integer bfdMultiHop;
+
+	private String ipVersion;
+
+	private Boolean enableBfd;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private Long ownerId;
+	public CreateBgpPeerRequest() {
+		super("Vpc", "2016-04-28", "CreateBgpPeer", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -48,17 +61,6 @@ public class CreateBgpPeerRequest extends RpcAcsRequest<CreateBgpPeerResponse> {
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -73,17 +75,6 @@ public class CreateBgpPeerRequest extends RpcAcsRequest<CreateBgpPeerResponse> {
 		}
 	}
 
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
 	public String getBgpGroupId() {
 		return this.bgpGroupId;
 	}
@@ -95,17 +86,6 @@ public class CreateBgpPeerRequest extends RpcAcsRequest<CreateBgpPeerResponse> {
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
 	public String getPeerIpAddress() {
 		return this.peerIpAddress;
 	}
@@ -114,6 +94,72 @@ public class CreateBgpPeerRequest extends RpcAcsRequest<CreateBgpPeerResponse> {
 		this.peerIpAddress = peerIpAddress;
 		if(peerIpAddress != null){
 			putQueryParameter("PeerIpAddress", peerIpAddress);
+		}
+	}
+
+	public Integer getBfdMultiHop() {
+		return this.bfdMultiHop;
+	}
+
+	public void setBfdMultiHop(Integer bfdMultiHop) {
+		this.bfdMultiHop = bfdMultiHop;
+		if(bfdMultiHop != null){
+			putQueryParameter("BfdMultiHop", bfdMultiHop.toString());
+		}
+	}
+
+	public String getIpVersion() {
+		return this.ipVersion;
+	}
+
+	public void setIpVersion(String ipVersion) {
+		this.ipVersion = ipVersion;
+		if(ipVersion != null){
+			putQueryParameter("IpVersion", ipVersion);
+		}
+	}
+
+	public Boolean getEnableBfd() {
+		return this.enableBfd;
+	}
+
+	public void setEnableBfd(Boolean enableBfd) {
+		this.enableBfd = enableBfd;
+		if(enableBfd != null){
+			putQueryParameter("EnableBfd", enableBfd.toString());
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 

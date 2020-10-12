@@ -15,16 +15,15 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetQueueSubmissionStatisticInfoRequest extends RpcAcsRequest<GetQueueSubmissionStatisticInfoResponse> {
-	
-	public GetQueueSubmissionStatisticInfoRequest() {
-		super("Emr", "2016-04-08", "GetQueueSubmissionStatisticInfo");
-	}
+	   
 
 	private String fromDatetime;
 
@@ -34,9 +33,17 @@ public class GetQueueSubmissionStatisticInfoRequest extends RpcAcsRequest<GetQue
 
 	private String toDatetime;
 
-	private String applicationType;
-
 	private String finalStatus;
+
+	private String applicationType;
+	public GetQueueSubmissionStatisticInfoRequest() {
+		super("Emr", "2016-04-08", "GetQueueSubmissionStatisticInfo");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFromDatetime() {
 		return this.fromDatetime;
@@ -82,17 +89,6 @@ public class GetQueueSubmissionStatisticInfoRequest extends RpcAcsRequest<GetQue
 		}
 	}
 
-	public String getApplicationType() {
-		return this.applicationType;
-	}
-
-	public void setApplicationType(String applicationType) {
-		this.applicationType = applicationType;
-		if(applicationType != null){
-			putQueryParameter("ApplicationType", applicationType);
-		}
-	}
-
 	public String getFinalStatus() {
 		return this.finalStatus;
 	}
@@ -101,6 +97,17 @@ public class GetQueueSubmissionStatisticInfoRequest extends RpcAcsRequest<GetQue
 		this.finalStatus = finalStatus;
 		if(finalStatus != null){
 			putQueryParameter("FinalStatus", finalStatus);
+		}
+	}
+
+	public String getApplicationType() {
+		return this.applicationType;
+	}
+
+	public void setApplicationType(String applicationType) {
+		this.applicationType = applicationType;
+		if(applicationType != null){
+			putQueryParameter("ApplicationType", applicationType);
 		}
 	}
 

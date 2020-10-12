@@ -14,6 +14,7 @@
 
 package com.aliyuncs.market.model.v20151101;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.market.transform.v20151101.DescribeInstanceResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -51,6 +52,16 @@ public class DescribeInstanceResponse extends AcsResponse {
 	private String hostJson;
 
 	private String appJson;
+
+	private String componentJson;
+
+	private String constraints;
+
+	private Boolean isTrial;
+
+	private List<Module> modules;
+
+	private RelationalData relationalData;
 
 	public Long getInstanceId() {
 		return this.instanceId;
@@ -162,6 +173,228 @@ public class DescribeInstanceResponse extends AcsResponse {
 
 	public void setAppJson(String appJson) {
 		this.appJson = appJson;
+	}
+
+	public String getComponentJson() {
+		return this.componentJson;
+	}
+
+	public void setComponentJson(String componentJson) {
+		this.componentJson = componentJson;
+	}
+
+	public String getConstraints() {
+		return this.constraints;
+	}
+
+	public void setConstraints(String constraints) {
+		this.constraints = constraints;
+	}
+
+	public Boolean getIsTrial() {
+		return this.isTrial;
+	}
+
+	public void setIsTrial(Boolean isTrial) {
+		this.isTrial = isTrial;
+	}
+
+	public List<Module> getModules() {
+		return this.modules;
+	}
+
+	public void setModules(List<Module> modules) {
+		this.modules = modules;
+	}
+
+	public RelationalData getRelationalData() {
+		return this.relationalData;
+	}
+
+	public void setRelationalData(RelationalData relationalData) {
+		this.relationalData = relationalData;
+	}
+
+	public static class Module {
+
+		private String id;
+
+		private String name;
+
+		private String code;
+
+		private List<Property> properties;
+
+		public String getId() {
+			return this.id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getCode() {
+			return this.code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public List<Property> getProperties() {
+			return this.properties;
+		}
+
+		public void setProperties(List<Property> properties) {
+			this.properties = properties;
+		}
+
+		public static class Property {
+
+			private String name;
+
+			private String key;
+
+			private String showType;
+
+			private String displayUnit;
+
+			private List<PropertyValue> propertyValues;
+
+			public String getName() {
+				return this.name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
+			}
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getShowType() {
+				return this.showType;
+			}
+
+			public void setShowType(String showType) {
+				this.showType = showType;
+			}
+
+			public String getDisplayUnit() {
+				return this.displayUnit;
+			}
+
+			public void setDisplayUnit(String displayUnit) {
+				this.displayUnit = displayUnit;
+			}
+
+			public List<PropertyValue> getPropertyValues() {
+				return this.propertyValues;
+			}
+
+			public void setPropertyValues(List<PropertyValue> propertyValues) {
+				this.propertyValues = propertyValues;
+			}
+
+			public static class PropertyValue {
+
+				private String value;
+
+				private String displayName;
+
+				private String type;
+
+				private String min;
+
+				private String max;
+
+				private String step;
+
+				private String remark;
+
+				public String getValue() {
+					return this.value;
+				}
+
+				public void setValue(String value) {
+					this.value = value;
+				}
+
+				public String getDisplayName() {
+					return this.displayName;
+				}
+
+				public void setDisplayName(String displayName) {
+					this.displayName = displayName;
+				}
+
+				public String getType() {
+					return this.type;
+				}
+
+				public void setType(String type) {
+					this.type = type;
+				}
+
+				public String getMin() {
+					return this.min;
+				}
+
+				public void setMin(String min) {
+					this.min = min;
+				}
+
+				public String getMax() {
+					return this.max;
+				}
+
+				public void setMax(String max) {
+					this.max = max;
+				}
+
+				public String getStep() {
+					return this.step;
+				}
+
+				public void setStep(String step) {
+					this.step = step;
+				}
+
+				public String getRemark() {
+					return this.remark;
+				}
+
+				public void setRemark(String remark) {
+					this.remark = remark;
+				}
+			}
+		}
+	}
+
+	public static class RelationalData {
+
+		private String serviceStatus;
+
+		public String getServiceStatus() {
+			return this.serviceStatus;
+		}
+
+		public void setServiceStatus(String serviceStatus) {
+			this.serviceStatus = serviceStatus;
+		}
 	}
 
 	@Override

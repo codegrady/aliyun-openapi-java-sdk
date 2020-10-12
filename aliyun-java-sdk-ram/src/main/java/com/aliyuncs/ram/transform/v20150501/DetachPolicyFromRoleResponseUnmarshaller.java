@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.DetachPolicyFromRoleResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DetachPolicyFromRoleResponseUnmarshaller {
 
-	public static DetachPolicyFromRoleResponse unmarshall(DetachPolicyFromRoleResponse detachPolicyFromRoleResponse, UnmarshallerContext context) {
+	public static DetachPolicyFromRoleResponse unmarshall(DetachPolicyFromRoleResponse detachPolicyFromRoleResponse, UnmarshallerContext _ctx) {
 		
-		detachPolicyFromRoleResponse.setRequestId(context.stringValue("DetachPolicyFromRoleResponse.RequestId"));
+		detachPolicyFromRoleResponse.setRequestId(_ctx.stringValue("DetachPolicyFromRoleResponse.RequestId"));
 	 
 	 	return detachPolicyFromRoleResponse;
 	}

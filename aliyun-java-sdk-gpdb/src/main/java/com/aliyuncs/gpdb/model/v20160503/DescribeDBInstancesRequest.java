@@ -15,37 +15,47 @@
 package com.aliyuncs.gpdb.model.v20160503;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.gpdb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstancesResponse> {
-	
-	public DescribeDBInstancesRequest() {
-		super("gpdb", "2016-05-03", "DescribeDBInstances", "gpdb");
-	}
+	   
 
-	private String connectionMode;
+	private Integer pageNumber;
 
 	private Integer pageSize;
 
 	private String dBInstanceDescription;
 
+	private List<Tag> tags;
+
+	private String dBInstanceIds;
+
 	private Long ownerId;
 
 	private String instanceNetworkType;
-
-	private Integer pageNumber;
-
-	public String getConnectionMode() {
-		return this.connectionMode;
+	public DescribeDBInstancesRequest() {
+		super("gpdb", "2016-05-03", "DescribeDBInstances", "gpdb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setConnectionMode(String connectionMode) {
-		this.connectionMode = connectionMode;
-		if(connectionMode != null){
-			putQueryParameter("ConnectionMode", connectionMode);
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -71,6 +81,31 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 		}
 	}
 
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public String getDBInstanceIds() {
+		return this.dBInstanceIds;
+	}
+
+	public void setDBInstanceIds(String dBInstanceIds) {
+		this.dBInstanceIds = dBInstanceIds;
+		if(dBInstanceIds != null){
+			putQueryParameter("DBInstanceIds", dBInstanceIds);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -93,14 +128,26 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
+	public static class Tag {
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

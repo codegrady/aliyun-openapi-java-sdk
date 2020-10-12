@@ -15,7 +15,6 @@
 package com.aliyuncs.market.model.v20151101;
 
 import java.util.List;
-import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.market.transform.v20151101.DescribeLicenseResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -65,6 +64,8 @@ public class DescribeLicenseResponse extends AcsResponse {
 		private String productCode;
 
 		private String productName;
+
+		private String supplierName;
 
 		private List<LicenseAttribute> extendArray;
 
@@ -140,6 +141,14 @@ public class DescribeLicenseResponse extends AcsResponse {
 
 		public void setProductName(String productName) {
 			this.productName = productName;
+		}
+
+		public String getSupplierName() {
+			return this.supplierName;
+		}
+
+		public void setSupplierName(String supplierName) {
+			this.supplierName = supplierName;
 		}
 
 		public List<LicenseAttribute> getExtendArray() {

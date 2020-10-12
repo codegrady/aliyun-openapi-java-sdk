@@ -16,26 +16,57 @@ package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DetachLoadBalancersRequest extends RpcAcsRequest<DetachLoadBalancersResponse> {
-	
-	public DetachLoadBalancersRequest() {
-		super("Ess", "2014-08-28", "DetachLoadBalancers", "ess");
-	}
+	   
+
+	private String clientToken;
+
+	private String scalingGroupId;
 
 	private List<String> loadBalancers;
 
 	private String resourceOwnerAccount;
 
-	private String scalingGroupId;
+	private Long ownerId;
 
 	private Boolean forceDetach;
+	public DetachLoadBalancersRequest() {
+		super("Ess", "2014-08-28", "DetachLoadBalancers", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Long ownerId;
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getScalingGroupId() {
+		return this.scalingGroupId;
+	}
+
+	public void setScalingGroupId(String scalingGroupId) {
+		this.scalingGroupId = scalingGroupId;
+		if(scalingGroupId != null){
+			putQueryParameter("ScalingGroupId", scalingGroupId);
+		}
+	}
 
 	public List<String> getLoadBalancers() {
 		return this.loadBalancers;
@@ -61,14 +92,14 @@ public class DetachLoadBalancersRequest extends RpcAcsRequest<DetachLoadBalancer
 		}
 	}
 
-	public String getScalingGroupId() {
-		return this.scalingGroupId;
+	public Long getOwnerId() {
+		return this.ownerId;
 	}
 
-	public void setScalingGroupId(String scalingGroupId) {
-		this.scalingGroupId = scalingGroupId;
-		if(scalingGroupId != null){
-			putQueryParameter("ScalingGroupId", scalingGroupId);
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 
@@ -80,17 +111,6 @@ public class DetachLoadBalancersRequest extends RpcAcsRequest<DetachLoadBalancer
 		this.forceDetach = forceDetach;
 		if(forceDetach != null){
 			putQueryParameter("ForceDetach", forceDetach.toString());
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 

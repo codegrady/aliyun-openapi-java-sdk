@@ -15,34 +15,30 @@
 package com.aliyuncs.drds.model.v20171016;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.drds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyFullTableScanRequest extends RpcAcsRequest<ModifyFullTableScanResponse> {
-	
-	public ModifyFullTableScanRequest() {
-		super("Drds", "2017-10-16", "ModifyFullTableScan", "Drds");
-	}
-
-	private String dbName;
+	   
 
 	private String tableNames;
 
 	private String drdsInstanceId;
 
+	private String dbName;
+
 	private Boolean fullTableScan;
-
-	public String getDbName() {
-		return this.dbName;
-	}
-
-	public void setDbName(String dbName) {
-		this.dbName = dbName;
-		if(dbName != null){
-			putQueryParameter("DbName", dbName);
-		}
+	public ModifyFullTableScanRequest() {
+		super("Drds", "2017-10-16", "ModifyFullTableScan", "Drds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getTableNames() {
@@ -64,6 +60,17 @@ public class ModifyFullTableScanRequest extends RpcAcsRequest<ModifyFullTableSca
 		this.drdsInstanceId = drdsInstanceId;
 		if(drdsInstanceId != null){
 			putQueryParameter("DrdsInstanceId", drdsInstanceId);
+		}
+	}
+
+	public String getDbName() {
+		return this.dbName;
+	}
+
+	public void setDbName(String dbName) {
+		this.dbName = dbName;
+		if(dbName != null){
+			putQueryParameter("DbName", dbName);
 		}
 	}
 

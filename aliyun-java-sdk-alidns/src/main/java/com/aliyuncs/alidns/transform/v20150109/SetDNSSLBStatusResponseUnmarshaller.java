@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.transform.v20150109;
 
 import com.aliyuncs.alidns.model.v20150109.SetDNSSLBStatusResponse;
@@ -19,11 +20,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SetDNSSLBStatusResponseUnmarshaller {
 
-	public static SetDNSSLBStatusResponse unmarshall(SetDNSSLBStatusResponse setDNSSLBStatusResponse, UnmarshallerContext context) {
+	public static SetDNSSLBStatusResponse unmarshall(SetDNSSLBStatusResponse setDNSSLBStatusResponse, UnmarshallerContext _ctx) {
 		
-		setDNSSLBStatusResponse.setRequestId(context.stringValue("SetDNSSLBStatusResponse.RequestId"));
-		setDNSSLBStatusResponse.setRecordCount(context.longValue("SetDNSSLBStatusResponse.RecordCount"));
-		setDNSSLBStatusResponse.setOpen(context.booleanValue("SetDNSSLBStatusResponse.Open"));
+		setDNSSLBStatusResponse.setRequestId(_ctx.stringValue("SetDNSSLBStatusResponse.RequestId"));
+		setDNSSLBStatusResponse.setRecordCount(_ctx.longValue("SetDNSSLBStatusResponse.RecordCount"));
+		setDNSSLBStatusResponse.setOpen(_ctx.booleanValue("SetDNSSLBStatusResponse.Open"));
 	 
 	 	return setDNSSLBStatusResponse;
 	}

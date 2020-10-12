@@ -18,60 +18,54 @@
  */
 package com.aliyuncs;
 
-import java.util.List;
-
 import com.aliyuncs.auth.Credential;
-import com.aliyuncs.auth.Signer;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.exceptions.ServerException;
-import com.aliyuncs.http.FormatType;
 import com.aliyuncs.http.HttpResponse;
 import com.aliyuncs.profile.IClientProfile;
 
-@SuppressWarnings("deprecation")
 public interface IAcsClient {
 
-    public <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request)
-        throws ClientException, ServerException;
+           <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request)
+            throws ClientException, ServerException;
 
-    public <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request,
+           <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request,
                                                          boolean autoRetry, int maxRetryCounts)
-        throws ClientException, ServerException;
+            throws ClientException, ServerException;
 
-    public <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, IClientProfile profile)
-        throws ClientException, ServerException;
+           <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, IClientProfile profile)
+            throws ClientException, ServerException;
 
-    public <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, String regionId,
+           <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, String regionId,
                                                          Credential credential) throws ClientException, ServerException;
 
-    public <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request)
-        throws ServerException, ClientException;
+           <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request)
+            throws ServerException, ClientException;
 
-    public <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request,
+           <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request,
                                                     boolean autoRetry, int maxRetryCounts)
-        throws ServerException, ClientException;
+            throws ServerException, ClientException;
 
-    public <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request,
+           <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request,
                                                     IClientProfile profile) throws ServerException, ClientException;
 
-    public <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request,
+           <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request,
                                                     String regionId, Credential credential)
-        throws ServerException, ClientException;
+            throws ServerException, ClientException;
 
-    public <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request,
+           <T extends AcsResponse> T getAcsResponse(AcsRequest<T> request,
                                                     String regionId)
-        throws ServerException, ClientException;
+            throws ServerException, ClientException;
 
-    public CommonResponse getCommonResponse(CommonRequest request) throws ServerException, ClientException;
+           CommonResponse getCommonResponse(CommonRequest request) throws ServerException, ClientException;
 
-    public <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, boolean autoRetry,
+           <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, boolean autoRetry,
                                                          int maxRetryCounts, IClientProfile profile)
-        throws ClientException, ServerException;
+            throws ClientException, ServerException;
 
-    public void restoreSSLCertificate() ;
+            void restoreSSLCertificate();
 
-    public void ignoreSSLCertificate() ;
+            void ignoreSSLCertificate();
 
-    public abstract void shutdown();
-
+            void shutdown();
 }

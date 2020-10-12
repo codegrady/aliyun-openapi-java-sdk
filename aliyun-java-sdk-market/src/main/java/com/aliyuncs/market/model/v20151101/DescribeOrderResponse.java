@@ -15,6 +15,7 @@
 package com.aliyuncs.market.model.v20151101;
 
 import java.util.List;
+import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.market.transform.v20151101.DescribeOrderResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -60,6 +61,10 @@ public class DescribeOrderResponse extends AcsResponse {
 	private Float paymentPrice;
 
 	private Float couponPrice;
+
+	private Map<Object,Object> components;
+
+	private String requestId;
 
 	private List<String> supplierTelephones;
 
@@ -207,6 +212,22 @@ public class DescribeOrderResponse extends AcsResponse {
 
 	public void setCouponPrice(Float couponPrice) {
 		this.couponPrice = couponPrice;
+	}
+
+	public Map<Object,Object> getComponents() {
+		return this.components;
+	}
+
+	public void setComponents(Map<Object,Object> components) {
+		this.components = components;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public List<String> getSupplierTelephones() {

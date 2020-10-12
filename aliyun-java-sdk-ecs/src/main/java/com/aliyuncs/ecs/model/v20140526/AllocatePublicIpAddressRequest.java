@@ -15,30 +15,37 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AllocatePublicIpAddressRequest extends RpcAcsRequest<AllocatePublicIpAddressResponse> {
-	
-	public AllocatePublicIpAddressRequest() {
-		super("Ecs", "2014-05-26", "AllocatePublicIpAddress", "ecs");
-	}
+	   
 
 	private String ipAddress;
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
+	private String vlanId;
 
 	private String resourceOwnerAccount;
-
-	private String vlanId;
 
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String instanceId;
+	public AllocatePublicIpAddressRequest() {
+		super("Ecs", "2014-05-26", "AllocatePublicIpAddress", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getIpAddress() {
 		return this.ipAddress;
@@ -62,14 +69,14 @@ public class AllocatePublicIpAddressRequest extends RpcAcsRequest<AllocatePublic
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
+	public String getVlanId() {
+		return this.vlanId;
 	}
 
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
+	public void setVlanId(String vlanId) {
+		this.vlanId = vlanId;
+		if(vlanId != null){
+			putQueryParameter("VlanId", vlanId);
 		}
 	}
 
@@ -81,17 +88,6 @@ public class AllocatePublicIpAddressRequest extends RpcAcsRequest<AllocatePublic
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getVlanId() {
-		return this.vlanId;
-	}
-
-	public void setVlanId(String vlanId) {
-		this.vlanId = vlanId;
-		if(vlanId != null){
-			putQueryParameter("VlanId", vlanId);
 		}
 	}
 
@@ -114,6 +110,17 @@ public class AllocatePublicIpAddressRequest extends RpcAcsRequest<AllocatePublic
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

@@ -15,20 +15,29 @@
 package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SaveSingleTaskForSynchronizingDnsHostRequest extends RpcAcsRequest<SaveSingleTaskForSynchronizingDnsHostResponse> {
-	
-	public SaveSingleTaskForSynchronizingDnsHostRequest() {
-		super("Domain", "2018-01-29", "SaveSingleTaskForSynchronizingDnsHost");
-	}
+	   
 
 	private String instanceId;
 
+	private String userClientIp;
+
 	private String lang;
+	public SaveSingleTaskForSynchronizingDnsHostRequest() {
+		super("Domain", "2018-01-29", "SaveSingleTaskForSynchronizingDnsHost", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getInstanceId() {
 		return this.instanceId;
@@ -38,6 +47,17 @@ public class SaveSingleTaskForSynchronizingDnsHostRequest extends RpcAcsRequest<
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getUserClientIp() {
+		return this.userClientIp;
+	}
+
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
 		}
 	}
 

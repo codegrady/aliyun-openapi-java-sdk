@@ -11,9 +11,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.model.v20160714;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cloudapi.Endpoint;
 
 /**
  * @author auto create
@@ -23,22 +26,18 @@ public class SdkGenerateByAppRequest extends RpcAcsRequest<SdkGenerateByAppRespo
 	
 	public SdkGenerateByAppRequest() {
 		super("CloudAPI", "2016-07-14", "SdkGenerateByApp", "apigateway");
+		setSysMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
-
-	private Long appId;
 
 	private String language;
 
-	public Long getAppId() {
-		return this.appId;
-	}
+	private String securityToken;
 
-	public void setAppId(Long appId) {
-		this.appId = appId;
-		if(appId != null){
-			putQueryParameter("AppId", appId.toString());
-		}
-	}
+	private Long appId;
 
 	public String getLanguage() {
 		return this.language;
@@ -48,6 +47,47 @@ public class SdkGenerateByAppRequest extends RpcAcsRequest<SdkGenerateByAppRespo
 		this.language = language;
 		if(language != null){
 			putQueryParameter("Language", language);
+		}
+	}
+
+	public String getBizSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setBizSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	/**
+	 * @deprecated use getBizSecurityToken instead of this.
+	 */
+	@Deprecated
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	/**
+	 * @deprecated use setBizSecurityToken instead of this.
+	 */
+	@Deprecated
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public Long getAppId() {
+		return this.appId;
+	}
+
+	public void setAppId(Long appId) {
+		this.appId = appId;
+		if(appId != null){
+			putQueryParameter("AppId", appId.toString());
 		}
 	}
 

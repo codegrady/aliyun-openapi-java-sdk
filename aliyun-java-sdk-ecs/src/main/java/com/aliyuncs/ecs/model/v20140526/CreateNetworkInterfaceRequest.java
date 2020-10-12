@@ -16,16 +16,17 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkInterfaceResponse> {
-	
-	public CreateNetworkInterfaceRequest() {
-		super("Ecs", "2014-05-26", "CreateNetworkInterface", "ecs");
-	}
+	   
+
+	private Integer queueNumber;
 
 	private Long resourceOwnerId;
 
@@ -35,11 +36,19 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 
 	private String description;
 
+	private Integer secondaryPrivateIpAddressCount;
+
+	private String businessType;
+
 	private String resourceGroupId;
+
+	private String instanceType;
 
 	private List<Tag> tags;
 
 	private String networkInterfaceName;
+
+	private Boolean visible;
 
 	private String resourceOwnerAccount;
 
@@ -47,9 +56,32 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 
 	private Long ownerId;
 
+	private List<String> securityGroupIdss;
+
 	private String vSwitchId;
 
+	private List<String> privateIpAddresss;
+
 	private String primaryIpAddress;
+	public CreateNetworkInterfaceRequest() {
+		super("Ecs", "2014-05-26", "CreateNetworkInterface", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public Integer getQueueNumber() {
+		return this.queueNumber;
+	}
+
+	public void setQueueNumber(Integer queueNumber) {
+		this.queueNumber = queueNumber;
+		if(queueNumber != null){
+			putQueryParameter("QueueNumber", queueNumber.toString());
+		}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -95,6 +127,28 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 		}
 	}
 
+	public Integer getSecondaryPrivateIpAddressCount() {
+		return this.secondaryPrivateIpAddressCount;
+	}
+
+	public void setSecondaryPrivateIpAddressCount(Integer secondaryPrivateIpAddressCount) {
+		this.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
+		if(secondaryPrivateIpAddressCount != null){
+			putQueryParameter("SecondaryPrivateIpAddressCount", secondaryPrivateIpAddressCount.toString());
+		}
+	}
+
+	public String getBusinessType() {
+		return this.businessType;
+	}
+
+	public void setBusinessType(String businessType) {
+		this.businessType = businessType;
+		if(businessType != null){
+			putQueryParameter("BusinessType", businessType);
+		}
+	}
+
 	public String getResourceGroupId() {
 		return this.resourceGroupId;
 	}
@@ -103,6 +157,17 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 		this.resourceGroupId = resourceGroupId;
 		if(resourceGroupId != null){
 			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getInstanceType() {
+		return this.instanceType;
+	}
+
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+		if(instanceType != null){
+			putQueryParameter("InstanceType", instanceType);
 		}
 	}
 
@@ -128,6 +193,17 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 		this.networkInterfaceName = networkInterfaceName;
 		if(networkInterfaceName != null){
 			putQueryParameter("NetworkInterfaceName", networkInterfaceName);
+		}
+	}
+
+	public Boolean getVisible() {
+		return this.visible;
+	}
+
+	public void setVisible(Boolean visible) {
+		this.visible = visible;
+		if(visible != null){
+			putQueryParameter("Visible", visible.toString());
 		}
 	}
 
@@ -164,6 +240,19 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 		}
 	}
 
+	public List<String> getSecurityGroupIdss() {
+		return this.securityGroupIdss;
+	}
+
+	public void setSecurityGroupIdss(List<String> securityGroupIdss) {
+		this.securityGroupIdss = securityGroupIdss;	
+		if (securityGroupIdss != null) {
+			for (int i = 0; i < securityGroupIdss.size(); i++) {
+				putQueryParameter("SecurityGroupIds." + (i + 1) , securityGroupIdss.get(i));
+			}
+		}	
+	}
+
 	public String getVSwitchId() {
 		return this.vSwitchId;
 	}
@@ -173,6 +262,19 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 		if(vSwitchId != null){
 			putQueryParameter("VSwitchId", vSwitchId);
 		}
+	}
+
+	public List<String> getPrivateIpAddresss() {
+		return this.privateIpAddresss;
+	}
+
+	public void setPrivateIpAddresss(List<String> privateIpAddresss) {
+		this.privateIpAddresss = privateIpAddresss;	
+		if (privateIpAddresss != null) {
+			for (int i = 0; i < privateIpAddresss.size(); i++) {
+				putQueryParameter("PrivateIpAddress." + (i + 1) , privateIpAddresss.get(i));
+			}
+		}	
 	}
 
 	public String getPrimaryIpAddress() {

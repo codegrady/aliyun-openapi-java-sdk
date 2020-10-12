@@ -15,18 +15,20 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteProjectRequest extends RpcAcsRequest<DeleteProjectResponse> {
-	
-	public DeleteProjectRequest() {
-		super("imm", "2017-09-06", "DeleteProject", "imm");
-	}
+	   
 
 	private String project;
+	public DeleteProjectRequest() {
+		super("imm", "2017-09-06", "DeleteProject", "imm");
+		setMethod(MethodType.POST);
+	}
 
 	public String getProject() {
 		return this.project;

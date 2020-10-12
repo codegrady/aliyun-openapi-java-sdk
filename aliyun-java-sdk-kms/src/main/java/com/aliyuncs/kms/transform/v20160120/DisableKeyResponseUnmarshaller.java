@@ -20,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DisableKeyResponseUnmarshaller {
 
-	public static DisableKeyResponse unmarshall(DisableKeyResponse disableKeyResponse, UnmarshallerContext context) {
+	public static DisableKeyResponse unmarshall(DisableKeyResponse disableKeyResponse, UnmarshallerContext _ctx) {
 		
-		disableKeyResponse.setRequestId(context.stringValue("DisableKeyResponse.RequestId"));
+		disableKeyResponse.setRequestId(_ctx.stringValue("DisableKeyResponse.RequestId"));
 	 
 	 	return disableKeyResponse;
 	}

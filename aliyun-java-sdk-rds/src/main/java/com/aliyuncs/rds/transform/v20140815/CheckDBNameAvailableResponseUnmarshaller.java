@@ -20,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CheckDBNameAvailableResponseUnmarshaller {
 
-	public static CheckDBNameAvailableResponse unmarshall(CheckDBNameAvailableResponse checkDBNameAvailableResponse, UnmarshallerContext context) {
+	public static CheckDBNameAvailableResponse unmarshall(CheckDBNameAvailableResponse checkDBNameAvailableResponse, UnmarshallerContext _ctx) {
 		
-		checkDBNameAvailableResponse.setRequestId(context.stringValue("CheckDBNameAvailableResponse.RequestId"));
+		checkDBNameAvailableResponse.setRequestId(_ctx.stringValue("CheckDBNameAvailableResponse.RequestId"));
 	 
 	 	return checkDBNameAvailableResponse;
 	}

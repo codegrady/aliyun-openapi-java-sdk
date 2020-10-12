@@ -15,24 +15,38 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateOfficeConversionTaskRequest extends RpcAcsRequest<CreateOfficeConversionTaskResponse> {
-	
-	public CreateOfficeConversionTaskRequest() {
-		super("imm", "2017-09-06", "CreateOfficeConversionTask", "imm");
-	}
+	   
 
 	private String srcType;
+
+	private String project;
+
+	private String idempotentToken;
+
+	private Boolean pdfVector;
+
+	private String password;
+
+	private Long startPage;
+
+	private String notifyEndpoint;
+
+	private Boolean fitToPagesWide;
+
+	private String tgtFilePrefix;
 
 	private String notifyTopicName;
 
 	private String modelId;
 
-	private String project;
+	private Integer displayDpi;
 
 	private Long maxSheetRow;
 
@@ -44,19 +58,11 @@ public class CreateOfficeConversionTaskRequest extends RpcAcsRequest<CreateOffic
 
 	private Boolean sheetOnePage;
 
-	private String password;
-
-	private Long startPage;
-
 	private Long maxSheetCol;
 
 	private String tgtType;
 
-	private String notifyEndpoint;
-
-	private Boolean fitToPagesWide;
-
-	private String tgtFilePrefix;
+	private Boolean hidecomments;
 
 	private Boolean fitToPagesTall;
 
@@ -65,6 +71,10 @@ public class CreateOfficeConversionTaskRequest extends RpcAcsRequest<CreateOffic
 	private String tgtFilePages;
 
 	private String tgtUri;
+	public CreateOfficeConversionTaskRequest() {
+		super("imm", "2017-09-06", "CreateOfficeConversionTask", "imm");
+		setMethod(MethodType.POST);
+	}
 
 	public String getSrcType() {
 		return this.srcType;
@@ -74,6 +84,94 @@ public class CreateOfficeConversionTaskRequest extends RpcAcsRequest<CreateOffic
 		this.srcType = srcType;
 		if(srcType != null){
 			putQueryParameter("SrcType", srcType);
+		}
+	}
+
+	public String getProject() {
+		return this.project;
+	}
+
+	public void setProject(String project) {
+		this.project = project;
+		if(project != null){
+			putQueryParameter("Project", project);
+		}
+	}
+
+	public String getIdempotentToken() {
+		return this.idempotentToken;
+	}
+
+	public void setIdempotentToken(String idempotentToken) {
+		this.idempotentToken = idempotentToken;
+		if(idempotentToken != null){
+			putQueryParameter("IdempotentToken", idempotentToken);
+		}
+	}
+
+	public Boolean getPdfVector() {
+		return this.pdfVector;
+	}
+
+	public void setPdfVector(Boolean pdfVector) {
+		this.pdfVector = pdfVector;
+		if(pdfVector != null){
+			putQueryParameter("PdfVector", pdfVector.toString());
+		}
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+		if(password != null){
+			putQueryParameter("Password", password);
+		}
+	}
+
+	public Long getStartPage() {
+		return this.startPage;
+	}
+
+	public void setStartPage(Long startPage) {
+		this.startPage = startPage;
+		if(startPage != null){
+			putQueryParameter("StartPage", startPage.toString());
+		}
+	}
+
+	public String getNotifyEndpoint() {
+		return this.notifyEndpoint;
+	}
+
+	public void setNotifyEndpoint(String notifyEndpoint) {
+		this.notifyEndpoint = notifyEndpoint;
+		if(notifyEndpoint != null){
+			putQueryParameter("NotifyEndpoint", notifyEndpoint);
+		}
+	}
+
+	public Boolean getFitToPagesWide() {
+		return this.fitToPagesWide;
+	}
+
+	public void setFitToPagesWide(Boolean fitToPagesWide) {
+		this.fitToPagesWide = fitToPagesWide;
+		if(fitToPagesWide != null){
+			putQueryParameter("FitToPagesWide", fitToPagesWide.toString());
+		}
+	}
+
+	public String getTgtFilePrefix() {
+		return this.tgtFilePrefix;
+	}
+
+	public void setTgtFilePrefix(String tgtFilePrefix) {
+		this.tgtFilePrefix = tgtFilePrefix;
+		if(tgtFilePrefix != null){
+			putQueryParameter("TgtFilePrefix", tgtFilePrefix);
 		}
 	}
 
@@ -99,14 +197,14 @@ public class CreateOfficeConversionTaskRequest extends RpcAcsRequest<CreateOffic
 		}
 	}
 
-	public String getProject() {
-		return this.project;
+	public Integer getDisplayDpi() {
+		return this.displayDpi;
 	}
 
-	public void setProject(String project) {
-		this.project = project;
-		if(project != null){
-			putQueryParameter("Project", project);
+	public void setDisplayDpi(Integer displayDpi) {
+		this.displayDpi = displayDpi;
+		if(displayDpi != null){
+			putQueryParameter("DisplayDpi", displayDpi.toString());
 		}
 	}
 
@@ -165,28 +263,6 @@ public class CreateOfficeConversionTaskRequest extends RpcAcsRequest<CreateOffic
 		}
 	}
 
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-		if(password != null){
-			putQueryParameter("Password", password);
-		}
-	}
-
-	public Long getStartPage() {
-		return this.startPage;
-	}
-
-	public void setStartPage(Long startPage) {
-		this.startPage = startPage;
-		if(startPage != null){
-			putQueryParameter("StartPage", startPage.toString());
-		}
-	}
-
 	public Long getMaxSheetCol() {
 		return this.maxSheetCol;
 	}
@@ -209,36 +285,14 @@ public class CreateOfficeConversionTaskRequest extends RpcAcsRequest<CreateOffic
 		}
 	}
 
-	public String getNotifyEndpoint() {
-		return this.notifyEndpoint;
+	public Boolean getHidecomments() {
+		return this.hidecomments;
 	}
 
-	public void setNotifyEndpoint(String notifyEndpoint) {
-		this.notifyEndpoint = notifyEndpoint;
-		if(notifyEndpoint != null){
-			putQueryParameter("NotifyEndpoint", notifyEndpoint);
-		}
-	}
-
-	public Boolean getFitToPagesWide() {
-		return this.fitToPagesWide;
-	}
-
-	public void setFitToPagesWide(Boolean fitToPagesWide) {
-		this.fitToPagesWide = fitToPagesWide;
-		if(fitToPagesWide != null){
-			putQueryParameter("FitToPagesWide", fitToPagesWide.toString());
-		}
-	}
-
-	public String getTgtFilePrefix() {
-		return this.tgtFilePrefix;
-	}
-
-	public void setTgtFilePrefix(String tgtFilePrefix) {
-		this.tgtFilePrefix = tgtFilePrefix;
-		if(tgtFilePrefix != null){
-			putQueryParameter("TgtFilePrefix", tgtFilePrefix);
+	public void setHidecomments(Boolean hidecomments) {
+		this.hidecomments = hidecomments;
+		if(hidecomments != null){
+			putQueryParameter("Hidecomments", hidecomments.toString());
 		}
 	}
 

@@ -16,35 +16,27 @@ package com.aliyuncs.cloudauth.model.v20180916;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cloudauth.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetStatusRequest extends RpcAcsRequest<GetStatusResponse> {
-	
-	public GetStatusRequest() {
-		super("Cloudauth", "2018-09-16", "GetStatus", "cloudauth");
-		setProtocol(ProtocolType.HTTPS);
-	}
-
-	private Long resourceOwnerId;
+	   
 
 	private String biz;
 
-	private String sourceIp;
-
 	private String ticketId;
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
+	public GetStatusRequest() {
+		super("Cloudauth", "2018-09-16", "GetStatus", "cloudauth");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getBiz() {
@@ -55,17 +47,6 @@ public class GetStatusRequest extends RpcAcsRequest<GetStatusResponse> {
 		this.biz = biz;
 		if(biz != null){
 			putQueryParameter("Biz", biz);
-		}
-	}
-
-	public String getSourceIp() {
-		return this.sourceIp;
-	}
-
-	public void setSourceIp(String sourceIp) {
-		this.sourceIp = sourceIp;
-		if(sourceIp != null){
-			putQueryParameter("SourceIp", sourceIp);
 		}
 	}
 

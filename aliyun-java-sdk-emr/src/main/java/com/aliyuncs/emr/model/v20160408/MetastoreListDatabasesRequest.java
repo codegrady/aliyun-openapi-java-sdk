@@ -15,6 +15,7 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
@@ -23,10 +24,22 @@ import com.aliyuncs.RpcAcsRequest;
 public class MetastoreListDatabasesRequest extends RpcAcsRequest<MetastoreListDatabasesResponse> {
 	
 	public MetastoreListDatabasesRequest() {
-		super("Emr", "2016-04-08", "MetastoreListDatabases");
+		super("Emr", "2016-04-08", "MetastoreListDatabases", "emr");
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private Long resourceOwnerId;
+
+	private String dbName;
+
+	private Integer pageSize;
+
+	private String fuzzyDatabaseName;
+
+	private Integer pageNumber;
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -36,6 +49,50 @@ public class MetastoreListDatabasesRequest extends RpcAcsRequest<MetastoreListDa
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getDbName() {
+		return this.dbName;
+	}
+
+	public void setDbName(String dbName) {
+		this.dbName = dbName;
+		if(dbName != null){
+			putQueryParameter("DbName", dbName);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getFuzzyDatabaseName() {
+		return this.fuzzyDatabaseName;
+	}
+
+	public void setFuzzyDatabaseName(String fuzzyDatabaseName) {
+		this.fuzzyDatabaseName = fuzzyDatabaseName;
+		if(fuzzyDatabaseName != null){
+			putQueryParameter("FuzzyDatabaseName", fuzzyDatabaseName);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 

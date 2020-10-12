@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.DetachPolicyFromGroupResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DetachPolicyFromGroupResponseUnmarshaller {
 
-	public static DetachPolicyFromGroupResponse unmarshall(DetachPolicyFromGroupResponse detachPolicyFromGroupResponse, UnmarshallerContext context) {
+	public static DetachPolicyFromGroupResponse unmarshall(DetachPolicyFromGroupResponse detachPolicyFromGroupResponse, UnmarshallerContext _ctx) {
 		
-		detachPolicyFromGroupResponse.setRequestId(context.stringValue("DetachPolicyFromGroupResponse.RequestId"));
+		detachPolicyFromGroupResponse.setRequestId(_ctx.stringValue("DetachPolicyFromGroupResponse.RequestId"));
 	 
 	 	return detachPolicyFromGroupResponse;
 	}

@@ -83,6 +83,8 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 		private String instanceName;
 
+		private String searchKey;
+
 		private String connectionDomain;
 
 		private Long port;
@@ -121,7 +123,7 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 		private String endTime;
 
-		private String hasRenewChangeOrder;
+		private Boolean hasRenewChangeOrder;
 
 		private Boolean isRds;
 
@@ -136,6 +138,14 @@ public class DescribeInstancesResponse extends AcsResponse {
 		private String engineVersion;
 
 		private String destroyTime;
+
+		private String connectionMode;
+
+		private String vpcCloudInstanceId;
+
+		private String resourceGroupId;
+
+		private List<Tag> tags;
 
 		public String getReplacateId() {
 			return this.replacateId;
@@ -159,6 +169,14 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 		public void setInstanceName(String instanceName) {
 			this.instanceName = instanceName;
+		}
+
+		public String getSearchKey() {
+			return this.searchKey;
+		}
+
+		public void setSearchKey(String searchKey) {
+			this.searchKey = searchKey;
 		}
 
 		public String getConnectionDomain() {
@@ -313,11 +331,11 @@ public class DescribeInstancesResponse extends AcsResponse {
 			this.endTime = endTime;
 		}
 
-		public String getHasRenewChangeOrder() {
+		public Boolean getHasRenewChangeOrder() {
 			return this.hasRenewChangeOrder;
 		}
 
-		public void setHasRenewChangeOrder(String hasRenewChangeOrder) {
+		public void setHasRenewChangeOrder(Boolean hasRenewChangeOrder) {
 			this.hasRenewChangeOrder = hasRenewChangeOrder;
 		}
 
@@ -375,6 +393,61 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 		public void setDestroyTime(String destroyTime) {
 			this.destroyTime = destroyTime;
+		}
+
+		public String getConnectionMode() {
+			return this.connectionMode;
+		}
+
+		public void setConnectionMode(String connectionMode) {
+			this.connectionMode = connectionMode;
+		}
+
+		public String getVpcCloudInstanceId() {
+			return this.vpcCloudInstanceId;
+		}
+
+		public void setVpcCloudInstanceId(String vpcCloudInstanceId) {
+			this.vpcCloudInstanceId = vpcCloudInstanceId;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

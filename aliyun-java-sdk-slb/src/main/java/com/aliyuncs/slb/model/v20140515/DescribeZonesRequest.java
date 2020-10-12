@@ -15,16 +15,15 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeZonesRequest extends RpcAcsRequest<DescribeZonesResponse> {
-	
-	public DescribeZonesRequest() {
-		super("Slb", "2014-05-15", "DescribeZones", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -33,8 +32,14 @@ public class DescribeZonesRequest extends RpcAcsRequest<DescribeZonesResponse> {
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	private String tags;
+	public DescribeZonesRequest() {
+		super("Slb", "2014-05-15", "DescribeZones", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -77,17 +82,6 @@ public class DescribeZonesRequest extends RpcAcsRequest<DescribeZonesResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
 		}
 	}
 

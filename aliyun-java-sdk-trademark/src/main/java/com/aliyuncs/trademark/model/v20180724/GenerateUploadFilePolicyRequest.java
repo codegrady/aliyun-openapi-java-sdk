@@ -15,20 +15,27 @@
 package com.aliyuncs.trademark.model.v20180724;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.trademark.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GenerateUploadFilePolicyRequest extends RpcAcsRequest<GenerateUploadFilePolicyResponse> {
-	
-	public GenerateUploadFilePolicyRequest() {
-		super("Trademark", "2018-07-24", "GenerateUploadFilePolicy", "trademark");
-	}
+	   
 
 	private String fileType;
 
-	private String keyword;
+	private String bizId;
+	public GenerateUploadFilePolicyRequest() {
+		super("Trademark", "2018-07-24", "GenerateUploadFilePolicy");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getFileType() {
 		return this.fileType;
@@ -41,14 +48,14 @@ public class GenerateUploadFilePolicyRequest extends RpcAcsRequest<GenerateUploa
 		}
 	}
 
-	public String getKeyword() {
-		return this.keyword;
+	public String getBizId() {
+		return this.bizId;
 	}
 
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-		if(keyword != null){
-			putQueryParameter("Keyword", keyword);
+	public void setBizId(String bizId) {
+		this.bizId = bizId;
+		if(bizId != null){
+			putQueryParameter("BizId", bizId);
 		}
 	}
 

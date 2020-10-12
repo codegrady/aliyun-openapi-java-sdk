@@ -21,15 +21,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateReadOnlyAccountResponseUnmarshaller {
 
-	public static CreateReadOnlyAccountResponse unmarshall(CreateReadOnlyAccountResponse createReadOnlyAccountResponse, UnmarshallerContext context) {
+	public static CreateReadOnlyAccountResponse unmarshall(CreateReadOnlyAccountResponse createReadOnlyAccountResponse, UnmarshallerContext _ctx) {
 		
-		createReadOnlyAccountResponse.setRequestId(context.stringValue("CreateReadOnlyAccountResponse.RequestId"));
-		createReadOnlyAccountResponse.setSuccess(context.booleanValue("CreateReadOnlyAccountResponse.Success"));
+		createReadOnlyAccountResponse.setRequestId(_ctx.stringValue("CreateReadOnlyAccountResponse.RequestId"));
+		createReadOnlyAccountResponse.setSuccess(_ctx.booleanValue("CreateReadOnlyAccountResponse.Success"));
 
 		Data data = new Data();
-		data.setDbName(context.stringValue("CreateReadOnlyAccountResponse.Data.DbName"));
-		data.setDrdsInstanceId(context.stringValue("CreateReadOnlyAccountResponse.Data.DrdsInstanceId"));
-		data.setAccountName(context.stringValue("CreateReadOnlyAccountResponse.Data.AccountName"));
+		data.setDbName(_ctx.stringValue("CreateReadOnlyAccountResponse.Data.DbName"));
+		data.setDrdsInstanceId(_ctx.stringValue("CreateReadOnlyAccountResponse.Data.DrdsInstanceId"));
+		data.setAccountName(_ctx.stringValue("CreateReadOnlyAccountResponse.Data.AccountName"));
 		createReadOnlyAccountResponse.setData(data);
 	 
 	 	return createReadOnlyAccountResponse;

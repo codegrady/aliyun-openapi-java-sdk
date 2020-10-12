@@ -15,28 +15,35 @@
 package com.aliyuncs.cbn.model.v20170912;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cbn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AssociateCenBandwidthPackageRequest extends RpcAcsRequest<AssociateCenBandwidthPackageResponse> {
-	
-	public AssociateCenBandwidthPackageRequest() {
-		super("Cbn", "2017-09-12", "AssociateCenBandwidthPackage", "cbn");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String cenId;
 
-	private String cenBandwidthPackageId;
+	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String cenBandwidthPackageId;
+	public AssociateCenBandwidthPackageRequest() {
+		super("Cbn", "2017-09-12", "AssociateCenBandwidthPackage", "Cbn");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,17 +53,6 @@ public class AssociateCenBandwidthPackageRequest extends RpcAcsRequest<Associate
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -71,14 +67,14 @@ public class AssociateCenBandwidthPackageRequest extends RpcAcsRequest<Associate
 		}
 	}
 
-	public String getCenBandwidthPackageId() {
-		return this.cenBandwidthPackageId;
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
 	}
 
-	public void setCenBandwidthPackageId(String cenBandwidthPackageId) {
-		this.cenBandwidthPackageId = cenBandwidthPackageId;
-		if(cenBandwidthPackageId != null){
-			putQueryParameter("CenBandwidthPackageId", cenBandwidthPackageId);
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -101,6 +97,17 @@ public class AssociateCenBandwidthPackageRequest extends RpcAcsRequest<Associate
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getCenBandwidthPackageId() {
+		return this.cenBandwidthPackageId;
+	}
+
+	public void setCenBandwidthPackageId(String cenBandwidthPackageId) {
+		this.cenBandwidthPackageId = cenBandwidthPackageId;
+		if(cenBandwidthPackageId != null){
+			putQueryParameter("CenBandwidthPackageId", cenBandwidthPackageId);
 		}
 	}
 

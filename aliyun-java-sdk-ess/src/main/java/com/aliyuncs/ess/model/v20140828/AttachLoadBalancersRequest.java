@@ -16,48 +16,44 @@ package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AttachLoadBalancersRequest extends RpcAcsRequest<AttachLoadBalancersResponse> {
-	
-	public AttachLoadBalancersRequest() {
-		super("Ess", "2014-08-28", "AttachLoadBalancers", "ess");
-	}
+	   
 
-	private List<String> loadBalancers;
-
-	private String resourceOwnerAccount;
+	private String clientToken;
 
 	private String scalingGroupId;
 
 	private Boolean forceAttach;
 
+	private List<String> loadBalancers;
+
+	private String resourceOwnerAccount;
+
 	private Long ownerId;
-
-	public List<String> getLoadBalancers() {
-		return this.loadBalancers;
+	public AttachLoadBalancersRequest() {
+		super("Ess", "2014-08-28", "AttachLoadBalancers", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setLoadBalancers(List<String> loadBalancers) {
-		this.loadBalancers = loadBalancers;	
-		if (loadBalancers != null) {
-			for (int i = 0; i < loadBalancers.size(); i++) {
-				putQueryParameter("LoadBalancer." + (i + 1) , loadBalancers.get(i));
-			}
-		}	
+	public String getClientToken() {
+		return this.clientToken;
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -80,6 +76,30 @@ public class AttachLoadBalancersRequest extends RpcAcsRequest<AttachLoadBalancer
 		this.forceAttach = forceAttach;
 		if(forceAttach != null){
 			putQueryParameter("ForceAttach", forceAttach.toString());
+		}
+	}
+
+	public List<String> getLoadBalancers() {
+		return this.loadBalancers;
+	}
+
+	public void setLoadBalancers(List<String> loadBalancers) {
+		this.loadBalancers = loadBalancers;	
+		if (loadBalancers != null) {
+			for (int i = 0; i < loadBalancers.size(); i++) {
+				putQueryParameter("LoadBalancer." + (i + 1) , loadBalancers.get(i));
+			}
+		}	
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 

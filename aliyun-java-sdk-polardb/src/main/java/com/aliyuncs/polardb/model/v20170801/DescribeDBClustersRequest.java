@@ -15,30 +15,48 @@
 package com.aliyuncs.polardb.model.v20170801;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.polardb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDBClustersRequest extends RpcAcsRequest<DescribeDBClustersResponse> {
-	
-	public DescribeDBClustersRequest() {
-		super("polardb", "2017-08-01", "DescribeDBClusters", "polardb");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String dBClusterDescription;
+
+	private String dBClusterStatus;
+
+	private Integer pageNumber;
+
+	private String resourceGroupId;
+
+	private Integer pageSize;
+
+	private List<Tag> tags;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String dBType;
-
-	private Integer pageSize;
-
 	private Long ownerId;
 
-	private Integer pageNumber;
+	private String dBType;
+
+	private String dBClusterIds;
+	public DescribeDBClustersRequest() {
+		super("polardb", "2017-08-01", "DescribeDBClusters", "polardb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -49,6 +67,75 @@ public class DescribeDBClustersRequest extends RpcAcsRequest<DescribeDBClustersR
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
 		}
+	}
+
+	public String getDBClusterDescription() {
+		return this.dBClusterDescription;
+	}
+
+	public void setDBClusterDescription(String dBClusterDescription) {
+		this.dBClusterDescription = dBClusterDescription;
+		if(dBClusterDescription != null){
+			putQueryParameter("DBClusterDescription", dBClusterDescription);
+		}
+	}
+
+	public String getDBClusterStatus() {
+		return this.dBClusterStatus;
+	}
+
+	public void setDBClusterStatus(String dBClusterStatus) {
+		this.dBClusterStatus = dBClusterStatus;
+		if(dBClusterStatus != null){
+			putQueryParameter("DBClusterStatus", dBClusterStatus);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
 	}
 
 	public String getResourceOwnerAccount() {
@@ -73,28 +160,6 @@ public class DescribeDBClustersRequest extends RpcAcsRequest<DescribeDBClustersR
 		}
 	}
 
-	public String getDBType() {
-		return this.dBType;
-	}
-
-	public void setDBType(String dBType) {
-		this.dBType = dBType;
-		if(dBType != null){
-			putQueryParameter("DBType", dBType);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -106,14 +171,48 @@ public class DescribeDBClustersRequest extends RpcAcsRequest<DescribeDBClustersR
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public String getDBType() {
+		return this.dBType;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+	public void setDBType(String dBType) {
+		this.dBType = dBType;
+		if(dBType != null){
+			putQueryParameter("DBType", dBType);
+		}
+	}
+
+	public String getDBClusterIds() {
+		return this.dBClusterIds;
+	}
+
+	public void setDBClusterIds(String dBClusterIds) {
+		this.dBClusterIds = dBClusterIds;
+		if(dBClusterIds != null){
+			putQueryParameter("DBClusterIds", dBClusterIds);
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

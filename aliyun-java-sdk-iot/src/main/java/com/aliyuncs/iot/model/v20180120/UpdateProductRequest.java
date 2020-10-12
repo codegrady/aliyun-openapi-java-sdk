@@ -15,32 +15,30 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateProductRequest extends RpcAcsRequest<UpdateProductResponse> {
-	
-	public UpdateProductRequest() {
-		super("Iot", "2018-01-20", "UpdateProduct");
-	}
-
-	private String productName;
+	   
 
 	private String description;
 
+	private String iotInstanceId;
+
+	private String productName;
+
 	private String productKey;
-
-	public String getProductName() {
-		return this.productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-		if(productName != null){
-			putQueryParameter("ProductName", productName);
-		}
+	public UpdateProductRequest() {
+		super("Iot", "2018-01-20", "UpdateProduct", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDescription() {
@@ -51,6 +49,28 @@ public class UpdateProductRequest extends RpcAcsRequest<UpdateProductResponse> {
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductName() {
+		return this.productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+		if(productName != null){
+			putQueryParameter("ProductName", productName);
 		}
 	}
 

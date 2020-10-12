@@ -15,15 +15,17 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRegionsRequest extends RpcAcsRequest<DescribeRegionsResponse> {
-	
+	   
 	public DescribeRegionsRequest() {
 		super("imm", "2017-09-06", "DescribeRegions", "imm");
+		setMethod(MethodType.POST);
 	}
 
 	@Override

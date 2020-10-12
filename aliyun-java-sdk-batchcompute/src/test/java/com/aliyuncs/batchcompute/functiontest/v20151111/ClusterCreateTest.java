@@ -21,7 +21,9 @@ package com.aliyuncs.batchcompute.functiontest.v20151111;
 
 import com.aliyuncs.batchcompute.main.v20151111.BatchCompute;
 import com.aliyuncs.batchcompute.main.v20151111.BatchComputeClient;
-import com.aliyuncs.batchcompute.model.v20151111.*;
+import com.aliyuncs.batchcompute.model.v20151111.CreateClusterResponse;
+import com.aliyuncs.batchcompute.model.v20151111.DeleteClusterResponse;
+import com.aliyuncs.batchcompute.model.v20151111.GetClusterResponse;
 import com.aliyuncs.batchcompute.pojo.v20151111.*;
 import com.aliyuncs.batchcompute.util.Config;
 import com.aliyuncs.exceptions.ClientException;
@@ -83,13 +85,27 @@ public class ClusterCreateTest extends TestCase {
         assertTrue(clusterId.startsWith("cls-"));
 
 
-
         //2. get cluster
 
         GetClusterResponse getClusterResponse = client.getCluster(clusterId);
         Cluster cluster  = getClusterResponse.getCluster();
 
         assertTrue(0 == cluster.getGroups().get("group1").getDesiredVMCount());
+
+
+        //3. update cluster
+
+        ClusterDescription desc2 = getClusterDesc();
+
+        desc2.getGroups().get("group1").setDesiredVMCount(1);
+        client.updateCluster(clusterId, desc2);
+
+        //4. get cluster
+
+        GetClusterResponse getClusterResponse2 = client.getCluster(clusterId);
+        Cluster cluster2  = getClusterResponse2.getCluster();
+
+        assertTrue(1 == cluster2.getGroups().get("group1").getDesiredVMCount());
 
 
         // 6. delete cluster

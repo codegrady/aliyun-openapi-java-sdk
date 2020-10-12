@@ -16,22 +16,29 @@ package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class PickLocalNumberRequest extends RpcAcsRequest<PickLocalNumberResponse> {
-	
-	public PickLocalNumberRequest() {
-		super("CCC", "2017-07-05", "PickLocalNumber", "ccc");
-	}
+	   
 
 	private String instanceId;
 
 	private List<String> candidateNumbers;
 
 	private String calleeNumber;
+	public PickLocalNumberRequest() {
+		super("CCC", "2017-07-05", "PickLocalNumber", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getInstanceId() {
 		return this.instanceId;

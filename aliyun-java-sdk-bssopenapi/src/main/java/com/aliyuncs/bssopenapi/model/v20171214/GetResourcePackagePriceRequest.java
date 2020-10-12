@@ -15,18 +15,15 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetResourcePackagePriceRequest extends RpcAcsRequest<GetResourcePackagePriceResponse> {
-	
-	public GetResourcePackagePriceRequest() {
-		super("BssOpenApi", "2017-12-14", "GetResourcePackagePrice");
-	}
-
-	private Integer duration;
+	   
 
 	private String productCode;
 
@@ -34,21 +31,24 @@ public class GetResourcePackagePriceRequest extends RpcAcsRequest<GetResourcePac
 
 	private Long ownerId;
 
-	private String packageType;
-
 	private String effectiveDate;
+
+	private Integer duration;
+
+	private String instanceId;
+
+	private String packageType;
 
 	private String pricingCycle;
 
-	public Integer getDuration() {
-		return this.duration;
-	}
-
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-		if(duration != null){
-			putQueryParameter("Duration", duration.toString());
-		}
+	private String orderType;
+	public GetResourcePackagePriceRequest() {
+		super("BssOpenApi", "2017-12-14", "GetResourcePackagePrice");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getProductCode() {
@@ -84,17 +84,6 @@ public class GetResourcePackagePriceRequest extends RpcAcsRequest<GetResourcePac
 		}
 	}
 
-	public String getPackageType() {
-		return this.packageType;
-	}
-
-	public void setPackageType(String packageType) {
-		this.packageType = packageType;
-		if(packageType != null){
-			putQueryParameter("PackageType", packageType);
-		}
-	}
-
 	public String getEffectiveDate() {
 		return this.effectiveDate;
 	}
@@ -106,6 +95,39 @@ public class GetResourcePackagePriceRequest extends RpcAcsRequest<GetResourcePac
 		}
 	}
 
+	public Integer getDuration() {
+		return this.duration;
+	}
+
+	public void setDuration(Integer duration) {
+		this.duration = duration;
+		if(duration != null){
+			putQueryParameter("Duration", duration.toString());
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getPackageType() {
+		return this.packageType;
+	}
+
+	public void setPackageType(String packageType) {
+		this.packageType = packageType;
+		if(packageType != null){
+			putQueryParameter("PackageType", packageType);
+		}
+	}
+
 	public String getPricingCycle() {
 		return this.pricingCycle;
 	}
@@ -114,6 +136,17 @@ public class GetResourcePackagePriceRequest extends RpcAcsRequest<GetResourcePac
 		this.pricingCycle = pricingCycle;
 		if(pricingCycle != null){
 			putQueryParameter("PricingCycle", pricingCycle);
+		}
+	}
+
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 

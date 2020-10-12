@@ -15,24 +15,23 @@
 package com.aliyuncs.vod.model.v20170321;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vod.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetMessageCallbackRequest extends RpcAcsRequest<SetMessageCallbackResponse> {
-	
-	public SetMessageCallbackRequest() {
-		super("vod", "2017-03-21", "SetMessageCallback", "vod");
-	}
-
-	private String callbackType;
+	   
 
 	private String authKey;
 
 	private String resourceOwnerId;
 
-	private String callbackSwitch;
+	private Long resourceRealOwnerId;
+
+	private String callbackType;
 
 	private String resourceOwnerAccount;
 
@@ -40,21 +39,24 @@ public class SetMessageCallbackRequest extends RpcAcsRequest<SetMessageCallbackR
 
 	private String eventTypeList;
 
-	private String authSwitch;
-
-	private String callbackURL;
+	private String mnsQueueName;
 
 	private String ownerId;
 
-	public String getCallbackType() {
-		return this.callbackType;
-	}
+	private String mnsEndpoint;
 
-	public void setCallbackType(String callbackType) {
-		this.callbackType = callbackType;
-		if(callbackType != null){
-			putQueryParameter("CallbackType", callbackType);
-		}
+	private String appId;
+
+	private String authSwitch;
+
+	private String callbackURL;
+	public SetMessageCallbackRequest() {
+		super("vod", "2017-03-21", "SetMessageCallback", "vod");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getAuthKey() {
@@ -79,14 +81,25 @@ public class SetMessageCallbackRequest extends RpcAcsRequest<SetMessageCallbackR
 		}
 	}
 
-	public String getCallbackSwitch() {
-		return this.callbackSwitch;
+	public Long getResourceRealOwnerId() {
+		return this.resourceRealOwnerId;
 	}
 
-	public void setCallbackSwitch(String callbackSwitch) {
-		this.callbackSwitch = callbackSwitch;
-		if(callbackSwitch != null){
-			putQueryParameter("CallbackSwitch", callbackSwitch);
+	public void setResourceRealOwnerId(Long resourceRealOwnerId) {
+		this.resourceRealOwnerId = resourceRealOwnerId;
+		if(resourceRealOwnerId != null){
+			putQueryParameter("ResourceRealOwnerId", resourceRealOwnerId.toString());
+		}
+	}
+
+	public String getCallbackType() {
+		return this.callbackType;
+	}
+
+	public void setCallbackType(String callbackType) {
+		this.callbackType = callbackType;
+		if(callbackType != null){
+			putQueryParameter("CallbackType", callbackType);
 		}
 	}
 
@@ -123,6 +136,50 @@ public class SetMessageCallbackRequest extends RpcAcsRequest<SetMessageCallbackR
 		}
 	}
 
+	public String getMnsQueueName() {
+		return this.mnsQueueName;
+	}
+
+	public void setMnsQueueName(String mnsQueueName) {
+		this.mnsQueueName = mnsQueueName;
+		if(mnsQueueName != null){
+			putQueryParameter("MnsQueueName", mnsQueueName);
+		}
+	}
+
+	public String getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(String ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId);
+		}
+	}
+
+	public String getMnsEndpoint() {
+		return this.mnsEndpoint;
+	}
+
+	public void setMnsEndpoint(String mnsEndpoint) {
+		this.mnsEndpoint = mnsEndpoint;
+		if(mnsEndpoint != null){
+			putQueryParameter("MnsEndpoint", mnsEndpoint);
+		}
+	}
+
+	public String getAppId() {
+		return this.appId;
+	}
+
+	public void setAppId(String appId) {
+		this.appId = appId;
+		if(appId != null){
+			putQueryParameter("AppId", appId);
+		}
+	}
+
 	public String getAuthSwitch() {
 		return this.authSwitch;
 	}
@@ -142,17 +199,6 @@ public class SetMessageCallbackRequest extends RpcAcsRequest<SetMessageCallbackR
 		this.callbackURL = callbackURL;
 		if(callbackURL != null){
 			putQueryParameter("CallbackURL", callbackURL);
-		}
-	}
-
-	public String getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(String ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId);
 		}
 	}
 

@@ -16,22 +16,29 @@ package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class StartNodesRequest extends RpcAcsRequest<StartNodesResponse> {
-	
-	public StartNodesRequest() {
-		super("EHPC", "2018-04-12", "StartNodes", "ehs");
-	}
+	   
 
 	private String role;
 
 	private List<Instance> instances;
 
 	private String clusterId;
+	public StartNodesRequest() {
+		super("EHPC", "2018-04-12", "StartNodes");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getRole() {
 		return this.role;

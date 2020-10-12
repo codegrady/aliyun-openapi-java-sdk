@@ -15,32 +15,39 @@
 package com.aliyuncs.r_kvstore.model.v20150101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.r_kvstore.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyInstanceMaintainTimeResponse> {
-	
-	public ModifyInstanceMaintainTimeRequest() {
-		super("R-kvstore", "2015-01-01", "ModifyInstanceMaintainTime", "redisa");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
-
 	private String securityToken;
 
-	private String resourceOwnerAccount;
-
 	private String maintainStartTime;
+
+	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
 
 	private String maintainEndTime;
+
+	private String instanceId;
+	public ModifyInstanceMaintainTimeRequest() {
+		super("R-kvstore", "2015-01-01", "ModifyInstanceMaintainTime", "redisa");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -50,17 +57,6 @@ public class ModifyInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyInsta
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
@@ -75,17 +71,6 @@ public class ModifyInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyInsta
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
 	public String getMaintainStartTime() {
 		return this.maintainStartTime;
 	}
@@ -94,6 +79,17 @@ public class ModifyInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyInsta
 		this.maintainStartTime = maintainStartTime;
 		if(maintainStartTime != null){
 			putQueryParameter("MaintainStartTime", maintainStartTime);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -127,6 +123,17 @@ public class ModifyInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyInsta
 		this.maintainEndTime = maintainEndTime;
 		if(maintainEndTime != null){
 			putQueryParameter("MaintainEndTime", maintainEndTime);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

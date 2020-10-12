@@ -15,42 +15,36 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeVServerGroupsRequest extends RpcAcsRequest<DescribeVServerGroupsResponse> {
-	
-	public DescribeVServerGroupsRequest() {
-		super("Slb", "2014-05-15", "DescribeVServerGroups", "slb");
-	}
-
-	private Boolean includeRule;
+	   
 
 	private Long resourceOwnerId;
 
-	private String loadBalancerId;
+	private Boolean includeListener;
+
+	private Boolean includeRule;
 
 	private String resourceOwnerAccount;
-
-	private Boolean includeListener;
 
 	private String ownerAccount;
 
 	private Long ownerId;
 
-	private String tags;
-
-	public Boolean getIncludeRule() {
-		return this.includeRule;
-	}
-
-	public void setIncludeRule(Boolean includeRule) {
-		this.includeRule = includeRule;
-		if(includeRule != null){
-			putQueryParameter("IncludeRule", includeRule.toString());
-		}
+	private String loadBalancerId;
+	public DescribeVServerGroupsRequest() {
+		super("Slb", "2014-05-15", "DescribeVServerGroups", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -64,14 +58,25 @@ public class DescribeVServerGroupsRequest extends RpcAcsRequest<DescribeVServerG
 		}
 	}
 
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
+	public Boolean getIncludeListener() {
+		return this.includeListener;
 	}
 
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
+	public void setIncludeListener(Boolean includeListener) {
+		this.includeListener = includeListener;
+		if(includeListener != null){
+			putQueryParameter("IncludeListener", includeListener.toString());
+		}
+	}
+
+	public Boolean getIncludeRule() {
+		return this.includeRule;
+	}
+
+	public void setIncludeRule(Boolean includeRule) {
+		this.includeRule = includeRule;
+		if(includeRule != null){
+			putQueryParameter("IncludeRule", includeRule.toString());
 		}
 	}
 
@@ -83,17 +88,6 @@ public class DescribeVServerGroupsRequest extends RpcAcsRequest<DescribeVServerG
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public Boolean getIncludeListener() {
-		return this.includeListener;
-	}
-
-	public void setIncludeListener(Boolean includeListener) {
-		this.includeListener = includeListener;
-		if(includeListener != null){
-			putQueryParameter("IncludeListener", includeListener.toString());
 		}
 	}
 
@@ -119,14 +113,14 @@ public class DescribeVServerGroupsRequest extends RpcAcsRequest<DescribeVServerG
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 

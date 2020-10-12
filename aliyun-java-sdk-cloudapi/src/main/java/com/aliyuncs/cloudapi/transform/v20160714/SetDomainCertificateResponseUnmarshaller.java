@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.SetDomainCertificateResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SetDomainCertificateResponseUnmarshaller {
 
-	public static SetDomainCertificateResponse unmarshall(SetDomainCertificateResponse setDomainCertificateResponse, UnmarshallerContext context) {
+	public static SetDomainCertificateResponse unmarshall(SetDomainCertificateResponse setDomainCertificateResponse, UnmarshallerContext _ctx) {
 		
-		setDomainCertificateResponse.setRequestId(context.stringValue("SetDomainCertificateResponse.RequestId"));
+		setDomainCertificateResponse.setRequestId(_ctx.stringValue("SetDomainCertificateResponse.RequestId"));
 	 
 	 	return setDomainCertificateResponse;
 	}

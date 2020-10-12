@@ -15,16 +15,17 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDomainFileSizeProportionDataRequest extends RpcAcsRequest<DescribeDomainFileSizeProportionDataResponse> {
-	
-	public DescribeDomainFileSizeProportionDataRequest() {
-		super("Cdn", "2018-05-10", "DescribeDomainFileSizeProportionData");
-	}
+	   
+
+	private String startTime;
 
 	private String securityToken;
 
@@ -32,9 +33,26 @@ public class DescribeDomainFileSizeProportionDataRequest extends RpcAcsRequest<D
 
 	private String endTime;
 
-	private String startTime;
-
 	private Long ownerId;
+	public DescribeDomainFileSizeProportionDataRequest() {
+		super("Cdn", "2018-05-10", "DescribeDomainFileSizeProportionData");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
+		}
+	}
 
 	public String getSecurityToken() {
 		return this.securityToken;
@@ -66,17 +84,6 @@ public class DescribeDomainFileSizeProportionDataRequest extends RpcAcsRequest<D
 		this.endTime = endTime;
 		if(endTime != null){
 			putQueryParameter("EndTime", endTime);
-		}
-	}
-
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime);
 		}
 	}
 

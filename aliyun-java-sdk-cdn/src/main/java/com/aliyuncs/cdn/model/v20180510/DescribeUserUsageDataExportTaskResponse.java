@@ -15,7 +15,6 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import java.util.List;
-import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.cdn.transform.v20180510.DescribeUserUsageDataExportTaskResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -90,6 +89,10 @@ public class DescribeUserUsageDataExportTaskResponse extends AcsResponse {
 
 		public static class DataItem {
 
+			private String taskName;
+
+			private String taskId;
+
 			private String createTime;
 
 			private String updateTime;
@@ -99,6 +102,22 @@ public class DescribeUserUsageDataExportTaskResponse extends AcsResponse {
 			private String downloadUrl;
 
 			private TaskConfig taskConfig;
+
+			public String getTaskName() {
+				return this.taskName;
+			}
+
+			public void setTaskName(String taskName) {
+				this.taskName = taskName;
+			}
+
+			public String getTaskId() {
+				return this.taskId;
+			}
+
+			public void setTaskId(String taskId) {
+				this.taskId = taskId;
+			}
 
 			public String getCreateTime() {
 				return this.createTime;

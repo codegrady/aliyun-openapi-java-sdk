@@ -84,6 +84,8 @@ public class GetStatusResponse extends AcsResponse {
 
 		private String auditConclusions;
 
+		private Float authorityComparisonScore;
+
 		public Integer getStatusCode() {
 			return this.statusCode;
 		}
@@ -114,6 +116,14 @@ public class GetStatusResponse extends AcsResponse {
 
 		public void setAuditConclusions(String auditConclusions) {
 			this.auditConclusions = auditConclusions;
+		}
+
+		public Float getAuthorityComparisonScore() {
+			return this.authorityComparisonScore;
+		}
+
+		public void setAuthorityComparisonScore(Float authorityComparisonScore) {
+			this.authorityComparisonScore = authorityComparisonScore;
 		}
 	}
 

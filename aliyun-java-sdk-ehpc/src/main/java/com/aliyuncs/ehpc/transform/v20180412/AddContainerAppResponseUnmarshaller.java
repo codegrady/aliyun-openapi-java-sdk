@@ -18,19 +18,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.ehpc.model.v20180412.AddContainerAppResponse;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class AddContainerAppResponseUnmarshaller {
 
-	public static AddContainerAppResponse unmarshall(AddContainerAppResponse addContainerAppResponse, UnmarshallerContext context) {
+	public static AddContainerAppResponse unmarshall(AddContainerAppResponse addContainerAppResponse, UnmarshallerContext _ctx) {
 		
-		addContainerAppResponse.setRequestId(context.stringValue("AddContainerAppResponse.RequestId"));
+		addContainerAppResponse.setRequestId(_ctx.stringValue("AddContainerAppResponse.RequestId"));
 
 		List<String> containerId = new ArrayList<String>();
-		for (int i = 0; i < context.lengthValue("AddContainerAppResponse.ContainerId.Length"); i++) {
-			containerId.add(context.stringValue("AddContainerAppResponse.ContainerId["+ i +"]"));
+		for (int i = 0; i < _ctx.lengthValue("AddContainerAppResponse.ContainerId.Length"); i++) {
+			containerId.add(_ctx.stringValue("AddContainerAppResponse.ContainerId["+ i +"]"));
 		}
 		addContainerAppResponse.setContainerId(containerId);
 	 

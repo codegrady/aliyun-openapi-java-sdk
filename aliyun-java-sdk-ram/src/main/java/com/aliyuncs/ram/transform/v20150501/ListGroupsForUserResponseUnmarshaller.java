@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import java.util.ArrayList;
@@ -23,16 +24,16 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ListGroupsForUserResponseUnmarshaller {
 
-	public static ListGroupsForUserResponse unmarshall(ListGroupsForUserResponse listGroupsForUserResponse, UnmarshallerContext context) {
+	public static ListGroupsForUserResponse unmarshall(ListGroupsForUserResponse listGroupsForUserResponse, UnmarshallerContext _ctx) {
 		
-		listGroupsForUserResponse.setRequestId(context.stringValue("ListGroupsForUserResponse.RequestId"));
+		listGroupsForUserResponse.setRequestId(_ctx.stringValue("ListGroupsForUserResponse.RequestId"));
 
 		List<Group> groups = new ArrayList<Group>();
-		for (int i = 0; i < context.lengthValue("ListGroupsForUserResponse.Groups.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListGroupsForUserResponse.Groups.Length"); i++) {
 			Group group = new Group();
-			group.setGroupName(context.stringValue("ListGroupsForUserResponse.Groups["+ i +"].GroupName"));
-			group.setComments(context.stringValue("ListGroupsForUserResponse.Groups["+ i +"].Comments"));
-			group.setJoinDate(context.stringValue("ListGroupsForUserResponse.Groups["+ i +"].JoinDate"));
+			group.setGroupName(_ctx.stringValue("ListGroupsForUserResponse.Groups["+ i +"].GroupName"));
+			group.setComments(_ctx.stringValue("ListGroupsForUserResponse.Groups["+ i +"].Comments"));
+			group.setJoinDate(_ctx.stringValue("ListGroupsForUserResponse.Groups["+ i +"].JoinDate"));
 
 			groups.add(group);
 		}

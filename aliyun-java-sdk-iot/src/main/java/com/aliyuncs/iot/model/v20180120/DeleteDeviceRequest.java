@@ -15,22 +15,31 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteDeviceRequest extends RpcAcsRequest<DeleteDeviceResponse> {
-	
-	public DeleteDeviceRequest() {
-		super("Iot", "2018-01-20", "DeleteDevice");
-	}
+	   
 
 	private String iotId;
 
-	private String deviceName;
+	private String iotInstanceId;
 
 	private String productKey;
+
+	private String deviceName;
+	public DeleteDeviceRequest() {
+		super("Iot", "2018-01-20", "DeleteDevice", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getIotId() {
 		return this.iotId;
@@ -43,14 +52,14 @@ public class DeleteDeviceRequest extends RpcAcsRequest<DeleteDeviceResponse> {
 		}
 	}
 
-	public String getDeviceName() {
-		return this.deviceName;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
-		if(deviceName != null){
-			putQueryParameter("DeviceName", deviceName);
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -62,6 +71,17 @@ public class DeleteDeviceRequest extends RpcAcsRequest<DeleteDeviceResponse> {
 		this.productKey = productKey;
 		if(productKey != null){
 			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 

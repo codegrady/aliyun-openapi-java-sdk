@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.UpdateLoginProfileResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class UpdateLoginProfileResponseUnmarshaller {
 
-	public static UpdateLoginProfileResponse unmarshall(UpdateLoginProfileResponse updateLoginProfileResponse, UnmarshallerContext context) {
+	public static UpdateLoginProfileResponse unmarshall(UpdateLoginProfileResponse updateLoginProfileResponse, UnmarshallerContext _ctx) {
 		
-		updateLoginProfileResponse.setRequestId(context.stringValue("UpdateLoginProfileResponse.RequestId"));
+		updateLoginProfileResponse.setRequestId(_ctx.stringValue("UpdateLoginProfileResponse.RequestId"));
 	 
 	 	return updateLoginProfileResponse;
 	}

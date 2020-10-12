@@ -15,32 +15,43 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateRuleRequest extends RpcAcsRequest<CreateRuleResponse> {
-	
-	public CreateRuleRequest() {
-		super("Iot", "2018-01-20", "CreateRule");
-	}
+	   
 
 	private String select;
 
 	private String ruleDesc;
 
+	private String shortTopic;
+
+	private String resourceGroupId;
+
 	private String dataType;
 
-	private String name;
+	private String iotInstanceId;
 
 	private String where;
 
-	private String productKey;
-
 	private Integer topicType;
 
-	private String shortTopic;
+	private String productKey;
+
+	private String name;
+	public CreateRuleRequest() {
+		super("Iot", "2018-01-20", "CreateRule", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getSelect() {
 		return this.select;
@@ -64,6 +75,28 @@ public class CreateRuleRequest extends RpcAcsRequest<CreateRuleResponse> {
 		}
 	}
 
+	public String getShortTopic() {
+		return this.shortTopic;
+	}
+
+	public void setShortTopic(String shortTopic) {
+		this.shortTopic = shortTopic;
+		if(shortTopic != null){
+			putQueryParameter("ShortTopic", shortTopic);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
 	public String getDataType() {
 		return this.dataType;
 	}
@@ -75,14 +108,14 @@ public class CreateRuleRequest extends RpcAcsRequest<CreateRuleResponse> {
 		}
 	}
 
-	public String getName() {
-		return this.name;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-		if(name != null){
-			putQueryParameter("Name", name);
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -97,17 +130,6 @@ public class CreateRuleRequest extends RpcAcsRequest<CreateRuleResponse> {
 		}
 	}
 
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
-	}
-
 	public Integer getTopicType() {
 		return this.topicType;
 	}
@@ -119,14 +141,25 @@ public class CreateRuleRequest extends RpcAcsRequest<CreateRuleResponse> {
 		}
 	}
 
-	public String getShortTopic() {
-		return this.shortTopic;
+	public String getProductKey() {
+		return this.productKey;
 	}
 
-	public void setShortTopic(String shortTopic) {
-		this.shortTopic = shortTopic;
-		if(shortTopic != null){
-			putQueryParameter("ShortTopic", shortTopic);
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("Name", name);
 		}
 	}
 

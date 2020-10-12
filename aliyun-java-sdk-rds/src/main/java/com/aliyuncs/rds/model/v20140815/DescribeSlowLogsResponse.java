@@ -27,6 +27,8 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String dBInstanceId;
+
 	private String engine;
 
 	private String startTime;
@@ -47,6 +49,14 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
 	}
 
 	public String getEngine() {
@@ -109,7 +119,7 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 
 		private Long slowLogId;
 
-		private Long sQLId;
+		private String sQLHASH;
 
 		private String sQLIdStr;
 
@@ -157,12 +167,12 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 			this.slowLogId = slowLogId;
 		}
 
-		public Long getSQLId() {
-			return this.sQLId;
+		public String getSQLHASH() {
+			return this.sQLHASH;
 		}
 
-		public void setSQLId(Long sQLId) {
-			this.sQLId = sQLId;
+		public void setSQLHASH(String sQLHASH) {
+			this.sQLHASH = sQLHASH;
 		}
 
 		public String getSQLIdStr() {

@@ -15,22 +15,17 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDomainHitRateDataRequest extends RpcAcsRequest<DescribeDomainHitRateDataResponse> {
-	
-	public DescribeDomainHitRateDataRequest() {
-		super("Cdn", "2018-05-10", "DescribeDomainHitRateData");
-	}
-
-	private String locationNameEn;
+	   
 
 	private String startTime;
-
-	private String ispNameEn;
 
 	private String domainName;
 
@@ -39,16 +34,13 @@ public class DescribeDomainHitRateDataRequest extends RpcAcsRequest<DescribeDoma
 	private Long ownerId;
 
 	private String interval;
-
-	public String getLocationNameEn() {
-		return this.locationNameEn;
-	}
-
-	public void setLocationNameEn(String locationNameEn) {
-		this.locationNameEn = locationNameEn;
-		if(locationNameEn != null){
-			putQueryParameter("LocationNameEn", locationNameEn);
-		}
+	public DescribeDomainHitRateDataRequest() {
+		super("Cdn", "2018-05-10", "DescribeDomainHitRateData");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getStartTime() {
@@ -59,17 +51,6 @@ public class DescribeDomainHitRateDataRequest extends RpcAcsRequest<DescribeDoma
 		this.startTime = startTime;
 		if(startTime != null){
 			putQueryParameter("StartTime", startTime);
-		}
-	}
-
-	public String getIspNameEn() {
-		return this.ispNameEn;
-	}
-
-	public void setIspNameEn(String ispNameEn) {
-		this.ispNameEn = ispNameEn;
-		if(ispNameEn != null){
-			putQueryParameter("IspNameEn", ispNameEn);
 		}
 	}
 

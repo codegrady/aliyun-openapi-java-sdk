@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.ReactivateDomainResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ReactivateDomainResponseUnmarshaller {
 
-	public static ReactivateDomainResponse unmarshall(ReactivateDomainResponse reactivateDomainResponse, UnmarshallerContext context) {
+	public static ReactivateDomainResponse unmarshall(ReactivateDomainResponse reactivateDomainResponse, UnmarshallerContext _ctx) {
 		
-		reactivateDomainResponse.setRequestId(context.stringValue("ReactivateDomainResponse.RequestId"));
+		reactivateDomainResponse.setRequestId(_ctx.stringValue("ReactivateDomainResponse.RequestId"));
 	 
 	 	return reactivateDomainResponse;
 	}

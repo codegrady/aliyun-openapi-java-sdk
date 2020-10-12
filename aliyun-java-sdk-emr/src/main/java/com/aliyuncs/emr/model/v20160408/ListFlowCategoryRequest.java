@@ -15,37 +15,53 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListFlowCategoryRequest extends RpcAcsRequest<ListFlowCategoryResponse> {
-	
-	public ListFlowCategoryRequest() {
-		super("Emr", "2016-04-08", "ListFlowCategory");
-	}
+	   
 
-	private Long resourceOwnerId;
+	private String parentId;
+
+	private Integer pageNumber;
 
 	private Boolean root;
 
 	private Integer pageSize;
 
 	private String projectId;
-
-	private String parentId;
-
-	private Integer pageNumber;
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
+	public ListFlowCategoryRequest() {
+		super("Emr", "2016-04-08", "ListFlowCategory");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+	public String getParentId() {
+		return this.parentId;
+	}
+
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
+		if(parentId != null){
+			putQueryParameter("ParentId", parentId);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -79,28 +95,6 @@ public class ListFlowCategoryRequest extends RpcAcsRequest<ListFlowCategoryRespo
 		this.projectId = projectId;
 		if(projectId != null){
 			putQueryParameter("ProjectId", projectId);
-		}
-	}
-
-	public String getParentId() {
-		return this.parentId;
-	}
-
-	public void setParentId(String parentId) {
-		this.parentId = parentId;
-		if(parentId != null){
-			putQueryParameter("ParentId", parentId);
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 

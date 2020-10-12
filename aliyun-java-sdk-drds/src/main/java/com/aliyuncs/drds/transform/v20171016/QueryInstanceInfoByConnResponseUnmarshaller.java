@@ -25,34 +25,34 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class QueryInstanceInfoByConnResponseUnmarshaller {
 
-	public static QueryInstanceInfoByConnResponse unmarshall(QueryInstanceInfoByConnResponse queryInstanceInfoByConnResponse, UnmarshallerContext context) {
+	public static QueryInstanceInfoByConnResponse unmarshall(QueryInstanceInfoByConnResponse queryInstanceInfoByConnResponse, UnmarshallerContext _ctx) {
 		
-		queryInstanceInfoByConnResponse.setRequestId(context.stringValue("QueryInstanceInfoByConnResponse.RequestId"));
-		queryInstanceInfoByConnResponse.setSuccess(context.booleanValue("QueryInstanceInfoByConnResponse.Success"));
+		queryInstanceInfoByConnResponse.setRequestId(_ctx.stringValue("QueryInstanceInfoByConnResponse.RequestId"));
+		queryInstanceInfoByConnResponse.setSuccess(_ctx.booleanValue("QueryInstanceInfoByConnResponse.Success"));
 
 		Data data = new Data();
-		data.setDrdsInstanceId(context.stringValue("QueryInstanceInfoByConnResponse.Data.DrdsInstanceId"));
-		data.setType(context.stringValue("QueryInstanceInfoByConnResponse.Data.Type"));
-		data.setRegionId(context.stringValue("QueryInstanceInfoByConnResponse.Data.RegionId"));
-		data.setZoneId(context.stringValue("QueryInstanceInfoByConnResponse.Data.ZoneId"));
-		data.setDescription(context.stringValue("QueryInstanceInfoByConnResponse.Data.Description"));
-		data.setNetworkType(context.stringValue("QueryInstanceInfoByConnResponse.Data.NetworkType"));
-		data.setStatus(context.stringValue("QueryInstanceInfoByConnResponse.Data.Status"));
-		data.setCreateTime(context.longValue("QueryInstanceInfoByConnResponse.Data.CreateTime"));
-		data.setVersion(context.longValue("QueryInstanceInfoByConnResponse.Data.Version"));
-		data.setSpecification(context.stringValue("QueryInstanceInfoByConnResponse.Data.Specification"));
-		data.setSpecTypeId(context.stringValue("QueryInstanceInfoByConnResponse.Data.SpecTypeId"));
-		data.setSpecTypeName(context.stringValue("QueryInstanceInfoByConnResponse.Data.SpecTypeName"));
-		data.setVpcCloudInstanceId(context.stringValue("QueryInstanceInfoByConnResponse.Data.VpcCloudInstanceId"));
+		data.setDrdsInstanceId(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.DrdsInstanceId"));
+		data.setType(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.Type"));
+		data.setRegionId(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.RegionId"));
+		data.setZoneId(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.ZoneId"));
+		data.setDescription(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.Description"));
+		data.setNetworkType(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.NetworkType"));
+		data.setStatus(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.Status"));
+		data.setCreateTime(_ctx.longValue("QueryInstanceInfoByConnResponse.Data.CreateTime"));
+		data.setVersion(_ctx.longValue("QueryInstanceInfoByConnResponse.Data.Version"));
+		data.setSpecification(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.Specification"));
+		data.setSpecTypeId(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.SpecTypeId"));
+		data.setSpecTypeName(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.SpecTypeName"));
+		data.setVpcCloudInstanceId(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.VpcCloudInstanceId"));
 
 		List<Vip> vips = new ArrayList<Vip>();
-		for (int i = 0; i < context.lengthValue("QueryInstanceInfoByConnResponse.Data.Vips.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("QueryInstanceInfoByConnResponse.Data.Vips.Length"); i++) {
 			Vip vip = new Vip();
-			vip.setIP(context.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].IP"));
-			vip.setPort(context.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].Port"));
-			vip.setType(context.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].Type"));
-			vip.setVpcId(context.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].VpcId"));
-			vip.setVswitchId(context.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].VswitchId"));
+			vip.setIP(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].IP"));
+			vip.setPort(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].Port"));
+			vip.setType(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].Type"));
+			vip.setVpcId(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].VpcId"));
+			vip.setVswitchId(_ctx.stringValue("QueryInstanceInfoByConnResponse.Data.Vips["+ i +"].VswitchId"));
 
 			vips.add(vip);
 		}

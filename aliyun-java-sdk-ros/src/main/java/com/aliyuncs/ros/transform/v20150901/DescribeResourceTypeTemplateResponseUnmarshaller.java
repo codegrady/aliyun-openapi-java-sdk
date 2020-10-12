@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ros.transform.v20150901;
 
 import com.aliyuncs.ros.model.v20150901.DescribeResourceTypeTemplateResponse;
@@ -19,7 +20,7 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeResourceTypeTemplateResponseUnmarshaller {
 
-	public static DescribeResourceTypeTemplateResponse unmarshall(DescribeResourceTypeTemplateResponse describeResourceTypeTemplateResponse, UnmarshallerContext context) {
+	public static DescribeResourceTypeTemplateResponse unmarshall(DescribeResourceTypeTemplateResponse describeResourceTypeTemplateResponse, UnmarshallerContext _ctx) {
 		
 	 
 	 	return describeResourceTypeTemplateResponse;

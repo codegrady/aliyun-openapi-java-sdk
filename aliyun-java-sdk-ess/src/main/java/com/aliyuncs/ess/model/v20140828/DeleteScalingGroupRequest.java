@@ -15,36 +15,32 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteScalingGroupRequest extends RpcAcsRequest<DeleteScalingGroupResponse> {
-	
-	public DeleteScalingGroupRequest() {
-		super("Ess", "2014-08-28", "DeleteScalingGroup", "ess");
-	}
-
-	private String resourceOwnerAccount;
+	   
 
 	private String scalingGroupId;
 
 	private Boolean forceDelete;
 
+	private String resourceOwnerAccount;
+
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
+	public DeleteScalingGroupRequest() {
+		super("Ess", "2014-08-28", "DeleteScalingGroup", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getScalingGroupId() {
@@ -66,6 +62,17 @@ public class DeleteScalingGroupRequest extends RpcAcsRequest<DeleteScalingGroupR
 		this.forceDelete = forceDelete;
 		if(forceDelete != null){
 			putQueryParameter("ForceDelete", forceDelete.toString());
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 

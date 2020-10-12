@@ -15,38 +15,47 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateDeploymentSetRequest extends RpcAcsRequest<CreateDeploymentSetResponse> {
-	
-	public CreateDeploymentSetRequest() {
-		super("Ecs", "2014-05-26", "CreateDeploymentSet", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String clientToken;
 
-	private String ownerAccount;
-
 	private String description;
+
+	private Long groupCount;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
 
 	private String deploymentSetName;
 
 	private Long ownerId;
 
+	private String onUnableToRedeployFailedInstance;
+
 	private String granularity;
 
 	private String domain;
 
-	private String zoneId;
-
 	private String strategy;
+	public CreateDeploymentSetRequest() {
+		super("Ecs", "2014-05-26", "CreateDeploymentSet", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -56,17 +65,6 @@ public class CreateDeploymentSetRequest extends RpcAcsRequest<CreateDeploymentSe
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -81,17 +79,6 @@ public class CreateDeploymentSetRequest extends RpcAcsRequest<CreateDeploymentSe
 		}
 	}
 
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
 	public String getDescription() {
 		return this.description;
 	}
@@ -100,6 +87,39 @@ public class CreateDeploymentSetRequest extends RpcAcsRequest<CreateDeploymentSe
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
+		}
+	}
+
+	public Long getGroupCount() {
+		return this.groupCount;
+	}
+
+	public void setGroupCount(Long groupCount) {
+		this.groupCount = groupCount;
+		if(groupCount != null){
+			putQueryParameter("GroupCount", groupCount.toString());
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -125,6 +145,17 @@ public class CreateDeploymentSetRequest extends RpcAcsRequest<CreateDeploymentSe
 		}
 	}
 
+	public String getOnUnableToRedeployFailedInstance() {
+		return this.onUnableToRedeployFailedInstance;
+	}
+
+	public void setOnUnableToRedeployFailedInstance(String onUnableToRedeployFailedInstance) {
+		this.onUnableToRedeployFailedInstance = onUnableToRedeployFailedInstance;
+		if(onUnableToRedeployFailedInstance != null){
+			putQueryParameter("OnUnableToRedeployFailedInstance", onUnableToRedeployFailedInstance);
+		}
+	}
+
 	public String getGranularity() {
 		return this.granularity;
 	}
@@ -144,17 +175,6 @@ public class CreateDeploymentSetRequest extends RpcAcsRequest<CreateDeploymentSe
 		this.domain = domain;
 		if(domain != null){
 			putQueryParameter("Domain", domain);
-		}
-	}
-
-	public String getZoneId() {
-		return this.zoneId;
-	}
-
-	public void setZoneId(String zoneId) {
-		this.zoneId = zoneId;
-		if(zoneId != null){
-			putQueryParameter("ZoneId", zoneId);
 		}
 	}
 

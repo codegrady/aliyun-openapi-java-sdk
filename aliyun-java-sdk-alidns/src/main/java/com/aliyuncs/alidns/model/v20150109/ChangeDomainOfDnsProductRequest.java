@@ -11,44 +11,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.model.v20150109;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.alidns.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ChangeDomainOfDnsProductRequest extends RpcAcsRequest<ChangeDomainOfDnsProductResponse> {
-	
-	public ChangeDomainOfDnsProductRequest() {
-		super("Alidns", "2015-01-09", "ChangeDomainOfDnsProduct");
-	}
-
-	private String lang;
-
-	private String userClientIp;
+	   
 
 	private String instanceId;
 
 	private String newDomain;
 
-	public String getLang() {
-		return this.lang;
-	}
+	private String userClientIp;
 
-	public void setLang(String lang) {
-		this.lang = lang;
-		putQueryParameter("Lang", lang);
-	}
+	private Boolean force;
 
-	public String getUserClientIp() {
-		return this.userClientIp;
-	}
-
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		putQueryParameter("UserClientIp", userClientIp);
+	private String lang;
+	public ChangeDomainOfDnsProductRequest() {
+		super("Alidns", "2015-01-09", "ChangeDomainOfDnsProduct", "alidns");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getInstanceId() {
@@ -57,7 +49,9 @@ public class ChangeDomainOfDnsProductRequest extends RpcAcsRequest<ChangeDomainO
 
 	public void setInstanceId(String instanceId) {
 		this.instanceId = instanceId;
-		putQueryParameter("InstanceId", instanceId);
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
 	}
 
 	public String getNewDomain() {
@@ -66,7 +60,42 @@ public class ChangeDomainOfDnsProductRequest extends RpcAcsRequest<ChangeDomainO
 
 	public void setNewDomain(String newDomain) {
 		this.newDomain = newDomain;
-		putQueryParameter("NewDomain", newDomain);
+		if(newDomain != null){
+			putQueryParameter("NewDomain", newDomain);
+		}
+	}
+
+	public String getUserClientIp() {
+		return this.userClientIp;
+	}
+
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
+		}
+	}
+
+	public Boolean getForce() {
+		return this.force;
+	}
+
+	public void setForce(Boolean force) {
+		this.force = force;
+		if(force != null){
+			putQueryParameter("Force", force.toString());
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
+		}
 	}
 
 	@Override

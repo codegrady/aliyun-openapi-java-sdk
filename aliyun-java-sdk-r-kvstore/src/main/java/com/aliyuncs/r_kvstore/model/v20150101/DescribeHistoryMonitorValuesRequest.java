@@ -15,30 +15,19 @@
 package com.aliyuncs.r_kvstore.model.v20150101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.r_kvstore.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeHistoryMonitorValuesRequest extends RpcAcsRequest<DescribeHistoryMonitorValuesResponse> {
-	
-	public DescribeHistoryMonitorValuesRequest() {
-		super("R-kvstore", "2015-01-01", "DescribeHistoryMonitorValues", "redisa");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
-	private String ownerAccount;
-
-	private String endTime;
-
 	private String startTime;
-
-	private Long ownerId;
-
-	private String instanceId;
 
 	private String securityToken;
 
@@ -46,7 +35,25 @@ public class DescribeHistoryMonitorValuesRequest extends RpcAcsRequest<DescribeH
 
 	private String nodeId;
 
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private String endTime;
+
+	private Long ownerId;
+
+	private String instanceId;
+
 	private String monitorKeys;
+	public DescribeHistoryMonitorValuesRequest() {
+		super("R-kvstore", "2015-01-01", "DescribeHistoryMonitorValues", "redisa");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -56,6 +63,50 @@ public class DescribeHistoryMonitorValuesRequest extends RpcAcsRequest<DescribeH
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getIntervalForHistory() {
+		return this.intervalForHistory;
+	}
+
+	public void setIntervalForHistory(String intervalForHistory) {
+		this.intervalForHistory = intervalForHistory;
+		if(intervalForHistory != null){
+			putQueryParameter("IntervalForHistory", intervalForHistory);
+		}
+	}
+
+	public String getNodeId() {
+		return this.nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
+		if(nodeId != null){
+			putQueryParameter("NodeId", nodeId);
 		}
 	}
 
@@ -92,17 +143,6 @@ public class DescribeHistoryMonitorValuesRequest extends RpcAcsRequest<DescribeH
 		}
 	}
 
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -122,39 +162,6 @@ public class DescribeHistoryMonitorValuesRequest extends RpcAcsRequest<DescribeH
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	public String getIntervalForHistory() {
-		return this.intervalForHistory;
-	}
-
-	public void setIntervalForHistory(String intervalForHistory) {
-		this.intervalForHistory = intervalForHistory;
-		if(intervalForHistory != null){
-			putQueryParameter("IntervalForHistory", intervalForHistory);
-		}
-	}
-
-	public String getNodeId() {
-		return this.nodeId;
-	}
-
-	public void setNodeId(String nodeId) {
-		this.nodeId = nodeId;
-		if(nodeId != null){
-			putQueryParameter("NodeId", nodeId);
 		}
 	}
 

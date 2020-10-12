@@ -15,22 +15,19 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyLoadBalancerInstanceSpecRequest extends RpcAcsRequest<ModifyLoadBalancerInstanceSpecResponse> {
-	
-	public ModifyLoadBalancerInstanceSpecRequest() {
-		super("Slb", "2014-05-15", "ModifyLoadBalancerInstanceSpec", "slb");
-	}
-
-	private String loadBalancerSpec;
+	   
 
 	private Long resourceOwnerId;
 
-	private String loadBalancerId;
+	private String loadBalancerSpec;
 
 	private Boolean autoPay;
 
@@ -40,17 +37,14 @@ public class ModifyLoadBalancerInstanceSpecRequest extends RpcAcsRequest<ModifyL
 
 	private Long ownerId;
 
-	private String tags;
-
-	public String getLoadBalancerSpec() {
-		return this.loadBalancerSpec;
-	}
-
-	public void setLoadBalancerSpec(String loadBalancerSpec) {
-		this.loadBalancerSpec = loadBalancerSpec;
-		if(loadBalancerSpec != null){
-			putQueryParameter("LoadBalancerSpec", loadBalancerSpec);
-		}
+	private String loadBalancerId;
+	public ModifyLoadBalancerInstanceSpecRequest() {
+		super("Slb", "2014-05-15", "ModifyLoadBalancerInstanceSpec", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -64,14 +58,14 @@ public class ModifyLoadBalancerInstanceSpecRequest extends RpcAcsRequest<ModifyL
 		}
 	}
 
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
+	public String getLoadBalancerSpec() {
+		return this.loadBalancerSpec;
 	}
 
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
+	public void setLoadBalancerSpec(String loadBalancerSpec) {
+		this.loadBalancerSpec = loadBalancerSpec;
+		if(loadBalancerSpec != null){
+			putQueryParameter("LoadBalancerSpec", loadBalancerSpec);
 		}
 	}
 
@@ -119,14 +113,14 @@ public class ModifyLoadBalancerInstanceSpecRequest extends RpcAcsRequest<ModifyL
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 

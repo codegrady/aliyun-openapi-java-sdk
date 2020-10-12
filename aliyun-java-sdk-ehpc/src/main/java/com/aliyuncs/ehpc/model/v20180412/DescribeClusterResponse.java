@@ -15,7 +15,6 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import java.util.List;
-import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.ehpc.transform.v20180412.DescribeClusterResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -99,6 +98,10 @@ public class DescribeClusterResponse extends AcsResponse {
 		private String imageId;
 
 		private String location;
+
+		private String baseOsTag;
+
+		private String imageName;
 
 		private List<ApplicationInfo> applications;
 
@@ -312,6 +315,22 @@ public class DescribeClusterResponse extends AcsResponse {
 
 		public void setLocation(String location) {
 			this.location = location;
+		}
+
+		public String getBaseOsTag() {
+			return this.baseOsTag;
+		}
+
+		public void setBaseOsTag(String baseOsTag) {
+			this.baseOsTag = baseOsTag;
+		}
+
+		public String getImageName() {
+			return this.imageName;
+		}
+
+		public void setImageName(String imageName) {
+			this.imageName = imageName;
 		}
 
 		public List<ApplicationInfo> getApplications() {

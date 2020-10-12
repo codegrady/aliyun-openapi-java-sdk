@@ -109,7 +109,17 @@ public class ListPhoneNumbersResponse extends AcsResponse {
 
 		private String city;
 
+		private String assignee;
+
+		private Integer numberCommodityStatus;
+
+		private String sipTelX;
+
+		private List<SkillGroup> skillGroups;
+
 		private ContactFlow contactFlow;
+
+		private PrivacyNumber privacyNumber;
 
 		public String getPhoneNumberId() {
 			return this.phoneNumberId;
@@ -199,12 +209,75 @@ public class ListPhoneNumbersResponse extends AcsResponse {
 			this.city = city;
 		}
 
+		public String getAssignee() {
+			return this.assignee;
+		}
+
+		public void setAssignee(String assignee) {
+			this.assignee = assignee;
+		}
+
+		public Integer getNumberCommodityStatus() {
+			return this.numberCommodityStatus;
+		}
+
+		public void setNumberCommodityStatus(Integer numberCommodityStatus) {
+			this.numberCommodityStatus = numberCommodityStatus;
+		}
+
+		public String getSipTelX() {
+			return this.sipTelX;
+		}
+
+		public void setSipTelX(String sipTelX) {
+			this.sipTelX = sipTelX;
+		}
+
+		public List<SkillGroup> getSkillGroups() {
+			return this.skillGroups;
+		}
+
+		public void setSkillGroups(List<SkillGroup> skillGroups) {
+			this.skillGroups = skillGroups;
+		}
+
 		public ContactFlow getContactFlow() {
 			return this.contactFlow;
 		}
 
 		public void setContactFlow(ContactFlow contactFlow) {
 			this.contactFlow = contactFlow;
+		}
+
+		public PrivacyNumber getPrivacyNumber() {
+			return this.privacyNumber;
+		}
+
+		public void setPrivacyNumber(PrivacyNumber privacyNumber) {
+			this.privacyNumber = privacyNumber;
+		}
+
+		public static class SkillGroup {
+
+			private String skillGroupId;
+
+			private String skillGroupName;
+
+			public String getSkillGroupId() {
+				return this.skillGroupId;
+			}
+
+			public void setSkillGroupId(String skillGroupId) {
+				this.skillGroupId = skillGroupId;
+			}
+
+			public String getSkillGroupName() {
+				return this.skillGroupName;
+			}
+
+			public void setSkillGroupName(String skillGroupName) {
+				this.skillGroupName = skillGroupName;
+			}
 		}
 
 		public static class ContactFlow {
@@ -257,6 +330,99 @@ public class ListPhoneNumbersResponse extends AcsResponse {
 
 			public void setType(String type) {
 				this.type = type;
+			}
+		}
+
+		public static class PrivacyNumber {
+
+			private String poolId;
+
+			private String type;
+
+			private String telX;
+
+			private String poolName;
+
+			private String phoneNumber;
+
+			private String extra;
+
+			private String bizId;
+
+			private String subId;
+
+			private String regionNameCity;
+
+			public String getPoolId() {
+				return this.poolId;
+			}
+
+			public void setPoolId(String poolId) {
+				this.poolId = poolId;
+			}
+
+			public String getType() {
+				return this.type;
+			}
+
+			public void setType(String type) {
+				this.type = type;
+			}
+
+			public String getTelX() {
+				return this.telX;
+			}
+
+			public void setTelX(String telX) {
+				this.telX = telX;
+			}
+
+			public String getPoolName() {
+				return this.poolName;
+			}
+
+			public void setPoolName(String poolName) {
+				this.poolName = poolName;
+			}
+
+			public String getPhoneNumber() {
+				return this.phoneNumber;
+			}
+
+			public void setPhoneNumber(String phoneNumber) {
+				this.phoneNumber = phoneNumber;
+			}
+
+			public String getExtra() {
+				return this.extra;
+			}
+
+			public void setExtra(String extra) {
+				this.extra = extra;
+			}
+
+			public String getBizId() {
+				return this.bizId;
+			}
+
+			public void setBizId(String bizId) {
+				this.bizId = bizId;
+			}
+
+			public String getSubId() {
+				return this.subId;
+			}
+
+			public void setSubId(String subId) {
+				this.subId = subId;
+			}
+
+			public String getRegionNameCity() {
+				return this.regionNameCity;
+			}
+
+			public void setRegionNameCity(String regionNameCity) {
+				this.regionNameCity = regionNameCity;
 			}
 		}
 	}

@@ -19,21 +19,21 @@ import java.util.List;
 
 import com.aliyuncs.imm.model.v20170906.ListTagNamesResponse;
 import com.aliyuncs.imm.model.v20170906.ListTagNamesResponse.TagsItem;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class ListTagNamesResponseUnmarshaller {
 
-	public static ListTagNamesResponse unmarshall(ListTagNamesResponse listTagNamesResponse, UnmarshallerContext context) {
+	public static ListTagNamesResponse unmarshall(ListTagNamesResponse listTagNamesResponse, UnmarshallerContext _ctx) {
 		
-		listTagNamesResponse.setRequestId(context.stringValue("ListTagNamesResponse.RequestId"));
+		listTagNamesResponse.setRequestId(_ctx.stringValue("ListTagNamesResponse.RequestId"));
+		listTagNamesResponse.setNextMarker(_ctx.stringValue("ListTagNamesResponse.NextMarker"));
 
 		List<TagsItem> tags = new ArrayList<TagsItem>();
-		for (int i = 0; i < context.lengthValue("ListTagNamesResponse.Tags.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListTagNamesResponse.Tags.Length"); i++) {
 			TagsItem tagsItem = new TagsItem();
-			tagsItem.setTagName(context.stringValue("ListTagNamesResponse.Tags["+ i +"].TagName"));
-			tagsItem.setNum(context.integerValue("ListTagNamesResponse.Tags["+ i +"].Num"));
+			tagsItem.setTagName(_ctx.stringValue("ListTagNamesResponse.Tags["+ i +"].TagName"));
+			tagsItem.setNum(_ctx.integerValue("ListTagNamesResponse.Tags["+ i +"].Num"));
 
 			tags.add(tagsItem);
 		}

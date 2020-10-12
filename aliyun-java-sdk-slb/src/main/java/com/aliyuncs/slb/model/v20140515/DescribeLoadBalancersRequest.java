@@ -15,16 +15,15 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeLoadBalancersRequest extends RpcAcsRequest<DescribeLoadBalancersResponse> {
-	
-	public DescribeLoadBalancersRequest() {
-		super("Slb", "2014-05-15", "DescribeLoadBalancers", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -45,8 +44,6 @@ public class DescribeLoadBalancersRequest extends RpcAcsRequest<DescribeLoadBala
 	private String addressType;
 
 	private String slaveZoneId;
-
-	private String fuzzy;
 
 	private String address;
 
@@ -73,6 +70,14 @@ public class DescribeLoadBalancersRequest extends RpcAcsRequest<DescribeLoadBala
 	private String vpcId;
 
 	private String payType;
+	public DescribeLoadBalancersRequest() {
+		super("Slb", "2014-05-15", "DescribeLoadBalancers", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -181,17 +186,6 @@ public class DescribeLoadBalancersRequest extends RpcAcsRequest<DescribeLoadBala
 		this.slaveZoneId = slaveZoneId;
 		if(slaveZoneId != null){
 			putQueryParameter("SlaveZoneId", slaveZoneId);
-		}
-	}
-
-	public String getFuzzy() {
-		return this.fuzzy;
-	}
-
-	public void setFuzzy(String fuzzy) {
-		this.fuzzy = fuzzy;
-		if(fuzzy != null){
-			putQueryParameter("Fuzzy", fuzzy);
 		}
 	}
 

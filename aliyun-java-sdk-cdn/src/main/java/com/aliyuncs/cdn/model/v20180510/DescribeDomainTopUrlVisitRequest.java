@@ -15,35 +15,42 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDomainTopUrlVisitRequest extends RpcAcsRequest<DescribeDomainTopUrlVisitResponse> {
-	
-	public DescribeDomainTopUrlVisitRequest() {
-		super("Cdn", "2018-05-10", "DescribeDomainTopUrlVisit");
-	}
-
-	private String securityToken;
-
-	private String domainName;
-
-	private String sortBy;
+	   
 
 	private String startTime;
 
+	private String domainName;
+
+	private String endTime;
+
 	private Long ownerId;
 
-	public String getSecurityToken() {
-		return this.securityToken;
+	private String sortBy;
+	public DescribeDomainTopUrlVisitRequest() {
+		super("Cdn", "2018-05-10", "DescribeDomainTopUrlVisit");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
 		}
 	}
 
@@ -58,25 +65,14 @@ public class DescribeDomainTopUrlVisitRequest extends RpcAcsRequest<DescribeDoma
 		}
 	}
 
-	public String getSortBy() {
-		return this.sortBy;
+	public String getEndTime() {
+		return this.endTime;
 	}
 
-	public void setSortBy(String sortBy) {
-		this.sortBy = sortBy;
-		if(sortBy != null){
-			putQueryParameter("SortBy", sortBy);
-		}
-	}
-
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime);
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime);
 		}
 	}
 
@@ -88,6 +84,17 @@ public class DescribeDomainTopUrlVisitRequest extends RpcAcsRequest<DescribeDoma
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSortBy() {
+		return this.sortBy;
+	}
+
+	public void setSortBy(String sortBy) {
+		this.sortBy = sortBy;
+		if(sortBy != null){
+			putQueryParameter("SortBy", sortBy);
 		}
 	}
 

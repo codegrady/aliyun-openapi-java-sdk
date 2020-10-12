@@ -15,26 +15,27 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoResourceResponse> {
-	
-	public AddCasterVideoResourceRequest() {
-		super("live", "2016-11-01", "AddCasterVideoResource", "live");
-	}
-
-	private String vodUrl;
-
-	private String casterId;
+	   
 
 	private Integer endOffset;
 
-	private Long ownerId;
-
 	private String materialId;
+
+	private String vodUrl;
+
+	private String streamId;
+
+	private String casterId;
+
+	private Long ownerId;
 
 	private Integer beginOffset;
 
@@ -47,6 +48,36 @@ public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoR
 	private String resourceName;
 
 	private Integer repeatNum;
+	public AddCasterVideoResourceRequest() {
+		super("live", "2016-11-01", "AddCasterVideoResource", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public Integer getEndOffset() {
+		return this.endOffset;
+	}
+
+	public void setEndOffset(Integer endOffset) {
+		this.endOffset = endOffset;
+		if(endOffset != null){
+			putQueryParameter("EndOffset", endOffset.toString());
+		}
+	}
+
+	public String getMaterialId() {
+		return this.materialId;
+	}
+
+	public void setMaterialId(String materialId) {
+		this.materialId = materialId;
+		if(materialId != null){
+			putQueryParameter("MaterialId", materialId);
+		}
+	}
 
 	public String getVodUrl() {
 		return this.vodUrl;
@@ -56,6 +87,17 @@ public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoR
 		this.vodUrl = vodUrl;
 		if(vodUrl != null){
 			putQueryParameter("VodUrl", vodUrl);
+		}
+	}
+
+	public String getStreamId() {
+		return this.streamId;
+	}
+
+	public void setStreamId(String streamId) {
+		this.streamId = streamId;
+		if(streamId != null){
+			putQueryParameter("StreamId", streamId);
 		}
 	}
 
@@ -70,17 +112,6 @@ public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoR
 		}
 	}
 
-	public Integer getEndOffset() {
-		return this.endOffset;
-	}
-
-	public void setEndOffset(Integer endOffset) {
-		this.endOffset = endOffset;
-		if(endOffset != null){
-			putQueryParameter("EndOffset", endOffset.toString());
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -89,17 +120,6 @@ public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoR
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getMaterialId() {
-		return this.materialId;
-	}
-
-	public void setMaterialId(String materialId) {
-		this.materialId = materialId;
-		if(materialId != null){
-			putQueryParameter("MaterialId", materialId);
 		}
 	}
 

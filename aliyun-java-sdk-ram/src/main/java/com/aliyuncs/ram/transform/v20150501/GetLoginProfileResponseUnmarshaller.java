@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.GetLoginProfileResponse;
@@ -20,15 +21,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class GetLoginProfileResponseUnmarshaller {
 
-	public static GetLoginProfileResponse unmarshall(GetLoginProfileResponse getLoginProfileResponse, UnmarshallerContext context) {
+	public static GetLoginProfileResponse unmarshall(GetLoginProfileResponse getLoginProfileResponse, UnmarshallerContext _ctx) {
 		
-		getLoginProfileResponse.setRequestId(context.stringValue("GetLoginProfileResponse.RequestId"));
+		getLoginProfileResponse.setRequestId(_ctx.stringValue("GetLoginProfileResponse.RequestId"));
 
 		LoginProfile loginProfile = new LoginProfile();
-		loginProfile.setUserName(context.stringValue("GetLoginProfileResponse.LoginProfile.UserName"));
-		loginProfile.setPasswordResetRequired(context.booleanValue("GetLoginProfileResponse.LoginProfile.PasswordResetRequired"));
-		loginProfile.setMFABindRequired(context.booleanValue("GetLoginProfileResponse.LoginProfile.MFABindRequired"));
-		loginProfile.setCreateDate(context.stringValue("GetLoginProfileResponse.LoginProfile.CreateDate"));
+		loginProfile.setUserName(_ctx.stringValue("GetLoginProfileResponse.LoginProfile.UserName"));
+		loginProfile.setPasswordResetRequired(_ctx.booleanValue("GetLoginProfileResponse.LoginProfile.PasswordResetRequired"));
+		loginProfile.setMFABindRequired(_ctx.booleanValue("GetLoginProfileResponse.LoginProfile.MFABindRequired"));
+		loginProfile.setCreateDate(_ctx.stringValue("GetLoginProfileResponse.LoginProfile.CreateDate"));
 		getLoginProfileResponse.setLoginProfile(loginProfile);
 	 
 	 	return getLoginProfileResponse;

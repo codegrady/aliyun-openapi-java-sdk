@@ -15,38 +15,34 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
-	
-	public CreateBackupRequest() {
-		super("Rds", "2014-08-15", "CreateBackup", "rds");
-	}
-
-	private String backupMethod;
+	   
 
 	private Long resourceOwnerId;
 
 	private String backupStrategy;
 
-	private String dBName;
-
 	private String dBInstanceId;
 
 	private String backupType;
 
-	public String getBackupMethod() {
-		return this.backupMethod;
-	}
+	private String backupMethod;
 
-	public void setBackupMethod(String backupMethod) {
-		this.backupMethod = backupMethod;
-		if(backupMethod != null){
-			putQueryParameter("BackupMethod", backupMethod);
-		}
+	private String dBName;
+	public CreateBackupRequest() {
+		super("Rds", "2014-08-15", "CreateBackup", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -71,17 +67,6 @@ public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
 		}
 	}
 
-	public String getDBName() {
-		return this.dBName;
-	}
-
-	public void setDBName(String dBName) {
-		this.dBName = dBName;
-		if(dBName != null){
-			putQueryParameter("DBName", dBName);
-		}
-	}
-
 	public String getDBInstanceId() {
 		return this.dBInstanceId;
 	}
@@ -101,6 +86,28 @@ public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
 		this.backupType = backupType;
 		if(backupType != null){
 			putQueryParameter("BackupType", backupType);
+		}
+	}
+
+	public String getBackupMethod() {
+		return this.backupMethod;
+	}
+
+	public void setBackupMethod(String backupMethod) {
+		this.backupMethod = backupMethod;
+		if(backupMethod != null){
+			putQueryParameter("BackupMethod", backupMethod);
+		}
+	}
+
+	public String getDBName() {
+		return this.dBName;
+	}
+
+	public void setDBName(String dBName) {
+		this.dBName = dBName;
+		if(dBName != null){
+			putQueryParameter("DBName", dBName);
 		}
 	}
 

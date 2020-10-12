@@ -15,7 +15,6 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import java.util.List;
-import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.bssopenapi.transform.v20171214.QueryOrdersResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -160,6 +159,8 @@ public class QueryOrdersResponse extends AcsResponse {
 
 			private String paymentCurrency;
 
+			private String relatedOrderId;
+
 			public String getOrderId() {
 				return this.orderId;
 			}
@@ -278,6 +279,14 @@ public class QueryOrdersResponse extends AcsResponse {
 
 			public void setPaymentCurrency(String paymentCurrency) {
 				this.paymentCurrency = paymentCurrency;
+			}
+
+			public String getRelatedOrderId() {
+				return this.relatedOrderId;
+			}
+
+			public void setRelatedOrderId(String relatedOrderId) {
+				this.relatedOrderId = relatedOrderId;
 			}
 		}
 	}

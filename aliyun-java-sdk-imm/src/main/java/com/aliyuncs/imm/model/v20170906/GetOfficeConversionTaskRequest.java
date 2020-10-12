@@ -15,20 +15,22 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetOfficeConversionTaskRequest extends RpcAcsRequest<GetOfficeConversionTaskResponse> {
-	
-	public GetOfficeConversionTaskRequest() {
-		super("imm", "2017-09-06", "GetOfficeConversionTask", "imm");
-	}
+	   
 
 	private String project;
 
 	private String taskId;
+	public GetOfficeConversionTaskRequest() {
+		super("imm", "2017-09-06", "GetOfficeConversionTask", "imm");
+		setMethod(MethodType.POST);
+	}
 
 	public String getProject() {
 		return this.project;

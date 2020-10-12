@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.ModifyLogConfigResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ModifyLogConfigResponseUnmarshaller {
 
-	public static ModifyLogConfigResponse unmarshall(ModifyLogConfigResponse modifyLogConfigResponse, UnmarshallerContext context) {
+	public static ModifyLogConfigResponse unmarshall(ModifyLogConfigResponse modifyLogConfigResponse, UnmarshallerContext _ctx) {
 		
-		modifyLogConfigResponse.setRequestId(context.stringValue("ModifyLogConfigResponse.RequestId"));
+		modifyLogConfigResponse.setRequestId(_ctx.stringValue("ModifyLogConfigResponse.RequestId"));
 	 
 	 	return modifyLogConfigResponse;
 	}

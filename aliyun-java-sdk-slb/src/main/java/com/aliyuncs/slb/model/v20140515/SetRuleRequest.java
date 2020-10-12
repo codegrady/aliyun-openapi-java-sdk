@@ -15,16 +15,15 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetRuleRequest extends RpcAcsRequest<SetRuleResponse> {
-	
-	public SetRuleRequest() {
-		super("Slb", "2014-05-15", "SetRule", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -62,8 +61,6 @@ public class SetRuleRequest extends RpcAcsRequest<SetRuleResponse> {
 
 	private Long ownerId;
 
-	private String tags;
-
 	private Integer healthCheckInterval;
 
 	private String ruleId;
@@ -71,6 +68,14 @@ public class SetRuleRequest extends RpcAcsRequest<SetRuleResponse> {
 	private Integer healthCheckConnectPort;
 
 	private String healthCheckHttpCode;
+	public SetRuleRequest() {
+		super("Slb", "2014-05-15", "SetRule", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -267,17 +272,6 @@ public class SetRuleRequest extends RpcAcsRequest<SetRuleResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
 		}
 	}
 

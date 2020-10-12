@@ -15,24 +15,83 @@
 package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SaveSingleTaskForCreatingOrderRedeemRequest extends RpcAcsRequest<SaveSingleTaskForCreatingOrderRedeemResponse> {
-	
-	public SaveSingleTaskForCreatingOrderRedeemRequest() {
-		super("Domain", "2018-01-29", "SaveSingleTaskForCreatingOrderRedeem");
-	}
+	   
+
+	private String domainName;
+
+	private String couponNo;
+
+	private Boolean useCoupon;
+
+	private String promotionNo;
 
 	private Long currentExpirationDate;
 
 	private String userClientIp;
 
-	private String domainName;
-
 	private String lang;
+
+	private Boolean usePromotion;
+	public SaveSingleTaskForCreatingOrderRedeemRequest() {
+		super("Domain", "2018-01-29", "SaveSingleTaskForCreatingOrderRedeem", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
+	}
+
+	public String getCouponNo() {
+		return this.couponNo;
+	}
+
+	public void setCouponNo(String couponNo) {
+		this.couponNo = couponNo;
+		if(couponNo != null){
+			putQueryParameter("CouponNo", couponNo);
+		}
+	}
+
+	public Boolean getUseCoupon() {
+		return this.useCoupon;
+	}
+
+	public void setUseCoupon(Boolean useCoupon) {
+		this.useCoupon = useCoupon;
+		if(useCoupon != null){
+			putQueryParameter("UseCoupon", useCoupon.toString());
+		}
+	}
+
+	public String getPromotionNo() {
+		return this.promotionNo;
+	}
+
+	public void setPromotionNo(String promotionNo) {
+		this.promotionNo = promotionNo;
+		if(promotionNo != null){
+			putQueryParameter("PromotionNo", promotionNo);
+		}
+	}
 
 	public Long getCurrentExpirationDate() {
 		return this.currentExpirationDate;
@@ -56,17 +115,6 @@ public class SaveSingleTaskForCreatingOrderRedeemRequest extends RpcAcsRequest<S
 		}
 	}
 
-	public String getDomainName() {
-		return this.domainName;
-	}
-
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
-		if(domainName != null){
-			putQueryParameter("DomainName", domainName);
-		}
-	}
-
 	public String getLang() {
 		return this.lang;
 	}
@@ -75,6 +123,17 @@ public class SaveSingleTaskForCreatingOrderRedeemRequest extends RpcAcsRequest<S
 		this.lang = lang;
 		if(lang != null){
 			putQueryParameter("Lang", lang);
+		}
+	}
+
+	public Boolean getUsePromotion() {
+		return this.usePromotion;
+	}
+
+	public void setUsePromotion(Boolean usePromotion) {
+		this.usePromotion = usePromotion;
+		if(usePromotion != null){
+			putQueryParameter("UsePromotion", usePromotion.toString());
 		}
 	}
 

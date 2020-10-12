@@ -11,28 +11,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.aliyuncs.cloudapi.model.v20160714.DescribeSignaturesByApiResponse;
 import com.aliyuncs.cloudapi.model.v20160714.DescribeSignaturesByApiResponse.SignatureItem;
 import com.aliyuncs.transform.UnmarshallerContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class DescribeSignaturesByApiResponseUnmarshaller {
 
-	public static DescribeSignaturesByApiResponse unmarshall(DescribeSignaturesByApiResponse describeSignaturesByApiResponse, UnmarshallerContext context) {
+	public static DescribeSignaturesByApiResponse unmarshall(DescribeSignaturesByApiResponse describeSignaturesByApiResponse, UnmarshallerContext _ctx) {
 		
-		describeSignaturesByApiResponse.setRequestId(context.stringValue("DescribeSignaturesByApiResponse.RequestId"));
+		describeSignaturesByApiResponse.setRequestId(_ctx.stringValue("DescribeSignaturesByApiResponse.RequestId"));
 
 		List<SignatureItem> signatures = new ArrayList<SignatureItem>();
-		for (int i = 0; i < context.lengthValue("DescribeSignaturesByApiResponse.Signatures.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeSignaturesByApiResponse.Signatures.Length"); i++) {
 			SignatureItem signatureItem = new SignatureItem();
-			signatureItem.setSignatureId(context.stringValue("DescribeSignaturesByApiResponse.Signatures["+ i +"].SignatureId"));
-			signatureItem.setSignatureName(context.stringValue("DescribeSignaturesByApiResponse.Signatures["+ i +"].SignatureName"));
-			signatureItem.setBoundTime(context.stringValue("DescribeSignaturesByApiResponse.Signatures["+ i +"].BoundTime"));
+			signatureItem.setSignatureId(_ctx.stringValue("DescribeSignaturesByApiResponse.Signatures["+ i +"].SignatureId"));
+			signatureItem.setSignatureName(_ctx.stringValue("DescribeSignaturesByApiResponse.Signatures["+ i +"].SignatureName"));
+			signatureItem.setBoundTime(_ctx.stringValue("DescribeSignaturesByApiResponse.Signatures["+ i +"].BoundTime"));
 
 			signatures.add(signatureItem);
 		}

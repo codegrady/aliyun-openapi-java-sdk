@@ -1,3 +1,46 @@
+2020-06-23 Version: 3.14.3
+- Support SubmitOperationAuditInfo for Support self-service submission of approval information.
+- Support SubmitOperationCredentials for self-service submission of certificate information.
+- Support CancelOperationAudit for cancel audit.
+- Support GetOperationOssUploadPolic for get oss policy.
+- Support QueryOperationAuditInfoLis for query audit list.
+- Support QueryOperationAuditInfoDetail for query audit details.
+
+2019-07-05 Version: 3.14.2
+- Add TaskCancelStatus for QueryTaskList api.
+
+2019-05-13 Version: 3.14.0
+1, Add three new apis, SaveSingleTaskForSaveArtExtension, QueryArtExtension and CancelTask.
+
+2019-04-22 Version: 3.13.0
+1, Add a new api, QueryDomainByDomainName.
+
+2019-01-10 Version: 3.12.1
+1, Add fields for QueryBrokerDemand api.
+
+2018-12-20 Version: 3.12.0
+1, Add Dns Sec apis.
+2, Add coupon and promotion fields for order apis.
+
+2018-11-22 Version: 3.11.0
+1, Add ScrollDomainList api.
+2, Add email filter for QueryRegistrantProfile.
+
+2018-11-19 Version: 3.10.1
+1, Add field BargainSellerPrice and BargainSellerMobile
+
+2018-11-13 Version: 3.10.0
+1, Add FuzzyMatchDomainSensitiveWord interface，Support fuzzy matching sensitive words.
+2, Add BatchFuzzyMatchDomainSensitiveWord interface，Support batch fuzzy matching sensitive words.
+3, Add DynamicCheck properties for results of CheckDomain interface.
+
+2018-10-26 Version: 3.9.1
+1, Remove useless parameters QueryDomainAdminDivision api.
+
+2018-10-25 Version: 3.9.0
+1, Add apis for trademark domains.
+2, Add QueryDomainAdminDivision api.
+
 2018-06-27 Version: 3.6.0
 1, Modify QueryDomainRealNameVerificationInfo Api, add a return value IdentityCredentialUrl, which is domain real name verification image, you can download it via a HTTP get request,It has validity for 30 seconds.
 2, Modify QueryRegistrantProfileRealNameVerificationInfo Api, add a return value IdentityCredentialUrl, which is domain real name verification image, you can download it via a HTTP get request,It has validity for 30 seconds

@@ -71,6 +71,8 @@ public class DescribeAccountAttributesResponse extends AcsResponse {
 
 			private String value;
 
+			private String expiredTime;
+
 			private String zoneId;
 
 			private String instanceChargeType;
@@ -79,12 +81,22 @@ public class DescribeAccountAttributesResponse extends AcsResponse {
 
 			private Integer count;
 
+			private String diskCategory;
+
 			public String getValue() {
 				return this.value;
 			}
 
 			public void setValue(String value) {
 				this.value = value;
+			}
+
+			public String getExpiredTime() {
+				return this.expiredTime;
+			}
+
+			public void setExpiredTime(String expiredTime) {
+				this.expiredTime = expiredTime;
 			}
 
 			public String getZoneId() {
@@ -117,6 +129,14 @@ public class DescribeAccountAttributesResponse extends AcsResponse {
 
 			public void setCount(Integer count) {
 				this.count = count;
+			}
+
+			public String getDiskCategory() {
+				return this.diskCategory;
+			}
+
+			public void setDiskCategory(String diskCategory) {
+				this.diskCategory = diskCategory;
 			}
 		}
 	}

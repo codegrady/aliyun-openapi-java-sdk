@@ -15,22 +15,29 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteResourcePoolRequest extends RpcAcsRequest<DeleteResourcePoolResponse> {
-	
-	public DeleteResourcePoolRequest() {
-		super("Emr", "2016-04-08", "DeleteResourcePool");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String resourcePoolId;
 
 	private String clusterId;
+	public DeleteResourcePoolRequest() {
+		super("Emr", "2016-04-08", "DeleteResourcePool");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;

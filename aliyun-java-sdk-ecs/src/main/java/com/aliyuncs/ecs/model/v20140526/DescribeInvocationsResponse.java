@@ -79,17 +79,25 @@ public class DescribeInvocationsResponse extends AcsResponse {
 
 		private String invokeId;
 
+		private String creationTime;
+
 		private String commandId;
 
 		private String commandType;
 
 		private String commandName;
 
+		private String commandContent;
+
 		private String frequency;
 
 		private Boolean timed;
 
 		private String invokeStatus;
+
+		private String invocationStatus;
+
+		private String parameters;
 
 		private List<InvokeInstance> invokeInstances;
 
@@ -99,6 +107,14 @@ public class DescribeInvocationsResponse extends AcsResponse {
 
 		public void setInvokeId(String invokeId) {
 			this.invokeId = invokeId;
+		}
+
+		public String getCreationTime() {
+			return this.creationTime;
+		}
+
+		public void setCreationTime(String creationTime) {
+			this.creationTime = creationTime;
 		}
 
 		public String getCommandId() {
@@ -125,6 +141,14 @@ public class DescribeInvocationsResponse extends AcsResponse {
 			this.commandName = commandName;
 		}
 
+		public String getCommandContent() {
+			return this.commandContent;
+		}
+
+		public void setCommandContent(String commandContent) {
+			this.commandContent = commandContent;
+		}
+
 		public String getFrequency() {
 			return this.frequency;
 		}
@@ -149,6 +173,22 @@ public class DescribeInvocationsResponse extends AcsResponse {
 			this.invokeStatus = invokeStatus;
 		}
 
+		public String getInvocationStatus() {
+			return this.invocationStatus;
+		}
+
+		public void setInvocationStatus(String invocationStatus) {
+			this.invocationStatus = invocationStatus;
+		}
+
+		public String getParameters() {
+			return this.parameters;
+		}
+
+		public void setParameters(String parameters) {
+			this.parameters = parameters;
+		}
+
 		public List<InvokeInstance> getInvokeInstances() {
 			return this.invokeInstances;
 		}
@@ -161,7 +201,31 @@ public class DescribeInvocationsResponse extends AcsResponse {
 
 			private String instanceId;
 
+			private Integer repeats;
+
 			private String instanceInvokeStatus;
+
+			private String invocationStatus;
+
+			private String output;
+
+			private Long exitCode;
+
+			private Integer dropped;
+
+			private String errorCode;
+
+			private String errorInfo;
+
+			private String creationTime;
+
+			private String startTime;
+
+			private String stopTime;
+
+			private String finishTime;
+
+			private String updateTime;
 
 			public String getInstanceId() {
 				return this.instanceId;
@@ -171,12 +235,108 @@ public class DescribeInvocationsResponse extends AcsResponse {
 				this.instanceId = instanceId;
 			}
 
+			public Integer getRepeats() {
+				return this.repeats;
+			}
+
+			public void setRepeats(Integer repeats) {
+				this.repeats = repeats;
+			}
+
 			public String getInstanceInvokeStatus() {
 				return this.instanceInvokeStatus;
 			}
 
 			public void setInstanceInvokeStatus(String instanceInvokeStatus) {
 				this.instanceInvokeStatus = instanceInvokeStatus;
+			}
+
+			public String getInvocationStatus() {
+				return this.invocationStatus;
+			}
+
+			public void setInvocationStatus(String invocationStatus) {
+				this.invocationStatus = invocationStatus;
+			}
+
+			public String getOutput() {
+				return this.output;
+			}
+
+			public void setOutput(String output) {
+				this.output = output;
+			}
+
+			public Long getExitCode() {
+				return this.exitCode;
+			}
+
+			public void setExitCode(Long exitCode) {
+				this.exitCode = exitCode;
+			}
+
+			public Integer getDropped() {
+				return this.dropped;
+			}
+
+			public void setDropped(Integer dropped) {
+				this.dropped = dropped;
+			}
+
+			public String getErrorCode() {
+				return this.errorCode;
+			}
+
+			public void setErrorCode(String errorCode) {
+				this.errorCode = errorCode;
+			}
+
+			public String getErrorInfo() {
+				return this.errorInfo;
+			}
+
+			public void setErrorInfo(String errorInfo) {
+				this.errorInfo = errorInfo;
+			}
+
+			public String getCreationTime() {
+				return this.creationTime;
+			}
+
+			public void setCreationTime(String creationTime) {
+				this.creationTime = creationTime;
+			}
+
+			public String getStartTime() {
+				return this.startTime;
+			}
+
+			public void setStartTime(String startTime) {
+				this.startTime = startTime;
+			}
+
+			public String getStopTime() {
+				return this.stopTime;
+			}
+
+			public void setStopTime(String stopTime) {
+				this.stopTime = stopTime;
+			}
+
+			public String getFinishTime() {
+				return this.finishTime;
+			}
+
+			public void setFinishTime(String finishTime) {
+				this.finishTime = finishTime;
+			}
+
+			public String getUpdateTime() {
+				return this.updateTime;
+			}
+
+			public void setUpdateTime(String updateTime) {
+				this.updateTime = updateTime;
 			}
 		}
 	}

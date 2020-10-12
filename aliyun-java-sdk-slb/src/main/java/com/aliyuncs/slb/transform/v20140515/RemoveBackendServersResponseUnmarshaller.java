@@ -19,25 +19,25 @@ import java.util.List;
 
 import com.aliyuncs.slb.model.v20140515.RemoveBackendServersResponse;
 import com.aliyuncs.slb.model.v20140515.RemoveBackendServersResponse.BackendServer;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class RemoveBackendServersResponseUnmarshaller {
 
-	public static RemoveBackendServersResponse unmarshall(RemoveBackendServersResponse removeBackendServersResponse, UnmarshallerContext context) {
+	public static RemoveBackendServersResponse unmarshall(RemoveBackendServersResponse removeBackendServersResponse, UnmarshallerContext _ctx) {
 		
-		removeBackendServersResponse.setRequestId(context.stringValue("RemoveBackendServersResponse.RequestId"));
-		removeBackendServersResponse.setLoadBalancerId(context.stringValue("RemoveBackendServersResponse.LoadBalancerId"));
+		removeBackendServersResponse.setRequestId(_ctx.stringValue("RemoveBackendServersResponse.RequestId"));
+		removeBackendServersResponse.setLoadBalancerId(_ctx.stringValue("RemoveBackendServersResponse.LoadBalancerId"));
 
 		List<BackendServer> backendServers = new ArrayList<BackendServer>();
-		for (int i = 0; i < context.lengthValue("RemoveBackendServersResponse.BackendServers.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("RemoveBackendServersResponse.BackendServers.Length"); i++) {
 			BackendServer backendServer = new BackendServer();
-			backendServer.setServerId(context.stringValue("RemoveBackendServersResponse.BackendServers["+ i +"].ServerId"));
-			backendServer.setWeight(context.integerValue("RemoveBackendServersResponse.BackendServers["+ i +"].Weight"));
-			backendServer.setServerIp(context.stringValue("RemoveBackendServersResponse.BackendServers["+ i +"].ServerIp"));
-			backendServer.setVpcId(context.stringValue("RemoveBackendServersResponse.BackendServers["+ i +"].VpcId"));
-			backendServer.setType(context.stringValue("RemoveBackendServersResponse.BackendServers["+ i +"].Type"));
+			backendServer.setServerId(_ctx.stringValue("RemoveBackendServersResponse.BackendServers["+ i +"].ServerId"));
+			backendServer.setWeight(_ctx.integerValue("RemoveBackendServersResponse.BackendServers["+ i +"].Weight"));
+			backendServer.setServerIp(_ctx.stringValue("RemoveBackendServersResponse.BackendServers["+ i +"].ServerIp"));
+			backendServer.setVpcId(_ctx.stringValue("RemoveBackendServersResponse.BackendServers["+ i +"].VpcId"));
+			backendServer.setType(_ctx.stringValue("RemoveBackendServersResponse.BackendServers["+ i +"].Type"));
+			backendServer.setDescription(_ctx.stringValue("RemoveBackendServersResponse.BackendServers["+ i +"].Description"));
 
 			backendServers.add(backendServer);
 		}

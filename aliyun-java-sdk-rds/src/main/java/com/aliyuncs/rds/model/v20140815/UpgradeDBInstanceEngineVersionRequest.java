@@ -15,32 +15,39 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpgradeDBInstanceEngineVersionRequest extends RpcAcsRequest<UpgradeDBInstanceEngineVersionResponse> {
-	
-	public UpgradeDBInstanceEngineVersionRequest() {
-		super("Rds", "2014-08-15", "UpgradeDBInstanceEngineVersion", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String clientToken;
-
-	private String effectiveTime;
-
-	private String ownerAccount;
-
-	private String dBInstanceId;
 
 	private String engineVersion;
 
+	private String effectiveTime;
+
+	private String dBInstanceId;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
 	private Long ownerId;
+	public UpgradeDBInstanceEngineVersionRequest() {
+		super("Rds", "2014-08-15", "UpgradeDBInstanceEngineVersion", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -50,17 +57,6 @@ public class UpgradeDBInstanceEngineVersionRequest extends RpcAcsRequest<Upgrade
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -75,6 +71,17 @@ public class UpgradeDBInstanceEngineVersionRequest extends RpcAcsRequest<Upgrade
 		}
 	}
 
+	public String getEngineVersion() {
+		return this.engineVersion;
+	}
+
+	public void setEngineVersion(String engineVersion) {
+		this.engineVersion = engineVersion;
+		if(engineVersion != null){
+			putQueryParameter("EngineVersion", engineVersion);
+		}
+	}
+
 	public String getEffectiveTime() {
 		return this.effectiveTime;
 	}
@@ -83,17 +90,6 @@ public class UpgradeDBInstanceEngineVersionRequest extends RpcAcsRequest<Upgrade
 		this.effectiveTime = effectiveTime;
 		if(effectiveTime != null){
 			putQueryParameter("EffectiveTime", effectiveTime);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 
@@ -108,14 +104,25 @@ public class UpgradeDBInstanceEngineVersionRequest extends RpcAcsRequest<Upgrade
 		}
 	}
 
-	public String getEngineVersion() {
-		return this.engineVersion;
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
 	}
 
-	public void setEngineVersion(String engineVersion) {
-		this.engineVersion = engineVersion;
-		if(engineVersion != null){
-			putQueryParameter("EngineVersion", engineVersion);
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 

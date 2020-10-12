@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.SwitchApiResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SwitchApiResponseUnmarshaller {
 
-	public static SwitchApiResponse unmarshall(SwitchApiResponse switchApiResponse, UnmarshallerContext context) {
+	public static SwitchApiResponse unmarshall(SwitchApiResponse switchApiResponse, UnmarshallerContext _ctx) {
 		
-		switchApiResponse.setRequestId(context.stringValue("SwitchApiResponse.RequestId"));
+		switchApiResponse.setRequestId(_ctx.stringValue("SwitchApiResponse.RequestId"));
 	 
 	 	return switchApiResponse;
 	}

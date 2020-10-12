@@ -11,27 +11,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.model.v20150501;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ram.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AttachPolicyToRoleRequest extends RpcAcsRequest<AttachPolicyToRoleResponse> {
-	
-	public AttachPolicyToRoleRequest() {
-		super("Ram", "2015-05-01", "AttachPolicyToRole");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private String policyType;
 
 	private String roleName;
 
 	private String policyName;
+	public AttachPolicyToRoleRequest() {
+		super("Ram", "2015-05-01", "AttachPolicyToRole", "Ram");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getPolicyType() {
 		return this.policyType;

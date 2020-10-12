@@ -2,17 +2,15 @@ package com.aliyuncs.http;
 
 import com.aliyuncs.http.clients.CompatibleUrlConnClient;
 
-/**
- * @author VK.Gao
- * @date 2018/03/29
- */
 public enum HttpClientType {
+    /**
+     * define Compatiblen,HttpClient,okHttp,Custom
+     */
 
     Compatible(CompatibleUrlConnClient.class),
     ApacheHttpClient(com.aliyuncs.http.clients.ApacheHttpClient.class),
     OkHttp(null),
-    Custom(null),
-    ;
+    Custom(null),;
 
     private Class<? extends IHttpClient> implClass;
 

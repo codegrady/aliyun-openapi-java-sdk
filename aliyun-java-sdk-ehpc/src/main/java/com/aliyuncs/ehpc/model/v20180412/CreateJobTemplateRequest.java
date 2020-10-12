@@ -15,36 +15,43 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateJobTemplateRequest extends RpcAcsRequest<CreateJobTemplateResponse> {
-	
-	public CreateJobTemplateRequest() {
-		super("EHPC", "2018-04-12", "CreateJobTemplate", "ehs");
-	}
+	   
 
 	private String stderrRedirectPath;
+
+	private String commandLine;
 
 	private String arrayRequest;
 
 	private String packagePath;
 
+	private String stdoutRedirectPath;
+
 	private String variables;
 
-	private String name;
-
 	private String runasUser;
-
-	private String stdoutRedirectPath;
 
 	private Boolean reRunable;
 
 	private Integer priority;
 
-	private String commandLine;
+	private String name;
+	public CreateJobTemplateRequest() {
+		super("EHPC", "2018-04-12", "CreateJobTemplate");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getStderrRedirectPath() {
 		return this.stderrRedirectPath;
@@ -54,6 +61,17 @@ public class CreateJobTemplateRequest extends RpcAcsRequest<CreateJobTemplateRes
 		this.stderrRedirectPath = stderrRedirectPath;
 		if(stderrRedirectPath != null){
 			putQueryParameter("StderrRedirectPath", stderrRedirectPath);
+		}
+	}
+
+	public String getCommandLine() {
+		return this.commandLine;
+	}
+
+	public void setCommandLine(String commandLine) {
+		this.commandLine = commandLine;
+		if(commandLine != null){
+			putQueryParameter("CommandLine", commandLine);
 		}
 	}
 
@@ -79,6 +97,17 @@ public class CreateJobTemplateRequest extends RpcAcsRequest<CreateJobTemplateRes
 		}
 	}
 
+	public String getStdoutRedirectPath() {
+		return this.stdoutRedirectPath;
+	}
+
+	public void setStdoutRedirectPath(String stdoutRedirectPath) {
+		this.stdoutRedirectPath = stdoutRedirectPath;
+		if(stdoutRedirectPath != null){
+			putQueryParameter("StdoutRedirectPath", stdoutRedirectPath);
+		}
+	}
+
 	public String getVariables() {
 		return this.variables;
 	}
@@ -90,17 +119,6 @@ public class CreateJobTemplateRequest extends RpcAcsRequest<CreateJobTemplateRes
 		}
 	}
 
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		if(name != null){
-			putQueryParameter("Name", name);
-		}
-	}
-
 	public String getRunasUser() {
 		return this.runasUser;
 	}
@@ -109,17 +127,6 @@ public class CreateJobTemplateRequest extends RpcAcsRequest<CreateJobTemplateRes
 		this.runasUser = runasUser;
 		if(runasUser != null){
 			putQueryParameter("RunasUser", runasUser);
-		}
-	}
-
-	public String getStdoutRedirectPath() {
-		return this.stdoutRedirectPath;
-	}
-
-	public void setStdoutRedirectPath(String stdoutRedirectPath) {
-		this.stdoutRedirectPath = stdoutRedirectPath;
-		if(stdoutRedirectPath != null){
-			putQueryParameter("StdoutRedirectPath", stdoutRedirectPath);
 		}
 	}
 
@@ -145,14 +152,14 @@ public class CreateJobTemplateRequest extends RpcAcsRequest<CreateJobTemplateRes
 		}
 	}
 
-	public String getCommandLine() {
-		return this.commandLine;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setCommandLine(String commandLine) {
-		this.commandLine = commandLine;
-		if(commandLine != null){
-			putQueryParameter("CommandLine", commandLine);
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("Name", name);
 		}
 	}
 

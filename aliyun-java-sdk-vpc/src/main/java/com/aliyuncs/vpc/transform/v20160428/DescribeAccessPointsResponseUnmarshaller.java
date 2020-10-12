@@ -19,29 +19,40 @@ import java.util.List;
 
 import com.aliyuncs.vpc.model.v20160428.DescribeAccessPointsResponse;
 import com.aliyuncs.vpc.model.v20160428.DescribeAccessPointsResponse.AccessPointType;
+import com.aliyuncs.vpc.model.v20160428.DescribeAccessPointsResponse.AccessPointType.AccessPointFeatureModel;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeAccessPointsResponseUnmarshaller {
 
-	public static DescribeAccessPointsResponse unmarshall(DescribeAccessPointsResponse describeAccessPointsResponse, UnmarshallerContext context) {
+	public static DescribeAccessPointsResponse unmarshall(DescribeAccessPointsResponse describeAccessPointsResponse, UnmarshallerContext _ctx) {
 		
-		describeAccessPointsResponse.setRequestId(context.stringValue("DescribeAccessPointsResponse.RequestId"));
-		describeAccessPointsResponse.setPageNumber(context.integerValue("DescribeAccessPointsResponse.PageNumber"));
-		describeAccessPointsResponse.setPageSize(context.integerValue("DescribeAccessPointsResponse.PageSize"));
-		describeAccessPointsResponse.setTotalCount(context.integerValue("DescribeAccessPointsResponse.TotalCount"));
+		describeAccessPointsResponse.setRequestId(_ctx.stringValue("DescribeAccessPointsResponse.RequestId"));
+		describeAccessPointsResponse.setPageNumber(_ctx.integerValue("DescribeAccessPointsResponse.PageNumber"));
+		describeAccessPointsResponse.setPageSize(_ctx.integerValue("DescribeAccessPointsResponse.PageSize"));
+		describeAccessPointsResponse.setTotalCount(_ctx.integerValue("DescribeAccessPointsResponse.TotalCount"));
 
 		List<AccessPointType> accessPointSet = new ArrayList<AccessPointType>();
-		for (int i = 0; i < context.lengthValue("DescribeAccessPointsResponse.AccessPointSet.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeAccessPointsResponse.AccessPointSet.Length"); i++) {
 			AccessPointType accessPointType = new AccessPointType();
-			accessPointType.setAccessPointId(context.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointId"));
-			accessPointType.setStatus(context.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Status"));
-			accessPointType.setType(context.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Type"));
-			accessPointType.setAttachedRegionNo(context.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AttachedRegionNo"));
-			accessPointType.setLocation(context.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Location"));
-			accessPointType.setHostOperator(context.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].HostOperator"));
-			accessPointType.setName(context.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Name"));
-			accessPointType.setDescription(context.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Description"));
+			accessPointType.setAccessPointId(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointId"));
+			accessPointType.setStatus(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Status"));
+			accessPointType.setType(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Type"));
+			accessPointType.setAttachedRegionNo(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AttachedRegionNo"));
+			accessPointType.setLocation(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Location"));
+			accessPointType.setHostOperator(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].HostOperator"));
+			accessPointType.setName(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Name"));
+			accessPointType.setDescription(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Description"));
+
+			List<AccessPointFeatureModel> accessPointFeatureModels = new ArrayList<AccessPointFeatureModel>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointFeatureModels.Length"); j++) {
+				AccessPointFeatureModel accessPointFeatureModel = new AccessPointFeatureModel();
+				accessPointFeatureModel.setFeatureKey(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointFeatureModels["+ j +"].FeatureKey"));
+				accessPointFeatureModel.setFeatureValue(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointFeatureModels["+ j +"].FeatureValue"));
+
+				accessPointFeatureModels.add(accessPointFeatureModel);
+			}
+			accessPointType.setAccessPointFeatureModels(accessPointFeatureModels);
 
 			accessPointSet.add(accessPointType);
 		}

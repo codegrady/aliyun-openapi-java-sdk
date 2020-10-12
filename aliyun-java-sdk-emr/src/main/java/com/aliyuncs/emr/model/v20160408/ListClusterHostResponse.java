@@ -77,8 +77,6 @@ public class ListClusterHostResponse extends AcsResponse {
 
 	public static class Host {
 
-		private String hostId;
-
 		private String hostName;
 
 		private String publicIp;
@@ -86,6 +84,8 @@ public class ListClusterHostResponse extends AcsResponse {
 		private String privateIp;
 
 		private String role;
+
+		private String zoneId;
 
 		private String instanceType;
 
@@ -95,19 +95,27 @@ public class ListClusterHostResponse extends AcsResponse {
 
 		private String status;
 
+		private String instanceStatus;
+
 		private String type;
 
 		private String hostInstanceId;
 
 		private String serialNumber;
 
-		public String getHostId() {
-			return this.hostId;
-		}
+		private String chargeType;
 
-		public void setHostId(String hostId) {
-			this.hostId = hostId;
-		}
+		private Long expiredTime;
+
+		private String hostGroupId;
+
+		private String createTime;
+
+		private String emrExpiredTime;
+
+		private Boolean supportIpV6;
+
+		private List<Disk> diskList;
 
 		public String getHostName() {
 			return this.hostName;
@@ -139,6 +147,14 @@ public class ListClusterHostResponse extends AcsResponse {
 
 		public void setRole(String role) {
 			this.role = role;
+		}
+
+		public String getZoneId() {
+			return this.zoneId;
+		}
+
+		public void setZoneId(String zoneId) {
+			this.zoneId = zoneId;
 		}
 
 		public String getInstanceType() {
@@ -173,6 +189,14 @@ public class ListClusterHostResponse extends AcsResponse {
 			this.status = status;
 		}
 
+		public String getInstanceStatus() {
+			return this.instanceStatus;
+		}
+
+		public void setInstanceStatus(String instanceStatus) {
+			this.instanceStatus = instanceStatus;
+		}
+
 		public String getType() {
 			return this.type;
 		}
@@ -195,6 +219,115 @@ public class ListClusterHostResponse extends AcsResponse {
 
 		public void setSerialNumber(String serialNumber) {
 			this.serialNumber = serialNumber;
+		}
+
+		public String getChargeType() {
+			return this.chargeType;
+		}
+
+		public void setChargeType(String chargeType) {
+			this.chargeType = chargeType;
+		}
+
+		public Long getExpiredTime() {
+			return this.expiredTime;
+		}
+
+		public void setExpiredTime(Long expiredTime) {
+			this.expiredTime = expiredTime;
+		}
+
+		public String getHostGroupId() {
+			return this.hostGroupId;
+		}
+
+		public void setHostGroupId(String hostGroupId) {
+			this.hostGroupId = hostGroupId;
+		}
+
+		public String getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(String createTime) {
+			this.createTime = createTime;
+		}
+
+		public String getEmrExpiredTime() {
+			return this.emrExpiredTime;
+		}
+
+		public void setEmrExpiredTime(String emrExpiredTime) {
+			this.emrExpiredTime = emrExpiredTime;
+		}
+
+		public Boolean getSupportIpV6() {
+			return this.supportIpV6;
+		}
+
+		public void setSupportIpV6(Boolean supportIpV6) {
+			this.supportIpV6 = supportIpV6;
+		}
+
+		public List<Disk> getDiskList() {
+			return this.diskList;
+		}
+
+		public void setDiskList(List<Disk> diskList) {
+			this.diskList = diskList;
+		}
+
+		public static class Disk {
+
+			private String diskId;
+
+			private String type;
+
+			private String device;
+
+			private String diskType;
+
+			private Integer diskSize;
+
+			public String getDiskId() {
+				return this.diskId;
+			}
+
+			public void setDiskId(String diskId) {
+				this.diskId = diskId;
+			}
+
+			public String getType() {
+				return this.type;
+			}
+
+			public void setType(String type) {
+				this.type = type;
+			}
+
+			public String getDevice() {
+				return this.device;
+			}
+
+			public void setDevice(String device) {
+				this.device = device;
+			}
+
+			public String getDiskType() {
+				return this.diskType;
+			}
+
+			public void setDiskType(String diskType) {
+				this.diskType = diskType;
+			}
+
+			public Integer getDiskSize() {
+				return this.diskSize;
+			}
+
+			public void setDiskSize(Integer diskSize) {
+				this.diskSize = diskSize;
+			}
 		}
 	}
 

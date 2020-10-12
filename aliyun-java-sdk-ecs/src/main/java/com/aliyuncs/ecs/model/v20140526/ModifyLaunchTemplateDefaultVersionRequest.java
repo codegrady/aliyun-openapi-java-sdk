@@ -15,16 +15,15 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyLaunchTemplateDefaultVersionRequest extends RpcAcsRequest<ModifyLaunchTemplateDefaultVersionResponse> {
-	
-	public ModifyLaunchTemplateDefaultVersionRequest() {
-		super("Ecs", "2014-05-26", "ModifyLaunchTemplateDefaultVersion", "ecs");
-	}
+	   
 
 	private String launchTemplateName;
 
@@ -39,6 +38,14 @@ public class ModifyLaunchTemplateDefaultVersionRequest extends RpcAcsRequest<Mod
 	private Long ownerId;
 
 	private Long defaultVersionNumber;
+	public ModifyLaunchTemplateDefaultVersionRequest() {
+		super("Ecs", "2014-05-26", "ModifyLaunchTemplateDefaultVersion", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getLaunchTemplateName() {
 		return this.launchTemplateName;

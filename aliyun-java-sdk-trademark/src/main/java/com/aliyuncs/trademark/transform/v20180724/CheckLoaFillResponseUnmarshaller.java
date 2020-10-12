@@ -19,27 +19,27 @@ import java.util.List;
 
 import com.aliyuncs.trademark.model.v20180724.CheckLoaFillResponse;
 import com.aliyuncs.trademark.model.v20180724.CheckLoaFillResponse.Data;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class CheckLoaFillResponseUnmarshaller {
 
-	public static CheckLoaFillResponse unmarshall(CheckLoaFillResponse checkLoaFillResponse, UnmarshallerContext context) {
+	public static CheckLoaFillResponse unmarshall(CheckLoaFillResponse checkLoaFillResponse, UnmarshallerContext _ctx) {
 		
-		checkLoaFillResponse.setRequestId(context.stringValue("CheckLoaFillResponse.RequestId"));
+		checkLoaFillResponse.setRequestId(_ctx.stringValue("CheckLoaFillResponse.RequestId"));
 
 		Data data = new Data();
-		data.setStampFill(context.booleanValue("CheckLoaFillResponse.Data.StampFill"));
-		data.setAddressFill(context.booleanValue("CheckLoaFillResponse.Data.AddressFill"));
-		data.setTradeMarkNameFill(context.booleanValue("CheckLoaFillResponse.Data.TradeMarkNameFill"));
-		data.setCountryFill(context.booleanValue("CheckLoaFillResponse.Data.CountryFill"));
-		data.setNationalityFill(context.booleanValue("CheckLoaFillResponse.Data.NationalityFill"));
-		data.setMaterialNameFill(context.booleanValue("CheckLoaFillResponse.Data.MaterialNameFill"));
+		data.setStampFill(_ctx.booleanValue("CheckLoaFillResponse.Data.StampFill"));
+		data.setAddressFill(_ctx.booleanValue("CheckLoaFillResponse.Data.AddressFill"));
+		data.setTradeMarkNameFill(_ctx.booleanValue("CheckLoaFillResponse.Data.TradeMarkNameFill"));
+		data.setCountryFill(_ctx.booleanValue("CheckLoaFillResponse.Data.CountryFill"));
+		data.setNationalityFill(_ctx.booleanValue("CheckLoaFillResponse.Data.NationalityFill"));
+		data.setMaterialNameFill(_ctx.booleanValue("CheckLoaFillResponse.Data.MaterialNameFill"));
+		data.setTemplateUrl(_ctx.stringValue("CheckLoaFillResponse.Data.TemplateUrl"));
 
 		List<String> errorMsgs = new ArrayList<String>();
-		for (int i = 0; i < context.lengthValue("CheckLoaFillResponse.Data.ErrorMsgs.Length"); i++) {
-			errorMsgs.add(context.stringValue("CheckLoaFillResponse.Data.ErrorMsgs["+ i +"]"));
+		for (int i = 0; i < _ctx.lengthValue("CheckLoaFillResponse.Data.ErrorMsgs.Length"); i++) {
+			errorMsgs.add(_ctx.stringValue("CheckLoaFillResponse.Data.ErrorMsgs["+ i +"]"));
 		}
 		data.setErrorMsgs(errorMsgs);
 		checkLoaFillResponse.setData(data);

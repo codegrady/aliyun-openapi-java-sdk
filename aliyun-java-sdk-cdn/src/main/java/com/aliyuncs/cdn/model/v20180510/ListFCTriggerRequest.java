@@ -15,22 +15,29 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListFCTriggerRequest extends RpcAcsRequest<ListFCTriggerResponse> {
-	
-	public ListFCTriggerRequest() {
-		super("Cdn", "2018-05-10", "ListFCTrigger");
-	}
+	   
 
 	private String eventMetaVersion;
 
 	private Long ownerId;
 
 	private String eventMetaName;
+	public ListFCTriggerRequest() {
+		super("Cdn", "2018-05-10", "ListFCTrigger");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getEventMetaVersion() {
 		return this.eventMetaVersion;

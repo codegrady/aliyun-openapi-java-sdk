@@ -15,36 +15,32 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteLiveStreamTranscodeRequest extends RpcAcsRequest<DeleteLiveStreamTranscodeResponse> {
-	
-	public DeleteLiveStreamTranscodeRequest() {
-		super("live", "2016-11-01", "DeleteLiveStreamTranscode", "live");
-	}
-
-	private String app;
+	   
 
 	private String template;
 
 	private String securityToken;
 
-	private String domain;
+	private String app;
 
 	private Long ownerId;
 
-	public String getApp() {
-		return this.app;
-	}
-
-	public void setApp(String app) {
-		this.app = app;
-		if(app != null){
-			putQueryParameter("App", app);
-		}
+	private String domain;
+	public DeleteLiveStreamTranscodeRequest() {
+		super("live", "2016-11-01", "DeleteLiveStreamTranscode", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getTemplate() {
@@ -69,14 +65,14 @@ public class DeleteLiveStreamTranscodeRequest extends RpcAcsRequest<DeleteLiveSt
 		}
 	}
 
-	public String getDomain() {
-		return this.domain;
+	public String getApp() {
+		return this.app;
 	}
 
-	public void setDomain(String domain) {
-		this.domain = domain;
-		if(domain != null){
-			putQueryParameter("Domain", domain);
+	public void setApp(String app) {
+		this.app = app;
+		if(app != null){
+			putQueryParameter("App", app);
 		}
 	}
 
@@ -88,6 +84,17 @@ public class DeleteLiveStreamTranscodeRequest extends RpcAcsRequest<DeleteLiveSt
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getDomain() {
+		return this.domain;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+		if(domain != null){
+			putQueryParameter("Domain", domain);
 		}
 	}
 

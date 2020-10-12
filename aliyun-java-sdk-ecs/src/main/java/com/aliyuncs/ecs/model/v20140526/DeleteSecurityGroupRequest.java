@@ -15,26 +15,33 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteSecurityGroupRequest extends RpcAcsRequest<DeleteSecurityGroupResponse> {
-	
-	public DeleteSecurityGroupRequest() {
-		super("Ecs", "2014-05-26", "DeleteSecurityGroup", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String securityGroupId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String securityGroupId;
-
 	private Long ownerId;
+	public DeleteSecurityGroupRequest() {
+		super("Ecs", "2014-05-26", "DeleteSecurityGroup", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -44,6 +51,17 @@ public class DeleteSecurityGroupRequest extends RpcAcsRequest<DeleteSecurityGrou
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getSecurityGroupId() {
+		return this.securityGroupId;
+	}
+
+	public void setSecurityGroupId(String securityGroupId) {
+		this.securityGroupId = securityGroupId;
+		if(securityGroupId != null){
+			putQueryParameter("SecurityGroupId", securityGroupId);
 		}
 	}
 
@@ -66,17 +84,6 @@ public class DeleteSecurityGroupRequest extends RpcAcsRequest<DeleteSecurityGrou
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getSecurityGroupId() {
-		return this.securityGroupId;
-	}
-
-	public void setSecurityGroupId(String securityGroupId) {
-		this.securityGroupId = securityGroupId;
-		if(securityGroupId != null){
-			putQueryParameter("SecurityGroupId", securityGroupId);
 		}
 	}
 

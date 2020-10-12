@@ -16,16 +16,15 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeInstanceHistoryEventsRequest extends RpcAcsRequest<DescribeInstanceHistoryEventsResponse> {
-	
-	public DescribeInstanceHistoryEventsRequest() {
-		super("Ecs", "2014-05-26", "DescribeInstanceHistoryEvents", "ecs");
-	}
+	   
 
 	private List<String> eventIds;
 
@@ -34,6 +33,8 @@ public class DescribeInstanceHistoryEventsRequest extends RpcAcsRequest<Describe
 	private String eventCycleStatus;
 
 	private Integer pageNumber;
+
+	private String impactLevel;
 
 	private Integer pageSize;
 
@@ -58,6 +59,14 @@ public class DescribeInstanceHistoryEventsRequest extends RpcAcsRequest<Describe
 	private String notBeforeEnd;
 
 	private String eventType;
+	public DescribeInstanceHistoryEventsRequest() {
+		super("Ecs", "2014-05-26", "DescribeInstanceHistoryEvents", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public List<String> getEventIds() {
 		return this.eventIds;
@@ -102,6 +111,17 @@ public class DescribeInstanceHistoryEventsRequest extends RpcAcsRequest<Describe
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getImpactLevel() {
+		return this.impactLevel;
+	}
+
+	public void setImpactLevel(String impactLevel) {
+		this.impactLevel = impactLevel;
+		if(impactLevel != null){
+			putQueryParameter("ImpactLevel", impactLevel);
 		}
 	}
 

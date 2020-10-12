@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.transform.v20151215;
 
 import com.aliyuncs.cs.model.v20151215.CreateTemplateResponse;
@@ -19,8 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateTemplateResponseUnmarshaller {
 
-	public static CreateTemplateResponse unmarshall(CreateTemplateResponse createTemplateResponse, UnmarshallerContext context) {
+	public static CreateTemplateResponse unmarshall(CreateTemplateResponse createTemplateResponse, UnmarshallerContext _ctx) {
 		
+		createTemplateResponse.setTemplate_id(_ctx.stringValue("CreateTemplateResponse.template_id"));
 	 
 	 	return createTemplateResponse;
 	}

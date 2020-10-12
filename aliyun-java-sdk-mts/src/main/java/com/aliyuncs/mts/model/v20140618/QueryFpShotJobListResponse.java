@@ -27,9 +27,13 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String nextPageToken;
+
 	private List<FpShotJob> fpShotJobList;
 
 	private List<String> nonExistIds;
+
+	private List<String> nonExistPrimaryKeys;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -37,6 +41,14 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getNextPageToken() {
+		return this.nextPageToken;
+	}
+
+	public void setNextPageToken(String nextPageToken) {
+		this.nextPageToken = nextPageToken;
 	}
 
 	public List<FpShotJob> getFpShotJobList() {
@@ -55,6 +67,14 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 		this.nonExistIds = nonExistIds;
 	}
 
+	public List<String> getNonExistPrimaryKeys() {
+		return this.nonExistPrimaryKeys;
+	}
+
+	public void setNonExistPrimaryKeys(List<String> nonExistPrimaryKeys) {
+		this.nonExistPrimaryKeys = nonExistPrimaryKeys;
+	}
+
 	public static class FpShotJob {
 
 		private String id;
@@ -62,6 +82,12 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 		private String userData;
 
 		private String pipelineId;
+
+		private String fileId;
+
+		private String transactionId;
+
+		private String txHash;
 
 		private String state;
 
@@ -74,6 +100,8 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 		private String finishTime;
 
 		private InputFile inputFile;
+
+		private FpShotConfig fpShotConfig;
 
 		private FpShotResult fpShotResult;
 
@@ -99,6 +127,30 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 
 		public void setPipelineId(String pipelineId) {
 			this.pipelineId = pipelineId;
+		}
+
+		public String getFileId() {
+			return this.fileId;
+		}
+
+		public void setFileId(String fileId) {
+			this.fileId = fileId;
+		}
+
+		public String getTransactionId() {
+			return this.transactionId;
+		}
+
+		public void setTransactionId(String transactionId) {
+			this.transactionId = transactionId;
+		}
+
+		public String getTxHash() {
+			return this.txHash;
+		}
+
+		public void setTxHash(String txHash) {
+			this.txHash = txHash;
 		}
 
 		public String getState() {
@@ -149,6 +201,14 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 			this.inputFile = inputFile;
 		}
 
+		public FpShotConfig getFpShotConfig() {
+			return this.fpShotConfig;
+		}
+
+		public void setFpShotConfig(FpShotConfig fpShotConfig) {
+			this.fpShotConfig = fpShotConfig;
+		}
+
 		public FpShotResult getFpShotResult() {
 			return this.fpShotResult;
 		}
@@ -190,9 +250,54 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 			}
 		}
 
+		public static class FpShotConfig {
+
+			private String primaryKey;
+
+			private String saveType;
+
+			private String notary;
+
+			private String fpDBId;
+
+			public String getPrimaryKey() {
+				return this.primaryKey;
+			}
+
+			public void setPrimaryKey(String primaryKey) {
+				this.primaryKey = primaryKey;
+			}
+
+			public String getSaveType() {
+				return this.saveType;
+			}
+
+			public void setSaveType(String saveType) {
+				this.saveType = saveType;
+			}
+
+			public String getNotary() {
+				return this.notary;
+			}
+
+			public void setNotary(String notary) {
+				this.notary = notary;
+			}
+
+			public String getFpDBId() {
+				return this.fpDBId;
+			}
+
+			public void setFpDBId(String fpDBId) {
+				this.fpDBId = fpDBId;
+			}
+		}
+
 		public static class FpShotResult {
 
 			private List<FpShot> fpShots;
+
+			private List<FpShot> audioFpShots;
 
 			public List<FpShot> getFpShots() {
 				return this.fpShots;
@@ -200,6 +305,14 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 
 			public void setFpShots(List<FpShot> fpShots) {
 				this.fpShots = fpShots;
+			}
+
+			public List<FpShot> getAudioFpShots() {
+				return this.audioFpShots;
+			}
+
+			public void setAudioFpShots(List<FpShot> audioFpShots) {
+				this.audioFpShots = audioFpShots;
 			}
 
 			public static class FpShot {
@@ -236,9 +349,19 @@ public class QueryFpShotJobListResponse extends AcsResponse {
 
 				public static class FpShotSlice {
 
+					private String similarity;
+
 					private Input input;
 
 					private Duplication duplication;
+
+					public String getSimilarity() {
+						return this.similarity;
+					}
+
+					public void setSimilarity(String similarity) {
+						this.similarity = similarity;
+					}
 
 					public Input getInput() {
 						return this.input;

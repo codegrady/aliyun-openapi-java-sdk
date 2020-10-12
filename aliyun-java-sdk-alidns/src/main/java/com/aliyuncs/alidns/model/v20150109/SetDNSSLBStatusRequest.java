@@ -11,35 +11,60 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.model.v20150109;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.alidns.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetDNSSLBStatusRequest extends RpcAcsRequest<SetDNSSLBStatusResponse> {
-	
-	public SetDNSSLBStatusRequest() {
-		super("Alidns", "2015-01-09", "SetDNSSLBStatus");
-	}
+	   
 
-	private String lang;
+	private String domainName;
+
+	private String type;
 
 	private String userClientIp;
 
 	private String subDomain;
 
-	private Boolean open;
+	private String lang;
 
-	public String getLang() {
-		return this.lang;
+	private Boolean open;
+	public SetDNSSLBStatusRequest() {
+		super("Alidns", "2015-01-09", "SetDNSSLBStatus", "alidns");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setLang(String lang) {
-		this.lang = lang;
-		putQueryParameter("Lang", lang);
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+		if(type != null){
+			putQueryParameter("Type", type);
+		}
 	}
 
 	public String getUserClientIp() {
@@ -48,7 +73,9 @@ public class SetDNSSLBStatusRequest extends RpcAcsRequest<SetDNSSLBStatusRespons
 
 	public void setUserClientIp(String userClientIp) {
 		this.userClientIp = userClientIp;
-		putQueryParameter("UserClientIp", userClientIp);
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
+		}
 	}
 
 	public String getSubDomain() {
@@ -57,7 +84,20 @@ public class SetDNSSLBStatusRequest extends RpcAcsRequest<SetDNSSLBStatusRespons
 
 	public void setSubDomain(String subDomain) {
 		this.subDomain = subDomain;
-		putQueryParameter("SubDomain", subDomain);
+		if(subDomain != null){
+			putQueryParameter("SubDomain", subDomain);
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
+		}
 	}
 
 	public Boolean getOpen() {
@@ -66,7 +106,9 @@ public class SetDNSSLBStatusRequest extends RpcAcsRequest<SetDNSSLBStatusRespons
 
 	public void setOpen(Boolean open) {
 		this.open = open;
-		putQueryParameter("Open", open);
+		if(open != null){
+			putQueryParameter("Open", open.toString());
+		}
 	}
 
 	@Override

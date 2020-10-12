@@ -17,30 +17,33 @@ package com.aliyuncs.cloudauth.model.v20180916;
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cloudauth.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CompareFacesRequest extends RpcAcsRequest<CompareFacesResponse> {
-	
-	public CompareFacesRequest() {
-		super("Cloudauth", "2018-09-16", "CompareFaces", "cloudauth");
-		setProtocol(ProtocolType.HTTPS);
-		setMethod(MethodType.POST);
-	}
+	   
 
 	private String sourceImageType;
 
 	private Long resourceOwnerId;
 
-	private String sourceIp;
-
 	private String targetImageType;
 
-	private String sourceImageValue;
-
 	private String targetImageValue;
+
+	private String sourceImageValue;
+	public CompareFacesRequest() {
+		super("Cloudauth", "2018-09-16", "CompareFaces", "cloudauth");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getSourceImageType() {
 		return this.sourceImageType;
@@ -64,17 +67,6 @@ public class CompareFacesRequest extends RpcAcsRequest<CompareFacesResponse> {
 		}
 	}
 
-	public String getSourceIp() {
-		return this.sourceIp;
-	}
-
-	public void setSourceIp(String sourceIp) {
-		this.sourceIp = sourceIp;
-		if(sourceIp != null){
-			putQueryParameter("SourceIp", sourceIp);
-		}
-	}
-
 	public String getTargetImageType() {
 		return this.targetImageType;
 	}
@@ -86,17 +78,6 @@ public class CompareFacesRequest extends RpcAcsRequest<CompareFacesResponse> {
 		}
 	}
 
-	public String getSourceImageValue() {
-		return this.sourceImageValue;
-	}
-
-	public void setSourceImageValue(String sourceImageValue) {
-		this.sourceImageValue = sourceImageValue;
-		if(sourceImageValue != null){
-			putBodyParameter("SourceImageValue", sourceImageValue);
-		}
-	}
-
 	public String getTargetImageValue() {
 		return this.targetImageValue;
 	}
@@ -105,6 +86,17 @@ public class CompareFacesRequest extends RpcAcsRequest<CompareFacesResponse> {
 		this.targetImageValue = targetImageValue;
 		if(targetImageValue != null){
 			putBodyParameter("TargetImageValue", targetImageValue);
+		}
+	}
+
+	public String getSourceImageValue() {
+		return this.sourceImageValue;
+	}
+
+	public void setSourceImageValue(String sourceImageValue) {
+		this.sourceImageValue = sourceImageValue;
+		if(sourceImageValue != null){
+			putBodyParameter("SourceImageValue", sourceImageValue);
 		}
 	}
 

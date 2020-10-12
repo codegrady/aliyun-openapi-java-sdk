@@ -15,16 +15,17 @@
 package com.aliyuncs.gpdb.model.v20160503;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.gpdb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDBInstanceNetworkTypeRequest extends RpcAcsRequest<ModifyDBInstanceNetworkTypeResponse> {
-	
-	public ModifyDBInstanceNetworkTypeRequest() {
-		super("gpdb", "2016-05-03", "ModifyDBInstanceNetworkType", "gpdb");
-	}
+	   
+
+	private String dBInstanceId;
 
 	private String vSwitchId;
 
@@ -32,9 +33,26 @@ public class ModifyDBInstanceNetworkTypeRequest extends RpcAcsRequest<ModifyDBIn
 
 	private String vPCId;
 
-	private String dBInstanceId;
-
 	private String instanceNetworkType;
+	public ModifyDBInstanceNetworkTypeRequest() {
+		super("gpdb", "2016-05-03", "ModifyDBInstanceNetworkType", "gpdb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
 
 	public String getVSwitchId() {
 		return this.vSwitchId;
@@ -66,17 +84,6 @@ public class ModifyDBInstanceNetworkTypeRequest extends RpcAcsRequest<ModifyDBIn
 		this.vPCId = vPCId;
 		if(vPCId != null){
 			putQueryParameter("VPCId", vPCId);
-		}
-	}
-
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

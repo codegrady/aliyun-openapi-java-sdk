@@ -11,49 +11,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ros.model.v20150901;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ros.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeStacksRequest extends RoaAcsRequest<DescribeStacksResponse> {
-	
-	public DescribeStacksRequest() {
-		super("ROS", "2015-09-01", "DescribeStacks");
-		setUriPattern("/stacks");
-		setMethod(MethodType.GET);
-	}
-
-	private String status;
-
-	private String name;
+	   
 
 	private String stackId;
+
+	private String name;
 
 	private Integer pageSize;
 
 	private Integer pageNumber;
 
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-		putQueryParameter("Status", status);
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		putQueryParameter("Name", name);
+	private String status;
+	public DescribeStacksRequest() {
+		super("ROS", "2015-09-01", "DescribeStacks", "ros");
+		setUriPattern("/stacks");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getStackId() {
@@ -62,7 +50,20 @@ public class DescribeStacksRequest extends RoaAcsRequest<DescribeStacksResponse>
 
 	public void setStackId(String stackId) {
 		this.stackId = stackId;
-		putQueryParameter("StackId", stackId);
+		if(stackId != null){
+			putQueryParameter("StackId", stackId);
+		}
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("Name", name);
+		}
 	}
 
 	public Integer getPageSize() {
@@ -71,7 +72,9 @@ public class DescribeStacksRequest extends RoaAcsRequest<DescribeStacksResponse>
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
-		putQueryParameter("PageSize", pageSize);
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
 	}
 
 	public Integer getPageNumber() {
@@ -80,7 +83,20 @@ public class DescribeStacksRequest extends RoaAcsRequest<DescribeStacksResponse>
 
 	public void setPageNumber(Integer pageNumber) {
 		this.pageNumber = pageNumber;
-		putQueryParameter("PageNumber", pageNumber);
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+		if(status != null){
+			putQueryParameter("Status", status);
+		}
 	}
 
 	@Override

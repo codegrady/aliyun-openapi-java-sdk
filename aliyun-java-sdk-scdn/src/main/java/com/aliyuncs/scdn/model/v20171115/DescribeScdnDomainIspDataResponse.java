@@ -35,7 +35,7 @@ public class DescribeScdnDomainIspDataResponse extends AcsResponse {
 
 	private String endTime;
 
-	private List<IspProportionData> value;
+	private List<ISPProportionData> value;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -77,17 +77,17 @@ public class DescribeScdnDomainIspDataResponse extends AcsResponse {
 		this.endTime = endTime;
 	}
 
-	public List<IspProportionData> getValue() {
+	public List<ISPProportionData> getValue() {
 		return this.value;
 	}
 
-	public void setValue(List<IspProportionData> value) {
+	public void setValue(List<ISPProportionData> value) {
 		this.value = value;
 	}
 
-	public static class IspProportionData {
+	public static class ISPProportionData {
 
-		private String isp;
+		private String iSP;
 
 		private String proportion;
 
@@ -103,18 +103,20 @@ public class DescribeScdnDomainIspDataResponse extends AcsResponse {
 
 		private String avgResponseRate;
 
+		private String reqErrRate;
+
 		private String totalBytes;
 
 		private String bytesProportion;
 
 		private String totalQuery;
 
-		public String getIsp() {
-			return this.isp;
+		public String getISP() {
+			return this.iSP;
 		}
 
-		public void setIsp(String isp) {
-			this.isp = isp;
+		public void setISP(String iSP) {
+			this.iSP = iSP;
 		}
 
 		public String getProportion() {
@@ -171,6 +173,14 @@ public class DescribeScdnDomainIspDataResponse extends AcsResponse {
 
 		public void setAvgResponseRate(String avgResponseRate) {
 			this.avgResponseRate = avgResponseRate;
+		}
+
+		public String getReqErrRate() {
+			return this.reqErrRate;
+		}
+
+		public void setReqErrRate(String reqErrRate) {
+			this.reqErrRate = reqErrRate;
 		}
 
 		public String getTotalBytes() {

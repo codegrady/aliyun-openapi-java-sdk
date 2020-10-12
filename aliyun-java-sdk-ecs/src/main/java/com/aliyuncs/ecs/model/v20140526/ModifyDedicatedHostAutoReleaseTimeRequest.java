@@ -15,16 +15,15 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDedicatedHostAutoReleaseTimeRequest extends RpcAcsRequest<ModifyDedicatedHostAutoReleaseTimeResponse> {
-	
-	public ModifyDedicatedHostAutoReleaseTimeRequest() {
-		super("Ecs", "2014-05-26", "ModifyDedicatedHostAutoReleaseTime", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -37,6 +36,14 @@ public class ModifyDedicatedHostAutoReleaseTimeRequest extends RpcAcsRequest<Mod
 	private String dedicatedHostId;
 
 	private Long ownerId;
+	public ModifyDedicatedHostAutoReleaseTimeRequest() {
+		super("Ecs", "2014-05-26", "ModifyDedicatedHostAutoReleaseTime", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;

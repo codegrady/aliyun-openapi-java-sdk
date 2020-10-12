@@ -15,28 +15,35 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryResourcePackageInstancesRequest extends RpcAcsRequest<QueryResourcePackageInstancesResponse> {
-	
-	public QueryResourcePackageInstancesRequest() {
-		super("BssOpenApi", "2017-12-14", "QueryResourcePackageInstances");
-	}
+	   
 
 	private String expiryTimeEnd;
 
 	private String productCode;
-
-	private Integer pageSize;
 
 	private Long ownerId;
 
 	private String expiryTimeStart;
 
 	private Integer pageNum;
+
+	private Integer pageSize;
+	public QueryResourcePackageInstancesRequest() {
+		super("BssOpenApi", "2017-12-14", "QueryResourcePackageInstances");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getExpiryTimeEnd() {
 		return this.expiryTimeEnd;
@@ -57,17 +64,6 @@ public class QueryResourcePackageInstancesRequest extends RpcAcsRequest<QueryRes
 		this.productCode = productCode;
 		if(productCode != null){
 			putQueryParameter("ProductCode", productCode);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -101,6 +97,17 @@ public class QueryResourcePackageInstancesRequest extends RpcAcsRequest<QueryRes
 		this.pageNum = pageNum;
 		if(pageNum != null){
 			putQueryParameter("PageNum", pageNum.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

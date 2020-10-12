@@ -15,16 +15,15 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDBInstanceMonitorRequest extends RpcAcsRequest<DescribeDBInstanceMonitorResponse> {
-	
-	public DescribeDBInstanceMonitorRequest() {
-		super("Rds", "2014-08-15", "DescribeDBInstanceMonitor", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -34,9 +33,17 @@ public class DescribeDBInstanceMonitorRequest extends RpcAcsRequest<DescribeDBIn
 
 	private String ownerAccount;
 
-	private String dBInstanceId;
-
 	private Long ownerId;
+
+	private String dBInstanceId;
+	public DescribeDBInstanceMonitorRequest() {
+		super("Rds", "2014-08-15", "DescribeDBInstanceMonitor", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -82,17 +89,6 @@ public class DescribeDBInstanceMonitorRequest extends RpcAcsRequest<DescribeDBIn
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -101,6 +97,17 @@ public class DescribeDBInstanceMonitorRequest extends RpcAcsRequest<DescribeDBIn
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

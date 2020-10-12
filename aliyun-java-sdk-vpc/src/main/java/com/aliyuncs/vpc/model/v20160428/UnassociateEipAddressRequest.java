@@ -15,32 +15,43 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UnassociateEipAddressRequest extends RpcAcsRequest<UnassociateEipAddressResponse> {
-	
-	public UnassociateEipAddressRequest() {
-		super("Vpc", "2016-04-28", "UnassociateEipAddress", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
+	private String clientToken;
+
+	private String allocationId;
+
+	private String instanceType;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String instanceType;
+	private Long ownerId;
+
+	private String privateIpAddress;
+
+	private String instanceId;
 
 	private Boolean force;
-
-	private String allocationId;
-
-	private Long ownerId;
+	public UnassociateEipAddressRequest() {
+		super("Vpc", "2016-04-28", "UnassociateEipAddress", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -53,14 +64,36 @@ public class UnassociateEipAddressRequest extends RpcAcsRequest<UnassociateEipAd
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
+	public String getClientToken() {
+		return this.clientToken;
 	}
 
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getAllocationId() {
+		return this.allocationId;
+	}
+
+	public void setAllocationId(String allocationId) {
+		this.allocationId = allocationId;
+		if(allocationId != null){
+			putQueryParameter("AllocationId", allocationId);
+		}
+	}
+
+	public String getInstanceType() {
+		return this.instanceType;
+	}
+
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+		if(instanceType != null){
+			putQueryParameter("InstanceType", instanceType);
 		}
 	}
 
@@ -86,14 +119,36 @@ public class UnassociateEipAddressRequest extends RpcAcsRequest<UnassociateEipAd
 		}
 	}
 
-	public String getInstanceType() {
-		return this.instanceType;
+	public Long getOwnerId() {
+		return this.ownerId;
 	}
 
-	public void setInstanceType(String instanceType) {
-		this.instanceType = instanceType;
-		if(instanceType != null){
-			putQueryParameter("InstanceType", instanceType);
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getPrivateIpAddress() {
+		return this.privateIpAddress;
+	}
+
+	public void setPrivateIpAddress(String privateIpAddress) {
+		this.privateIpAddress = privateIpAddress;
+		if(privateIpAddress != null){
+			putQueryParameter("PrivateIpAddress", privateIpAddress);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
@@ -105,28 +160,6 @@ public class UnassociateEipAddressRequest extends RpcAcsRequest<UnassociateEipAd
 		this.force = force;
 		if(force != null){
 			putQueryParameter("Force", force.toString());
-		}
-	}
-
-	public String getAllocationId() {
-		return this.allocationId;
-	}
-
-	public void setAllocationId(String allocationId) {
-		this.allocationId = allocationId;
-		if(allocationId != null){
-			putQueryParameter("AllocationId", allocationId);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 

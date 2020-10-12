@@ -15,16 +15,15 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateCommandRequest extends RpcAcsRequest<CreateCommandResponse> {
-	
-	public CreateCommandRequest() {
-		super("Ecs", "2014-05-26", "CreateCommand", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -45,6 +44,16 @@ public class CreateCommandRequest extends RpcAcsRequest<CreateCommandResponse> {
 	private Long ownerId;
 
 	private String name;
+
+	private Boolean enableParameter;
+	public CreateCommandRequest() {
+		super("Ecs", "2014-05-26", "CreateCommand", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -153,6 +162,17 @@ public class CreateCommandRequest extends RpcAcsRequest<CreateCommandResponse> {
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
+		}
+	}
+
+	public Boolean getEnableParameter() {
+		return this.enableParameter;
+	}
+
+	public void setEnableParameter(Boolean enableParameter) {
+		this.enableParameter = enableParameter;
+		if(enableParameter != null){
+			putQueryParameter("EnableParameter", enableParameter.toString());
 		}
 	}
 

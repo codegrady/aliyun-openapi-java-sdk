@@ -15,24 +15,46 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateRoomRequest extends RpcAcsRequest<CreateRoomResponse> {
-	
-	public CreateRoomRequest() {
-		super("live", "2016-11-01", "CreateRoom", "live");
-	}
+	   
+
+	private String templateIds;
 
 	private String anchorId;
+
+	private Boolean useAppTranscode;
 
 	private Long ownerId;
 
 	private String roomId;
 
 	private String appId;
+	public CreateRoomRequest() {
+		super("live", "2016-11-01", "CreateRoom", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getTemplateIds() {
+		return this.templateIds;
+	}
+
+	public void setTemplateIds(String templateIds) {
+		this.templateIds = templateIds;
+		if(templateIds != null){
+			putQueryParameter("TemplateIds", templateIds);
+		}
+	}
 
 	public String getAnchorId() {
 		return this.anchorId;
@@ -42,6 +64,17 @@ public class CreateRoomRequest extends RpcAcsRequest<CreateRoomResponse> {
 		this.anchorId = anchorId;
 		if(anchorId != null){
 			putQueryParameter("AnchorId", anchorId);
+		}
+	}
+
+	public Boolean getUseAppTranscode() {
+		return this.useAppTranscode;
+	}
+
+	public void setUseAppTranscode(Boolean useAppTranscode) {
+		this.useAppTranscode = useAppTranscode;
+		if(useAppTranscode != null){
+			putQueryParameter("UseAppTranscode", useAppTranscode.toString());
 		}
 	}
 

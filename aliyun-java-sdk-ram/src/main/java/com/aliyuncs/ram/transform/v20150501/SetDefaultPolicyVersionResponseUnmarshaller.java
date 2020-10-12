@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.SetDefaultPolicyVersionResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SetDefaultPolicyVersionResponseUnmarshaller {
 
-	public static SetDefaultPolicyVersionResponse unmarshall(SetDefaultPolicyVersionResponse setDefaultPolicyVersionResponse, UnmarshallerContext context) {
+	public static SetDefaultPolicyVersionResponse unmarshall(SetDefaultPolicyVersionResponse setDefaultPolicyVersionResponse, UnmarshallerContext _ctx) {
 		
-		setDefaultPolicyVersionResponse.setRequestId(context.stringValue("SetDefaultPolicyVersionResponse.RequestId"));
+		setDefaultPolicyVersionResponse.setRequestId(_ctx.stringValue("SetDefaultPolicyVersionResponse.RequestId"));
 	 
 	 	return setDefaultPolicyVersionResponse;
 	}

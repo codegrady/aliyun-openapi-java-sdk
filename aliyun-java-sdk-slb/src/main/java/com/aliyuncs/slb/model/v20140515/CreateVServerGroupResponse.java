@@ -67,9 +67,13 @@ public class CreateVServerGroupResponse extends AcsResponse {
 
 		private String serverIp;
 
-		private String eniHost;
-
 		private String vpcId;
+
+		private String vbrId;
+
+		private String serverRegionId;
+
+		private String description;
 
 		public String getServerId() {
 			return this.serverId;
@@ -111,20 +115,36 @@ public class CreateVServerGroupResponse extends AcsResponse {
 			this.serverIp = serverIp;
 		}
 
-		public String getEniHost() {
-			return this.eniHost;
-		}
-
-		public void setEniHost(String eniHost) {
-			this.eniHost = eniHost;
-		}
-
 		public String getVpcId() {
 			return this.vpcId;
 		}
 
 		public void setVpcId(String vpcId) {
 			this.vpcId = vpcId;
+		}
+
+		public String getVbrId() {
+			return this.vbrId;
+		}
+
+		public void setVbrId(String vbrId) {
+			this.vbrId = vbrId;
+		}
+
+		public String getServerRegionId() {
+			return this.serverRegionId;
+		}
+
+		public void setServerRegionId(String serverRegionId) {
+			this.serverRegionId = serverRegionId;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
 		}
 	}
 

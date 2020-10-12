@@ -15,24 +15,33 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateProductTopicRequest extends RpcAcsRequest<UpdateProductTopicResponse> {
-	
-	public UpdateProductTopicRequest() {
-		super("Iot", "2018-01-20", "UpdateProductTopic");
-	}
+	   
 
 	private String topicId;
 
-	private String operation;
+	private String iotInstanceId;
 
 	private String topicShortName;
 
+	private String operation;
+
 	private String desc;
+	public UpdateProductTopicRequest() {
+		super("Iot", "2018-01-20", "UpdateProductTopic", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getTopicId() {
 		return this.topicId;
@@ -45,14 +54,14 @@ public class UpdateProductTopicRequest extends RpcAcsRequest<UpdateProductTopicR
 		}
 	}
 
-	public String getOperation() {
-		return this.operation;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setOperation(String operation) {
-		this.operation = operation;
-		if(operation != null){
-			putQueryParameter("Operation", operation);
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -64,6 +73,17 @@ public class UpdateProductTopicRequest extends RpcAcsRequest<UpdateProductTopicR
 		this.topicShortName = topicShortName;
 		if(topicShortName != null){
 			putQueryParameter("TopicShortName", topicShortName);
+		}
+	}
+
+	public String getOperation() {
+		return this.operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+		if(operation != null){
+			putQueryParameter("Operation", operation);
 		}
 	}
 

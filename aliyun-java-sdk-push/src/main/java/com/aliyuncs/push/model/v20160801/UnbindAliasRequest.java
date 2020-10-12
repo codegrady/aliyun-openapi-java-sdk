@@ -15,24 +15,42 @@
 package com.aliyuncs.push.model.v20160801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.push.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UnbindAliasRequest extends RpcAcsRequest<UnbindAliasResponse> {
-	
-	public UnbindAliasRequest() {
-		super("Push", "2016-08-01", "UnbindAlias");
-	}
+	   
+
+	private String deviceId;
 
 	private String aliasName;
 
 	private Long appKey;
 
-	private String deviceId;
-
 	private Boolean unbindAll;
+	public UnbindAliasRequest() {
+		super("Push", "2016-08-01", "UnbindAlias");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getDeviceId() {
+		return this.deviceId;
+	}
+
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
+		if(deviceId != null){
+			putQueryParameter("DeviceId", deviceId);
+		}
+	}
 
 	public String getAliasName() {
 		return this.aliasName;
@@ -53,17 +71,6 @@ public class UnbindAliasRequest extends RpcAcsRequest<UnbindAliasResponse> {
 		this.appKey = appKey;
 		if(appKey != null){
 			putQueryParameter("AppKey", appKey.toString());
-		}
-	}
-
-	public String getDeviceId() {
-		return this.deviceId;
-	}
-
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
-		if(deviceId != null){
-			putQueryParameter("DeviceId", deviceId);
 		}
 	}
 

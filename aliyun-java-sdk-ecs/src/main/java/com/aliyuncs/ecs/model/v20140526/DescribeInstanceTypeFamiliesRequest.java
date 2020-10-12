@@ -15,36 +15,32 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeInstanceTypeFamiliesRequest extends RpcAcsRequest<DescribeInstanceTypeFamiliesResponse> {
-	
-	public DescribeInstanceTypeFamiliesRequest() {
-		super("Ecs", "2014-05-26", "DescribeInstanceTypeFamilies", "ecs");
-	}
-
-	private String generation;
+	   
 
 	private Long resourceOwnerId;
+
+	private String generation;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	public String getGeneration() {
-		return this.generation;
-	}
-
-	public void setGeneration(String generation) {
-		this.generation = generation;
-		if(generation != null){
-			putQueryParameter("Generation", generation);
-		}
+	public DescribeInstanceTypeFamiliesRequest() {
+		super("Ecs", "2014-05-26", "DescribeInstanceTypeFamilies", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -55,6 +51,17 @@ public class DescribeInstanceTypeFamiliesRequest extends RpcAcsRequest<DescribeI
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getGeneration() {
+		return this.generation;
+	}
+
+	public void setGeneration(String generation) {
+		this.generation = generation;
+		if(generation != null){
+			putQueryParameter("Generation", generation);
 		}
 	}
 

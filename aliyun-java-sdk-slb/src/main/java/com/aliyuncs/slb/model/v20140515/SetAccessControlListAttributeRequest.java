@@ -15,53 +15,34 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetAccessControlListAttributeRequest extends RpcAcsRequest<SetAccessControlListAttributeResponse> {
-	
-	public SetAccessControlListAttributeRequest() {
-		super("Slb", "2014-05-15", "SetAccessControlListAttribute", "slb");
-	}
-
-	private String access_key_id;
-
-	private String aclId;
+	   
 
 	private Long resourceOwnerId;
 
 	private String aclName;
+
+	private String aclId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	private String tags;
-
-	public String getAccess_key_id() {
-		return this.access_key_id;
-	}
-
-	public void setAccess_key_id(String access_key_id) {
-		this.access_key_id = access_key_id;
-		if(access_key_id != null){
-			putQueryParameter("access_key_id", access_key_id);
-		}
-	}
-
-	public String getAclId() {
-		return this.aclId;
-	}
-
-	public void setAclId(String aclId) {
-		this.aclId = aclId;
-		if(aclId != null){
-			putQueryParameter("AclId", aclId);
-		}
+	public SetAccessControlListAttributeRequest() {
+		super("Slb", "2014-05-15", "SetAccessControlListAttribute", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -83,6 +64,17 @@ public class SetAccessControlListAttributeRequest extends RpcAcsRequest<SetAcces
 		this.aclName = aclName;
 		if(aclName != null){
 			putQueryParameter("AclName", aclName);
+		}
+	}
+
+	public String getAclId() {
+		return this.aclId;
+	}
+
+	public void setAclId(String aclId) {
+		this.aclId = aclId;
+		if(aclId != null){
+			putQueryParameter("AclId", aclId);
 		}
 	}
 
@@ -116,17 +108,6 @@ public class SetAccessControlListAttributeRequest extends RpcAcsRequest<SetAcces
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
 		}
 	}
 

@@ -1,35 +1,13 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package com.aliyuncs.auth.sts;
-
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.transform.UnmarshallerContext;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by zhangw on 2017/8/10.
- */
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="GenerateSessionAccessKeyResponse")
+@XmlRootElement(name = "GenerateSessionAccessKeyResponse")
 public class GenerateSessionAccessKeyResponse extends AcsResponse {
 
     @SerializedName("RequestId")
@@ -42,18 +20,23 @@ public class GenerateSessionAccessKeyResponse extends AcsResponse {
         return requestId;
     }
 
-    @XmlElement(name="RequestId")
+    @XmlElement(name = "RequestId")
     public void setRequestId(String requestId) {
         this.requestId = requestId;
     }
 
-    @XmlElement(name="SessionAccessKey")
+    @XmlElement(name = "SessionAccessKey")
     public SessionAccessKey getSessionAccessKey() {
         return sessionAccessKey;
     }
 
     public void setSessionAccessKey(SessionAccessKey sessionAccessKey) {
         this.sessionAccessKey = sessionAccessKey;
+    }
+
+    @Override
+    public GenerateSessionAccessKeyResponse getInstance(UnmarshallerContext context) {
+        return GetSessionAccessKeyResponseUnmarshaller.unmarshall(this, context);
     }
 
     public static class SessionAccessKey {
@@ -71,7 +54,7 @@ public class GenerateSessionAccessKeyResponse extends AcsResponse {
             return sessionAccessKeyId;
         }
 
-        @XmlElement(name="SessionAccessKeyId")
+        @XmlElement(name = "SessionAccessKeyId")
         public void setSessionAccessKeyId(String sessionAccessKeyId) {
             this.sessionAccessKeyId = sessionAccessKeyId;
         }
@@ -80,7 +63,7 @@ public class GenerateSessionAccessKeyResponse extends AcsResponse {
             return sessionAccessKeySecret;
         }
 
-        @XmlElement(name="SessionAccessKeySecret")
+        @XmlElement(name = "SessionAccessKeySecret")
         public void setSessionAccessKeySecert(String sessionAccessKeySecert) {
             this.sessionAccessKeySecret = sessionAccessKeySecert;
         }
@@ -89,14 +72,9 @@ public class GenerateSessionAccessKeyResponse extends AcsResponse {
             return expiration;
         }
 
-        @XmlElement(name="Expiration")
+        @XmlElement(name = "Expiration")
         public void setExpiration(String expiration) {
             this.expiration = expiration;
         }
-    }
-
-    @Override
-    public GenerateSessionAccessKeyResponse getInstance(UnmarshallerContext context) {
-        return GetSessionAccessKeyResponseUnmarshaller.unmarshall(this, context);
     }
 }

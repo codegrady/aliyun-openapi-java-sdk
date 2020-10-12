@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.transform.v20170626;
 
 import com.aliyuncs.nas.model.v20170626.CreateFileSystemResponse;
@@ -19,10 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateFileSystemResponseUnmarshaller {
 
-	public static CreateFileSystemResponse unmarshall(CreateFileSystemResponse createFileSystemResponse, UnmarshallerContext context) {
+	public static CreateFileSystemResponse unmarshall(CreateFileSystemResponse createFileSystemResponse, UnmarshallerContext _ctx) {
 		
-		createFileSystemResponse.setRequestId(context.stringValue("CreateFileSystemResponse.RequestId"));
-		createFileSystemResponse.setFileSystemId(context.stringValue("CreateFileSystemResponse.FileSystemId"));
+		createFileSystemResponse.setRequestId(_ctx.stringValue("CreateFileSystemResponse.RequestId"));
+		createFileSystemResponse.setFileSystemId(_ctx.stringValue("CreateFileSystemResponse.FileSystemId"));
 	 
 	 	return createFileSystemResponse;
 	}

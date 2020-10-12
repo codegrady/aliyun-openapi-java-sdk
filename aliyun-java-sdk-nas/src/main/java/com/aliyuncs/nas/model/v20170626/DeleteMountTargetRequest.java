@@ -11,33 +11,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.model.v20170626;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.nas.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteMountTargetRequest extends RpcAcsRequest<DeleteMountTargetResponse> {
-	
-	public DeleteMountTargetRequest() {
-		super("NAS", "2017-06-26", "DeleteMountTarget", "nas");
-	}
-
-	private String mountTargetDomain;
+	   
 
 	private String fileSystemId;
 
-	public String getMountTargetDomain() {
-		return this.mountTargetDomain;
-	}
-
-	public void setMountTargetDomain(String mountTargetDomain) {
-		this.mountTargetDomain = mountTargetDomain;
-		if(mountTargetDomain != null){
-			putQueryParameter("MountTargetDomain", mountTargetDomain);
-		}
+	private String mountTargetDomain;
+	public DeleteMountTargetRequest() {
+		super("NAS", "2017-06-26", "DeleteMountTarget");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getFileSystemId() {
@@ -48,6 +45,17 @@ public class DeleteMountTargetRequest extends RpcAcsRequest<DeleteMountTargetRes
 		this.fileSystemId = fileSystemId;
 		if(fileSystemId != null){
 			putQueryParameter("FileSystemId", fileSystemId);
+		}
+	}
+
+	public String getMountTargetDomain() {
+		return this.mountTargetDomain;
+	}
+
+	public void setMountTargetDomain(String mountTargetDomain) {
+		this.mountTargetDomain = mountTargetDomain;
+		if(mountTargetDomain != null){
+			putQueryParameter("MountTargetDomain", mountTargetDomain);
 		}
 	}
 

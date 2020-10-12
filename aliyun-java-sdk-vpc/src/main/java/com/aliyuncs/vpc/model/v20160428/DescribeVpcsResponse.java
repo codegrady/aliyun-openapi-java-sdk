@@ -89,13 +89,31 @@ public class DescribeVpcsResponse extends AcsResponse {
 
 		private String cidrBlock;
 
+		private String ipv6CidrBlock;
+
 		private String vRouterId;
 
 		private String description;
 
 		private Boolean isDefault;
 
+		private String networkAclNum;
+
 		private String resourceGroupId;
+
+		private String cenStatus;
+
+		private Long ownerId;
+
+		private Boolean supportAdvancedFeature;
+
+		private Boolean advancedResource;
+
+		private String dhcpOptionsSetId;
+
+		private String dhcpOptionsSetStatus;
+
+		private List<Tag> tags;
 
 		private List<String> vSwitchIds;
 
@@ -104,6 +122,8 @@ public class DescribeVpcsResponse extends AcsResponse {
 		private List<String> natGatewayIds;
 
 		private List<String> routerTableIds;
+
+		private List<String> secondaryCidrBlocks;
 
 		public String getVpcId() {
 			return this.vpcId;
@@ -153,6 +173,14 @@ public class DescribeVpcsResponse extends AcsResponse {
 			this.cidrBlock = cidrBlock;
 		}
 
+		public String getIpv6CidrBlock() {
+			return this.ipv6CidrBlock;
+		}
+
+		public void setIpv6CidrBlock(String ipv6CidrBlock) {
+			this.ipv6CidrBlock = ipv6CidrBlock;
+		}
+
 		public String getVRouterId() {
 			return this.vRouterId;
 		}
@@ -177,12 +205,76 @@ public class DescribeVpcsResponse extends AcsResponse {
 			this.isDefault = isDefault;
 		}
 
+		public String getNetworkAclNum() {
+			return this.networkAclNum;
+		}
+
+		public void setNetworkAclNum(String networkAclNum) {
+			this.networkAclNum = networkAclNum;
+		}
+
 		public String getResourceGroupId() {
 			return this.resourceGroupId;
 		}
 
 		public void setResourceGroupId(String resourceGroupId) {
 			this.resourceGroupId = resourceGroupId;
+		}
+
+		public String getCenStatus() {
+			return this.cenStatus;
+		}
+
+		public void setCenStatus(String cenStatus) {
+			this.cenStatus = cenStatus;
+		}
+
+		public Long getOwnerId() {
+			return this.ownerId;
+		}
+
+		public void setOwnerId(Long ownerId) {
+			this.ownerId = ownerId;
+		}
+
+		public Boolean getSupportAdvancedFeature() {
+			return this.supportAdvancedFeature;
+		}
+
+		public void setSupportAdvancedFeature(Boolean supportAdvancedFeature) {
+			this.supportAdvancedFeature = supportAdvancedFeature;
+		}
+
+		public Boolean getAdvancedResource() {
+			return this.advancedResource;
+		}
+
+		public void setAdvancedResource(Boolean advancedResource) {
+			this.advancedResource = advancedResource;
+		}
+
+		public String getDhcpOptionsSetId() {
+			return this.dhcpOptionsSetId;
+		}
+
+		public void setDhcpOptionsSetId(String dhcpOptionsSetId) {
+			this.dhcpOptionsSetId = dhcpOptionsSetId;
+		}
+
+		public String getDhcpOptionsSetStatus() {
+			return this.dhcpOptionsSetStatus;
+		}
+
+		public void setDhcpOptionsSetStatus(String dhcpOptionsSetStatus) {
+			this.dhcpOptionsSetStatus = dhcpOptionsSetStatus;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
 		}
 
 		public List<String> getVSwitchIds() {
@@ -215,6 +307,37 @@ public class DescribeVpcsResponse extends AcsResponse {
 
 		public void setRouterTableIds(List<String> routerTableIds) {
 			this.routerTableIds = routerTableIds;
+		}
+
+		public List<String> getSecondaryCidrBlocks() {
+			return this.secondaryCidrBlocks;
+		}
+
+		public void setSecondaryCidrBlocks(List<String> secondaryCidrBlocks) {
+			this.secondaryCidrBlocks = secondaryCidrBlocks;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

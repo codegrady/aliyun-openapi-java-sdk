@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.transform.v20151215;
 
 import com.aliyuncs.cs.model.v20151215.DescribeClusterLogsResponse;
@@ -19,8 +20,14 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeClusterLogsResponseUnmarshaller {
 
-	public static DescribeClusterLogsResponse unmarshall(DescribeClusterLogsResponse describeClusterLogsResponse, UnmarshallerContext context) {
+	public static DescribeClusterLogsResponse unmarshall(DescribeClusterLogsResponse describeClusterLogsResponse, UnmarshallerContext _ctx) {
 		
+		describeClusterLogsResponse.setCluster_id(_ctx.stringValue("DescribeClusterLogsResponse.cluster_id"));
+		describeClusterLogsResponse.setCluster_log(_ctx.stringValue("DescribeClusterLogsResponse.cluster_log"));
+		describeClusterLogsResponse.setCreated(_ctx.stringValue("DescribeClusterLogsResponse.created"));
+		describeClusterLogsResponse.setLog_level(_ctx.stringValue("DescribeClusterLogsResponse.log_level"));
+		describeClusterLogsResponse.setID(_ctx.stringValue("DescribeClusterLogsResponse.ID"));
+		describeClusterLogsResponse.setUpdated(_ctx.stringValue("DescribeClusterLogsResponse.updated"));
 	 
 	 	return describeClusterLogsResponse;
 	}

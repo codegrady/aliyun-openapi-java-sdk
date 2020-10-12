@@ -16,23 +16,28 @@ package com.aliyuncs.kms.model.v20160120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.kms.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateAliasRequest extends RpcAcsRequest<UpdateAliasResponse> {
-	
-	public UpdateAliasRequest() {
-		super("Kms", "2016-01-20", "UpdateAlias", "kms");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private String aliasName;
 
 	private String keyId;
-
-	private String sTSToken;
+	public UpdateAliasRequest() {
+		super("Kms", "2016-01-20", "UpdateAlias", "kms");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getAliasName() {
 		return this.aliasName;
@@ -53,17 +58,6 @@ public class UpdateAliasRequest extends RpcAcsRequest<UpdateAliasResponse> {
 		this.keyId = keyId;
 		if(keyId != null){
 			putQueryParameter("KeyId", keyId);
-		}
-	}
-
-	public String getSTSToken() {
-		return this.sTSToken;
-	}
-
-	public void setSTSToken(String sTSToken) {
-		this.sTSToken = sTSToken;
-		if(sTSToken != null){
-			putQueryParameter("STSToken", sTSToken);
 		}
 	}
 

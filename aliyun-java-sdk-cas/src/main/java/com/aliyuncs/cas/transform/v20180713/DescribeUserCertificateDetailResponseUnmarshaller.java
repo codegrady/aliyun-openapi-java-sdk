@@ -20,25 +20,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeUserCertificateDetailResponseUnmarshaller {
 
-	public static DescribeUserCertificateDetailResponse unmarshall(DescribeUserCertificateDetailResponse describeUserCertificateDetailResponse, UnmarshallerContext context) {
+	public static DescribeUserCertificateDetailResponse unmarshall(DescribeUserCertificateDetailResponse describeUserCertificateDetailResponse, UnmarshallerContext _ctx) {
 		
-		describeUserCertificateDetailResponse.setRequestId(context.stringValue("DescribeUserCertificateDetailResponse.RequestId"));
-		describeUserCertificateDetailResponse.setId(context.longValue("DescribeUserCertificateDetailResponse.Id"));
-		describeUserCertificateDetailResponse.setName(context.stringValue("DescribeUserCertificateDetailResponse.Name"));
-		describeUserCertificateDetailResponse.setCommon(context.stringValue("DescribeUserCertificateDetailResponse.Common"));
-		describeUserCertificateDetailResponse.setFingerprint(context.stringValue("DescribeUserCertificateDetailResponse.Fingerprint"));
-		describeUserCertificateDetailResponse.setIssuer(context.stringValue("DescribeUserCertificateDetailResponse.Issuer"));
-		describeUserCertificateDetailResponse.setOrgName(context.stringValue("DescribeUserCertificateDetailResponse.OrgName"));
-		describeUserCertificateDetailResponse.setProvince(context.stringValue("DescribeUserCertificateDetailResponse.Province"));
-		describeUserCertificateDetailResponse.setCity(context.stringValue("DescribeUserCertificateDetailResponse.City"));
-		describeUserCertificateDetailResponse.setCountry(context.stringValue("DescribeUserCertificateDetailResponse.Country"));
-		describeUserCertificateDetailResponse.setStartDate(context.stringValue("DescribeUserCertificateDetailResponse.StartDate"));
-		describeUserCertificateDetailResponse.setEndDate(context.stringValue("DescribeUserCertificateDetailResponse.EndDate"));
-		describeUserCertificateDetailResponse.setSans(context.stringValue("DescribeUserCertificateDetailResponse.Sans"));
-		describeUserCertificateDetailResponse.setExpired(context.booleanValue("DescribeUserCertificateDetailResponse.Expired"));
-		describeUserCertificateDetailResponse.setBuyInAliyun(context.booleanValue("DescribeUserCertificateDetailResponse.BuyInAliyun"));
-		describeUserCertificateDetailResponse.setCert(context.stringValue("DescribeUserCertificateDetailResponse.Cert"));
-		describeUserCertificateDetailResponse.setKey(context.stringValue("DescribeUserCertificateDetailResponse.Key"));
+		describeUserCertificateDetailResponse.setRequestId(_ctx.stringValue("DescribeUserCertificateDetailResponse.RequestId"));
+		describeUserCertificateDetailResponse.setId(_ctx.longValue("DescribeUserCertificateDetailResponse.Id"));
+		describeUserCertificateDetailResponse.setName(_ctx.stringValue("DescribeUserCertificateDetailResponse.Name"));
+		describeUserCertificateDetailResponse.setCommon(_ctx.stringValue("DescribeUserCertificateDetailResponse.Common"));
+		describeUserCertificateDetailResponse.setFingerprint(_ctx.stringValue("DescribeUserCertificateDetailResponse.Fingerprint"));
+		describeUserCertificateDetailResponse.setIssuer(_ctx.stringValue("DescribeUserCertificateDetailResponse.Issuer"));
+		describeUserCertificateDetailResponse.setOrgName(_ctx.stringValue("DescribeUserCertificateDetailResponse.OrgName"));
+		describeUserCertificateDetailResponse.setProvince(_ctx.stringValue("DescribeUserCertificateDetailResponse.Province"));
+		describeUserCertificateDetailResponse.setCity(_ctx.stringValue("DescribeUserCertificateDetailResponse.City"));
+		describeUserCertificateDetailResponse.setCountry(_ctx.stringValue("DescribeUserCertificateDetailResponse.Country"));
+		describeUserCertificateDetailResponse.setStartDate(_ctx.stringValue("DescribeUserCertificateDetailResponse.StartDate"));
+		describeUserCertificateDetailResponse.setEndDate(_ctx.stringValue("DescribeUserCertificateDetailResponse.EndDate"));
+		describeUserCertificateDetailResponse.setSans(_ctx.stringValue("DescribeUserCertificateDetailResponse.Sans"));
+		describeUserCertificateDetailResponse.setExpired(_ctx.booleanValue("DescribeUserCertificateDetailResponse.Expired"));
+		describeUserCertificateDetailResponse.setBuyInAliyun(_ctx.booleanValue("DescribeUserCertificateDetailResponse.BuyInAliyun"));
+		describeUserCertificateDetailResponse.setCert(_ctx.stringValue("DescribeUserCertificateDetailResponse.Cert"));
+		describeUserCertificateDetailResponse.setKey(_ctx.stringValue("DescribeUserCertificateDetailResponse.Key"));
 	 
 	 	return describeUserCertificateDetailResponse;
 	}

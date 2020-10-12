@@ -1,21 +1,17 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package com.aliyuncs.aegis.model.v20161111;
 
 import com.aliyuncs.RpcAcsRequest;
@@ -30,17 +26,13 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 		super("aegis", "2016-11-11", "DescribeVulList", "vipaegis");
 	}
 
-	private Long resourceOwnerId;
-
-	private String product;
-
 	private String statusList;
 
 	private String level;
 
 	private String resource;
 
-	private String orderBy;
+	private String remark;
 
 	private String dealed;
 
@@ -48,11 +40,9 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 
 	private String type;
 
-	private Long lastTsEnd;
+	private Long createTsStart;
 
 	private String batchName;
-
-	private Long patchId;
 
 	private String aliasName;
 
@@ -64,35 +54,11 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 
 	private String lang;
 
-	private Long lastTsStart;
+	private Long createTsEnd;
 
 	private String necessity;
 
 	private String uuids;
-
-	private String direction;
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getProduct() {
-		return this.product;
-	}
-
-	public void setProduct(String product) {
-		this.product = product;
-		if(product != null){
-			putQueryParameter("Product", product);
-		}
-	}
 
 	public String getStatusList() {
 		return this.statusList;
@@ -127,14 +93,14 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 		}
 	}
 
-	public String getOrderBy() {
-		return this.orderBy;
+	public String getRemark() {
+		return this.remark;
 	}
 
-	public void setOrderBy(String orderBy) {
-		this.orderBy = orderBy;
-		if(orderBy != null){
-			putQueryParameter("OrderBy", orderBy);
+	public void setRemark(String remark) {
+		this.remark = remark;
+		if(remark != null){
+			putQueryParameter("Remark", remark);
 		}
 	}
 
@@ -171,14 +137,14 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 		}
 	}
 
-	public Long getLastTsEnd() {
-		return this.lastTsEnd;
+	public Long getCreateTsStart() {
+		return this.createTsStart;
 	}
 
-	public void setLastTsEnd(Long lastTsEnd) {
-		this.lastTsEnd = lastTsEnd;
-		if(lastTsEnd != null){
-			putQueryParameter("LastTsEnd", lastTsEnd.toString());
+	public void setCreateTsStart(Long createTsStart) {
+		this.createTsStart = createTsStart;
+		if(createTsStart != null){
+			putQueryParameter("CreateTsStart", createTsStart.toString());
 		}
 	}
 
@@ -190,17 +156,6 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 		this.batchName = batchName;
 		if(batchName != null){
 			putQueryParameter("BatchName", batchName);
-		}
-	}
-
-	public Long getPatchId() {
-		return this.patchId;
-	}
-
-	public void setPatchId(Long patchId) {
-		this.patchId = patchId;
-		if(patchId != null){
-			putQueryParameter("PatchId", patchId.toString());
 		}
 	}
 
@@ -259,14 +214,14 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 		}
 	}
 
-	public Long getLastTsStart() {
-		return this.lastTsStart;
+	public Long getCreateTsEnd() {
+		return this.createTsEnd;
 	}
 
-	public void setLastTsStart(Long lastTsStart) {
-		this.lastTsStart = lastTsStart;
-		if(lastTsStart != null){
-			putQueryParameter("LastTsStart", lastTsStart.toString());
+	public void setCreateTsEnd(Long createTsEnd) {
+		this.createTsEnd = createTsEnd;
+		if(createTsEnd != null){
+			putQueryParameter("CreateTsEnd", createTsEnd.toString());
 		}
 	}
 
@@ -289,17 +244,6 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 		this.uuids = uuids;
 		if(uuids != null){
 			putQueryParameter("Uuids", uuids);
-		}
-	}
-
-	public String getDirection() {
-		return this.direction;
-	}
-
-	public void setDirection(String direction) {
-		this.direction = direction;
-		if(direction != null){
-			putQueryParameter("Direction", direction);
 		}
 	}
 

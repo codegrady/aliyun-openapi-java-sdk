@@ -15,16 +15,15 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteLiveAppSnapshotConfigRequest extends RpcAcsRequest<DeleteLiveAppSnapshotConfigResponse> {
-	
-	public DeleteLiveAppSnapshotConfigRequest() {
-		super("live", "2016-11-01", "DeleteLiveAppSnapshotConfig", "live");
-	}
+	   
 
 	private String appName;
 
@@ -33,6 +32,14 @@ public class DeleteLiveAppSnapshotConfigRequest extends RpcAcsRequest<DeleteLive
 	private String domainName;
 
 	private Long ownerId;
+	public DeleteLiveAppSnapshotConfigRequest() {
+		super("live", "2016-11-01", "DeleteLiveAppSnapshotConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getAppName() {
 		return this.appName;

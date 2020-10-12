@@ -15,24 +15,31 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ReleaseClusterHostGroupRequest extends RpcAcsRequest<ReleaseClusterHostGroupResponse> {
-	
-	public ReleaseClusterHostGroupRequest() {
-		super("Emr", "2016-04-08", "ReleaseClusterHostGroup");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String clusterId;
 
 	private String hostGroupId;
 
 	private String instanceIdList;
-
-	private String clusterId;
+	public ReleaseClusterHostGroupRequest() {
+		super("Emr", "2016-04-08", "ReleaseClusterHostGroup");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -42,6 +49,17 @@ public class ReleaseClusterHostGroupRequest extends RpcAcsRequest<ReleaseCluster
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
 		}
 	}
 
@@ -64,17 +82,6 @@ public class ReleaseClusterHostGroupRequest extends RpcAcsRequest<ReleaseCluster
 		this.instanceIdList = instanceIdList;
 		if(instanceIdList != null){
 			putQueryParameter("InstanceIdList", instanceIdList);
-		}
-	}
-
-	public String getClusterId() {
-		return this.clusterId;
-	}
-
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putQueryParameter("ClusterId", clusterId);
 		}
 	}
 

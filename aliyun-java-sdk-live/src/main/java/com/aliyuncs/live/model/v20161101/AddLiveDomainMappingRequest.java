@@ -15,24 +15,42 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddLiveDomainMappingRequest extends RpcAcsRequest<AddLiveDomainMappingResponse> {
-	
-	public AddLiveDomainMappingRequest() {
-		super("live", "2016-11-01", "AddLiveDomainMapping", "live");
-	}
+	   
+
+	private Long ownerId;
 
 	private String pullDomain;
 
 	private String securityToken;
 
 	private String pushDomain;
+	public AddLiveDomainMappingRequest() {
+		super("live", "2016-11-01", "AddLiveDomainMapping", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Long ownerId;
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
 
 	public String getPullDomain() {
 		return this.pullDomain;
@@ -64,17 +82,6 @@ public class AddLiveDomainMappingRequest extends RpcAcsRequest<AddLiveDomainMapp
 		this.pushDomain = pushDomain;
 		if(pushDomain != null){
 			putQueryParameter("PushDomain", pushDomain);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 

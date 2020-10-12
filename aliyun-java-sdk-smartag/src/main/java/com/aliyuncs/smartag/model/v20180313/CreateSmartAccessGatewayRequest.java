@@ -15,16 +15,15 @@
 package com.aliyuncs.smartag.model.v20180313;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.smartag.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateSmartAccessGatewayRequest extends RpcAcsRequest<CreateSmartAccessGatewayResponse> {
-	
-	public CreateSmartAccessGatewayRequest() {
-		super("Smartag", "2018-03-13", "CreateSmartAccessGateway", "smartag");
-	}
+	   
 
 	private Integer maxBandWidth;
 
@@ -68,11 +67,21 @@ public class CreateSmartAccessGatewayRequest extends RpcAcsRequest<CreateSmartAc
 
 	private String name;
 
+	private Boolean alreadyHaveSag;
+
 	private String receiverCountry;
 
 	private String chargeType;
 
 	private String receiverZip;
+	public CreateSmartAccessGatewayRequest() {
+		super("Smartag", "2018-03-13", "CreateSmartAccessGateway", "smartag");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Integer getMaxBandWidth() {
 		return this.maxBandWidth;
@@ -302,6 +311,17 @@ public class CreateSmartAccessGatewayRequest extends RpcAcsRequest<CreateSmartAc
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
+		}
+	}
+
+	public Boolean getAlreadyHaveSag() {
+		return this.alreadyHaveSag;
+	}
+
+	public void setAlreadyHaveSag(Boolean alreadyHaveSag) {
+		this.alreadyHaveSag = alreadyHaveSag;
+		if(alreadyHaveSag != null){
+			putQueryParameter("AlreadyHaveSag", alreadyHaveSag.toString());
 		}
 	}
 

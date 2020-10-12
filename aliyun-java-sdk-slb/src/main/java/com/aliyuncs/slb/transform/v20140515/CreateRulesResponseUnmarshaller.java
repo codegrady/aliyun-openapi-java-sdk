@@ -19,21 +19,20 @@ import java.util.List;
 
 import com.aliyuncs.slb.model.v20140515.CreateRulesResponse;
 import com.aliyuncs.slb.model.v20140515.CreateRulesResponse.Rule;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class CreateRulesResponseUnmarshaller {
 
-	public static CreateRulesResponse unmarshall(CreateRulesResponse createRulesResponse, UnmarshallerContext context) {
+	public static CreateRulesResponse unmarshall(CreateRulesResponse createRulesResponse, UnmarshallerContext _ctx) {
 		
-		createRulesResponse.setRequestId(context.stringValue("CreateRulesResponse.RequestId"));
+		createRulesResponse.setRequestId(_ctx.stringValue("CreateRulesResponse.RequestId"));
 
 		List<Rule> rules = new ArrayList<Rule>();
-		for (int i = 0; i < context.lengthValue("CreateRulesResponse.Rules.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("CreateRulesResponse.Rules.Length"); i++) {
 			Rule rule = new Rule();
-			rule.setRuleId(context.stringValue("CreateRulesResponse.Rules["+ i +"].RuleId"));
-			rule.setRuleName(context.stringValue("CreateRulesResponse.Rules["+ i +"].RuleName"));
+			rule.setRuleId(_ctx.stringValue("CreateRulesResponse.Rules["+ i +"].RuleId"));
+			rule.setRuleName(_ctx.stringValue("CreateRulesResponse.Rules["+ i +"].RuleName"));
 
 			rules.add(rule);
 		}

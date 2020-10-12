@@ -15,32 +15,26 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeLivePullStreamConfigRequest extends RpcAcsRequest<DescribeLivePullStreamConfigResponse> {
-	
-	public DescribeLivePullStreamConfigRequest() {
-		super("live", "2016-11-01", "DescribeLivePullStreamConfig", "live");
-	}
-
-	private String securityToken;
+	   
 
 	private String domainName;
 
 	private Long ownerId;
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
+	public DescribeLivePullStreamConfigRequest() {
+		super("live", "2016-11-01", "DescribeLivePullStreamConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDomainName() {

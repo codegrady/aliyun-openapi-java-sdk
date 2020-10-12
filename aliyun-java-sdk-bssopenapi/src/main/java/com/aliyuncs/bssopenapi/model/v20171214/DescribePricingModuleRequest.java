@@ -15,16 +15,15 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribePricingModuleRequest extends RpcAcsRequest<DescribePricingModuleResponse> {
-	
-	public DescribePricingModuleRequest() {
-		super("BssOpenApi", "2017-12-14", "DescribePricingModule");
-	}
+	   
 
 	private String productCode;
 
@@ -33,6 +32,14 @@ public class DescribePricingModuleRequest extends RpcAcsRequest<DescribePricingM
 	private Long ownerId;
 
 	private String productType;
+	public DescribePricingModuleRequest() {
+		super("BssOpenApi", "2017-12-14", "DescribePricingModule");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProductCode() {
 		return this.productCode;

@@ -15,20 +15,27 @@
 package com.aliyuncs.gpdb.model.v20160503;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.gpdb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ReleaseInstancePublicConnectionRequest extends RpcAcsRequest<ReleaseInstancePublicConnectionResponse> {
-	
-	public ReleaseInstancePublicConnectionRequest() {
-		super("gpdb", "2016-05-03", "ReleaseInstancePublicConnection", "gpdb");
-	}
+	   
 
 	private String dBInstanceId;
 
 	private String currentConnectionString;
+	public ReleaseInstancePublicConnectionRequest() {
+		super("gpdb", "2016-05-03", "ReleaseInstancePublicConnection", "gpdb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getDBInstanceId() {
 		return this.dBInstanceId;

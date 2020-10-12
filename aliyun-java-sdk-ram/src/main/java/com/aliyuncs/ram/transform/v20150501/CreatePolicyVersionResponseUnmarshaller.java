@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.CreatePolicyVersionResponse;
@@ -20,15 +21,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreatePolicyVersionResponseUnmarshaller {
 
-	public static CreatePolicyVersionResponse unmarshall(CreatePolicyVersionResponse createPolicyVersionResponse, UnmarshallerContext context) {
+	public static CreatePolicyVersionResponse unmarshall(CreatePolicyVersionResponse createPolicyVersionResponse, UnmarshallerContext _ctx) {
 		
-		createPolicyVersionResponse.setRequestId(context.stringValue("CreatePolicyVersionResponse.RequestId"));
+		createPolicyVersionResponse.setRequestId(_ctx.stringValue("CreatePolicyVersionResponse.RequestId"));
 
 		PolicyVersion policyVersion = new PolicyVersion();
-		policyVersion.setVersionId(context.stringValue("CreatePolicyVersionResponse.PolicyVersion.VersionId"));
-		policyVersion.setIsDefaultVersion(context.booleanValue("CreatePolicyVersionResponse.PolicyVersion.IsDefaultVersion"));
-		policyVersion.setPolicyDocument(context.stringValue("CreatePolicyVersionResponse.PolicyVersion.PolicyDocument"));
-		policyVersion.setCreateDate(context.stringValue("CreatePolicyVersionResponse.PolicyVersion.CreateDate"));
+		policyVersion.setVersionId(_ctx.stringValue("CreatePolicyVersionResponse.PolicyVersion.VersionId"));
+		policyVersion.setIsDefaultVersion(_ctx.booleanValue("CreatePolicyVersionResponse.PolicyVersion.IsDefaultVersion"));
+		policyVersion.setPolicyDocument(_ctx.stringValue("CreatePolicyVersionResponse.PolicyVersion.PolicyDocument"));
+		policyVersion.setCreateDate(_ctx.stringValue("CreatePolicyVersionResponse.PolicyVersion.CreateDate"));
 		createPolicyVersionResponse.setPolicyVersion(policyVersion);
 	 
 	 	return createPolicyVersionResponse;

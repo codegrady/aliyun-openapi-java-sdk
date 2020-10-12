@@ -15,20 +15,15 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyPhysicalConnectionAttributeRequest extends RpcAcsRequest<ModifyPhysicalConnectionAttributeResponse> {
-	
-	public ModifyPhysicalConnectionAttributeRequest() {
-		super("Ecs", "2014-05-26", "ModifyPhysicalConnectionAttribute", "ecs");
-	}
-
-	private String redundantPhysicalConnectionId;
-
-	private String peerLocation;
+	   
 
 	private Long resourceOwnerId;
 
@@ -36,15 +31,21 @@ public class ModifyPhysicalConnectionAttributeRequest extends RpcAcsRequest<Modi
 
 	private String circuitCode;
 
-	private Integer bandwidth;
-
 	private String clientToken;
+
+	private String description;
+
+	private String userCidr;
+
+	private String redundantPhysicalConnectionId;
+
+	private String peerLocation;
+
+	private Integer bandwidth;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
-
-	private String description;
 
 	private Long ownerId;
 
@@ -53,29 +54,13 @@ public class ModifyPhysicalConnectionAttributeRequest extends RpcAcsRequest<Modi
 	private String physicalConnectionId;
 
 	private String name;
-
-	private String userCidr;
-
-	public String getRedundantPhysicalConnectionId() {
-		return this.redundantPhysicalConnectionId;
-	}
-
-	public void setRedundantPhysicalConnectionId(String redundantPhysicalConnectionId) {
-		this.redundantPhysicalConnectionId = redundantPhysicalConnectionId;
-		if(redundantPhysicalConnectionId != null){
-			putQueryParameter("RedundantPhysicalConnectionId", redundantPhysicalConnectionId);
-		}
-	}
-
-	public String getPeerLocation() {
-		return this.peerLocation;
-	}
-
-	public void setPeerLocation(String peerLocation) {
-		this.peerLocation = peerLocation;
-		if(peerLocation != null){
-			putQueryParameter("PeerLocation", peerLocation);
-		}
+	public ModifyPhysicalConnectionAttributeRequest() {
+		super("Ecs", "2014-05-26", "ModifyPhysicalConnectionAttribute", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -111,17 +96,6 @@ public class ModifyPhysicalConnectionAttributeRequest extends RpcAcsRequest<Modi
 		}
 	}
 
-	public Integer getBandwidth() {
-		return this.bandwidth;
-	}
-
-	public void setBandwidth(Integer bandwidth) {
-		this.bandwidth = bandwidth;
-		if(bandwidth != null){
-			putQueryParameter("bandwidth", bandwidth.toString());
-		}
-	}
-
 	public String getClientToken() {
 		return this.clientToken;
 	}
@@ -130,6 +104,61 @@ public class ModifyPhysicalConnectionAttributeRequest extends RpcAcsRequest<Modi
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getUserCidr() {
+		return this.userCidr;
+	}
+
+	public void setUserCidr(String userCidr) {
+		this.userCidr = userCidr;
+		if(userCidr != null){
+			putQueryParameter("UserCidr", userCidr);
+		}
+	}
+
+	public String getRedundantPhysicalConnectionId() {
+		return this.redundantPhysicalConnectionId;
+	}
+
+	public void setRedundantPhysicalConnectionId(String redundantPhysicalConnectionId) {
+		this.redundantPhysicalConnectionId = redundantPhysicalConnectionId;
+		if(redundantPhysicalConnectionId != null){
+			putQueryParameter("RedundantPhysicalConnectionId", redundantPhysicalConnectionId);
+		}
+	}
+
+	public String getPeerLocation() {
+		return this.peerLocation;
+	}
+
+	public void setPeerLocation(String peerLocation) {
+		this.peerLocation = peerLocation;
+		if(peerLocation != null){
+			putQueryParameter("PeerLocation", peerLocation);
+		}
+	}
+
+	public Integer getBandwidth() {
+		return this.bandwidth;
+	}
+
+	public void setBandwidth(Integer bandwidth) {
+		this.bandwidth = bandwidth;
+		if(bandwidth != null){
+			putQueryParameter("bandwidth", bandwidth.toString());
 		}
 	}
 
@@ -152,17 +181,6 @@ public class ModifyPhysicalConnectionAttributeRequest extends RpcAcsRequest<Modi
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
 		}
 	}
 
@@ -207,17 +225,6 @@ public class ModifyPhysicalConnectionAttributeRequest extends RpcAcsRequest<Modi
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
-		}
-	}
-
-	public String getUserCidr() {
-		return this.userCidr;
-	}
-
-	public void setUserCidr(String userCidr) {
-		this.userCidr = userCidr;
-		if(userCidr != null){
-			putQueryParameter("UserCidr", userCidr);
 		}
 	}
 

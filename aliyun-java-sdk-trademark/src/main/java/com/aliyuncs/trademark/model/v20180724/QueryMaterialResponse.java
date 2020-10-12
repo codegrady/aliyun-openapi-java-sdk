@@ -14,6 +14,7 @@
 
 package com.aliyuncs.trademark.model.v20180724;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.trademark.transform.v20180724.QueryMaterialResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -25,8 +26,6 @@ import com.aliyuncs.transform.UnmarshallerContext;
 public class QueryMaterialResponse extends AcsResponse {
 
 	private String requestId;
-
-	private String userId;
 
 	private Integer type;
 
@@ -43,8 +42,6 @@ public class QueryMaterialResponse extends AcsResponse {
 	private String contactZipcode;
 
 	private Integer status;
-
-	private Long loaId;
 
 	private String loaUrl;
 
@@ -66,12 +63,6 @@ public class QueryMaterialResponse extends AcsResponse {
 
 	private String eAddress;
 
-	private String extend;
-
-	private Integer loaType;
-
-	private String loaKey;
-
 	private Integer loaStatus;
 
 	private String idCardUrl;
@@ -84,20 +75,20 @@ public class QueryMaterialResponse extends AcsResponse {
 
 	private String legalNoticeUrl;
 
+	private String note;
+
+	private String country;
+
+	private String reviewApplicationFile;
+
+	private List<String> reviewAdditionalFiles;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public String getUserId() {
-		return this.userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
 	}
 
 	public Integer getType() {
@@ -162,14 +153,6 @@ public class QueryMaterialResponse extends AcsResponse {
 
 	public void setStatus(Integer status) {
 		this.status = status;
-	}
-
-	public Long getLoaId() {
-		return this.loaId;
-	}
-
-	public void setLoaId(Long loaId) {
-		this.loaId = loaId;
 	}
 
 	public String getLoaUrl() {
@@ -252,30 +235,6 @@ public class QueryMaterialResponse extends AcsResponse {
 		this.eAddress = eAddress;
 	}
 
-	public String getExtend() {
-		return this.extend;
-	}
-
-	public void setExtend(String extend) {
-		this.extend = extend;
-	}
-
-	public Integer getLoaType() {
-		return this.loaType;
-	}
-
-	public void setLoaType(Integer loaType) {
-		this.loaType = loaType;
-	}
-
-	public String getLoaKey() {
-		return this.loaKey;
-	}
-
-	public void setLoaKey(String loaKey) {
-		this.loaKey = loaKey;
-	}
-
 	public Integer getLoaStatus() {
 		return this.loaStatus;
 	}
@@ -322,6 +281,38 @@ public class QueryMaterialResponse extends AcsResponse {
 
 	public void setLegalNoticeUrl(String legalNoticeUrl) {
 		this.legalNoticeUrl = legalNoticeUrl;
+	}
+
+	public String getNote() {
+		return this.note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public String getCountry() {
+		return this.country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getReviewApplicationFile() {
+		return this.reviewApplicationFile;
+	}
+
+	public void setReviewApplicationFile(String reviewApplicationFile) {
+		this.reviewApplicationFile = reviewApplicationFile;
+	}
+
+	public List<String> getReviewAdditionalFiles() {
+		return this.reviewAdditionalFiles;
+	}
+
+	public void setReviewAdditionalFiles(List<String> reviewAdditionalFiles) {
+		this.reviewAdditionalFiles = reviewAdditionalFiles;
 	}
 
 	@Override

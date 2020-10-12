@@ -15,16 +15,15 @@
 package com.aliyuncs.smartag.model.v20180313;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.smartag.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeSmartAccessGatewayVersionsRequest extends RpcAcsRequest<DescribeSmartAccessGatewayVersionsResponse> {
-	
-	public DescribeSmartAccessGatewayVersionsRequest() {
-		super("Smartag", "2018-03-13", "DescribeSmartAccessGatewayVersions", "smartag");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -33,6 +32,18 @@ public class DescribeSmartAccessGatewayVersionsRequest extends RpcAcsRequest<Des
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String smartAGId;
+
+	private String smartAGSn;
+	public DescribeSmartAccessGatewayVersionsRequest() {
+		super("Smartag", "2018-03-13", "DescribeSmartAccessGatewayVersions", "smartag");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -75,6 +86,28 @@ public class DescribeSmartAccessGatewayVersionsRequest extends RpcAcsRequest<Des
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSmartAGId() {
+		return this.smartAGId;
+	}
+
+	public void setSmartAGId(String smartAGId) {
+		this.smartAGId = smartAGId;
+		if(smartAGId != null){
+			putQueryParameter("SmartAGId", smartAGId);
+		}
+	}
+
+	public String getSmartAGSn() {
+		return this.smartAGSn;
+	}
+
+	public void setSmartAGSn(String smartAGSn) {
+		this.smartAGSn = smartAGSn;
+		if(smartAGSn != null){
+			putQueryParameter("SmartAGSn", smartAGSn);
 		}
 	}
 

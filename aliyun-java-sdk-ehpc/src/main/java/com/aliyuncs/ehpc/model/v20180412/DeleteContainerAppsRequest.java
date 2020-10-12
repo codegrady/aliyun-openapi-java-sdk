@@ -16,18 +16,25 @@ package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteContainerAppsRequest extends RpcAcsRequest<DeleteContainerAppsResponse> {
-	
-	public DeleteContainerAppsRequest() {
-		super("EHPC", "2018-04-12", "DeleteContainerApps", "ehs");
-	}
+	   
 
 	private List<ContainerApp> containerApps;
+	public DeleteContainerAppsRequest() {
+		super("EHPC", "2018-04-12", "DeleteContainerApps");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public List<ContainerApp> getContainerApps() {
 		return this.containerApps;

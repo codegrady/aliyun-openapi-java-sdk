@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.transform.v20150109;
 
 import java.util.ArrayList;
@@ -22,17 +23,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeDomainNsResponseUnmarshaller {
 
-	public static DescribeDomainNsResponse unmarshall(DescribeDomainNsResponse describeDomainNsResponse, UnmarshallerContext context) {
+	public static DescribeDomainNsResponse unmarshall(DescribeDomainNsResponse describeDomainNsResponse, UnmarshallerContext _ctx) {
 		
-		describeDomainNsResponse.setRequestId(context.stringValue("DescribeDomainNsResponse.RequestId"));
-		describeDomainNsResponse.setAllAliDns(context.booleanValue("DescribeDomainNsResponse.AllAliDns"));
-		describeDomainNsResponse.setIncludeAliDns(context.booleanValue("DescribeDomainNsResponse.IncludeAliDns"));
+		describeDomainNsResponse.setRequestId(_ctx.stringValue("DescribeDomainNsResponse.RequestId"));
+		describeDomainNsResponse.setAllAliDns(_ctx.booleanValue("DescribeDomainNsResponse.AllAliDns"));
+		describeDomainNsResponse.setIncludeAliDns(_ctx.booleanValue("DescribeDomainNsResponse.IncludeAliDns"));
 
 		List<String> dnsServers = new ArrayList<String>();
-		for (int i = 0; i < context.lengthValue("DescribeDomainNsResponse.DnsServers.Length"); i++) {
-			dnsServers.add(context.stringValue("DescribeDomainNsResponse.DnsServers["+ i +"]"));
+		for (int i = 0; i < _ctx.lengthValue("DescribeDomainNsResponse.DnsServers.Length"); i++) {
+			dnsServers.add(_ctx.stringValue("DescribeDomainNsResponse.DnsServers["+ i +"]"));
 		}
 		describeDomainNsResponse.setDnsServers(dnsServers);
+
+		List<String> expectDnsServers = new ArrayList<String>();
+		for (int i = 0; i < _ctx.lengthValue("DescribeDomainNsResponse.ExpectDnsServers.Length"); i++) {
+			expectDnsServers.add(_ctx.stringValue("DescribeDomainNsResponse.ExpectDnsServers["+ i +"]"));
+		}
+		describeDomainNsResponse.setExpectDnsServers(expectDnsServers);
 	 
 	 	return describeDomainNsResponse;
 	}

@@ -15,22 +15,29 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeNotificationConfigurationsRequest extends RpcAcsRequest<DescribeNotificationConfigurationsResponse> {
-	
-	public DescribeNotificationConfigurationsRequest() {
-		super("Ess", "2014-08-28", "DescribeNotificationConfigurations", "ess");
-	}
+	   
 
 	private String resourceOwnerAccount;
 
 	private String scalingGroupId;
 
 	private Long ownerId;
+	public DescribeNotificationConfigurationsRequest() {
+		super("Ess", "2014-08-28", "DescribeNotificationConfigurations", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getResourceOwnerAccount() {
 		return this.resourceOwnerAccount;

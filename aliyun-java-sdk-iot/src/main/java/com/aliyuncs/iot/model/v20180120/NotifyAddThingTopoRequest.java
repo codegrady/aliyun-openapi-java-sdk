@@ -15,24 +15,33 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class NotifyAddThingTopoRequest extends RpcAcsRequest<NotifyAddThingTopoResponse> {
-	
-	public NotifyAddThingTopoRequest() {
-		super("Iot", "2018-01-20", "NotifyAddThingTopo");
-	}
+	   
 
 	private String gwProductKey;
 
-	private String gwDeviceName;
+	private String deviceListStr;
+
+	private String iotInstanceId;
 
 	private String gwIotId;
 
-	private String deviceListStr;
+	private String gwDeviceName;
+	public NotifyAddThingTopoRequest() {
+		super("Iot", "2018-01-20", "NotifyAddThingTopo", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getGwProductKey() {
 		return this.gwProductKey;
@@ -45,14 +54,25 @@ public class NotifyAddThingTopoRequest extends RpcAcsRequest<NotifyAddThingTopoR
 		}
 	}
 
-	public String getGwDeviceName() {
-		return this.gwDeviceName;
+	public String getDeviceListStr() {
+		return this.deviceListStr;
 	}
 
-	public void setGwDeviceName(String gwDeviceName) {
-		this.gwDeviceName = gwDeviceName;
-		if(gwDeviceName != null){
-			putQueryParameter("GwDeviceName", gwDeviceName);
+	public void setDeviceListStr(String deviceListStr) {
+		this.deviceListStr = deviceListStr;
+		if(deviceListStr != null){
+			putQueryParameter("DeviceListStr", deviceListStr);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -67,14 +87,14 @@ public class NotifyAddThingTopoRequest extends RpcAcsRequest<NotifyAddThingTopoR
 		}
 	}
 
-	public String getDeviceListStr() {
-		return this.deviceListStr;
+	public String getGwDeviceName() {
+		return this.gwDeviceName;
 	}
 
-	public void setDeviceListStr(String deviceListStr) {
-		this.deviceListStr = deviceListStr;
-		if(deviceListStr != null){
-			putQueryParameter("DeviceListStr", deviceListStr);
+	public void setGwDeviceName(String gwDeviceName) {
+		this.gwDeviceName = gwDeviceName;
+		if(gwDeviceName != null){
+			putQueryParameter("GwDeviceName", gwDeviceName);
 		}
 	}
 

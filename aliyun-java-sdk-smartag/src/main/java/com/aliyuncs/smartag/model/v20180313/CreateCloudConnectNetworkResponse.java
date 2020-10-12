@@ -34,6 +34,10 @@ public class CreateCloudConnectNetworkResponse extends AcsResponse {
 
 	private String description;
 
+	private String snatCidrBlock;
+
+	private String cidrBlock;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -72,6 +76,22 @@ public class CreateCloudConnectNetworkResponse extends AcsResponse {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getSnatCidrBlock() {
+		return this.snatCidrBlock;
+	}
+
+	public void setSnatCidrBlock(String snatCidrBlock) {
+		this.snatCidrBlock = snatCidrBlock;
+	}
+
+	public String getCidrBlock() {
+		return this.cidrBlock;
+	}
+
+	public void setCidrBlock(String cidrBlock) {
+		this.cidrBlock = cidrBlock;
 	}
 
 	@Override

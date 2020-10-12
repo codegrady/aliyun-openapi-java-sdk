@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.RemoveIpControlPolicyItemResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class RemoveIpControlPolicyItemResponseUnmarshaller {
 
-	public static RemoveIpControlPolicyItemResponse unmarshall(RemoveIpControlPolicyItemResponse removeIpControlPolicyItemResponse, UnmarshallerContext context) {
+	public static RemoveIpControlPolicyItemResponse unmarshall(RemoveIpControlPolicyItemResponse removeIpControlPolicyItemResponse, UnmarshallerContext _ctx) {
 		
-		removeIpControlPolicyItemResponse.setRequestId(context.stringValue("RemoveIpControlPolicyItemResponse.RequestId"));
+		removeIpControlPolicyItemResponse.setRequestId(_ctx.stringValue("RemoveIpControlPolicyItemResponse.RequestId"));
 	 
 	 	return removeIpControlPolicyItemResponse;
 	}

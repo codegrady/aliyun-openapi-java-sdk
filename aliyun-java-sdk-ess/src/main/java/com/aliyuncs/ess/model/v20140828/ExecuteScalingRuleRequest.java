@@ -15,28 +15,39 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ExecuteScalingRuleRequest extends RpcAcsRequest<ExecuteScalingRuleResponse> {
-	
-	public ExecuteScalingRuleRequest() {
-		super("Ess", "2014-08-28", "ExecuteScalingRule", "ess");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String scalingRuleAri;
+	private String clientToken;
+
+	private Float breachThreshold;
 
 	private String resourceOwnerAccount;
-
-	private String clientToken;
 
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private Float metricValue;
+
+	private String scalingRuleAri;
+	public ExecuteScalingRuleRequest() {
+		super("Ess", "2014-08-28", "ExecuteScalingRule", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -49,14 +60,25 @@ public class ExecuteScalingRuleRequest extends RpcAcsRequest<ExecuteScalingRuleR
 		}
 	}
 
-	public String getScalingRuleAri() {
-		return this.scalingRuleAri;
+	public String getClientToken() {
+		return this.clientToken;
 	}
 
-	public void setScalingRuleAri(String scalingRuleAri) {
-		this.scalingRuleAri = scalingRuleAri;
-		if(scalingRuleAri != null){
-			putQueryParameter("ScalingRuleAri", scalingRuleAri);
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public Float getBreachThreshold() {
+		return this.breachThreshold;
+	}
+
+	public void setBreachThreshold(Float breachThreshold) {
+		this.breachThreshold = breachThreshold;
+		if(breachThreshold != null){
+			putQueryParameter("BreachThreshold", breachThreshold.toString());
 		}
 	}
 
@@ -68,17 +90,6 @@ public class ExecuteScalingRuleRequest extends RpcAcsRequest<ExecuteScalingRuleR
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -101,6 +112,28 @@ public class ExecuteScalingRuleRequest extends RpcAcsRequest<ExecuteScalingRuleR
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Float getMetricValue() {
+		return this.metricValue;
+	}
+
+	public void setMetricValue(Float metricValue) {
+		this.metricValue = metricValue;
+		if(metricValue != null){
+			putQueryParameter("MetricValue", metricValue.toString());
+		}
+	}
+
+	public String getScalingRuleAri() {
+		return this.scalingRuleAri;
+	}
+
+	public void setScalingRuleAri(String scalingRuleAri) {
+		this.scalingRuleAri = scalingRuleAri;
+		if(scalingRuleAri != null){
+			putQueryParameter("ScalingRuleAri", scalingRuleAri);
 		}
 	}
 

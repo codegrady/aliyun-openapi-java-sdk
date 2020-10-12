@@ -11,75 +11,64 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.model.v20150109;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.alidns.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeSubDomainRecordsRequest extends RpcAcsRequest<DescribeSubDomainRecordsResponse> {
-	
-	public DescribeSubDomainRecordsRequest() {
-		super("Alidns", "2015-01-09", "DescribeSubDomainRecords");
-	}
+	   
 
-	private String lang;
+	private String line;
 
-	private String userClientIp;
-
-	private String subDomain;
-
-	private Long pageNumber;
-
-	private Long pageSize;
+	private String domainName;
 
 	private String type;
 
-	public String getLang() {
-		return this.lang;
+	private Long pageNumber;
+
+	private String userClientIp;
+
+	private Long pageSize;
+
+	private String subDomain;
+
+	private String lang;
+	public DescribeSubDomainRecordsRequest() {
+		super("Alidns", "2015-01-09", "DescribeSubDomainRecords", "alidns");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setLang(String lang) {
-		this.lang = lang;
-		putQueryParameter("Lang", lang);
+	public String getLine() {
+		return this.line;
 	}
 
-	public String getUserClientIp() {
-		return this.userClientIp;
+	public void setLine(String line) {
+		this.line = line;
+		if(line != null){
+			putQueryParameter("Line", line);
+		}
 	}
 
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		putQueryParameter("UserClientIp", userClientIp);
+	public String getDomainName() {
+		return this.domainName;
 	}
 
-	public String getSubDomain() {
-		return this.subDomain;
-	}
-
-	public void setSubDomain(String subDomain) {
-		this.subDomain = subDomain;
-		putQueryParameter("SubDomain", subDomain);
-	}
-
-	public Long getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Long pageNumber) {
-		this.pageNumber = pageNumber;
-		putQueryParameter("PageNumber", pageNumber);
-	}
-
-	public Long getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Long pageSize) {
-		this.pageSize = pageSize;
-		putQueryParameter("PageSize", pageSize);
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
 	}
 
 	public String getType() {
@@ -88,7 +77,64 @@ public class DescribeSubDomainRecordsRequest extends RpcAcsRequest<DescribeSubDo
 
 	public void setType(String type) {
 		this.type = type;
-		putQueryParameter("Type", type);
+		if(type != null){
+			putQueryParameter("Type", type);
+		}
+	}
+
+	public Long getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Long pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getUserClientIp() {
+		return this.userClientIp;
+	}
+
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
+		}
+	}
+
+	public Long getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Long pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getSubDomain() {
+		return this.subDomain;
+	}
+
+	public void setSubDomain(String subDomain) {
+		this.subDomain = subDomain;
+		if(subDomain != null){
+			putQueryParameter("SubDomain", subDomain);
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
+		}
 	}
 
 	@Override

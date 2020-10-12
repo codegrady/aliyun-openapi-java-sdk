@@ -15,22 +15,29 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeCasterSceneAudioRequest extends RpcAcsRequest<DescribeCasterSceneAudioResponse> {
-	
-	public DescribeCasterSceneAudioRequest() {
-		super("live", "2016-11-01", "DescribeCasterSceneAudio", "live");
-	}
+	   
 
 	private String casterId;
 
-	private String sceneId;
-
 	private Long ownerId;
+
+	private String sceneId;
+	public DescribeCasterSceneAudioRequest() {
+		super("live", "2016-11-01", "DescribeCasterSceneAudio", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getCasterId() {
 		return this.casterId;
@@ -43,17 +50,6 @@ public class DescribeCasterSceneAudioRequest extends RpcAcsRequest<DescribeCaste
 		}
 	}
 
-	public String getSceneId() {
-		return this.sceneId;
-	}
-
-	public void setSceneId(String sceneId) {
-		this.sceneId = sceneId;
-		if(sceneId != null){
-			putQueryParameter("SceneId", sceneId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -62,6 +58,17 @@ public class DescribeCasterSceneAudioRequest extends RpcAcsRequest<DescribeCaste
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSceneId() {
+		return this.sceneId;
+	}
+
+	public void setSceneId(String sceneId) {
+		this.sceneId = sceneId;
+		if(sceneId != null){
+			putQueryParameter("SceneId", sceneId);
 		}
 	}
 

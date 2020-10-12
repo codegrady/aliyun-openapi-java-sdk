@@ -15,32 +15,23 @@
 package com.aliyuncs.cas.model.v20180713;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeUserCertificateDetailRequest extends RpcAcsRequest<DescribeUserCertificateDetailResponse> {
-	
-	public DescribeUserCertificateDetailRequest() {
-		super("cas", "2018-07-13", "DescribeUserCertificateDetail", "cas");
-	}
-
-	private String sourceIp;
+	   
 
 	private Long certId;
 
+	private String sourceIp;
+
 	private String lang;
-
-	public String getSourceIp() {
-		return this.sourceIp;
-	}
-
-	public void setSourceIp(String sourceIp) {
-		this.sourceIp = sourceIp;
-		if(sourceIp != null){
-			putQueryParameter("SourceIp", sourceIp);
-		}
+	public DescribeUserCertificateDetailRequest() {
+		super("cas", "2018-07-13", "DescribeUserCertificateDetail", "cas");
+		setMethod(MethodType.POST);
 	}
 
 	public Long getCertId() {
@@ -51,6 +42,17 @@ public class DescribeUserCertificateDetailRequest extends RpcAcsRequest<Describe
 		this.certId = certId;
 		if(certId != null){
 			putQueryParameter("CertId", certId.toString());
+		}
+	}
+
+	public String getSourceIp() {
+		return this.sourceIp;
+	}
+
+	public void setSourceIp(String sourceIp) {
+		this.sourceIp = sourceIp;
+		if(sourceIp != null){
+			putQueryParameter("SourceIp", sourceIp);
 		}
 	}
 

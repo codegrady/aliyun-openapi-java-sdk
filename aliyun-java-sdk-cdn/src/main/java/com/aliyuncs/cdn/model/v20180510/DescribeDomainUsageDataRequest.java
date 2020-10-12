@@ -15,20 +15,17 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDomainUsageDataRequest extends RpcAcsRequest<DescribeDomainUsageDataResponse> {
-	
-	public DescribeDomainUsageDataRequest() {
-		super("Cdn", "2018-05-10", "DescribeDomainUsageData");
-	}
+	   
 
 	private String startTime;
-
-	private String type;
 
 	private String dataProtocol;
 
@@ -42,6 +39,16 @@ public class DescribeDomainUsageDataRequest extends RpcAcsRequest<DescribeDomain
 
 	private String field;
 
+	private String interval;
+	public DescribeDomainUsageDataRequest() {
+		super("Cdn", "2018-05-10", "DescribeDomainUsageData");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
 	public String getStartTime() {
 		return this.startTime;
 	}
@@ -50,17 +57,6 @@ public class DescribeDomainUsageDataRequest extends RpcAcsRequest<DescribeDomain
 		this.startTime = startTime;
 		if(startTime != null){
 			putQueryParameter("StartTime", startTime);
-		}
-	}
-
-	public String getType() {
-		return this.type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-		if(type != null){
-			putQueryParameter("Type", type);
 		}
 	}
 
@@ -127,6 +123,17 @@ public class DescribeDomainUsageDataRequest extends RpcAcsRequest<DescribeDomain
 		this.field = field;
 		if(field != null){
 			putQueryParameter("Field", field);
+		}
+	}
+
+	public String getInterval() {
+		return this.interval;
+	}
+
+	public void setInterval(String interval) {
+		this.interval = interval;
+		if(interval != null){
+			putQueryParameter("Interval", interval);
 		}
 	}
 

@@ -15,24 +15,41 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
-	
-	public DescribePriceRequest() {
-		super("Ecs", "2014-05-26", "DescribePrice", "ecs");
-	}
+	   
 
 	private Integer dataDisk3Size;
 
 	private Long resourceOwnerId;
 
-	private String imageId;
-
 	private String dataDisk3Category;
+
+	private Integer dataDisk4Size;
+
+	private String priceUnit;
+
+	private Integer period;
+
+	private String dataDisk1PerformanceLevel;
+
+	private Long ownerId;
+
+	private String internetChargeType;
+
+	private String instanceNetworkType;
+
+	private Integer instanceAmount;
+
+	private String dataDisk3PerformanceLevel;
+
+	private String imageId;
 
 	private String ioOptimized;
 
@@ -40,19 +57,23 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private String systemDiskCategory;
 
+	private String platform;
+
+	private Integer capacity;
+
+	private String systemDiskPerformanceLevel;
+
 	private String dataDisk4Category;
 
-	private Integer dataDisk4Size;
+	private String dataDisk4PerformanceLevel;
 
-	private String priceUnit;
+	private String scope;
 
 	private String instanceType;
 
 	private String dataDisk2Category;
 
 	private Integer dataDisk1Size;
-
-	private Integer period;
 
 	private Integer amount;
 
@@ -62,17 +83,23 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private Integer dataDisk2Size;
 
-	private Long ownerId;
-
 	private String resourceType;
 
 	private String dataDisk1Category;
 
+	private String dataDisk2PerformanceLevel;
+
 	private Integer systemDiskSize;
 
-	private String internetChargeType;
-
-	private String instanceNetworkType;
+	private String offeringType;
+	public DescribePriceRequest() {
+		super("Ecs", "2014-05-26", "DescribePrice", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Integer getDataDisk3Size() {
 		return this.dataDisk3Size;
@@ -96,17 +123,6 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
-	public String getImageId() {
-		return this.imageId;
-	}
-
-	public void setImageId(String imageId) {
-		this.imageId = imageId;
-		if(imageId != null){
-			putQueryParameter("ImageId", imageId);
-		}
-	}
-
 	public String getDataDisk3Category() {
 		return this.dataDisk3Category;
 	}
@@ -115,6 +131,116 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		this.dataDisk3Category = dataDisk3Category;
 		if(dataDisk3Category != null){
 			putQueryParameter("DataDisk.3.Category", dataDisk3Category);
+		}
+	}
+
+	public Integer getDataDisk4Size() {
+		return this.dataDisk4Size;
+	}
+
+	public void setDataDisk4Size(Integer dataDisk4Size) {
+		this.dataDisk4Size = dataDisk4Size;
+		if(dataDisk4Size != null){
+			putQueryParameter("DataDisk.4.Size", dataDisk4Size.toString());
+		}
+	}
+
+	public String getPriceUnit() {
+		return this.priceUnit;
+	}
+
+	public void setPriceUnit(String priceUnit) {
+		this.priceUnit = priceUnit;
+		if(priceUnit != null){
+			putQueryParameter("PriceUnit", priceUnit);
+		}
+	}
+
+	public Integer getPeriod() {
+		return this.period;
+	}
+
+	public void setPeriod(Integer period) {
+		this.period = period;
+		if(period != null){
+			putQueryParameter("Period", period.toString());
+		}
+	}
+
+	public String getDataDisk1PerformanceLevel() {
+		return this.dataDisk1PerformanceLevel;
+	}
+
+	public void setDataDisk1PerformanceLevel(String dataDisk1PerformanceLevel) {
+		this.dataDisk1PerformanceLevel = dataDisk1PerformanceLevel;
+		if(dataDisk1PerformanceLevel != null){
+			putQueryParameter("DataDisk.1.PerformanceLevel", dataDisk1PerformanceLevel);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getInternetChargeType() {
+		return this.internetChargeType;
+	}
+
+	public void setInternetChargeType(String internetChargeType) {
+		this.internetChargeType = internetChargeType;
+		if(internetChargeType != null){
+			putQueryParameter("InternetChargeType", internetChargeType);
+		}
+	}
+
+	public String getInstanceNetworkType() {
+		return this.instanceNetworkType;
+	}
+
+	public void setInstanceNetworkType(String instanceNetworkType) {
+		this.instanceNetworkType = instanceNetworkType;
+		if(instanceNetworkType != null){
+			putQueryParameter("InstanceNetworkType", instanceNetworkType);
+		}
+	}
+
+	public Integer getInstanceAmount() {
+		return this.instanceAmount;
+	}
+
+	public void setInstanceAmount(Integer instanceAmount) {
+		this.instanceAmount = instanceAmount;
+		if(instanceAmount != null){
+			putQueryParameter("InstanceAmount", instanceAmount.toString());
+		}
+	}
+
+	public String getDataDisk3PerformanceLevel() {
+		return this.dataDisk3PerformanceLevel;
+	}
+
+	public void setDataDisk3PerformanceLevel(String dataDisk3PerformanceLevel) {
+		this.dataDisk3PerformanceLevel = dataDisk3PerformanceLevel;
+		if(dataDisk3PerformanceLevel != null){
+			putQueryParameter("DataDisk.3.PerformanceLevel", dataDisk3PerformanceLevel);
+		}
+	}
+
+	public String getImageId() {
+		return this.imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+		if(imageId != null){
+			putQueryParameter("ImageId", imageId);
 		}
 	}
 
@@ -151,6 +277,39 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
+	public String getPlatform() {
+		return this.platform;
+	}
+
+	public void setPlatform(String platform) {
+		this.platform = platform;
+		if(platform != null){
+			putQueryParameter("Platform", platform);
+		}
+	}
+
+	public Integer getCapacity() {
+		return this.capacity;
+	}
+
+	public void setCapacity(Integer capacity) {
+		this.capacity = capacity;
+		if(capacity != null){
+			putQueryParameter("Capacity", capacity.toString());
+		}
+	}
+
+	public String getSystemDiskPerformanceLevel() {
+		return this.systemDiskPerformanceLevel;
+	}
+
+	public void setSystemDiskPerformanceLevel(String systemDiskPerformanceLevel) {
+		this.systemDiskPerformanceLevel = systemDiskPerformanceLevel;
+		if(systemDiskPerformanceLevel != null){
+			putQueryParameter("SystemDisk.PerformanceLevel", systemDiskPerformanceLevel);
+		}
+	}
+
 	public String getDataDisk4Category() {
 		return this.dataDisk4Category;
 	}
@@ -162,25 +321,25 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
-	public Integer getDataDisk4Size() {
-		return this.dataDisk4Size;
+	public String getDataDisk4PerformanceLevel() {
+		return this.dataDisk4PerformanceLevel;
 	}
 
-	public void setDataDisk4Size(Integer dataDisk4Size) {
-		this.dataDisk4Size = dataDisk4Size;
-		if(dataDisk4Size != null){
-			putQueryParameter("DataDisk.4.Size", dataDisk4Size.toString());
+	public void setDataDisk4PerformanceLevel(String dataDisk4PerformanceLevel) {
+		this.dataDisk4PerformanceLevel = dataDisk4PerformanceLevel;
+		if(dataDisk4PerformanceLevel != null){
+			putQueryParameter("DataDisk.4.PerformanceLevel", dataDisk4PerformanceLevel);
 		}
 	}
 
-	public String getPriceUnit() {
-		return this.priceUnit;
+	public String getScope() {
+		return this.scope;
 	}
 
-	public void setPriceUnit(String priceUnit) {
-		this.priceUnit = priceUnit;
-		if(priceUnit != null){
-			putQueryParameter("PriceUnit", priceUnit);
+	public void setScope(String scope) {
+		this.scope = scope;
+		if(scope != null){
+			putQueryParameter("Scope", scope);
 		}
 	}
 
@@ -214,17 +373,6 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		this.dataDisk1Size = dataDisk1Size;
 		if(dataDisk1Size != null){
 			putQueryParameter("DataDisk.1.Size", dataDisk1Size.toString());
-		}
-	}
-
-	public Integer getPeriod() {
-		return this.period;
-	}
-
-	public void setPeriod(Integer period) {
-		this.period = period;
-		if(period != null){
-			putQueryParameter("Period", period.toString());
 		}
 	}
 
@@ -272,17 +420,6 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
 	public String getResourceType() {
 		return this.resourceType;
 	}
@@ -305,6 +442,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
+	public String getDataDisk2PerformanceLevel() {
+		return this.dataDisk2PerformanceLevel;
+	}
+
+	public void setDataDisk2PerformanceLevel(String dataDisk2PerformanceLevel) {
+		this.dataDisk2PerformanceLevel = dataDisk2PerformanceLevel;
+		if(dataDisk2PerformanceLevel != null){
+			putQueryParameter("DataDisk.2.PerformanceLevel", dataDisk2PerformanceLevel);
+		}
+	}
+
 	public Integer getSystemDiskSize() {
 		return this.systemDiskSize;
 	}
@@ -316,25 +464,14 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
-	public String getInternetChargeType() {
-		return this.internetChargeType;
+	public String getOfferingType() {
+		return this.offeringType;
 	}
 
-	public void setInternetChargeType(String internetChargeType) {
-		this.internetChargeType = internetChargeType;
-		if(internetChargeType != null){
-			putQueryParameter("InternetChargeType", internetChargeType);
-		}
-	}
-
-	public String getInstanceNetworkType() {
-		return this.instanceNetworkType;
-	}
-
-	public void setInstanceNetworkType(String instanceNetworkType) {
-		this.instanceNetworkType = instanceNetworkType;
-		if(instanceNetworkType != null){
-			putQueryParameter("InstanceNetworkType", instanceNetworkType);
+	public void setOfferingType(String offeringType) {
+		this.offeringType = offeringType;
+		if(offeringType != null){
+			putQueryParameter("OfferingType", offeringType);
 		}
 	}
 

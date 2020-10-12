@@ -15,34 +15,47 @@
 package com.aliyuncs.vod.model.v20170321;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vod.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UploadMediaByURLRequest extends RpcAcsRequest<UploadMediaByURLResponse> {
-	
-	public UploadMediaByURLRequest() {
-		super("vod", "2017-03-21", "UploadMediaByURL", "vod");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String templateGroupId;
+	private String messageCallback;
 
-	private String uploadMetadatas;
+	private String storageLocation;
+
+	private String userData;
+
+	private String workflowId;
 
 	private String resourceOwnerAccount;
-
-	private String uploadURLs;
-
-	private String messageCallback;
 
 	private Long ownerId;
 
 	private String priority;
 
-	private String storageLocation;
+	private String templateGroupId;
+
+	private String uploadMetadatas;
+
+	private String uploadURLs;
+
+	private String appId;
+	public UploadMediaByURLRequest() {
+		super("vod", "2017-03-21", "UploadMediaByURL", "vod");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -55,25 +68,47 @@ public class UploadMediaByURLRequest extends RpcAcsRequest<UploadMediaByURLRespo
 		}
 	}
 
-	public String getTemplateGroupId() {
-		return this.templateGroupId;
+	public String getMessageCallback() {
+		return this.messageCallback;
 	}
 
-	public void setTemplateGroupId(String templateGroupId) {
-		this.templateGroupId = templateGroupId;
-		if(templateGroupId != null){
-			putQueryParameter("TemplateGroupId", templateGroupId);
+	public void setMessageCallback(String messageCallback) {
+		this.messageCallback = messageCallback;
+		if(messageCallback != null){
+			putQueryParameter("MessageCallback", messageCallback);
 		}
 	}
 
-	public String getUploadMetadatas() {
-		return this.uploadMetadatas;
+	public String getStorageLocation() {
+		return this.storageLocation;
 	}
 
-	public void setUploadMetadatas(String uploadMetadatas) {
-		this.uploadMetadatas = uploadMetadatas;
-		if(uploadMetadatas != null){
-			putQueryParameter("UploadMetadatas", uploadMetadatas);
+	public void setStorageLocation(String storageLocation) {
+		this.storageLocation = storageLocation;
+		if(storageLocation != null){
+			putQueryParameter("StorageLocation", storageLocation);
+		}
+	}
+
+	public String getUserData() {
+		return this.userData;
+	}
+
+	public void setUserData(String userData) {
+		this.userData = userData;
+		if(userData != null){
+			putQueryParameter("UserData", userData);
+		}
+	}
+
+	public String getWorkflowId() {
+		return this.workflowId;
+	}
+
+	public void setWorkflowId(String workflowId) {
+		this.workflowId = workflowId;
+		if(workflowId != null){
+			putQueryParameter("WorkflowId", workflowId);
 		}
 	}
 
@@ -85,28 +120,6 @@ public class UploadMediaByURLRequest extends RpcAcsRequest<UploadMediaByURLRespo
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getUploadURLs() {
-		return this.uploadURLs;
-	}
-
-	public void setUploadURLs(String uploadURLs) {
-		this.uploadURLs = uploadURLs;
-		if(uploadURLs != null){
-			putQueryParameter("UploadURLs", uploadURLs);
-		}
-	}
-
-	public String getMessageCallback() {
-		return this.messageCallback;
-	}
-
-	public void setMessageCallback(String messageCallback) {
-		this.messageCallback = messageCallback;
-		if(messageCallback != null){
-			putQueryParameter("MessageCallback", messageCallback);
 		}
 	}
 
@@ -132,14 +145,47 @@ public class UploadMediaByURLRequest extends RpcAcsRequest<UploadMediaByURLRespo
 		}
 	}
 
-	public String getStorageLocation() {
-		return this.storageLocation;
+	public String getTemplateGroupId() {
+		return this.templateGroupId;
 	}
 
-	public void setStorageLocation(String storageLocation) {
-		this.storageLocation = storageLocation;
-		if(storageLocation != null){
-			putQueryParameter("StorageLocation", storageLocation);
+	public void setTemplateGroupId(String templateGroupId) {
+		this.templateGroupId = templateGroupId;
+		if(templateGroupId != null){
+			putQueryParameter("TemplateGroupId", templateGroupId);
+		}
+	}
+
+	public String getUploadMetadatas() {
+		return this.uploadMetadatas;
+	}
+
+	public void setUploadMetadatas(String uploadMetadatas) {
+		this.uploadMetadatas = uploadMetadatas;
+		if(uploadMetadatas != null){
+			putQueryParameter("UploadMetadatas", uploadMetadatas);
+		}
+	}
+
+	public String getUploadURLs() {
+		return this.uploadURLs;
+	}
+
+	public void setUploadURLs(String uploadURLs) {
+		this.uploadURLs = uploadURLs;
+		if(uploadURLs != null){
+			putQueryParameter("UploadURLs", uploadURLs);
+		}
+	}
+
+	public String getAppId() {
+		return this.appId;
+	}
+
+	public void setAppId(String appId) {
+		this.appId = appId;
+		if(appId != null){
+			putQueryParameter("AppId", appId);
 		}
 	}
 

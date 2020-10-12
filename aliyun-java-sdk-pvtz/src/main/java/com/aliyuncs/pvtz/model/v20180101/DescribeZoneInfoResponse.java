@@ -45,6 +45,10 @@ public class DescribeZoneInfoResponse extends AcsResponse {
 
 	private Boolean isPtr;
 
+	private String proxyPattern;
+
+	private Boolean slaveDns;
+
 	private List<Vpc> bindVpcs;
 
 	public String getRequestId() {
@@ -127,6 +131,22 @@ public class DescribeZoneInfoResponse extends AcsResponse {
 		this.isPtr = isPtr;
 	}
 
+	public String getProxyPattern() {
+		return this.proxyPattern;
+	}
+
+	public void setProxyPattern(String proxyPattern) {
+		this.proxyPattern = proxyPattern;
+	}
+
+	public Boolean getSlaveDns() {
+		return this.slaveDns;
+	}
+
+	public void setSlaveDns(Boolean slaveDns) {
+		this.slaveDns = slaveDns;
+	}
+
 	public List<Vpc> getBindVpcs() {
 		return this.bindVpcs;
 	}
@@ -137,21 +157,13 @@ public class DescribeZoneInfoResponse extends AcsResponse {
 
 	public static class Vpc {
 
-		private String reionId;
-
 		private String vpcId;
 
 		private String vpcName;
 
 		private String regionName;
 
-		public String getReionId() {
-			return this.reionId;
-		}
-
-		public void setReionId(String reionId) {
-			this.reionId = reionId;
-		}
+		private String regionId;
 
 		public String getVpcId() {
 			return this.vpcId;
@@ -175,6 +187,14 @@ public class DescribeZoneInfoResponse extends AcsResponse {
 
 		public void setRegionName(String regionName) {
 			this.regionName = regionName;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
 		}
 	}
 

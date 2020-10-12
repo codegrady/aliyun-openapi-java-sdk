@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.CreateLogConfigResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateLogConfigResponseUnmarshaller {
 
-	public static CreateLogConfigResponse unmarshall(CreateLogConfigResponse createLogConfigResponse, UnmarshallerContext context) {
+	public static CreateLogConfigResponse unmarshall(CreateLogConfigResponse createLogConfigResponse, UnmarshallerContext _ctx) {
 		
-		createLogConfigResponse.setRequestId(context.stringValue("CreateLogConfigResponse.RequestId"));
+		createLogConfigResponse.setRequestId(_ctx.stringValue("CreateLogConfigResponse.RequestId"));
 	 
 	 	return createLogConfigResponse;
 	}

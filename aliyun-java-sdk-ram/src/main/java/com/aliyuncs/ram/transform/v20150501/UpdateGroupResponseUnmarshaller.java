@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.UpdateGroupResponse;
@@ -20,15 +21,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class UpdateGroupResponseUnmarshaller {
 
-	public static UpdateGroupResponse unmarshall(UpdateGroupResponse updateGroupResponse, UnmarshallerContext context) {
+	public static UpdateGroupResponse unmarshall(UpdateGroupResponse updateGroupResponse, UnmarshallerContext _ctx) {
 		
-		updateGroupResponse.setRequestId(context.stringValue("UpdateGroupResponse.RequestId"));
+		updateGroupResponse.setRequestId(_ctx.stringValue("UpdateGroupResponse.RequestId"));
 
 		Group group = new Group();
-		group.setGroupName(context.stringValue("UpdateGroupResponse.Group.GroupName"));
-		group.setComments(context.stringValue("UpdateGroupResponse.Group.Comments"));
-		group.setCreateDate(context.stringValue("UpdateGroupResponse.Group.CreateDate"));
-		group.setUpdateDate(context.stringValue("UpdateGroupResponse.Group.UpdateDate"));
+		group.setGroupName(_ctx.stringValue("UpdateGroupResponse.Group.GroupName"));
+		group.setComments(_ctx.stringValue("UpdateGroupResponse.Group.Comments"));
+		group.setCreateDate(_ctx.stringValue("UpdateGroupResponse.Group.CreateDate"));
+		group.setUpdateDate(_ctx.stringValue("UpdateGroupResponse.Group.UpdateDate"));
 		updateGroupResponse.setGroup(group);
 	 
 	 	return updateGroupResponse;

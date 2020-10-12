@@ -16,36 +16,25 @@ package com.aliyuncs.ots.model.v20160620;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListInstanceRequest extends RpcAcsRequest<ListInstanceResponse> {
-	
-	public ListInstanceRequest() {
-		super("Ots", "2016-06-20", "ListInstance", "ots");
-	}
-
-	private String access_key_id;
+	   
 
 	private Long resourceOwnerId;
 
-	private Long pageSize;
-
 	private Long pageNum;
 
+	private Long pageSize;
+
 	private List<TagInfo> tagInfos;
-
-	public String getAccess_key_id() {
-		return this.access_key_id;
-	}
-
-	public void setAccess_key_id(String access_key_id) {
-		this.access_key_id = access_key_id;
-		if(access_key_id != null){
-			putQueryParameter("access_key_id", access_key_id);
-		}
+	public ListInstanceRequest() {
+		super("Ots", "2016-06-20", "ListInstance", "ots");
+		setMethod(MethodType.GET);
 	}
 
 	public Long getResourceOwnerId() {
@@ -56,17 +45,6 @@ public class ListInstanceRequest extends RpcAcsRequest<ListInstanceResponse> {
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public Long getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Long pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -81,6 +59,17 @@ public class ListInstanceRequest extends RpcAcsRequest<ListInstanceResponse> {
 		}
 	}
 
+	public Long getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Long pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
 	public List<TagInfo> getTagInfos() {
 		return this.tagInfos;
 	}
@@ -89,25 +78,17 @@ public class ListInstanceRequest extends RpcAcsRequest<ListInstanceResponse> {
 		this.tagInfos = tagInfos;	
 		if (tagInfos != null) {
 			for (int depth1 = 0; depth1 < tagInfos.size(); depth1++) {
-				putQueryParameter("TagInfo." + (depth1 + 1) + ".TagKey" , tagInfos.get(depth1).getTagKey());
 				putQueryParameter("TagInfo." + (depth1 + 1) + ".TagValue" , tagInfos.get(depth1).getTagValue());
+				putQueryParameter("TagInfo." + (depth1 + 1) + ".TagKey" , tagInfos.get(depth1).getTagKey());
 			}
 		}	
 	}
 
 	public static class TagInfo {
 
-		private String tagKey;
-
 		private String tagValue;
 
-		public String getTagKey() {
-			return this.tagKey;
-		}
-
-		public void setTagKey(String tagKey) {
-			this.tagKey = tagKey;
-		}
+		private String tagKey;
 
 		public String getTagValue() {
 			return this.tagValue;
@@ -115,6 +96,14 @@ public class ListInstanceRequest extends RpcAcsRequest<ListInstanceResponse> {
 
 		public void setTagValue(String tagValue) {
 			this.tagValue = tagValue;
+		}
+
+		public String getTagKey() {
+			return this.tagKey;
+		}
+
+		public void setTagKey(String tagKey) {
+			this.tagKey = tagKey;
 		}
 	}
 

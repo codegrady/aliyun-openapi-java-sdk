@@ -105,11 +105,11 @@ public class DescribeVServerGroupsResponse extends AcsResponse {
 
 				private Integer port;
 
-				public String getProtocol() {
+				public String getBizProtocol() {
 					return this.protocol;
 				}
 
-				public void setProtocol(String protocol) {
+				public void setBizProtocol(String protocol) {
 					this.protocol = protocol;
 				}
 

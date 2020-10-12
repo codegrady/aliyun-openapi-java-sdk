@@ -15,6 +15,7 @@
 package com.aliyuncs.trademark.model.v20180724;
 
 import java.util.List;
+import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.trademark.transform.v20180724.QueryTradeMarkApplicationDetailResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -31,7 +32,7 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 
 	private String loaUrl;
 
-	private Integer orderPrice;
+	private Float orderPrice;
 
 	private String tmIcon;
 
@@ -51,13 +52,53 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 
 	private String tmNumber;
 
+	private String acceptUrl;
+
+	private Long createTime;
+
+	private Long updateTime;
+
+	private Map<Object,Object> extendInfo;
+
+	private String sendSbjLogistics;
+
+	private String sendUserLogistics;
+
+	private String recvUserLogistics;
+
+	private Long materialId;
+
+	private Float totalPrice;
+
+	private Float servicePrice;
+
+	private String partnerCode;
+
+	private String partnerMobile;
+
+	private String notAcceptUrl;
+
+	private String partnerName;
+
 	private List<ThirdClassifications> thirdClassification;
 
+	private List<SupplementsItem> supplements;
+
 	private List<String> receiptUrl;
+
+	private List<String> judgeResultUrl;
+
+	private List<Integer> flags;
+
+	private AdminUploads adminUploads;
 
 	private MaterialDetail materialDetail;
 
 	private FirstClassification firstClassification;
+
+	private RenewResponse renewResponse;
+
+	private ReviewOfficialFiles reviewOfficialFiles;
 
 	public Integer getStatus() {
 		return this.status;
@@ -83,11 +124,11 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 		this.loaUrl = loaUrl;
 	}
 
-	public Integer getOrderPrice() {
+	public Float getOrderPrice() {
 		return this.orderPrice;
 	}
 
-	public void setOrderPrice(Integer orderPrice) {
+	public void setOrderPrice(Float orderPrice) {
 		this.orderPrice = orderPrice;
 	}
 
@@ -163,6 +204,118 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 		this.tmNumber = tmNumber;
 	}
 
+	public String getAcceptUrl() {
+		return this.acceptUrl;
+	}
+
+	public void setAcceptUrl(String acceptUrl) {
+		this.acceptUrl = acceptUrl;
+	}
+
+	public Long getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(Long createTime) {
+		this.createTime = createTime;
+	}
+
+	public Long getUpdateTime() {
+		return this.updateTime;
+	}
+
+	public void setUpdateTime(Long updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	public Map<Object,Object> getExtendInfo() {
+		return this.extendInfo;
+	}
+
+	public void setExtendInfo(Map<Object,Object> extendInfo) {
+		this.extendInfo = extendInfo;
+	}
+
+	public String getSendSbjLogistics() {
+		return this.sendSbjLogistics;
+	}
+
+	public void setSendSbjLogistics(String sendSbjLogistics) {
+		this.sendSbjLogistics = sendSbjLogistics;
+	}
+
+	public String getSendUserLogistics() {
+		return this.sendUserLogistics;
+	}
+
+	public void setSendUserLogistics(String sendUserLogistics) {
+		this.sendUserLogistics = sendUserLogistics;
+	}
+
+	public String getRecvUserLogistics() {
+		return this.recvUserLogistics;
+	}
+
+	public void setRecvUserLogistics(String recvUserLogistics) {
+		this.recvUserLogistics = recvUserLogistics;
+	}
+
+	public Long getMaterialId() {
+		return this.materialId;
+	}
+
+	public void setMaterialId(Long materialId) {
+		this.materialId = materialId;
+	}
+
+	public Float getTotalPrice() {
+		return this.totalPrice;
+	}
+
+	public void setTotalPrice(Float totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public Float getServicePrice() {
+		return this.servicePrice;
+	}
+
+	public void setServicePrice(Float servicePrice) {
+		this.servicePrice = servicePrice;
+	}
+
+	public String getPartnerCode() {
+		return this.partnerCode;
+	}
+
+	public void setPartnerCode(String partnerCode) {
+		this.partnerCode = partnerCode;
+	}
+
+	public String getPartnerMobile() {
+		return this.partnerMobile;
+	}
+
+	public void setPartnerMobile(String partnerMobile) {
+		this.partnerMobile = partnerMobile;
+	}
+
+	public String getNotAcceptUrl() {
+		return this.notAcceptUrl;
+	}
+
+	public void setNotAcceptUrl(String notAcceptUrl) {
+		this.notAcceptUrl = notAcceptUrl;
+	}
+
+	public String getPartnerName() {
+		return this.partnerName;
+	}
+
+	public void setPartnerName(String partnerName) {
+		this.partnerName = partnerName;
+	}
+
 	public List<ThirdClassifications> getThirdClassification() {
 		return this.thirdClassification;
 	}
@@ -171,12 +324,44 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 		this.thirdClassification = thirdClassification;
 	}
 
+	public List<SupplementsItem> getSupplements() {
+		return this.supplements;
+	}
+
+	public void setSupplements(List<SupplementsItem> supplements) {
+		this.supplements = supplements;
+	}
+
 	public List<String> getReceiptUrl() {
 		return this.receiptUrl;
 	}
 
 	public void setReceiptUrl(List<String> receiptUrl) {
 		this.receiptUrl = receiptUrl;
+	}
+
+	public List<String> getJudgeResultUrl() {
+		return this.judgeResultUrl;
+	}
+
+	public void setJudgeResultUrl(List<String> judgeResultUrl) {
+		this.judgeResultUrl = judgeResultUrl;
+	}
+
+	public List<Integer> getFlags() {
+		return this.flags;
+	}
+
+	public void setFlags(List<Integer> flags) {
+		this.flags = flags;
+	}
+
+	public AdminUploads getAdminUploads() {
+		return this.adminUploads;
+	}
+
+	public void setAdminUploads(AdminUploads adminUploads) {
+		this.adminUploads = adminUploads;
 	}
 
 	public MaterialDetail getMaterialDetail() {
@@ -193,6 +378,22 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 
 	public void setFirstClassification(FirstClassification firstClassification) {
 		this.firstClassification = firstClassification;
+	}
+
+	public RenewResponse getRenewResponse() {
+		return this.renewResponse;
+	}
+
+	public void setRenewResponse(RenewResponse renewResponse) {
+		this.renewResponse = renewResponse;
+	}
+
+	public ReviewOfficialFiles getReviewOfficialFiles() {
+		return this.reviewOfficialFiles;
+	}
+
+	public void setReviewOfficialFiles(ReviewOfficialFiles reviewOfficialFiles) {
+		this.reviewOfficialFiles = reviewOfficialFiles;
 	}
 
 	public static class ThirdClassifications {
@@ -215,6 +416,182 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 
 		public void setName(String name) {
 			this.name = name;
+		}
+	}
+
+	public static class SupplementsItem {
+
+		private Long id;
+
+		private String serialNumber;
+
+		private Integer type;
+
+		private Integer status;
+
+		private String orderId;
+
+		private String tmNumber;
+
+		private Long sendTime;
+
+		private Long acceptTime;
+
+		private Long sbjDeadTime;
+
+		private Long acceptDeadTime;
+
+		private String uploadFileTemplateUrl;
+
+		private String content;
+
+		private String batchNum;
+
+		private Long operateTime;
+
+		private List<String> fileTemplateUrls;
+
+		public Long getId() {
+			return this.id;
+		}
+
+		public void setId(Long id) {
+			this.id = id;
+		}
+
+		public String getSerialNumber() {
+			return this.serialNumber;
+		}
+
+		public void setSerialNumber(String serialNumber) {
+			this.serialNumber = serialNumber;
+		}
+
+		public Integer getType() {
+			return this.type;
+		}
+
+		public void setType(Integer type) {
+			this.type = type;
+		}
+
+		public Integer getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(Integer status) {
+			this.status = status;
+		}
+
+		public String getOrderId() {
+			return this.orderId;
+		}
+
+		public void setOrderId(String orderId) {
+			this.orderId = orderId;
+		}
+
+		public String getTmNumber() {
+			return this.tmNumber;
+		}
+
+		public void setTmNumber(String tmNumber) {
+			this.tmNumber = tmNumber;
+		}
+
+		public Long getSendTime() {
+			return this.sendTime;
+		}
+
+		public void setSendTime(Long sendTime) {
+			this.sendTime = sendTime;
+		}
+
+		public Long getAcceptTime() {
+			return this.acceptTime;
+		}
+
+		public void setAcceptTime(Long acceptTime) {
+			this.acceptTime = acceptTime;
+		}
+
+		public Long getSbjDeadTime() {
+			return this.sbjDeadTime;
+		}
+
+		public void setSbjDeadTime(Long sbjDeadTime) {
+			this.sbjDeadTime = sbjDeadTime;
+		}
+
+		public Long getAcceptDeadTime() {
+			return this.acceptDeadTime;
+		}
+
+		public void setAcceptDeadTime(Long acceptDeadTime) {
+			this.acceptDeadTime = acceptDeadTime;
+		}
+
+		public String getUploadFileTemplateUrl() {
+			return this.uploadFileTemplateUrl;
+		}
+
+		public void setUploadFileTemplateUrl(String uploadFileTemplateUrl) {
+			this.uploadFileTemplateUrl = uploadFileTemplateUrl;
+		}
+
+		public String getContent() {
+			return this.content;
+		}
+
+		public void setContent(String content) {
+			this.content = content;
+		}
+
+		public String getBatchNum() {
+			return this.batchNum;
+		}
+
+		public void setBatchNum(String batchNum) {
+			this.batchNum = batchNum;
+		}
+
+		public Long getOperateTime() {
+			return this.operateTime;
+		}
+
+		public void setOperateTime(Long operateTime) {
+			this.operateTime = operateTime;
+		}
+
+		public List<String> getFileTemplateUrls() {
+			return this.fileTemplateUrls;
+		}
+
+		public void setFileTemplateUrls(List<String> fileTemplateUrls) {
+			this.fileTemplateUrls = fileTemplateUrls;
+		}
+	}
+
+	public static class AdminUploads {
+
+		private String loaPicUrl;
+
+		private String licensePicUrl;
+
+		public String getLoaPicUrl() {
+			return this.loaPicUrl;
+		}
+
+		public void setLoaPicUrl(String loaPicUrl) {
+			this.loaPicUrl = loaPicUrl;
+		}
+
+		public String getLicensePicUrl() {
+			return this.licensePicUrl;
+		}
+
+		public void setLicensePicUrl(String licensePicUrl) {
+			this.licensePicUrl = licensePicUrl;
 		}
 	}
 
@@ -263,6 +640,12 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 		private Integer region;
 
 		private String contactName;
+
+		private String legalNoticeUrl;
+
+		private String reviewApplicationFile;
+
+		private List<String> reviewAdditionalFiles;
 
 		public String getCardNumber() {
 			return this.cardNumber;
@@ -439,6 +822,30 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 		public void setContactName(String contactName) {
 			this.contactName = contactName;
 		}
+
+		public String getLegalNoticeUrl() {
+			return this.legalNoticeUrl;
+		}
+
+		public void setLegalNoticeUrl(String legalNoticeUrl) {
+			this.legalNoticeUrl = legalNoticeUrl;
+		}
+
+		public String getReviewApplicationFile() {
+			return this.reviewApplicationFile;
+		}
+
+		public void setReviewApplicationFile(String reviewApplicationFile) {
+			this.reviewApplicationFile = reviewApplicationFile;
+		}
+
+		public List<String> getReviewAdditionalFiles() {
+			return this.reviewAdditionalFiles;
+		}
+
+		public void setReviewAdditionalFiles(List<String> reviewAdditionalFiles) {
+			this.reviewAdditionalFiles = reviewAdditionalFiles;
+		}
 	}
 
 	public static class FirstClassification {
@@ -461,6 +868,122 @@ public class QueryTradeMarkApplicationDetailResponse extends AcsResponse {
 
 		public void setName(String name) {
 			this.name = name;
+		}
+	}
+
+	public static class RenewResponse {
+
+		private String name;
+
+		private String engName;
+
+		private String address;
+
+		private String engAddress;
+
+		private Long registerTime;
+
+		private Long submitSbjtime;
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getEngName() {
+			return this.engName;
+		}
+
+		public void setEngName(String engName) {
+			this.engName = engName;
+		}
+
+		public String getAddress() {
+			return this.address;
+		}
+
+		public void setAddress(String address) {
+			this.address = address;
+		}
+
+		public String getEngAddress() {
+			return this.engAddress;
+		}
+
+		public void setEngAddress(String engAddress) {
+			this.engAddress = engAddress;
+		}
+
+		public Long getRegisterTime() {
+			return this.registerTime;
+		}
+
+		public void setRegisterTime(Long registerTime) {
+			this.registerTime = registerTime;
+		}
+
+		public Long getSubmitSbjtime() {
+			return this.submitSbjtime;
+		}
+
+		public void setSubmitSbjtime(Long submitSbjtime) {
+			this.submitSbjtime = submitSbjtime;
+		}
+	}
+
+	public static class ReviewOfficialFiles {
+
+		private String reviewAudit;
+
+		private String reviewPass;
+
+		private String reviewKeep;
+
+		private String reviewPart;
+
+		private List<String> reviewSupplements;
+
+		public String getReviewAudit() {
+			return this.reviewAudit;
+		}
+
+		public void setReviewAudit(String reviewAudit) {
+			this.reviewAudit = reviewAudit;
+		}
+
+		public String getReviewPass() {
+			return this.reviewPass;
+		}
+
+		public void setReviewPass(String reviewPass) {
+			this.reviewPass = reviewPass;
+		}
+
+		public String getReviewKeep() {
+			return this.reviewKeep;
+		}
+
+		public void setReviewKeep(String reviewKeep) {
+			this.reviewKeep = reviewKeep;
+		}
+
+		public String getReviewPart() {
+			return this.reviewPart;
+		}
+
+		public void setReviewPart(String reviewPart) {
+			this.reviewPart = reviewPart;
+		}
+
+		public List<String> getReviewSupplements() {
+			return this.reviewSupplements;
+		}
+
+		public void setReviewSupplements(List<String> reviewSupplements) {
+			this.reviewSupplements = reviewSupplements;
 		}
 	}
 

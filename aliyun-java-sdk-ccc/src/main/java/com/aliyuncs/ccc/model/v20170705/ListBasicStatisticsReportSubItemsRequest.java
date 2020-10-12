@@ -15,26 +15,55 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListBasicStatisticsReportSubItemsRequest extends RpcAcsRequest<ListBasicStatisticsReportSubItemsResponse> {
-	
-	public ListBasicStatisticsReportSubItemsRequest() {
-		super("CCC", "2017-07-05", "ListBasicStatisticsReportSubItems", "ccc");
-	}
+	   
+
+	private String title;
+
+	private Integer pageNumber;
 
 	private String instanceId;
 
 	private String jobGroupId;
 
 	private Integer pageSize;
+	public ListBasicStatisticsReportSubItemsRequest() {
+		super("CCC", "2017-07-05", "ListBasicStatisticsReportSubItems", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String title;
+	public String getTitle() {
+		return this.title;
+	}
 
-	private Integer pageNumber;
+	public void setTitle(String title) {
+		this.title = title;
+		if(title != null){
+			putQueryParameter("Title", title);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
 
 	public String getInstanceId() {
 		return this.instanceId;
@@ -66,28 +95,6 @@ public class ListBasicStatisticsReportSubItemsRequest extends RpcAcsRequest<List
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
-	public String getTitle() {
-		return this.title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-		if(title != null){
-			putQueryParameter("Title", title);
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 

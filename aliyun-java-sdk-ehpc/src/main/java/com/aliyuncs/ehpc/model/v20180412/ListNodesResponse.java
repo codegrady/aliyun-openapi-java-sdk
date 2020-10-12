@@ -83,6 +83,8 @@ public class ListNodesResponse extends AcsResponse {
 
 		private String hostName;
 
+		private String ipAddress;
+
 		private String status;
 
 		private String version;
@@ -104,6 +106,18 @@ public class ListNodesResponse extends AcsResponse {
 		private String imageId;
 
 		private String location;
+
+		private String createMode;
+
+		private String vpcId;
+
+		private String zoneId;
+
+		private String vSwitchId;
+
+		private Boolean htEnabled;
+
+		private String publicIpAddress;
 
 		private List<String> roles;
 
@@ -133,6 +147,14 @@ public class ListNodesResponse extends AcsResponse {
 
 		public void setHostName(String hostName) {
 			this.hostName = hostName;
+		}
+
+		public String getIpAddress() {
+			return this.ipAddress;
+		}
+
+		public void setIpAddress(String ipAddress) {
+			this.ipAddress = ipAddress;
 		}
 
 		public String getStatus() {
@@ -221,6 +243,54 @@ public class ListNodesResponse extends AcsResponse {
 
 		public void setLocation(String location) {
 			this.location = location;
+		}
+
+		public String getCreateMode() {
+			return this.createMode;
+		}
+
+		public void setCreateMode(String createMode) {
+			this.createMode = createMode;
+		}
+
+		public String getVpcId() {
+			return this.vpcId;
+		}
+
+		public void setVpcId(String vpcId) {
+			this.vpcId = vpcId;
+		}
+
+		public String getZoneId() {
+			return this.zoneId;
+		}
+
+		public void setZoneId(String zoneId) {
+			this.zoneId = zoneId;
+		}
+
+		public String getVSwitchId() {
+			return this.vSwitchId;
+		}
+
+		public void setVSwitchId(String vSwitchId) {
+			this.vSwitchId = vSwitchId;
+		}
+
+		public Boolean getHtEnabled() {
+			return this.htEnabled;
+		}
+
+		public void setHtEnabled(Boolean htEnabled) {
+			this.htEnabled = htEnabled;
+		}
+
+		public String getPublicIpAddress() {
+			return this.publicIpAddress;
+		}
+
+		public void setPublicIpAddress(String publicIpAddress) {
+			this.publicIpAddress = publicIpAddress;
 		}
 
 		public List<String> getRoles() {

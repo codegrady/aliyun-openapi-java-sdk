@@ -15,22 +15,29 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDomainsBySourceRequest extends RpcAcsRequest<DescribeDomainsBySourceResponse> {
-	
-	public DescribeDomainsBySourceRequest() {
-		super("Cdn", "2018-05-10", "DescribeDomainsBySource");
-	}
+	   
 
 	private String sources;
 
-	private String securityToken;
-
 	private Long ownerId;
+
+	private String securityToken;
+	public DescribeDomainsBySourceRequest() {
+		super("Cdn", "2018-05-10", "DescribeDomainsBySource");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getSources() {
 		return this.sources;
@@ -43,17 +50,6 @@ public class DescribeDomainsBySourceRequest extends RpcAcsRequest<DescribeDomain
 		}
 	}
 
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -62,6 +58,17 @@ public class DescribeDomainsBySourceRequest extends RpcAcsRequest<DescribeDomain
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

@@ -15,26 +15,33 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteNatGatewayRequest extends RpcAcsRequest<DeleteNatGatewayResponse> {
-	
-	public DeleteNatGatewayRequest() {
-		super("Ecs", "2014-05-26", "DeleteNatGateway", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String natGatewayId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String natGatewayId;
-
 	private Long ownerId;
+	public DeleteNatGatewayRequest() {
+		super("Ecs", "2014-05-26", "DeleteNatGateway", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -44,6 +51,17 @@ public class DeleteNatGatewayRequest extends RpcAcsRequest<DeleteNatGatewayRespo
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getNatGatewayId() {
+		return this.natGatewayId;
+	}
+
+	public void setNatGatewayId(String natGatewayId) {
+		this.natGatewayId = natGatewayId;
+		if(natGatewayId != null){
+			putQueryParameter("NatGatewayId", natGatewayId);
 		}
 	}
 
@@ -66,17 +84,6 @@ public class DeleteNatGatewayRequest extends RpcAcsRequest<DeleteNatGatewayRespo
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public String getNatGatewayId() {
-		return this.natGatewayId;
-	}
-
-	public void setNatGatewayId(String natGatewayId) {
-		this.natGatewayId = natGatewayId;
-		if(natGatewayId != null){
-			putQueryParameter("NatGatewayId", natGatewayId);
 		}
 	}
 

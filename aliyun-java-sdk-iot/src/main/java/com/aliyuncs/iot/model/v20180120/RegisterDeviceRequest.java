@@ -15,20 +15,118 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RegisterDeviceRequest extends RpcAcsRequest<RegisterDeviceResponse> {
-	
-	public RegisterDeviceRequest() {
-		super("Iot", "2018-01-20", "RegisterDevice");
-	}
+	   
+
+	private String loraNodeType;
+
+	private String iotInstanceId;
+
+	private String nickname;
+
+	private String pinCode;
+
+	private String productKey;
+
+	private String devEui;
+
+	private String joinEui;
 
 	private String deviceName;
 
-	private String productKey;
+	private String appKey;
+	public RegisterDeviceRequest() {
+		super("Iot", "2018-01-20", "RegisterDevice", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getLoraNodeType() {
+		return this.loraNodeType;
+	}
+
+	public void setLoraNodeType(String loraNodeType) {
+		this.loraNodeType = loraNodeType;
+		if(loraNodeType != null){
+			putQueryParameter("LoraNodeType", loraNodeType);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getNickname() {
+		return this.nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+		if(nickname != null){
+			putQueryParameter("Nickname", nickname);
+		}
+	}
+
+	public String getPinCode() {
+		return this.pinCode;
+	}
+
+	public void setPinCode(String pinCode) {
+		this.pinCode = pinCode;
+		if(pinCode != null){
+			putQueryParameter("PinCode", pinCode);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getDevEui() {
+		return this.devEui;
+	}
+
+	public void setDevEui(String devEui) {
+		this.devEui = devEui;
+		if(devEui != null){
+			putQueryParameter("DevEui", devEui);
+		}
+	}
+
+	public String getJoinEui() {
+		return this.joinEui;
+	}
+
+	public void setJoinEui(String joinEui) {
+		this.joinEui = joinEui;
+		if(joinEui != null){
+			putQueryParameter("JoinEui", joinEui);
+		}
+	}
 
 	public String getDeviceName() {
 		return this.deviceName;
@@ -41,14 +139,14 @@ public class RegisterDeviceRequest extends RpcAcsRequest<RegisterDeviceResponse>
 		}
 	}
 
-	public String getProductKey() {
-		return this.productKey;
+	public String getAppKey() {
+		return this.appKey;
 	}
 
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
+	public void setAppKey(String appKey) {
+		this.appKey = appKey;
+		if(appKey != null){
+			putQueryParameter("AppKey", appKey);
 		}
 	}
 

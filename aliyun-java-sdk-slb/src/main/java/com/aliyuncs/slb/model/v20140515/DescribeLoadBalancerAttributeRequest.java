@@ -15,20 +15,17 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeLoadBalancerAttributeRequest extends RpcAcsRequest<DescribeLoadBalancerAttributeResponse> {
-	
-	public DescribeLoadBalancerAttributeRequest() {
-		super("Slb", "2014-05-15", "DescribeLoadBalancerAttribute", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String loadBalancerId;
 
 	private String resourceOwnerAccount;
 
@@ -36,7 +33,15 @@ public class DescribeLoadBalancerAttributeRequest extends RpcAcsRequest<Describe
 
 	private Long ownerId;
 
-	private String tags;
+	private String loadBalancerId;
+	public DescribeLoadBalancerAttributeRequest() {
+		super("Slb", "2014-05-15", "DescribeLoadBalancerAttribute", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,17 +51,6 @@ public class DescribeLoadBalancerAttributeRequest extends RpcAcsRequest<Describe
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
-	}
-
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 
@@ -93,14 +87,14 @@ public class DescribeLoadBalancerAttributeRequest extends RpcAcsRequest<Describe
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 

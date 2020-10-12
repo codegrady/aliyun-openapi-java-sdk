@@ -15,30 +15,35 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeMasterSlaveServerGroupsRequest extends RpcAcsRequest<DescribeMasterSlaveServerGroupsResponse> {
-	
-	public DescribeMasterSlaveServerGroupsRequest() {
-		super("Slb", "2014-05-15", "DescribeMasterSlaveServerGroups", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String loadBalancerId;
+	private Boolean includeListener;
 
 	private String resourceOwnerAccount;
-
-	private Boolean includeListener;
 
 	private String ownerAccount;
 
 	private Long ownerId;
 
-	private String tags;
+	private String loadBalancerId;
+	public DescribeMasterSlaveServerGroupsRequest() {
+		super("Slb", "2014-05-15", "DescribeMasterSlaveServerGroups", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -51,14 +56,14 @@ public class DescribeMasterSlaveServerGroupsRequest extends RpcAcsRequest<Descri
 		}
 	}
 
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
+	public Boolean getIncludeListener() {
+		return this.includeListener;
 	}
 
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
+	public void setIncludeListener(Boolean includeListener) {
+		this.includeListener = includeListener;
+		if(includeListener != null){
+			putQueryParameter("IncludeListener", includeListener.toString());
 		}
 	}
 
@@ -70,17 +75,6 @@ public class DescribeMasterSlaveServerGroupsRequest extends RpcAcsRequest<Descri
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public Boolean getIncludeListener() {
-		return this.includeListener;
-	}
-
-	public void setIncludeListener(Boolean includeListener) {
-		this.includeListener = includeListener;
-		if(includeListener != null){
-			putQueryParameter("IncludeListener", includeListener.toString());
 		}
 	}
 
@@ -106,14 +100,14 @@ public class DescribeMasterSlaveServerGroupsRequest extends RpcAcsRequest<Descri
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 

@@ -141,6 +141,14 @@ public class QueryAdvancedDomainListResponse extends AcsResponse {
 
 		private Integer expirationCurrDateDiff;
 
+		private String email;
+
+		private String zhRegistrantOrganization;
+
+		private String registrantOrganization;
+
+		private List<String> dnsList;
+
 		public String getDomainName() {
 			return this.domainName;
 		}
@@ -275,6 +283,38 @@ public class QueryAdvancedDomainListResponse extends AcsResponse {
 
 		public void setExpirationCurrDateDiff(Integer expirationCurrDateDiff) {
 			this.expirationCurrDateDiff = expirationCurrDateDiff;
+		}
+
+		public String getEmail() {
+			return this.email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+		public String getZhRegistrantOrganization() {
+			return this.zhRegistrantOrganization;
+		}
+
+		public void setZhRegistrantOrganization(String zhRegistrantOrganization) {
+			this.zhRegistrantOrganization = zhRegistrantOrganization;
+		}
+
+		public String getRegistrantOrganization() {
+			return this.registrantOrganization;
+		}
+
+		public void setRegistrantOrganization(String registrantOrganization) {
+			this.registrantOrganization = registrantOrganization;
+		}
+
+		public List<String> getDnsList() {
+			return this.dnsList;
+		}
+
+		public void setDnsList(List<String> dnsList) {
+			this.dnsList = dnsList;
 		}
 	}
 

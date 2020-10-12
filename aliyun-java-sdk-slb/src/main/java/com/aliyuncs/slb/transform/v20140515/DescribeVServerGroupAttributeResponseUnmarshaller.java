@@ -19,28 +19,30 @@ import java.util.List;
 
 import com.aliyuncs.slb.model.v20140515.DescribeVServerGroupAttributeResponse;
 import com.aliyuncs.slb.model.v20140515.DescribeVServerGroupAttributeResponse.BackendServer;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeVServerGroupAttributeResponseUnmarshaller {
 
-	public static DescribeVServerGroupAttributeResponse unmarshall(DescribeVServerGroupAttributeResponse describeVServerGroupAttributeResponse, UnmarshallerContext context) {
+	public static DescribeVServerGroupAttributeResponse unmarshall(DescribeVServerGroupAttributeResponse describeVServerGroupAttributeResponse, UnmarshallerContext _ctx) {
 		
-		describeVServerGroupAttributeResponse.setRequestId(context.stringValue("DescribeVServerGroupAttributeResponse.RequestId"));
-		describeVServerGroupAttributeResponse.setVServerGroupId(context.stringValue("DescribeVServerGroupAttributeResponse.VServerGroupId"));
-		describeVServerGroupAttributeResponse.setVServerGroupName(context.stringValue("DescribeVServerGroupAttributeResponse.VServerGroupName"));
+		describeVServerGroupAttributeResponse.setRequestId(_ctx.stringValue("DescribeVServerGroupAttributeResponse.RequestId"));
+		describeVServerGroupAttributeResponse.setVServerGroupId(_ctx.stringValue("DescribeVServerGroupAttributeResponse.VServerGroupId"));
+		describeVServerGroupAttributeResponse.setVServerGroupName(_ctx.stringValue("DescribeVServerGroupAttributeResponse.VServerGroupName"));
+		describeVServerGroupAttributeResponse.setLoadBalancerId(_ctx.stringValue("DescribeVServerGroupAttributeResponse.LoadBalancerId"));
 
 		List<BackendServer> backendServers = new ArrayList<BackendServer>();
-		for (int i = 0; i < context.lengthValue("DescribeVServerGroupAttributeResponse.BackendServers.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeVServerGroupAttributeResponse.BackendServers.Length"); i++) {
 			BackendServer backendServer = new BackendServer();
-			backendServer.setServerId(context.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].ServerId"));
-			backendServer.setPort(context.integerValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].Port"));
-			backendServer.setWeight(context.integerValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].Weight"));
-			backendServer.setType(context.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].Type"));
-			backendServer.setServerIp(context.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].ServerIp"));
-			backendServer.setEniHost(context.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].EniHost"));
-			backendServer.setVpcId(context.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].VpcId"));
+			backendServer.setServerId(_ctx.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].ServerId"));
+			backendServer.setPort(_ctx.integerValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].Port"));
+			backendServer.setWeight(_ctx.integerValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].Weight"));
+			backendServer.setType(_ctx.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].Type"));
+			backendServer.setServerIp(_ctx.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].ServerIp"));
+			backendServer.setVpcId(_ctx.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].VpcId"));
+			backendServer.setVbrId(_ctx.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].VbrId"));
+			backendServer.setServerRegionId(_ctx.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].ServerRegionId"));
+			backendServer.setDescription(_ctx.stringValue("DescribeVServerGroupAttributeResponse.BackendServers["+ i +"].Description"));
 
 			backendServers.add(backendServer);
 		}

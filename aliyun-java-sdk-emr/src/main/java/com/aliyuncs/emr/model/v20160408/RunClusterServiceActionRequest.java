@@ -15,18 +15,30 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RunClusterServiceActionRequest extends RpcAcsRequest<RunClusterServiceActionResponse> {
-	
-	public RunClusterServiceActionRequest() {
-		super("Emr", "2016-04-08", "RunClusterServiceAction");
-	}
+	   
+
+	private List<String> hostGroupIdLists;
 
 	private Long resourceOwnerId;
+
+	private String serviceActionName;
+
+	private Boolean isRolling;
+
+	private Integer totlerateFailCount;
+
+	private String serviceName;
+
+	private String executeStrategy;
 
 	private Boolean onlyRestartStaleConfigNodes;
 
@@ -38,19 +50,36 @@ public class RunClusterServiceActionRequest extends RpcAcsRequest<RunClusterServ
 
 	private String componentNameList;
 
-	private String serviceActionName;
-
-	private Boolean isRolling;
-
-	private Integer totlerateFailCount;
-
-	private String serviceName;
-
 	private String comment;
+
+	private String customParams;
+
+	private Long interval;
 
 	private String hostIdList;
 
 	private Boolean turnOnMaintenanceMode;
+	public RunClusterServiceActionRequest() {
+		super("Emr", "2016-04-08", "RunClusterServiceAction");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public List<String> getHostGroupIdLists() {
+		return this.hostGroupIdLists;
+	}
+
+	public void setHostGroupIdLists(List<String> hostGroupIdLists) {
+		this.hostGroupIdLists = hostGroupIdLists;	
+		if (hostGroupIdLists != null) {
+			for (int i = 0; i < hostGroupIdLists.size(); i++) {
+				putQueryParameter("HostGroupIdList." + (i + 1) , hostGroupIdLists.get(i));
+			}
+		}	
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -60,6 +89,61 @@ public class RunClusterServiceActionRequest extends RpcAcsRequest<RunClusterServ
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getServiceActionName() {
+		return this.serviceActionName;
+	}
+
+	public void setServiceActionName(String serviceActionName) {
+		this.serviceActionName = serviceActionName;
+		if(serviceActionName != null){
+			putQueryParameter("ServiceActionName", serviceActionName);
+		}
+	}
+
+	public Boolean getIsRolling() {
+		return this.isRolling;
+	}
+
+	public void setIsRolling(Boolean isRolling) {
+		this.isRolling = isRolling;
+		if(isRolling != null){
+			putQueryParameter("IsRolling", isRolling.toString());
+		}
+	}
+
+	public Integer getTotlerateFailCount() {
+		return this.totlerateFailCount;
+	}
+
+	public void setTotlerateFailCount(Integer totlerateFailCount) {
+		this.totlerateFailCount = totlerateFailCount;
+		if(totlerateFailCount != null){
+			putQueryParameter("TotlerateFailCount", totlerateFailCount.toString());
+		}
+	}
+
+	public String getServiceName() {
+		return this.serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+		if(serviceName != null){
+			putQueryParameter("ServiceName", serviceName);
+		}
+	}
+
+	public String getExecuteStrategy() {
+		return this.executeStrategy;
+	}
+
+	public void setExecuteStrategy(String executeStrategy) {
+		this.executeStrategy = executeStrategy;
+		if(executeStrategy != null){
+			putQueryParameter("ExecuteStrategy", executeStrategy);
 		}
 	}
 
@@ -118,50 +202,6 @@ public class RunClusterServiceActionRequest extends RpcAcsRequest<RunClusterServ
 		}
 	}
 
-	public String getServiceActionName() {
-		return this.serviceActionName;
-	}
-
-	public void setServiceActionName(String serviceActionName) {
-		this.serviceActionName = serviceActionName;
-		if(serviceActionName != null){
-			putQueryParameter("ServiceActionName", serviceActionName);
-		}
-	}
-
-	public Boolean getIsRolling() {
-		return this.isRolling;
-	}
-
-	public void setIsRolling(Boolean isRolling) {
-		this.isRolling = isRolling;
-		if(isRolling != null){
-			putQueryParameter("IsRolling", isRolling.toString());
-		}
-	}
-
-	public Integer getTotlerateFailCount() {
-		return this.totlerateFailCount;
-	}
-
-	public void setTotlerateFailCount(Integer totlerateFailCount) {
-		this.totlerateFailCount = totlerateFailCount;
-		if(totlerateFailCount != null){
-			putQueryParameter("TotlerateFailCount", totlerateFailCount.toString());
-		}
-	}
-
-	public String getServiceName() {
-		return this.serviceName;
-	}
-
-	public void setServiceName(String serviceName) {
-		this.serviceName = serviceName;
-		if(serviceName != null){
-			putQueryParameter("ServiceName", serviceName);
-		}
-	}
-
 	public String getComment() {
 		return this.comment;
 	}
@@ -170,6 +210,28 @@ public class RunClusterServiceActionRequest extends RpcAcsRequest<RunClusterServ
 		this.comment = comment;
 		if(comment != null){
 			putQueryParameter("Comment", comment);
+		}
+	}
+
+	public String getCustomParams() {
+		return this.customParams;
+	}
+
+	public void setCustomParams(String customParams) {
+		this.customParams = customParams;
+		if(customParams != null){
+			putQueryParameter("CustomParams", customParams);
+		}
+	}
+
+	public Long getInterval() {
+		return this.interval;
+	}
+
+	public void setInterval(Long interval) {
+		this.interval = interval;
+		if(interval != null){
+			putQueryParameter("Interval", interval.toString());
 		}
 	}
 

@@ -15,36 +15,32 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteDeploymentSetRequest extends RpcAcsRequest<DeleteDeploymentSetResponse> {
-	
-	public DeleteDeploymentSetRequest() {
-		super("Ecs", "2014-05-26", "DeleteDeploymentSet", "ecs");
-	}
-
-	private String deploymentSetId;
+	   
 
 	private Long resourceOwnerId;
+
+	private String deploymentSetId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	public String getDeploymentSetId() {
-		return this.deploymentSetId;
-	}
-
-	public void setDeploymentSetId(String deploymentSetId) {
-		this.deploymentSetId = deploymentSetId;
-		if(deploymentSetId != null){
-			putQueryParameter("DeploymentSetId", deploymentSetId);
-		}
+	public DeleteDeploymentSetRequest() {
+		super("Ecs", "2014-05-26", "DeleteDeploymentSet", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -55,6 +51,17 @@ public class DeleteDeploymentSetRequest extends RpcAcsRequest<DeleteDeploymentSe
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getDeploymentSetId() {
+		return this.deploymentSetId;
+	}
+
+	public void setDeploymentSetId(String deploymentSetId) {
+		this.deploymentSetId = deploymentSetId;
+		if(deploymentSetId != null){
+			putQueryParameter("DeploymentSetId", deploymentSetId);
 		}
 	}
 

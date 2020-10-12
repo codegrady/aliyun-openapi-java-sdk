@@ -14,32 +14,48 @@
 
 package com.aliyuncs.ccc.transform.v20170705;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aliyuncs.ccc.model.v20170705.RequestLoginInfoResponse;
 import com.aliyuncs.ccc.model.v20170705.RequestLoginInfoResponse.LoginInfo;
+import com.aliyuncs.ccc.model.v20170705.RequestLoginInfoResponse.LoginInfo.Role;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class RequestLoginInfoResponseUnmarshaller {
 
-	public static RequestLoginInfoResponse unmarshall(RequestLoginInfoResponse requestLoginInfoResponse, UnmarshallerContext context) {
+	public static RequestLoginInfoResponse unmarshall(RequestLoginInfoResponse requestLoginInfoResponse, UnmarshallerContext _ctx) {
 		
-		requestLoginInfoResponse.setRequestId(context.stringValue("RequestLoginInfoResponse.RequestId"));
-		requestLoginInfoResponse.setSuccess(context.booleanValue("RequestLoginInfoResponse.Success"));
-		requestLoginInfoResponse.setCode(context.stringValue("RequestLoginInfoResponse.Code"));
-		requestLoginInfoResponse.setMessage(context.stringValue("RequestLoginInfoResponse.Message"));
-		requestLoginInfoResponse.setHttpStatusCode(context.integerValue("RequestLoginInfoResponse.HttpStatusCode"));
+		requestLoginInfoResponse.setRequestId(_ctx.stringValue("RequestLoginInfoResponse.RequestId"));
+		requestLoginInfoResponse.setSuccess(_ctx.booleanValue("RequestLoginInfoResponse.Success"));
+		requestLoginInfoResponse.setCode(_ctx.stringValue("RequestLoginInfoResponse.Code"));
+		requestLoginInfoResponse.setMessage(_ctx.stringValue("RequestLoginInfoResponse.Message"));
+		requestLoginInfoResponse.setHttpStatusCode(_ctx.integerValue("RequestLoginInfoResponse.HttpStatusCode"));
 
 		LoginInfo loginInfo = new LoginInfo();
-		loginInfo.setUserName(context.stringValue("RequestLoginInfoResponse.LoginInfo.UserName"));
-		loginInfo.setDisplayName(context.stringValue("RequestLoginInfoResponse.LoginInfo.DisplayName"));
-		loginInfo.setPhoneNumber(context.stringValue("RequestLoginInfoResponse.LoginInfo.PhoneNumber"));
-		loginInfo.setRegion(context.stringValue("RequestLoginInfoResponse.LoginInfo.Region"));
-		loginInfo.setWebRtcUrl(context.stringValue("RequestLoginInfoResponse.LoginInfo.WebRtcUrl"));
-		loginInfo.setAgentServerUrl(context.stringValue("RequestLoginInfoResponse.LoginInfo.AgentServerUrl"));
-		loginInfo.setExtension(context.stringValue("RequestLoginInfoResponse.LoginInfo.Extension"));
-		loginInfo.setTenantId(context.stringValue("RequestLoginInfoResponse.LoginInfo.TenantId"));
-		loginInfo.setSignature(context.stringValue("RequestLoginInfoResponse.LoginInfo.Signature"));
-		loginInfo.setSignData(context.stringValue("RequestLoginInfoResponse.LoginInfo.SignData"));
+		loginInfo.setUserName(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.UserName"));
+		loginInfo.setDisplayName(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.DisplayName"));
+		loginInfo.setPhoneNumber(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.PhoneNumber"));
+		loginInfo.setRegion(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Region"));
+		loginInfo.setWebRtcUrl(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.WebRtcUrl"));
+		loginInfo.setAgentServerUrl(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.AgentServerUrl"));
+		loginInfo.setExtension(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Extension"));
+		loginInfo.setTenantId(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.TenantId"));
+		loginInfo.setSignature(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Signature"));
+		loginInfo.setSignData(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.SignData"));
+
+		List<Role> roles = new ArrayList<Role>();
+		for (int i = 0; i < _ctx.lengthValue("RequestLoginInfoResponse.LoginInfo.Roles.Length"); i++) {
+			Role role = new Role();
+			role.setRoleId(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Roles["+ i +"].RoleId"));
+			role.setInstanceId(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Roles["+ i +"].InstanceId"));
+			role.setRoleName(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Roles["+ i +"].RoleName"));
+			role.setRoleDescription(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Roles["+ i +"].RoleDescription"));
+
+			roles.add(role);
+		}
+		loginInfo.setRoles(roles);
 		requestLoginInfoResponse.setLoginInfo(loginInfo);
 	 
 	 	return requestLoginInfoResponse;

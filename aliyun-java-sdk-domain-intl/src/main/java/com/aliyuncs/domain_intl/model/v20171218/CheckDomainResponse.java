@@ -32,6 +32,12 @@ public class CheckDomainResponse extends AcsResponse {
 
 	private String premium;
 
+	private String reason;
+
+	private Long price;
+
+	private Boolean dynamicCheck;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -62,6 +68,30 @@ public class CheckDomainResponse extends AcsResponse {
 
 	public void setPremium(String premium) {
 		this.premium = premium;
+	}
+
+	public String getReason() {
+		return this.reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public Long getPrice() {
+		return this.price;
+	}
+
+	public void setPrice(Long price) {
+		this.price = price;
+	}
+
+	public Boolean getDynamicCheck() {
+		return this.dynamicCheck;
+	}
+
+	public void setDynamicCheck(Boolean dynamicCheck) {
+		this.dynamicCheck = dynamicCheck;
 	}
 
 	@Override

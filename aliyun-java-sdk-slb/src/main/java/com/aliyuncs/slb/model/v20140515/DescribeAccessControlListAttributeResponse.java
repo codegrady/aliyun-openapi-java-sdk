@@ -33,6 +33,8 @@ public class DescribeAccessControlListAttributeResponse extends AcsResponse {
 
 	private String addressIPVersion;
 
+	private String resourceGroupId;
+
 	private List<AclEntry> aclEntrys;
 
 	private List<RelatedListener> relatedListeners;
@@ -67,6 +69,14 @@ public class DescribeAccessControlListAttributeResponse extends AcsResponse {
 
 	public void setAddressIPVersion(String addressIPVersion) {
 		this.addressIPVersion = addressIPVersion;
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
 	}
 
 	public List<AclEntry> getAclEntrys() {
@@ -142,11 +152,11 @@ public class DescribeAccessControlListAttributeResponse extends AcsResponse {
 			this.aclType = aclType;
 		}
 
-		public String getProtocol() {
+		public String getBizProtocol() {
 			return this.protocol;
 		}
 
-		public void setProtocol(String protocol) {
+		public void setBizProtocol(String protocol) {
 			this.protocol = protocol;
 		}
 	}

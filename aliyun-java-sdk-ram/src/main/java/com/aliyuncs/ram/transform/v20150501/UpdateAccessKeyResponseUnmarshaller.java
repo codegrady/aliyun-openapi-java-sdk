@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.UpdateAccessKeyResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class UpdateAccessKeyResponseUnmarshaller {
 
-	public static UpdateAccessKeyResponse unmarshall(UpdateAccessKeyResponse updateAccessKeyResponse, UnmarshallerContext context) {
+	public static UpdateAccessKeyResponse unmarshall(UpdateAccessKeyResponse updateAccessKeyResponse, UnmarshallerContext _ctx) {
 		
-		updateAccessKeyResponse.setRequestId(context.stringValue("UpdateAccessKeyResponse.RequestId"));
+		updateAccessKeyResponse.setRequestId(_ctx.stringValue("UpdateAccessKeyResponse.RequestId"));
 	 
 	 	return updateAccessKeyResponse;
 	}

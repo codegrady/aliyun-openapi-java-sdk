@@ -15,45 +15,30 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteLiveSnapshotDetectPornConfigRequest extends RpcAcsRequest<DeleteLiveSnapshotDetectPornConfigResponse> {
-	
-	public DeleteLiveSnapshotDetectPornConfigRequest() {
-		super("live", "2016-11-01", "DeleteLiveSnapshotDetectPornConfig", "live");
-	}
-
-	private String appName;
-
-	private String securityToken;
+	   
 
 	private String domainName;
 
 	private Long ownerId;
 
-	public String getAppName() {
-		return this.appName;
-	}
+	private String appName;
 
-	public void setAppName(String appName) {
-		this.appName = appName;
-		if(appName != null){
-			putQueryParameter("AppName", appName);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
+	private String securityToken;
+	public DeleteLiveSnapshotDetectPornConfigRequest() {
+		super("live", "2016-11-01", "DeleteLiveSnapshotDetectPornConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDomainName() {
@@ -75,6 +60,28 @@ public class DeleteLiveSnapshotDetectPornConfigRequest extends RpcAcsRequest<Del
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getAppName() {
+		return this.appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
+		if(appName != null){
+			putQueryParameter("AppName", appName);
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

@@ -48,8 +48,6 @@ public class GetMessageCallbackResponse extends AcsResponse {
 
 		private String callbackType;
 
-		private String callbackSwitch;
-
 		private String callbackURL;
 
 		private String eventTypeList;
@@ -58,20 +56,18 @@ public class GetMessageCallbackResponse extends AcsResponse {
 
 		private String authKey;
 
+		private String mnsEndpoint;
+
+		private String mnsQueueName;
+
+		private String appId;
+
 		public String getCallbackType() {
 			return this.callbackType;
 		}
 
 		public void setCallbackType(String callbackType) {
 			this.callbackType = callbackType;
-		}
-
-		public String getCallbackSwitch() {
-			return this.callbackSwitch;
-		}
-
-		public void setCallbackSwitch(String callbackSwitch) {
-			this.callbackSwitch = callbackSwitch;
 		}
 
 		public String getCallbackURL() {
@@ -104,6 +100,30 @@ public class GetMessageCallbackResponse extends AcsResponse {
 
 		public void setAuthKey(String authKey) {
 			this.authKey = authKey;
+		}
+
+		public String getMnsEndpoint() {
+			return this.mnsEndpoint;
+		}
+
+		public void setMnsEndpoint(String mnsEndpoint) {
+			this.mnsEndpoint = mnsEndpoint;
+		}
+
+		public String getMnsQueueName() {
+			return this.mnsQueueName;
+		}
+
+		public void setMnsQueueName(String mnsQueueName) {
+			this.mnsQueueName = mnsQueueName;
+		}
+
+		public String getAppId() {
+			return this.appId;
+		}
+
+		public void setAppId(String appId) {
+			this.appId = appId;
 		}
 	}
 

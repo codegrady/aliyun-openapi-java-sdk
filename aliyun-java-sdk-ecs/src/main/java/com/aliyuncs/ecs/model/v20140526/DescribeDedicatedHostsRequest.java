@@ -16,28 +16,19 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDedicatedHostsRequest extends RpcAcsRequest<DescribeDedicatedHostsResponse> {
-	
-	public DescribeDedicatedHostsRequest() {
-		super("Ecs", "2014-05-26", "DescribeDedicatedHosts", "ecs");
-	}
+	   
 
 	private String dedicatedHostIds;
 
 	private Long resourceOwnerId;
-
-	private String dedicatedHostName;
-
-	private String resourceOwnerAccount;
-
-	private String ownerAccount;
-
-	private Long ownerId;
 
 	private Integer pageNumber;
 
@@ -47,13 +38,29 @@ public class DescribeDedicatedHostsRequest extends RpcAcsRequest<DescribeDedicat
 
 	private Integer pageSize;
 
-	private String zoneId;
-
 	private String dedicatedHostType;
 
 	private List<Tag> tags;
 
+	private String dedicatedHostName;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private Long ownerId;
+
+	private String zoneId;
+
 	private String status;
+	public DescribeDedicatedHostsRequest() {
+		super("Ecs", "2014-05-26", "DescribeDedicatedHosts", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getDedicatedHostIds() {
 		return this.dedicatedHostIds;
@@ -74,50 +81,6 @@ public class DescribeDedicatedHostsRequest extends RpcAcsRequest<DescribeDedicat
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getDedicatedHostName() {
-		return this.dedicatedHostName;
-	}
-
-	public void setDedicatedHostName(String dedicatedHostName) {
-		this.dedicatedHostName = dedicatedHostName;
-		if(dedicatedHostName != null){
-			putQueryParameter("DedicatedHostName", dedicatedHostName);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 
@@ -165,17 +128,6 @@ public class DescribeDedicatedHostsRequest extends RpcAcsRequest<DescribeDedicat
 		}
 	}
 
-	public String getZoneId() {
-		return this.zoneId;
-	}
-
-	public void setZoneId(String zoneId) {
-		this.zoneId = zoneId;
-		if(zoneId != null){
-			putQueryParameter("ZoneId", zoneId);
-		}
-	}
-
 	public String getDedicatedHostType() {
 		return this.dedicatedHostType;
 	}
@@ -199,6 +151,61 @@ public class DescribeDedicatedHostsRequest extends RpcAcsRequest<DescribeDedicat
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	
+	}
+
+	public String getDedicatedHostName() {
+		return this.dedicatedHostName;
+	}
+
+	public void setDedicatedHostName(String dedicatedHostName) {
+		this.dedicatedHostName = dedicatedHostName;
+		if(dedicatedHostName != null){
+			putQueryParameter("DedicatedHostName", dedicatedHostName);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
+		}
 	}
 
 	public String getStatus() {

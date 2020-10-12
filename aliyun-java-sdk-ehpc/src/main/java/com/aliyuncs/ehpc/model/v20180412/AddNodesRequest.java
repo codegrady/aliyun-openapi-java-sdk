@@ -15,22 +15,41 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
-	
-	public AddNodesRequest() {
-		super("EHPC", "2018-04-12", "AddNodes", "ehs");
-	}
+	   
+
+	private String imageId;
+
+	private String clientToken;
+
+	private Boolean allocatePublicAddress;
+
+	private Integer internetMaxBandWidthOut;
+
+	private String jobQueue;
+
+	private String imageOwnerAlias;
+
+	private String systemDiskType;
+
+	private Integer systemDiskSize;
+
+	private String instanceType;
+
+	private String hostNamePrefix;
+
+	private String computeSpotPriceLimit;
 
 	private Integer autoRenewPeriod;
 
 	private Integer period;
-
-	private String imageId;
 
 	private Integer count;
 
@@ -38,19 +57,154 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 
 	private String computeSpotStrategy;
 
-	private String jobQueue;
+	private String hostNameSuffix;
 
-	private String imageOwnerAlias;
+	private String vSwitchId;
 
 	private String periodUnit;
+
+	private Boolean computeEnableHt;
 
 	private String autoRenew;
 
 	private String ecsChargeType;
 
-	private String instanceType;
+	private String internetChargeType;
 
-	private String computeSpotPriceLimit;
+	private String createMode;
+
+	private String zoneId;
+
+	private Integer internetMaxBandWidthIn;
+	public AddNodesRequest() {
+		super("EHPC", "2018-04-12", "AddNodes");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getImageId() {
+		return this.imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+		if(imageId != null){
+			putQueryParameter("ImageId", imageId);
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public Boolean getAllocatePublicAddress() {
+		return this.allocatePublicAddress;
+	}
+
+	public void setAllocatePublicAddress(Boolean allocatePublicAddress) {
+		this.allocatePublicAddress = allocatePublicAddress;
+		if(allocatePublicAddress != null){
+			putQueryParameter("AllocatePublicAddress", allocatePublicAddress.toString());
+		}
+	}
+
+	public Integer getInternetMaxBandWidthOut() {
+		return this.internetMaxBandWidthOut;
+	}
+
+	public void setInternetMaxBandWidthOut(Integer internetMaxBandWidthOut) {
+		this.internetMaxBandWidthOut = internetMaxBandWidthOut;
+		if(internetMaxBandWidthOut != null){
+			putQueryParameter("InternetMaxBandWidthOut", internetMaxBandWidthOut.toString());
+		}
+	}
+
+	public String getJobQueue() {
+		return this.jobQueue;
+	}
+
+	public void setJobQueue(String jobQueue) {
+		this.jobQueue = jobQueue;
+		if(jobQueue != null){
+			putQueryParameter("JobQueue", jobQueue);
+		}
+	}
+
+	public String getImageOwnerAlias() {
+		return this.imageOwnerAlias;
+	}
+
+	public void setImageOwnerAlias(String imageOwnerAlias) {
+		this.imageOwnerAlias = imageOwnerAlias;
+		if(imageOwnerAlias != null){
+			putQueryParameter("ImageOwnerAlias", imageOwnerAlias);
+		}
+	}
+
+	public String getSystemDiskType() {
+		return this.systemDiskType;
+	}
+
+	public void setSystemDiskType(String systemDiskType) {
+		this.systemDiskType = systemDiskType;
+		if(systemDiskType != null){
+			putQueryParameter("SystemDiskType", systemDiskType);
+		}
+	}
+
+	public Integer getSystemDiskSize() {
+		return this.systemDiskSize;
+	}
+
+	public void setSystemDiskSize(Integer systemDiskSize) {
+		this.systemDiskSize = systemDiskSize;
+		if(systemDiskSize != null){
+			putQueryParameter("SystemDiskSize", systemDiskSize.toString());
+		}
+	}
+
+	public String getInstanceType() {
+		return this.instanceType;
+	}
+
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+		if(instanceType != null){
+			putQueryParameter("InstanceType", instanceType);
+		}
+	}
+
+	public String getHostNamePrefix() {
+		return this.hostNamePrefix;
+	}
+
+	public void setHostNamePrefix(String hostNamePrefix) {
+		this.hostNamePrefix = hostNamePrefix;
+		if(hostNamePrefix != null){
+			putQueryParameter("HostNamePrefix", hostNamePrefix);
+		}
+	}
+
+	public String getComputeSpotPriceLimit() {
+		return this.computeSpotPriceLimit;
+	}
+
+	public void setComputeSpotPriceLimit(String computeSpotPriceLimit) {
+		this.computeSpotPriceLimit = computeSpotPriceLimit;
+		if(computeSpotPriceLimit != null){
+			putQueryParameter("ComputeSpotPriceLimit", computeSpotPriceLimit);
+		}
+	}
 
 	public Integer getAutoRenewPeriod() {
 		return this.autoRenewPeriod;
@@ -71,17 +225,6 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 		this.period = period;
 		if(period != null){
 			putQueryParameter("Period", period.toString());
-		}
-	}
-
-	public String getImageId() {
-		return this.imageId;
-	}
-
-	public void setImageId(String imageId) {
-		this.imageId = imageId;
-		if(imageId != null){
-			putQueryParameter("ImageId", imageId);
 		}
 	}
 
@@ -118,25 +261,25 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 		}
 	}
 
-	public String getJobQueue() {
-		return this.jobQueue;
+	public String getHostNameSuffix() {
+		return this.hostNameSuffix;
 	}
 
-	public void setJobQueue(String jobQueue) {
-		this.jobQueue = jobQueue;
-		if(jobQueue != null){
-			putQueryParameter("JobQueue", jobQueue);
+	public void setHostNameSuffix(String hostNameSuffix) {
+		this.hostNameSuffix = hostNameSuffix;
+		if(hostNameSuffix != null){
+			putQueryParameter("HostNameSuffix", hostNameSuffix);
 		}
 	}
 
-	public String getImageOwnerAlias() {
-		return this.imageOwnerAlias;
+	public String getVSwitchId() {
+		return this.vSwitchId;
 	}
 
-	public void setImageOwnerAlias(String imageOwnerAlias) {
-		this.imageOwnerAlias = imageOwnerAlias;
-		if(imageOwnerAlias != null){
-			putQueryParameter("ImageOwnerAlias", imageOwnerAlias);
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
 		}
 	}
 
@@ -148,6 +291,17 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 		this.periodUnit = periodUnit;
 		if(periodUnit != null){
 			putQueryParameter("PeriodUnit", periodUnit);
+		}
+	}
+
+	public Boolean getComputeEnableHt() {
+		return this.computeEnableHt;
+	}
+
+	public void setComputeEnableHt(Boolean computeEnableHt) {
+		this.computeEnableHt = computeEnableHt;
+		if(computeEnableHt != null){
+			putQueryParameter("ComputeEnableHt", computeEnableHt.toString());
 		}
 	}
 
@@ -173,25 +327,47 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 		}
 	}
 
-	public String getInstanceType() {
-		return this.instanceType;
+	public String getInternetChargeType() {
+		return this.internetChargeType;
 	}
 
-	public void setInstanceType(String instanceType) {
-		this.instanceType = instanceType;
-		if(instanceType != null){
-			putQueryParameter("InstanceType", instanceType);
+	public void setInternetChargeType(String internetChargeType) {
+		this.internetChargeType = internetChargeType;
+		if(internetChargeType != null){
+			putQueryParameter("InternetChargeType", internetChargeType);
 		}
 	}
 
-	public String getComputeSpotPriceLimit() {
-		return this.computeSpotPriceLimit;
+	public String getCreateMode() {
+		return this.createMode;
 	}
 
-	public void setComputeSpotPriceLimit(String computeSpotPriceLimit) {
-		this.computeSpotPriceLimit = computeSpotPriceLimit;
-		if(computeSpotPriceLimit != null){
-			putQueryParameter("ComputeSpotPriceLimit", computeSpotPriceLimit);
+	public void setCreateMode(String createMode) {
+		this.createMode = createMode;
+		if(createMode != null){
+			putQueryParameter("CreateMode", createMode);
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public Integer getInternetMaxBandWidthIn() {
+		return this.internetMaxBandWidthIn;
+	}
+
+	public void setInternetMaxBandWidthIn(Integer internetMaxBandWidthIn) {
+		this.internetMaxBandWidthIn = internetMaxBandWidthIn;
+		if(internetMaxBandWidthIn != null){
+			putQueryParameter("InternetMaxBandWidthIn", internetMaxBandWidthIn.toString());
 		}
 	}
 

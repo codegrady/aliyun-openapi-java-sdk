@@ -15,64 +15,70 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyResponse> {
-	
-	public ModifyBackupPolicyRequest() {
-		super("Rds", "2014-08-15", "ModifyBackupPolicy", "rds");
-	}
-
-	private String preferredBackupPeriod;
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String localLogRetentionHours;
-
-	private String ownerAccount;
 
 	private String logBackupFrequency;
 
+	private String archiveBackupKeepCount;
+
 	private String backupLog;
 
-	private String localLogRetentionSpace;
-
-	private Long ownerId;
-
-	private String duplication;
-
-	private String preferredBackupTime;
-
-	private String backupRetentionPeriod;
-
-	private String duplicationContent;
+	private String backupInterval;
 
 	private String highSpaceUsageProtection;
 
+	private Integer logBackupLocalRetentionNumber;
+
 	private String dBInstanceId;
-
-	private String duplicationLocation;
-
-	private String logBackupRetentionPeriod;
 
 	private String enableBackupLog;
 
 	private String backupPolicyMode;
 
-	public String getPreferredBackupPeriod() {
-		return this.preferredBackupPeriod;
-	}
+	private String preferredBackupPeriod;
 
-	public void setPreferredBackupPeriod(String preferredBackupPeriod) {
-		this.preferredBackupPeriod = preferredBackupPeriod;
-		if(preferredBackupPeriod != null){
-			putQueryParameter("PreferredBackupPeriod", preferredBackupPeriod);
-		}
+	private String releasedKeepPolicy;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private String compressType;
+
+	private String localLogRetentionSpace;
+
+	private Long ownerId;
+
+	private String archiveBackupKeepPolicy;
+
+	private String preferredBackupTime;
+
+	private String backupRetentionPeriod;
+
+	private String archiveBackupRetentionPeriod;
+
+	private String category;
+
+	private String logBackupRetentionPeriod;
+	public ModifyBackupPolicyRequest() {
+		super("Rds", "2014-08-15", "ModifyBackupPolicy", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -83,17 +89,6 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -108,17 +103,6 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		}
 	}
 
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
 	public String getLogBackupFrequency() {
 		return this.logBackupFrequency;
 	}
@@ -130,6 +114,17 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		}
 	}
 
+	public String getArchiveBackupKeepCount() {
+		return this.archiveBackupKeepCount;
+	}
+
+	public void setArchiveBackupKeepCount(String archiveBackupKeepCount) {
+		this.archiveBackupKeepCount = archiveBackupKeepCount;
+		if(archiveBackupKeepCount != null){
+			putQueryParameter("ArchiveBackupKeepCount", archiveBackupKeepCount);
+		}
+	}
+
 	public String getBackupLog() {
 		return this.backupLog;
 	}
@@ -138,6 +133,127 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		this.backupLog = backupLog;
 		if(backupLog != null){
 			putQueryParameter("BackupLog", backupLog);
+		}
+	}
+
+	public String getBackupInterval() {
+		return this.backupInterval;
+	}
+
+	public void setBackupInterval(String backupInterval) {
+		this.backupInterval = backupInterval;
+		if(backupInterval != null){
+			putQueryParameter("BackupInterval", backupInterval);
+		}
+	}
+
+	public String getHighSpaceUsageProtection() {
+		return this.highSpaceUsageProtection;
+	}
+
+	public void setHighSpaceUsageProtection(String highSpaceUsageProtection) {
+		this.highSpaceUsageProtection = highSpaceUsageProtection;
+		if(highSpaceUsageProtection != null){
+			putQueryParameter("HighSpaceUsageProtection", highSpaceUsageProtection);
+		}
+	}
+
+	public Integer getLogBackupLocalRetentionNumber() {
+		return this.logBackupLocalRetentionNumber;
+	}
+
+	public void setLogBackupLocalRetentionNumber(Integer logBackupLocalRetentionNumber) {
+		this.logBackupLocalRetentionNumber = logBackupLocalRetentionNumber;
+		if(logBackupLocalRetentionNumber != null){
+			putQueryParameter("LogBackupLocalRetentionNumber", logBackupLocalRetentionNumber.toString());
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getEnableBackupLog() {
+		return this.enableBackupLog;
+	}
+
+	public void setEnableBackupLog(String enableBackupLog) {
+		this.enableBackupLog = enableBackupLog;
+		if(enableBackupLog != null){
+			putQueryParameter("EnableBackupLog", enableBackupLog);
+		}
+	}
+
+	public String getBackupPolicyMode() {
+		return this.backupPolicyMode;
+	}
+
+	public void setBackupPolicyMode(String backupPolicyMode) {
+		this.backupPolicyMode = backupPolicyMode;
+		if(backupPolicyMode != null){
+			putQueryParameter("BackupPolicyMode", backupPolicyMode);
+		}
+	}
+
+	public String getPreferredBackupPeriod() {
+		return this.preferredBackupPeriod;
+	}
+
+	public void setPreferredBackupPeriod(String preferredBackupPeriod) {
+		this.preferredBackupPeriod = preferredBackupPeriod;
+		if(preferredBackupPeriod != null){
+			putQueryParameter("PreferredBackupPeriod", preferredBackupPeriod);
+		}
+	}
+
+	public String getReleasedKeepPolicy() {
+		return this.releasedKeepPolicy;
+	}
+
+	public void setReleasedKeepPolicy(String releasedKeepPolicy) {
+		this.releasedKeepPolicy = releasedKeepPolicy;
+		if(releasedKeepPolicy != null){
+			putQueryParameter("ReleasedKeepPolicy", releasedKeepPolicy);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public String getCompressType() {
+		return this.compressType;
+	}
+
+	public void setCompressType(String compressType) {
+		this.compressType = compressType;
+		if(compressType != null){
+			putQueryParameter("CompressType", compressType);
 		}
 	}
 
@@ -163,14 +279,14 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		}
 	}
 
-	public String getDuplication() {
-		return this.duplication;
+	public String getArchiveBackupKeepPolicy() {
+		return this.archiveBackupKeepPolicy;
 	}
 
-	public void setDuplication(String duplication) {
-		this.duplication = duplication;
-		if(duplication != null){
-			putQueryParameter("Duplication", duplication);
+	public void setArchiveBackupKeepPolicy(String archiveBackupKeepPolicy) {
+		this.archiveBackupKeepPolicy = archiveBackupKeepPolicy;
+		if(archiveBackupKeepPolicy != null){
+			putQueryParameter("ArchiveBackupKeepPolicy", archiveBackupKeepPolicy);
 		}
 	}
 
@@ -196,47 +312,25 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		}
 	}
 
-	public String getDuplicationContent() {
-		return this.duplicationContent;
+	public String getArchiveBackupRetentionPeriod() {
+		return this.archiveBackupRetentionPeriod;
 	}
 
-	public void setDuplicationContent(String duplicationContent) {
-		this.duplicationContent = duplicationContent;
-		if(duplicationContent != null){
-			putQueryParameter("DuplicationContent", duplicationContent);
+	public void setArchiveBackupRetentionPeriod(String archiveBackupRetentionPeriod) {
+		this.archiveBackupRetentionPeriod = archiveBackupRetentionPeriod;
+		if(archiveBackupRetentionPeriod != null){
+			putQueryParameter("ArchiveBackupRetentionPeriod", archiveBackupRetentionPeriod);
 		}
 	}
 
-	public String getHighSpaceUsageProtection() {
-		return this.highSpaceUsageProtection;
+	public String getCategory() {
+		return this.category;
 	}
 
-	public void setHighSpaceUsageProtection(String highSpaceUsageProtection) {
-		this.highSpaceUsageProtection = highSpaceUsageProtection;
-		if(highSpaceUsageProtection != null){
-			putQueryParameter("HighSpaceUsageProtection", highSpaceUsageProtection);
-		}
-	}
-
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
-	public String getDuplicationLocation() {
-		return this.duplicationLocation;
-	}
-
-	public void setDuplicationLocation(String duplicationLocation) {
-		this.duplicationLocation = duplicationLocation;
-		if(duplicationLocation != null){
-			putQueryParameter("DuplicationLocation", duplicationLocation);
+	public void setCategory(String category) {
+		this.category = category;
+		if(category != null){
+			putQueryParameter("Category", category);
 		}
 	}
 
@@ -248,28 +342,6 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		this.logBackupRetentionPeriod = logBackupRetentionPeriod;
 		if(logBackupRetentionPeriod != null){
 			putQueryParameter("LogBackupRetentionPeriod", logBackupRetentionPeriod);
-		}
-	}
-
-	public String getEnableBackupLog() {
-		return this.enableBackupLog;
-	}
-
-	public void setEnableBackupLog(String enableBackupLog) {
-		this.enableBackupLog = enableBackupLog;
-		if(enableBackupLog != null){
-			putQueryParameter("EnableBackupLog", enableBackupLog);
-		}
-	}
-
-	public String getBackupPolicyMode() {
-		return this.backupPolicyMode;
-	}
-
-	public void setBackupPolicyMode(String backupPolicyMode) {
-		this.backupPolicyMode = backupPolicyMode;
-		if(backupPolicyMode != null){
-			putQueryParameter("BackupPolicyMode", backupPolicyMode);
 		}
 	}
 

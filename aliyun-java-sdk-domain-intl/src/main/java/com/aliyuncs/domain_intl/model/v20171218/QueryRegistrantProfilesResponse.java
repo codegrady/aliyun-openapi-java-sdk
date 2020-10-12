@@ -139,6 +139,12 @@ public class QueryRegistrantProfilesResponse extends AcsResponse {
 
 		private Integer emailVerificationStatus;
 
+		private String registrantType;
+
+		private String realNameStatus;
+
+		private String registrantProfileType;
+
 		public Long getRegistrantProfileId() {
 			return this.registrantProfileId;
 		}
@@ -265,6 +271,30 @@ public class QueryRegistrantProfilesResponse extends AcsResponse {
 
 		public void setEmailVerificationStatus(Integer emailVerificationStatus) {
 			this.emailVerificationStatus = emailVerificationStatus;
+		}
+
+		public String getRegistrantType() {
+			return this.registrantType;
+		}
+
+		public void setRegistrantType(String registrantType) {
+			this.registrantType = registrantType;
+		}
+
+		public String getRealNameStatus() {
+			return this.realNameStatus;
+		}
+
+		public void setRealNameStatus(String realNameStatus) {
+			this.realNameStatus = realNameStatus;
+		}
+
+		public String getRegistrantProfileType() {
+			return this.registrantProfileType;
+		}
+
+		public void setRegistrantProfileType(String registrantProfileType) {
+			this.registrantProfileType = registrantProfileType;
 		}
 	}
 

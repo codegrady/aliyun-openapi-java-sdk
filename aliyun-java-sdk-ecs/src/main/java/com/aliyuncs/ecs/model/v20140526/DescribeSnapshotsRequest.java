@@ -16,16 +16,15 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeSnapshotsRequest extends RpcAcsRequest<DescribeSnapshotsResponse> {
-	
-	public DescribeSnapshotsRequest() {
-		super("Ecs", "2014-05-26", "DescribeSnapshots", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -71,7 +70,19 @@ public class DescribeSnapshotsRequest extends RpcAcsRequest<DescribeSnapshotsRes
 
 	private String snapshotType;
 
+	private String kMSKeyId;
+
+	private String category;
+
 	private String status;
+	public DescribeSnapshotsRequest() {
+		super("Ecs", "2014-05-26", "DescribeSnapshots", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -315,6 +326,28 @@ public class DescribeSnapshotsRequest extends RpcAcsRequest<DescribeSnapshotsRes
 		this.snapshotType = snapshotType;
 		if(snapshotType != null){
 			putQueryParameter("SnapshotType", snapshotType);
+		}
+	}
+
+	public String getKMSKeyId() {
+		return this.kMSKeyId;
+	}
+
+	public void setKMSKeyId(String kMSKeyId) {
+		this.kMSKeyId = kMSKeyId;
+		if(kMSKeyId != null){
+			putQueryParameter("KMSKeyId", kMSKeyId);
+		}
+	}
+
+	public String getCategory() {
+		return this.category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+		if(category != null){
+			putQueryParameter("Category", category);
 		}
 	}
 

@@ -1,46 +1,32 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
 package com.aliyuncs.endpoint;
 
-import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.IAcsClient;
+import com.aliyuncs.endpoint.location.model.v20150612.DescribeEndpointsRequest;
 import com.aliyuncs.endpoint.location.model.v20150612.DescribeEndpointsResponse;
 import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.FormatType;
 import com.aliyuncs.http.ProtocolType;
-import com.aliyuncs.endpoint.location.model.v20150612.DescribeEndpointsRequest;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class LocationServiceEndpointResolver extends EndpointResolverBase {
+
     private final static String DEFAULT_LOCATION_SERVICE_ENDPOINT = "location-readonly.aliyuncs.com";
-    private DefaultAcsClient client;
+    private final static String DEFAULT_LOCATION_SERVICE_API_VERSION = "2015-06-12";
+    /**
+     * For test use
+     */
+    public int locationServiceCallCounter = 0;
+    protected static String locationServiceEndpoint = DEFAULT_LOCATION_SERVICE_ENDPOINT;
+    protected static String locationServiceApiVersion = DEFAULT_LOCATION_SERVICE_API_VERSION;
+    private IAcsClient client;
     private Set<String> invalidProductCodes;
     private Set<String> validProductCodes;
     private Set<String> invalidRegionIds;
     private Set<String> validRegionIds;
-    private String locationServiceEndpoint = DEFAULT_LOCATION_SERVICE_ENDPOINT;
-    public int locationServiceCallCounter = 0; // For test use
 
-    public LocationServiceEndpointResolver(DefaultAcsClient client) {
+    public LocationServiceEndpointResolver(IAcsClient client) {
         this.client = client;
         invalidProductCodes = new HashSet<String>();
         invalidRegionIds = new HashSet<String>();
@@ -48,10 +34,11 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
         validRegionIds = new HashSet<String>();
     }
 
-    public void setLocationServiceEndpoint(String endpoint) {
+    public static void setLocationServiceEndpoint(String endpoint) {
         locationServiceEndpoint = endpoint;
     }
 
+    @Override
     public String resolve(ResolveEndpointRequest request) throws ClientException {
         if (request.locationServiceCode == null || request.locationServiceCode.length() == 0) {
             return null;
@@ -91,12 +78,13 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
 
     private void callLocationService(String key, ResolveEndpointRequest request) throws ClientException {
         DescribeEndpointsRequest describeEndpointsRequest = new DescribeEndpointsRequest();
-        describeEndpointsRequest.setProtocol(ProtocolType.HTTPS);
+        describeEndpointsRequest.setSysProtocol(ProtocolType.HTTPS);
         describeEndpointsRequest.setAcceptFormat(FormatType.JSON);
         describeEndpointsRequest.setId(request.regionId);
         describeEndpointsRequest.setServiceCode(request.locationServiceCode);
         describeEndpointsRequest.setType(request.endpointType);
-        describeEndpointsRequest.setEndpoint(locationServiceEndpoint);
+        describeEndpointsRequest.setSysEndpoint(locationServiceEndpoint);
+        describeEndpointsRequest.setVersion(locationServiceApiVersion);
 
         DescribeEndpointsResponse response;
         try {
@@ -157,6 +145,7 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
         return false;
     }
 
+    @Override
     public String makeEndpointKey(ResolveEndpointRequest request) {
         return makeEndpointKey(
                 request.productCode, request.locationServiceCode,
@@ -168,5 +157,17 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
                                   String endpointType) {
         return productCode.toLowerCase() + "." + locationServiceCode + "."
                 + regionId.toLowerCase() + "." + endpointType;
+    }
+
+    public static String getLocationServiceEndpoint() {
+        return locationServiceEndpoint;
+    }
+
+    public static String getLocationServiceApiVersion() {
+        return locationServiceApiVersion;
+    }
+
+    public static void setLocationServiceApiVersion(String locationServiceApiVersion) {
+        LocationServiceEndpointResolver.locationServiceApiVersion = locationServiceApiVersion;
     }
 }

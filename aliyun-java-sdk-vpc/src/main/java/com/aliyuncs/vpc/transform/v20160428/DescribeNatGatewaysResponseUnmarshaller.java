@@ -20,57 +20,74 @@ import java.util.List;
 import com.aliyuncs.vpc.model.v20160428.DescribeNatGatewaysResponse;
 import com.aliyuncs.vpc.model.v20160428.DescribeNatGatewaysResponse.NatGateway;
 import com.aliyuncs.vpc.model.v20160428.DescribeNatGatewaysResponse.NatGateway.IpList;
+import com.aliyuncs.vpc.model.v20160428.DescribeNatGatewaysResponse.NatGateway.NatGatewayPrivateInfo;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeNatGatewaysResponseUnmarshaller {
 
-	public static DescribeNatGatewaysResponse unmarshall(DescribeNatGatewaysResponse describeNatGatewaysResponse, UnmarshallerContext context) {
+	public static DescribeNatGatewaysResponse unmarshall(DescribeNatGatewaysResponse describeNatGatewaysResponse, UnmarshallerContext _ctx) {
 		
-		describeNatGatewaysResponse.setRequestId(context.stringValue("DescribeNatGatewaysResponse.RequestId"));
-		describeNatGatewaysResponse.setTotalCount(context.integerValue("DescribeNatGatewaysResponse.TotalCount"));
-		describeNatGatewaysResponse.setPageNumber(context.integerValue("DescribeNatGatewaysResponse.PageNumber"));
-		describeNatGatewaysResponse.setPageSize(context.integerValue("DescribeNatGatewaysResponse.PageSize"));
+		describeNatGatewaysResponse.setRequestId(_ctx.stringValue("DescribeNatGatewaysResponse.RequestId"));
+		describeNatGatewaysResponse.setTotalCount(_ctx.integerValue("DescribeNatGatewaysResponse.TotalCount"));
+		describeNatGatewaysResponse.setPageNumber(_ctx.integerValue("DescribeNatGatewaysResponse.PageNumber"));
+		describeNatGatewaysResponse.setPageSize(_ctx.integerValue("DescribeNatGatewaysResponse.PageSize"));
 
 		List<NatGateway> natGateways = new ArrayList<NatGateway>();
-		for (int i = 0; i < context.lengthValue("DescribeNatGatewaysResponse.NatGateways.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeNatGatewaysResponse.NatGateways.Length"); i++) {
 			NatGateway natGateway = new NatGateway();
-			natGateway.setNatGatewayId(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].NatGatewayId"));
-			natGateway.setRegionId(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].RegionId"));
-			natGateway.setName(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].Name"));
-			natGateway.setDescription(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].Description"));
-			natGateway.setVpcId(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].VpcId"));
-			natGateway.setSpec(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].Spec"));
-			natGateway.setInstanceChargeType(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].InstanceChargeType"));
-			natGateway.setBusinessStatus(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].BusinessStatus"));
-			natGateway.setCreationTime(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].CreationTime"));
-			natGateway.setStatus(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].Status"));
+			natGateway.setNatGatewayId(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].NatGatewayId"));
+			natGateway.setRegionId(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].RegionId"));
+			natGateway.setName(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].Name"));
+			natGateway.setDescription(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].Description"));
+			natGateway.setVpcId(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].VpcId"));
+			natGateway.setSpec(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].Spec"));
+			natGateway.setInstanceChargeType(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].InstanceChargeType"));
+			natGateway.setExpiredTime(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].ExpiredTime"));
+			natGateway.setAutoPay(_ctx.booleanValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].AutoPay"));
+			natGateway.setBusinessStatus(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].BusinessStatus"));
+			natGateway.setCreationTime(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].CreationTime"));
+			natGateway.setStatus(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].Status"));
+			natGateway.setNatType(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].NatType"));
+			natGateway.setInternetChargeType(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].InternetChargeType"));
+			natGateway.setResourceGroupId(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].ResourceGroupId"));
+			natGateway.setDeletionProtection(_ctx.booleanValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].DeletionProtection"));
+			natGateway.setEcsMetricEnabled(_ctx.booleanValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].EcsMetricEnabled"));
 
 			List<String> forwardTableIds = new ArrayList<String>();
-			for (int j = 0; j < context.lengthValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].ForwardTableIds.Length"); j++) {
-				forwardTableIds.add(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].ForwardTableIds["+ j +"]"));
+			for (int j = 0; j < _ctx.lengthValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].ForwardTableIds.Length"); j++) {
+				forwardTableIds.add(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].ForwardTableIds["+ j +"]"));
 			}
 			natGateway.setForwardTableIds(forwardTableIds);
 
 			List<String> snatTableIds = new ArrayList<String>();
-			for (int j = 0; j < context.lengthValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].SnatTableIds.Length"); j++) {
-				snatTableIds.add(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].SnatTableIds["+ j +"]"));
+			for (int j = 0; j < _ctx.lengthValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].SnatTableIds.Length"); j++) {
+				snatTableIds.add(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].SnatTableIds["+ j +"]"));
 			}
 			natGateway.setSnatTableIds(snatTableIds);
 
 			List<String> bandwidthPackageIds = new ArrayList<String>();
-			for (int j = 0; j < context.lengthValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].BandwidthPackageIds.Length"); j++) {
-				bandwidthPackageIds.add(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].BandwidthPackageIds["+ j +"]"));
+			for (int j = 0; j < _ctx.lengthValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].BandwidthPackageIds.Length"); j++) {
+				bandwidthPackageIds.add(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].BandwidthPackageIds["+ j +"]"));
 			}
 			natGateway.setBandwidthPackageIds(bandwidthPackageIds);
 
+			NatGatewayPrivateInfo natGatewayPrivateInfo = new NatGatewayPrivateInfo();
+			natGatewayPrivateInfo.setEniInstanceId(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].NatGatewayPrivateInfo.EniInstanceId"));
+			natGatewayPrivateInfo.setPrivateIpAddress(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].NatGatewayPrivateInfo.PrivateIpAddress"));
+			natGatewayPrivateInfo.setVswitchId(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].NatGatewayPrivateInfo.VswitchId"));
+			natGatewayPrivateInfo.setIzNo(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].NatGatewayPrivateInfo.IzNo"));
+			natGatewayPrivateInfo.setMaxBandwidth(_ctx.integerValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].NatGatewayPrivateInfo.MaxBandwidth"));
+			natGateway.setNatGatewayPrivateInfo(natGatewayPrivateInfo);
+
 			List<IpList> ipLists = new ArrayList<IpList>();
-			for (int j = 0; j < context.lengthValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists.Length"); j++) {
+			for (int j = 0; j < _ctx.lengthValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists.Length"); j++) {
 				IpList ipList = new IpList();
-				ipList.setAllocationId(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists["+ j +"].AllocationId"));
-				ipList.setIpAddress(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists["+ j +"].IpAddress"));
-				ipList.setUsingStatus(context.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists["+ j +"].UsingStatus"));
-				ipList.setApAccessEnabled(context.booleanValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists["+ j +"].ApAccessEnabled"));
+				ipList.setAllocationId(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists["+ j +"].AllocationId"));
+				ipList.setIpAddress(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists["+ j +"].IpAddress"));
+				ipList.setUsingStatus(_ctx.stringValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists["+ j +"].UsingStatus"));
+				ipList.setApAccessEnabled(_ctx.booleanValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists["+ j +"].ApAccessEnabled"));
+				ipList.setSnatEntryEnabled(_ctx.booleanValue("DescribeNatGatewaysResponse.NatGateways["+ i +"].IpLists["+ j +"].SnatEntryEnabled"));
 
 				ipLists.add(ipList);
 			}

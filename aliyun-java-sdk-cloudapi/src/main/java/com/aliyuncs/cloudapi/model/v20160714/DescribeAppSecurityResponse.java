@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.model.v20160714;
 
 import com.aliyuncs.AcsResponse;
@@ -32,6 +33,8 @@ public class DescribeAppSecurityResponse extends AcsResponse {
 	private String createdTime;
 
 	private String modifiedTime;
+
+	private String appCode;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -71,6 +74,14 @@ public class DescribeAppSecurityResponse extends AcsResponse {
 
 	public void setModifiedTime(String modifiedTime) {
 		this.modifiedTime = modifiedTime;
+	}
+
+	public String getAppCode() {
+		return this.appCode;
+	}
+
+	public void setAppCode(String appCode) {
+		this.appCode = appCode;
 	}
 
 	@Override

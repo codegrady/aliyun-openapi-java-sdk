@@ -125,6 +125,26 @@ public class DescribeScalingGroupsResponse extends AcsResponse {
 
 		private String healthCheckType;
 
+		private String scalingPolicy;
+
+		private Integer stoppedCapacity;
+
+		private Integer onDemandBaseCapacity;
+
+		private Integer onDemandPercentageAboveBaseCapacity;
+
+		private Boolean spotInstanceRemedy;
+
+		private Boolean compensateWithOnDemand;
+
+		private Integer spotInstancePools;
+
+		private Integer desiredCapacity;
+
+		private Boolean groupDeletionProtection;
+
+		private List<VServerGroup> vServerGroups;
+
 		private List<String> vSwitchIds;
 
 		private List<String> removalPolicies;
@@ -132,6 +152,8 @@ public class DescribeScalingGroupsResponse extends AcsResponse {
 		private List<String> dBInstanceIds;
 
 		private List<String> loadBalancerIds;
+
+		private List<String> suspendedProcesses;
 
 		public Integer getDefaultCooldown() {
 			return this.defaultCooldown;
@@ -325,6 +347,86 @@ public class DescribeScalingGroupsResponse extends AcsResponse {
 			this.healthCheckType = healthCheckType;
 		}
 
+		public String getScalingPolicy() {
+			return this.scalingPolicy;
+		}
+
+		public void setScalingPolicy(String scalingPolicy) {
+			this.scalingPolicy = scalingPolicy;
+		}
+
+		public Integer getStoppedCapacity() {
+			return this.stoppedCapacity;
+		}
+
+		public void setStoppedCapacity(Integer stoppedCapacity) {
+			this.stoppedCapacity = stoppedCapacity;
+		}
+
+		public Integer getOnDemandBaseCapacity() {
+			return this.onDemandBaseCapacity;
+		}
+
+		public void setOnDemandBaseCapacity(Integer onDemandBaseCapacity) {
+			this.onDemandBaseCapacity = onDemandBaseCapacity;
+		}
+
+		public Integer getOnDemandPercentageAboveBaseCapacity() {
+			return this.onDemandPercentageAboveBaseCapacity;
+		}
+
+		public void setOnDemandPercentageAboveBaseCapacity(Integer onDemandPercentageAboveBaseCapacity) {
+			this.onDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;
+		}
+
+		public Boolean getSpotInstanceRemedy() {
+			return this.spotInstanceRemedy;
+		}
+
+		public void setSpotInstanceRemedy(Boolean spotInstanceRemedy) {
+			this.spotInstanceRemedy = spotInstanceRemedy;
+		}
+
+		public Boolean getCompensateWithOnDemand() {
+			return this.compensateWithOnDemand;
+		}
+
+		public void setCompensateWithOnDemand(Boolean compensateWithOnDemand) {
+			this.compensateWithOnDemand = compensateWithOnDemand;
+		}
+
+		public Integer getSpotInstancePools() {
+			return this.spotInstancePools;
+		}
+
+		public void setSpotInstancePools(Integer spotInstancePools) {
+			this.spotInstancePools = spotInstancePools;
+		}
+
+		public Integer getDesiredCapacity() {
+			return this.desiredCapacity;
+		}
+
+		public void setDesiredCapacity(Integer desiredCapacity) {
+			this.desiredCapacity = desiredCapacity;
+		}
+
+		public Boolean getGroupDeletionProtection() {
+			return this.groupDeletionProtection;
+		}
+
+		public void setGroupDeletionProtection(Boolean groupDeletionProtection) {
+			this.groupDeletionProtection = groupDeletionProtection;
+		}
+
+		public List<VServerGroup> getVServerGroups() {
+			return this.vServerGroups;
+		}
+
+		public void setVServerGroups(List<VServerGroup> vServerGroups) {
+			this.vServerGroups = vServerGroups;
+		}
+
 		public List<String> getVSwitchIds() {
 			return this.vSwitchIds;
 		}
@@ -355,6 +457,70 @@ public class DescribeScalingGroupsResponse extends AcsResponse {
 
 		public void setLoadBalancerIds(List<String> loadBalancerIds) {
 			this.loadBalancerIds = loadBalancerIds;
+		}
+
+		public List<String> getSuspendedProcesses() {
+			return this.suspendedProcesses;
+		}
+
+		public void setSuspendedProcesses(List<String> suspendedProcesses) {
+			this.suspendedProcesses = suspendedProcesses;
+		}
+
+		public static class VServerGroup {
+
+			private String loadBalancerId;
+
+			private List<VServerGroupAttribute> vServerGroupAttributes;
+
+			public String getLoadBalancerId() {
+				return this.loadBalancerId;
+			}
+
+			public void setLoadBalancerId(String loadBalancerId) {
+				this.loadBalancerId = loadBalancerId;
+			}
+
+			public List<VServerGroupAttribute> getVServerGroupAttributes() {
+				return this.vServerGroupAttributes;
+			}
+
+			public void setVServerGroupAttributes(List<VServerGroupAttribute> vServerGroupAttributes) {
+				this.vServerGroupAttributes = vServerGroupAttributes;
+			}
+
+			public static class VServerGroupAttribute {
+
+				private String vServerGroupId;
+
+				private Integer port;
+
+				private Integer weight;
+
+				public String getVServerGroupId() {
+					return this.vServerGroupId;
+				}
+
+				public void setVServerGroupId(String vServerGroupId) {
+					this.vServerGroupId = vServerGroupId;
+				}
+
+				public Integer getPort() {
+					return this.port;
+				}
+
+				public void setPort(Integer port) {
+					this.port = port;
+				}
+
+				public Integer getWeight() {
+					return this.weight;
+				}
+
+				public void setWeight(Integer weight) {
+					this.weight = weight;
+				}
+			}
 		}
 	}
 

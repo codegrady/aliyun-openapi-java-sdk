@@ -16,49 +16,40 @@ package com.aliyuncs.cbn.model.v20170912;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cbn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeCenBandwidthPackagesRequest extends RpcAcsRequest<DescribeCenBandwidthPackagesResponse> {
-	
-	public DescribeCenBandwidthPackagesRequest() {
-		super("Cbn", "2017-09-12", "DescribeCenBandwidthPackages", "cbn");
-	}
-
-	private List<Filter> filters;
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
-	private String ownerAccount;
-
-	private Integer pageSize;
-
-	private Long ownerId;
+	private Boolean includeReservationData;
 
 	private Integer pageNumber;
 
 	private Boolean isOrKey;
 
-	public List<Filter> getFilters() {
-		return this.filters;
-	}
+	private Integer pageSize;
 
-	public void setFilters(List<Filter> filters) {
-		this.filters = filters;	
-		if (filters != null) {
-			for (int depth1 = 0; depth1 < filters.size(); depth1++) {
-				if (filters.get(depth1).getValues() != null) {
-					for (int i = 0; i < filters.get(depth1).getValues().size(); i++) {
-						putQueryParameter("Filter." + (depth1 + 1) + ".Value." + (i + 1) , filters.get(depth1).getValues().get(i));
-					}
-				}
-				putQueryParameter("Filter." + (depth1 + 1) + ".Key" , filters.get(depth1).getKey());
-			}
-		}	
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private Long ownerId;
+
+	private List<Filter> filters;
+	public DescribeCenBandwidthPackagesRequest() {
+		super("Cbn", "2017-09-12", "DescribeCenBandwidthPackages", "Cbn");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -69,6 +60,50 @@ public class DescribeCenBandwidthPackagesRequest extends RpcAcsRequest<DescribeC
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getIncludeReservationData() {
+		return this.includeReservationData;
+	}
+
+	public void setIncludeReservationData(Boolean includeReservationData) {
+		this.includeReservationData = includeReservationData;
+		if(includeReservationData != null){
+			putQueryParameter("IncludeReservationData", includeReservationData.toString());
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Boolean getIsOrKey() {
+		return this.isOrKey;
+	}
+
+	public void setIsOrKey(Boolean isOrKey) {
+		this.isOrKey = isOrKey;
+		if(isOrKey != null){
+			putQueryParameter("IsOrKey", isOrKey.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -94,17 +129,6 @@ public class DescribeCenBandwidthPackagesRequest extends RpcAcsRequest<DescribeC
 		}
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -116,26 +140,22 @@ public class DescribeCenBandwidthPackagesRequest extends RpcAcsRequest<DescribeC
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public List<Filter> getFilters() {
+		return this.filters;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
-		}
-	}
-
-	public Boolean getIsOrKey() {
-		return this.isOrKey;
-	}
-
-	public void setIsOrKey(Boolean isOrKey) {
-		this.isOrKey = isOrKey;
-		if(isOrKey != null){
-			putQueryParameter("IsOrKey", isOrKey.toString());
-		}
+	public void setFilters(List<Filter> filters) {
+		this.filters = filters;	
+		if (filters != null) {
+			for (int depth1 = 0; depth1 < filters.size(); depth1++) {
+				if (filters.get(depth1).getValues() != null) {
+					for (int i = 0; i < filters.get(depth1).getValues().size(); i++) {
+						putQueryParameter("Filter." + (depth1 + 1) + ".Value." + (i + 1) , filters.get(depth1).getValues().get(i));
+					}
+				}
+				putQueryParameter("Filter." + (depth1 + 1) + ".Key" , filters.get(depth1).getKey());
+			}
+		}	
 	}
 
 	public static class Filter {

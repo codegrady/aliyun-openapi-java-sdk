@@ -15,28 +15,35 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ResumeLiveStreamRequest extends RpcAcsRequest<ResumeLiveStreamResponse> {
-	
-	public ResumeLiveStreamRequest() {
-		super("live", "2016-11-01", "ResumeLiveStream", "live");
-	}
+	   
 
 	private String appName;
 
 	private String securityToken;
+
+	private String streamName;
 
 	private String liveStreamType;
 
 	private String domainName;
 
 	private Long ownerId;
-
-	private String streamName;
+	public ResumeLiveStreamRequest() {
+		super("live", "2016-11-01", "ResumeLiveStream", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getAppName() {
 		return this.appName;
@@ -57,6 +64,17 @@ public class ResumeLiveStreamRequest extends RpcAcsRequest<ResumeLiveStreamRespo
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getStreamName() {
+		return this.streamName;
+	}
+
+	public void setStreamName(String streamName) {
+		this.streamName = streamName;
+		if(streamName != null){
+			putQueryParameter("StreamName", streamName);
 		}
 	}
 
@@ -90,17 +108,6 @@ public class ResumeLiveStreamRequest extends RpcAcsRequest<ResumeLiveStreamRespo
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getStreamName() {
-		return this.streamName;
-	}
-
-	public void setStreamName(String streamName) {
-		this.streamName = streamName;
-		if(streamName != null){
-			putQueryParameter("StreamName", streamName);
 		}
 	}
 

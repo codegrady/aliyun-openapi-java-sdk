@@ -16,16 +16,15 @@ package com.aliyuncs.dds.model.v20151201;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateShardingDBInstanceRequest extends RpcAcsRequest<CreateShardingDBInstanceResponse> {
-	
-	public CreateShardingDBInstanceRequest() {
-		super("Dds", "2015-12-01", "CreateShardingDBInstance", "dds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -73,7 +72,17 @@ public class CreateShardingDBInstanceRequest extends RpcAcsRequest<CreateShardin
 
 	private String zoneId;
 
+	private String protocolType;
+
 	private String chargeType;
+	public CreateShardingDBInstanceRequest() {
+		super("Dds", "2015-12-01", "CreateShardingDBInstance", "Dds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -333,6 +342,17 @@ public class CreateShardingDBInstanceRequest extends RpcAcsRequest<CreateShardin
 		this.zoneId = zoneId;
 		if(zoneId != null){
 			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public String getProtocolType() {
+		return this.protocolType;
+	}
+
+	public void setProtocolType(String protocolType) {
+		this.protocolType = protocolType;
+		if(protocolType != null){
+			putQueryParameter("ProtocolType", protocolType);
 		}
 	}
 

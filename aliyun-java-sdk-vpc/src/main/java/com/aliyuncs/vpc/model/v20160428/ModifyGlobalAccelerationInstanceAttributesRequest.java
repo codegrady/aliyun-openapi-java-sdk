@@ -15,30 +15,37 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyGlobalAccelerationInstanceAttributesRequest extends RpcAcsRequest<ModifyGlobalAccelerationInstanceAttributesResponse> {
-	
-	public ModifyGlobalAccelerationInstanceAttributesRequest() {
-		super("Vpc", "2016-04-28", "ModifyGlobalAccelerationInstanceAttributes", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String description;
+
+	private String globalAccelerationInstanceId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String name;
-
-	private String description;
-
 	private Long ownerId;
 
-	private String globalAccelerationInstanceId;
+	private String name;
+	public ModifyGlobalAccelerationInstanceAttributesRequest() {
+		super("Vpc", "2016-04-28", "ModifyGlobalAccelerationInstanceAttributes", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -48,6 +55,28 @@ public class ModifyGlobalAccelerationInstanceAttributesRequest extends RpcAcsReq
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getGlobalAccelerationInstanceId() {
+		return this.globalAccelerationInstanceId;
+	}
+
+	public void setGlobalAccelerationInstanceId(String globalAccelerationInstanceId) {
+		this.globalAccelerationInstanceId = globalAccelerationInstanceId;
+		if(globalAccelerationInstanceId != null){
+			putQueryParameter("GlobalAccelerationInstanceId", globalAccelerationInstanceId);
 		}
 	}
 
@@ -73,28 +102,6 @@ public class ModifyGlobalAccelerationInstanceAttributesRequest extends RpcAcsReq
 		}
 	}
 
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		if(name != null){
-			putQueryParameter("Name", name);
-		}
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -106,14 +113,14 @@ public class ModifyGlobalAccelerationInstanceAttributesRequest extends RpcAcsReq
 		}
 	}
 
-	public String getGlobalAccelerationInstanceId() {
-		return this.globalAccelerationInstanceId;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setGlobalAccelerationInstanceId(String globalAccelerationInstanceId) {
-		this.globalAccelerationInstanceId = globalAccelerationInstanceId;
-		if(globalAccelerationInstanceId != null){
-			putQueryParameter("GlobalAccelerationInstanceId", globalAccelerationInstanceId);
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("Name", name);
 		}
 	}
 

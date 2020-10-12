@@ -15,28 +15,31 @@
 package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryAvailableInstancesRequest extends RpcAcsRequest<QueryAvailableInstancesResponse> {
-	
-	public QueryAvailableInstancesRequest() {
-		super("BssOpenApi", "2017-12-14", "QueryAvailableInstances");
-	}
+	   
 
 	private String productCode;
 
 	private String subscriptionType;
 
-	private Long ownerId;
-
 	private Integer pageNum;
 
-	private String endTimeStart;
-
 	private String productType;
+
+	private Integer pageSize;
+
+	private String renewStatus;
+
+	private Long ownerId;
+
+	private String endTimeStart;
 
 	private String createTimeEnd;
 
@@ -44,13 +47,17 @@ public class QueryAvailableInstancesRequest extends RpcAcsRequest<QueryAvailable
 
 	private String endTimeEnd;
 
-	private Integer pageSize;
-
 	private String createTimeStart;
 
 	private String region;
-
-	private String renewStatus;
+	public QueryAvailableInstancesRequest() {
+		super("BssOpenApi", "2017-12-14", "QueryAvailableInstances");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProductCode() {
 		return this.productCode;
@@ -74,17 +81,6 @@ public class QueryAvailableInstancesRequest extends RpcAcsRequest<QueryAvailable
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
 	public Integer getPageNum() {
 		return this.pageNum;
 	}
@@ -96,17 +92,6 @@ public class QueryAvailableInstancesRequest extends RpcAcsRequest<QueryAvailable
 		}
 	}
 
-	public String getEndTimeStart() {
-		return this.endTimeStart;
-	}
-
-	public void setEndTimeStart(String endTimeStart) {
-		this.endTimeStart = endTimeStart;
-		if(endTimeStart != null){
-			putQueryParameter("EndTimeStart", endTimeStart);
-		}
-	}
-
 	public String getProductType() {
 		return this.productType;
 	}
@@ -115,6 +100,50 @@ public class QueryAvailableInstancesRequest extends RpcAcsRequest<QueryAvailable
 		this.productType = productType;
 		if(productType != null){
 			putQueryParameter("ProductType", productType);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getRenewStatus() {
+		return this.renewStatus;
+	}
+
+	public void setRenewStatus(String renewStatus) {
+		this.renewStatus = renewStatus;
+		if(renewStatus != null){
+			putQueryParameter("RenewStatus", renewStatus);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getEndTimeStart() {
+		return this.endTimeStart;
+	}
+
+	public void setEndTimeStart(String endTimeStart) {
+		this.endTimeStart = endTimeStart;
+		if(endTimeStart != null){
+			putQueryParameter("EndTimeStart", endTimeStart);
 		}
 	}
 
@@ -151,17 +180,6 @@ public class QueryAvailableInstancesRequest extends RpcAcsRequest<QueryAvailable
 		}
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
 	public String getCreateTimeStart() {
 		return this.createTimeStart;
 	}
@@ -181,17 +199,6 @@ public class QueryAvailableInstancesRequest extends RpcAcsRequest<QueryAvailable
 		this.region = region;
 		if(region != null){
 			putQueryParameter("Region", region);
-		}
-	}
-
-	public String getRenewStatus() {
-		return this.renewStatus;
-	}
-
-	public void setRenewStatus(String renewStatus) {
-		this.renewStatus = renewStatus;
-		if(renewStatus != null){
-			putQueryParameter("RenewStatus", renewStatus);
 		}
 	}
 

@@ -15,30 +15,35 @@
 package com.aliyuncs.drds.model.v20171016;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.drds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceResponse> {
-	
-	public CreateDrdsInstanceRequest() {
-		super("Drds", "2017-10-16", "CreateDrdsInstance", "Drds");
-	}
+	   
 
-	private Integer quantity;
+	private Boolean isAutoRenew;
+
+	private String clientToken;
 
 	private String description;
 
-	private String specification;
-
 	private String type;
 
-	private String vswitchId;
+	private Integer duration;
 
 	private Boolean isHa;
 
 	private String instanceSeries;
+
+	private Integer quantity;
+
+	private String specification;
+
+	private String vswitchId;
 
 	private String vpcId;
 
@@ -46,14 +51,35 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 
 	private String payType;
 
-	public Integer getQuantity() {
-		return this.quantity;
+	private String pricingCycle;
+	public CreateDrdsInstanceRequest() {
+		super("Drds", "2017-10-16", "CreateDrdsInstance", "Drds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-		if(quantity != null){
-			putQueryParameter("Quantity", quantity.toString());
+	public Boolean getIsAutoRenew() {
+		return this.isAutoRenew;
+	}
+
+	public void setIsAutoRenew(Boolean isAutoRenew) {
+		this.isAutoRenew = isAutoRenew;
+		if(isAutoRenew != null){
+			putQueryParameter("IsAutoRenew", isAutoRenew.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -68,17 +94,6 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 		}
 	}
 
-	public String getSpecification() {
-		return this.specification;
-	}
-
-	public void setSpecification(String specification) {
-		this.specification = specification;
-		if(specification != null){
-			putQueryParameter("Specification", specification);
-		}
-	}
-
 	public String getType() {
 		return this.type;
 	}
@@ -90,14 +105,14 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 		}
 	}
 
-	public String getVswitchId() {
-		return this.vswitchId;
+	public Integer getDuration() {
+		return this.duration;
 	}
 
-	public void setVswitchId(String vswitchId) {
-		this.vswitchId = vswitchId;
-		if(vswitchId != null){
-			putQueryParameter("VswitchId", vswitchId);
+	public void setDuration(Integer duration) {
+		this.duration = duration;
+		if(duration != null){
+			putQueryParameter("Duration", duration.toString());
 		}
 	}
 
@@ -108,7 +123,7 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 	public void setIsHa(Boolean isHa) {
 		this.isHa = isHa;
 		if(isHa != null){
-			putQueryParameter("isHa", isHa.toString());
+			putQueryParameter("IsHa", isHa.toString());
 		}
 	}
 
@@ -119,7 +134,40 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 	public void setInstanceSeries(String instanceSeries) {
 		this.instanceSeries = instanceSeries;
 		if(instanceSeries != null){
-			putQueryParameter("instanceSeries", instanceSeries);
+			putQueryParameter("InstanceSeries", instanceSeries);
+		}
+	}
+
+	public Integer getQuantity() {
+		return this.quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+		if(quantity != null){
+			putQueryParameter("Quantity", quantity.toString());
+		}
+	}
+
+	public String getSpecification() {
+		return this.specification;
+	}
+
+	public void setSpecification(String specification) {
+		this.specification = specification;
+		if(specification != null){
+			putQueryParameter("Specification", specification);
+		}
+	}
+
+	public String getVswitchId() {
+		return this.vswitchId;
+	}
+
+	public void setVswitchId(String vswitchId) {
+		this.vswitchId = vswitchId;
+		if(vswitchId != null){
+			putQueryParameter("VswitchId", vswitchId);
 		}
 	}
 
@@ -153,6 +201,17 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 		this.payType = payType;
 		if(payType != null){
 			putQueryParameter("PayType", payType);
+		}
+	}
+
+	public String getPricingCycle() {
+		return this.pricingCycle;
+	}
+
+	public void setPricingCycle(String pricingCycle) {
+		this.pricingCycle = pricingCycle;
+		if(pricingCycle != null){
+			putQueryParameter("PricingCycle", pricingCycle);
 		}
 	}
 

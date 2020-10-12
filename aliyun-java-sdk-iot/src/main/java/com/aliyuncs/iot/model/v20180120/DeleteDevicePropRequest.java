@@ -15,31 +15,64 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteDevicePropRequest extends RpcAcsRequest<DeleteDevicePropResponse> {
-	
-	public DeleteDevicePropRequest() {
-		super("Iot", "2018-01-20", "DeleteDeviceProp");
-	}
-
-	private String deviceName;
-
-	private String productKey;
+	   
 
 	private String propKey;
 
-	public String getDeviceName() {
-		return this.deviceName;
+	private String iotId;
+
+	private String iotInstanceId;
+
+	private String productKey;
+
+	private String deviceName;
+	public DeleteDevicePropRequest() {
+		super("Iot", "2018-01-20", "DeleteDeviceProp", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
-		if(deviceName != null){
-			putQueryParameter("DeviceName", deviceName);
+	public String getPropKey() {
+		return this.propKey;
+	}
+
+	public void setPropKey(String propKey) {
+		this.propKey = propKey;
+		if(propKey != null){
+			putQueryParameter("PropKey", propKey);
+		}
+	}
+
+	public String getIotId() {
+		return this.iotId;
+	}
+
+	public void setIotId(String iotId) {
+		this.iotId = iotId;
+		if(iotId != null){
+			putQueryParameter("IotId", iotId);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -54,14 +87,14 @@ public class DeleteDevicePropRequest extends RpcAcsRequest<DeleteDevicePropRespo
 		}
 	}
 
-	public String getPropKey() {
-		return this.propKey;
+	public String getDeviceName() {
+		return this.deviceName;
 	}
 
-	public void setPropKey(String propKey) {
-		this.propKey = propKey;
-		if(propKey != null){
-			putQueryParameter("PropKey", propKey);
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 

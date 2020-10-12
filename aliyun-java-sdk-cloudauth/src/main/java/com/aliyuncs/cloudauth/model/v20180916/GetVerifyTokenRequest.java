@@ -16,74 +16,33 @@ package com.aliyuncs.cloudauth.model.v20180916;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cloudauth.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetVerifyTokenRequest extends RpcAcsRequest<GetVerifyTokenResponse> {
-	
-	public GetVerifyTokenRequest() {
-		super("Cloudauth", "2018-09-16", "GetVerifyToken", "cloudauth");
-		setProtocol(ProtocolType.HTTPS);
-	}
-
-	private String userData;
-
-	private Long resourceOwnerId;
-
-	private String biz;
-
-	private String sourceIp;
+	   
 
 	private String binding;
 
 	private String verifyConfigs;
 
+	private String userData;
+
+	private String biz;
+
 	private String ticketId;
-
-	public String getUserData() {
-		return this.userData;
-	}
-
-	public void setUserData(String userData) {
-		this.userData = userData;
-		if(userData != null){
-			putQueryParameter("UserData", userData);
-		}
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getBiz() {
-		return this.biz;
-	}
-
-	public void setBiz(String biz) {
-		this.biz = biz;
-		if(biz != null){
-			putQueryParameter("Biz", biz);
-		}
-	}
-
-	public String getSourceIp() {
-		return this.sourceIp;
-	}
-
-	public void setSourceIp(String sourceIp) {
-		this.sourceIp = sourceIp;
-		if(sourceIp != null){
-			putQueryParameter("SourceIp", sourceIp);
-		}
+	public GetVerifyTokenRequest() {
+		super("Cloudauth", "2018-09-16", "GetVerifyToken", "cloudauth");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getBinding() {
@@ -105,6 +64,28 @@ public class GetVerifyTokenRequest extends RpcAcsRequest<GetVerifyTokenResponse>
 		this.verifyConfigs = verifyConfigs;
 		if(verifyConfigs != null){
 			putQueryParameter("VerifyConfigs", verifyConfigs);
+		}
+	}
+
+	public String getUserData() {
+		return this.userData;
+	}
+
+	public void setUserData(String userData) {
+		this.userData = userData;
+		if(userData != null){
+			putQueryParameter("UserData", userData);
+		}
+	}
+
+	public String getBiz() {
+		return this.biz;
+	}
+
+	public void setBiz(String biz) {
+		this.biz = biz;
+		if(biz != null){
+			putQueryParameter("Biz", biz);
 		}
 	}
 

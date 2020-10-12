@@ -119,6 +119,8 @@ public class DescribeSecurityGroupAttributeResponse extends AcsResponse {
 
 		private String sourceCidrIp;
 
+		private String ipv6SourceCidrIp;
+
 		private String policy;
 
 		private String nicType;
@@ -130,6 +132,8 @@ public class DescribeSecurityGroupAttributeResponse extends AcsResponse {
 		private String destGroupName;
 
 		private String destCidrIp;
+
+		private String ipv6DestCidrIp;
 
 		private String destGroupOwnerAccount;
 
@@ -189,6 +193,14 @@ public class DescribeSecurityGroupAttributeResponse extends AcsResponse {
 			this.sourceCidrIp = sourceCidrIp;
 		}
 
+		public String getIpv6SourceCidrIp() {
+			return this.ipv6SourceCidrIp;
+		}
+
+		public void setIpv6SourceCidrIp(String ipv6SourceCidrIp) {
+			this.ipv6SourceCidrIp = ipv6SourceCidrIp;
+		}
+
 		public String getPolicy() {
 			return this.policy;
 		}
@@ -235,6 +247,14 @@ public class DescribeSecurityGroupAttributeResponse extends AcsResponse {
 
 		public void setDestCidrIp(String destCidrIp) {
 			this.destCidrIp = destCidrIp;
+		}
+
+		public String getIpv6DestCidrIp() {
+			return this.ipv6DestCidrIp;
+		}
+
+		public void setIpv6DestCidrIp(String ipv6DestCidrIp) {
+			this.ipv6DestCidrIp = ipv6DestCidrIp;
 		}
 
 		public String getDestGroupOwnerAccount() {

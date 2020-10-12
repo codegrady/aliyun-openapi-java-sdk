@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.AddUserToGroupResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class AddUserToGroupResponseUnmarshaller {
 
-	public static AddUserToGroupResponse unmarshall(AddUserToGroupResponse addUserToGroupResponse, UnmarshallerContext context) {
+	public static AddUserToGroupResponse unmarshall(AddUserToGroupResponse addUserToGroupResponse, UnmarshallerContext _ctx) {
 		
-		addUserToGroupResponse.setRequestId(context.stringValue("AddUserToGroupResponse.RequestId"));
+		addUserToGroupResponse.setRequestId(_ctx.stringValue("AddUserToGroupResponse.RequestId"));
 	 
 	 	return addUserToGroupResponse;
 	}

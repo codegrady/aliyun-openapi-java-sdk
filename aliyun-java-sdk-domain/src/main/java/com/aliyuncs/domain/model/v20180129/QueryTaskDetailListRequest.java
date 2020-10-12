@@ -15,32 +15,61 @@
 package com.aliyuncs.domain.model.v20180129;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.domain.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryTaskDetailListRequest extends RpcAcsRequest<QueryTaskDetailListResponse> {
-	
-	public QueryTaskDetailListRequest() {
-		super("Domain", "2018-01-29", "QueryTaskDetailList");
-	}
+	   
+
+	private String domainName;
+
+	private Integer pageNum;
 
 	private Integer taskStatus;
 
 	private String instanceId;
 
-	private String userClientIp;
-
 	private String taskNo;
 
-	private String domainName;
+	private String userClientIp;
 
 	private Integer pageSize;
 
 	private String lang;
+	public QueryTaskDetailListRequest() {
+		super("Domain", "2018-01-29", "QueryTaskDetailList", "domain");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Integer pageNum;
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
+	}
+
+	public Integer getPageNum() {
+		return this.pageNum;
+	}
+
+	public void setPageNum(Integer pageNum) {
+		this.pageNum = pageNum;
+		if(pageNum != null){
+			putQueryParameter("PageNum", pageNum.toString());
+		}
+	}
 
 	public Integer getTaskStatus() {
 		return this.taskStatus;
@@ -64,17 +93,6 @@ public class QueryTaskDetailListRequest extends RpcAcsRequest<QueryTaskDetailLis
 		}
 	}
 
-	public String getUserClientIp() {
-		return this.userClientIp;
-	}
-
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		if(userClientIp != null){
-			putQueryParameter("UserClientIp", userClientIp);
-		}
-	}
-
 	public String getTaskNo() {
 		return this.taskNo;
 	}
@@ -86,14 +104,14 @@ public class QueryTaskDetailListRequest extends RpcAcsRequest<QueryTaskDetailLis
 		}
 	}
 
-	public String getDomainName() {
-		return this.domainName;
+	public String getUserClientIp() {
+		return this.userClientIp;
 	}
 
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
-		if(domainName != null){
-			putQueryParameter("DomainName", domainName);
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
 		}
 	}
 
@@ -116,17 +134,6 @@ public class QueryTaskDetailListRequest extends RpcAcsRequest<QueryTaskDetailLis
 		this.lang = lang;
 		if(lang != null){
 			putQueryParameter("Lang", lang);
-		}
-	}
-
-	public Integer getPageNum() {
-		return this.pageNum;
-	}
-
-	public void setPageNum(Integer pageNum) {
-		this.pageNum = pageNum;
-		if(pageNum != null){
-			putQueryParameter("PageNum", pageNum.toString());
 		}
 	}
 

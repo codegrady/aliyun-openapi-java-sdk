@@ -15,16 +15,15 @@
 package com.aliyuncs.rtc.model.v20180111;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rtc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateChannelRequest extends RpcAcsRequest<UpdateChannelResponse> {
-	
-	public UpdateChannelRequest() {
-		super("rtc", "2018-01-11", "UpdateChannel");
-	}
+	   
 
 	private Long ownerId;
 
@@ -33,6 +32,14 @@ public class UpdateChannelRequest extends RpcAcsRequest<UpdateChannelResponse> {
 	private String appId;
 
 	private String channelId;
+	public UpdateChannelRequest() {
+		super("rtc", "2018-01-11", "UpdateChannel", "rtc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getOwnerId() {
 		return this.ownerId;

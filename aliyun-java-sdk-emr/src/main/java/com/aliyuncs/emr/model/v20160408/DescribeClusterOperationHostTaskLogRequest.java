@@ -15,28 +15,35 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeClusterOperationHostTaskLogRequest extends RpcAcsRequest<DescribeClusterOperationHostTaskLogResponse> {
-	
-	public DescribeClusterOperationHostTaskLogRequest() {
-		super("Emr", "2016-04-08", "DescribeClusterOperationHostTaskLog");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private String operationId;
 
 	private String hostId;
 
 	private String clusterId;
 
+	private String operationId;
+
 	private String taskId;
 
 	private String status;
+	public DescribeClusterOperationHostTaskLogRequest() {
+		super("Emr", "2016-04-08", "DescribeClusterOperationHostTaskLog");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,17 +53,6 @@ public class DescribeClusterOperationHostTaskLogRequest extends RpcAcsRequest<De
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getOperationId() {
-		return this.operationId;
-	}
-
-	public void setOperationId(String operationId) {
-		this.operationId = operationId;
-		if(operationId != null){
-			putQueryParameter("OperationId", operationId);
 		}
 	}
 
@@ -79,6 +75,17 @@ public class DescribeClusterOperationHostTaskLogRequest extends RpcAcsRequest<De
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getOperationId() {
+		return this.operationId;
+	}
+
+	public void setOperationId(String operationId) {
+		this.operationId = operationId;
+		if(operationId != null){
+			putQueryParameter("OperationId", operationId);
 		}
 	}
 

@@ -26,11 +26,39 @@ public class CheckDomainRequest extends RpcAcsRequest<CheckDomainResponse> {
 		super("Domain-intl", "2017-12-18", "CheckDomain", "domain");
 	}
 
+	private String feeCurrency;
+
+	private Integer feePeriod;
+
 	private String domainName;
 
 	private String userClientIp;
 
+	private String feeCommand;
+
 	private String lang;
+
+	public String getFeeCurrency() {
+		return this.feeCurrency;
+	}
+
+	public void setFeeCurrency(String feeCurrency) {
+		this.feeCurrency = feeCurrency;
+		if(feeCurrency != null){
+			putQueryParameter("FeeCurrency", feeCurrency);
+		}
+	}
+
+	public Integer getFeePeriod() {
+		return this.feePeriod;
+	}
+
+	public void setFeePeriod(Integer feePeriod) {
+		this.feePeriod = feePeriod;
+		if(feePeriod != null){
+			putQueryParameter("FeePeriod", feePeriod.toString());
+		}
+	}
 
 	public String getDomainName() {
 		return this.domainName;
@@ -51,6 +79,17 @@ public class CheckDomainRequest extends RpcAcsRequest<CheckDomainResponse> {
 		this.userClientIp = userClientIp;
 		if(userClientIp != null){
 			putQueryParameter("UserClientIp", userClientIp);
+		}
+	}
+
+	public String getFeeCommand() {
+		return this.feeCommand;
+	}
+
+	public void setFeeCommand(String feeCommand) {
+		this.feeCommand = feeCommand;
+		if(feeCommand != null){
+			putQueryParameter("FeeCommand", feeCommand);
 		}
 	}
 

@@ -15,32 +15,26 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeLiveStreamTranscodeInfoRequest extends RpcAcsRequest<DescribeLiveStreamTranscodeInfoResponse> {
-	
-	public DescribeLiveStreamTranscodeInfoRequest() {
-		super("live", "2016-11-01", "DescribeLiveStreamTranscodeInfo", "live");
-	}
-
-	private String securityToken;
+	   
 
 	private Long ownerId;
 
 	private String domainTranscodeName;
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
+	public DescribeLiveStreamTranscodeInfoRequest() {
+		super("live", "2016-11-01", "DescribeLiveStreamTranscodeInfo", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getOwnerId() {

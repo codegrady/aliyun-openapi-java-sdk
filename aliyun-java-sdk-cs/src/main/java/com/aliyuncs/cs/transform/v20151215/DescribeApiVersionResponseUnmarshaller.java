@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.transform.v20151215;
 
 import com.aliyuncs.cs.model.v20151215.DescribeApiVersionResponse;
@@ -19,8 +20,12 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeApiVersionResponseUnmarshaller {
 
-	public static DescribeApiVersionResponse unmarshall(DescribeApiVersionResponse describeApiVersionResponse, UnmarshallerContext context) {
+	public static DescribeApiVersionResponse unmarshall(DescribeApiVersionResponse describeApiVersionResponse, UnmarshallerContext _ctx) {
 		
+		describeApiVersionResponse.setVersion(_ctx.stringValue("DescribeApiVersionResponse.version"));
+		describeApiVersionResponse.setBuild(_ctx.stringValue("DescribeApiVersionResponse.build"));
+		describeApiVersionResponse.setDocker_version(_ctx.stringValue("DescribeApiVersionResponse.docker_version"));
+		describeApiVersionResponse.setDocker_region_versions(_ctx.stringValue("DescribeApiVersionResponse.docker_region_versions"));
 	 
 	 	return describeApiVersionResponse;
 	}

@@ -15,34 +15,41 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeTagsRequest extends RpcAcsRequest<DescribeTagsResponse> {
-	
-	public DescribeTagsRequest() {
-		super("Slb", "2014-05-15", "DescribeTags", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String loadBalancerId;
+	private Integer pageNumber;
+
+	private Integer pageSize;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private Integer pageSize;
-
 	private Boolean distinctKey;
 
 	private Long ownerId;
 
-	private Integer pageNumber;
-
 	private String tags;
+
+	private String loadBalancerId;
+	public DescribeTagsRequest() {
+		super("Slb", "2014-05-15", "DescribeTags", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -55,14 +62,25 @@ public class DescribeTagsRequest extends RpcAcsRequest<DescribeTagsResponse> {
 		}
 	}
 
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
+	public Integer getPageNumber() {
+		return this.pageNumber;
 	}
 
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -88,17 +106,6 @@ public class DescribeTagsRequest extends RpcAcsRequest<DescribeTagsResponse> {
 		}
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
 	public Boolean getDistinctKey() {
 		return this.distinctKey;
 	}
@@ -121,17 +128,6 @@ public class DescribeTagsRequest extends RpcAcsRequest<DescribeTagsResponse> {
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
-		}
-	}
-
 	public String getTags() {
 		return this.tags;
 	}
@@ -140,6 +136,17 @@ public class DescribeTagsRequest extends RpcAcsRequest<DescribeTagsResponse> {
 		this.tags = tags;
 		if(tags != null){
 			putQueryParameter("Tags", tags);
+		}
+	}
+
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
+	}
+
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 

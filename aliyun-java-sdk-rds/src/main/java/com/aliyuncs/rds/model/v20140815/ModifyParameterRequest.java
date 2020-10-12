@@ -15,32 +15,41 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyParameterRequest extends RpcAcsRequest<ModifyParameterResponse> {
-	
-	public ModifyParameterRequest() {
-		super("Rds", "2014-08-15", "ModifyParameter", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String resourceOwnerAccount;
-
 	private String clientToken;
 
-	private String ownerAccount;
+	private String parameterGroupId;
 
 	private String dBInstanceId;
 
 	private Boolean forcerestart;
 
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
 	private Long ownerId;
 
 	private String parameters;
+	public ModifyParameterRequest() {
+		super("Rds", "2014-08-15", "ModifyParameter", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -50,17 +59,6 @@ public class ModifyParameterRequest extends RpcAcsRequest<ModifyParameterRespons
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 
@@ -75,14 +73,14 @@ public class ModifyParameterRequest extends RpcAcsRequest<ModifyParameterRespons
 		}
 	}
 
-	public String getOwnerAccount() {
-		return this.ownerAccount;
+	public String getParameterGroupId() {
+		return this.parameterGroupId;
 	}
 
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
+	public void setParameterGroupId(String parameterGroupId) {
+		this.parameterGroupId = parameterGroupId;
+		if(parameterGroupId != null){
+			putQueryParameter("ParameterGroupId", parameterGroupId);
 		}
 	}
 
@@ -105,6 +103,28 @@ public class ModifyParameterRequest extends RpcAcsRequest<ModifyParameterRespons
 		this.forcerestart = forcerestart;
 		if(forcerestart != null){
 			putQueryParameter("Forcerestart", forcerestart.toString());
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 

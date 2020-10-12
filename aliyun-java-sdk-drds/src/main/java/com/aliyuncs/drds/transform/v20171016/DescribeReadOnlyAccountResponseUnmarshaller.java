@@ -21,15 +21,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DescribeReadOnlyAccountResponseUnmarshaller {
 
-	public static DescribeReadOnlyAccountResponse unmarshall(DescribeReadOnlyAccountResponse describeReadOnlyAccountResponse, UnmarshallerContext context) {
+	public static DescribeReadOnlyAccountResponse unmarshall(DescribeReadOnlyAccountResponse describeReadOnlyAccountResponse, UnmarshallerContext _ctx) {
 		
-		describeReadOnlyAccountResponse.setRequestId(context.stringValue("DescribeReadOnlyAccountResponse.RequestId"));
-		describeReadOnlyAccountResponse.setSuccess(context.booleanValue("DescribeReadOnlyAccountResponse.Success"));
+		describeReadOnlyAccountResponse.setRequestId(_ctx.stringValue("DescribeReadOnlyAccountResponse.RequestId"));
+		describeReadOnlyAccountResponse.setSuccess(_ctx.booleanValue("DescribeReadOnlyAccountResponse.Success"));
 
 		Data data = new Data();
-		data.setDbName(context.stringValue("DescribeReadOnlyAccountResponse.Data.DbName"));
-		data.setDrdsInstanceId(context.stringValue("DescribeReadOnlyAccountResponse.Data.DrdsInstanceId"));
-		data.setAccountName(context.stringValue("DescribeReadOnlyAccountResponse.Data.AccountName"));
+		data.setDbName(_ctx.stringValue("DescribeReadOnlyAccountResponse.Data.DbName"));
+		data.setDrdsInstanceId(_ctx.stringValue("DescribeReadOnlyAccountResponse.Data.DrdsInstanceId"));
+		data.setAccountName(_ctx.stringValue("DescribeReadOnlyAccountResponse.Data.AccountName"));
 		describeReadOnlyAccountResponse.setData(data);
 	 
 	 	return describeReadOnlyAccountResponse;

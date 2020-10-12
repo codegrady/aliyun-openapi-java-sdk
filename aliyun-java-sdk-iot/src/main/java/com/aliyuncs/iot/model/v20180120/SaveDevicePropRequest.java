@@ -15,31 +15,53 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SaveDevicePropRequest extends RpcAcsRequest<SaveDevicePropResponse> {
-	
-	public SaveDevicePropRequest() {
-		super("Iot", "2018-01-20", "SaveDeviceProp");
-	}
+	   
 
-	private String deviceName;
+	private String iotId;
+
+	private String iotInstanceId;
 
 	private String productKey;
 
 	private String props;
 
-	public String getDeviceName() {
-		return this.deviceName;
+	private String deviceName;
+	public SaveDevicePropRequest() {
+		super("Iot", "2018-01-20", "SaveDeviceProp", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
-		if(deviceName != null){
-			putQueryParameter("DeviceName", deviceName);
+	public String getIotId() {
+		return this.iotId;
+	}
+
+	public void setIotId(String iotId) {
+		this.iotId = iotId;
+		if(iotId != null){
+			putQueryParameter("IotId", iotId);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -62,6 +84,17 @@ public class SaveDevicePropRequest extends RpcAcsRequest<SaveDevicePropResponse>
 		this.props = props;
 		if(props != null){
 			putQueryParameter("Props", props);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 

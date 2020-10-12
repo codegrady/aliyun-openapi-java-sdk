@@ -16,42 +16,46 @@ package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceResponse> {
-	
-	public ListFlowInstanceRequest() {
-		super("Emr", "2016-04-08", "ListFlowInstance");
-	}
-
-	private Long resourceOwnerId;
+	   
 
 	private List<String> statusLists;
 
-	private Integer pageSize;
+	private Integer pageNumber;
 
-	private String flowName;
+	private Integer pageSize;
 
 	private String id;
 
-	private String flowId;
-
 	private String projectId;
 
-	private Integer pageNumber;
+	private String owner;
 
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
+	private String timeRange;
 
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
+	private String orderBy;
+
+	private String instanceId;
+
+	private String flowName;
+
+	private String flowId;
+
+	private String orderType;
+	public ListFlowInstanceRequest() {
+		super("Emr", "2016-04-08", "ListFlowInstance");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public List<String> getStatusLists() {
@@ -67,6 +71,17 @@ public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceRespo
 		}	
 	}
 
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -75,17 +90,6 @@ public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceRespo
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
-	public String getFlowName() {
-		return this.flowName;
-	}
-
-	public void setFlowName(String flowName) {
-		this.flowName = flowName;
-		if(flowName != null){
-			putQueryParameter("FlowName", flowName);
 		}
 	}
 
@@ -100,17 +104,6 @@ public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceRespo
 		}
 	}
 
-	public String getFlowId() {
-		return this.flowId;
-	}
-
-	public void setFlowId(String flowId) {
-		this.flowId = flowId;
-		if(flowId != null){
-			putQueryParameter("FlowId", flowId);
-		}
-	}
-
 	public String getProjectId() {
 		return this.projectId;
 	}
@@ -122,14 +115,80 @@ public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceRespo
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public String getOwner() {
+		return this.owner;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+	public void setOwner(String owner) {
+		this.owner = owner;
+		if(owner != null){
+			putQueryParameter("Owner", owner);
+		}
+	}
+
+	public String getTimeRange() {
+		return this.timeRange;
+	}
+
+	public void setTimeRange(String timeRange) {
+		this.timeRange = timeRange;
+		if(timeRange != null){
+			putQueryParameter("TimeRange", timeRange);
+		}
+	}
+
+	public String getOrderBy() {
+		return this.orderBy;
+	}
+
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+		if(orderBy != null){
+			putQueryParameter("OrderBy", orderBy);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getFlowName() {
+		return this.flowName;
+	}
+
+	public void setFlowName(String flowName) {
+		this.flowName = flowName;
+		if(flowName != null){
+			putQueryParameter("FlowName", flowName);
+		}
+	}
+
+	public String getFlowId() {
+		return this.flowId;
+	}
+
+	public void setFlowId(String flowId) {
+		this.flowId = flowId;
+		if(flowId != null){
+			putQueryParameter("FlowId", flowId);
+		}
+	}
+
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 

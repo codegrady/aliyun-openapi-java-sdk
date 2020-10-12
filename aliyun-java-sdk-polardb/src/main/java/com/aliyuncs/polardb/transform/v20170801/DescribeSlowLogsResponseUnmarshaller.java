@@ -19,45 +19,39 @@ import java.util.List;
 
 import com.aliyuncs.polardb.model.v20170801.DescribeSlowLogsResponse;
 import com.aliyuncs.polardb.model.v20170801.DescribeSlowLogsResponse.SQLSlowLog;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeSlowLogsResponseUnmarshaller {
 
-	public static DescribeSlowLogsResponse unmarshall(DescribeSlowLogsResponse describeSlowLogsResponse, UnmarshallerContext context) {
+	public static DescribeSlowLogsResponse unmarshall(DescribeSlowLogsResponse describeSlowLogsResponse, UnmarshallerContext _ctx) {
 		
-		describeSlowLogsResponse.setRequestId(context.stringValue("DescribeSlowLogsResponse.RequestId"));
-		describeSlowLogsResponse.setEngine(context.stringValue("DescribeSlowLogsResponse.Engine"));
-		describeSlowLogsResponse.setStartTime(context.stringValue("DescribeSlowLogsResponse.StartTime"));
-		describeSlowLogsResponse.setEndTime(context.stringValue("DescribeSlowLogsResponse.EndTime"));
-		describeSlowLogsResponse.setTotalRecordCount(context.integerValue("DescribeSlowLogsResponse.TotalRecordCount"));
-		describeSlowLogsResponse.setPageNumber(context.integerValue("DescribeSlowLogsResponse.PageNumber"));
-		describeSlowLogsResponse.setPageRecordCount(context.integerValue("DescribeSlowLogsResponse.PageRecordCount"));
+		describeSlowLogsResponse.setRequestId(_ctx.stringValue("DescribeSlowLogsResponse.RequestId"));
+		describeSlowLogsResponse.setDBClusterId(_ctx.stringValue("DescribeSlowLogsResponse.DBClusterId"));
+		describeSlowLogsResponse.setStartTime(_ctx.stringValue("DescribeSlowLogsResponse.StartTime"));
+		describeSlowLogsResponse.setEndTime(_ctx.stringValue("DescribeSlowLogsResponse.EndTime"));
+		describeSlowLogsResponse.setEngine(_ctx.stringValue("DescribeSlowLogsResponse.Engine"));
+		describeSlowLogsResponse.setTotalRecordCount(_ctx.integerValue("DescribeSlowLogsResponse.TotalRecordCount"));
+		describeSlowLogsResponse.setPageNumber(_ctx.integerValue("DescribeSlowLogsResponse.PageNumber"));
+		describeSlowLogsResponse.setPageRecordCount(_ctx.integerValue("DescribeSlowLogsResponse.PageRecordCount"));
 
 		List<SQLSlowLog> items = new ArrayList<SQLSlowLog>();
-		for (int i = 0; i < context.lengthValue("DescribeSlowLogsResponse.Items.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeSlowLogsResponse.Items.Length"); i++) {
 			SQLSlowLog sQLSlowLog = new SQLSlowLog();
-			sQLSlowLog.setSlowLogId(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].SlowLogId"));
-			sQLSlowLog.setSQLId(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].SQLId"));
-			sQLSlowLog.setDBName(context.stringValue("DescribeSlowLogsResponse.Items["+ i +"].DBName"));
-			sQLSlowLog.setSQLText(context.stringValue("DescribeSlowLogsResponse.Items["+ i +"].SQLText"));
-			sQLSlowLog.setMySQLTotalExecutionCounts(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].MySQLTotalExecutionCounts"));
-			sQLSlowLog.setMySQLTotalExecutionTimes(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].MySQLTotalExecutionTimes"));
-			sQLSlowLog.setMaxExecutionTime(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].MaxExecutionTime"));
-			sQLSlowLog.setTotalLockTimes(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].TotalLockTimes"));
-			sQLSlowLog.setMaxLockTime(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].MaxLockTime"));
-			sQLSlowLog.setParseTotalRowCounts(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].ParseTotalRowCounts"));
-			sQLSlowLog.setParseMaxRowCount(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].ParseMaxRowCount"));
-			sQLSlowLog.setReturnTotalRowCounts(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].ReturnTotalRowCounts"));
-			sQLSlowLog.setReturnMaxRowCount(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].ReturnMaxRowCount"));
-			sQLSlowLog.setCreateTime(context.stringValue("DescribeSlowLogsResponse.Items["+ i +"].CreateTime"));
-			sQLSlowLog.setSQLServerTotalExecutionCounts(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].SQLServerTotalExecutionCounts"));
-			sQLSlowLog.setSQLServerTotalExecutionTimes(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].SQLServerTotalExecutionTimes"));
-			sQLSlowLog.setTotalLogicalReadCounts(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].TotalLogicalReadCounts"));
-			sQLSlowLog.setTotalPhysicalReadCounts(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].TotalPhysicalReadCounts"));
-			sQLSlowLog.setReportTime(context.stringValue("DescribeSlowLogsResponse.Items["+ i +"].ReportTime"));
-			sQLSlowLog.setAvgExecutionTime(context.longValue("DescribeSlowLogsResponse.Items["+ i +"].AvgExecutionTime"));
+			sQLSlowLog.setDBNodeId(_ctx.stringValue("DescribeSlowLogsResponse.Items["+ i +"].DBNodeId"));
+			sQLSlowLog.setParseMaxRowCount(_ctx.longValue("DescribeSlowLogsResponse.Items["+ i +"].ParseMaxRowCount"));
+			sQLSlowLog.setTotalLockTimes(_ctx.longValue("DescribeSlowLogsResponse.Items["+ i +"].TotalLockTimes"));
+			sQLSlowLog.setDBName(_ctx.stringValue("DescribeSlowLogsResponse.Items["+ i +"].DBName"));
+			sQLSlowLog.setMaxExecutionTime(_ctx.longValue("DescribeSlowLogsResponse.Items["+ i +"].MaxExecutionTime"));
+			sQLSlowLog.setSQLHASH(_ctx.stringValue("DescribeSlowLogsResponse.Items["+ i +"].SQLHASH"));
+			sQLSlowLog.setSQLText(_ctx.stringValue("DescribeSlowLogsResponse.Items["+ i +"].SQLText"));
+			sQLSlowLog.setCreateTime(_ctx.stringValue("DescribeSlowLogsResponse.Items["+ i +"].CreateTime"));
+			sQLSlowLog.setTotalExecutionTimes(_ctx.longValue("DescribeSlowLogsResponse.Items["+ i +"].TotalExecutionTimes"));
+			sQLSlowLog.setReturnTotalRowCounts(_ctx.longValue("DescribeSlowLogsResponse.Items["+ i +"].ReturnTotalRowCounts"));
+			sQLSlowLog.setTotalExecutionCounts(_ctx.longValue("DescribeSlowLogsResponse.Items["+ i +"].TotalExecutionCounts"));
+			sQLSlowLog.setMaxLockTime(_ctx.longValue("DescribeSlowLogsResponse.Items["+ i +"].MaxLockTime"));
+			sQLSlowLog.setReturnMaxRowCount(_ctx.longValue("DescribeSlowLogsResponse.Items["+ i +"].ReturnMaxRowCount"));
+			sQLSlowLog.setParseTotalRowCounts(_ctx.longValue("DescribeSlowLogsResponse.Items["+ i +"].ParseTotalRowCounts"));
 
 			items.add(sQLSlowLog);
 		}

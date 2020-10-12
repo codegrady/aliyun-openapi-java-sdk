@@ -34,6 +34,8 @@ public class CreateUploadImageResponse extends AcsResponse {
 
 	private String uploadAuth;
 
+	private String fileURL;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -74,8 +76,21 @@ public class CreateUploadImageResponse extends AcsResponse {
 		this.uploadAuth = uploadAuth;
 	}
 
+	public String getFileURL() {
+		return this.fileURL;
+	}
+
+	public void setFileURL(String fileURL) {
+		this.fileURL = fileURL;
+	}
+
 	@Override
 	public CreateUploadImageResponse getInstance(UnmarshallerContext context) {
 		return	CreateUploadImageResponseUnmarshaller.unmarshall(this, context);
+	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
 	}
 }

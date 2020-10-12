@@ -19,25 +19,24 @@ import java.util.List;
 
 import com.aliyuncs.rds.model.v20140815.DescribeTagsResponse;
 import com.aliyuncs.rds.model.v20140815.DescribeTagsResponse.TagInfos;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeTagsResponseUnmarshaller {
 
-	public static DescribeTagsResponse unmarshall(DescribeTagsResponse describeTagsResponse, UnmarshallerContext context) {
+	public static DescribeTagsResponse unmarshall(DescribeTagsResponse describeTagsResponse, UnmarshallerContext _ctx) {
 		
-		describeTagsResponse.setRequestId(context.stringValue("DescribeTagsResponse.RequestId"));
+		describeTagsResponse.setRequestId(_ctx.stringValue("DescribeTagsResponse.RequestId"));
 
 		List<TagInfos> items = new ArrayList<TagInfos>();
-		for (int i = 0; i < context.lengthValue("DescribeTagsResponse.Items.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeTagsResponse.Items.Length"); i++) {
 			TagInfos tagInfos = new TagInfos();
-			tagInfos.setTagKey(context.stringValue("DescribeTagsResponse.Items["+ i +"].TagKey"));
-			tagInfos.setTagValue(context.stringValue("DescribeTagsResponse.Items["+ i +"].TagValue"));
+			tagInfos.setTagKey(_ctx.stringValue("DescribeTagsResponse.Items["+ i +"].TagKey"));
+			tagInfos.setTagValue(_ctx.stringValue("DescribeTagsResponse.Items["+ i +"].TagValue"));
 
 			List<String> dBInstanceIds = new ArrayList<String>();
-			for (int j = 0; j < context.lengthValue("DescribeTagsResponse.Items["+ i +"].DBInstanceIds.Length"); j++) {
-				dBInstanceIds.add(context.stringValue("DescribeTagsResponse.Items["+ i +"].DBInstanceIds["+ j +"]"));
+			for (int j = 0; j < _ctx.lengthValue("DescribeTagsResponse.Items["+ i +"].DBInstanceIds.Length"); j++) {
+				dBInstanceIds.add(_ctx.stringValue("DescribeTagsResponse.Items["+ i +"].DBInstanceIds["+ j +"]"));
 			}
 			tagInfos.setDBInstanceIds(dBInstanceIds);
 

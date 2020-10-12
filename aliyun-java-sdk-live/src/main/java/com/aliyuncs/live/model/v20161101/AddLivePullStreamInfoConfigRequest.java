@@ -15,41 +15,46 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddLivePullStreamInfoConfigRequest extends RpcAcsRequest<AddLivePullStreamInfoConfigResponse> {
-	
-	public AddLivePullStreamInfoConfigRequest() {
-		super("live", "2016-11-01", "AddLivePullStreamInfoConfig", "live");
-	}
+	   
 
-	private String sourceUrl;
+	private String startTime;
 
 	private String appName;
 
-	private String securityToken;
+	private String streamName;
 
 	private String domainName;
 
 	private String endTime;
 
-	private String startTime;
-
 	private Long ownerId;
 
-	private String streamName;
-
-	public String getSourceUrl() {
-		return this.sourceUrl;
+	private String sourceUrl;
+	public AddLivePullStreamInfoConfigRequest() {
+		super("live", "2016-11-01", "AddLivePullStreamInfoConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setSourceUrl(String sourceUrl) {
-		this.sourceUrl = sourceUrl;
-		if(sourceUrl != null){
-			putQueryParameter("SourceUrl", sourceUrl);
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime);
 		}
 	}
 
@@ -64,14 +69,14 @@ public class AddLivePullStreamInfoConfigRequest extends RpcAcsRequest<AddLivePul
 		}
 	}
 
-	public String getSecurityToken() {
-		return this.securityToken;
+	public String getStreamName() {
+		return this.streamName;
 	}
 
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
+	public void setStreamName(String streamName) {
+		this.streamName = streamName;
+		if(streamName != null){
+			putQueryParameter("StreamName", streamName);
 		}
 	}
 
@@ -97,17 +102,6 @@ public class AddLivePullStreamInfoConfigRequest extends RpcAcsRequest<AddLivePul
 		}
 	}
 
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -119,14 +113,14 @@ public class AddLivePullStreamInfoConfigRequest extends RpcAcsRequest<AddLivePul
 		}
 	}
 
-	public String getStreamName() {
-		return this.streamName;
+	public String getSourceUrl() {
+		return this.sourceUrl;
 	}
 
-	public void setStreamName(String streamName) {
-		this.streamName = streamName;
-		if(streamName != null){
-			putQueryParameter("StreamName", streamName);
+	public void setSourceUrl(String sourceUrl) {
+		this.sourceUrl = sourceUrl;
+		if(sourceUrl != null){
+			putQueryParameter("SourceUrl", sourceUrl);
 		}
 	}
 

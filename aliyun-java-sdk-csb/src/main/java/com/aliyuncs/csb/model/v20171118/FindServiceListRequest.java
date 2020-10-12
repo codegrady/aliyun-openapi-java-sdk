@@ -16,31 +16,40 @@ package com.aliyuncs.csb.model.v20171118;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.csb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class FindServiceListRequest extends RpcAcsRequest<FindServiceListResponse> {
-	
-	public FindServiceListRequest() {
-		super("CSB", "2017-11-18", "FindServiceList");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private String projectName;
 
 	private Boolean showDelService;
 
+	private Long csbId;
+
+	private Integer pageNum;
+
 	private Integer casShowType;
 
-	private Long csbId;
+	private Integer pageSize;
 
 	private String alias;
 
 	private String serviceName;
-
-	private Integer pageNum;
+	public FindServiceListRequest() {
+		super("CSB", "2017-11-18", "FindServiceList");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProjectName() {
 		return this.projectName;
@@ -64,6 +73,28 @@ public class FindServiceListRequest extends RpcAcsRequest<FindServiceListRespons
 		}
 	}
 
+	public Long getCsbId() {
+		return this.csbId;
+	}
+
+	public void setCsbId(Long csbId) {
+		this.csbId = csbId;
+		if(csbId != null){
+			putQueryParameter("CsbId", csbId.toString());
+		}
+	}
+
+	public Integer getPageNum() {
+		return this.pageNum;
+	}
+
+	public void setPageNum(Integer pageNum) {
+		this.pageNum = pageNum;
+		if(pageNum != null){
+			putQueryParameter("PageNum", pageNum.toString());
+		}
+	}
+
 	public Integer getCasShowType() {
 		return this.casShowType;
 	}
@@ -75,14 +106,14 @@ public class FindServiceListRequest extends RpcAcsRequest<FindServiceListRespons
 		}
 	}
 
-	public Long getCsbId() {
-		return this.csbId;
+	public Integer getPageSize() {
+		return this.pageSize;
 	}
 
-	public void setCsbId(Long csbId) {
-		this.csbId = csbId;
-		if(csbId != null){
-			putQueryParameter("CsbId", csbId.toString());
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -105,17 +136,6 @@ public class FindServiceListRequest extends RpcAcsRequest<FindServiceListRespons
 		this.serviceName = serviceName;
 		if(serviceName != null){
 			putQueryParameter("ServiceName", serviceName);
-		}
-	}
-
-	public Integer getPageNum() {
-		return this.pageNum;
-	}
-
-	public void setPageNum(Integer pageNum) {
-		this.pageNum = pageNum;
-		if(pageNum != null){
-			putQueryParameter("PageNum", pageNum.toString());
 		}
 	}
 

@@ -15,16 +15,15 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRoomKickoutUserListRequest extends RpcAcsRequest<DescribeRoomKickoutUserListResponse> {
-	
-	public DescribeRoomKickoutUserListRequest() {
-		super("live", "2016-11-01", "DescribeRoomKickoutUserList", "live");
-	}
+	   
 
 	private Integer pageNum;
 
@@ -37,6 +36,14 @@ public class DescribeRoomKickoutUserListRequest extends RpcAcsRequest<DescribeRo
 	private String roomId;
 
 	private String appId;
+	public DescribeRoomKickoutUserListRequest() {
+		super("live", "2016-11-01", "DescribeRoomKickoutUserList", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Integer getPageNum() {
 		return this.pageNum;

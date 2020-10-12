@@ -15,20 +15,40 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ehpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListCustomImagesRequest extends RpcAcsRequest<ListCustomImagesResponse> {
-	
-	public ListCustomImagesRequest() {
-		super("EHPC", "2018-04-12", "ListCustomImages", "ehs");
-	}
+	   
+
+	private String imageOwnerAlias;
 
 	private String baseOsTag;
 
-	private String imageOwnerAlias;
+	private String instanceType;
+	public ListCustomImagesRequest() {
+		super("EHPC", "2018-04-12", "ListCustomImages");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getImageOwnerAlias() {
+		return this.imageOwnerAlias;
+	}
+
+	public void setImageOwnerAlias(String imageOwnerAlias) {
+		this.imageOwnerAlias = imageOwnerAlias;
+		if(imageOwnerAlias != null){
+			putQueryParameter("ImageOwnerAlias", imageOwnerAlias);
+		}
+	}
 
 	public String getBaseOsTag() {
 		return this.baseOsTag;
@@ -41,14 +61,14 @@ public class ListCustomImagesRequest extends RpcAcsRequest<ListCustomImagesRespo
 		}
 	}
 
-	public String getImageOwnerAlias() {
-		return this.imageOwnerAlias;
+	public String getInstanceType() {
+		return this.instanceType;
 	}
 
-	public void setImageOwnerAlias(String imageOwnerAlias) {
-		this.imageOwnerAlias = imageOwnerAlias;
-		if(imageOwnerAlias != null){
-			putQueryParameter("ImageOwnerAlias", imageOwnerAlias);
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+		if(instanceType != null){
+			putQueryParameter("InstanceType", instanceType);
 		}
 	}
 

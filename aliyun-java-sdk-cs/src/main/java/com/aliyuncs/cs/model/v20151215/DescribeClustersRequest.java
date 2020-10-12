@@ -11,26 +11,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.model.v20151215;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeClustersRequest extends RoaAcsRequest<DescribeClustersResponse> {
-	
-	public DescribeClustersRequest() {
-		super("CS", "2015-12-15", "DescribeClusters");
-		setUriPattern("/clusters");
-		setMethod(MethodType.GET);
-	}
+	   
 
 	private String clusterType;
 
 	private String name;
+	public DescribeClustersRequest() {
+		super("CS", "2015-12-15", "DescribeClusters");
+		setUriPattern("/clusters");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getClusterType() {
 		return this.clusterType;
@@ -50,7 +56,7 @@ public class DescribeClustersRequest extends RoaAcsRequest<DescribeClustersRespo
 	public void setName(String name) {
 		this.name = name;
 		if(name != null){
-			putQueryParameter("Name", name);
+			putQueryParameter("name", name);
 		}
 	}
 

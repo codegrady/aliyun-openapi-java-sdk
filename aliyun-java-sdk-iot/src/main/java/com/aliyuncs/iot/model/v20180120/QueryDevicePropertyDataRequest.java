@@ -15,52 +15,50 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryDevicePropertyDataRequest extends RpcAcsRequest<QueryDevicePropertyDataResponse> {
-	
-	public QueryDevicePropertyDataRequest() {
-		super("Iot", "2018-01-20", "QueryDevicePropertyData");
-	}
-
-	private Integer asc;
-
-	private String identifier;
-
-	private String iotId;
-
-	private Integer pageSize;
-
-	private Long endTime;
-
-	private String deviceName;
+	   
 
 	private Long startTime;
 
+	private String iotId;
+
+	private String iotInstanceId;
+
+	private Integer pageSize;
+
+	private String identifier;
+
+	private Long endTime;
+
 	private String productKey;
 
-	public Integer getAsc() {
-		return this.asc;
+	private Integer asc;
+
+	private String deviceName;
+	public QueryDevicePropertyDataRequest() {
+		super("Iot", "2018-01-20", "QueryDevicePropertyData", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setAsc(Integer asc) {
-		this.asc = asc;
-		if(asc != null){
-			putQueryParameter("Asc", asc.toString());
-		}
+	public Long getStartTime() {
+		return this.startTime;
 	}
 
-	public String getIdentifier() {
-		return this.identifier;
-	}
-
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
-		if(identifier != null){
-			putQueryParameter("Identifier", identifier);
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime.toString());
 		}
 	}
 
@@ -75,6 +73,17 @@ public class QueryDevicePropertyDataRequest extends RpcAcsRequest<QueryDevicePro
 		}
 	}
 
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -83,6 +92,17 @@ public class QueryDevicePropertyDataRequest extends RpcAcsRequest<QueryDevicePro
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getIdentifier() {
+		return this.identifier;
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+		if(identifier != null){
+			putQueryParameter("Identifier", identifier);
 		}
 	}
 
@@ -97,28 +117,6 @@ public class QueryDevicePropertyDataRequest extends RpcAcsRequest<QueryDevicePro
 		}
 	}
 
-	public String getDeviceName() {
-		return this.deviceName;
-	}
-
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
-		if(deviceName != null){
-			putQueryParameter("DeviceName", deviceName);
-		}
-	}
-
-	public Long getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(Long startTime) {
-		this.startTime = startTime;
-		if(startTime != null){
-			putQueryParameter("StartTime", startTime.toString());
-		}
-	}
-
 	public String getProductKey() {
 		return this.productKey;
 	}
@@ -127,6 +125,28 @@ public class QueryDevicePropertyDataRequest extends RpcAcsRequest<QueryDevicePro
 		this.productKey = productKey;
 		if(productKey != null){
 			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public Integer getAsc() {
+		return this.asc;
+	}
+
+	public void setAsc(Integer asc) {
+		this.asc = asc;
+		if(asc != null){
+			putQueryParameter("Asc", asc.toString());
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 

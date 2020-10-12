@@ -20,13 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateClusterTemplateResponseUnmarshaller {
 
-	public static CreateClusterTemplateResponse unmarshall(CreateClusterTemplateResponse createClusterTemplateResponse, UnmarshallerContext context) {
+	public static CreateClusterTemplateResponse unmarshall(CreateClusterTemplateResponse createClusterTemplateResponse, UnmarshallerContext _ctx) {
 		
-		createClusterTemplateResponse.setRequestId(context.stringValue("CreateClusterTemplateResponse.RequestId"));
-		createClusterTemplateResponse.setSuccess(context.stringValue("CreateClusterTemplateResponse.Success"));
-		createClusterTemplateResponse.setErrCode(context.stringValue("CreateClusterTemplateResponse.ErrCode"));
-		createClusterTemplateResponse.setErrMsg(context.stringValue("CreateClusterTemplateResponse.ErrMsg"));
-		createClusterTemplateResponse.setClusterTemplateId(context.stringValue("CreateClusterTemplateResponse.ClusterTemplateId"));
+		createClusterTemplateResponse.setRequestId(_ctx.stringValue("CreateClusterTemplateResponse.RequestId"));
+		createClusterTemplateResponse.setClusterTemplateId(_ctx.stringValue("CreateClusterTemplateResponse.ClusterTemplateId"));
 	 
 	 	return createClusterTemplateResponse;
 	}

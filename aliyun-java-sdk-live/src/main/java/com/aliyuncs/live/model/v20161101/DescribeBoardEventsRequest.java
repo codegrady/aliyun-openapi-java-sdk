@@ -15,16 +15,15 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeBoardEventsRequest extends RpcAcsRequest<DescribeBoardEventsResponse> {
-	
-	public DescribeBoardEventsRequest() {
-		super("live", "2016-11-01", "DescribeBoardEvents", "live");
-	}
+	   
 
 	private String startTime;
 
@@ -35,6 +34,14 @@ public class DescribeBoardEventsRequest extends RpcAcsRequest<DescribeBoardEvent
 	private Long ownerId;
 
 	private String appId;
+	public DescribeBoardEventsRequest() {
+		super("live", "2016-11-01", "DescribeBoardEvents", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getStartTime() {
 		return this.startTime;

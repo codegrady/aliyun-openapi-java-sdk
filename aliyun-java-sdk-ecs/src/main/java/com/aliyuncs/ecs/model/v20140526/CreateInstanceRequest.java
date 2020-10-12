@@ -16,20 +16,21 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse> {
-	
-	public CreateInstanceRequest() {
-		super("Ecs", "2014-05-26", "CreateInstance", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String hpcClusterId;
+
+	private Integer httpPutResponseHopLimit;
 
 	private String securityEnhancementStrategy;
 
@@ -37,11 +38,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 	private Float spotPriceLimit;
 
+	private Boolean deletionProtection;
+
 	private String resourceGroupId;
 
 	private String hostName;
 
 	private String password;
+
+	private Integer deploymentSetGroupNo;
+
+	private Integer storageSetPartitionNumber;
 
 	private List<Tag> tags;
 
@@ -75,6 +82,8 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 	private Boolean useAdditionalService;
 
+	private String affinity;
+
 	private String imageId;
 
 	private String clientToken;
@@ -93,11 +102,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 	private String systemDiskCategory;
 
+	private String systemDiskPerformanceLevel;
+
 	private String userData;
 
 	private Boolean passwordInherit;
 
+	private String httpEndpoint;
+
 	private String instanceType;
+
+	private List<Arn> arns;
 
 	private String instanceChargeType;
 
@@ -109,6 +124,8 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 	private String ownerAccount;
 
+	private String tenancy;
+
 	private String systemDiskDiskName;
 
 	private String ramRoleName;
@@ -119,11 +136,27 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 	private String creditSpecification;
 
+	private Integer spotDuration;
+
 	private List<DataDisk> dataDisks;
+
+	private String storageSetId;
 
 	private Integer systemDiskSize;
 
+	private String imageFamily;
+
+	private String httpTokens;
+
 	private String systemDiskDescription;
+	public CreateInstanceRequest() {
+		super("Ecs", "2014-05-26", "CreateInstance", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -144,6 +177,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.hpcClusterId = hpcClusterId;
 		if(hpcClusterId != null){
 			putQueryParameter("HpcClusterId", hpcClusterId);
+		}
+	}
+
+	public Integer getHttpPutResponseHopLimit() {
+		return this.httpPutResponseHopLimit;
+	}
+
+	public void setHttpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
+		this.httpPutResponseHopLimit = httpPutResponseHopLimit;
+		if(httpPutResponseHopLimit != null){
+			putQueryParameter("HttpPutResponseHopLimit", httpPutResponseHopLimit.toString());
 		}
 	}
 
@@ -180,6 +224,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
+	public Boolean getDeletionProtection() {
+		return this.deletionProtection;
+	}
+
+	public void setDeletionProtection(Boolean deletionProtection) {
+		this.deletionProtection = deletionProtection;
+		if(deletionProtection != null){
+			putQueryParameter("DeletionProtection", deletionProtection.toString());
+		}
+	}
+
 	public String getResourceGroupId() {
 		return this.resourceGroupId;
 	}
@@ -210,6 +265,28 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.password = password;
 		if(password != null){
 			putQueryParameter("Password", password);
+		}
+	}
+
+	public Integer getDeploymentSetGroupNo() {
+		return this.deploymentSetGroupNo;
+	}
+
+	public void setDeploymentSetGroupNo(Integer deploymentSetGroupNo) {
+		this.deploymentSetGroupNo = deploymentSetGroupNo;
+		if(deploymentSetGroupNo != null){
+			putQueryParameter("DeploymentSetGroupNo", deploymentSetGroupNo.toString());
+		}
+	}
+
+	public Integer getStorageSetPartitionNumber() {
+		return this.storageSetPartitionNumber;
+	}
+
+	public void setStorageSetPartitionNumber(Integer storageSetPartitionNumber) {
+		this.storageSetPartitionNumber = storageSetPartitionNumber;
+		if(storageSetPartitionNumber != null){
+			putQueryParameter("StorageSetPartitionNumber", storageSetPartitionNumber.toString());
 		}
 	}
 
@@ -392,6 +469,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
+	public String getAffinity() {
+		return this.affinity;
+	}
+
+	public void setAffinity(String affinity) {
+		this.affinity = affinity;
+		if(affinity != null){
+			putQueryParameter("Affinity", affinity);
+		}
+	}
+
 	public String getImageId() {
 		return this.imageId;
 	}
@@ -491,6 +579,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
+	public String getSystemDiskPerformanceLevel() {
+		return this.systemDiskPerformanceLevel;
+	}
+
+	public void setSystemDiskPerformanceLevel(String systemDiskPerformanceLevel) {
+		this.systemDiskPerformanceLevel = systemDiskPerformanceLevel;
+		if(systemDiskPerformanceLevel != null){
+			putQueryParameter("SystemDisk.PerformanceLevel", systemDiskPerformanceLevel);
+		}
+	}
+
 	public String getUserData() {
 		return this.userData;
 	}
@@ -513,6 +612,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
+	public String getHttpEndpoint() {
+		return this.httpEndpoint;
+	}
+
+	public void setHttpEndpoint(String httpEndpoint) {
+		this.httpEndpoint = httpEndpoint;
+		if(httpEndpoint != null){
+			putQueryParameter("HttpEndpoint", httpEndpoint);
+		}
+	}
+
 	public String getInstanceType() {
 		return this.instanceType;
 	}
@@ -522,6 +632,21 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		if(instanceType != null){
 			putQueryParameter("InstanceType", instanceType);
 		}
+	}
+
+	public List<Arn> getArns() {
+		return this.arns;
+	}
+
+	public void setArns(List<Arn> arns) {
+		this.arns = arns;	
+		if (arns != null) {
+			for (int depth1 = 0; depth1 < arns.size(); depth1++) {
+				putQueryParameter("Arn." + (depth1 + 1) + ".Rolearn" , arns.get(depth1).getRolearn());
+				putQueryParameter("Arn." + (depth1 + 1) + ".RoleType" , arns.get(depth1).getRoleType());
+				putQueryParameter("Arn." + (depth1 + 1) + ".AssumeRoleFor" , arns.get(depth1).getAssumeRoleFor());
+			}
+		}	
 	}
 
 	public String getInstanceChargeType() {
@@ -576,6 +701,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public String getTenancy() {
+		return this.tenancy;
+	}
+
+	public void setTenancy(String tenancy) {
+		this.tenancy = tenancy;
+		if(tenancy != null){
+			putQueryParameter("Tenancy", tenancy);
 		}
 	}
 
@@ -634,6 +770,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
+	public Integer getSpotDuration() {
+		return this.spotDuration;
+	}
+
+	public void setSpotDuration(Integer spotDuration) {
+		this.spotDuration = spotDuration;
+		if(spotDuration != null){
+			putQueryParameter("SpotDuration", spotDuration.toString());
+		}
+	}
+
 	public List<DataDisk> getDataDisks() {
 		return this.dataDisks;
 	}
@@ -646,12 +793,26 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".SnapshotId" , dataDisks.get(depth1).getSnapshotId());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".Size" , dataDisks.get(depth1).getSize());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".Encrypted" , dataDisks.get(depth1).getEncrypted());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".PerformanceLevel" , dataDisks.get(depth1).getPerformanceLevel());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".EncryptAlgorithm" , dataDisks.get(depth1).getEncryptAlgorithm());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".Description" , dataDisks.get(depth1).getDescription());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".Category" , dataDisks.get(depth1).getCategory());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".KMSKeyId" , dataDisks.get(depth1).getKMSKeyId());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".Device" , dataDisks.get(depth1).getDevice());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".DeleteWithInstance" , dataDisks.get(depth1).getDeleteWithInstance());
 			}
 		}	
+	}
+
+	public String getStorageSetId() {
+		return this.storageSetId;
+	}
+
+	public void setStorageSetId(String storageSetId) {
+		this.storageSetId = storageSetId;
+		if(storageSetId != null){
+			putQueryParameter("StorageSetId", storageSetId);
+		}
 	}
 
 	public Integer getSystemDiskSize() {
@@ -662,6 +823,28 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.systemDiskSize = systemDiskSize;
 		if(systemDiskSize != null){
 			putQueryParameter("SystemDisk.Size", systemDiskSize.toString());
+		}
+	}
+
+	public String getImageFamily() {
+		return this.imageFamily;
+	}
+
+	public void setImageFamily(String imageFamily) {
+		this.imageFamily = imageFamily;
+		if(imageFamily != null){
+			putQueryParameter("ImageFamily", imageFamily);
+		}
+	}
+
+	public String getHttpTokens() {
+		return this.httpTokens;
+	}
+
+	public void setHttpTokens(String httpTokens) {
+		this.httpTokens = httpTokens;
+		if(httpTokens != null){
+			putQueryParameter("HttpTokens", httpTokens);
 		}
 	}
 
@@ -699,6 +882,39 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
+	public static class Arn {
+
+		private String rolearn;
+
+		private String roleType;
+
+		private Long assumeRoleFor;
+
+		public String getRolearn() {
+			return this.rolearn;
+		}
+
+		public void setRolearn(String rolearn) {
+			this.rolearn = rolearn;
+		}
+
+		public String getRoleType() {
+			return this.roleType;
+		}
+
+		public void setRoleType(String roleType) {
+			this.roleType = roleType;
+		}
+
+		public Long getAssumeRoleFor() {
+			return this.assumeRoleFor;
+		}
+
+		public void setAssumeRoleFor(Long assumeRoleFor) {
+			this.assumeRoleFor = assumeRoleFor;
+		}
+	}
+
 	public static class DataDisk {
 
 		private String diskName;
@@ -709,9 +925,15 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 		private Boolean encrypted;
 
+		private String performanceLevel;
+
+		private String encryptAlgorithm;
+
 		private String description;
 
 		private String category;
+
+		private String kMSKeyId;
 
 		private String device;
 
@@ -749,6 +971,22 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 			this.encrypted = encrypted;
 		}
 
+		public String getPerformanceLevel() {
+			return this.performanceLevel;
+		}
+
+		public void setPerformanceLevel(String performanceLevel) {
+			this.performanceLevel = performanceLevel;
+		}
+
+		public String getEncryptAlgorithm() {
+			return this.encryptAlgorithm;
+		}
+
+		public void setEncryptAlgorithm(String encryptAlgorithm) {
+			this.encryptAlgorithm = encryptAlgorithm;
+		}
+
 		public String getDescription() {
 			return this.description;
 		}
@@ -763,6 +1001,14 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 		public void setCategory(String category) {
 			this.category = category;
+		}
+
+		public String getKMSKeyId() {
+			return this.kMSKeyId;
+		}
+
+		public void setKMSKeyId(String kMSKeyId) {
+			this.kMSKeyId = kMSKeyId;
 		}
 
 		public String getDevice() {

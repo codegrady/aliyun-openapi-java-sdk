@@ -15,20 +15,19 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class JoinResourceGroupRequest extends RpcAcsRequest<JoinResourceGroupResponse> {
-	
-	public JoinResourceGroupRequest() {
-		super("Ecs", "2014-05-26", "JoinResourceGroup", "ecs");
-	}
-
-	private String resourceGroupId;
+	   
 
 	private Long resourceOwnerId;
+
+	private String resourceGroupId;
 
 	private String resourceId;
 
@@ -39,16 +38,13 @@ public class JoinResourceGroupRequest extends RpcAcsRequest<JoinResourceGroupRes
 	private Long ownerId;
 
 	private String resourceType;
-
-	public String getResourceGroupId() {
-		return this.resourceGroupId;
-	}
-
-	public void setResourceGroupId(String resourceGroupId) {
-		this.resourceGroupId = resourceGroupId;
-		if(resourceGroupId != null){
-			putQueryParameter("ResourceGroupId", resourceGroupId);
-		}
+	public JoinResourceGroupRequest() {
+		super("Ecs", "2014-05-26", "JoinResourceGroup", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -59,6 +55,17 @@ public class JoinResourceGroupRequest extends RpcAcsRequest<JoinResourceGroupRes
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 

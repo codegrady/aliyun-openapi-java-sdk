@@ -15,32 +15,23 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateProjectRequest extends RpcAcsRequest<UpdateProjectResponse> {
-	
-	public UpdateProjectRequest() {
-		super("imm", "2017-09-06", "UpdateProject", "imm");
-	}
-
-	private String newServiceRole;
+	   
 
 	private String project;
 
+	private String newServiceRole;
+
 	private Integer newCU;
-
-	public String getNewServiceRole() {
-		return this.newServiceRole;
-	}
-
-	public void setNewServiceRole(String newServiceRole) {
-		this.newServiceRole = newServiceRole;
-		if(newServiceRole != null){
-			putQueryParameter("NewServiceRole", newServiceRole);
-		}
+	public UpdateProjectRequest() {
+		super("imm", "2017-09-06", "UpdateProject", "imm");
+		setMethod(MethodType.POST);
 	}
 
 	public String getProject() {
@@ -51,6 +42,17 @@ public class UpdateProjectRequest extends RpcAcsRequest<UpdateProjectResponse> {
 		this.project = project;
 		if(project != null){
 			putQueryParameter("Project", project);
+		}
+	}
+
+	public String getNewServiceRole() {
+		return this.newServiceRole;
+	}
+
+	public void setNewServiceRole(String newServiceRole) {
+		this.newServiceRole = newServiceRole;
+		if(newServiceRole != null){
+			putQueryParameter("NewServiceRole", newServiceRole);
 		}
 	}
 

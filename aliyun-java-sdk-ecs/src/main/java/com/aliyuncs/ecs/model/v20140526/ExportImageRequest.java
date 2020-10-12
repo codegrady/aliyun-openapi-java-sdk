@@ -15,32 +15,39 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ExportImageRequest extends RpcAcsRequest<ExportImageResponse> {
-	
-	public ExportImageRequest() {
-		super("Ecs", "2014-05-26", "ExportImage", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String imageId;
 
+	private String imageFormat;
+
 	private String oSSBucket;
 
 	private String resourceOwnerAccount;
-
-	private String oSSPrefix;
 
 	private String roleName;
 
 	private Long ownerId;
 
-	private String imageFormat;
+	private String oSSPrefix;
+	public ExportImageRequest() {
+		super("Ecs", "2014-05-26", "ExportImage", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -61,6 +68,17 @@ public class ExportImageRequest extends RpcAcsRequest<ExportImageResponse> {
 		this.imageId = imageId;
 		if(imageId != null){
 			putQueryParameter("ImageId", imageId);
+		}
+	}
+
+	public String getImageFormat() {
+		return this.imageFormat;
+	}
+
+	public void setImageFormat(String imageFormat) {
+		this.imageFormat = imageFormat;
+		if(imageFormat != null){
+			putQueryParameter("ImageFormat", imageFormat);
 		}
 	}
 
@@ -86,17 +104,6 @@ public class ExportImageRequest extends RpcAcsRequest<ExportImageResponse> {
 		}
 	}
 
-	public String getOSSPrefix() {
-		return this.oSSPrefix;
-	}
-
-	public void setOSSPrefix(String oSSPrefix) {
-		this.oSSPrefix = oSSPrefix;
-		if(oSSPrefix != null){
-			putQueryParameter("OSSPrefix", oSSPrefix);
-		}
-	}
-
 	public String getRoleName() {
 		return this.roleName;
 	}
@@ -119,14 +126,14 @@ public class ExportImageRequest extends RpcAcsRequest<ExportImageResponse> {
 		}
 	}
 
-	public String getImageFormat() {
-		return this.imageFormat;
+	public String getOSSPrefix() {
+		return this.oSSPrefix;
 	}
 
-	public void setImageFormat(String imageFormat) {
-		this.imageFormat = imageFormat;
-		if(imageFormat != null){
-			putQueryParameter("ImageFormat", imageFormat);
+	public void setOSSPrefix(String oSSPrefix) {
+		this.oSSPrefix = oSSPrefix;
+		if(oSSPrefix != null){
+			putQueryParameter("OSSPrefix", oSSPrefix);
 		}
 	}
 

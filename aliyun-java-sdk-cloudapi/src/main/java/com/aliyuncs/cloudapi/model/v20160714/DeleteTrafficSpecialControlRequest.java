@@ -11,9 +11,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.model.v20160714;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cloudapi.Endpoint;
 
 /**
  * @author auto create
@@ -23,13 +26,20 @@ public class DeleteTrafficSpecialControlRequest extends RpcAcsRequest<DeleteTraf
 	
 	public DeleteTrafficSpecialControlRequest() {
 		super("CloudAPI", "2016-07-14", "DeleteTrafficSpecialControl", "apigateway");
+		setSysMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private String trafficControlId;
 
-	private String specialType;
-
 	private String specialKey;
+
+	private String securityToken;
+
+	private String specialType;
 
 	public String getTrafficControlId() {
 		return this.trafficControlId;
@@ -37,16 +47,9 @@ public class DeleteTrafficSpecialControlRequest extends RpcAcsRequest<DeleteTraf
 
 	public void setTrafficControlId(String trafficControlId) {
 		this.trafficControlId = trafficControlId;
-		putQueryParameter("TrafficControlId", trafficControlId);
-	}
-
-	public String getSpecialType() {
-		return this.specialType;
-	}
-
-	public void setSpecialType(String specialType) {
-		this.specialType = specialType;
-		putQueryParameter("SpecialType", specialType);
+		if(trafficControlId != null){
+			putQueryParameter("TrafficControlId", trafficControlId);
+		}
 	}
 
 	public String getSpecialKey() {
@@ -55,7 +58,50 @@ public class DeleteTrafficSpecialControlRequest extends RpcAcsRequest<DeleteTraf
 
 	public void setSpecialKey(String specialKey) {
 		this.specialKey = specialKey;
-		putQueryParameter("SpecialKey", specialKey);
+		if(specialKey != null){
+			putQueryParameter("SpecialKey", specialKey);
+		}
+	}
+
+	public String getBizSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setBizSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	/**
+	 * @deprecated use getBizSecurityToken instead of this.
+	 */
+	@Deprecated
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	/**
+	 * @deprecated use setBizSecurityToken instead of this.
+	 */
+	@Deprecated
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getSpecialType() {
+		return this.specialType;
+	}
+
+	public void setSpecialType(String specialType) {
+		this.specialType = specialType;
+		if(specialType != null){
+			putQueryParameter("SpecialType", specialType);
+		}
 	}
 
 	@Override

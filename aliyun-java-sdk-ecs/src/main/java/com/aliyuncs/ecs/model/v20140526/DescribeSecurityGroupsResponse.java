@@ -97,11 +97,17 @@ public class DescribeSecurityGroupsResponse extends AcsResponse {
 
 		private String creationTime;
 
+		private String securityGroupType;
+
 		private Integer availableInstanceAmount;
 
 		private Integer ecsCount;
 
 		private String resourceGroupId;
+
+		private Long serviceID;
+
+		private Boolean serviceManaged;
 
 		private List<Tag> tags;
 
@@ -145,6 +151,14 @@ public class DescribeSecurityGroupsResponse extends AcsResponse {
 			this.creationTime = creationTime;
 		}
 
+		public String getSecurityGroupType() {
+			return this.securityGroupType;
+		}
+
+		public void setSecurityGroupType(String securityGroupType) {
+			this.securityGroupType = securityGroupType;
+		}
+
 		public Integer getAvailableInstanceAmount() {
 			return this.availableInstanceAmount;
 		}
@@ -167,6 +181,22 @@ public class DescribeSecurityGroupsResponse extends AcsResponse {
 
 		public void setResourceGroupId(String resourceGroupId) {
 			this.resourceGroupId = resourceGroupId;
+		}
+
+		public Long getServiceID() {
+			return this.serviceID;
+		}
+
+		public void setServiceID(Long serviceID) {
+			this.serviceID = serviceID;
+		}
+
+		public Boolean getServiceManaged() {
+			return this.serviceManaged;
+		}
+
+		public void setServiceManaged(Boolean serviceManaged) {
+			this.serviceManaged = serviceManaged;
 		}
 
 		public List<Tag> getTags() {

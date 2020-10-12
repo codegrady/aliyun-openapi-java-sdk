@@ -15,18 +15,21 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDBInstanceHAConfigRequest extends RpcAcsRequest<ModifyDBInstanceHAConfigResponse> {
-	
-	public ModifyDBInstanceHAConfigRequest() {
-		super("Rds", "2014-08-15", "ModifyDBInstanceHAConfig", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String dbInstanceId;
+
+	private String hAMode;
 
 	private String resourceOwnerAccount;
 
@@ -34,11 +37,15 @@ public class ModifyDBInstanceHAConfigRequest extends RpcAcsRequest<ModifyDBInsta
 
 	private String syncMode;
 
-	private String dbInstanceId;
-
 	private Long ownerId;
-
-	private String hAMode;
+	public ModifyDBInstanceHAConfigRequest() {
+		super("Rds", "2014-08-15", "ModifyDBInstanceHAConfig", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -48,6 +55,28 @@ public class ModifyDBInstanceHAConfigRequest extends RpcAcsRequest<ModifyDBInsta
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getDbInstanceId() {
+		return this.dbInstanceId;
+	}
+
+	public void setDbInstanceId(String dbInstanceId) {
+		this.dbInstanceId = dbInstanceId;
+		if(dbInstanceId != null){
+			putQueryParameter("DbInstanceId", dbInstanceId);
+		}
+	}
+
+	public String getHAMode() {
+		return this.hAMode;
+	}
+
+	public void setHAMode(String hAMode) {
+		this.hAMode = hAMode;
+		if(hAMode != null){
+			putQueryParameter("HAMode", hAMode);
 		}
 	}
 
@@ -84,17 +113,6 @@ public class ModifyDBInstanceHAConfigRequest extends RpcAcsRequest<ModifyDBInsta
 		}
 	}
 
-	public String getDbInstanceId() {
-		return this.dbInstanceId;
-	}
-
-	public void setDbInstanceId(String dbInstanceId) {
-		this.dbInstanceId = dbInstanceId;
-		if(dbInstanceId != null){
-			putQueryParameter("DbInstanceId", dbInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -103,17 +121,6 @@ public class ModifyDBInstanceHAConfigRequest extends RpcAcsRequest<ModifyDBInsta
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getHAMode() {
-		return this.hAMode;
-	}
-
-	public void setHAMode(String hAMode) {
-		this.hAMode = hAMode;
-		if(hAMode != null){
-			putQueryParameter("HAMode", hAMode);
 		}
 	}
 

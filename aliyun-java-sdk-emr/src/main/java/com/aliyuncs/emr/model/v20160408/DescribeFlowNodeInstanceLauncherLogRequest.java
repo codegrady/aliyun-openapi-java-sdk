@@ -15,35 +15,50 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeFlowNodeInstanceLauncherLogRequest extends RpcAcsRequest<DescribeFlowNodeInstanceLauncherLogResponse> {
-	
-	public DescribeFlowNodeInstanceLauncherLogRequest() {
-		super("Emr", "2016-04-08", "DescribeFlowNodeInstanceLauncherLog");
-	}
+	   
 
-	private Long resourceOwnerId;
+	private Integer offset;
 
 	private Integer start;
 
-	private Integer lines;
+	private Integer length;
+
+	private Long endTime;
+
+	private Long startTime;
+
+	private Boolean reverse;
 
 	private String nodeInstanceId;
 
-	private String projectId;
+	private Integer lines;
 
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
+	private String projectId;
+	public DescribeFlowNodeInstanceLauncherLogRequest() {
+		super("Emr", "2016-04-08", "DescribeFlowNodeInstanceLauncherLog");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+	public Integer getOffset() {
+		return this.offset;
+	}
+
+	public void setOffset(Integer offset) {
+		this.offset = offset;
+		if(offset != null){
+			putQueryParameter("Offset", offset.toString());
 		}
 	}
 
@@ -58,14 +73,47 @@ public class DescribeFlowNodeInstanceLauncherLogRequest extends RpcAcsRequest<De
 		}
 	}
 
-	public Integer getLines() {
-		return this.lines;
+	public Integer getLength() {
+		return this.length;
 	}
 
-	public void setLines(Integer lines) {
-		this.lines = lines;
-		if(lines != null){
-			putQueryParameter("Lines", lines.toString());
+	public void setLength(Integer length) {
+		this.length = length;
+		if(length != null){
+			putQueryParameter("Length", length.toString());
+		}
+	}
+
+	public Long getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime.toString());
+		}
+	}
+
+	public Long getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime.toString());
+		}
+	}
+
+	public Boolean getReverse() {
+		return this.reverse;
+	}
+
+	public void setReverse(Boolean reverse) {
+		this.reverse = reverse;
+		if(reverse != null){
+			putQueryParameter("Reverse", reverse.toString());
 		}
 	}
 
@@ -77,6 +125,17 @@ public class DescribeFlowNodeInstanceLauncherLogRequest extends RpcAcsRequest<De
 		this.nodeInstanceId = nodeInstanceId;
 		if(nodeInstanceId != null){
 			putQueryParameter("NodeInstanceId", nodeInstanceId);
+		}
+	}
+
+	public Integer getLines() {
+		return this.lines;
+	}
+
+	public void setLines(Integer lines) {
+		this.lines = lines;
+		if(lines != null){
+			putQueryParameter("Lines", lines.toString());
 		}
 	}
 

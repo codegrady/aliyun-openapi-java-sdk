@@ -83,6 +83,10 @@ public class ListClustersResponse extends AcsResponse {
 
 		private String zoneId;
 
+		private String vSwitchId;
+
+		private String vpcId;
+
 		private String name;
 
 		private String description;
@@ -110,6 +114,20 @@ public class ListClustersResponse extends AcsResponse {
 		private String imageId;
 
 		private String location;
+
+		private String ehpcVersion;
+
+		private String nodePrefix;
+
+		private String nodeSuffix;
+
+		private String baseOsTag;
+
+		private String instanceChargeType;
+
+		private String computeSpotStrategy;
+
+		private Float computeSpotPriceLimit;
 
 		private Managers managers;
 
@@ -141,6 +159,22 @@ public class ListClustersResponse extends AcsResponse {
 
 		public void setZoneId(String zoneId) {
 			this.zoneId = zoneId;
+		}
+
+		public String getVSwitchId() {
+			return this.vSwitchId;
+		}
+
+		public void setVSwitchId(String vSwitchId) {
+			this.vSwitchId = vSwitchId;
+		}
+
+		public String getVpcId() {
+			return this.vpcId;
+		}
+
+		public void setVpcId(String vpcId) {
+			this.vpcId = vpcId;
 		}
 
 		public String getName() {
@@ -253,6 +287,62 @@ public class ListClustersResponse extends AcsResponse {
 
 		public void setLocation(String location) {
 			this.location = location;
+		}
+
+		public String getEhpcVersion() {
+			return this.ehpcVersion;
+		}
+
+		public void setEhpcVersion(String ehpcVersion) {
+			this.ehpcVersion = ehpcVersion;
+		}
+
+		public String getNodePrefix() {
+			return this.nodePrefix;
+		}
+
+		public void setNodePrefix(String nodePrefix) {
+			this.nodePrefix = nodePrefix;
+		}
+
+		public String getNodeSuffix() {
+			return this.nodeSuffix;
+		}
+
+		public void setNodeSuffix(String nodeSuffix) {
+			this.nodeSuffix = nodeSuffix;
+		}
+
+		public String getBaseOsTag() {
+			return this.baseOsTag;
+		}
+
+		public void setBaseOsTag(String baseOsTag) {
+			this.baseOsTag = baseOsTag;
+		}
+
+		public String getInstanceChargeType() {
+			return this.instanceChargeType;
+		}
+
+		public void setInstanceChargeType(String instanceChargeType) {
+			this.instanceChargeType = instanceChargeType;
+		}
+
+		public String getComputeSpotStrategy() {
+			return this.computeSpotStrategy;
+		}
+
+		public void setComputeSpotStrategy(String computeSpotStrategy) {
+			this.computeSpotStrategy = computeSpotStrategy;
+		}
+
+		public Float getComputeSpotPriceLimit() {
+			return this.computeSpotPriceLimit;
+		}
+
+		public void setComputeSpotPriceLimit(Float computeSpotPriceLimit) {
+			this.computeSpotPriceLimit = computeSpotPriceLimit;
 		}
 
 		public Managers getManagers() {

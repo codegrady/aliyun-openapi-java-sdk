@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.RemoveApisAuthoritiesResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class RemoveApisAuthoritiesResponseUnmarshaller {
 
-	public static RemoveApisAuthoritiesResponse unmarshall(RemoveApisAuthoritiesResponse removeApisAuthoritiesResponse, UnmarshallerContext context) {
+	public static RemoveApisAuthoritiesResponse unmarshall(RemoveApisAuthoritiesResponse removeApisAuthoritiesResponse, UnmarshallerContext _ctx) {
 		
-		removeApisAuthoritiesResponse.setRequestId(context.stringValue("RemoveApisAuthoritiesResponse.RequestId"));
+		removeApisAuthoritiesResponse.setRequestId(_ctx.stringValue("RemoveApisAuthoritiesResponse.RequestId"));
 	 
 	 	return removeApisAuthoritiesResponse;
 	}

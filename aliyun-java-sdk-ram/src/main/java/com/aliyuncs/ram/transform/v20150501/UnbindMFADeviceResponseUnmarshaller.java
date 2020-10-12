@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.UnbindMFADeviceResponse;
@@ -20,12 +21,12 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class UnbindMFADeviceResponseUnmarshaller {
 
-	public static UnbindMFADeviceResponse unmarshall(UnbindMFADeviceResponse unbindMFADeviceResponse, UnmarshallerContext context) {
+	public static UnbindMFADeviceResponse unmarshall(UnbindMFADeviceResponse unbindMFADeviceResponse, UnmarshallerContext _ctx) {
 		
-		unbindMFADeviceResponse.setRequestId(context.stringValue("UnbindMFADeviceResponse.RequestId"));
+		unbindMFADeviceResponse.setRequestId(_ctx.stringValue("UnbindMFADeviceResponse.RequestId"));
 
 		MFADevice mFADevice = new MFADevice();
-		mFADevice.setSerialNumber(context.stringValue("UnbindMFADeviceResponse.MFADevice.SerialNumber"));
+		mFADevice.setSerialNumber(_ctx.stringValue("UnbindMFADeviceResponse.MFADevice.SerialNumber"));
 		unbindMFADeviceResponse.setMFADevice(mFADevice);
 	 
 	 	return unbindMFADeviceResponse;

@@ -15,28 +15,19 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DialogueRequest extends RpcAcsRequest<DialogueResponse> {
-	
-	public DialogueRequest() {
-		super("CCC", "2017-07-05", "Dialogue", "ccc");
-	}
+	   
 
 	private String callId;
 
-	private String callingNumber;
-
-	private String instanceId;
-
 	private String calledNumber;
-
-	private String actionKey;
-
-	private String actionParams;
 
 	private String callType;
 
@@ -45,6 +36,22 @@ public class DialogueRequest extends RpcAcsRequest<DialogueResponse> {
 	private String taskId;
 
 	private String utterance;
+
+	private String actionParams;
+
+	private String callingNumber;
+
+	private String instanceId;
+
+	private String actionKey;
+	public DialogueRequest() {
+		super("CCC", "2017-07-05", "Dialogue", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getCallId() {
 		return this.callId;
@@ -57,28 +64,6 @@ public class DialogueRequest extends RpcAcsRequest<DialogueResponse> {
 		}
 	}
 
-	public String getCallingNumber() {
-		return this.callingNumber;
-	}
-
-	public void setCallingNumber(String callingNumber) {
-		this.callingNumber = callingNumber;
-		if(callingNumber != null){
-			putQueryParameter("CallingNumber", callingNumber);
-		}
-	}
-
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
 	public String getCalledNumber() {
 		return this.calledNumber;
 	}
@@ -87,28 +72,6 @@ public class DialogueRequest extends RpcAcsRequest<DialogueResponse> {
 		this.calledNumber = calledNumber;
 		if(calledNumber != null){
 			putQueryParameter("CalledNumber", calledNumber);
-		}
-	}
-
-	public String getActionKey() {
-		return this.actionKey;
-	}
-
-	public void setActionKey(String actionKey) {
-		this.actionKey = actionKey;
-		if(actionKey != null){
-			putQueryParameter("ActionKey", actionKey);
-		}
-	}
-
-	public String getActionParams() {
-		return this.actionParams;
-	}
-
-	public void setActionParams(String actionParams) {
-		this.actionParams = actionParams;
-		if(actionParams != null){
-			putQueryParameter("ActionParams", actionParams);
 		}
 	}
 
@@ -153,6 +116,50 @@ public class DialogueRequest extends RpcAcsRequest<DialogueResponse> {
 		this.utterance = utterance;
 		if(utterance != null){
 			putQueryParameter("Utterance", utterance);
+		}
+	}
+
+	public String getActionParams() {
+		return this.actionParams;
+	}
+
+	public void setActionParams(String actionParams) {
+		this.actionParams = actionParams;
+		if(actionParams != null){
+			putQueryParameter("ActionParams", actionParams);
+		}
+	}
+
+	public String getCallingNumber() {
+		return this.callingNumber;
+	}
+
+	public void setCallingNumber(String callingNumber) {
+		this.callingNumber = callingNumber;
+		if(callingNumber != null){
+			putQueryParameter("CallingNumber", callingNumber);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getActionKey() {
+		return this.actionKey;
+	}
+
+	public void setActionKey(String actionKey) {
+		this.actionKey = actionKey;
+		if(actionKey != null){
+			putQueryParameter("ActionKey", actionKey);
 		}
 	}
 

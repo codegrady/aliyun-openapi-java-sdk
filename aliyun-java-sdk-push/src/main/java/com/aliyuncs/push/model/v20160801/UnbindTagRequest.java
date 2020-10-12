@@ -15,24 +15,42 @@
 package com.aliyuncs.push.model.v20160801;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.push.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UnbindTagRequest extends RpcAcsRequest<UnbindTagResponse> {
-	
-	public UnbindTagRequest() {
-		super("Push", "2016-08-01", "UnbindTag");
-	}
+	   
+
+	private String keyType;
 
 	private String tagName;
 
 	private String clientKey;
 
 	private Long appKey;
+	public UnbindTagRequest() {
+		super("Push", "2016-08-01", "UnbindTag");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String keyType;
+	public String getKeyType() {
+		return this.keyType;
+	}
+
+	public void setKeyType(String keyType) {
+		this.keyType = keyType;
+		if(keyType != null){
+			putQueryParameter("KeyType", keyType);
+		}
+	}
 
 	public String getTagName() {
 		return this.tagName;
@@ -64,17 +82,6 @@ public class UnbindTagRequest extends RpcAcsRequest<UnbindTagResponse> {
 		this.appKey = appKey;
 		if(appKey != null){
 			putQueryParameter("AppKey", appKey.toString());
-		}
-	}
-
-	public String getKeyType() {
-		return this.keyType;
-	}
-
-	public void setKeyType(String keyType) {
-		this.keyType = keyType;
-		if(keyType != null){
-			putQueryParameter("KeyType", keyType);
 		}
 	}
 

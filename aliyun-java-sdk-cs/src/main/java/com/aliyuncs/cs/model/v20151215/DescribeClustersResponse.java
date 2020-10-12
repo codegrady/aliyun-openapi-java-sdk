@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cs.model.v20151215;
 
 import com.aliyuncs.AcsResponse;
@@ -26,5 +27,10 @@ public class DescribeClustersResponse extends AcsResponse {
 	@Override
 	public DescribeClustersResponse getInstance(UnmarshallerContext context) {
 		return	DescribeClustersResponseUnmarshaller.unmarshall(this, context);
+	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
 	}
 }

@@ -15,30 +15,17 @@
 package com.aliyuncs.scdn.model.v20171115;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.scdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeScdnUserDomainsRequest extends RpcAcsRequest<DescribeScdnUserDomainsResponse> {
-	
-	public DescribeScdnUserDomainsRequest() {
-		super("scdn", "2017-11-15", "DescribeScdnUserDomains");
-	}
-
-	private String funcFilter;
-
-	private String domainName;
-
-	private Long ownerId;
-
-	private String funcId;
+	   
 
 	private Integer pageNumber;
-
-	private String domainStatus;
-
-	private String domainSearchType;
 
 	private Boolean checkDomainShow;
 
@@ -46,50 +33,26 @@ public class DescribeScdnUserDomainsRequest extends RpcAcsRequest<DescribeScdnUs
 
 	private String securityToken;
 
+	private String changeEndTime;
+
 	private Integer pageSize;
 
-	public String getFuncFilter() {
-		return this.funcFilter;
-	}
+	private String domainName;
 
-	public void setFuncFilter(String funcFilter) {
-		this.funcFilter = funcFilter;
-		if(funcFilter != null){
-			putQueryParameter("FuncFilter", funcFilter);
-		}
-	}
+	private Long ownerId;
 
-	public String getDomainName() {
-		return this.domainName;
-	}
+	private String domainStatus;
 
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
-		if(domainName != null){
-			putQueryParameter("DomainName", domainName);
-		}
-	}
+	private String domainSearchType;
 
-	public Long getOwnerId() {
-		return this.ownerId;
-	}
-
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getFuncId() {
-		return this.funcId;
-	}
-
-	public void setFuncId(String funcId) {
-		this.funcId = funcId;
-		if(funcId != null){
-			putQueryParameter("FuncId", funcId);
-		}
+	private String changeStartTime;
+	public DescribeScdnUserDomainsRequest() {
+		super("scdn", "2017-11-15", "DescribeScdnUserDomains");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Integer getPageNumber() {
@@ -100,28 +63,6 @@ public class DescribeScdnUserDomainsRequest extends RpcAcsRequest<DescribeScdnUs
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
-		}
-	}
-
-	public String getDomainStatus() {
-		return this.domainStatus;
-	}
-
-	public void setDomainStatus(String domainStatus) {
-		this.domainStatus = domainStatus;
-		if(domainStatus != null){
-			putQueryParameter("DomainStatus", domainStatus);
-		}
-	}
-
-	public String getDomainSearchType() {
-		return this.domainSearchType;
-	}
-
-	public void setDomainSearchType(String domainSearchType) {
-		this.domainSearchType = domainSearchType;
-		if(domainSearchType != null){
-			putQueryParameter("DomainSearchType", domainSearchType);
 		}
 	}
 
@@ -158,6 +99,17 @@ public class DescribeScdnUserDomainsRequest extends RpcAcsRequest<DescribeScdnUs
 		}
 	}
 
+	public String getChangeEndTime() {
+		return this.changeEndTime;
+	}
+
+	public void setChangeEndTime(String changeEndTime) {
+		this.changeEndTime = changeEndTime;
+		if(changeEndTime != null){
+			putQueryParameter("ChangeEndTime", changeEndTime);
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -166,6 +118,61 @@ public class DescribeScdnUserDomainsRequest extends RpcAcsRequest<DescribeScdnUs
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
+		if(domainName != null){
+			putQueryParameter("DomainName", domainName);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getDomainStatus() {
+		return this.domainStatus;
+	}
+
+	public void setDomainStatus(String domainStatus) {
+		this.domainStatus = domainStatus;
+		if(domainStatus != null){
+			putQueryParameter("DomainStatus", domainStatus);
+		}
+	}
+
+	public String getDomainSearchType() {
+		return this.domainSearchType;
+	}
+
+	public void setDomainSearchType(String domainSearchType) {
+		this.domainSearchType = domainSearchType;
+		if(domainSearchType != null){
+			putQueryParameter("DomainSearchType", domainSearchType);
+		}
+	}
+
+	public String getChangeStartTime() {
+		return this.changeStartTime;
+	}
+
+	public void setChangeStartTime(String changeStartTime) {
+		this.changeStartTime = changeStartTime;
+		if(changeStartTime != null){
+			putQueryParameter("ChangeStartTime", changeStartTime);
 		}
 	}
 

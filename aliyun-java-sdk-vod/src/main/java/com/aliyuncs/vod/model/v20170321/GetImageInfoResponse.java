@@ -58,6 +58,22 @@ public class GetImageInfoResponse extends AcsResponse {
 
 		private String uRL;
 
+		private Long cateId;
+
+		private String cateName;
+
+		private String description;
+
+		private String storageLocation;
+
+		private String status;
+
+		private String appId;
+
+		private String regionId;
+
+		private String auditStatus;
+
 		private Mezzanine mezzanine;
 
 		public String getImageId() {
@@ -108,6 +124,70 @@ public class GetImageInfoResponse extends AcsResponse {
 			this.uRL = uRL;
 		}
 
+		public Long getCateId() {
+			return this.cateId;
+		}
+
+		public void setCateId(Long cateId) {
+			this.cateId = cateId;
+		}
+
+		public String getCateName() {
+			return this.cateName;
+		}
+
+		public void setCateName(String cateName) {
+			this.cateName = cateName;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public String getStorageLocation() {
+			return this.storageLocation;
+		}
+
+		public void setStorageLocation(String storageLocation) {
+			this.storageLocation = storageLocation;
+		}
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getAppId() {
+			return this.appId;
+		}
+
+		public void setAppId(String appId) {
+			this.appId = appId;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public String getAuditStatus() {
+			return this.auditStatus;
+		}
+
+		public void setAuditStatus(String auditStatus) {
+			this.auditStatus = auditStatus;
+		}
+
 		public Mezzanine getMezzanine() {
 			return this.mezzanine;
 		}
@@ -120,6 +200,14 @@ public class GetImageInfoResponse extends AcsResponse {
 
 			private String originalFileName;
 
+			private String fileSize;
+
+			private Integer width;
+
+			private Integer height;
+
+			private String fileURL;
+
 			public String getOriginalFileName() {
 				return this.originalFileName;
 			}
@@ -127,11 +215,48 @@ public class GetImageInfoResponse extends AcsResponse {
 			public void setOriginalFileName(String originalFileName) {
 				this.originalFileName = originalFileName;
 			}
+
+			public String getFileSize() {
+				return this.fileSize;
+			}
+
+			public void setFileSize(String fileSize) {
+				this.fileSize = fileSize;
+			}
+
+			public Integer getWidth() {
+				return this.width;
+			}
+
+			public void setWidth(Integer width) {
+				this.width = width;
+			}
+
+			public Integer getHeight() {
+				return this.height;
+			}
+
+			public void setHeight(Integer height) {
+				this.height = height;
+			}
+
+			public String getFileURL() {
+				return this.fileURL;
+			}
+
+			public void setFileURL(String fileURL) {
+				this.fileURL = fileURL;
+			}
 		}
 	}
 
 	@Override
 	public GetImageInfoResponse getInstance(UnmarshallerContext context) {
 		return	GetImageInfoResponseUnmarshaller.unmarshall(this, context);
+	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
 	}
 }

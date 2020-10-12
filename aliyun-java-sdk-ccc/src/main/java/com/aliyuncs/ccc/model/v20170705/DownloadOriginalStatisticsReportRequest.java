@@ -15,20 +15,27 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DownloadOriginalStatisticsReportRequest extends RpcAcsRequest<DownloadOriginalStatisticsReportResponse> {
-	
-	public DownloadOriginalStatisticsReportRequest() {
-		super("CCC", "2017-07-05", "DownloadOriginalStatisticsReport", "ccc");
-	}
+	   
 
 	private String instanceId;
 
 	private String jobGroupId;
+	public DownloadOriginalStatisticsReportRequest() {
+		super("CCC", "2017-07-05", "DownloadOriginalStatisticsReport", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getInstanceId() {
 		return this.instanceId;

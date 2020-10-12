@@ -16,27 +16,34 @@ package com.aliyuncs.csb.model.v20171118;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.csb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class FindOrderableListRequest extends RpcAcsRequest<FindOrderableListResponse> {
-	
-	public FindOrderableListRequest() {
-		super("CSB", "2017-11-18", "FindOrderableList");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private String projectName;
 
 	private Long csbId;
 
+	private Integer pageNum;
+
 	private String alias;
 
 	private String serviceName;
-
-	private Integer pageNum;
+	public FindOrderableListRequest() {
+		super("CSB", "2017-11-18", "FindOrderableList");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProjectName() {
 		return this.projectName;
@@ -60,6 +67,17 @@ public class FindOrderableListRequest extends RpcAcsRequest<FindOrderableListRes
 		}
 	}
 
+	public Integer getPageNum() {
+		return this.pageNum;
+	}
+
+	public void setPageNum(Integer pageNum) {
+		this.pageNum = pageNum;
+		if(pageNum != null){
+			putQueryParameter("PageNum", pageNum.toString());
+		}
+	}
+
 	public String getAlias() {
 		return this.alias;
 	}
@@ -79,17 +97,6 @@ public class FindOrderableListRequest extends RpcAcsRequest<FindOrderableListRes
 		this.serviceName = serviceName;
 		if(serviceName != null){
 			putQueryParameter("ServiceName", serviceName);
-		}
-	}
-
-	public Integer getPageNum() {
-		return this.pageNum;
-	}
-
-	public void setPageNum(Integer pageNum) {
-		this.pageNum = pageNum;
-		if(pageNum != null){
-			putQueryParameter("PageNum", pageNum.toString());
 		}
 	}
 

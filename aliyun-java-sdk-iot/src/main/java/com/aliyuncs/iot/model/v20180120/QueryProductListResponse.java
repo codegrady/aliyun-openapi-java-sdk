@@ -15,7 +15,6 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import java.util.List;
-import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.iot.transform.v20180120.QueryProductListResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -144,6 +143,8 @@ public class QueryProductListResponse extends AcsResponse {
 
 			private String productName;
 
+			private String authType;
+
 			public Long getGmtCreate() {
 				return this.gmtCreate;
 			}
@@ -198,6 +199,14 @@ public class QueryProductListResponse extends AcsResponse {
 
 			public void setProductName(String productName) {
 				this.productName = productName;
+			}
+
+			public String getAuthType() {
+				return this.authType;
+			}
+
+			public void setAuthType(String authType) {
+				this.authType = authType;
 			}
 		}
 	}

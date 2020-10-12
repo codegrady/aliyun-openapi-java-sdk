@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.DeleteLoginProfileResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class DeleteLoginProfileResponseUnmarshaller {
 
-	public static DeleteLoginProfileResponse unmarshall(DeleteLoginProfileResponse deleteLoginProfileResponse, UnmarshallerContext context) {
+	public static DeleteLoginProfileResponse unmarshall(DeleteLoginProfileResponse deleteLoginProfileResponse, UnmarshallerContext _ctx) {
 		
-		deleteLoginProfileResponse.setRequestId(context.stringValue("DeleteLoginProfileResponse.RequestId"));
+		deleteLoginProfileResponse.setRequestId(_ctx.stringValue("DeleteLoginProfileResponse.RequestId"));
 	 
 	 	return deleteLoginProfileResponse;
 	}

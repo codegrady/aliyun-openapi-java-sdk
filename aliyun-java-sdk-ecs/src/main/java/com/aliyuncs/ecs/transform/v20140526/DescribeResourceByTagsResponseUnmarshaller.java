@@ -19,25 +19,24 @@ import java.util.List;
 
 import com.aliyuncs.ecs.model.v20140526.DescribeResourceByTagsResponse;
 import com.aliyuncs.ecs.model.v20140526.DescribeResourceByTagsResponse.Resource;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeResourceByTagsResponseUnmarshaller {
 
-	public static DescribeResourceByTagsResponse unmarshall(DescribeResourceByTagsResponse describeResourceByTagsResponse, UnmarshallerContext context) {
+	public static DescribeResourceByTagsResponse unmarshall(DescribeResourceByTagsResponse describeResourceByTagsResponse, UnmarshallerContext _ctx) {
 		
-		describeResourceByTagsResponse.setRequestId(context.stringValue("DescribeResourceByTagsResponse.RequestId"));
-		describeResourceByTagsResponse.setPageSize(context.integerValue("DescribeResourceByTagsResponse.PageSize"));
-		describeResourceByTagsResponse.setPageNumber(context.integerValue("DescribeResourceByTagsResponse.PageNumber"));
-		describeResourceByTagsResponse.setTotalCount(context.integerValue("DescribeResourceByTagsResponse.TotalCount"));
+		describeResourceByTagsResponse.setRequestId(_ctx.stringValue("DescribeResourceByTagsResponse.RequestId"));
+		describeResourceByTagsResponse.setPageSize(_ctx.integerValue("DescribeResourceByTagsResponse.PageSize"));
+		describeResourceByTagsResponse.setPageNumber(_ctx.integerValue("DescribeResourceByTagsResponse.PageNumber"));
+		describeResourceByTagsResponse.setTotalCount(_ctx.integerValue("DescribeResourceByTagsResponse.TotalCount"));
 
 		List<Resource> resources = new ArrayList<Resource>();
-		for (int i = 0; i < context.lengthValue("DescribeResourceByTagsResponse.Resources.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeResourceByTagsResponse.Resources.Length"); i++) {
 			Resource resource = new Resource();
-			resource.setResourceId(context.stringValue("DescribeResourceByTagsResponse.Resources["+ i +"].ResourceId"));
-			resource.setResourceType(context.stringValue("DescribeResourceByTagsResponse.Resources["+ i +"].ResourceType"));
-			resource.setRegionId(context.stringValue("DescribeResourceByTagsResponse.Resources["+ i +"].RegionId"));
+			resource.setResourceId(_ctx.stringValue("DescribeResourceByTagsResponse.Resources["+ i +"].ResourceId"));
+			resource.setResourceType(_ctx.stringValue("DescribeResourceByTagsResponse.Resources["+ i +"].ResourceType"));
+			resource.setRegionId(_ctx.stringValue("DescribeResourceByTagsResponse.Resources["+ i +"].RegionId"));
 
 			resources.add(resource);
 		}

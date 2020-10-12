@@ -15,7 +15,6 @@
 package com.aliyuncs.vod.model.v20170321;
 
 import java.util.List;
-import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.vod.transform.v20170321.GetPlayInfoResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -99,6 +98,10 @@ public class GetPlayInfoResponse extends AcsResponse {
 		private String modificationTime;
 
 		private String encryptType;
+
+		private String narrowBandType;
+
+		private String specification;
 
 		public Long getWidth() {
 			return this.width;
@@ -267,9 +270,27 @@ public class GetPlayInfoResponse extends AcsResponse {
 		public void setEncryptType(String encryptType) {
 			this.encryptType = encryptType;
 		}
+
+		public String getNarrowBandType() {
+			return this.narrowBandType;
+		}
+
+		public void setNarrowBandType(String narrowBandType) {
+			this.narrowBandType = narrowBandType;
+		}
+
+		public String getSpecification() {
+			return this.specification;
+		}
+
+		public void setSpecification(String specification) {
+			this.specification = specification;
+		}
 	}
 
 	public static class VideoBase {
+
+		private String outputType;
 
 		private String coverURL;
 
@@ -288,6 +309,14 @@ public class GetPlayInfoResponse extends AcsResponse {
 		private String transcodeMode;
 
 		private List<Thumbnail> thumbnailList;
+
+		public String getOutputType() {
+			return this.outputType;
+		}
+
+		public void setOutputType(String outputType) {
+			this.outputType = outputType;
+		}
 
 		public String getCoverURL() {
 			return this.coverURL;

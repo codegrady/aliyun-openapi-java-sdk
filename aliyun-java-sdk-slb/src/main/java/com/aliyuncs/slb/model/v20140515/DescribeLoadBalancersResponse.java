@@ -113,6 +113,14 @@ public class DescribeLoadBalancersResponse extends AcsResponse {
 
 		private String addressIPVersion;
 
+		private String businessStatus;
+
+		private String modificationProtectionStatus;
+
+		private String modificationProtectionReason;
+
+		private List<Tag> tags;
+
 		public String getLoadBalancerId() {
 			return this.loadBalancerId;
 		}
@@ -255,6 +263,61 @@ public class DescribeLoadBalancersResponse extends AcsResponse {
 
 		public void setAddressIPVersion(String addressIPVersion) {
 			this.addressIPVersion = addressIPVersion;
+		}
+
+		public String getBusinessStatus() {
+			return this.businessStatus;
+		}
+
+		public void setBusinessStatus(String businessStatus) {
+			this.businessStatus = businessStatus;
+		}
+
+		public String getModificationProtectionStatus() {
+			return this.modificationProtectionStatus;
+		}
+
+		public void setModificationProtectionStatus(String modificationProtectionStatus) {
+			this.modificationProtectionStatus = modificationProtectionStatus;
+		}
+
+		public String getModificationProtectionReason() {
+			return this.modificationProtectionReason;
+		}
+
+		public void setModificationProtectionReason(String modificationProtectionReason) {
+			this.modificationProtectionReason = modificationProtectionReason;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String tagKey;
+
+			private String tagValue;
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
+			}
+
+			public String getTagValue() {
+				return this.tagValue;
+			}
+
+			public void setTagValue(String tagValue) {
+				this.tagValue = tagValue;
+			}
 		}
 	}
 

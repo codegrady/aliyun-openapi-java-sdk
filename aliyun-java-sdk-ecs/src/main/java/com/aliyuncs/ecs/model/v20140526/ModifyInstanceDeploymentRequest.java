@@ -15,28 +15,51 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyInstanceDeploymentRequest extends RpcAcsRequest<ModifyInstanceDeploymentResponse> {
-	
-	public ModifyInstanceDeploymentRequest() {
-		super("Ecs", "2014-05-26", "ModifyInstanceDeployment", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private Integer deploymentSetGroupNo;
+
+	private String dedicatedHostClusterId;
+
+	private String instanceType;
+
+	private String deploymentSetId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
+
+	private String tenancy;
 
 	private String dedicatedHostId;
 
 	private Long ownerId;
 
 	private String instanceId;
+
+	private Boolean force;
+
+	private String migrationType;
+
+	private String affinity;
+	public ModifyInstanceDeploymentRequest() {
+		super("Ecs", "2014-05-26", "ModifyInstanceDeployment", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,6 +69,50 @@ public class ModifyInstanceDeploymentRequest extends RpcAcsRequest<ModifyInstanc
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Integer getDeploymentSetGroupNo() {
+		return this.deploymentSetGroupNo;
+	}
+
+	public void setDeploymentSetGroupNo(Integer deploymentSetGroupNo) {
+		this.deploymentSetGroupNo = deploymentSetGroupNo;
+		if(deploymentSetGroupNo != null){
+			putQueryParameter("DeploymentSetGroupNo", deploymentSetGroupNo.toString());
+		}
+	}
+
+	public String getDedicatedHostClusterId() {
+		return this.dedicatedHostClusterId;
+	}
+
+	public void setDedicatedHostClusterId(String dedicatedHostClusterId) {
+		this.dedicatedHostClusterId = dedicatedHostClusterId;
+		if(dedicatedHostClusterId != null){
+			putQueryParameter("DedicatedHostClusterId", dedicatedHostClusterId);
+		}
+	}
+
+	public String getInstanceType() {
+		return this.instanceType;
+	}
+
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+		if(instanceType != null){
+			putQueryParameter("InstanceType", instanceType);
+		}
+	}
+
+	public String getDeploymentSetId() {
+		return this.deploymentSetId;
+	}
+
+	public void setDeploymentSetId(String deploymentSetId) {
+		this.deploymentSetId = deploymentSetId;
+		if(deploymentSetId != null){
+			putQueryParameter("DeploymentSetId", deploymentSetId);
 		}
 	}
 
@@ -68,6 +135,17 @@ public class ModifyInstanceDeploymentRequest extends RpcAcsRequest<ModifyInstanc
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public String getTenancy() {
+		return this.tenancy;
+	}
+
+	public void setTenancy(String tenancy) {
+		this.tenancy = tenancy;
+		if(tenancy != null){
+			putQueryParameter("Tenancy", tenancy);
 		}
 	}
 
@@ -101,6 +179,39 @@ public class ModifyInstanceDeploymentRequest extends RpcAcsRequest<ModifyInstanc
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public Boolean getForce() {
+		return this.force;
+	}
+
+	public void setForce(Boolean force) {
+		this.force = force;
+		if(force != null){
+			putQueryParameter("Force", force.toString());
+		}
+	}
+
+	public String getMigrationType() {
+		return this.migrationType;
+	}
+
+	public void setMigrationType(String migrationType) {
+		this.migrationType = migrationType;
+		if(migrationType != null){
+			putQueryParameter("MigrationType", migrationType);
+		}
+	}
+
+	public String getAffinity() {
+		return this.affinity;
+	}
+
+	public void setAffinity(String affinity) {
+		this.affinity = affinity;
+		if(affinity != null){
+			putQueryParameter("Affinity", affinity);
 		}
 	}
 

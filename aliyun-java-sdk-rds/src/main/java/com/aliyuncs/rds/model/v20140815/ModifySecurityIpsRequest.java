@@ -15,34 +15,39 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsResponse> {
-	
-	public ModifySecurityIpsRequest() {
-		super("Rds", "2014-08-15", "ModifySecurityIps", "rds");
-	}
+	   
 
 	private String dBInstanceIPArrayName;
 
 	private Long resourceOwnerId;
 
-	private String modifyMode;
-
 	private String securityIps;
 
-	private String securityGroupId;
-
 	private String whitelistNetworkType;
-
-	private String dBInstanceIPArrayAttribute;
 
 	private String securityIPType;
 
 	private String dBInstanceId;
+
+	private String modifyMode;
+
+	private String dBInstanceIPArrayAttribute;
+	public ModifySecurityIpsRequest() {
+		super("Rds", "2014-08-15", "ModifySecurityIps", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getDBInstanceIPArrayName() {
 		return this.dBInstanceIPArrayName;
@@ -66,17 +71,6 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		}
 	}
 
-	public String getModifyMode() {
-		return this.modifyMode;
-	}
-
-	public void setModifyMode(String modifyMode) {
-		this.modifyMode = modifyMode;
-		if(modifyMode != null){
-			putQueryParameter("ModifyMode", modifyMode);
-		}
-	}
-
 	public String getSecurityIps() {
 		return this.securityIps;
 	}
@@ -88,17 +82,6 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		}
 	}
 
-	public String getSecurityGroupId() {
-		return this.securityGroupId;
-	}
-
-	public void setSecurityGroupId(String securityGroupId) {
-		this.securityGroupId = securityGroupId;
-		if(securityGroupId != null){
-			putQueryParameter("SecurityGroupId", securityGroupId);
-		}
-	}
-
 	public String getWhitelistNetworkType() {
 		return this.whitelistNetworkType;
 	}
@@ -107,17 +90,6 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		this.whitelistNetworkType = whitelistNetworkType;
 		if(whitelistNetworkType != null){
 			putQueryParameter("WhitelistNetworkType", whitelistNetworkType);
-		}
-	}
-
-	public String getDBInstanceIPArrayAttribute() {
-		return this.dBInstanceIPArrayAttribute;
-	}
-
-	public void setDBInstanceIPArrayAttribute(String dBInstanceIPArrayAttribute) {
-		this.dBInstanceIPArrayAttribute = dBInstanceIPArrayAttribute;
-		if(dBInstanceIPArrayAttribute != null){
-			putQueryParameter("DBInstanceIPArrayAttribute", dBInstanceIPArrayAttribute);
 		}
 	}
 
@@ -140,6 +112,28 @@ public class ModifySecurityIpsRequest extends RpcAcsRequest<ModifySecurityIpsRes
 		this.dBInstanceId = dBInstanceId;
 		if(dBInstanceId != null){
 			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getModifyMode() {
+		return this.modifyMode;
+	}
+
+	public void setModifyMode(String modifyMode) {
+		this.modifyMode = modifyMode;
+		if(modifyMode != null){
+			putQueryParameter("ModifyMode", modifyMode);
+		}
+	}
+
+	public String getDBInstanceIPArrayAttribute() {
+		return this.dBInstanceIPArrayAttribute;
+	}
+
+	public void setDBInstanceIPArrayAttribute(String dBInstanceIPArrayAttribute) {
+		this.dBInstanceIPArrayAttribute = dBInstanceIPArrayAttribute;
+		if(dBInstanceIPArrayAttribute != null){
+			putQueryParameter("DBInstanceIPArrayAttribute", dBInstanceIPArrayAttribute);
 		}
 	}
 

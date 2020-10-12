@@ -1882,11 +1882,11 @@ public class QueryEditingJobListResponse extends AcsResponse {
 						this.level = level;
 					}
 
-					public String getMethod() {
+					public String getBizMethod() {
 						return this.method;
 					}
 
-					public void setMethod(String method) {
+					public void setBizMethod(String method) {
 						this.method = method;
 					}
 				}

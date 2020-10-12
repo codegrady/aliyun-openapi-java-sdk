@@ -18,19 +18,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.ehpc.model.v20180412.AddLocalNodesResponse;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class AddLocalNodesResponseUnmarshaller {
 
-	public static AddLocalNodesResponse unmarshall(AddLocalNodesResponse addLocalNodesResponse, UnmarshallerContext context) {
+	public static AddLocalNodesResponse unmarshall(AddLocalNodesResponse addLocalNodesResponse, UnmarshallerContext _ctx) {
 		
-		addLocalNodesResponse.setRequestId(context.stringValue("AddLocalNodesResponse.RequestId"));
+		addLocalNodesResponse.setRequestId(_ctx.stringValue("AddLocalNodesResponse.RequestId"));
 
 		List<String> instanceIds = new ArrayList<String>();
-		for (int i = 0; i < context.lengthValue("AddLocalNodesResponse.InstanceIds.Length"); i++) {
-			instanceIds.add(context.stringValue("AddLocalNodesResponse.InstanceIds["+ i +"]"));
+		for (int i = 0; i < _ctx.lengthValue("AddLocalNodesResponse.InstanceIds.Length"); i++) {
+			instanceIds.add(_ctx.stringValue("AddLocalNodesResponse.InstanceIds["+ i +"]"));
 		}
 		addLocalNodesResponse.setInstanceIds(instanceIds);
 	 

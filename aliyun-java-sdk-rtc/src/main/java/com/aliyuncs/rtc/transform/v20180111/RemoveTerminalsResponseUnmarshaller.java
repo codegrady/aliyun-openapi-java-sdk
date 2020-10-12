@@ -19,22 +19,21 @@ import java.util.List;
 
 import com.aliyuncs.rtc.model.v20180111.RemoveTerminalsResponse;
 import com.aliyuncs.rtc.model.v20180111.RemoveTerminalsResponse.Terminal;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class RemoveTerminalsResponseUnmarshaller {
 
-	public static RemoveTerminalsResponse unmarshall(RemoveTerminalsResponse removeTerminalsResponse, UnmarshallerContext context) {
+	public static RemoveTerminalsResponse unmarshall(RemoveTerminalsResponse removeTerminalsResponse, UnmarshallerContext _ctx) {
 		
-		removeTerminalsResponse.setRequestId(context.stringValue("RemoveTerminalsResponse.RequestId"));
+		removeTerminalsResponse.setRequestId(_ctx.stringValue("RemoveTerminalsResponse.RequestId"));
 
 		List<Terminal> terminals = new ArrayList<Terminal>();
-		for (int i = 0; i < context.lengthValue("RemoveTerminalsResponse.Terminals.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("RemoveTerminalsResponse.Terminals.Length"); i++) {
 			Terminal terminal = new Terminal();
-			terminal.setId(context.stringValue("RemoveTerminalsResponse.Terminals["+ i +"].Id"));
-			terminal.setCode(context.integerValue("RemoveTerminalsResponse.Terminals["+ i +"].Code"));
-			terminal.setMessage(context.stringValue("RemoveTerminalsResponse.Terminals["+ i +"].Message"));
+			terminal.setId(_ctx.stringValue("RemoveTerminalsResponse.Terminals["+ i +"].Id"));
+			terminal.setCode(_ctx.integerValue("RemoveTerminalsResponse.Terminals["+ i +"].Code"));
+			terminal.setMessage(_ctx.stringValue("RemoveTerminalsResponse.Terminals["+ i +"].Message"));
 
 			terminals.add(terminal);
 		}

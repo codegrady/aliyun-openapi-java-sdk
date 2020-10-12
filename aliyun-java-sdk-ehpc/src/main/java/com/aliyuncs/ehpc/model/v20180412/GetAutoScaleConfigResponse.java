@@ -57,6 +57,8 @@ public class GetAutoScaleConfigResponse extends AcsResponse {
 
 	private Float spotPriceLimit;
 
+	private String imageId;
+
 	private List<QueueInfo> queues;
 
 	public String getRequestId() {
@@ -187,6 +189,14 @@ public class GetAutoScaleConfigResponse extends AcsResponse {
 		this.spotPriceLimit = spotPriceLimit;
 	}
 
+	public String getImageId() {
+		return this.imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+	}
+
 	public List<QueueInfo> getQueues() {
 		return this.queues;
 	}
@@ -199,11 +209,25 @@ public class GetAutoScaleConfigResponse extends AcsResponse {
 
 		private String queueName;
 
+		private String resourceGroupId;
+
 		private String instanceType;
 
 		private String spotStrategy;
 
 		private Float spotPriceLimit;
+
+		private Boolean enableAutoGrow;
+
+		private Boolean enableAutoShrink;
+
+		private Integer maxNodesInQueue;
+
+		private Integer minNodesInQueue;
+
+		private String queueImageId;
+
+		private List<InstanceTypeInfo> instanceTypes;
 
 		public String getQueueName() {
 			return this.queueName;
@@ -211,6 +235,14 @@ public class GetAutoScaleConfigResponse extends AcsResponse {
 
 		public void setQueueName(String queueName) {
 			this.queueName = queueName;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 
 		public String getInstanceType() {
@@ -235,6 +267,117 @@ public class GetAutoScaleConfigResponse extends AcsResponse {
 
 		public void setSpotPriceLimit(Float spotPriceLimit) {
 			this.spotPriceLimit = spotPriceLimit;
+		}
+
+		public Boolean getEnableAutoGrow() {
+			return this.enableAutoGrow;
+		}
+
+		public void setEnableAutoGrow(Boolean enableAutoGrow) {
+			this.enableAutoGrow = enableAutoGrow;
+		}
+
+		public Boolean getEnableAutoShrink() {
+			return this.enableAutoShrink;
+		}
+
+		public void setEnableAutoShrink(Boolean enableAutoShrink) {
+			this.enableAutoShrink = enableAutoShrink;
+		}
+
+		public Integer getMaxNodesInQueue() {
+			return this.maxNodesInQueue;
+		}
+
+		public void setMaxNodesInQueue(Integer maxNodesInQueue) {
+			this.maxNodesInQueue = maxNodesInQueue;
+		}
+
+		public Integer getMinNodesInQueue() {
+			return this.minNodesInQueue;
+		}
+
+		public void setMinNodesInQueue(Integer minNodesInQueue) {
+			this.minNodesInQueue = minNodesInQueue;
+		}
+
+		public String getQueueImageId() {
+			return this.queueImageId;
+		}
+
+		public void setQueueImageId(String queueImageId) {
+			this.queueImageId = queueImageId;
+		}
+
+		public List<InstanceTypeInfo> getInstanceTypes() {
+			return this.instanceTypes;
+		}
+
+		public void setInstanceTypes(List<InstanceTypeInfo> instanceTypes) {
+			this.instanceTypes = instanceTypes;
+		}
+
+		public static class InstanceTypeInfo {
+
+			private String instanceType;
+
+			private String spotStrategy;
+
+			private Float spotPriceLimit;
+
+			private String zoneId;
+
+			private String vSwitchId;
+
+			private String hostNamePrefix;
+
+			public String getInstanceType() {
+				return this.instanceType;
+			}
+
+			public void setInstanceType(String instanceType) {
+				this.instanceType = instanceType;
+			}
+
+			public String getSpotStrategy() {
+				return this.spotStrategy;
+			}
+
+			public void setSpotStrategy(String spotStrategy) {
+				this.spotStrategy = spotStrategy;
+			}
+
+			public Float getSpotPriceLimit() {
+				return this.spotPriceLimit;
+			}
+
+			public void setSpotPriceLimit(Float spotPriceLimit) {
+				this.spotPriceLimit = spotPriceLimit;
+			}
+
+			public String getZoneId() {
+				return this.zoneId;
+			}
+
+			public void setZoneId(String zoneId) {
+				this.zoneId = zoneId;
+			}
+
+			public String getVSwitchId() {
+				return this.vSwitchId;
+			}
+
+			public void setVSwitchId(String vSwitchId) {
+				this.vSwitchId = vSwitchId;
+			}
+
+			public String getHostNamePrefix() {
+				return this.hostNamePrefix;
+			}
+
+			public void setHostNamePrefix(String hostNamePrefix) {
+				this.hostNamePrefix = hostNamePrefix;
+			}
 		}
 	}
 

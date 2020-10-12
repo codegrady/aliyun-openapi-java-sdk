@@ -77,7 +77,13 @@ public class DescribeDrdsInstancesResponse extends AcsResponse {
 
 		private String vpcCloudInstanceId;
 
+		private String instRole;
+
+		private String masterInstId;
+
 		private List<Vip> vips;
+
+		private List<String> slaveInstId;
 
 		public String getDrdsInstanceId() {
 			return this.drdsInstanceId;
@@ -159,12 +165,36 @@ public class DescribeDrdsInstancesResponse extends AcsResponse {
 			this.vpcCloudInstanceId = vpcCloudInstanceId;
 		}
 
+		public String getInstRole() {
+			return this.instRole;
+		}
+
+		public void setInstRole(String instRole) {
+			this.instRole = instRole;
+		}
+
+		public String getMasterInstId() {
+			return this.masterInstId;
+		}
+
+		public void setMasterInstId(String masterInstId) {
+			this.masterInstId = masterInstId;
+		}
+
 		public List<Vip> getVips() {
 			return this.vips;
 		}
 
 		public void setVips(List<Vip> vips) {
 			this.vips = vips;
+		}
+
+		public List<String> getSlaveInstId() {
+			return this.slaveInstId;
+		}
+
+		public void setSlaveInstId(List<String> slaveInstId) {
+			this.slaveInstId = slaveInstId;
 		}
 
 		public static class Vip {

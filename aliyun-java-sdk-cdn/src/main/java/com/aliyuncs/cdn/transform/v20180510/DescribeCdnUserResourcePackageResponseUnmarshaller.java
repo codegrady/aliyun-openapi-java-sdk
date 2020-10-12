@@ -19,27 +19,27 @@ import java.util.List;
 
 import com.aliyuncs.cdn.model.v20180510.DescribeCdnUserResourcePackageResponse;
 import com.aliyuncs.cdn.model.v20180510.DescribeCdnUserResourcePackageResponse.ResourcePackageInfo;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeCdnUserResourcePackageResponseUnmarshaller {
 
-	public static DescribeCdnUserResourcePackageResponse unmarshall(DescribeCdnUserResourcePackageResponse describeCdnUserResourcePackageResponse, UnmarshallerContext context) {
+	public static DescribeCdnUserResourcePackageResponse unmarshall(DescribeCdnUserResourcePackageResponse describeCdnUserResourcePackageResponse, UnmarshallerContext _ctx) {
 		
-		describeCdnUserResourcePackageResponse.setRequestId(context.stringValue("DescribeCdnUserResourcePackageResponse.RequestId"));
+		describeCdnUserResourcePackageResponse.setRequestId(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.RequestId"));
 
 		List<ResourcePackageInfo> resourcePackageInfos = new ArrayList<ResourcePackageInfo>();
-		for (int i = 0; i < context.lengthValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos.Length"); i++) {
 			ResourcePackageInfo resourcePackageInfo = new ResourcePackageInfo();
-			resourcePackageInfo.setCurrCapacity(context.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].CurrCapacity"));
-			resourcePackageInfo.setInitCapacity(context.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].InitCapacity"));
-			resourcePackageInfo.setCommodityCode(context.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].CommodityCode"));
-			resourcePackageInfo.setDisplayName(context.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].DisplayName"));
-			resourcePackageInfo.setInstanceId(context.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].InstanceId"));
-			resourcePackageInfo.setStatus(context.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].Status"));
-			resourcePackageInfo.setStartTime(context.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].StartTime"));
-			resourcePackageInfo.setEndTime(context.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].EndTime"));
+			resourcePackageInfo.setCurrCapacity(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].CurrCapacity"));
+			resourcePackageInfo.setInitCapacity(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].InitCapacity"));
+			resourcePackageInfo.setCommodityCode(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].CommodityCode"));
+			resourcePackageInfo.setDisplayName(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].DisplayName"));
+			resourcePackageInfo.setTemplateName(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].TemplateName"));
+			resourcePackageInfo.setInstanceId(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].InstanceId"));
+			resourcePackageInfo.setStatus(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].Status"));
+			resourcePackageInfo.setStartTime(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].StartTime"));
+			resourcePackageInfo.setEndTime(_ctx.stringValue("DescribeCdnUserResourcePackageResponse.ResourcePackageInfos["+ i +"].EndTime"));
 
 			resourcePackageInfos.add(resourcePackageInfo);
 		}

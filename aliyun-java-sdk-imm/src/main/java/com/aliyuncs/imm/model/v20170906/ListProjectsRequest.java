@@ -15,20 +15,22 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListProjectsRequest extends RpcAcsRequest<ListProjectsResponse> {
-	
-	public ListProjectsRequest() {
-		super("imm", "2017-09-06", "ListProjects", "imm");
-	}
+	   
 
 	private Integer maxKeys;
 
 	private String marker;
+	public ListProjectsRequest() {
+		super("imm", "2017-09-06", "ListProjects", "imm");
+		setMethod(MethodType.POST);
+	}
 
 	public Integer getMaxKeys() {
 		return this.maxKeys;

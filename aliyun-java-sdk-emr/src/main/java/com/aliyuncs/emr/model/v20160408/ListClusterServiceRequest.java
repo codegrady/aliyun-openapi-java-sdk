@@ -15,24 +15,31 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListClusterServiceRequest extends RpcAcsRequest<ListClusterServiceResponse> {
-	
-	public ListClusterServiceRequest() {
-		super("Emr", "2016-04-08", "ListClusterService");
-	}
+	   
 
 	private Long resourceOwnerId;
-
-	private Integer pageSize;
 
 	private String clusterId;
 
 	private Integer pageNumber;
+
+	private Integer pageSize;
+	public ListClusterServiceRequest() {
+		super("Emr", "2016-04-08", "ListClusterService");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -42,17 +49,6 @@ public class ListClusterServiceRequest extends RpcAcsRequest<ListClusterServiceR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -75,6 +71,17 @@ public class ListClusterServiceRequest extends RpcAcsRequest<ListClusterServiceR
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

@@ -25,55 +25,54 @@ import com.aliyuncs.cloudauth.model.v20180916.DetectFaceAttributesResponse.Data.
 import com.aliyuncs.cloudauth.model.v20180916.DetectFaceAttributesResponse.Data.FaceAttributesDetectInfo.FaceAttributes.Headpose;
 import com.aliyuncs.cloudauth.model.v20180916.DetectFaceAttributesResponse.Data.FaceAttributesDetectInfo.FaceAttributes.Smiling;
 import com.aliyuncs.cloudauth.model.v20180916.DetectFaceAttributesResponse.Data.FaceAttributesDetectInfo.FaceRect;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DetectFaceAttributesResponseUnmarshaller {
 
-	public static DetectFaceAttributesResponse unmarshall(DetectFaceAttributesResponse detectFaceAttributesResponse, UnmarshallerContext context) {
+	public static DetectFaceAttributesResponse unmarshall(DetectFaceAttributesResponse detectFaceAttributesResponse, UnmarshallerContext _ctx) {
 		
-		detectFaceAttributesResponse.setRequestId(context.stringValue("DetectFaceAttributesResponse.RequestId"));
-		detectFaceAttributesResponse.setSuccess(context.booleanValue("DetectFaceAttributesResponse.Success"));
-		detectFaceAttributesResponse.setCode(context.stringValue("DetectFaceAttributesResponse.Code"));
-		detectFaceAttributesResponse.setMessage(context.stringValue("DetectFaceAttributesResponse.Message"));
+		detectFaceAttributesResponse.setRequestId(_ctx.stringValue("DetectFaceAttributesResponse.RequestId"));
+		detectFaceAttributesResponse.setSuccess(_ctx.booleanValue("DetectFaceAttributesResponse.Success"));
+		detectFaceAttributesResponse.setCode(_ctx.stringValue("DetectFaceAttributesResponse.Code"));
+		detectFaceAttributesResponse.setMessage(_ctx.stringValue("DetectFaceAttributesResponse.Message"));
 
 		Data data = new Data();
-		data.setImgWidth(context.integerValue("DetectFaceAttributesResponse.Data.ImgWidth"));
-		data.setImgHeight(context.integerValue("DetectFaceAttributesResponse.Data.ImgHeight"));
+		data.setImgWidth(_ctx.integerValue("DetectFaceAttributesResponse.Data.ImgWidth"));
+		data.setImgHeight(_ctx.integerValue("DetectFaceAttributesResponse.Data.ImgHeight"));
 
 		List<FaceAttributesDetectInfo> faceInfos = new ArrayList<FaceAttributesDetectInfo>();
-		for (int i = 0; i < context.lengthValue("DetectFaceAttributesResponse.Data.FaceInfos.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DetectFaceAttributesResponse.Data.FaceInfos.Length"); i++) {
 			FaceAttributesDetectInfo faceAttributesDetectInfo = new FaceAttributesDetectInfo();
 
 			FaceRect faceRect = new FaceRect();
-			faceRect.setTop(context.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceRect.Top"));
-			faceRect.setLeft(context.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceRect.Left"));
-			faceRect.setWidth(context.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceRect.Width"));
-			faceRect.setHeight(context.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceRect.Height"));
+			faceRect.setTop(_ctx.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceRect.Top"));
+			faceRect.setLeft(_ctx.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceRect.Left"));
+			faceRect.setWidth(_ctx.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceRect.Width"));
+			faceRect.setHeight(_ctx.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceRect.Height"));
 			faceAttributesDetectInfo.setFaceRect(faceRect);
 
 			FaceAttributes faceAttributes = new FaceAttributes();
-			faceAttributes.setAge(context.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Age"));
-			faceAttributes.setGlasses(context.stringValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Glasses"));
-			faceAttributes.setFacetype(context.stringValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Facetype"));
-			faceAttributes.setBlur(context.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Blur"));
-			faceAttributes.setEthnicity(context.stringValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Ethnicity"));
+			faceAttributes.setAge(_ctx.integerValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Age"));
+			faceAttributes.setGlasses(_ctx.stringValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Glasses"));
+			faceAttributes.setFacetype(_ctx.stringValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Facetype"));
+			faceAttributes.setBlur(_ctx.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Blur"));
+			faceAttributes.setEthnicity(_ctx.stringValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Ethnicity"));
 
 			Gender gender = new Gender();
-			gender.setScore(context.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Gender.Score"));
-			gender.setValue(context.stringValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Gender.Value"));
+			gender.setScore(_ctx.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Gender.Score"));
+			gender.setValue(_ctx.stringValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Gender.Value"));
 			faceAttributes.setGender(gender);
 
 			Smiling smiling = new Smiling();
-			smiling.setValue(context.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Smiling.Value"));
-			smiling.setThreshold(context.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Smiling.Threshold"));
+			smiling.setValue(_ctx.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Smiling.Value"));
+			smiling.setThreshold(_ctx.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Smiling.Threshold"));
 			faceAttributes.setSmiling(smiling);
 
 			Headpose headpose = new Headpose();
-			headpose.setPitchAngle(context.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Headpose.PitchAngle"));
-			headpose.setRollAngle(context.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Headpose.RollAngle"));
-			headpose.setYawAngle(context.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Headpose.YawAngle"));
+			headpose.setPitchAngle(_ctx.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Headpose.PitchAngle"));
+			headpose.setRollAngle(_ctx.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Headpose.RollAngle"));
+			headpose.setYawAngle(_ctx.floatValue("DetectFaceAttributesResponse.Data.FaceInfos["+ i +"].FaceAttributes.Headpose.YawAngle"));
 			faceAttributes.setHeadpose(headpose);
 			faceAttributesDetectInfo.setFaceAttributes(faceAttributes);
 

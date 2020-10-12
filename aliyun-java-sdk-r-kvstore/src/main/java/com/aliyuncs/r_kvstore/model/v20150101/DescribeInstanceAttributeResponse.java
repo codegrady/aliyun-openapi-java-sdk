@@ -117,11 +117,17 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 
 		private String vpcAuthMode;
 
-		private String vpcAuthMode2;
+		private String auditLogRetention;
 
 		private String replicationMode;
 
-		private String luaStatus;
+		private String vpcCloudInstanceId;
+
+		private Boolean instanceReleaseProtection;
+
+		private String resourceGroupId;
+
+		private List<Tag> tags;
 
 		public String getInstanceId() {
 			return this.instanceId;
@@ -403,12 +409,12 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 			this.vpcAuthMode = vpcAuthMode;
 		}
 
-		public String getVpcAuthMode2() {
-			return this.vpcAuthMode2;
+		public String getAuditLogRetention() {
+			return this.auditLogRetention;
 		}
 
-		public void setVpcAuthMode2(String vpcAuthMode2) {
-			this.vpcAuthMode2 = vpcAuthMode2;
+		public void setAuditLogRetention(String auditLogRetention) {
+			this.auditLogRetention = auditLogRetention;
 		}
 
 		public String getReplicationMode() {
@@ -419,12 +425,59 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 			this.replicationMode = replicationMode;
 		}
 
-		public String getLuaStatus() {
-			return this.luaStatus;
+		public String getVpcCloudInstanceId() {
+			return this.vpcCloudInstanceId;
 		}
 
-		public void setLuaStatus(String luaStatus) {
-			this.luaStatus = luaStatus;
+		public void setVpcCloudInstanceId(String vpcCloudInstanceId) {
+			this.vpcCloudInstanceId = vpcCloudInstanceId;
+		}
+
+		public Boolean getInstanceReleaseProtection() {
+			return this.instanceReleaseProtection;
+		}
+
+		public void setInstanceReleaseProtection(Boolean instanceReleaseProtection) {
+			this.instanceReleaseProtection = instanceReleaseProtection;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

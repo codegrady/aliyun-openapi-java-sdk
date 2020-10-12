@@ -19,9 +19,10 @@
 
 package com.aliyuncs.batchcompute.pojo.v20151111;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +31,7 @@ import java.util.Map;
 /**
  * Created by guangchun.luo on 15/12/05.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true) @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class ClusterDescription {
 
     @JsonProperty("Name")
@@ -44,6 +45,9 @@ public class ClusterDescription {
 
     @JsonProperty("InstanceType")
     private String instanceType;
+
+    @JsonProperty("DependencyIsvService")
+    private String dependencyIsvService;
 
     @JsonIgnore
     public String getScheduleType() {
@@ -68,6 +72,18 @@ public class ClusterDescription {
     @JsonProperty("Bootstrap")
     private String bootstrap;
 
+    @JsonIgnore
+    public Boolean getPasswordInherit() {
+        return passwordInherit;
+    }
+
+    @JsonIgnore
+    public void setPasswordInherit(Boolean passwordInherit) {
+        this.passwordInherit = passwordInherit;
+    }
+
+    @JsonProperty("PasswordInherit")
+    private Boolean passwordInherit;
 
     @JsonProperty("EnvVars")
     private Map<String, String> envVars;
@@ -200,6 +216,13 @@ public class ClusterDescription {
     public void setGroups(Map<String, GroupDescription> groups) {
         this.groups = groups;
     }
+
+    @JsonIgnore
+    public void setDependencyIsvService(String dependencyIsvService) { this.dependencyIsvService = dependencyIsvService; }
+
+    @JsonIgnore
+    public String getDependencyIsvService() { return dependencyIsvService; }
+
 
     public void addGroup(String groupName, GroupDescription group) {
         if(null == this.groups){

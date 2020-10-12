@@ -15,24 +15,31 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteNotificationConfigurationRequest extends RpcAcsRequest<DeleteNotificationConfigurationResponse> {
-	
-	public DeleteNotificationConfigurationRequest() {
-		super("Ess", "2014-08-28", "DeleteNotificationConfiguration", "ess");
-	}
+	   
 
 	private String resourceOwnerAccount;
 
 	private String scalingGroupId;
 
-	private String notificationArn;
-
 	private Long ownerId;
+
+	private String notificationArn;
+	public DeleteNotificationConfigurationRequest() {
+		super("Ess", "2014-08-28", "DeleteNotificationConfiguration", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getResourceOwnerAccount() {
 		return this.resourceOwnerAccount;
@@ -56,17 +63,6 @@ public class DeleteNotificationConfigurationRequest extends RpcAcsRequest<Delete
 		}
 	}
 
-	public String getNotificationArn() {
-		return this.notificationArn;
-	}
-
-	public void setNotificationArn(String notificationArn) {
-		this.notificationArn = notificationArn;
-		if(notificationArn != null){
-			putQueryParameter("NotificationArn", notificationArn);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -75,6 +71,17 @@ public class DeleteNotificationConfigurationRequest extends RpcAcsRequest<Delete
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getNotificationArn() {
+		return this.notificationArn;
+	}
+
+	public void setNotificationArn(String notificationArn) {
+		this.notificationArn = notificationArn;
+		if(notificationArn != null){
+			putQueryParameter("NotificationArn", notificationArn);
 		}
 	}
 

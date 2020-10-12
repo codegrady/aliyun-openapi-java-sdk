@@ -15,42 +15,38 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetDeviceShadowRequest extends RpcAcsRequest<GetDeviceShadowResponse> {
-	
-	public GetDeviceShadowRequest() {
-		super("Iot", "2018-01-20", "GetDeviceShadow");
-	}
+	   
 
-	private String shadowMessage;
-
-	private String deviceName;
+	private String iotInstanceId;
 
 	private String productKey;
 
-	public String getShadowMessage() {
-		return this.shadowMessage;
+	private String deviceName;
+	public GetDeviceShadowRequest() {
+		super("Iot", "2018-01-20", "GetDeviceShadow", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setShadowMessage(String shadowMessage) {
-		this.shadowMessage = shadowMessage;
-		if(shadowMessage != null){
-			putQueryParameter("ShadowMessage", shadowMessage);
-		}
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public String getDeviceName() {
-		return this.deviceName;
-	}
-
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
-		if(deviceName != null){
-			putQueryParameter("DeviceName", deviceName);
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -62,6 +58,17 @@ public class GetDeviceShadowRequest extends RpcAcsRequest<GetDeviceShadowRespons
 		this.productKey = productKey;
 		if(productKey != null){
 			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 

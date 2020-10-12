@@ -16,20 +16,25 @@ package com.aliyuncs.green.model.v20180509;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.green.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class VideoAsyncScanRequest extends RoaAcsRequest<VideoAsyncScanResponse> {
-	
+	   
+
+	private String clientInfo;
 	public VideoAsyncScanRequest() {
 		super("Green", "2018-05-09", "VideoAsyncScan", "green");
 		setUriPattern("/green/video/asyncscan");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
-
-	private String clientInfo;
 
 	public String getClientInfo() {
 		return this.clientInfo;

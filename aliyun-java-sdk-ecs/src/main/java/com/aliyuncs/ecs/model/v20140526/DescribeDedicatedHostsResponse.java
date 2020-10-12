@@ -79,6 +79,8 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 		private String dedicatedHostId;
 
+		private String autoPlacement;
+
 		private String regionId;
 
 		private String zoneId;
@@ -94,6 +96,10 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 		private Integer sockets;
 
 		private Integer cores;
+
+		private Integer physicalGpus;
+
+		private String gPUSpec;
 
 		private String actionOnMaintenance;
 
@@ -111,6 +117,10 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 		private String resourceGroupId;
 
+		private String dedicatedHostClusterId;
+
+		private Float cpuOverCommitRatio;
+
 		private List<Instance> instances;
 
 		private List<OperationLock> operationLocks;
@@ -118,6 +128,10 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 		private List<Tag> tags;
 
 		private List<String> supportedInstanceTypeFamilies;
+
+		private List<String> supportedCustomInstanceTypeFamilies;
+
+		private List<String> supportedInstanceTypesList;
 
 		private Capacity capacity;
 
@@ -129,6 +143,14 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 		public void setDedicatedHostId(String dedicatedHostId) {
 			this.dedicatedHostId = dedicatedHostId;
+		}
+
+		public String getAutoPlacement() {
+			return this.autoPlacement;
+		}
+
+		public void setAutoPlacement(String autoPlacement) {
+			this.autoPlacement = autoPlacement;
 		}
 
 		public String getRegionId() {
@@ -195,6 +217,22 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 			this.cores = cores;
 		}
 
+		public Integer getPhysicalGpus() {
+			return this.physicalGpus;
+		}
+
+		public void setPhysicalGpus(Integer physicalGpus) {
+			this.physicalGpus = physicalGpus;
+		}
+
+		public String getGPUSpec() {
+			return this.gPUSpec;
+		}
+
+		public void setGPUSpec(String gPUSpec) {
+			this.gPUSpec = gPUSpec;
+		}
+
 		public String getActionOnMaintenance() {
 			return this.actionOnMaintenance;
 		}
@@ -259,6 +297,22 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 			this.resourceGroupId = resourceGroupId;
 		}
 
+		public String getDedicatedHostClusterId() {
+			return this.dedicatedHostClusterId;
+		}
+
+		public void setDedicatedHostClusterId(String dedicatedHostClusterId) {
+			this.dedicatedHostClusterId = dedicatedHostClusterId;
+		}
+
+		public Float getCpuOverCommitRatio() {
+			return this.cpuOverCommitRatio;
+		}
+
+		public void setCpuOverCommitRatio(Float cpuOverCommitRatio) {
+			this.cpuOverCommitRatio = cpuOverCommitRatio;
+		}
+
 		public List<Instance> getInstances() {
 			return this.instances;
 		}
@@ -289,6 +343,22 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 		public void setSupportedInstanceTypeFamilies(List<String> supportedInstanceTypeFamilies) {
 			this.supportedInstanceTypeFamilies = supportedInstanceTypeFamilies;
+		}
+
+		public List<String> getSupportedCustomInstanceTypeFamilies() {
+			return this.supportedCustomInstanceTypeFamilies;
+		}
+
+		public void setSupportedCustomInstanceTypeFamilies(List<String> supportedCustomInstanceTypeFamilies) {
+			this.supportedCustomInstanceTypeFamilies = supportedCustomInstanceTypeFamilies;
+		}
+
+		public List<String> getSupportedInstanceTypesList() {
+			return this.supportedInstanceTypesList;
+		}
+
+		public void setSupportedInstanceTypesList(List<String> supportedInstanceTypesList) {
+			this.supportedInstanceTypesList = supportedInstanceTypesList;
 		}
 
 		public Capacity getCapacity() {
@@ -372,6 +442,10 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 			private Integer availableVcpus;
 
+			private Integer totalVgpus;
+
+			private Integer availableVgpus;
+
 			private Float totalMemory;
 
 			private Float availableMemory;
@@ -396,6 +470,22 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 			public void setAvailableVcpus(Integer availableVcpus) {
 				this.availableVcpus = availableVcpus;
+			}
+
+			public Integer getTotalVgpus() {
+				return this.totalVgpus;
+			}
+
+			public void setTotalVgpus(Integer totalVgpus) {
+				this.totalVgpus = totalVgpus;
+			}
+
+			public Integer getAvailableVgpus() {
+				return this.availableVgpus;
+			}
+
+			public void setAvailableVgpus(Integer availableVgpus) {
+				this.availableVgpus = availableVgpus;
 			}
 
 			public Float getTotalMemory() {

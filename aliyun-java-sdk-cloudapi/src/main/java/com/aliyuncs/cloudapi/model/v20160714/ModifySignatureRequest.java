@@ -11,9 +11,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.model.v20160714;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cloudapi.Endpoint;
 
 /**
  * @author auto create
@@ -23,24 +26,22 @@ public class ModifySignatureRequest extends RpcAcsRequest<ModifySignatureRespons
 	
 	public ModifySignatureRequest() {
 		super("CloudAPI", "2016-07-14", "ModifySignature", "apigateway");
+		setSysMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
-
-	private String signatureId;
 
 	private String signatureName;
 
-	private String signatureKey;
+	private String signatureId;
 
 	private String signatureSecret;
 
-	public String getSignatureId() {
-		return this.signatureId;
-	}
+	private String securityToken;
 
-	public void setSignatureId(String signatureId) {
-		this.signatureId = signatureId;
-		putQueryParameter("SignatureId", signatureId);
-	}
+	private String signatureKey;
 
 	public String getSignatureName() {
 		return this.signatureName;
@@ -48,16 +49,20 @@ public class ModifySignatureRequest extends RpcAcsRequest<ModifySignatureRespons
 
 	public void setSignatureName(String signatureName) {
 		this.signatureName = signatureName;
-		putQueryParameter("SignatureName", signatureName);
+		if(signatureName != null){
+			putQueryParameter("SignatureName", signatureName);
+		}
 	}
 
-	public String getSignatureKey() {
-		return this.signatureKey;
+	public String getSignatureId() {
+		return this.signatureId;
 	}
 
-	public void setSignatureKey(String signatureKey) {
-		this.signatureKey = signatureKey;
-		putQueryParameter("SignatureKey", signatureKey);
+	public void setSignatureId(String signatureId) {
+		this.signatureId = signatureId;
+		if(signatureId != null){
+			putQueryParameter("SignatureId", signatureId);
+		}
 	}
 
 	public String getSignatureSecret() {
@@ -66,7 +71,50 @@ public class ModifySignatureRequest extends RpcAcsRequest<ModifySignatureRespons
 
 	public void setSignatureSecret(String signatureSecret) {
 		this.signatureSecret = signatureSecret;
-		putQueryParameter("SignatureSecret", signatureSecret);
+		if(signatureSecret != null){
+			putQueryParameter("SignatureSecret", signatureSecret);
+		}
+	}
+
+	public String getBizSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setBizSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	/**
+	 * @deprecated use getBizSecurityToken instead of this.
+	 */
+	@Deprecated
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	/**
+	 * @deprecated use setBizSecurityToken instead of this.
+	 */
+	@Deprecated
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getSignatureKey() {
+		return this.signatureKey;
+	}
+
+	public void setSignatureKey(String signatureKey) {
+		this.signatureKey = signatureKey;
+		if(signatureKey != null){
+			putQueryParameter("SignatureKey", signatureKey);
+		}
 	}
 
 	@Override

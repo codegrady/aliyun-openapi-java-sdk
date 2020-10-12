@@ -15,22 +15,24 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class CompareFaceRequest extends RpcAcsRequest<CompareFaceResponse> {
-	
-	public CompareFaceRequest() {
-		super("imm", "2017-09-06", "CompareFace", "imm");
-	}
+	   
 
 	private String srcUriB;
 
 	private String srcUriA;
 
 	private String project;
+	public CompareFaceRequest() {
+		super("imm", "2017-09-06", "CompareFace", "imm");
+		setMethod(MethodType.POST);
+	}
 
 	public String getSrcUriB() {
 		return this.srcUriB;

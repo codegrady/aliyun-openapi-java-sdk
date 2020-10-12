@@ -15,32 +15,28 @@
 package com.aliyuncs.dcdn.model.v20180115;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dcdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeDcdnCertificateDetailRequest extends RpcAcsRequest<DescribeDcdnCertificateDetailResponse> {
-	
-	public DescribeDcdnCertificateDetailRequest() {
-		super("dcdn", "2018-01-15", "DescribeDcdnCertificateDetail");
-	}
-
-	private String securityToken;
+	   
 
 	private String certName;
 
 	private Long ownerId;
 
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
+	private String securityToken;
+	public DescribeDcdnCertificateDetailRequest() {
+		super("dcdn", "2018-01-15", "DescribeDcdnCertificateDetail");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getCertName() {
@@ -62,6 +58,17 @@ public class DescribeDcdnCertificateDetailRequest extends RpcAcsRequest<Describe
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

@@ -101,6 +101,24 @@ public class DescribeCenBandwidthPackagesResponse extends AcsResponse {
 
 		private String status;
 
+		private Boolean isCrossBorder;
+
+		private String typeFor95;
+
+		private String ratio;
+
+		private String hasReservationData;
+
+		private String reservationBandwidth;
+
+		private String reservationInternetChargeType;
+
+		private String reservationActiveTime;
+
+		private String reservationOrderType;
+
+		private List<OrginInterRegionBandwidthLimit> orginInterRegionBandwidthLimits;
+
 		private List<String> cenIds;
 
 		public String getCenBandwidthPackageId() {
@@ -199,12 +217,127 @@ public class DescribeCenBandwidthPackagesResponse extends AcsResponse {
 			this.status = status;
 		}
 
+		public Boolean getIsCrossBorder() {
+			return this.isCrossBorder;
+		}
+
+		public void setIsCrossBorder(Boolean isCrossBorder) {
+			this.isCrossBorder = isCrossBorder;
+		}
+
+		public String getTypeFor95() {
+			return this.typeFor95;
+		}
+
+		public void setTypeFor95(String typeFor95) {
+			this.typeFor95 = typeFor95;
+		}
+
+		public String getRatio() {
+			return this.ratio;
+		}
+
+		public void setRatio(String ratio) {
+			this.ratio = ratio;
+		}
+
+		public String getHasReservationData() {
+			return this.hasReservationData;
+		}
+
+		public void setHasReservationData(String hasReservationData) {
+			this.hasReservationData = hasReservationData;
+		}
+
+		public String getReservationBandwidth() {
+			return this.reservationBandwidth;
+		}
+
+		public void setReservationBandwidth(String reservationBandwidth) {
+			this.reservationBandwidth = reservationBandwidth;
+		}
+
+		public String getReservationInternetChargeType() {
+			return this.reservationInternetChargeType;
+		}
+
+		public void setReservationInternetChargeType(String reservationInternetChargeType) {
+			this.reservationInternetChargeType = reservationInternetChargeType;
+		}
+
+		public String getReservationActiveTime() {
+			return this.reservationActiveTime;
+		}
+
+		public void setReservationActiveTime(String reservationActiveTime) {
+			this.reservationActiveTime = reservationActiveTime;
+		}
+
+		public String getReservationOrderType() {
+			return this.reservationOrderType;
+		}
+
+		public void setReservationOrderType(String reservationOrderType) {
+			this.reservationOrderType = reservationOrderType;
+		}
+
+		public List<OrginInterRegionBandwidthLimit> getOrginInterRegionBandwidthLimits() {
+			return this.orginInterRegionBandwidthLimits;
+		}
+
+		public void setOrginInterRegionBandwidthLimits(List<OrginInterRegionBandwidthLimit> orginInterRegionBandwidthLimits) {
+			this.orginInterRegionBandwidthLimits = orginInterRegionBandwidthLimits;
+		}
+
 		public List<String> getCenIds() {
 			return this.cenIds;
 		}
 
 		public void setCenIds(List<String> cenIds) {
 			this.cenIds = cenIds;
+		}
+
+		public static class OrginInterRegionBandwidthLimit {
+
+			private String localRegionId;
+
+			private String oppositeRegionId;
+
+			private String geographicSpanId;
+
+			private String bandwidthLimit;
+
+			public String getLocalRegionId() {
+				return this.localRegionId;
+			}
+
+			public void setLocalRegionId(String localRegionId) {
+				this.localRegionId = localRegionId;
+			}
+
+			public String getOppositeRegionId() {
+				return this.oppositeRegionId;
+			}
+
+			public void setOppositeRegionId(String oppositeRegionId) {
+				this.oppositeRegionId = oppositeRegionId;
+			}
+
+			public String getGeographicSpanId() {
+				return this.geographicSpanId;
+			}
+
+			public void setGeographicSpanId(String geographicSpanId) {
+				this.geographicSpanId = geographicSpanId;
+			}
+
+			public String getBandwidthLimit() {
+				return this.bandwidthLimit;
+			}
+
+			public void setBandwidthLimit(String bandwidthLimit) {
+				this.bandwidthLimit = bandwidthLimit;
+			}
 		}
 	}
 

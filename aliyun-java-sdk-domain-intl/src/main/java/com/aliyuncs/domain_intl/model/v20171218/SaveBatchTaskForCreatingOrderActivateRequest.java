@@ -29,9 +29,17 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 
 	private List<OrderActivateParam> orderActivateParams;
 
+	private String promotionNo;
+
 	private String userClientIp;
 
+	private String couponNo;
+
+	private Boolean useCoupon;
+
 	private String lang;
+
+	private Boolean usePromotion;
 
 	public List<OrderActivateParam> getOrderActivateParams() {
 		return this.orderActivateParams;
@@ -51,7 +59,9 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".Dns1" , orderActivateParams.get(depth1).getDns1());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".DomainName" , orderActivateParams.get(depth1).getDomainName());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".RegistrantProfileId" , orderActivateParams.get(depth1).getRegistrantProfileId());
+				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".RegistrantType" , orderActivateParams.get(depth1).getRegistrantType());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".Telephone" , orderActivateParams.get(depth1).getTelephone());
+				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".TrademarkDomainActivation" , orderActivateParams.get(depth1).getTrademarkDomainActivation());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".AliyunDns" , orderActivateParams.get(depth1).getAliyunDns());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".RegistrantOrganization" , orderActivateParams.get(depth1).getRegistrantOrganization());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".TelExt" , orderActivateParams.get(depth1).getTelExt());
@@ -62,6 +72,17 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".RegistrantName" , orderActivateParams.get(depth1).getRegistrantName());
 			}
 		}	
+	}
+
+	public String getPromotionNo() {
+		return this.promotionNo;
+	}
+
+	public void setPromotionNo(String promotionNo) {
+		this.promotionNo = promotionNo;
+		if(promotionNo != null){
+			putQueryParameter("PromotionNo", promotionNo);
+		}
 	}
 
 	public String getUserClientIp() {
@@ -75,6 +96,28 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 		}
 	}
 
+	public String getCouponNo() {
+		return this.couponNo;
+	}
+
+	public void setCouponNo(String couponNo) {
+		this.couponNo = couponNo;
+		if(couponNo != null){
+			putQueryParameter("CouponNo", couponNo);
+		}
+	}
+
+	public Boolean getUseCoupon() {
+		return this.useCoupon;
+	}
+
+	public void setUseCoupon(Boolean useCoupon) {
+		this.useCoupon = useCoupon;
+		if(useCoupon != null){
+			putQueryParameter("UseCoupon", useCoupon.toString());
+		}
+	}
+
 	public String getLang() {
 		return this.lang;
 	}
@@ -83,6 +126,17 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 		this.lang = lang;
 		if(lang != null){
 			putQueryParameter("Lang", lang);
+		}
+	}
+
+	public Boolean getUsePromotion() {
+		return this.usePromotion;
+	}
+
+	public void setUsePromotion(Boolean usePromotion) {
+		this.usePromotion = usePromotion;
+		if(usePromotion != null){
+			putQueryParameter("UsePromotion", usePromotion.toString());
 		}
 	}
 
@@ -108,7 +162,11 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 
 		private Long registrantProfileId;
 
+		private String registrantType;
+
 		private String telephone;
+
+		private Boolean trademarkDomainActivation;
 
 		private Boolean aliyunDns;
 
@@ -206,12 +264,28 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 			this.registrantProfileId = registrantProfileId;
 		}
 
+		public String getRegistrantType() {
+			return this.registrantType;
+		}
+
+		public void setRegistrantType(String registrantType) {
+			this.registrantType = registrantType;
+		}
+
 		public String getTelephone() {
 			return this.telephone;
 		}
 
 		public void setTelephone(String telephone) {
 			this.telephone = telephone;
+		}
+
+		public Boolean getTrademarkDomainActivation() {
+			return this.trademarkDomainActivation;
+		}
+
+		public void setTrademarkDomainActivation(Boolean trademarkDomainActivation) {
+			this.trademarkDomainActivation = trademarkDomainActivation;
 		}
 
 		public Boolean getAliyunDns() {

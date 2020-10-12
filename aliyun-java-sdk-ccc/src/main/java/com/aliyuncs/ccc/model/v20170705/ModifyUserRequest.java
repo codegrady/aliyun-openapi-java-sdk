@@ -16,16 +16,21 @@ package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ccc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyUserRequest extends RpcAcsRequest<ModifyUserResponse> {
-	
-	public ModifyUserRequest() {
-		super("CCC", "2017-07-05", "ModifyUser", "ccc");
-	}
+	   
+
+	private String privateOutboundNumberId;
+
+	private List<String> roleIds;
+
+	private String userId;
 
 	private List<Integer> skillLevels;
 
@@ -33,15 +38,54 @@ public class ModifyUserRequest extends RpcAcsRequest<ModifyUserResponse> {
 
 	private String phone;
 
-	private List<String> roleIds;
-
 	private String displayName;
 
 	private List<String> skillGroupIds;
 
-	private String userId;
-
 	private String email;
+	public ModifyUserRequest() {
+		super("CCC", "2017-07-05", "ModifyUser", "CCC");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getPrivateOutboundNumberId() {
+		return this.privateOutboundNumberId;
+	}
+
+	public void setPrivateOutboundNumberId(String privateOutboundNumberId) {
+		this.privateOutboundNumberId = privateOutboundNumberId;
+		if(privateOutboundNumberId != null){
+			putQueryParameter("PrivateOutboundNumberId", privateOutboundNumberId);
+		}
+	}
+
+	public List<String> getRoleIds() {
+		return this.roleIds;
+	}
+
+	public void setRoleIds(List<String> roleIds) {
+		this.roleIds = roleIds;	
+		if (roleIds != null) {
+			for (int i = 0; i < roleIds.size(); i++) {
+				putQueryParameter("RoleId." + (i + 1) , roleIds.get(i));
+			}
+		}	
+	}
+
+	public String getUserId() {
+		return this.userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+		if(userId != null){
+			putQueryParameter("UserId", userId);
+		}
+	}
 
 	public List<Integer> getSkillLevels() {
 		return this.skillLevels;
@@ -78,19 +122,6 @@ public class ModifyUserRequest extends RpcAcsRequest<ModifyUserResponse> {
 		}
 	}
 
-	public List<String> getRoleIds() {
-		return this.roleIds;
-	}
-
-	public void setRoleIds(List<String> roleIds) {
-		this.roleIds = roleIds;	
-		if (roleIds != null) {
-			for (int i = 0; i < roleIds.size(); i++) {
-				putQueryParameter("RoleId." + (i + 1) , roleIds.get(i));
-			}
-		}	
-	}
-
 	public String getDisplayName() {
 		return this.displayName;
 	}
@@ -113,17 +144,6 @@ public class ModifyUserRequest extends RpcAcsRequest<ModifyUserResponse> {
 				putQueryParameter("SkillGroupId." + (i + 1) , skillGroupIds.get(i));
 			}
 		}	
-	}
-
-	public String getUserId() {
-		return this.userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-		if(userId != null){
-			putQueryParameter("UserId", userId);
-		}
 	}
 
 	public String getEmail() {

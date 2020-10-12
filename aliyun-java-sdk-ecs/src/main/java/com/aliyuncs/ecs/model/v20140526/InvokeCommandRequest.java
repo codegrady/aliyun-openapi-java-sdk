@@ -16,16 +16,17 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import java.util.Map;
+import com.google.gson.Gson;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class InvokeCommandRequest extends RpcAcsRequest<InvokeCommandResponse> {
-	
-	public InvokeCommandRequest() {
-		super("Ecs", "2014-05-26", "InvokeCommand", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -42,6 +43,16 @@ public class InvokeCommandRequest extends RpcAcsRequest<InvokeCommandResponse> {
 	private Long ownerId;
 
 	private List<String> instanceIds;
+
+	private Map<Object,Object> parameters;
+	public InvokeCommandRequest() {
+		super("Ecs", "2014-05-26", "InvokeCommand", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -131,6 +142,17 @@ public class InvokeCommandRequest extends RpcAcsRequest<InvokeCommandResponse> {
 				putQueryParameter("InstanceId." + (i + 1) , instanceIds.get(i));
 			}
 		}	
+	}
+
+	public Map<Object,Object> getParameters() {
+		return this.parameters;
+	}
+
+	public void setParameters(Map<Object,Object> parameters) {
+		this.parameters = parameters;
+		if(parameters != null){
+			putQueryParameter("Parameters", new Gson().toJson(parameters));
+		}
 	}
 
 	@Override

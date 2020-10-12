@@ -15,34 +15,39 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateDomainExtensionRequest extends RpcAcsRequest<CreateDomainExtensionResponse> {
-	
-	public CreateDomainExtensionRequest() {
-		super("Slb", "2014-05-15", "CreateDomainExtension", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private Integer listenerPort;
 
-	private String loadBalancerId;
-
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
-
-	private String domain;
 
 	private Long ownerId;
 
 	private String serverCertificateId;
 
-	private String tags;
+	private String loadBalancerId;
+
+	private String domain;
+	public CreateDomainExtensionRequest() {
+		super("Slb", "2014-05-15", "CreateDomainExtension", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -63,17 +68,6 @@ public class CreateDomainExtensionRequest extends RpcAcsRequest<CreateDomainExte
 		this.listenerPort = listenerPort;
 		if(listenerPort != null){
 			putQueryParameter("ListenerPort", listenerPort.toString());
-		}
-	}
-
-	public String getLoadBalancerId() {
-		return this.loadBalancerId;
-	}
-
-	public void setLoadBalancerId(String loadBalancerId) {
-		this.loadBalancerId = loadBalancerId;
-		if(loadBalancerId != null){
-			putQueryParameter("LoadBalancerId", loadBalancerId);
 		}
 	}
 
@@ -99,17 +93,6 @@ public class CreateDomainExtensionRequest extends RpcAcsRequest<CreateDomainExte
 		}
 	}
 
-	public String getDomain() {
-		return this.domain;
-	}
-
-	public void setDomain(String domain) {
-		this.domain = domain;
-		if(domain != null){
-			putQueryParameter("Domain", domain);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -132,14 +115,25 @@ public class CreateDomainExtensionRequest extends RpcAcsRequest<CreateDomainExte
 		}
 	}
 
-	public String getTags() {
-		return this.tags;
+	public String getLoadBalancerId() {
+		return this.loadBalancerId;
 	}
 
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
+	public void setLoadBalancerId(String loadBalancerId) {
+		this.loadBalancerId = loadBalancerId;
+		if(loadBalancerId != null){
+			putQueryParameter("LoadBalancerId", loadBalancerId);
+		}
+	}
+
+	public String getDomain() {
+		return this.domain;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+		if(domain != null){
+			putQueryParameter("Domain", domain);
 		}
 	}
 

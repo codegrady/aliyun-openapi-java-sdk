@@ -15,30 +15,37 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AssociateEipAddressRequest extends RpcAcsRequest<AssociateEipAddressResponse> {
-	
-	public AssociateEipAddressRequest() {
-		super("Ecs", "2014-05-26", "AssociateEipAddress", "ecs");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
+	private String allocationId;
+
+	private String instanceType;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String instanceType;
-
-	private String allocationId;
-
 	private Long ownerId;
+
+	private String instanceId;
+	public AssociateEipAddressRequest() {
+		super("Ecs", "2014-05-26", "AssociateEipAddress", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -51,14 +58,25 @@ public class AssociateEipAddressRequest extends RpcAcsRequest<AssociateEipAddres
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
+	public String getAllocationId() {
+		return this.allocationId;
 	}
 
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
+	public void setAllocationId(String allocationId) {
+		this.allocationId = allocationId;
+		if(allocationId != null){
+			putQueryParameter("AllocationId", allocationId);
+		}
+	}
+
+	public String getInstanceType() {
+		return this.instanceType;
+	}
+
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+		if(instanceType != null){
+			putQueryParameter("InstanceType", instanceType);
 		}
 	}
 
@@ -84,28 +102,6 @@ public class AssociateEipAddressRequest extends RpcAcsRequest<AssociateEipAddres
 		}
 	}
 
-	public String getInstanceType() {
-		return this.instanceType;
-	}
-
-	public void setInstanceType(String instanceType) {
-		this.instanceType = instanceType;
-		if(instanceType != null){
-			putQueryParameter("InstanceType", instanceType);
-		}
-	}
-
-	public String getAllocationId() {
-		return this.allocationId;
-	}
-
-	public void setAllocationId(String allocationId) {
-		this.allocationId = allocationId;
-		if(allocationId != null){
-			putQueryParameter("AllocationId", allocationId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -114,6 +110,17 @@ public class AssociateEipAddressRequest extends RpcAcsRequest<AssociateEipAddres
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

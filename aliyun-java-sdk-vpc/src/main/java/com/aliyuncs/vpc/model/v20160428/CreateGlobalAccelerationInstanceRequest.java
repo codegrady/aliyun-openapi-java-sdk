@@ -15,20 +15,23 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateGlobalAccelerationInstanceRequest extends RpcAcsRequest<CreateGlobalAccelerationInstanceResponse> {
-	
-	public CreateGlobalAccelerationInstanceRequest() {
-		super("Vpc", "2016-04-28", "CreateGlobalAccelerationInstance", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String bandwidthType;
+
+	private String clientToken;
+
+	private String description;
 
 	private String resourceOwnerAccount;
 
@@ -36,17 +39,19 @@ public class CreateGlobalAccelerationInstanceRequest extends RpcAcsRequest<Creat
 
 	private String bandwidth;
 
-	private String clientToken;
-
 	private String ownerAccount;
-
-	private String description;
 
 	private Long ownerId;
 
-	private String internetChargeType;
-
 	private String name;
+	public CreateGlobalAccelerationInstanceRequest() {
+		super("Vpc", "2016-04-28", "CreateGlobalAccelerationInstance", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -67,6 +72,28 @@ public class CreateGlobalAccelerationInstanceRequest extends RpcAcsRequest<Creat
 		this.bandwidthType = bandwidthType;
 		if(bandwidthType != null){
 			putQueryParameter("BandwidthType", bandwidthType);
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
 		}
 	}
 
@@ -103,17 +130,6 @@ public class CreateGlobalAccelerationInstanceRequest extends RpcAcsRequest<Creat
 		}
 	}
 
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -125,17 +141,6 @@ public class CreateGlobalAccelerationInstanceRequest extends RpcAcsRequest<Creat
 		}
 	}
 
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -144,17 +149,6 @@ public class CreateGlobalAccelerationInstanceRequest extends RpcAcsRequest<Creat
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getInternetChargeType() {
-		return this.internetChargeType;
-	}
-
-	public void setInternetChargeType(String internetChargeType) {
-		this.internetChargeType = internetChargeType;
-		if(internetChargeType != null){
-			putQueryParameter("InternetChargeType", internetChargeType);
 		}
 	}
 

@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.alidns.transform.v20150109;
 
 import com.aliyuncs.alidns.model.v20150109.UpdateDNSSLBWeightResponse;
@@ -19,11 +20,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class UpdateDNSSLBWeightResponseUnmarshaller {
 
-	public static UpdateDNSSLBWeightResponse unmarshall(UpdateDNSSLBWeightResponse updateDNSSLBWeightResponse, UnmarshallerContext context) {
+	public static UpdateDNSSLBWeightResponse unmarshall(UpdateDNSSLBWeightResponse updateDNSSLBWeightResponse, UnmarshallerContext _ctx) {
 		
-		updateDNSSLBWeightResponse.setRequestId(context.stringValue("UpdateDNSSLBWeightResponse.RequestId"));
-		updateDNSSLBWeightResponse.setRecordId(context.stringValue("UpdateDNSSLBWeightResponse.RecordId"));
-		updateDNSSLBWeightResponse.setWeight(context.integerValue("UpdateDNSSLBWeightResponse.Weight"));
+		updateDNSSLBWeightResponse.setRequestId(_ctx.stringValue("UpdateDNSSLBWeightResponse.RequestId"));
+		updateDNSSLBWeightResponse.setRecordId(_ctx.stringValue("UpdateDNSSLBWeightResponse.RecordId"));
+		updateDNSSLBWeightResponse.setWeight(_ctx.integerValue("UpdateDNSSLBWeightResponse.Weight"));
 	 
 	 	return updateDNSSLBWeightResponse;
 	}

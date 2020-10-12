@@ -15,22 +15,23 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class StartInstanceRequest extends RpcAcsRequest<StartInstanceResponse> {
-	
-	public StartInstanceRequest() {
-		super("Ecs", "2014-05-26", "StartInstance", "ecs");
-	}
-
-	private Boolean initLocalDisk;
+	   
 
 	private Long resourceOwnerId;
 
-	private String instanceId;
+	private String sourceRegionId;
+
+	private Boolean initLocalDisk;
+
+	private Boolean dryRun;
 
 	private String resourceOwnerAccount;
 
@@ -38,15 +39,14 @@ public class StartInstanceRequest extends RpcAcsRequest<StartInstanceResponse> {
 
 	private Long ownerId;
 
-	public Boolean getInitLocalDisk() {
-		return this.initLocalDisk;
-	}
-
-	public void setInitLocalDisk(Boolean initLocalDisk) {
-		this.initLocalDisk = initLocalDisk;
-		if(initLocalDisk != null){
-			putQueryParameter("InitLocalDisk", initLocalDisk.toString());
-		}
+	private String instanceId;
+	public StartInstanceRequest() {
+		super("Ecs", "2014-05-26", "StartInstance", "ecs");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -60,14 +60,36 @@ public class StartInstanceRequest extends RpcAcsRequest<StartInstanceResponse> {
 		}
 	}
 
-	public String getInstanceId() {
-		return this.instanceId;
+	public String getSourceRegionId() {
+		return this.sourceRegionId;
 	}
 
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-		if(instanceId != null){
-			putQueryParameter("InstanceId", instanceId);
+	public void setSourceRegionId(String sourceRegionId) {
+		this.sourceRegionId = sourceRegionId;
+		if(sourceRegionId != null){
+			putQueryParameter("SourceRegionId", sourceRegionId);
+		}
+	}
+
+	public Boolean getInitLocalDisk() {
+		return this.initLocalDisk;
+	}
+
+	public void setInitLocalDisk(Boolean initLocalDisk) {
+		this.initLocalDisk = initLocalDisk;
+		if(initLocalDisk != null){
+			putQueryParameter("InitLocalDisk", initLocalDisk.toString());
+		}
+	}
+
+	public Boolean getDryRun() {
+		return this.dryRun;
+	}
+
+	public void setDryRun(Boolean dryRun) {
+		this.dryRun = dryRun;
+		if(dryRun != null){
+			putQueryParameter("DryRun", dryRun.toString());
 		}
 	}
 
@@ -101,6 +123,17 @@ public class StartInstanceRequest extends RpcAcsRequest<StartInstanceResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

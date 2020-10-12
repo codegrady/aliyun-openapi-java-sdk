@@ -87,7 +87,11 @@ public class DescribeDBClustersResponse extends AcsResponse {
 
 		private String regionId;
 
+		private String zoneId;
+
 		private String expireTime;
+
+		private String expired;
 
 		private String dBClusterStatus;
 
@@ -99,13 +103,23 @@ public class DescribeDBClustersResponse extends AcsResponse {
 
 		private String lockMode;
 
-		private String lockReason;
+		private Integer deletionLock;
 
 		private String createTime;
 
 		private String vpcId;
 
-		private String vSwitchId;
+		private Integer dBNodeNumber;
+
+		private String dBNodeClass;
+
+		private Long storageUsed;
+
+		private String resourceGroupId;
+
+		private List<DBNode> dBNodes;
+
+		private List<Tag> tags;
 
 		public String getDBClusterId() {
 			return this.dBClusterId;
@@ -147,12 +161,28 @@ public class DescribeDBClustersResponse extends AcsResponse {
 			this.regionId = regionId;
 		}
 
+		public String getZoneId() {
+			return this.zoneId;
+		}
+
+		public void setZoneId(String zoneId) {
+			this.zoneId = zoneId;
+		}
+
 		public String getExpireTime() {
 			return this.expireTime;
 		}
 
 		public void setExpireTime(String expireTime) {
 			this.expireTime = expireTime;
+		}
+
+		public String getExpired() {
+			return this.expired;
+		}
+
+		public void setExpired(String expired) {
+			this.expired = expired;
 		}
 
 		public String getDBClusterStatus() {
@@ -195,12 +225,12 @@ public class DescribeDBClustersResponse extends AcsResponse {
 			this.lockMode = lockMode;
 		}
 
-		public String getLockReason() {
-			return this.lockReason;
+		public Integer getDeletionLock() {
+			return this.deletionLock;
 		}
 
-		public void setLockReason(String lockReason) {
-			this.lockReason = lockReason;
+		public void setDeletionLock(Integer deletionLock) {
+			this.deletionLock = deletionLock;
 		}
 
 		public String getCreateTime() {
@@ -219,12 +249,128 @@ public class DescribeDBClustersResponse extends AcsResponse {
 			this.vpcId = vpcId;
 		}
 
-		public String getVSwitchId() {
-			return this.vSwitchId;
+		public Integer getDBNodeNumber() {
+			return this.dBNodeNumber;
 		}
 
-		public void setVSwitchId(String vSwitchId) {
-			this.vSwitchId = vSwitchId;
+		public void setDBNodeNumber(Integer dBNodeNumber) {
+			this.dBNodeNumber = dBNodeNumber;
+		}
+
+		public String getDBNodeClass() {
+			return this.dBNodeClass;
+		}
+
+		public void setDBNodeClass(String dBNodeClass) {
+			this.dBNodeClass = dBNodeClass;
+		}
+
+		public Long getStorageUsed() {
+			return this.storageUsed;
+		}
+
+		public void setStorageUsed(Long storageUsed) {
+			this.storageUsed = storageUsed;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public List<DBNode> getDBNodes() {
+			return this.dBNodes;
+		}
+
+		public void setDBNodes(List<DBNode> dBNodes) {
+			this.dBNodes = dBNodes;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class DBNode {
+
+			private String dBNodeId;
+
+			private String dBNodeClass;
+
+			private String dBNodeRole;
+
+			private String regionId;
+
+			private String zoneId;
+
+			public String getDBNodeId() {
+				return this.dBNodeId;
+			}
+
+			public void setDBNodeId(String dBNodeId) {
+				this.dBNodeId = dBNodeId;
+			}
+
+			public String getDBNodeClass() {
+				return this.dBNodeClass;
+			}
+
+			public void setDBNodeClass(String dBNodeClass) {
+				this.dBNodeClass = dBNodeClass;
+			}
+
+			public String getDBNodeRole() {
+				return this.dBNodeRole;
+			}
+
+			public void setDBNodeRole(String dBNodeRole) {
+				this.dBNodeRole = dBNodeRole;
+			}
+
+			public String getRegionId() {
+				return this.regionId;
+			}
+
+			public void setRegionId(String regionId) {
+				this.regionId = regionId;
+			}
+
+			public String getZoneId() {
+				return this.zoneId;
+			}
+
+			public void setZoneId(String zoneId) {
+				this.zoneId = zoneId;
+			}
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

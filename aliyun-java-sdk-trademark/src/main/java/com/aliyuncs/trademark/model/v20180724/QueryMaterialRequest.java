@@ -15,18 +15,38 @@
 package com.aliyuncs.trademark.model.v20180724;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.trademark.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryMaterialRequest extends RpcAcsRequest<QueryMaterialResponse> {
-	
-	public QueryMaterialRequest() {
-		super("Trademark", "2018-07-24", "QueryMaterial", "trademark");
-	}
+	   
+
+	private Boolean queryUnconfirmedInfo;
 
 	private Long id;
+	public QueryMaterialRequest() {
+		super("Trademark", "2018-07-24", "QueryMaterial");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public Boolean getQueryUnconfirmedInfo() {
+		return this.queryUnconfirmedInfo;
+	}
+
+	public void setQueryUnconfirmedInfo(Boolean queryUnconfirmedInfo) {
+		this.queryUnconfirmedInfo = queryUnconfirmedInfo;
+		if(queryUnconfirmedInfo != null){
+			putQueryParameter("QueryUnconfirmedInfo", queryUnconfirmedInfo.toString());
+		}
+	}
 
 	public Long getId() {
 		return this.id;

@@ -16,32 +16,41 @@ package com.aliyuncs.bssopenapi.model.v20171214;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.bssopenapi.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse> {
-	
-	public CreateInstanceRequest() {
-		super("BssOpenApi", "2017-12-14", "CreateInstance");
-	}
+	   
 
 	private String productCode;
 
 	private Integer period;
 
+	private String clientToken;
+
 	private String subscriptionType;
-
-	private Integer renewPeriod;
-
-	private String renewalStatus;
-
-	private List<Parameter> parameters;
 
 	private Long ownerId;
 
 	private String productType;
+
+	private Integer renewPeriod;
+
+	private List<Parameter> parameters;
+
+	private String renewalStatus;
+	public CreateInstanceRequest() {
+		super("BssOpenApi", "2017-12-14", "CreateInstance");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProductCode() {
 		return this.productCode;
@@ -65,6 +74,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
 	public String getSubscriptionType() {
 		return this.subscriptionType;
 	}
@@ -74,42 +94,6 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		if(subscriptionType != null){
 			putQueryParameter("SubscriptionType", subscriptionType);
 		}
-	}
-
-	public Integer getRenewPeriod() {
-		return this.renewPeriod;
-	}
-
-	public void setRenewPeriod(Integer renewPeriod) {
-		this.renewPeriod = renewPeriod;
-		if(renewPeriod != null){
-			putQueryParameter("RenewPeriod", renewPeriod.toString());
-		}
-	}
-
-	public String getRenewalStatus() {
-		return this.renewalStatus;
-	}
-
-	public void setRenewalStatus(String renewalStatus) {
-		this.renewalStatus = renewalStatus;
-		if(renewalStatus != null){
-			putQueryParameter("RenewalStatus", renewalStatus);
-		}
-	}
-
-	public List<Parameter> getParameters() {
-		return this.parameters;
-	}
-
-	public void setParameters(List<Parameter> parameters) {
-		this.parameters = parameters;	
-		if (parameters != null) {
-			for (int depth1 = 0; depth1 < parameters.size(); depth1++) {
-				putQueryParameter("Parameter." + (depth1 + 1) + ".Code" , parameters.get(depth1).getCode());
-				putQueryParameter("Parameter." + (depth1 + 1) + ".Value" , parameters.get(depth1).getValue());
-			}
-		}	
 	}
 
 	public Long getOwnerId() {
@@ -131,6 +115,42 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.productType = productType;
 		if(productType != null){
 			putQueryParameter("ProductType", productType);
+		}
+	}
+
+	public Integer getRenewPeriod() {
+		return this.renewPeriod;
+	}
+
+	public void setRenewPeriod(Integer renewPeriod) {
+		this.renewPeriod = renewPeriod;
+		if(renewPeriod != null){
+			putQueryParameter("RenewPeriod", renewPeriod.toString());
+		}
+	}
+
+	public List<Parameter> getParameters() {
+		return this.parameters;
+	}
+
+	public void setParameters(List<Parameter> parameters) {
+		this.parameters = parameters;	
+		if (parameters != null) {
+			for (int depth1 = 0; depth1 < parameters.size(); depth1++) {
+				putQueryParameter("Parameter." + (depth1 + 1) + ".Code" , parameters.get(depth1).getCode());
+				putQueryParameter("Parameter." + (depth1 + 1) + ".Value" , parameters.get(depth1).getValue());
+			}
+		}	
+	}
+
+	public String getRenewalStatus() {
+		return this.renewalStatus;
+	}
+
+	public void setRenewalStatus(String renewalStatus) {
+		this.renewalStatus = renewalStatus;
+		if(renewalStatus != null){
+			putQueryParameter("RenewalStatus", renewalStatus);
 		}
 	}
 

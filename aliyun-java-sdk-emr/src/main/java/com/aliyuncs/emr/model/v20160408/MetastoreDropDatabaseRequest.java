@@ -15,6 +15,7 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
@@ -23,12 +24,18 @@ import com.aliyuncs.RpcAcsRequest;
 public class MetastoreDropDatabaseRequest extends RpcAcsRequest<MetastoreDropDatabaseResponse> {
 	
 	public MetastoreDropDatabaseRequest() {
-		super("Emr", "2016-04-08", "MetastoreDropDatabase");
+		super("Emr", "2016-04-08", "MetastoreDropDatabase", "emr");
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private Long resourceOwnerId;
 
 	private String dbName;
+
+	private String databaseId;
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -49,6 +56,17 @@ public class MetastoreDropDatabaseRequest extends RpcAcsRequest<MetastoreDropDat
 		this.dbName = dbName;
 		if(dbName != null){
 			putQueryParameter("DbName", dbName);
+		}
+	}
+
+	public String getDatabaseId() {
+		return this.databaseId;
+	}
+
+	public void setDatabaseId(String databaseId) {
+		this.databaseId = databaseId;
+		if(databaseId != null){
+			putQueryParameter("DatabaseId", databaseId);
 		}
 	}
 

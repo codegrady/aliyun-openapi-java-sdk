@@ -1,35 +1,12 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
 package com.aliyuncs.endpoint;
 
-import com.aliyuncs.exceptions.ClientException;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.io.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.io.InputStream;
+import java.util.*;
 
 public class LocalConfigRegionalEndpointResolver extends EndpointResolverBase {
 
@@ -37,10 +14,26 @@ public class LocalConfigRegionalEndpointResolver extends EndpointResolverBase {
     private Set<String> validRegionIds = new HashSet<String>();
     private Map<String, String> locationCodeMapping = new HashMap<String, String>();
     private JsonObject regionalEndpointData;
+    protected static final JsonObject ENDPOINTS_JSON;
+
+    static {
+        Scanner scanner = null;
+        try {
+            ClassLoader classLoader = LocalConfigRegionalEndpointResolver.class.getClassLoader();
+            InputStream is = classLoader.getResourceAsStream(ENDPOINT_JSON);
+            scanner = new Scanner(is, "UTF-8");
+            scanner.useDelimiter("\0");
+            String jsonStr = scanner.hasNext() ? scanner.next() : "";
+            ENDPOINTS_JSON = (new JsonParser()).parse(jsonStr).getAsJsonObject();
+        } finally {
+            if (null != scanner) {
+                scanner.close();
+            }
+        }
+    }
 
     public LocalConfigRegionalEndpointResolver() {
-        JsonObject obj = readLocalConfigAsJsonObject();
-        initLocalConfig(obj);
+        initLocalConfig(ENDPOINTS_JSON);
     }
 
     public LocalConfigRegionalEndpointResolver(String configJsonStr) {
@@ -61,9 +54,17 @@ public class LocalConfigRegionalEndpointResolver extends EndpointResolverBase {
         }
         regionalEndpointData = obj.get("regional_endpoints").getAsJsonObject();
         JsonObject regionalEndpoints = obj.get("regional_endpoints").getAsJsonObject();
-        for (String normalizedProductCode : regionalEndpoints.keySet()) {
+        Set<String> regionalEndpointsKeySet = new HashSet<String>();
+        for (Map.Entry<String, JsonElement> entry : regionalEndpoints.entrySet()) {
+            regionalEndpointsKeySet.add(entry.getKey());
+        }
+        for (String normalizedProductCode : regionalEndpointsKeySet) {
             JsonObject productData = regionalEndpoints.get(normalizedProductCode).getAsJsonObject();
-            for (String regionId : productData.keySet()) {
+            Set<String> productDataKeySet = new HashSet<String>();
+            for (Map.Entry<String, JsonElement> entry : productData.entrySet()) {
+                productDataKeySet.add(entry.getKey());
+            }
+            for (String regionId : productDataKeySet) {
                 String endpoint = productData.get(regionId).getAsString();
                 putEndpointEntry(makeEndpointKey(normalizedProductCode, regionId), endpoint);
             }
@@ -85,7 +86,11 @@ public class LocalConfigRegionalEndpointResolver extends EndpointResolverBase {
             return;
         }
         JsonObject mappingData = obj.get("location_code_mapping").getAsJsonObject();
-        for (String productCode : mappingData.keySet()) {
+        Set<String> keySet = new HashSet<String>();
+        for (Map.Entry<String, JsonElement> entry : mappingData.entrySet()) {
+            keySet.add(entry.getKey());
+        }
+        for (String productCode : keySet) {
             String locationServiceCode = mappingData.get(productCode).getAsString();
             locationCodeMapping.put(productCode, locationServiceCode);
         }
@@ -99,16 +104,7 @@ public class LocalConfigRegionalEndpointResolver extends EndpointResolverBase {
         return productCodeLower;
     }
 
-    protected JsonObject readLocalConfigAsJsonObject() {
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream is = classLoader.getResourceAsStream(ENDPOINT_JSON);
-        java.util.Scanner scanner = new java.util.Scanner(is,"UTF-8").useDelimiter("\0");
-        String jsonStr = scanner.hasNext() ? scanner.next() : "";
-        scanner.close();
-        JsonObject endpointData = (new JsonParser()).parse(jsonStr).getAsJsonObject();
-        return endpointData;
-    }
-
+    @Override
     public String resolve(ResolveEndpointRequest request) {
         if (request.isOpenApiEndpoint()) {
             return fetchEndpointEntry(request);
@@ -135,7 +131,11 @@ public class LocalConfigRegionalEndpointResolver extends EndpointResolverBase {
     public Set<String> getValidRegionIdsByProduct(String productCodeLower) {
         String code = getNormalizedProductCode(productCodeLower);
         if (regionalEndpointData != null && regionalEndpointData.has(code)) {
-            Set<String> validRegionIdsByProduct = regionalEndpointData.get(code).getAsJsonObject().keySet();
+            JsonObject regionalEndpoints = regionalEndpointData.get(code).getAsJsonObject();
+            Set<String> validRegionIdsByProduct = new HashSet<String>();
+            for (Map.Entry<String, JsonElement> entry : regionalEndpoints.entrySet()) {
+                validRegionIdsByProduct.add(entry.getKey());
+            }
             return validRegionIdsByProduct;
         }
         return null;

@@ -15,18 +15,19 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeAccountsRequest extends RpcAcsRequest<DescribeAccountsResponse> {
-	
-	public DescribeAccountsRequest() {
-		super("Rds", "2014-08-15", "DescribeAccounts", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private Integer pageNumber;
 
 	private String accountName;
 
@@ -34,7 +35,15 @@ public class DescribeAccountsRequest extends RpcAcsRequest<DescribeAccountsRespo
 
 	private String dBInstanceId;
 
-	private Integer pageNumber;
+	private String resourceOwnerAccount;
+	public DescribeAccountsRequest() {
+		super("Rds", "2014-08-15", "DescribeAccounts", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -44,6 +53,17 @@ public class DescribeAccountsRequest extends RpcAcsRequest<DescribeAccountsRespo
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -80,14 +100,14 @@ public class DescribeAccountsRequest extends RpcAcsRequest<DescribeAccountsRespo
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 

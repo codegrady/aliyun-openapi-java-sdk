@@ -15,42 +15,45 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
-	
-	public DescribePriceRequest() {
-		super("Rds", "2014-08-15", "DescribePrice", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private Integer dBInstanceStorage;
 
+	private String clientToken;
+
+	private String engineVersion;
+
+	private String engine;
+
+	private String dBInstanceId;
+
+	private String dBInstanceStorageType;
+
 	private Integer quantity;
 
 	private String resourceOwnerAccount;
-
-	private String clientToken;
 
 	private String ownerAccount;
 
 	private String commodityCode;
 
-	private String engineVersion;
-
 	private Long ownerId;
 
-	private String usedTime;
+	private Integer usedTime;
 
 	private String dBInstanceClass;
 
 	private Integer instanceUsedType;
-
-	private String engine;
 
 	private String zoneId;
 
@@ -59,6 +62,14 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 	private String payType;
 
 	private String orderType;
+	public DescribePriceRequest() {
+		super("Rds", "2014-08-15", "DescribePrice", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -79,6 +90,61 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		this.dBInstanceStorage = dBInstanceStorage;
 		if(dBInstanceStorage != null){
 			putQueryParameter("DBInstanceStorage", dBInstanceStorage.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getEngineVersion() {
+		return this.engineVersion;
+	}
+
+	public void setEngineVersion(String engineVersion) {
+		this.engineVersion = engineVersion;
+		if(engineVersion != null){
+			putQueryParameter("EngineVersion", engineVersion);
+		}
+	}
+
+	public String getEngine() {
+		return this.engine;
+	}
+
+	public void setEngine(String engine) {
+		this.engine = engine;
+		if(engine != null){
+			putQueryParameter("Engine", engine);
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getDBInstanceStorageType() {
+		return this.dBInstanceStorageType;
+	}
+
+	public void setDBInstanceStorageType(String dBInstanceStorageType) {
+		this.dBInstanceStorageType = dBInstanceStorageType;
+		if(dBInstanceStorageType != null){
+			putQueryParameter("DBInstanceStorageType", dBInstanceStorageType);
 		}
 	}
 
@@ -104,17 +170,6 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -137,17 +192,6 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
-	public String getEngineVersion() {
-		return this.engineVersion;
-	}
-
-	public void setEngineVersion(String engineVersion) {
-		this.engineVersion = engineVersion;
-		if(engineVersion != null){
-			putQueryParameter("EngineVersion", engineVersion);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -159,14 +203,14 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
-	public String getUsedTime() {
+	public Integer getUsedTime() {
 		return this.usedTime;
 	}
 
-	public void setUsedTime(String usedTime) {
+	public void setUsedTime(Integer usedTime) {
 		this.usedTime = usedTime;
 		if(usedTime != null){
-			putQueryParameter("UsedTime", usedTime);
+			putQueryParameter("UsedTime", usedTime.toString());
 		}
 	}
 
@@ -189,17 +233,6 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		this.instanceUsedType = instanceUsedType;
 		if(instanceUsedType != null){
 			putQueryParameter("InstanceUsedType", instanceUsedType.toString());
-		}
-	}
-
-	public String getEngine() {
-		return this.engine;
-	}
-
-	public void setEngine(String engine) {
-		this.engine = engine;
-		if(engine != null){
-			putQueryParameter("Engine", engine);
 		}
 	}
 

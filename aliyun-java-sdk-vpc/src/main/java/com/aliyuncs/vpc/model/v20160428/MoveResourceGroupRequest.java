@@ -15,22 +15,19 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.vpc.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class MoveResourceGroupRequest extends RpcAcsRequest<MoveResourceGroupResponse> {
-	
-	public MoveResourceGroupRequest() {
-		super("Vpc", "2016-04-28", "MoveResourceGroup", "vpc");
-	}
+	   
 
 	private Long resourceOwnerId;
 
 	private String resourceId;
-
-	private String newResourceGroupId;
 
 	private String resourceOwnerAccount;
 
@@ -39,6 +36,16 @@ public class MoveResourceGroupRequest extends RpcAcsRequest<MoveResourceGroupRes
 	private Long ownerId;
 
 	private String resourceType;
+
+	private String newResourceGroupId;
+	public MoveResourceGroupRequest() {
+		super("Vpc", "2016-04-28", "MoveResourceGroup", "vpc");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -59,17 +66,6 @@ public class MoveResourceGroupRequest extends RpcAcsRequest<MoveResourceGroupRes
 		this.resourceId = resourceId;
 		if(resourceId != null){
 			putQueryParameter("ResourceId", resourceId);
-		}
-	}
-
-	public String getNewResourceGroupId() {
-		return this.newResourceGroupId;
-	}
-
-	public void setNewResourceGroupId(String newResourceGroupId) {
-		this.newResourceGroupId = newResourceGroupId;
-		if(newResourceGroupId != null){
-			putQueryParameter("NewResourceGroupId", newResourceGroupId);
 		}
 	}
 
@@ -114,6 +110,17 @@ public class MoveResourceGroupRequest extends RpcAcsRequest<MoveResourceGroupRes
 		this.resourceType = resourceType;
 		if(resourceType != null){
 			putQueryParameter("ResourceType", resourceType);
+		}
+	}
+
+	public String getNewResourceGroupId() {
+		return this.newResourceGroupId;
+	}
+
+	public void setNewResourceGroupId(String newResourceGroupId) {
+		this.newResourceGroupId = newResourceGroupId;
+		if(newResourceGroupId != null){
+			putQueryParameter("NewResourceGroupId", newResourceGroupId);
 		}
 	}
 

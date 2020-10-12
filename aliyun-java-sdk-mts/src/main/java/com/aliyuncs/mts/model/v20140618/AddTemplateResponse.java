@@ -171,6 +171,8 @@ public class AddTemplateResponse extends AcsResponse {
 
 			private String qscale;
 
+			private String longShortMode;
+
 			private String remove;
 
 			private String crop;
@@ -178,6 +180,8 @@ public class AddTemplateResponse extends AcsResponse {
 			private String pad;
 
 			private String maxFps;
+
+			private String resoPriority;
 
 			private BitrateBnd bitrateBnd;
 
@@ -301,6 +305,14 @@ public class AddTemplateResponse extends AcsResponse {
 				this.qscale = qscale;
 			}
 
+			public String getLongShortMode() {
+				return this.longShortMode;
+			}
+
+			public void setLongShortMode(String longShortMode) {
+				this.longShortMode = longShortMode;
+			}
+
 			public String getRemove() {
 				return this.remove;
 			}
@@ -331,6 +343,14 @@ public class AddTemplateResponse extends AcsResponse {
 
 			public void setMaxFps(String maxFps) {
 				this.maxFps = maxFps;
+			}
+
+			public String getResoPriority() {
+				return this.resoPriority;
+			}
+
+			public void setResoPriority(String resoPriority) {
+				this.resoPriority = resoPriority;
 			}
 
 			public BitrateBnd getBitrateBnd() {
@@ -461,11 +481,11 @@ public class AddTemplateResponse extends AcsResponse {
 					this.level = level;
 				}
 
-				public String getMethod() {
+				public String getBizMethod() {
 					return this.method;
 				}
 
-				public void setMethod(String method) {
+				public void setBizMethod(String method) {
 					this.method = method;
 				}
 			}
@@ -560,6 +580,8 @@ public class AddTemplateResponse extends AcsResponse {
 
 			private Gif gif;
 
+			private Webp webp;
+
 			public Segment getSegment() {
 				return this.segment;
 			}
@@ -574,6 +596,14 @@ public class AddTemplateResponse extends AcsResponse {
 
 			public void setGif(Gif gif) {
 				this.gif = gif;
+			}
+
+			public Webp getWebp() {
+				return this.webp;
+			}
+
+			public void setWebp(Webp webp) {
+				this.webp = webp;
 			}
 
 			public static class Segment {
@@ -629,6 +659,19 @@ public class AddTemplateResponse extends AcsResponse {
 
 				public void setDitherMode(String ditherMode) {
 					this.ditherMode = ditherMode;
+				}
+			}
+
+			public static class Webp {
+
+				private String loop;
+
+				public String getLoop() {
+					return this.loop;
+				}
+
+				public void setLoop(String loop) {
+					this.loop = loop;
 				}
 			}
 		}

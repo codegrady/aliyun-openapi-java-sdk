@@ -15,20 +15,17 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyFileCacheExpiredConfigRequest extends RpcAcsRequest<ModifyFileCacheExpiredConfigResponse> {
-	
-	public ModifyFileCacheExpiredConfigRequest() {
-		super("Cdn", "2018-05-10", "ModifyFileCacheExpiredConfig");
-	}
+	   
 
 	private String securityToken;
-
-	private String configID;
 
 	private String domainName;
 
@@ -40,6 +37,16 @@ public class ModifyFileCacheExpiredConfigRequest extends RpcAcsRequest<ModifyFil
 
 	private String tTL;
 
+	private String configID;
+	public ModifyFileCacheExpiredConfigRequest() {
+		super("Cdn", "2018-05-10", "ModifyFileCacheExpiredConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -48,17 +55,6 @@ public class ModifyFileCacheExpiredConfigRequest extends RpcAcsRequest<ModifyFil
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	public String getConfigID() {
-		return this.configID;
-	}
-
-	public void setConfigID(String configID) {
-		this.configID = configID;
-		if(configID != null){
-			putQueryParameter("ConfigID", configID);
 		}
 	}
 
@@ -114,6 +110,17 @@ public class ModifyFileCacheExpiredConfigRequest extends RpcAcsRequest<ModifyFil
 		this.tTL = tTL;
 		if(tTL != null){
 			putQueryParameter("TTL", tTL);
+		}
+	}
+
+	public String getConfigID() {
+		return this.configID;
+	}
+
+	public void setConfigID(String configID) {
+		this.configID = configID;
+		if(configID != null){
+			putQueryParameter("ConfigID", configID);
 		}
 	}
 

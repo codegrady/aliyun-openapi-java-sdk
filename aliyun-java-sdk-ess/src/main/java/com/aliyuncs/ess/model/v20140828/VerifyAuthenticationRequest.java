@@ -15,18 +15,15 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class VerifyAuthenticationRequest extends RpcAcsRequest<VerifyAuthenticationResponse> {
-	
-	public VerifyAuthenticationRequest() {
-		super("Ess", "2014-08-28", "VerifyAuthentication", "ess");
-	}
-
-	private Long uid;
+	   
 
 	private Long resourceOwnerId;
 
@@ -34,15 +31,14 @@ public class VerifyAuthenticationRequest extends RpcAcsRequest<VerifyAuthenticat
 
 	private Long ownerId;
 
-	public Long getUid() {
-		return this.uid;
-	}
-
-	public void setUid(Long uid) {
-		this.uid = uid;
-		if(uid != null){
-			putQueryParameter("Uid", uid.toString());
-		}
+	private Long uid;
+	public VerifyAuthenticationRequest() {
+		super("Ess", "2014-08-28", "VerifyAuthentication", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -75,6 +71,17 @@ public class VerifyAuthenticationRequest extends RpcAcsRequest<VerifyAuthenticat
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Long getUid() {
+		return this.uid;
+	}
+
+	public void setUid(Long uid) {
+		this.uid = uid;
+		if(uid != null){
+			putQueryParameter("Uid", uid.toString());
 		}
 	}
 

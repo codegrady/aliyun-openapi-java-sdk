@@ -15,16 +15,15 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetIpBlackListConfigRequest extends RpcAcsRequest<SetIpBlackListConfigResponse> {
-	
-	public SetIpBlackListConfigRequest() {
-		super("Cdn", "2018-05-10", "SetIpBlackListConfig");
-	}
+	   
 
 	private String blockIps;
 
@@ -33,6 +32,14 @@ public class SetIpBlackListConfigRequest extends RpcAcsRequest<SetIpBlackListCon
 	private Long ownerId;
 
 	private Long configId;
+	public SetIpBlackListConfigRequest() {
+		super("Cdn", "2018-05-10", "SetIpBlackListConfig");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getBlockIps() {
 		return this.blockIps;

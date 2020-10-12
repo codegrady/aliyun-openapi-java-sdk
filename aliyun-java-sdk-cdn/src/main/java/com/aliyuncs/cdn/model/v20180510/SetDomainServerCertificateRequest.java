@@ -15,34 +15,52 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetDomainServerCertificateRequest extends RpcAcsRequest<SetDomainServerCertificateResponse> {
-	
-	public SetDomainServerCertificateRequest() {
-		super("Cdn", "2018-05-10", "SetDomainServerCertificate");
-	}
+	   
+
+	private String serverCertificate;
 
 	private String privateKey;
 
 	private String serverCertificateStatus;
 
-	private String serverCertificate;
-
 	private String securityToken;
 
 	private String certType;
+
+	private String forceSet;
 
 	private String certName;
 
 	private String domainName;
 
 	private Long ownerId;
+	public SetDomainServerCertificateRequest() {
+		super("Cdn", "2018-05-10", "SetDomainServerCertificate");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String region;
+	public String getServerCertificate() {
+		return this.serverCertificate;
+	}
+
+	public void setServerCertificate(String serverCertificate) {
+		this.serverCertificate = serverCertificate;
+		if(serverCertificate != null){
+			putQueryParameter("ServerCertificate", serverCertificate);
+		}
+	}
 
 	public String getPrivateKey() {
 		return this.privateKey;
@@ -66,17 +84,6 @@ public class SetDomainServerCertificateRequest extends RpcAcsRequest<SetDomainSe
 		}
 	}
 
-	public String getServerCertificate() {
-		return this.serverCertificate;
-	}
-
-	public void setServerCertificate(String serverCertificate) {
-		this.serverCertificate = serverCertificate;
-		if(serverCertificate != null){
-			putQueryParameter("ServerCertificate", serverCertificate);
-		}
-	}
-
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -96,6 +103,17 @@ public class SetDomainServerCertificateRequest extends RpcAcsRequest<SetDomainSe
 		this.certType = certType;
 		if(certType != null){
 			putQueryParameter("CertType", certType);
+		}
+	}
+
+	public String getForceSet() {
+		return this.forceSet;
+	}
+
+	public void setForceSet(String forceSet) {
+		this.forceSet = forceSet;
+		if(forceSet != null){
+			putQueryParameter("ForceSet", forceSet);
 		}
 	}
 
@@ -129,17 +147,6 @@ public class SetDomainServerCertificateRequest extends RpcAcsRequest<SetDomainSe
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getRegion() {
-		return this.region;
-	}
-
-	public void setRegion(String region) {
-		this.region = region;
-		if(region != null){
-			putQueryParameter("Region", region);
 		}
 	}
 

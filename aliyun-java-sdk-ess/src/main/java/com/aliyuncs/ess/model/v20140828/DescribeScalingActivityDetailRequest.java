@@ -15,16 +15,15 @@
 package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeScalingActivityDetailRequest extends RpcAcsRequest<DescribeScalingActivityDetailResponse> {
-	
-	public DescribeScalingActivityDetailRequest() {
-		super("Ess", "2014-08-28", "DescribeScalingActivityDetail", "ess");
-	}
+	   
 
 	private Long resourceOwnerId;
 
@@ -33,6 +32,14 @@ public class DescribeScalingActivityDetailRequest extends RpcAcsRequest<Describe
 	private Long ownerId;
 
 	private String scalingActivityId;
+	public DescribeScalingActivityDetailRequest() {
+		super("Ess", "2014-08-28", "DescribeScalingActivityDetail", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;

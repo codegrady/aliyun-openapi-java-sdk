@@ -16,21 +16,26 @@ package com.aliyuncs.kms.model.v20160120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.kms.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteAliasRequest extends RpcAcsRequest<DeleteAliasResponse> {
-	
+	   
+
+	private String aliasName;
 	public DeleteAliasRequest() {
 		super("Kms", "2016-01-20", "DeleteAlias", "kms");
 		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
-
-	private String aliasName;
-
-	private String sTSToken;
 
 	public String getAliasName() {
 		return this.aliasName;
@@ -40,17 +45,6 @@ public class DeleteAliasRequest extends RpcAcsRequest<DeleteAliasResponse> {
 		this.aliasName = aliasName;
 		if(aliasName != null){
 			putQueryParameter("AliasName", aliasName);
-		}
-	}
-
-	public String getSTSToken() {
-		return this.sTSToken;
-	}
-
-	public void setSTSToken(String sTSToken) {
-		this.sTSToken = sTSToken;
-		if(sTSToken != null){
-			putQueryParameter("STSToken", sTSToken);
 		}
 	}
 

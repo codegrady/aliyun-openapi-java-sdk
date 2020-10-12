@@ -19,23 +19,22 @@ import java.util.List;
 
 import com.aliyuncs.vod.model.v20170321.ListAuditSecurityIpResponse;
 import com.aliyuncs.vod.model.v20170321.ListAuditSecurityIpResponse.SecurityIp;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class ListAuditSecurityIpResponseUnmarshaller {
 
-	public static ListAuditSecurityIpResponse unmarshall(ListAuditSecurityIpResponse listAuditSecurityIpResponse, UnmarshallerContext context) {
+	public static ListAuditSecurityIpResponse unmarshall(ListAuditSecurityIpResponse listAuditSecurityIpResponse, UnmarshallerContext _ctx) {
 		
-		listAuditSecurityIpResponse.setRequestId(context.stringValue("ListAuditSecurityIpResponse.RequestId"));
+		listAuditSecurityIpResponse.setRequestId(_ctx.stringValue("ListAuditSecurityIpResponse.RequestId"));
 
 		List<SecurityIp> securityIpList = new ArrayList<SecurityIp>();
-		for (int i = 0; i < context.lengthValue("ListAuditSecurityIpResponse.SecurityIpList.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListAuditSecurityIpResponse.SecurityIpList.Length"); i++) {
 			SecurityIp securityIp = new SecurityIp();
-			securityIp.setSecurityGroupName(context.stringValue("ListAuditSecurityIpResponse.SecurityIpList["+ i +"].SecurityGroupName"));
-			securityIp.setIps(context.stringValue("ListAuditSecurityIpResponse.SecurityIpList["+ i +"].Ips"));
-			securityIp.setCreationTime(context.stringValue("ListAuditSecurityIpResponse.SecurityIpList["+ i +"].CreationTime"));
-			securityIp.setModificationTime(context.stringValue("ListAuditSecurityIpResponse.SecurityIpList["+ i +"].ModificationTime"));
+			securityIp.setSecurityGroupName(_ctx.stringValue("ListAuditSecurityIpResponse.SecurityIpList["+ i +"].SecurityGroupName"));
+			securityIp.setIps(_ctx.stringValue("ListAuditSecurityIpResponse.SecurityIpList["+ i +"].Ips"));
+			securityIp.setCreationTime(_ctx.stringValue("ListAuditSecurityIpResponse.SecurityIpList["+ i +"].CreationTime"));
+			securityIp.setModificationTime(_ctx.stringValue("ListAuditSecurityIpResponse.SecurityIpList["+ i +"].ModificationTime"));
 
 			securityIpList.add(securityIp);
 		}

@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
 
 import com.aliyuncs.cloudapi.model.v20160714.SdkGenerateByAppResponse;
@@ -19,10 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class SdkGenerateByAppResponseUnmarshaller {
 
-	public static SdkGenerateByAppResponse unmarshall(SdkGenerateByAppResponse sdkGenerateByAppResponse, UnmarshallerContext context) {
+	public static SdkGenerateByAppResponse unmarshall(SdkGenerateByAppResponse sdkGenerateByAppResponse, UnmarshallerContext _ctx) {
 		
-		sdkGenerateByAppResponse.setRequestId(context.stringValue("SdkGenerateByAppResponse.RequestId"));
-		sdkGenerateByAppResponse.setDownloadLink(context.stringValue("SdkGenerateByAppResponse.DownloadLink"));
+		sdkGenerateByAppResponse.setRequestId(_ctx.stringValue("SdkGenerateByAppResponse.RequestId"));
+		sdkGenerateByAppResponse.setDownloadLink(_ctx.stringValue("SdkGenerateByAppResponse.DownloadLink"));
 	 
 	 	return sdkGenerateByAppResponse;
 	}

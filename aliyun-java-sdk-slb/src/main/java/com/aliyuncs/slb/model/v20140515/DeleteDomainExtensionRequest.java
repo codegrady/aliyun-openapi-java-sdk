@@ -15,28 +15,33 @@
 package com.aliyuncs.slb.model.v20140515;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.slb.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DeleteDomainExtensionRequest extends RpcAcsRequest<DeleteDomainExtensionResponse> {
-	
-	public DeleteDomainExtensionRequest() {
-		super("Slb", "2014-05-15", "DeleteDomainExtension", "slb");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String domainExtensionId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
-
-	private String tags;
-
-	private String domainExtensionId;
+	public DeleteDomainExtensionRequest() {
+		super("Slb", "2014-05-15", "DeleteDomainExtension", "slb");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,6 +51,17 @@ public class DeleteDomainExtensionRequest extends RpcAcsRequest<DeleteDomainExte
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getDomainExtensionId() {
+		return this.domainExtensionId;
+	}
+
+	public void setDomainExtensionId(String domainExtensionId) {
+		this.domainExtensionId = domainExtensionId;
+		if(domainExtensionId != null){
+			putQueryParameter("DomainExtensionId", domainExtensionId);
 		}
 	}
 
@@ -79,28 +95,6 @@ public class DeleteDomainExtensionRequest extends RpcAcsRequest<DeleteDomainExte
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getTags() {
-		return this.tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-		if(tags != null){
-			putQueryParameter("Tags", tags);
-		}
-	}
-
-	public String getDomainExtensionId() {
-		return this.domainExtensionId;
-	}
-
-	public void setDomainExtensionId(String domainExtensionId) {
-		this.domainExtensionId = domainExtensionId;
-		if(domainExtensionId != null){
-			putQueryParameter("DomainExtensionId", domainExtensionId);
 		}
 	}
 

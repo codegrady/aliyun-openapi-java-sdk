@@ -15,28 +15,59 @@
 package com.aliyuncs.trademark.model.v20180724;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.trademark.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class QueryMaterialListRequest extends RpcAcsRequest<QueryMaterialListResponse> {
-	
-	public QueryMaterialListRequest() {
-		super("Trademark", "2018-07-24", "QueryMaterialList", "trademark");
-	}
+	   
+
+	private Integer type;
+
+	private Integer pageNum;
 
 	private String name;
 
 	private Integer pageSize;
 
-	private Integer type;
+	private String cardNumber;
 
 	private Integer region;
 
-	private Integer pageNum;
-
 	private Integer status;
+	public QueryMaterialListRequest() {
+		super("Trademark", "2018-07-24", "QueryMaterialList");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public Integer getType() {
+		return this.type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+		if(type != null){
+			putQueryParameter("Type", type.toString());
+		}
+	}
+
+	public Integer getPageNum() {
+		return this.pageNum;
+	}
+
+	public void setPageNum(Integer pageNum) {
+		this.pageNum = pageNum;
+		if(pageNum != null){
+			putQueryParameter("PageNum", pageNum.toString());
+		}
+	}
 
 	public String getName() {
 		return this.name;
@@ -60,14 +91,14 @@ public class QueryMaterialListRequest extends RpcAcsRequest<QueryMaterialListRes
 		}
 	}
 
-	public Integer getType() {
-		return this.type;
+	public String getCardNumber() {
+		return this.cardNumber;
 	}
 
-	public void setType(Integer type) {
-		this.type = type;
-		if(type != null){
-			putQueryParameter("Type", type.toString());
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+		if(cardNumber != null){
+			putQueryParameter("CardNumber", cardNumber);
 		}
 	}
 
@@ -79,17 +110,6 @@ public class QueryMaterialListRequest extends RpcAcsRequest<QueryMaterialListRes
 		this.region = region;
 		if(region != null){
 			putQueryParameter("Region", region.toString());
-		}
-	}
-
-	public Integer getPageNum() {
-		return this.pageNum;
-	}
-
-	public void setPageNum(Integer pageNum) {
-		this.pageNum = pageNum;
-		if(pageNum != null){
-			putQueryParameter("PageNum", pageNum.toString());
 		}
 	}
 

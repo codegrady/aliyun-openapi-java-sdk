@@ -27,11 +27,13 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 
 	private String requestId;
 
-	private String engine;
+	private String dBClusterId;
 
 	private String startTime;
 
 	private String endTime;
+
+	private String engine;
 
 	private Integer totalRecordCount;
 
@@ -49,12 +51,12 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getEngine() {
-		return this.engine;
+	public String getDBClusterId() {
+		return this.dBClusterId;
 	}
 
-	public void setEngine(String engine) {
-		this.engine = engine;
+	public void setDBClusterId(String dBClusterId) {
+		this.dBClusterId = dBClusterId;
 	}
 
 	public String getStartTime() {
@@ -71,6 +73,14 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
+	}
+
+	public String getEngine() {
+		return this.engine;
+	}
+
+	public void setEngine(String engine) {
+		this.engine = engine;
 	}
 
 	public Integer getTotalRecordCount() {
@@ -107,124 +117,40 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 
 	public static class SQLSlowLog {
 
-		private Long slowLogId;
-
-		private Long sQLId;
-
-		private String dBName;
-
-		private String sQLText;
-
-		private Long mySQLTotalExecutionCounts;
-
-		private Long mySQLTotalExecutionTimes;
-
-		private Long maxExecutionTime;
-
-		private Long totalLockTimes;
-
-		private Long maxLockTime;
-
-		private Long parseTotalRowCounts;
+		private String dBNodeId;
 
 		private Long parseMaxRowCount;
 
-		private Long returnTotalRowCounts;
+		private Long totalLockTimes;
 
-		private Long returnMaxRowCount;
+		private String dBName;
+
+		private Long maxExecutionTime;
+
+		private String sQLHASH;
+
+		private String sQLText;
 
 		private String createTime;
 
-		private Long sQLServerTotalExecutionCounts;
+		private Long totalExecutionTimes;
 
-		private Long sQLServerTotalExecutionTimes;
+		private Long returnTotalRowCounts;
 
-		private Long totalLogicalReadCounts;
+		private Long totalExecutionCounts;
 
-		private Long totalPhysicalReadCounts;
+		private Long maxLockTime;
 
-		private String reportTime;
+		private Long returnMaxRowCount;
 
-		private Long avgExecutionTime;
+		private Long parseTotalRowCounts;
 
-		public Long getSlowLogId() {
-			return this.slowLogId;
+		public String getDBNodeId() {
+			return this.dBNodeId;
 		}
 
-		public void setSlowLogId(Long slowLogId) {
-			this.slowLogId = slowLogId;
-		}
-
-		public Long getSQLId() {
-			return this.sQLId;
-		}
-
-		public void setSQLId(Long sQLId) {
-			this.sQLId = sQLId;
-		}
-
-		public String getDBName() {
-			return this.dBName;
-		}
-
-		public void setDBName(String dBName) {
-			this.dBName = dBName;
-		}
-
-		public String getSQLText() {
-			return this.sQLText;
-		}
-
-		public void setSQLText(String sQLText) {
-			this.sQLText = sQLText;
-		}
-
-		public Long getMySQLTotalExecutionCounts() {
-			return this.mySQLTotalExecutionCounts;
-		}
-
-		public void setMySQLTotalExecutionCounts(Long mySQLTotalExecutionCounts) {
-			this.mySQLTotalExecutionCounts = mySQLTotalExecutionCounts;
-		}
-
-		public Long getMySQLTotalExecutionTimes() {
-			return this.mySQLTotalExecutionTimes;
-		}
-
-		public void setMySQLTotalExecutionTimes(Long mySQLTotalExecutionTimes) {
-			this.mySQLTotalExecutionTimes = mySQLTotalExecutionTimes;
-		}
-
-		public Long getMaxExecutionTime() {
-			return this.maxExecutionTime;
-		}
-
-		public void setMaxExecutionTime(Long maxExecutionTime) {
-			this.maxExecutionTime = maxExecutionTime;
-		}
-
-		public Long getTotalLockTimes() {
-			return this.totalLockTimes;
-		}
-
-		public void setTotalLockTimes(Long totalLockTimes) {
-			this.totalLockTimes = totalLockTimes;
-		}
-
-		public Long getMaxLockTime() {
-			return this.maxLockTime;
-		}
-
-		public void setMaxLockTime(Long maxLockTime) {
-			this.maxLockTime = maxLockTime;
-		}
-
-		public Long getParseTotalRowCounts() {
-			return this.parseTotalRowCounts;
-		}
-
-		public void setParseTotalRowCounts(Long parseTotalRowCounts) {
-			this.parseTotalRowCounts = parseTotalRowCounts;
+		public void setDBNodeId(String dBNodeId) {
+			this.dBNodeId = dBNodeId;
 		}
 
 		public Long getParseMaxRowCount() {
@@ -235,20 +161,44 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 			this.parseMaxRowCount = parseMaxRowCount;
 		}
 
-		public Long getReturnTotalRowCounts() {
-			return this.returnTotalRowCounts;
+		public Long getTotalLockTimes() {
+			return this.totalLockTimes;
 		}
 
-		public void setReturnTotalRowCounts(Long returnTotalRowCounts) {
-			this.returnTotalRowCounts = returnTotalRowCounts;
+		public void setTotalLockTimes(Long totalLockTimes) {
+			this.totalLockTimes = totalLockTimes;
 		}
 
-		public Long getReturnMaxRowCount() {
-			return this.returnMaxRowCount;
+		public String getDBName() {
+			return this.dBName;
 		}
 
-		public void setReturnMaxRowCount(Long returnMaxRowCount) {
-			this.returnMaxRowCount = returnMaxRowCount;
+		public void setDBName(String dBName) {
+			this.dBName = dBName;
+		}
+
+		public Long getMaxExecutionTime() {
+			return this.maxExecutionTime;
+		}
+
+		public void setMaxExecutionTime(Long maxExecutionTime) {
+			this.maxExecutionTime = maxExecutionTime;
+		}
+
+		public String getSQLHASH() {
+			return this.sQLHASH;
+		}
+
+		public void setSQLHASH(String sQLHASH) {
+			this.sQLHASH = sQLHASH;
+		}
+
+		public String getSQLText() {
+			return this.sQLText;
+		}
+
+		public void setSQLText(String sQLText) {
+			this.sQLText = sQLText;
 		}
 
 		public String getCreateTime() {
@@ -259,52 +209,52 @@ public class DescribeSlowLogsResponse extends AcsResponse {
 			this.createTime = createTime;
 		}
 
-		public Long getSQLServerTotalExecutionCounts() {
-			return this.sQLServerTotalExecutionCounts;
+		public Long getTotalExecutionTimes() {
+			return this.totalExecutionTimes;
 		}
 
-		public void setSQLServerTotalExecutionCounts(Long sQLServerTotalExecutionCounts) {
-			this.sQLServerTotalExecutionCounts = sQLServerTotalExecutionCounts;
+		public void setTotalExecutionTimes(Long totalExecutionTimes) {
+			this.totalExecutionTimes = totalExecutionTimes;
 		}
 
-		public Long getSQLServerTotalExecutionTimes() {
-			return this.sQLServerTotalExecutionTimes;
+		public Long getReturnTotalRowCounts() {
+			return this.returnTotalRowCounts;
 		}
 
-		public void setSQLServerTotalExecutionTimes(Long sQLServerTotalExecutionTimes) {
-			this.sQLServerTotalExecutionTimes = sQLServerTotalExecutionTimes;
+		public void setReturnTotalRowCounts(Long returnTotalRowCounts) {
+			this.returnTotalRowCounts = returnTotalRowCounts;
 		}
 
-		public Long getTotalLogicalReadCounts() {
-			return this.totalLogicalReadCounts;
+		public Long getTotalExecutionCounts() {
+			return this.totalExecutionCounts;
 		}
 
-		public void setTotalLogicalReadCounts(Long totalLogicalReadCounts) {
-			this.totalLogicalReadCounts = totalLogicalReadCounts;
+		public void setTotalExecutionCounts(Long totalExecutionCounts) {
+			this.totalExecutionCounts = totalExecutionCounts;
 		}
 
-		public Long getTotalPhysicalReadCounts() {
-			return this.totalPhysicalReadCounts;
+		public Long getMaxLockTime() {
+			return this.maxLockTime;
 		}
 
-		public void setTotalPhysicalReadCounts(Long totalPhysicalReadCounts) {
-			this.totalPhysicalReadCounts = totalPhysicalReadCounts;
+		public void setMaxLockTime(Long maxLockTime) {
+			this.maxLockTime = maxLockTime;
 		}
 
-		public String getReportTime() {
-			return this.reportTime;
+		public Long getReturnMaxRowCount() {
+			return this.returnMaxRowCount;
 		}
 
-		public void setReportTime(String reportTime) {
-			this.reportTime = reportTime;
+		public void setReturnMaxRowCount(Long returnMaxRowCount) {
+			this.returnMaxRowCount = returnMaxRowCount;
 		}
 
-		public Long getAvgExecutionTime() {
-			return this.avgExecutionTime;
+		public Long getParseTotalRowCounts() {
+			return this.parseTotalRowCounts;
 		}
 
-		public void setAvgExecutionTime(Long avgExecutionTime) {
-			this.avgExecutionTime = avgExecutionTime;
+		public void setParseTotalRowCounts(Long parseTotalRowCounts) {
+			this.parseTotalRowCounts = parseTotalRowCounts;
 		}
 	}
 

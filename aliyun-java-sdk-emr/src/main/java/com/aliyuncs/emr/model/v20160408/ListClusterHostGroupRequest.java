@@ -15,26 +15,40 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.emr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListClusterHostGroupRequest extends RpcAcsRequest<ListClusterHostGroupResponse> {
-	
-	public ListClusterHostGroupRequest() {
-		super("Emr", "2016-04-08", "ListClusterHostGroup");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private List<String> statusLists;
+
+	private String clusterId;
+
+	private String hostGroupName;
+
+	private Integer pageNumber;
 
 	private String hostGroupId;
 
 	private Integer pageSize;
 
-	private String clusterId;
-
-	private Integer pageNumber;
+	private String hostGroupType;
+	public ListClusterHostGroupRequest() {
+		super("Emr", "2016-04-08", "ListClusterHostGroup");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -44,6 +58,52 @@ public class ListClusterHostGroupRequest extends RpcAcsRequest<ListClusterHostGr
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public List<String> getStatusLists() {
+		return this.statusLists;
+	}
+
+	public void setStatusLists(List<String> statusLists) {
+		this.statusLists = statusLists;	
+		if (statusLists != null) {
+			for (int i = 0; i < statusLists.size(); i++) {
+				putQueryParameter("StatusList." + (i + 1) , statusLists.get(i));
+			}
+		}	
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getHostGroupName() {
+		return this.hostGroupName;
+	}
+
+	public void setHostGroupName(String hostGroupName) {
+		this.hostGroupName = hostGroupName;
+		if(hostGroupName != null){
+			putQueryParameter("HostGroupName", hostGroupName);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -69,25 +129,14 @@ public class ListClusterHostGroupRequest extends RpcAcsRequest<ListClusterHostGr
 		}
 	}
 
-	public String getClusterId() {
-		return this.clusterId;
+	public String getHostGroupType() {
+		return this.hostGroupType;
 	}
 
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putQueryParameter("ClusterId", clusterId);
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+	public void setHostGroupType(String hostGroupType) {
+		this.hostGroupType = hostGroupType;
+		if(hostGroupType != null){
+			putQueryParameter("HostGroupType", hostGroupType);
 		}
 	}
 

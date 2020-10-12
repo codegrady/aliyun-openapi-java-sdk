@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.nas.transform.v20170626;
 
 import com.aliyuncs.nas.model.v20170626.CreateAccessGroupResponse;
@@ -19,10 +20,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class CreateAccessGroupResponseUnmarshaller {
 
-	public static CreateAccessGroupResponse unmarshall(CreateAccessGroupResponse createAccessGroupResponse, UnmarshallerContext context) {
+	public static CreateAccessGroupResponse unmarshall(CreateAccessGroupResponse createAccessGroupResponse, UnmarshallerContext _ctx) {
 		
-		createAccessGroupResponse.setRequestId(context.stringValue("CreateAccessGroupResponse.RequestId"));
-		createAccessGroupResponse.setAccessGroupName(context.stringValue("CreateAccessGroupResponse.AccessGroupName"));
+		createAccessGroupResponse.setRequestId(_ctx.stringValue("CreateAccessGroupResponse.RequestId"));
+		createAccessGroupResponse.setAccessGroupName(_ctx.stringValue("CreateAccessGroupResponse.AccessGroupName"));
 	 
 	 	return createAccessGroupResponse;
 	}

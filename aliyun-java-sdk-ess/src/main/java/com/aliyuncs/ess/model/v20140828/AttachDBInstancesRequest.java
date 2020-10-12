@@ -16,35 +16,44 @@ package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AttachDBInstancesRequest extends RpcAcsRequest<AttachDBInstancesResponse> {
-	
-	public AttachDBInstancesRequest() {
-		super("Ess", "2014-08-28", "AttachDBInstances", "ess");
-	}
+	   
 
-	private String resourceOwnerAccount;
+	private String clientToken;
 
 	private String scalingGroupId;
 
 	private Boolean forceAttach;
 
+	private String resourceOwnerAccount;
+
 	private List<String> dBInstances;
 
 	private Long ownerId;
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
+	public AttachDBInstancesRequest() {
+		super("Ess", "2014-08-28", "AttachDBInstances", "ess");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -67,6 +76,17 @@ public class AttachDBInstancesRequest extends RpcAcsRequest<AttachDBInstancesRes
 		this.forceAttach = forceAttach;
 		if(forceAttach != null){
 			putQueryParameter("ForceAttach", forceAttach.toString());
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
 		}
 	}
 

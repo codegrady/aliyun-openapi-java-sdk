@@ -19,29 +19,28 @@ import java.util.List;
 
 import com.aliyuncs.dcdn.model.v20180115.DescribeDcdnDomainCertificateInfoResponse;
 import com.aliyuncs.dcdn.model.v20180115.DescribeDcdnDomainCertificateInfoResponse.CertInfo;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class DescribeDcdnDomainCertificateInfoResponseUnmarshaller {
 
-	public static DescribeDcdnDomainCertificateInfoResponse unmarshall(DescribeDcdnDomainCertificateInfoResponse describeDcdnDomainCertificateInfoResponse, UnmarshallerContext context) {
+	public static DescribeDcdnDomainCertificateInfoResponse unmarshall(DescribeDcdnDomainCertificateInfoResponse describeDcdnDomainCertificateInfoResponse, UnmarshallerContext _ctx) {
 		
-		describeDcdnDomainCertificateInfoResponse.setRequestId(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.RequestId"));
+		describeDcdnDomainCertificateInfoResponse.setRequestId(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.RequestId"));
 
 		List<CertInfo> certInfos = new ArrayList<CertInfo>();
-		for (int i = 0; i < context.lengthValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos.Length"); i++) {
 			CertInfo certInfo = new CertInfo();
-			certInfo.setDomainName(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].DomainName"));
-			certInfo.setCertName(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertName"));
-			certInfo.setCertDomainName(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertDomainName"));
-			certInfo.setCertExpireTime(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertExpireTime"));
-			certInfo.setCertLife(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertLife"));
-			certInfo.setCertOrg(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertOrg"));
-			certInfo.setCertType(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertType"));
-			certInfo.setSSLProtocol(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].SSLProtocol"));
-			certInfo.setStatus(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].Status"));
-			certInfo.setSSLPub(context.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].SSLPub"));
+			certInfo.setDomainName(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].DomainName"));
+			certInfo.setCertName(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertName"));
+			certInfo.setCertDomainName(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertDomainName"));
+			certInfo.setCertExpireTime(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertExpireTime"));
+			certInfo.setCertLife(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertLife"));
+			certInfo.setCertOrg(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertOrg"));
+			certInfo.setCertType(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].CertType"));
+			certInfo.setSSLProtocol(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].SSLProtocol"));
+			certInfo.setStatus(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].Status"));
+			certInfo.setSSLPub(_ctx.stringValue("DescribeDcdnDomainCertificateInfoResponse.CertInfos["+ i +"].SSLPub"));
 
 			certInfos.add(certInfo);
 		}

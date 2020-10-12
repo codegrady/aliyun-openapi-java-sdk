@@ -15,34 +15,30 @@
 package com.aliyuncs.cdn.model.v20180510;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cdn.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class RefreshObjectCachesRequest extends RpcAcsRequest<RefreshObjectCachesResponse> {
-	
-	public RefreshObjectCachesRequest() {
-		super("Cdn", "2018-05-10", "RefreshObjectCaches");
-	}
-
-	private String securityToken;
+	   
 
 	private String objectPath;
 
-	private Long ownerId;
+	private String securityToken;
 
 	private String objectType;
 
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
+	private Long ownerId;
+	public RefreshObjectCachesRequest() {
+		super("Cdn", "2018-05-10", "RefreshObjectCaches");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getObjectPath() {
@@ -56,14 +52,14 @@ public class RefreshObjectCachesRequest extends RpcAcsRequest<RefreshObjectCache
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
+	public String getSecurityToken() {
+		return this.securityToken;
 	}
 
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 
@@ -75,6 +71,17 @@ public class RefreshObjectCachesRequest extends RpcAcsRequest<RefreshObjectCache
 		this.objectType = objectType;
 		if(objectType != null){
 			putQueryParameter("ObjectType", objectType);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 

@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.AttachPolicyToGroupResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class AttachPolicyToGroupResponseUnmarshaller {
 
-	public static AttachPolicyToGroupResponse unmarshall(AttachPolicyToGroupResponse attachPolicyToGroupResponse, UnmarshallerContext context) {
+	public static AttachPolicyToGroupResponse unmarshall(AttachPolicyToGroupResponse attachPolicyToGroupResponse, UnmarshallerContext _ctx) {
 		
-		attachPolicyToGroupResponse.setRequestId(context.stringValue("AttachPolicyToGroupResponse.RequestId"));
+		attachPolicyToGroupResponse.setRequestId(_ctx.stringValue("AttachPolicyToGroupResponse.RequestId"));
 	 
 	 	return attachPolicyToGroupResponse;
 	}

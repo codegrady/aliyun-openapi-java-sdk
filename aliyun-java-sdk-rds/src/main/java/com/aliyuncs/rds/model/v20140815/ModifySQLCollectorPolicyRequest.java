@@ -15,32 +15,37 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifySQLCollectorPolicyRequest extends RpcAcsRequest<ModifySQLCollectorPolicyResponse> {
-	
-	public ModifySQLCollectorPolicyRequest() {
-		super("Rds", "2014-08-15", "ModifySQLCollectorPolicy", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
 
-	private Integer storagePeriod;
-
-	private String resourceOwnerAccount;
-
-	private String clientToken;
+	private String resourceGroupId;
 
 	private String sQLCollectorStatus;
 
-	private String ownerAccount;
-
 	private String dBInstanceId;
 
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
 	private Long ownerId;
+	public ModifySQLCollectorPolicyRequest() {
+		super("Rds", "2014-08-15", "ModifySQLCollectorPolicy", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -53,36 +58,14 @@ public class ModifySQLCollectorPolicyRequest extends RpcAcsRequest<ModifySQLColl
 		}
 	}
 
-	public Integer getStoragePeriod() {
-		return this.storagePeriod;
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
 	}
 
-	public void setStoragePeriod(Integer storagePeriod) {
-		this.storagePeriod = storagePeriod;
-		if(storagePeriod != null){
-			putQueryParameter("StoragePeriod", storagePeriod.toString());
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -97,17 +80,6 @@ public class ModifySQLCollectorPolicyRequest extends RpcAcsRequest<ModifySQLColl
 		}
 	}
 
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
 	public String getDBInstanceId() {
 		return this.dBInstanceId;
 	}
@@ -116,6 +88,28 @@ public class ModifySQLCollectorPolicyRequest extends RpcAcsRequest<ModifySQLColl
 		this.dBInstanceId = dBInstanceId;
 		if(dBInstanceId != null){
 			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
 		}
 	}
 

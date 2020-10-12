@@ -19,20 +19,19 @@ import java.util.List;
 
 import com.aliyuncs.live.model.v20161101.AddCasterProgramResponse;
 import com.aliyuncs.live.model.v20161101.AddCasterProgramResponse.EpisodeId;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class AddCasterProgramResponseUnmarshaller {
 
-	public static AddCasterProgramResponse unmarshall(AddCasterProgramResponse addCasterProgramResponse, UnmarshallerContext context) {
+	public static AddCasterProgramResponse unmarshall(AddCasterProgramResponse addCasterProgramResponse, UnmarshallerContext _ctx) {
 		
-		addCasterProgramResponse.setRequestId(context.stringValue("AddCasterProgramResponse.RequestId"));
+		addCasterProgramResponse.setRequestId(_ctx.stringValue("AddCasterProgramResponse.RequestId"));
 
 		List<EpisodeId> episodeIds = new ArrayList<EpisodeId>();
-		for (int i = 0; i < context.lengthValue("AddCasterProgramResponse.EpisodeIds.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("AddCasterProgramResponse.EpisodeIds.Length"); i++) {
 			EpisodeId episodeId = new EpisodeId();
-			episodeId.setEpisodeId(context.stringValue("AddCasterProgramResponse.EpisodeIds["+ i +"].EpisodeId"));
+			episodeId.setEpisodeId(_ctx.stringValue("AddCasterProgramResponse.EpisodeIds["+ i +"].EpisodeId"));
 
 			episodeIds.add(episodeId);
 		}

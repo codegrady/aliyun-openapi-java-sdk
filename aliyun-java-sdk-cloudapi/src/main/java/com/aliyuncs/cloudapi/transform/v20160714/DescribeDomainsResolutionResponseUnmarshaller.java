@@ -11,28 +11,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.aliyuncs.cloudapi.model.v20160714.DescribeDomainsResolutionResponse;
 import com.aliyuncs.cloudapi.model.v20160714.DescribeDomainsResolutionResponse.DomainResolution;
 import com.aliyuncs.transform.UnmarshallerContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class DescribeDomainsResolutionResponseUnmarshaller {
 
-	public static DescribeDomainsResolutionResponse unmarshall(DescribeDomainsResolutionResponse describeDomainsResolutionResponse, UnmarshallerContext context) {
+	public static DescribeDomainsResolutionResponse unmarshall(DescribeDomainsResolutionResponse describeDomainsResolutionResponse, UnmarshallerContext _ctx) {
 		
-		describeDomainsResolutionResponse.setRequestId(context.stringValue("DescribeDomainsResolutionResponse.RequestId"));
-		describeDomainsResolutionResponse.setGroupId(context.stringValue("DescribeDomainsResolutionResponse.GroupId"));
+		describeDomainsResolutionResponse.setRequestId(_ctx.stringValue("DescribeDomainsResolutionResponse.RequestId"));
+		describeDomainsResolutionResponse.setGroupId(_ctx.stringValue("DescribeDomainsResolutionResponse.GroupId"));
 
 		List<DomainResolution> domainResolutions = new ArrayList<DomainResolution>();
-		for (int i = 0; i < context.lengthValue("DescribeDomainsResolutionResponse.DomainResolutions.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeDomainsResolutionResponse.DomainResolutions.Length"); i++) {
 			DomainResolution domainResolution = new DomainResolution();
-			domainResolution.setDomainName(context.stringValue("DescribeDomainsResolutionResponse.DomainResolutions["+ i +"].DomainName"));
-			domainResolution.setDomainResolutionStatus(context.stringValue("DescribeDomainsResolutionResponse.DomainResolutions["+ i +"].DomainResolutionStatus"));
+			domainResolution.setDomainName(_ctx.stringValue("DescribeDomainsResolutionResponse.DomainResolutions["+ i +"].DomainName"));
+			domainResolution.setDomainResolutionStatus(_ctx.stringValue("DescribeDomainsResolutionResponse.DomainResolutions["+ i +"].DomainResolutionStatus"));
 
 			domainResolutions.add(domainResolution);
 		}

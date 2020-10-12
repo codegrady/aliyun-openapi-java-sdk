@@ -16,17 +16,15 @@ package com.aliyuncs.kms.model.v20160120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.kms.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ImportKeyMaterialRequest extends RpcAcsRequest<ImportKeyMaterialResponse> {
-	
-	public ImportKeyMaterialRequest() {
-		super("Kms", "2016-01-20", "ImportKeyMaterial", "kms");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private String importToken;
 
@@ -35,8 +33,15 @@ public class ImportKeyMaterialRequest extends RpcAcsRequest<ImportKeyMaterialRes
 	private Long keyMaterialExpireUnix;
 
 	private String keyId;
-
-	private String sTSToken;
+	public ImportKeyMaterialRequest() {
+		super("Kms", "2016-01-20", "ImportKeyMaterial", "kms");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getImportToken() {
 		return this.importToken;
@@ -79,17 +84,6 @@ public class ImportKeyMaterialRequest extends RpcAcsRequest<ImportKeyMaterialRes
 		this.keyId = keyId;
 		if(keyId != null){
 			putQueryParameter("KeyId", keyId);
-		}
-	}
-
-	public String getSTSToken() {
-		return this.sTSToken;
-	}
-
-	public void setSTSToken(String sTSToken) {
-		this.sTSToken = sTSToken;
-		if(sTSToken != null){
-			putQueryParameter("STSToken", sTSToken);
 		}
 	}
 

@@ -19,27 +19,28 @@ import java.util.List;
 
 import com.aliyuncs.slb.model.v20140515.RemoveVServerGroupBackendServersResponse;
 import com.aliyuncs.slb.model.v20140515.RemoveVServerGroupBackendServersResponse.BackendServer;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class RemoveVServerGroupBackendServersResponseUnmarshaller {
 
-	public static RemoveVServerGroupBackendServersResponse unmarshall(RemoveVServerGroupBackendServersResponse removeVServerGroupBackendServersResponse, UnmarshallerContext context) {
+	public static RemoveVServerGroupBackendServersResponse unmarshall(RemoveVServerGroupBackendServersResponse removeVServerGroupBackendServersResponse, UnmarshallerContext _ctx) {
 		
-		removeVServerGroupBackendServersResponse.setRequestId(context.stringValue("RemoveVServerGroupBackendServersResponse.RequestId"));
-		removeVServerGroupBackendServersResponse.setVServerGroupId(context.stringValue("RemoveVServerGroupBackendServersResponse.VServerGroupId"));
+		removeVServerGroupBackendServersResponse.setRequestId(_ctx.stringValue("RemoveVServerGroupBackendServersResponse.RequestId"));
+		removeVServerGroupBackendServersResponse.setVServerGroupId(_ctx.stringValue("RemoveVServerGroupBackendServersResponse.VServerGroupId"));
 
 		List<BackendServer> backendServers = new ArrayList<BackendServer>();
-		for (int i = 0; i < context.lengthValue("RemoveVServerGroupBackendServersResponse.BackendServers.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("RemoveVServerGroupBackendServersResponse.BackendServers.Length"); i++) {
 			BackendServer backendServer = new BackendServer();
-			backendServer.setServerId(context.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].ServerId"));
-			backendServer.setPort(context.integerValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].Port"));
-			backendServer.setWeight(context.integerValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].Weight"));
-			backendServer.setType(context.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].Type"));
-			backendServer.setServerIp(context.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].ServerIp"));
-			backendServer.setEniHost(context.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].EniHost"));
-			backendServer.setVpcId(context.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].VpcId"));
+			backendServer.setServerId(_ctx.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].ServerId"));
+			backendServer.setPort(_ctx.integerValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].Port"));
+			backendServer.setWeight(_ctx.integerValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].Weight"));
+			backendServer.setType(_ctx.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].Type"));
+			backendServer.setServerIp(_ctx.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].ServerIp"));
+			backendServer.setVpcId(_ctx.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].VpcId"));
+			backendServer.setVbrId(_ctx.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].VbrId"));
+			backendServer.setServerRegionId(_ctx.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].ServerRegionId"));
+			backendServer.setDescription(_ctx.stringValue("RemoveVServerGroupBackendServersResponse.BackendServers["+ i +"].Description"));
 
 			backendServers.add(backendServer);
 		}

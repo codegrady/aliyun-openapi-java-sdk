@@ -15,16 +15,15 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class ModifyDBInstanceConnectionModeRequest extends RpcAcsRequest<ModifyDBInstanceConnectionModeResponse> {
-	
-	public ModifyDBInstanceConnectionModeRequest() {
-		super("Rds", "2014-08-15", "ModifyDBInstanceConnectionMode", "rds");
-	}
+	   
 
 	private String connectionMode;
 
@@ -34,9 +33,17 @@ public class ModifyDBInstanceConnectionModeRequest extends RpcAcsRequest<ModifyD
 
 	private String ownerAccount;
 
-	private String dBInstanceId;
-
 	private Long ownerId;
+
+	private String dBInstanceId;
+	public ModifyDBInstanceConnectionModeRequest() {
+		super("Rds", "2014-08-15", "ModifyDBInstanceConnectionMode", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getConnectionMode() {
 		return this.connectionMode;
@@ -82,17 +89,6 @@ public class ModifyDBInstanceConnectionModeRequest extends RpcAcsRequest<ModifyD
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
-	}
-
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -101,6 +97,17 @@ public class ModifyDBInstanceConnectionModeRequest extends RpcAcsRequest<ModifyD
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 

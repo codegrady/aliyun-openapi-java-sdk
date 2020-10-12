@@ -19,23 +19,22 @@ import java.util.List;
 
 import com.aliyuncs.mts.model.v20140618.ListAllCategoryResponse;
 import com.aliyuncs.mts.model.v20140618.ListAllCategoryResponse.Category;
-import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
 public class ListAllCategoryResponseUnmarshaller {
 
-	public static ListAllCategoryResponse unmarshall(ListAllCategoryResponse listAllCategoryResponse, UnmarshallerContext context) {
+	public static ListAllCategoryResponse unmarshall(ListAllCategoryResponse listAllCategoryResponse, UnmarshallerContext _ctx) {
 		
-		listAllCategoryResponse.setRequestId(context.stringValue("ListAllCategoryResponse.RequestId"));
+		listAllCategoryResponse.setRequestId(_ctx.stringValue("ListAllCategoryResponse.RequestId"));
 
 		List<Category> categoryList = new ArrayList<Category>();
-		for (int i = 0; i < context.lengthValue("ListAllCategoryResponse.CategoryList.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListAllCategoryResponse.CategoryList.Length"); i++) {
 			Category category = new Category();
-			category.setCateId(context.stringValue("ListAllCategoryResponse.CategoryList["+ i +"].CateId"));
-			category.setCateName(context.stringValue("ListAllCategoryResponse.CategoryList["+ i +"].CateName"));
-			category.setParentId(context.stringValue("ListAllCategoryResponse.CategoryList["+ i +"].ParentId"));
-			category.setLevel(context.stringValue("ListAllCategoryResponse.CategoryList["+ i +"].Level"));
+			category.setCateId(_ctx.stringValue("ListAllCategoryResponse.CategoryList["+ i +"].CateId"));
+			category.setCateName(_ctx.stringValue("ListAllCategoryResponse.CategoryList["+ i +"].CateName"));
+			category.setParentId(_ctx.stringValue("ListAllCategoryResponse.CategoryList["+ i +"].ParentId"));
+			category.setLevel(_ctx.stringValue("ListAllCategoryResponse.CategoryList["+ i +"].Level"));
 
 			categoryList.add(category);
 		}

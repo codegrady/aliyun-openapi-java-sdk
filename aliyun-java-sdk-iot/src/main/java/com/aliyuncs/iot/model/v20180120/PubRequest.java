@@ -15,33 +15,42 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.iot.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class PubRequest extends RpcAcsRequest<PubResponse> {
-	
-	public PubRequest() {
-		super("Iot", "2018-01-20", "Pub");
-	}
-
-	private String topicFullName;
-
-	private Integer qos;
+	   
 
 	private String messageContent;
 
-	private String productKey;
+	private Integer qos;
 
-	public String getTopicFullName() {
-		return this.topicFullName;
+	private String iotInstanceId;
+
+	private String topicFullName;
+
+	private String productKey;
+	public PubRequest() {
+		super("Iot", "2018-01-20", "Pub", "iot");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setTopicFullName(String topicFullName) {
-		this.topicFullName = topicFullName;
-		if(topicFullName != null){
-			putQueryParameter("TopicFullName", topicFullName);
+	public String getMessageContent() {
+		return this.messageContent;
+	}
+
+	public void setMessageContent(String messageContent) {
+		this.messageContent = messageContent;
+		if(messageContent != null){
+			putQueryParameter("MessageContent", messageContent);
 		}
 	}
 
@@ -56,14 +65,25 @@ public class PubRequest extends RpcAcsRequest<PubResponse> {
 		}
 	}
 
-	public String getMessageContent() {
-		return this.messageContent;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setMessageContent(String messageContent) {
-		this.messageContent = messageContent;
-		if(messageContent != null){
-			putQueryParameter("MessageContent", messageContent);
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getTopicFullName() {
+		return this.topicFullName;
+	}
+
+	public void setTopicFullName(String topicFullName) {
+		this.topicFullName = topicFullName;
+		if(topicFullName != null){
+			putQueryParameter("TopicFullName", topicFullName);
 		}
 	}
 

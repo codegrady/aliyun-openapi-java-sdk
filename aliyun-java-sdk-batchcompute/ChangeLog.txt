@@ -1,3 +1,39 @@
+2019-01-23 Version: 6.0.6
+1, support docker safe mode
+2, support /available api interface
+
+2019-01-15 Version: 6.0.5
+1, update jacson core
+
+2019-01-15 Version: 6.0.5
+1, update jackson core
+
+2018-12-19 Version: 6.0.4
+1, add app support data disk
+
+2018-11-19 Version: 6.0.3
+1, fix docker image bug
+
+2018-11-15 Version: 6.0.2
+1, Support docker container registry
+
+2018-11-08 Version: 6.0.1
+1, Support STS Token
+
+2018-11-02 Version: 6.0.0
+1, Upgrade jackson lib version 2.x
+2, Upgrade core lib to version 4.1.2
+
+2018-10-19 Version: 5.3.5
+1, Fix NullpointException in calling updateCluster
+
+2018-10-17 Version: 5.3.4
+1, Fixed UpdateCluster(String clusterId, ClusterDescription desc)
+
+2018-10-16 Version: 5.3.3
+1, ClusterInstance add: EcsInstanceId, HostName, ErrorCode, ErrorMessage
+2, Group add: HostnamePrefix, ImageId
+
 2018-03-27 Version: 5.3.2
 1, Add SecurityGroups fields to Cluster Class
 

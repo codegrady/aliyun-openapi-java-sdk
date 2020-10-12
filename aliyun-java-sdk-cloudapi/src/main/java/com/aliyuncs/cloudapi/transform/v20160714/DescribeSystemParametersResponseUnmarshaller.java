@@ -11,29 +11,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.cloudapi.transform.v20160714;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.aliyuncs.cloudapi.model.v20160714.DescribeSystemParametersResponse;
 import com.aliyuncs.cloudapi.model.v20160714.DescribeSystemParametersResponse.SystemParamItem;
 import com.aliyuncs.transform.UnmarshallerContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class DescribeSystemParametersResponseUnmarshaller {
 
-	public static DescribeSystemParametersResponse unmarshall(DescribeSystemParametersResponse describeSystemParametersResponse, UnmarshallerContext context) {
+	public static DescribeSystemParametersResponse unmarshall(DescribeSystemParametersResponse describeSystemParametersResponse, UnmarshallerContext _ctx) {
 		
-		describeSystemParametersResponse.setRequestId(context.stringValue("DescribeSystemParametersResponse.RequestId"));
+		describeSystemParametersResponse.setRequestId(_ctx.stringValue("DescribeSystemParametersResponse.RequestId"));
 
 		List<SystemParamItem> systemParams = new ArrayList<SystemParamItem>();
-		for (int i = 0; i < context.lengthValue("DescribeSystemParametersResponse.SystemParams.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("DescribeSystemParametersResponse.SystemParams.Length"); i++) {
 			SystemParamItem systemParamItem = new SystemParamItem();
-			systemParamItem.setParamName(context.stringValue("DescribeSystemParametersResponse.SystemParams["+ i +"].ParamName"));
-			systemParamItem.setParamType(context.stringValue("DescribeSystemParametersResponse.SystemParams["+ i +"].ParamType"));
-			systemParamItem.setDemoValue(context.stringValue("DescribeSystemParametersResponse.SystemParams["+ i +"].DemoValue"));
-			systemParamItem.setDescription(context.stringValue("DescribeSystemParametersResponse.SystemParams["+ i +"].Description"));
+			systemParamItem.setParamName(_ctx.stringValue("DescribeSystemParametersResponse.SystemParams["+ i +"].ParamName"));
+			systemParamItem.setParamType(_ctx.stringValue("DescribeSystemParametersResponse.SystemParams["+ i +"].ParamType"));
+			systemParamItem.setDemoValue(_ctx.stringValue("DescribeSystemParametersResponse.SystemParams["+ i +"].DemoValue"));
+			systemParamItem.setDescription(_ctx.stringValue("DescribeSystemParametersResponse.SystemParams["+ i +"].Description"));
 
 			systemParams.add(systemParamItem);
 		}

@@ -15,22 +15,53 @@
 package com.aliyuncs.live.model.v20161101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.live.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeLiveLazyPullStreamConfigRequest extends RpcAcsRequest<DescribeLiveLazyPullStreamConfigResponse> {
-	
-	public DescribeLiveLazyPullStreamConfigRequest() {
-		super("live", "2016-11-01", "DescribeLiveLazyPullStreamConfig", "live");
-	}
+	   
+
+	private String appName;
+
+	private String liveapiRequestFrom;
 
 	private String domainName;
 
 	private Long ownerId;
+	public DescribeLiveLazyPullStreamConfigRequest() {
+		super("live", "2016-11-01", "DescribeLiveLazyPullStreamConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String appName;
+	public String getAppName() {
+		return this.appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
+		if(appName != null){
+			putQueryParameter("AppName", appName);
+		}
+	}
+
+	public String getLiveapiRequestFrom() {
+		return this.liveapiRequestFrom;
+	}
+
+	public void setLiveapiRequestFrom(String liveapiRequestFrom) {
+		this.liveapiRequestFrom = liveapiRequestFrom;
+		if(liveapiRequestFrom != null){
+			putQueryParameter("LiveapiRequestFrom", liveapiRequestFrom);
+		}
+	}
 
 	public String getDomainName() {
 		return this.domainName;
@@ -51,17 +82,6 @@ public class DescribeLiveLazyPullStreamConfigRequest extends RpcAcsRequest<Descr
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getAppName() {
-		return this.appName;
-	}
-
-	public void setAppName(String appName) {
-		this.appName = appName;
-		if(appName != null){
-			putQueryParameter("AppName", appName);
 		}
 	}
 

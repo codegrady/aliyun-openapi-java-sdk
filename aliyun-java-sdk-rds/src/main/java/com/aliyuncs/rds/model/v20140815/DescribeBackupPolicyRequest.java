@@ -15,28 +15,39 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rds.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeBackupPolicyRequest extends RpcAcsRequest<DescribeBackupPolicyResponse> {
-	
-	public DescribeBackupPolicyRequest() {
-		super("Rds", "2014-08-15", "DescribeBackupPolicy", "rds");
-	}
+	   
 
 	private Long resourceOwnerId;
+
+	private String dBInstanceId;
+
+	private String backupPolicyMode;
+
+	private String releasedKeepPolicy;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String dBInstanceId;
+	private String compressType;
 
 	private Long ownerId;
-
-	private String backupPolicyMode;
+	public DescribeBackupPolicyRequest() {
+		super("Rds", "2014-08-15", "DescribeBackupPolicy", "rds");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -46,6 +57,39 @@ public class DescribeBackupPolicyRequest extends RpcAcsRequest<DescribeBackupPol
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getBackupPolicyMode() {
+		return this.backupPolicyMode;
+	}
+
+	public void setBackupPolicyMode(String backupPolicyMode) {
+		this.backupPolicyMode = backupPolicyMode;
+		if(backupPolicyMode != null){
+			putQueryParameter("BackupPolicyMode", backupPolicyMode);
+		}
+	}
+
+	public String getReleasedKeepPolicy() {
+		return this.releasedKeepPolicy;
+	}
+
+	public void setReleasedKeepPolicy(String releasedKeepPolicy) {
+		this.releasedKeepPolicy = releasedKeepPolicy;
+		if(releasedKeepPolicy != null){
+			putQueryParameter("ReleasedKeepPolicy", releasedKeepPolicy);
 		}
 	}
 
@@ -71,14 +115,14 @@ public class DescribeBackupPolicyRequest extends RpcAcsRequest<DescribeBackupPol
 		}
 	}
 
-	public String getDBInstanceId() {
-		return this.dBInstanceId;
+	public String getCompressType() {
+		return this.compressType;
 	}
 
-	public void setDBInstanceId(String dBInstanceId) {
-		this.dBInstanceId = dBInstanceId;
-		if(dBInstanceId != null){
-			putQueryParameter("DBInstanceId", dBInstanceId);
+	public void setCompressType(String compressType) {
+		this.compressType = compressType;
+		if(compressType != null){
+			putQueryParameter("CompressType", compressType);
 		}
 	}
 
@@ -90,17 +134,6 @@ public class DescribeBackupPolicyRequest extends RpcAcsRequest<DescribeBackupPol
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getBackupPolicyMode() {
-		return this.backupPolicyMode;
-	}
-
-	public void setBackupPolicyMode(String backupPolicyMode) {
-		this.backupPolicyMode = backupPolicyMode;
-		if(backupPolicyMode != null){
-			putQueryParameter("BackupPolicyMode", backupPolicyMode);
 		}
 	}
 

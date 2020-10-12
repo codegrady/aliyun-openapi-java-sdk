@@ -262,6 +262,8 @@ public class SubmitJobsResponse extends AcsResponse {
 
 				private List<OutSubtitle> outSubtitleList;
 
+				private List<Amix> amixList;
+
 				private DigiWaterMark digiWaterMark;
 
 				private OutputFile outputFile;
@@ -398,6 +400,14 @@ public class SubmitJobsResponse extends AcsResponse {
 
 				public void setOutSubtitleList(List<OutSubtitle> outSubtitleList) {
 					this.outSubtitleList = outSubtitleList;
+				}
+
+				public List<Amix> getAmixList() {
+					return this.amixList;
+				}
+
+				public void setAmixList(List<Amix> amixList) {
+					this.amixList = amixList;
 				}
 
 				public DigiWaterMark getDigiWaterMark() {
@@ -862,6 +872,59 @@ public class SubmitJobsResponse extends AcsResponse {
 						public void setRoleArn(String roleArn) {
 							this.roleArn = roleArn;
 						}
+					}
+				}
+
+				public static class Amix {
+
+					private String amixURL;
+
+					private String map;
+
+					private String mixDurMode;
+
+					private String start;
+
+					private String duration;
+
+					public String getAmixURL() {
+						return this.amixURL;
+					}
+
+					public void setAmixURL(String amixURL) {
+						this.amixURL = amixURL;
+					}
+
+					public String getMap() {
+						return this.map;
+					}
+
+					public void setMap(String map) {
+						this.map = map;
+					}
+
+					public String getMixDurMode() {
+						return this.mixDurMode;
+					}
+
+					public void setMixDurMode(String mixDurMode) {
+						this.mixDurMode = mixDurMode;
+					}
+
+					public String getStart() {
+						return this.start;
+					}
+
+					public void setStart(String start) {
+						this.start = start;
+					}
+
+					public String getDuration() {
+						return this.duration;
+					}
+
+					public void setDuration(String duration) {
+						this.duration = duration;
 					}
 				}
 
@@ -2093,11 +2156,11 @@ public class SubmitJobsResponse extends AcsResponse {
 							this.level = level;
 						}
 
-						public String getMethod() {
+						public String getBizMethod() {
 							return this.method;
 						}
 
-						public void setMethod(String method) {
+						public void setBizMethod(String method) {
 							this.method = method;
 						}
 					}

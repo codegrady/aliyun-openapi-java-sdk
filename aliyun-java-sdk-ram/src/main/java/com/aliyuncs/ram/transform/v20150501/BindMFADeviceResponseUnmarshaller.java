@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.aliyuncs.ram.transform.v20150501;
 
 import com.aliyuncs.ram.model.v20150501.BindMFADeviceResponse;
@@ -19,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class BindMFADeviceResponseUnmarshaller {
 
-	public static BindMFADeviceResponse unmarshall(BindMFADeviceResponse bindMFADeviceResponse, UnmarshallerContext context) {
+	public static BindMFADeviceResponse unmarshall(BindMFADeviceResponse bindMFADeviceResponse, UnmarshallerContext _ctx) {
 		
-		bindMFADeviceResponse.setRequestId(context.stringValue("BindMFADeviceResponse.RequestId"));
+		bindMFADeviceResponse.setRequestId(_ctx.stringValue("BindMFADeviceResponse.RequestId"));
 	 
 	 	return bindMFADeviceResponse;
 	}
